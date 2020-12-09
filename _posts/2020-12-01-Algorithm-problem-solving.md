@@ -34,7 +34,7 @@ Memory Usage: `14.5 MB`, less than `89.48%` of Python3 online submisstions for R
 
 
 
-## 7번 문제 Reverse Integer (Easy)
+## 7번 문제 Reverse Integer (Easy) 
 [https://leetcode.com/problems/reverse-integer/](https://leetcode.com/problems/reverse-integer/)
 
 Given a 32-bit signed integer, reverse digits of an integer.
@@ -43,7 +43,7 @@ Given a 32-bit signed integer, reverse digits of an integer.
 Assume we are dealing with an environment that could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. 
 For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
 
-풀이
+# 풀이
 
 ```python
 class Solution:
@@ -75,13 +75,13 @@ Memory Usage: `14.2 MB`, less than `41.05%` of Python3 online submisstions for R
 
 
 
-## 14번 문제 Longest Common Prefix (Easy)
+## 14번 문제 Longest Common Prefix (Easy) 
 [https://leetcode.com/problems/longest-common-prefix/](https://leetcode.com/problems/longest-common-prefix/)
 
 Write a function to find the longest common prefix string amongst an array of strings.
 If there is no common prefix, return an empty string `""`.
 
-풀이
+# 풀이
 
 ```python
 class Solution:
@@ -104,7 +104,7 @@ Memory Usage: `14.3 MB`, less than `47.57%` of Python3 online submisstions for R
 
 
 
-## 35번 문제 Search Insert Position (Easy)
+## 35번 문제 Search Insert Position (Easy) 
 [https://leetcode.com/problems/search-insert-position/](https://leetcode.com/problems/search-insert-position/)
 
 Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
@@ -133,7 +133,7 @@ Memory Usage: `15.1 MB`, less than `9.31%` of Python3 online submisstions for Re
 
 
 
-## 20번 문제 Valid Parentheses  (Easy)
+## 20번 문제 Valid Parentheses  (Easy) 
 [https://leetcode.com/problems/valid-parentheses/](https://leetcode.com/problems/valid-parentheses/)
 
 문자열 `s` 입력받아 `(`, `)`, `{`, `}`, `[`, `]` 입력 문자열이 유효한 경우  
@@ -178,7 +178,7 @@ Memory Usage: `14.3 MB`, less than `24.08%` of Python3 online submisstions for R
 
 
 
-## 66번 문제 Plus One (Easy)
+## 66번 문제 Plus One (Easy) 
 [https://leetcode.com/problems/plus-one/](https://leetcode.com/problems/plus-one/)
 
 음이 아닌 정수 0~9까지의 십진수 배열을 입력받아 `정수 1 증가`
@@ -213,7 +213,7 @@ Memory Usage: `14.2 MB`, less than `38.47%` of Python3 online submisstions for R
 
 
 
-## 136번 문제 Single Number (Easy)
+## 136번 문제 Single Number (Easy) 
 (https://leetcode.com/problems/single-number/)[https://leetcode.com/problems/single-number/]
 
 비어있지 않은 정수 배열 `nums` 중 하나를 제외하고 두번 포함일때 나머지 하나 찾기
@@ -245,7 +245,7 @@ Memory Usage: `16.6 MB`, less than `60.41%` of Python3 online submisstions for R
 
 
 
-## 38번 문제 Count and Say (Easy)
+## 38번 문제 Count and Say (Easy) 
 (https://leetcode.com/problems/count-and-say/)[https://leetcode.com/problems/count-and-say/]
 
 - 1 <= n <= 30
@@ -284,7 +284,7 @@ Memory Usage: `14.3 MB`, less than `48.22%` of Python3 online submisstions for R
 <br><br>
 
 
-## 53번 문제 Maximum Subarray (Easy)
+## 53번 문제 Maximum Subarray (Easy) 
 (https://leetcode.com/problems/maximum-subarray/)[https://leetcode.com/problems/maximum-subarray/]
 
 **풀이 방법**  
@@ -323,7 +323,7 @@ Memory Usage: `15.2 MB`, less than `5.01%` of Python3 online submisstions for Re
 
 
 
-## 58번 문제 Length of Last Word (Easy)
+## 58번 문제 Length of Last Word (Easy) 
 (https://leetcode.com/problems/length-of-last-word/)[https://leetcode.com/problems/length-of-last-word/]
 
 
@@ -343,7 +343,7 @@ Memory Usage: `14.2 MB`, less than `38.86%` of Python3 online submissions for Le
 
 
 
-## 169번 문제 Majority Element (Easy)
+## 169번 문제 Majority Element (Easy) 
 (https://leetcode.com/problems/majority-element/)[https://leetcode.com/problems/majority-element/]
 
 
@@ -381,7 +381,7 @@ Memory Usage: `15.4 MB`, less than `35.47%` of Python3 online submissions for Ma
 
 
 
-## 204번 문제 Count Primes (Easy)
+## 204번 문제 Count Primes (Easy) 
 (https://leetcode.com/problems/count-primes/)[https://leetcode.com/problems/count-primes/]
 
 
