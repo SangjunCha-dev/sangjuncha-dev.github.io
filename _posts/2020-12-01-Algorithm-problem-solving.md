@@ -7,9 +7,7 @@ tags: [algorithm, leetcode]
 pin: false
 ---
 
-# 1. Two Sum
-
-[https://leetcode.com/problems/two-sum/](https://leetcode.com/problems/two-sum/)
+# [1. Two Sum](https://leetcode.com/problems/two-sum/)
 
 target 값을 nums 리스트
 
@@ -36,9 +34,7 @@ class Solution:
 
 
 
-# 7. Reverse Integer 
-
-[https://leetcode.com/problems/reverse-integer/](https://leetcode.com/problems/reverse-integer/)
+# [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/)
 
 Given a 32-bit signed integer, reverse digits of an integer.
 
@@ -79,9 +75,7 @@ class Solution:
 
 
 
-# 14. Longest Common Prefix
-
-[https://leetcode.com/problems/longest-common-prefix/](https://leetcode.com/problems/longest-common-prefix/)
+# [14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)
 
 Write a function to find the longest common prefix string amongst an array of strings.
 If there is no common prefix, return an empty string `""`.
@@ -109,9 +103,7 @@ class Solution:
 
 
 
-# 20. Valid Parentheses 
-
-[https://leetcode.com/problems/valid-parentheses/](https://leetcode.com/problems/valid-parentheses/)
+# [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
 
 문자열 `s` 입력받아 `(`, `)`, `{`, `}`, `[`, `]` 입력 문자열이 유효한 경우
 
@@ -159,9 +151,7 @@ class Solution:
 
 
 
-# 35. Search Insert Position
-
-[https://leetcode.com/problems/search-insert-position/](https://leetcode.com/problems/search-insert-position/)
+# [35. Search Insert Position](https://leetcode.com/problems/search-insert-position/)
 
 Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
 
@@ -192,12 +182,10 @@ class Solution:
 
 
 
-# 38. Count and Say
-(https://leetcode.com/problems/count-and-say/)[https://leetcode.com/problems/count-and-say/]
+# [38. Count and Say](https://leetcode.com/problems/count-and-say/)
 
 - 1 <= n <= 30
 <br>
-
 
 
 1. 비교 문자열 `1` 선언
@@ -233,11 +221,7 @@ class Solution:
 
 
 
-# 53. Maximum Subarray
-
-(https://leetcode.com/problems/maximum-subarray/)[https://leetcode.com/problems/maximum-subarray/]
-
-
+# [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
 
 1. 동적 계획법(Dynamic Programming, DP) 사용할 것
 2. 아래는 잘못푼 문제
@@ -274,11 +258,7 @@ class Solution:
 
 
 
-# 58. Length of Last Word
-
-(https://leetcode.com/problems/length-of-last-word/)[https://leetcode.com/problems/length-of-last-word/]
-
-
+# [58. Length of Last Word](https://leetcode.com/problems/length-of-last-word/)
 
 
 1. 
@@ -296,15 +276,12 @@ class Solution:
 
 
 
-# 66. Plus One
-
-[https://leetcode.com/problems/plus-one/](https://leetcode.com/problems/plus-one/)
+# [66. Plus One](https://leetcode.com/problems/plus-one/)
 
 음이 아닌 정수 0~9까지의 십진수 배열을 입력받아 `정수 1 증가`
 
 - 각 요소는 `단일 숫자`로 반환
 <br>
-
 
 
 1. list의 마지막값 1증가
@@ -334,14 +311,11 @@ class Solution:
 
 
 
-# 136. Single Number 
-
-(https://leetcode.com/problems/single-number/)[https://leetcode.com/problems/single-number/]
+# [136. Single Number](https://leetcode.com/problems/single-number/)
 
 비어있지 않은 정수 배열 `nums` 중 하나를 제외하고 두번 포함일때 나머지 하나 찾기
 - nums 리스트를 추가할당하지 않은상태에서 시간복잡성 O(n)으로 해결
 <br>
-
 
 
 1. nums 리스트 정렬
@@ -368,12 +342,7 @@ class Solution:
 
 
 
-# 167. Two Sum II - Input array is sorted
-
-(https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)[https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/]
-
-
-  
+# [167. Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
 
 1. 리스트 첫번째 인덱스 = `low`, 마지막 인덱스 = `high` 선언
 2. `while`문 `low`값이 `high`값보다 작을때 반복실행
@@ -404,11 +373,7 @@ class Solution:
 
 
 
-# 169. Majority Element 
-(https://leetcode.com/problems/majority-element/)[https://leetcode.com/problems/majority-element/]
-
-
-
+# [169. Majority Element](https://leetcode.com/problems/majority-element/)
 
 1. 
 
@@ -444,11 +409,7 @@ class Solution:
 
 
 
-# 204. Count Primes
-
-(https://leetcode.com/problems/count-primes/)[https://leetcode.com/problems/count-primes/]
-
-
+# [204. Count Primes](https://leetcode.com/problems/count-primes/)
 
 1. 아리스토텔레스의 체를 이용하여 소수가 아닌값을 거르는 알고리즘
 
