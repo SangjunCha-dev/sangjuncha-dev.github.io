@@ -7,7 +7,8 @@ tags: [algorithm, leetcode]
 pin: false
 ---
 
-## 1번 문제 Two Sum (Easy) 
+## 1번 문제 Two Sum (Easy)
+
 [https://leetcode.com/problems/two-sum/](https://leetcode.com/problems/two-sum/)
 
 target 값을 nums 리스트
@@ -27,7 +28,9 @@ class Solution:
                     if target == num+num2:
                         return [i, j+i+1]
 ```
-**2020-11-27**  
+
+**2020-11-27**
+
 Runtime: `40 ms`, faster than `97.02%` of Python3 online submissions for Reverse Integer.  
 Memory Usage: `14.5 MB`, less than `89.48%` of Python3 online submisstions for Reverse Integer.
 <br><br>
@@ -35,11 +38,13 @@ Memory Usage: `14.5 MB`, less than `89.48%` of Python3 online submisstions for R
 
 
 ## 7번 문제 Reverse Integer (Easy) 
+
 [https://leetcode.com/problems/reverse-integer/](https://leetcode.com/problems/reverse-integer/)
 
 Given a 32-bit signed integer, reverse digits of an integer.
 
-**Note:**  
+**Note:**
+
 Assume we are dealing with an environment that could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. 
 For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
 
@@ -69,13 +74,15 @@ class Solution:
 ```
 
 **2020-11-27**  
+
 Runtime: `28 ms`, faster than `83.14%` of Python3 online submissions for Reverse Integer.  
 Memory Usage: `14.2 MB`, less than `41.05%` of Python3 online submisstions for Reverse Integer.
 <br><br>
 
 
 
-## 14번 문제 Longest Common Prefix (Easy) 
+## 14번 문제 Longest Common Prefix (Easy)
+
 [https://leetcode.com/problems/longest-common-prefix/](https://leetcode.com/problems/longest-common-prefix/)
 
 Write a function to find the longest common prefix string amongst an array of strings.
@@ -97,14 +104,17 @@ class Solution:
             compareText += strs[0][i]
         return compareText
 ```
+
 **2020-12-01**  
+
 Runtime: `28 ms`, faster than `90.77%` of Python3 online submissions for Reverse Integer.  
 Memory Usage: `14.3 MB`, less than `47.57%` of Python3 online submisstions for Reverse Integer.
 <br><br>
 
 
 
-## 35번 문제 Search Insert Position (Easy) 
+## 35번 문제 Search Insert Position (Easy)
+
 [https://leetcode.com/problems/search-insert-position/](https://leetcode.com/problems/search-insert-position/)
 
 Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
@@ -126,23 +136,29 @@ class Solution:
                 high = index
         return low
 ```
+
 **2020-12-02**  
+
 Runtime: `40 ms`, faster than `96.18%` of Python3 online submissions for Reverse Integer.  
 Memory Usage: `15.1 MB`, less than `9.31%` of Python3 online submisstions for Reverse Integer.
 <br><br>
 
 
 
-## 20번 문제 Valid Parentheses  (Easy) 
+## 20번 문제 Valid Parentheses  (Easy)
+
 [https://leetcode.com/problems/valid-parentheses/](https://leetcode.com/problems/valid-parentheses/)
 
-문자열 `s` 입력받아 `(`, `)`, `{`, `}`, `[`, `]` 입력 문자열이 유효한 경우  
+문자열 `s` 입력받아 `(`, `)`, `{`, `}`, `[`, `]` 입력 문자열이 유효한 경우
+
 - 열린 괄호는 동일한 유형의 괄호로 닫음
 - 반환값은 `True`, `False` 두가지로 반환
 <br>
 
-**풀이 방법**  
+**풀이 방법**
+
 열린 괄호는 list자료형에 스택을 쌓고 닫는 괄호는 스택의 마지막값과 비교해서 올바르면 스택에서 값 제거
+
 최종적으로 list 길이가 0일때 `True` 반환 
 
 ```python
@@ -171,7 +187,9 @@ class Solution:
         else:
             return True
 ```
+
 **2020-12-03**  
+
 Runtime: `16 ms`, faster than `99.83%` of Python3 online submissions for Reverse Integer.  
 Memory Usage: `14.3 MB`, less than `24.08%` of Python3 online submisstions for Reverse Integer.
 <br><br>
@@ -179,9 +197,11 @@ Memory Usage: `14.3 MB`, less than `24.08%` of Python3 online submisstions for R
 
 
 ## 66번 문제 Plus One (Easy) 
+
 [https://leetcode.com/problems/plus-one/](https://leetcode.com/problems/plus-one/)
 
 음이 아닌 정수 0~9까지의 십진수 배열을 입력받아 `정수 1 증가`
+
 - 각 요소는 `단일 숫자`로 반환
 <br>
 
@@ -214,13 +234,15 @@ Memory Usage: `14.2 MB`, less than `38.47%` of Python3 online submisstions for R
 
 
 ## 136번 문제 Single Number (Easy) 
+
 (https://leetcode.com/problems/single-number/)[https://leetcode.com/problems/single-number/]
 
 비어있지 않은 정수 배열 `nums` 중 하나를 제외하고 두번 포함일때 나머지 하나 찾기
 - nums 리스트를 추가할당하지 않은상태에서 시간복잡성 O(n)으로 해결
 <br>
 
-**풀이 방법**  
+**풀이 방법**
+
 1. nums 리스트 정렬
 2. index(0,2,4,...) 2씩 증가하는 for 반복문실행
 3. list `index의 값과 index+1의 값을 비교`하여 다를경우 list index의 값 리턴
@@ -238,20 +260,22 @@ class Solution:
                 return nums[i]
 ```
 
-**2020-12-04**  
+**2020-12-04**
+
 Runtime: `124 ms`, faster than `85.60%` of Python3 online submissions for Reverse Integer.  
 Memory Usage: `16.6 MB`, less than `60.41%` of Python3 online submisstions for Reverse Integer.
 <br><br>
 
 
 
-## 38번 문제 Count and Say (Easy) 
+## 38번 문제 Count and Say (Easy)
 (https://leetcode.com/problems/count-and-say/)[https://leetcode.com/problems/count-and-say/]
 
 - 1 <= n <= 30
 <br>
 
-**풀이 방법**  
+**풀이 방법**
+
 1. 비교 문자열 `1` 선언
 2. 아래의 알고리즘을 입력 받은 `n`번 반복 실행
 3. 문자 하나씩 비교하여 같으면 count 1증가
@@ -278,16 +302,19 @@ class Solution:
 ```
 
 
-**2020-12-07**  
+**2020-12-07**
+
 Runtime: `40 ms`, faster than `70.73%` of Python3 online submissions for Reverse Integer.  
 Memory Usage: `14.3 MB`, less than `48.22%` of Python3 online submisstions for Reverse Integer.
 <br><br>
 
 
-## 53번 문제 Maximum Subarray (Easy) 
+## 53번 문제 Maximum Subarray (Easy)
+
 (https://leetcode.com/problems/maximum-subarray/)[https://leetcode.com/problems/maximum-subarray/]
 
-**풀이 방법**  
+**풀이 방법**
+
 1. 동적 계획법(Dynamic Programming, DP) 사용할 것
 2. 아래는 잘못푼 문제
 
@@ -316,18 +343,21 @@ class Solution:
         return numMax
 ```
 
-**2020-12-08**  
+**2020-12-08**
+
 Runtime: `1580 ms,`, faster than `5.26%` of Python3 online submissions for Reverse Integer.  
 Memory Usage: `15.2 MB`, less than `5.01%` of Python3 online submisstions for Reverse Integer.
 <br><br>
 
 
 
-## 58번 문제 Length of Last Word (Easy) 
+## 58번 문제 Length of Last Word (Easy)
+
 (https://leetcode.com/problems/length-of-last-word/)[https://leetcode.com/problems/length-of-last-word/]
 
 
-# 풀이 방법  
+# 풀이 방법
+
 1. 
 
 ```python
@@ -336,7 +366,8 @@ class Solution:
         return len(s.strip().split(' ')[-1])
 ```
 
-**2020-12-09**  
+**2020-12-09**
+
 Runtime: `16 ms`, faster than `99.80%` of Python3 online submissions for Length of Last Word.
 Memory Usage: `14.2 MB`, less than `38.86%` of Python3 online submissions for Length of Last Word.
 <br><br>
@@ -347,7 +378,8 @@ Memory Usage: `14.2 MB`, less than `38.86%` of Python3 online submissions for Le
 (https://leetcode.com/problems/majority-element/)[https://leetcode.com/problems/majority-element/]
 
 
-# 풀이 방법  
+# 풀이 방법
+
 1. 
 
 ```python
@@ -362,7 +394,8 @@ class Solution:
         return textMax
 ```
 
-**2020-12-09**  
+**2020-12-09**
+
 Runtime: `136 ms`, faster than `99.99%` of Python3 online submissions for Majority Element.
 Memory Usage: `15.4 MB`, less than `35.47%` of Python3 online submissions for Majority Element.
 <br><br>
@@ -374,19 +407,22 @@ class Solution:
         return nums[len(nums)//2]
 ```
 
-**2020-12-09**  
+**2020-12-09**
+
 Runtime: `148 ms`, faster than `98.15%` of Python3 online submissions for Majority Element.
 Memory Usage: `15.4 MB`, less than `35.47%` of Python3 online submissions for Majority Element.
 <br><br>
 
 
 
-## 204번 문제 Count Primes (Easy) 
+## 204번 문제 Count Primes (Easy)
+
 (https://leetcode.com/problems/count-primes/)[https://leetcode.com/problems/count-primes/]
 
 
-# 풀이 방법  
-1. 
+# 풀이 방법
+
+1. 아리스토텔레스의 체를 이용하여 소수가 아닌값을 거르는 알고리즘
 
 ```python
 class Solution:
@@ -403,9 +439,47 @@ class Solution:
         return numList.count(True)-2
 ```
 
-**2020-12-09**  
-Runtime: `392 ms`, faster than `80.27%` of Python3 online submissions for Count Primes.
+**2020-12-09**
+
+Runtime: `392 ms`, faster than `80.27%` of Python3 online submissions for Count Primes.  
 Memory Usage: `25.7 MB`, less than `55.70%` of Python3 online submissions for Count Primes.
+<br><br>
+
+
+
+## 167번 문제 Two Sum II - Input array is sorted
+
+(https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)[https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/]
+
+
+# 풀이 방법  
+
+1. 리스트 첫번째 인덱스 = `low`, 마지막 인덱스 = `high` 선언
+2. `while`문 `low`값이 `high`값보다 작을때 반복실행
+3. `리스트[low]` + `리스트[high]` 값이 `target`보다 작으면 `low` 1 증가
+4. `리스트[low]` + `리스트[high]` 값이 `target`보다 크면 `high` 1 감소
+5. `리스트[low]` + `리스트[high]` 값이 `target` 같은 값이면 `low`, `high` return 
+
+```python
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        low, high = 0, len(numbers)-1
+        
+        while low < high:
+            val = numbers[high] + numbers[low]
+            
+            if target < val:
+                high -= 1
+            elif val < target:
+                low += 1
+            else:
+                return [low+1, high+1]
+```
+
+**2020-12-09**  
+
+Runtime: `56 ms`, faster than `92.55%` of Python3 online submissions for Two Sum II - Input array is sorted.  
+Memory Usage: `14.8 MB`, less than `11.31%` of Python3 online submissions for Two Sum II - Input array is sorted.
 <br><br>
 
 
