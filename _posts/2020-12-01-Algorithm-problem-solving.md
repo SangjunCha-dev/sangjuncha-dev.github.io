@@ -15,8 +15,6 @@ Given an array of integers `nums` and an integer `target`, return *indices o
 You may assume that each input would have ***exactly* one solution**, and you may not use the *same* element twice.
 You can return the answer in any order.
 
-
-
 ```python
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -29,8 +27,8 @@ class Solution:
 
 **2020-11-27**
 
-> Runtime: `40 ms`, faster than `97.02%` of Python3 online submissions for Reverse Integer. <br>
-> Memory Usage: `14.5 MB`, less than `89.48%` of Python3 online submisstions for Reverse Integer. <br>
+> Runtime: `40 ms`, faster than `97.02%` of Python3 online submissions for Two Sum. <br>
+> Memory Usage: `14.5 MB`, less than `89.48%` of Python3 online submisstions for Two Sum. <br>
 
 
 
@@ -42,8 +40,6 @@ Given a 32-bit signed integer, reverse digits of an integer.
 
 Assume we are dealing with an environment that could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. 
 For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
-
-
 
 ```python
 class Solution:
@@ -80,7 +76,6 @@ class Solution:
 Write a function to find the longest common prefix string amongst an array of strings.
 If there is no common prefix, return an empty string `""`.
 
-
 ```python
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
@@ -98,8 +93,8 @@ class Solution:
 
 **2020-12-01**
 
-> Runtime: `28 ms`, faster than `90.77%` of Python3 online submissions for Reverse Integer. <br>
-> Memory Usage: `14.3 MB`, less than `47.57%` of Python3 online submisstions for Reverse Integer. <br>
+> Runtime: `28 ms`, faster than `90.77%` of Python3 online submissions for Longest Common Prefix. <br>
+> Memory Usage: `14.3 MB`, less than `47.57%` of Python3 online submisstions for Longest Common Prefix. <br>
 
 
 
@@ -110,8 +105,6 @@ class Solution:
 - 열린 괄호는 동일한 유형의 괄호로 닫음
 - 반환값은 `True`, `False` 두가지로 반환
 <br>
-
-
 
 열린 괄호는 list자료형에 스택을 쌓고 닫는 괄호는 스택의 마지막값과 비교해서 올바르면 스택에서 값 제거
 
@@ -146,16 +139,14 @@ class Solution:
 
 **2020-12-03**  
 
-> Runtime: `16 ms`, faster than `99.83%` of Python3 online submissions for Reverse Integer. <br>
-> Memory Usage: `14.3 MB`, less than `24.08%` of Python3 online submisstions for Reverse Integer. <br>
+> Runtime: `16 ms`, faster than `99.83%` of Python3 online submissions for Valid Parentheses. <br>
+> Memory Usage: `14.3 MB`, less than `24.08%` of Python3 online submisstions for Valid Parentheses. <br>
 
 
 
 # [35. Search Insert Position](https://leetcode.com/problems/search-insert-position/)
 
 Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
-
-
 
 ```python
 class Solution:
@@ -177,8 +168,8 @@ class Solution:
 
 **2020-12-02**  
 
-> Runtime: `40 ms`, faster than `96.18%` of Python3 online submissions for Reverse Integer. <br> 
-> Memory Usage: `15.1 MB`, less than `9.31%` of Python3 online submisstions for Reverse Integer. <br>
+> Runtime: `40 ms`, faster than `96.18%` of Python3 online submissions for Search Insert Position. <br> 
+> Memory Usage: `15.1 MB`, less than `9.31%` of Python3 online submisstions for Search Insert Position. <br>
 
 
 
@@ -187,13 +178,11 @@ class Solution:
 - 1 <= n <= 30
 <br>
 
-
 1. 비교 문자열 `1` 선언
 2. 아래의 알고리즘을 입력 받은 `n`번 반복 실행
 3. 문자 하나씩 비교하여 같으면 count 1증가
 4. 문자가 다르면 `resultText` 문자열에 `count`값과 리스트`[i-1]`번째 문자를 저장
 5. 안쪽 for문 종료 후 `numText` 마지막 [-1]문자열 값 대입
-
 
 ```python
 class Solution:
@@ -213,11 +202,10 @@ class Solution:
         return numText
 ```
 
-
 **2020-12-07**
 
-> Runtime: `40 ms`, faster than `70.73%` of Python3 online submissions for Reverse Integer. <br>
-> Memory Usage: `14.3 MB`, less than `48.22%` of Python3 online submisstions for Reverse Integer. <br>
+> Runtime: `40 ms`, faster than `70.73%` of Python3 online submissions for Count and Say. <br>
+> Memory Usage: `14.3 MB`, less than `48.22%` of Python3 online submisstions for Count and Say. <br>
 
 
 
@@ -253,15 +241,15 @@ class Solution:
 
 **2020-12-08**
 
-> Runtime: `1580 ms,`, faster than `5.26%` of Python3 online submissions for Reverse Integer. <br>
-> Memory Usage: `15.2 MB`, less than `5.01%` of Python3 online submisstions for Reverse Integer. <br>
+> Runtime: `1580 ms,`, faster than `5.26%` of Python3 online submissions for Maximum Subarray. <br>
+> Memory Usage: `15.2 MB`, less than `5.01%` of Python3 online submisstions for Maximum Subarray. <br>
 
 
 
 # [58. Length of Last Word](https://leetcode.com/problems/length-of-last-word/)
 
-
-1. 
+1. 문자열의 앞뒤 공백 제거
+2. ` `으로 분할하고 리스트 마지막값 반환
 
 ```python
 class Solution:
@@ -282,7 +270,6 @@ class Solution:
 
 - 각 요소는 `단일 숫자`로 반환
 <br>
-
 
 1. list의 마지막값 1증가
 2. 반복문을 통해 역순으로 값 검증
@@ -306,8 +293,8 @@ class Solution:
 
 **2020-12-04**  
 
-> Runtime: `24 ms`, faster than `95.84%` of Python3 online submissions for Reverse Integer. <br>
-> Memory Usage: `14.2 MB`, less than `38.47%` of Python3 online submisstions for Reverse Integer. <br>
+> Runtime: `24 ms`, faster than `95.84%` of Python3 online submissions for Plus One. <br>
+> Memory Usage: `14.2 MB`, less than `38.47%` of Python3 online submisstions for Plus One. <br>
 
 
 
@@ -316,7 +303,6 @@ class Solution:
 비어있지 않은 정수 배열 `nums` 중 하나를 제외하고 두번 포함일때 나머지 하나 찾기
 - nums 리스트를 추가할당하지 않은상태에서 시간복잡성 O(n)으로 해결
 <br>
-
 
 1. nums 리스트 정렬
 2. index(0,2,4,...) 2씩 증가하는 for 반복문실행
@@ -337,8 +323,8 @@ class Solution:
 
 **2020-12-04**
 
-> Runtime: `124 ms`, faster than `85.60%` of Python3 online submissions for Reverse Integer. <br>
-> Memory Usage: `16.6 MB`, less than `60.41%` of Python3 online submisstions for Reverse Integer. <br>
+> Runtime: `124 ms`, faster than `85.60%` of Python3 online submissions for Single Number. <br>
+> Memory Usage: `16.6 MB`, less than `60.41%` of Python3 online submisstions for Single Number. <br>
 
 
 
@@ -375,6 +361,8 @@ class Solution:
 
 # [169. Majority Element](https://leetcode.com/problems/majority-element/)
 
+## 방법 1
+
 1. 
 
 ```python
@@ -394,6 +382,7 @@ class Solution:
 > Runtime: `136 ms`, faster than `99.99%` of Python3 online submissions for Majority Element. <br>
 > Memory Usage: `15.4 MB`, less than `35.47%` of Python3 online submissions for Majority Element. <br>
 
+## 방법 2
 
 ```python
 class Solution:
@@ -430,8 +419,155 @@ class Solution:
 
 **2020-12-09**
 
-> Runtime: `392 ms`, faster than `80.27%` of Python3 online submissions for Count Primes.  
-> Memory Usage: `25.7 MB`, less than `55.70%` of Python3 online submissions for Count Primes.
+> Runtime: `392 ms`, faster than `80.27%` of Python3 online submissions for Count Primes. <br>
+> Memory Usage: `25.7 MB`, less than `55.70%` of Python3 online submissions for Count Primes. <br>
 
+
+
+# [217. Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
+
+1. `set`함수로 중복제거한 길이와 `nums` 리스트 길이와 비교
+2. 길이가 같다면 `False` 길이가 다르면 중복제거하여 `True` 반환
+
+```python
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        return True if len(nums) != len(set(nums)) else False
+```
+
+**2020-12-11**
+
+> Runtime: `108 ms`, faster than `93.87%` of Python3 online submissions for Count Primes. <br>
+> Memory Usage: `20.2 MB`, less than `44.91%` of Python3 online submissions for Count Primes. <br>
+
+1. 리스트 값을 dict 키값으로 저장
+2. 리스트 반복문 실행 중에 해당 키값이 있다면 `True` 반환
+3. 모든 리스트가 if 조건에 걸리지 않으면 `False` 반환
+
+```python
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        dict = {}
+        for num in nums:
+            if dict.get(num):
+                return True
+            dict[num] = True
+        return False
+```
+
+**2020-12-11**
+
+> Runtime: `116 ms`, faster than `65.53%` of Python3 online submissions for Contains Duplicate. <br>
+> Memory Usage: `21.5 MB`, less than `8.09%` of Python3 online submissions for Contains Duplicate. <br>
+
+
+
+# [231. Power of Two](https://leetcode.com/problems/power-of-two/)
+
+## 방법 1
+
+1. `n`이 양수일때 이진수로 변환
+2. 이진수 리스트에서 앞의 두자리를 제외한 리스트를 저장 (`b0~`형식)
+3. `0번째` 값을 제외하고 for 반복문 실행
+4. 리스트 `0번째` 값과 비교하여 같은 1이 나오면 `False` 반환
+5. 반복문 종료까지 if 조건문 안걸리면 `True` 반환
+
+```python
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        if n < 1: return False
+        nums = list(bin(n))[2:]
+        for num in nums[1:]:
+            if nums[0] == num: return False
+        return True
+```
+
+**2020-12-11**
+
+> Runtime: `24 ms`, faster than `94.77%` of Python3 online submissions for Power of Two. <br>
+> Memory Usage: `14.3 MB`, less than `15.35%` of Python3 online submissions for Power of Two. <br>
+
+## 방법 2
+
+1. 입력값 `n`이 양수이고
+2. 2의 거듭제곱수 판별은 `n`값과 `n-1`값을 비트 `AND`연산하면 `0`으로 나옴
+3. 위의 2가지 조건이 만족하면 `True` 만족하지 않는다면 `False` 반환
+
+```python
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        return (0<n) and ((n&(n-1)) == 0)
+```
+
+**2020-12-11**
+
+> Runtime: `24 ms`, faster than `94.77%` of Python3 online submissions for Power of Two. <br>
+> Memory Usage: `14.1 MB`, less than `80.64%` of Python3 online submissions for Power of Two. <br>
+
+
+
+# [242. Valid Anagram](https://leetcode.com/problems/valid-anagram/)
+
+1. 입력값 `s`, `t` 문자열을 `sorted`함수로 정렬된 리스트 반환받아 비교하여 결과값 반환
+
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return sorted(s) == sorted(t)
+```
+
+**2020-12-11**
+
+> Runtime: `40 ms`, faster than `84.57%` of Python3 online submissions for Valid Anagram. <br>
+> Memory Usage: `15 MB`, less than `6.58%` of Python3 online submissions for Valid Anagram. <br>
+
+
+
+# [258. Add Digits](https://leetcode.com/problems/add-digits)
+
+
+1. 
+
+```python
+class Solution:
+    def addDigits(self, num: int) -> int:
+        sum = 0
+        while 10 < num:
+            for i in list(str(num)):
+                sum += int(i)
+            num = sum
+        return sum
+```
+
+> `Time Limit Exceeded`
+
+1. 
+
+시간복잡성 : O(1) 런타임
+
+```python
+
+```
+
+**2020-12-11**
+
+> 
+
+
+
+# [1678. Goal Parser Interpretation](https://leetcode.com/problems/goal-parser-interpretation/)
+
+1. replace문으로 `()` -> `o`, `(al)` -> `al` 변환하여 반환
+
+```python
+class Solution:
+    def interpret(self, command: str) -> str:
+        return command.replace('()', 'o').replace('(al)', 'al')
+```
+
+**2020-12-11**
+
+> Runtime: `28 ms`, faster than `89.89%` of Python3 online submissions for Goal Parser Interpretation. <br>
+> Memory Usage: `13.9 MB`, less than `100.00%` of Python3 online submissions for Goal Parser Interpretation. <br>
 
 
