@@ -7,7 +7,7 @@ tags: [algorithm, leetcode]
 pin: false
 ---
 
-## 1번 문제 Two Sum (Easy)
+# 1번 문제 Two Sum (Easy)
 
 [https://leetcode.com/problems/two-sum/](https://leetcode.com/problems/two-sum/)
 
@@ -17,7 +17,7 @@ Given an array of integers `nums` and an integer `target`, return *indices o
 You may assume that each input would have ***exactly* one solution**, and you may not use the *same* element twice.
 You can return the answer in any order.
 
-**Solution**
+## 풀이 방법
 
 ```python
 class Solution:
@@ -37,7 +37,7 @@ Memory Usage: `14.5 MB`, less than `89.48%` of Python3 online submisstions for R
 
 
 
-## 7번 문제 Reverse Integer (Easy) 
+# 7번 문제 Reverse Integer (Easy) 
 
 [https://leetcode.com/problems/reverse-integer/](https://leetcode.com/problems/reverse-integer/)
 
@@ -48,7 +48,7 @@ Given a 32-bit signed integer, reverse digits of an integer.
 Assume we are dealing with an environment that could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. 
 For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
 
-# 풀이
+## 풀이 방법
 
 ```python
 class Solution:
@@ -81,14 +81,14 @@ Memory Usage: `14.2 MB`, less than `41.05%` of Python3 online submisstions for R
 
 
 
-## 14번 문제 Longest Common Prefix (Easy)
+# 14번 문제 Longest Common Prefix (Easy)
 
 [https://leetcode.com/problems/longest-common-prefix/](https://leetcode.com/problems/longest-common-prefix/)
 
 Write a function to find the longest common prefix string amongst an array of strings.
 If there is no common prefix, return an empty string `""`.
 
-# 풀이
+## 풀이 방법
 
 ```python
 class Solution:
@@ -113,11 +113,13 @@ Memory Usage: `14.3 MB`, less than `47.57%` of Python3 online submisstions for R
 
 
 
-## 35번 문제 Search Insert Position (Easy)
+# 35번 문제 Search Insert Position (Easy)
 
 [https://leetcode.com/problems/search-insert-position/](https://leetcode.com/problems/search-insert-position/)
 
 Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+
+## 풀이 방법
 
 ```python
 class Solution:
@@ -145,7 +147,7 @@ Memory Usage: `15.1 MB`, less than `9.31%` of Python3 online submisstions for Re
 
 
 
-## 20번 문제 Valid Parentheses  (Easy)
+# 20번 문제 Valid Parentheses  (Easy)
 
 [https://leetcode.com/problems/valid-parentheses/](https://leetcode.com/problems/valid-parentheses/)
 
@@ -155,7 +157,7 @@ Memory Usage: `15.1 MB`, less than `9.31%` of Python3 online submisstions for Re
 - 반환값은 `True`, `False` 두가지로 반환
 <br>
 
-**풀이 방법**
+## 풀이 방법
 
 열린 괄호는 list자료형에 스택을 쌓고 닫는 괄호는 스택의 마지막값과 비교해서 올바르면 스택에서 값 제거
 
@@ -196,7 +198,7 @@ Memory Usage: `14.3 MB`, less than `24.08%` of Python3 online submisstions for R
 
 
 
-## 66번 문제 Plus One (Easy) 
+# 66번 문제 Plus One (Easy) 
 
 [https://leetcode.com/problems/plus-one/](https://leetcode.com/problems/plus-one/)
 
@@ -205,7 +207,8 @@ Memory Usage: `14.3 MB`, less than `24.08%` of Python3 online submisstions for R
 - 각 요소는 `단일 숫자`로 반환
 <br>
 
-**풀이 방법**  
+## 풀이 방법
+
 1. list의 마지막값 1증가
 2. 반복문을 통해 역순으로 값 검증
 3. 모든요소가 단일숫자 구성시 list return
@@ -233,7 +236,7 @@ Memory Usage: `14.2 MB`, less than `38.47%` of Python3 online submisstions for R
 
 
 
-## 136번 문제 Single Number (Easy) 
+# 136번 문제 Single Number (Easy) 
 
 (https://leetcode.com/problems/single-number/)[https://leetcode.com/problems/single-number/]
 
@@ -241,7 +244,7 @@ Memory Usage: `14.2 MB`, less than `38.47%` of Python3 online submisstions for R
 - nums 리스트를 추가할당하지 않은상태에서 시간복잡성 O(n)으로 해결
 <br>
 
-**풀이 방법**
+## 풀이 방법
 
 1. nums 리스트 정렬
 2. index(0,2,4,...) 2씩 증가하는 for 반복문실행
@@ -268,13 +271,13 @@ Memory Usage: `16.6 MB`, less than `60.41%` of Python3 online submisstions for R
 
 
 
-## 38번 문제 Count and Say (Easy)
+# 38번 문제 Count and Say (Easy)
 (https://leetcode.com/problems/count-and-say/)[https://leetcode.com/problems/count-and-say/]
 
 - 1 <= n <= 30
 <br>
 
-**풀이 방법**
+## 풀이 방법
 
 1. 비교 문자열 `1` 선언
 2. 아래의 알고리즘을 입력 받은 `n`번 반복 실행
@@ -309,11 +312,11 @@ Memory Usage: `14.3 MB`, less than `48.22%` of Python3 online submisstions for R
 <br><br>
 
 
-## 53번 문제 Maximum Subarray (Easy)
+# 53번 문제 Maximum Subarray (Easy)
 
 (https://leetcode.com/problems/maximum-subarray/)[https://leetcode.com/problems/maximum-subarray/]
 
-**풀이 방법**
+## 풀이 방법
 
 1. 동적 계획법(Dynamic Programming, DP) 사용할 것
 2. 아래는 잘못푼 문제
@@ -351,12 +354,12 @@ Memory Usage: `15.2 MB`, less than `5.01%` of Python3 online submisstions for Re
 
 
 
-## 58번 문제 Length of Last Word (Easy)
+# 58번 문제 Length of Last Word (Easy)
 
 (https://leetcode.com/problems/length-of-last-word/)[https://leetcode.com/problems/length-of-last-word/]
 
 
-# 풀이 방법
+## 풀이 방법
 
 1. 
 
@@ -374,11 +377,11 @@ Memory Usage: `14.2 MB`, less than `38.86%` of Python3 online submissions for Le
 
 
 
-## 169번 문제 Majority Element (Easy) 
+# 169번 문제 Majority Element (Easy) 
 (https://leetcode.com/problems/majority-element/)[https://leetcode.com/problems/majority-element/]
 
 
-# 풀이 방법
+## 풀이 방법
 
 1. 
 
@@ -415,12 +418,12 @@ Memory Usage: `15.4 MB`, less than `35.47%` of Python3 online submissions for Ma
 
 
 
-## 204번 문제 Count Primes (Easy)
+# 204번 문제 Count Primes (Easy)
 
 (https://leetcode.com/problems/count-primes/)[https://leetcode.com/problems/count-primes/]
 
 
-# 풀이 방법
+## 풀이 방법
 
 1. 아리스토텔레스의 체를 이용하여 소수가 아닌값을 거르는 알고리즘
 
@@ -447,12 +450,12 @@ Memory Usage: `25.7 MB`, less than `55.70%` of Python3 online submissions for Co
 
 
 
-## 167번 문제 Two Sum II - Input array is sorted
+# 167번 문제 Two Sum II - Input array is sorted (Easy)
 
 (https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)[https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/]
 
 
-# 풀이 방법  
+## 풀이 방법  
 
 1. 리스트 첫번째 인덱스 = `low`, 마지막 인덱스 = `high` 선언
 2. `while`문 `low`값이 `high`값보다 작을때 반복실행
@@ -476,7 +479,7 @@ class Solution:
                 return [low+1, high+1]
 ```
 
-**2020-12-09**  
+**2020-12-11**  
 
 Runtime: `56 ms`, faster than `92.55%` of Python3 online submissions for Two Sum II - Input array is sorted.  
 Memory Usage: `14.8 MB`, less than `11.31%` of Python3 online submissions for Two Sum II - Input array is sorted.
