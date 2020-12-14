@@ -525,33 +525,27 @@ class Solution:
 
 # [258. Add Digits](https://leetcode.com/problems/add-digits)
 
-
-1. 
+1. `자릿수근(digital root)` 공식을 이용하여 결과값 반환
 
 ```python
 class Solution:
     def addDigits(self, num: int) -> int:
-        sum = 0
-        while 10 < num:
-            for i in list(str(num)):
-                sum += int(i)
-            num = sum
-        return sum
+        return 0 if num == 0 else ((num-1)%9)+1
 ```
-
-> `Time Limit Exceeded`
-
-1. 
 
 시간복잡성 : O(1) 런타임
 
-```python
+**2020-12-14**
 
-```
+> Runtime: `32 ms`, faster than `61.74%` of Python3 online submissions for Add Digits.
+> Memory Usage: `14.2 MB`, less than `48.32%` of Python3 online submissions for Add Digits.
 
-**2020-12-11**
 
-> 
+
+
+
+
+
 
 
 
