@@ -1,7 +1,7 @@
 ---
-title: LeetCode Python (Easy) 풀이
+title: LeetCode Python (Easy)
 author: Sang Jun
-date: 2020-12-01 17:30:00 +0800
+date: 2020-12-01 17:30:00 +0900
 categories: [Algorithm, LeetCode]
 tags: [algorithm, leetcode]
 pin: false
@@ -9,11 +9,7 @@ pin: false
 
 # [1. Two Sum](https://leetcode.com/problems/two-sum/)
 
-target 값을 nums 리스트
-
-Given an array of integers `nums` and an integer `target`, return *indices of the two numbers such that they add up to `target`*.
-You may assume that each input would have ***exactly* one solution**, and you may not use the *same* element twice.
-You can return the answer in any order.
+1. `nums` 리스트 속성값 중 `두개의 값`이 `target` 값과 동일할때 해당 `속성 값`의 `index` 반환
 
 ```python
 class Solution:
@@ -34,12 +30,12 @@ class Solution:
 
 # [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/)
 
-Given a 32-bit signed integer, reverse digits of an integer.
-
-**Note:**
-
-Assume we are dealing with an environment that could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. 
-For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
+1. `x`값을 list형으로 변환하여 `testCase` 변수에 저장
+2. `testCase[0]`값에 `-`부호가 있다면 `sign` 변수에 저장하고 `testCase[0]`에서 부호 삭제
+3. for문을 사용하여 `testCase` 역순으로 `result` 변수에 저장
+4. `sign`변수에 값이 있다면 `sign + result`값을 `result`에 저장
+5. 결과값이 int 32비트범위를 넘지 않으면 `result`을, 넘으면 `0` 반환
+    - return : `x` 숫자를 역순으로 나열하여 반환
 
 ```python
 class Solution:
@@ -52,7 +48,7 @@ class Solution:
             sign = testCase.pop(0)
             
         testCaseLen = len(testCase)
-        for i, _ in enumerate(testCase):
+        for i in range(testCaseLen):
             result += testCase[testCaseLen-1-i]
         
         if sign:
@@ -71,10 +67,41 @@ class Solution:
 
 
 
+# [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/)
+
+1. `x`값을 `num`변수에 대입
+2. `res`변수에 나머지연산으로 `num` 1의 자리값을 더하고 `num` 나누기 연산하여 1의 자리 삭제
+3. `res`변수를 10곱하여 자릿수 증가
+4. 위의 과정을 `num`변수가 0이 될때까지 반복
+5. 초기 `x`값과 `res`변수를 비교한 결과 반환
+
+시간복잡성 : O(n)
+공간복잡성 : O(1)
+
+```python
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        if x < 0: return False
+
+        num, res = x, 0
+        while num != 0:
+            res = res*10 + num%10
+            num //= 10
+        return x==res
+```
+
+**2020-12-15** 
+
+> Runtime: `52 ms`, faster than `88.59%` of Python3 online submissions for Palindrome Number. <br>
+> Memory Usage: `14.1 MB`, less than `59.38%` of Python3 online submissions for Palindrome Number. <br>
+
+
+
 # [14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)
 
-Write a function to find the longest common prefix string amongst an array of strings.
-If there is no common prefix, return an empty string `""`.
+1. 문자열 길이로 정렬된 `strs` 리스트에서 가장 짧은 `strs[0]`문자열로 각 문자열의 `i`번째 값과 비교
+2. 모든 문자열에서 동일한 문자가 있다면 `compareText`변수에 추가하고 마지막에 `compareText` 반환
+    - return : `strs` 리스트의 모든 문자열에서 공통된 문자열 반환
 
 ```python
 class Solution:
@@ -100,15 +127,11 @@ class Solution:
 
 # [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
 
-문자열 `s` 입력받아 `(`, `)`, `{`, `}`, `[`, `]` 입력 문자열이 유효한 경우
-
-- 열린 괄호는 동일한 유형의 괄호로 닫음
-- 반환값은 `True`, `False` 두가지로 반환
-<br>
-
-열린 괄호는 list자료형에 스택을 쌓고 닫는 괄호는 스택의 마지막값과 비교해서 올바르면 스택에서 값 제거
-
-최종적으로 list 길이가 0일때 `True` 반환 
+1. 열린 괄호 `(`, `{`, `[` 는 list자료형에 `스택에 쌓고` 
+2. 닫는 괄호 `)`, `}`, `]` 는 스택의 마지막값과 비교해서 동일한 종류면 `스택에서 값 제거`
+3. 최종적으로 list 길이가 0일때 `True` 반환 아니면 `False` 반환
+ - True : 모든 괄호가 쌍일 경우
+ - False : 쌍을 이루지 못한 괄호가 있을 경우
 
 ```python
 class Solution:
@@ -146,7 +169,14 @@ class Solution:
 
 # [35. Search Insert Position](https://leetcode.com/problems/search-insert-position/)
 
-Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+1. `nums` 리스트 첫 번째 index를 `low`변수에 저장
+2. `nums` 리스트 마지막 index를 `high`변수에 저장
+3. while문을 통해 low 값이 high 값보다 작을 때 실행
+    - `nums` 리스트의 중간위치인 (low+high)//2 값을 `index` 변수에 저장
+    - `nums[index]`값이 `target`보다 클 때 `index+1`값을 `low`변수에 저장
+    - 그 외에는 `index`값을 `high`변수에 저장
+4. while문 종료 후 `low` 변수 반환
+    - return : `target`값이 들어갈 index 반환
 
 ```python
 class Solution:
@@ -175,14 +205,12 @@ class Solution:
 
 # [38. Count and Say](https://leetcode.com/problems/count-and-say/)
 
-- 1 <= n <= 30
-<br>
-
 1. 비교 문자열 `1` 선언
 2. 아래의 알고리즘을 입력 받은 `n`번 반복 실행
-3. 문자 하나씩 비교하여 같으면 count 1증가
-4. 문자가 다르면 `resultText` 문자열에 `count`값과 리스트`[i-1]`번째 문자를 저장
-5. 안쪽 for문 종료 후 `numText` 마지막 [-1]문자열 값 대입
+    - 문자 하나씩 비교하여 같으면 `count` 1증가
+    - 문자가 다르면 `resultText` 문자열에 `count`값과 리스트 `[i-1]`번째 문자를 저장
+3. 안쪽 for문 종료 후 `numText` 마지막 [-1]문자열 값 대입하여 반환
+    - return : 입력받은 각 숫자의 갯수와 숫자를 반환
 
 ```python
 class Solution:
@@ -248,8 +276,9 @@ class Solution:
 
 # [58. Length of Last Word](https://leetcode.com/problems/length-of-last-word/)
 
-1. 문자열의 앞뒤 공백 제거
-2. ` `으로 분할하고 리스트 마지막값 반환
+1. 문자열 `앞뒤 공백 제거`
+2. 공백` `으로 `분할`하고 리스트 `마지막 문자열` 반환
+    - return : 마지막 문자열 반환
 
 ```python
 class Solution:
@@ -266,15 +295,11 @@ class Solution:
 
 # [66. Plus One](https://leetcode.com/problems/plus-one/)
 
-음이 아닌 정수 0~9까지의 십진수 배열을 입력받아 `정수 1 증가`
-
-- 각 요소는 `단일 숫자`로 반환
-<br>
-
-1. list의 마지막값 1증가
-2. 반복문을 통해 역순으로 값 검증
-3. 모든요소가 단일숫자 구성시 list return
-4. list 0번째 값이 10으로 나눠질경우 첫번째 [1] 리스트 추가하여 반환
+1. `digits` 리스트 마지막 값 `1증가`
+2. 반복문을 통해 리스트 `역순`으로 값 `한자릿수` 검증
+3. 모든요소가 단일숫자 구성시 `digits` 반환
+4. `digits[0]` 값이 `10`으로 나눠질경우 digits[0]위치에 `[1]값 속성 추가`하여 반환
+    - return : `digits` 리스트 반환
 
 ```python
 class Solution:
@@ -300,14 +325,13 @@ class Solution:
 
 # [136. Single Number](https://leetcode.com/problems/single-number/)
 
-비어있지 않은 정수 배열 `nums` 중 하나를 제외하고 두번 포함일때 나머지 하나 찾기
-- nums 리스트를 추가할당하지 않은상태에서 시간복잡성 O(n)으로 해결
-<br>
-
 1. nums 리스트 정렬
-2. index(0,2,4,...) 2씩 증가하는 for 반복문실행
-3. list `index의 값과 index+1의 값을 비교`하여 다를경우 list index의 값 리턴
-4. 리스트 마지막까지 도달할경우 list[-1] 리턴
+2. index(0,2,4,...) 2씩 증가하는 for문 실행
+3. nums 리스트 `index의 값`과 `index+1의 값`을 `비교`하여 다를경우 list `index` 값 반환
+4. 리스트 마지막까지 도달할경우 `nums[-1]` 반환
+    - return : nums 리스트에서 같은 수가 없는 값 반환
+
+시간복잡성 O(n)
 
 ```python
 class Solution:
@@ -332,9 +356,11 @@ class Solution:
 
 1. 리스트 첫번째 인덱스 = `low`, 마지막 인덱스 = `high` 선언
 2. `while`문 `low`값이 `high`값보다 작을때 반복실행
-3. `리스트[low]` + `리스트[high]` 값이 `target`보다 작으면 `low` 1 증가
-4. `리스트[low]` + `리스트[high]` 값이 `target`보다 크면 `high` 1 감소
-5. `리스트[low]` + `리스트[high]` 값이 `target` 같은 값이면 `low`, `high` return 
+    - `리스트[low]` + `리스트[high]` 값이 `target`보다 작으면 `low` 1 증가
+    - `리스트[low]` + `리스트[high]` 값이 `target`보다 크면 `high` 1 감소
+    - `리스트[low]` + `리스트[high]` 값이 `target` 같은 값이면 `low`, `high` return 
+
+- return : `numbers`리스트 두수의 합이 `target`값과 같을 때 두수의 `index`값 반환
 
 ```python
 class Solution:
@@ -363,7 +389,14 @@ class Solution:
 
 ## 방법 1
 
-1. 
+1. `nums`리스트에서 `중복제거`
+2. `nums`리스트 for문을 통해 반복
+    - 해당 속성 값의 `cnt` 값이 `max`값보다 클때
+    - `max`변수에 `cnt`값 저장
+    - `textMax`변수에 해당 속성값 저장
+3. for문이 끝난 마지막에 `textMax` 반환
+    - return : 입력받은 `nums`리스트의 문자 중 갯수가 많은 문자 반환
+
 
 ```python
 class Solution:
@@ -384,6 +417,9 @@ class Solution:
 
 ## 방법 2
 
+1. `nums`리스트 정렬하여 `중간 위치값` 반환
+    - 입력받는 문자는 두 종류
+
 ```python
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
@@ -400,7 +436,7 @@ class Solution:
 
 # [204. Count Primes](https://leetcode.com/problems/count-primes/)
 
-1. 아리스토텔레스의 체를 이용하여 소수가 아닌값을 거르는 알고리즘
+1. `아리스토텔레스의 체` 이용하여 소수가 아닌값을 거르는 알고리즘
 
 ```python
 class Solution:
@@ -426,8 +462,10 @@ class Solution:
 
 # [217. Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
 
-1. `set`함수로 중복제거한 길이와 `nums` 리스트 길이와 비교
+1. `nums`리스트 중복제거한 길이와 `nums` 리스트 길이와 비교
 2. 길이가 같다면 `False` 길이가 다르면 중복제거하여 `True` 반환
+    - True : nums 리스트에 중복값이 포함
+    - False : nums 리스트에 중복값이 없음
 
 ```python
 class Solution:
@@ -443,6 +481,8 @@ class Solution:
 1. 리스트 값을 dict 키값으로 저장
 2. 리스트 반복문 실행 중에 해당 키값이 있다면 `True` 반환
 3. 모든 리스트가 if 조건에 걸리지 않으면 `False` 반환
+    - True : 중복된 값이 존재할 경우
+    - False : 중복된 값이 없을 경우
 
 ```python
 class Solution:
@@ -471,6 +511,8 @@ class Solution:
 3. `0번째` 값을 제외하고 for 반복문 실행
 4. 리스트 `0번째` 값과 비교하여 같은 1이 나오면 `False` 반환
 5. 반복문 종료까지 if 조건문 안걸리면 `True` 반환
+    - True : 입력받은 값이 2의 제곱수일 경우
+    - False : 입력받은 값이 2의 제곱수가 아닐 경우
 
 ```python
 class Solution:
@@ -508,7 +550,9 @@ class Solution:
 
 # [242. Valid Anagram](https://leetcode.com/problems/valid-anagram/)
 
-1. 입력값 `s`, `t` 문자열을 `sorted`함수로 정렬된 리스트 반환받아 비교하여 결과값 반환
+1. `s`, `t` 문자열을 `sorted`함수로 정렬된 리스트 반환받아 비교하여 결과값 반환
+    - True : 입력받은 두 문자열이 동일할 경우
+    - False : 입력받은 두 문자열이 다를 경우
 
 ```python
 class Solution:
@@ -525,33 +569,288 @@ class Solution:
 
 # [258. Add Digits](https://leetcode.com/problems/add-digits)
 
-1. `자릿수근(digital root)` 공식을 이용하여 결과값 반환
+## 방법 1
+
+1. `num` 값을 `10`으로 나눈 `몫`과 `나머지`를 `합산`하고
+2. `num` 값이 `10 이하` 일때 반환
+    - return : 자릿수근 반환
+
+시간복잡성 : O(n)
 
 ```python
 class Solution:
     def addDigits(self, num: int) -> int:
-        return 0 if num == 0 else ((num-1)%9)+1
+        while 9 < num:
+            num = num//10 + num%10
+        return num
 ```
-
-시간복잡성 : O(1) 런타임
 
 **2020-12-14**
 
-> Runtime: `32 ms`, faster than `61.74%` of Python3 online submissions for Add Digits.
-> Memory Usage: `14.2 MB`, less than `48.32%` of Python3 online submissions for Add Digits.
+> Runtime: `20 ms`, faster than `98.98%` of Python3 online submissions for Add Digits. <br>
+> Memory Usage: `14.3 MB`, less than `20.30%` of Python3 online submissions for Add Digits. <br>
+
+## 방법 2
+
+1. `num` 값을 `(num-1) % 9 + 1`자릿수근(digital root) 공식을 이용하여 결과값 반환
+    - return : 자릿수근 반환
+
+시간복잡성 : O(1)
+
+```python
+class Solution:
+    def addDigits(self, num: int) -> int:
+        return 0 if num == 0 else (num-1)%9 + 1
+```
+
+**2020-12-14**
+
+> Runtime: `24 ms`, faster than `95.45%` of Python3 online submissions for Add Digits. <br>
+> Memory Usage: `14.3 MB`, less than `20.30%` of Python3 online submissions for Add Digits. <br>
 
 
 
+# [263. Ugly Number](https://leetcode.com/problems/ugly-number/)
+
+1. while 반복문으로 `num`값이 `5`로 나눈 `나머지`가 `0`일때 `몫`을 `num`값에 저장
+2. 동일한 방식으로 `3`, `2`로 나눈다.
+3. 결과값이 `1`일때만 `True`, 그외의 결과는 `False` 반환
+    - True : 입력받은 값이 `2`, `3`, `5`로 나누어질 경우
+    - False : 그외의 경우
+
+```python
+class Solution:
+    def isUgly(self, num: int) -> bool:
+        if num == 0: return False
+        while num % 5 == 0:
+            num //=  5
+        while num % 3 == 0:
+            num //= 3
+        while num % 2 == 0:
+            num //= 2
+        return num == 1
+```
+
+**2020-12-14**
+
+> Runtime: `28 ms`, faster than `82.19%` of Python3 online submissions for Ugly Number. <br>
+> Memory Usage: `14.3 MB`, less than `19.35%` of Python3 online submissions for Ugly Number. <br>
 
 
 
+# [268. Missing Number](https://leetcode.com/problems/missing-number/)
 
+## 풀이 방법 1
+
+1. `nums`리스트 정렬
+2. `nums`리스트 길이만큼 for문 실행
+3. index 위치값에 해당되는 값이 없으면 index 반환
+4. for문 마지막까지 if문 해당되지 않을경우 `nums`리스트 길이 반환
+    - return : `nums`리스트에 없는 값 반환
+
+공간복잡성 : O(1)  
+시간복잡성 : O(n)
+
+```python
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        nums.sort()
+        numsLen = len(nums)
+        for i in range(numsLen):
+            if nums[i] != i: 
+                return i
+        return numsLen
+```
+
+**2020-12-14**
+
+> Runtime: `136 ms`, faster than `38.61%` of Python3 online submissions for Missing Number. <br>
+> Memory Usage: `15.5 MB`, less than `27.11%` of Python3 online submissions for Missing Number. <br>
+
+## 풀이 방법 2
+
+1. `nums`리스트의 길이를 `n`변수에 대입
+2. 1부터 n까지 수의 합(가우스 공식)을 계산하여 `total`변수에 대입
+    - 가우스 공식 : n*(n-1)/2 + n
+3. `total` - (`nums`리스트 합)을 값을 반환
+    - return : `nums`리스트에 없는 값 반환
+
+공간복잡성 : O(1)  
+시간복잡성 : O(n)
+
+```python
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        n = len(nums)
+        total = int(n*(n-1)/2)+n
+        return total - sum(nums)
+```
+
+**2020-12-14**
+
+> Runtime: `120 ms`, faster than `93.14%` of Python3 online submissions for Missing Number. <br>
+> Memory Usage: `15.4 MB`, less than `38.54%` of Python3 online submissions for Missing Number. <br>
+
+
+
+# [278. First Bad Version](https://leetcode.com/problems/first-bad-version)
+
+1. 이진탐색으로 풀이
+2. `low`변수에 0, `high`변수에 `n` 대입
+3. while문으로 low변수가 high보다 작을때 반복실행
+    - `low`와 `high`의 중간값을 `middle`변수에 저장
+    - isBadVersion(middle)의 반환값이 `True`이면 `high`변수에 `middle` 대입
+    - isBadVersion(middle)의 반환값이 `False`이면 `low`변수에 `middle + 1` 대입
+4. `low`변수 반환
+
+- return : isBadVersion(n) 반환값중 `False`결과가 나오는 가장 큰 `n+1` 반환
+
+시간복잡성 : O(log n)
+
+```python
+class Solution:
+    def firstBadVersion(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        low, middle, high = 0, 1, n
+        
+        while low < high:
+            middle = (low+high)//2
+            
+            if isBadVersion(middle):
+                high = middle
+            else:
+                low = middle + 1
+        return low
+```
+
+**2020-12-14**
+
+> Runtime: `24 ms`, faster than `90.25%` of Python3 online submissions for First Bad Version. <br>
+> Memory Usage: `14.1 MB`, less than `45.50%` of Python3 online submissions for First Bad Version. <br>
+
+
+
+# [283. Move Zeroes](https://leetcode.com/problems/move-zeroes/)
+
+1. `nums`리스트 요소값이 `0`이 아닐때 index인 `i`값 1증가시키고
+2. `nums`리스트 요소값이 `0`일때 해당 요소삭제 및 리스트 마지막에 `[0]`추가
+3. 위의 과정들을 for문으로 `nums`리스트의 길이만큼 반복 실행
+
+- return : 앞에는 0을 제외한 `nums`리스트, 뒤에는 제외된 `[0]`이 리스트에 붙어서 반환
+
+시간복잡성 : O(log n)  
+공간복잡성 : O(1)
+
+```python
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        zero_cnt = 0
+        for i in range(len(nums)-1, -1, -1):
+            if nums[i] == 0:
+                del nums[i]
+                zero_cnt += 1
+        nums += ([0] * zero_cnt)
+```
+
+**2020-12-15**
+
+> Runtime: `44 ms`, faster than `88.45%` of Python3 online submissions for Move Zeroes. <br>
+> Memory Usage: `15.2 MB`, less than `63.17%` of Python3 online submissions for Move Zeroes. <br>
+
+
+
+# [292. Nim Game](https://leetcode.com/problems/nim-game/)
+
+1. `n`값을 4로 나누었을때 0일경우만 `False`, 그외에 `True`
+
+시간복잡성 : O(1)  
+공간복잡성 : O(1)
+
+```python
+class Solution:
+    def canWinNim(self, n: int) -> bool:
+        return n%4
+```
+
+**2020-12-15**
+
+> Runtime: `28 ms`, faster than `68.93%` of Python3 online submissions for Nim Game. <br>
+> Memory Usage: `14.2 MB`, less than `38.05%` of Python3 online submissions for Nim Game. <br>
+
+
+
+# [342. Power of Four](https://leetcode.com/problems/power-of-four/)
+
+## 풀이 방법 1
+
+1. 양수인 `n`을 이진수로 변환
+2. 각 이진수를 int형변환하고 `num`리스트에 저장
+3. 이진수가 짝수개이면 4의 제곱이 아니므로 return 
+4. `num`리스트에서 0번째를 제외한 모든 값을 or연산
+    - 모든값이 0 일때만 4의 제곱수
+5. 연산한 결과 `result` not 연산하여 반환
+
+시간복잡성 : O(log n)  
+공간복잡성 : O(1)
+
+```python
+class Solution:
+    def isPowerOfFour(self, n: int) -> bool:
+        if n < 1: return False
+        
+        nums = list(map(int, bin(n)[2:]))
+        if len(nums)%2==0: return False
+        
+        result = False
+        for num in nums[1:]:
+            result |= num
+        return not result
+```
+
+**2020-12-15**
+
+> Runtime: `16 ms`, faster than `99.80%` of Python3 online submissions for Power of Four. <br>
+> Memory Usage: `14.3 MB`, less than `17.90%` of Python3 online submissions for Power of Four. <br>
+
+
+## 풀이 방법 2
+
+1. 양수인 `n`을 2비트 우쉬프트 연산결과 곱하기 4일때 `n`과 동일하면서 `n`비트 갯수가 홀수 일때 `res`변수에 `True` 대입
+2. 그 외 경우 `res` 반환
+3. `n`을 2비트 우쉬프트 연산
+4. 위의 과정을 `n` 1 이하일때 까지 반복하고 `res` 반환
+
+시간복잡성 : O(log n)  
+공간복잡성 : O(1)
+
+```python
+class Solution:
+    def isPowerOfFour(self, n: int) -> bool:
+        if n == 1: return True
+        res = False
+        while 1 < n:
+            res = False
+            if (n>>2)*4 == n and len(bin(n))%2==1:
+                res = True
+            else:
+                return res
+            n >>= 2
+        return res
+```
+
+**2020-12-15**
+
+> Runtime: `28 ms`, faster than `82.04%` of Python3 online submissions for Power of Four. <br>
+> Memory Usage: `14 MB`, less than `82.10%` of Python3 online submissions for Power of Four. <br>
 
 
 
 # [1678. Goal Parser Interpretation](https://leetcode.com/problems/goal-parser-interpretation/)
 
-1. replace문으로 `()` -> `o`, `(al)` -> `al` 변환하여 반환
+1. `command`문자열에서 `()` -> `o`, `(al)` -> `al` 문자열 변환하여 반환
 
 ```python
 class Solution:
