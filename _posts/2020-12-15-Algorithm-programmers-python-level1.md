@@ -91,13 +91,13 @@ def solution(n, lost, reserve):
     
     for i in range(n):
         if 1 <= person_list[i]: 
-            pass
-        elif person_list[i-1] == 2: 
+            answer += 1
+        elif person_list[i-1] == 2 and i != 0: 
             person_list[i], person_list[i-1] = 1, 1
-        elif person_list[i+1] == 2: 
+            answer += 1
+        elif person_list[i+1] == 2 and i != n-1: 
             person_list[i], person_list[i+1] = 1, 1
-        
-        if 1 <= person_list[i]: answer += 1
+            answer += 1
     
     return answer
 ```
