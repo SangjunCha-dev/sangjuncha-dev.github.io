@@ -705,6 +705,9 @@ def prime(num):
 > min TaseCase : 0.01ms, 10.2MB  
 > max TaseCase : 0.04ms, 10.2MB  
 
+```
+유클리드 호제법을 사용하면 간결하게 작성 가능하다.
+```
 
 
 # [콜라츠 추측](https://programmers.co.kr/learn/courses/30/lessons/12943)
