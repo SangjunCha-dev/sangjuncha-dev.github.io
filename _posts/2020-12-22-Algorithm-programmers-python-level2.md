@@ -36,8 +36,25 @@ def solution(priorities, location):
                 location = len(priorities)-1
         priorities.pop(0)
         location -= 1
-    
     return cnt
+```
+
+```python
+# 고치는중
+def solution(priorities, location):
+    answer = 1
+    while True:
+        num_max = max(priorities)
+        cursor = priorities.pop(0)
+        if cursor == num_max:
+            answer += 1
+            if location == 0:
+                return answer
+        else:
+            if location == 0:
+                location = len(priorities)
+            priorities.append(cursor)
+        location -= 1
 ```
 
 **2020-12-22**
