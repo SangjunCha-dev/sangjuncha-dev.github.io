@@ -392,7 +392,7 @@ def solution(a, b):
     return answer
 ```
 
-**2020**
+**2020-12-18**
 
 > 채점 결과  
 > 합계: 100.0 / 100.0  
@@ -791,7 +791,7 @@ def solution(phone_number):
     return ('*' * (len(phone_number)-4)) + phone_number[-4:]
 ```
 
-**2020**
+**2020-12-22**
 
 > 채점 결과  
 > 합계: 100.0 / 100.0  
@@ -840,7 +840,7 @@ def solution(x, n):
     return answer
 ```
 
-**2020**
+**2020-12-22**
 
 > 채점 결과  
 > 합계: 100.0 / 100.0  
@@ -849,21 +849,22 @@ def solution(x, n):
 
 
 
-<!--
-# []()
+# [직사각형 별찍기](https://programmers.co.kr/learn/courses/30/lessons/12969)
 
-분류 : 
+분류 : 연습문제
 
-1. 
+1. 입력값 `n`가로길이, `m`세로길이만큼 `*`출력
 
 ```python
-
+n, m = map(int, input().strip().split(' '))
+print(('*' * n + '\n') * m)
 ```
 
-**2020**
+**2020-12-22**
 
 > 채점 결과  
 > 합계: 100.0 / 100.0  
-> min TaseCase :   
-> max TaseCase :   
--->
+> min TaseCase : 12.37ms, 7.54MB  
+> max TaseCase : 15.18ms, 7.6MB  
+
+
