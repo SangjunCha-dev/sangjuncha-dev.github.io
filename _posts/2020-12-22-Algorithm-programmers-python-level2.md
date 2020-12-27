@@ -186,11 +186,8 @@ def solution(bridge_length, weight, truck_weights):
 3. `w+h-1` 곱하기 `gcd`값이 색칠된 사각형 갯수 `line_pixel`변수에 대입
 4. 반환값은 사각형의 면적인 `w*h`에서 `line_pixel`값을 뺄셈하여 반환 
 
-소인수를 소수로 구하는 방법으로 변경필요(속도문제)
-
 ```python
 def solution(w,h):
-    angle = w/h
     gcd = 1
     
     dict1 = prime(w)
@@ -222,12 +219,42 @@ def prime(num):
 
 > 채점 결과  
 > 합계: 100.0 / 100.0  
-> min TaseCase : 0.01ms, 10.1MB  
-> max TaseCase : 6878.89ms, 10.1MB  
+> min TaseCase : 0.01ms, 10MB  
+> max TaseCase : 6345.39ms, 10.1MB  
 
 ## 방법2
 
-1. `h`값이 정수로 나오기위한 최소 `w`값을 구하기 위해 최대공약수를 math 라이브러리의 gcd 함수로 구하고 `gcd`변수에 대입
+1. `h`값이 정수로 나오기위한 정수 최소 `w`값을 구하기 위해 최대공약수 구하기 
+- 유클리드 호제법 공식으로 최대공약수 구하여 `n_gcd` 변수에 대입
+2. 이때 색칠된 픽셀의 갯수는 `w+h-1`개
+3. `w+h-1` 곱하기 `gcd`값이 색칠된 사각형 갯수 `line_pixel`변수에 대입
+4. 반환값은 사각형의 면적인 `w*h`에서 `line_pixel`값을 뺄셈하여 반환 
+
+```python
+def solution(w,h):
+    n_gcd = gcd(max(w,h), min(w,h))
+    
+    line_pixel = ((w+h)/n_gcd-1) * n_gcd
+    return w*h-int(line_pixel)
+
+def gcd(n_max, n_min):
+    while n_min != 0:
+       t = n_max % n_min
+       (n_max, n_min) = (n_min, t)
+    return abs(n_max)
+```
+
+**2020-12-27**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 10.1MB  
+> max TaseCase : 0.01ms, 10.3MB  
+
+## 방법3
+
+1. `h`값이 정수로 나오기위한 정수 최소 `w`값을 구하기 위해 최대공약수 구하기
+- math 라이브러리의 gcd 함수로 구하고 `gcd`변수에 대입
 2. 이때 색칠된 픽셀의 갯수는 `w+h-1`개
 3. `w+h-1` 곱하기 `gcd`값이 색칠된 사각형 갯수 `line_pixel`변수에 대입
 4. 반환값은 사각형의 면적인 `w*h`에서 `line_pixel`값을 뺄셈하여 반환 
@@ -236,7 +263,6 @@ def prime(num):
 import math
 
 def solution(w,h):
-    angle = w/h
     gcd = math.gcd(w,h)
     
     line_pixel = ((w+h)/gcd-1) * gcd
@@ -260,27 +286,55 @@ def solution(w,h):
 
 ```python
 def solution(name):
+    text_len = len(name)
     alphabet = ['A',\
                 'B','C','D','E','F','G','H','I','J','K','L','M','N',\
                 'Z','Y','X','W','V','U','T','S','R','Q','P','O']
     
     cnt_list = []
+    tf_list = [False] * text_len
     cnt_a2, cnt_true = 0, True
-    for i in range(len(name)):
+    for i in range(text_len):
         index = alphabet.index(name[i])
         cnt_list.append(index if index <= 13 else index-13)
+        if index: tf_list[i] = True
+
         if i == 0:
             pass
         elif cnt_true and not index and (0 != i):
             cnt_a2 += 1
         else:
             cnt_true = False
-    cnt_list.append(len(name)-1)
+    cnt_list.append(text_len-1)
     
+    i = 0
+    cnt = 0
+    distance_r = 0
+    distance_l = 0
+    while tf_list.count(True):
+        tf_list[i] = False
+        cnt += 1
+        
+        for j in range(i, i+text_len):
+            distance_r += 1
+            if tf_list[i+j]:
+                break
+        
+        for j in range(i, i+text_len):
+            distance_l += 1
+            if tf_list[i-j]:
+                break
+
+        i = (i+1)%text_len if distance_l <= distance_r else (i-1)%text_len
+        distance_r = 0
+        distance_l = 0
+        print(f"cnt = {cnt}")
+    print(f"cnt = {cnt}")
+
+
     cnt_a1, cnt_true = 0, True
     for i in range(len(name)-1, 0, -1):
-        index = alphabet.index(name[i])
-        if cnt_true and not index:
+        if cnt_true and not cnt_list[i]:
             cnt_a1 += 1
         else:
             break
