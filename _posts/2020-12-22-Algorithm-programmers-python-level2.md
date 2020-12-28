@@ -225,19 +225,19 @@ def prime(num):
 ## 방법2
 
 1. `h`값이 정수로 나오기위한 정수 최소 `w`값을 구하기 위해 최대공약수 구하기 
-- 유클리드 호제법 공식으로 최대공약수 구하여 `n_gcd` 변수에 대입
+- 유클리드 호제법 공식으로 최대공약수 구하여 `v_gcd` 변수에 대입
 2. 이때 색칠된 픽셀의 갯수는 `w+h-1`개
 3. `w+h-1` 곱하기 `gcd`값이 색칠된 사각형 갯수 `line_pixel`변수에 대입
 4. 반환값은 사각형의 면적인 `w*h`에서 `line_pixel`값을 뺄셈하여 반환 
 
 ```python
 def solution(w,h):
-    n_gcd = gcd(max(w,h), min(w,h))
+    v_gcd = f_gcd(max(w,h), min(w,h))
     
-    line_pixel = ((w+h)/n_gcd-1) * n_gcd
+    line_pixel = ((w+h)/v_gcd-1) * v_gcd
     return w*h-int(line_pixel)
 
-def gcd(n_max, n_min):
+def f_gcd(n_max, n_min):
     while n_min != 0:
        t = n_max % n_min
        (n_max, n_min) = (n_min, t)
@@ -282,78 +282,96 @@ def solution(w,h):
 
 분류 : 탐욕법(Greedy)
 
-1. 
+변수 정의
+- move_cnt : 조이스틱이 움직인 횟수
+- text_len : 입력받은 문자열 길이
+- alphabet : 조이스틱 위아래 움직인 횟수에 따른 알파벳 문자목록
+- tf_list : 문자 'A'를 제외한 다른문자 여부목록
+- distance_r : 기준위치 오른쪽으로 `True` 까지의 거리
+- distance_l : 기준위치 왼쪽으로 `True` 까지의 거리
+
+1. 필요한 변수 선언 및 초기화
+2. 문자열 길이만큼 for 반복문을 실행
+    - alphabet리스트에서 `name[i]`값의 위치를 `index`변수에 대입
+    - `B~N`까지는 조이스틱 위로 이동한것으로 `index` + `move_cnt`값을 `move_cnt`변수에 대입
+    - `Z~O`까지는 조이스틱 아래로 이동한것으로 `index-13` + `move_cnt`값을 `move_cnt`변수에 대입
+    - 해당 문자로 변환하기까지의 조이스틱 움직인 횟수를 구함
+3. `tf_list`리스트에서 `True`값이 있을때만 while 반복문 실행
+    - 1부터 `text_len`까지 반복하여 `tf_list[(i+j)%text_len]`값에 `True`값 나올때까지 `distance_r`변수 1증가
+        - 기준위치 오른쪽으로 `True`값 까지의 거리
+    - 1부터 `text_len`까지 반복하여 `tf_list[(i-j)%text_len]`값에 `True`값 나올때까지 `distance_l`변수 1증가
+        - 기준위치 왼쪽으로 `True`값 까지의 거리
+    - `distance_l`값보다 `distance_r`값이 클때 `(i-1)%text_len`값을 `i`변수에 대입
+        - 기준위치 왼쪽으로 1이동
+    - `distance_l`값보다 `distance_r`값이 작거나 같을때 `(i+1)%text_len`값을 `i`변수에 대입
+        - 기준위치 오른쪽으로 1이동
+    - 거리 확인한 `tf_list[i]`값은 `False`값 대입하고 `move_cnt`변수 1증가
 
 ```python
 def solution(name):
+    move_cnt = 0
     text_len = len(name)
     alphabet = ['A',\
                 'B','C','D','E','F','G','H','I','J','K','L','M','N',\
                 'Z','Y','X','W','V','U','T','S','R','Q','P','O']
     
-    cnt_list = []
     tf_list = [False] * text_len
-    cnt_a2, cnt_true = 0, True
     for i in range(text_len):
         index = alphabet.index(name[i])
-        cnt_list.append(index if index <= 13 else index-13)
+        move_cnt = move_cnt+index if index <= 13 else move_cnt+(index-13)
         if index: tf_list[i] = True
-
-        if i == 0:
-            pass
-        elif cnt_true and not index and (0 != i):
-            cnt_a2 += 1
-        else:
-            cnt_true = False
-    cnt_list.append(text_len-1)
     
+    tf_list[0] = False
     i = 0
-    cnt = 0
-    distance_r = 0
-    distance_l = 0
     while tf_list.count(True):
-        tf_list[i] = False
-        cnt += 1
-        
-        for j in range(i, i+text_len):
-            distance_r += 1
-            if tf_list[i+j]:
-                break
-        
-        for j in range(i, i+text_len):
-            distance_l += 1
-            if tf_list[i-j]:
-                break
-
-        i = (i+1)%text_len if distance_l <= distance_r else (i-1)%text_len
         distance_r = 0
         distance_l = 0
-        print(f"cnt = {cnt}")
-    print(f"cnt = {cnt}")
 
+        for j in range(1, text_len):
+            distance_r += 1
+            if tf_list[(i+j)%text_len]:
+                break
+        
+        for j in range(1, text_len):
+            distance_l += 1
+            if tf_list[(i-j)%text_len]:
+                break
 
-    cnt_a1, cnt_true = 0, True
-    for i in range(len(name)-1, 0, -1):
-        if cnt_true and not cnt_list[i]:
-            cnt_a1 += 1
-        else:
-            break
-    
-    cnt1 = sum(cnt_list)-cnt_a1
-    cnt2 = sum(cnt_list)-cnt_a2
-    min_cnt = cnt1 if cnt1 < cnt2 else cnt2
-    return min_cnt
+        i = (i-1)%text_len if distance_l < distance_r else (i+1)%text_len
+        tf_list[i] = False
+        
+        move_cnt += 1
+
+    return move_cnt
 ```
 
-**2020-12-24**
+**2020-12-28**
 
 > 채점 결과  
-> 합계: 90.9 / 100.0  
+> 합계: 100.0 / 100.0  
 > min TaseCase : 0.01ms, 10.1MB  
-> max TaseCase : 0.02ms, 10.3MB  
+> max TaseCase : 0.03ms, 10.3MB  
 
 
 
+# [가장 큰 수](https://programmers.co.kr/learn/courses/30/lessons/42746)
+
+분류 : 정렬
+
+1. 
+
+map 사용하지 않고 메모리 사용하기
+
+```python
+
+```
+
+**2020**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase :   
+> max TaseCase :   
 <!--
 # []()
 
