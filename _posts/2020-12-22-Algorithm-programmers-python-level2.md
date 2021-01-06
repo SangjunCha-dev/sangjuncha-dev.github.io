@@ -358,20 +358,36 @@ def solution(name):
 
 분류 : 정렬
 
-1. 
+변수 정의
+- int(math.log10(x)+1 if x else 0) : 입력값 x의 자릿수 구하기
 
-map 사용하지 않고 메모리 사용하기
+1. sort함수를 사용하여 `numbers` 리스트 역정렬
+2. 첫번째 정렬조건 원소 `x`문자열에 `x[0]` 문자를 (최대자릿수-x자릿수)만큼 추가하여 비교
+3. 두번째 정렬조건 `x%10` 나머지 값으로 정렬 
+4. 정렬된 `numbers` 첫번째 값이 0 아닐때 `numbers`리스트를 하나의 문자열로 합쳐서 반환
+5. 정렬된 `numbers` 첫번째 값이 0 이면 `'0'` 반환
+
+검증 테스트 케이스
+- [12, 121] -> '12121'  case 1-6
+- [21, 212] -> '21221'  case 1-6
+- [0, 0, 0] -> '0'      case 11
 
 ```python
+import math
 
+def solution(numbers):
+    numbers.sort(key=lambda x: (int(str(x)+(str(x)[0]*(4-int(math.log10(x)+1 if x else 0)))), x%10), reverse=True)
+    return ''.join(map(str, numbers)) if numbers[0] != 0 else '0'
 ```
 
-**2020**
+**2021-01-07**
 
 > 채점 결과  
 > 합계: 100.0 / 100.0  
-> min TaseCase :   
-> max TaseCase :   
+> min TaseCase : 0.04ms, 10.3MB  
+> max TaseCase : 134.49ms, 23.8MB  
+
+
 <!--
 # []()
 
@@ -383,7 +399,7 @@ map 사용하지 않고 메모리 사용하기
 
 ```
 
-**2020**
+**2021**
 
 > 채점 결과  
 > 합계: 100.0 / 100.0  
