@@ -358,18 +358,20 @@ def solution(name):
 
 분류 : 정렬
 
+## 방법1
+
 변수 정의
 - int(math.log10(x)+1 if x else 0) : 입력값 x의 자릿수 구하기
 
 1. sort함수를 사용하여 `numbers` 리스트 역정렬
-2. 첫번째 정렬조건 원소 `x`문자열에 `x[0]` 문자를 (최대자릿수-x자릿수)만큼 추가하여 비교
+2. 첫번째 정렬조건 원소 `x`문자열에 `x[0]` 문자를 (최대자릿수-`x`자릿수)만큼 추가하여 비교
 3. 두번째 정렬조건 `x%10` 나머지 값으로 정렬 
 4. 정렬된 `numbers` 첫번째 값이 0 아닐때 `numbers`리스트를 하나의 문자열로 합쳐서 반환
-5. 정렬된 `numbers` 첫번째 값이 0 이면 `'0'` 반환
+5. 정렬된 `numbers` 첫번째 값이 0 이면 `'0'` 문자반환
 
 검증 테스트 케이스
-- [12, 121] -> '12121'  case 1-6
-- [21, 212] -> '21221'  case 1-6
+- [12, 121] -> '12121'  case 1~6
+- [21, 212] -> '21221'  case 1~6
 - [0, 0, 0] -> '0'      case 11
 
 ```python
@@ -386,6 +388,41 @@ def solution(numbers):
 > 합계: 100.0 / 100.0  
 > min TaseCase : 0.04ms, 10.3MB  
 > max TaseCase : 134.49ms, 23.8MB  
+
+## 방법2
+
+1. `numbers`리스트 int형 원소들을 str형으로 변환
+2. 원소 x 문자길이를 증가시키기위해 3배로 
+
+```python
+def solution(numbers):
+    numbers = list(map(str, numbers))
+    numbers.sort(key=lambda x : x*3, reverse=True)
+    return ''.join(numbers) if numbers[0] != '0' else '0'
+```
+
+**2021-01-07**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 10.2MB  
+> max TaseCase : 56.59ms, 27.5MB  
+
+## 방법3
+
+```python
+def solution(numbers):
+    numbers = sorted(list(map(str, numbers)), key=lambda x: x*3, reverse=True)
+    return ''.join(numbers) if numbers[0] != '0' else '0'
+```
+
+**2021-01-07**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 10.1MB  
+> max TaseCase : 55.10ms, 28.2MB  
+
 
 
 <!--
