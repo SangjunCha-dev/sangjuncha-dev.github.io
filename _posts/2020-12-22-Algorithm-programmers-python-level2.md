@@ -1,9 +1,9 @@
 ---
 title: Programmers Python (level 2)
-author: Sang Jun
+author: Sangjun Cha
 date: 2020-12-22 22:38:31 +0900
 categories: [Algorithm, Programmers]
-tags: [algorithm, programmers]
+tags: [algorithm, programmers, python]
 pin: false
 ---
 
@@ -391,8 +391,12 @@ def solution(numbers):
 
 ## 방법2
 
-1. `numbers`리스트 int형 원소들을 str형으로 변환
-2. 원소 x 문자길이를 증가시키기위해 3배로 
+1. `numbers`리스트 int형 원소들을 map함수로 str형으로 변환
+2. 원소 x 문자길이를 증가시키기위해 문자열길이 3배 증가시켜 역정렬
+- 30, 34, 3 -> 303030, 343434, 333 첫문자부터 비교
+- 입력정수는 최대 1000이하 이므로 *3 부터 문제없이 실행가능
+3. 정렬된 `numbers` 첫번째 값이 0 아닐때 `numbers`리스트를 하나의 문자열로 합쳐서 반환
+4. 정렬된 `numbers` 첫번째 값이 0 이면 `'0'` 문자반환
 
 ```python
 def solution(numbers):
@@ -409,6 +413,9 @@ def solution(numbers):
 > max TaseCase : 56.59ms, 27.5MB  
 
 ## 방법3
+
+1. 방법2와 동일한 알고리즘이나 2줄로 작성하기위해 `sorted` 함수를 사용
+- `sorted`와`sort`는 정렬 과정은 동일하나 `sorted`의 경우 리스트 복사과정이 추가되어 메모리를 추가로 할당받음 
 
 ```python
 def solution(numbers):

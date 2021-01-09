@@ -1,9 +1,9 @@
 ---
 title: LeetCode Python (Easy)
-author: Sang Jun
+author: Sangjun Cha
 date: 2020-12-01 17:30:00 +0900
 categories: [Algorithm, LeetCode]
-tags: [algorithm, leetcode]
+tags: [algorithm, leetcode, python]
 pin: false
 ---
 
