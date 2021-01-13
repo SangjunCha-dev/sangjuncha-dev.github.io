@@ -432,6 +432,96 @@ def solution(numbers):
 
 
 
+# [소수 찾기](https://programmers.co.kr/learn/courses/30/lessons/42839)
+
+분류 : 완전탐색
+
+1. 입력받은 `numbers` 문자열로 만들수 있는 모든 정수형 리스트 `numbers_list` 생성
+    - permutations 라이브러리를 사용하여 조합할 수 있는 모든 값 생성
+2. `numbers_list` 리스트 중복제거
+3. `numbers_list` 리스트를 `prime_number`함수로 소수 판별
+    - 숫자 num의 약수는 제곱근(num) 범위에 있다 원리를 이용하여 판별
+4. 판별결과를 `answer`변수에 합산하여 반환
+
+```python
+from itertools import permutations
+
+def solution(numbers):
+    answer = 0
+    numbers_list = []
+
+    # 모든 정수형 리스트 만들기
+    for i in range(1, len(numbers)+1):
+        num_list = list(permutations(list(numbers), i))
+
+        for num in num_list:
+            numbers_list.append(int(''.join(list(num))))
+
+    # 중복제거
+    numbers_list = list(set(map(int, numbers_list)))
+    
+    # 소수 판별후 갯수 체크
+    for num in numbers_list:
+        if prime_number(num):
+            answer += 1
+    
+    return answer
+
+def prime_number(num):
+    if num == 2:
+        return True
+    elif (num < 2) or (num%2 == 0):
+        return False
+
+    i = 3
+    while i < num**0.5+1: 
+        if num == i:
+            break
+        elif num%i == 0:
+            return False
+        i += 2
+
+    return True
+```
+
+**2021-01-09**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.04ms, 10.4MB  
+> max TaseCase : 13.19ms, 10.6MB  
+
+
+
+# [큰 수 만들기](https://programmers.co.kr/learn/courses/30/lessons/42883)
+
+분류 : 탐욕법(Greedy)
+
+Test Case 1
+> number = '2211'
+> k = 2
+> return = '2'
+
+Test Case 2
+> number = '1234543212345'
+> k = 7
+> return = '543345'
+
+1. 
+
+```python
+
+```
+
+**2021**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase :   
+> max TaseCase :   
+
+
+
 <!--
 # []()
 
