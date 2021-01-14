@@ -604,8 +604,6 @@ Test Case
 
 |clothes(string[][])|Return |
 |----               |----   |
-|[["yellow_hat", "headgear"], ["blue_sunglasses", "eyewear"], ["green_turban", "headgear"]] |5|
-|[["crow_mask", "face"], ["blue_sunglasses", "face"], ["smoky_makeup", "face"]]             |3|
 |[['a', 'a'], ['b', 'b'], ['c', 'c']]                                                       |7|
 |[[1, 'a'], [2, 'a'], [3, 'a'], [1, 'b'], [2, 'b'], [3, 'b'], [1, 'c'], [2, 'c'], [3, 'c']] |63|
 
@@ -640,26 +638,40 @@ def solution(clothes):
 
 분류 : 완전탐색
 
+Test Case  
+
+|brown(int) |yellow(int)|return |
+|-          |-          |-      |
+|18         |6          |6      |
+
+1. (산술기하평균 공식)과 (약수 중간값은 수의 제곱근 이하) 2가지 공식 이용
+
+```python
+def solution(brown, yellow):
+    sqrt = int(yellow**0.5)
+    while 0 < sqrt:
+        if (yellow%sqrt == 0) and ((yellow/sqrt+2)*(sqrt+2) == brown+yellow):
+            return [yellow/sqrt+2, sqrt+2]
+        sqrt -= 1
+```
+
+**2021-01-14**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 10MB  
+> max TaseCase : 0.06ms, 10.3MB  
+
+
+
+# [타겟 넘버](https://programmers.co.kr/learn/courses/30/lessons/43165)
+
+분류 : 깊이/너비 우선 탐색(DFS/BFS)
+
 1. 
 
 ```python
 
-
-def prime_number(num):
-    if num == 2:
-        return True
-    elif (num < 2) or (num%2 == 0):
-        return False
-
-    i = 3
-    while i < num**0.5+1: 
-        if num == i:
-            break
-        elif num%i == 0:
-            return False
-        i += 2
-
-    return True
 ```
 
 **2021**
@@ -667,8 +679,7 @@ def prime_number(num):
 > 채점 결과  
 > 합계: 100.0 / 100.0  
 > min TaseCase :   
-> max TaseCase :   
-
+> max TaseCase :  
 
 
 <!--
