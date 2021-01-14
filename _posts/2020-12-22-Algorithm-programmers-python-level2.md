@@ -607,7 +607,7 @@ Test Case
 |[['a', 'a'], ['b', 'b'], ['c', 'c']]                                                       |7|
 |[[1, 'a'], [2, 'a'], [3, 'a'], [1, 'b'], [2, 'b'], [3, 'b'], [1, 'c'], [2, 'c'], [3, 'c']] |63|
 
-1. 테스트 케이스 4번 예시로 순열 `(3C0 + 3C1) * (3C0 + 3C1) * (3C0 + 3C1) - 1` 조합의 갯수이다.
+1. 테스트 케이스 2번째 예시로 순열 `(3C0 + 3C1) * (3C0 + 3C1) * (3C0 + 3C1) - 1` 조합의 갯수이다.
 
 ```python
 def solution(clothes):
@@ -680,6 +680,30 @@ def solution(brown, yellow):
 > 합계: 100.0 / 100.0  
 > min TaseCase :   
 > max TaseCase :  
+
+
+
+# [이진 변환 반복하기](https://programmers.co.kr/learn/courses/30/lessons/70129)
+
+분류 : 월간 코드 챌린지 시즌1
+
+```python
+def solution(s):
+    bin_cnt, zero_cnt = 0, 0
+    while s != '1':
+        cnt = s.count('0')
+        s = str(bin(len(s)-cnt))[2:]
+        bin_cnt += 1
+        zero_cnt += cnt 
+    return [bin_cnt, zero_cnt]
+```
+
+**2021-01-14**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 10.2MB  
+> max TaseCase : 0.64ms, 10.3MB  
 
 
 <!--
