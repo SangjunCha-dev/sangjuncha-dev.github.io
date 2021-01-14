@@ -534,19 +534,105 @@ def solution(number, k):
 
 분류 : 정렬
 
-1. 
+Test Case  
+
+|citations(int[])           |return |
+|------                     |-      |
+|[12, 11, 0]                |2      |
+|[6, 6, 6, 6, 6, 1]         |5      |
+|[0, 1, 1, 1, 1, 3, 3, 4]   |1      |
+
+## 방법1
 
 ```python
+def solution(citations):
+    citations.sort(reverse=True)
 
+    h_index = 0
+    list_len = len(citations)
+    for i in range(list_len):
+        if citations[i] < h_index+1:
+            if h_index < list_len-(i+1):
+                h_index -= 1
+            else:
+                break
+        else:
+            h_index += 1
+    return h_index
 ```
 
-**2021**
+**2021-01-14**
 
 > 채점 결과  
 > 합계: 100.0 / 100.0  
-> min TaseCase :   
-> max TaseCase :   
+> min TaseCase : 0.00ms, 10.2MB  
+> max TaseCase : 0.25ms, 10.2MB  
 
+## 방법2
+
+Test Case  
+
+|citations(int[])           |return |
+|------                     |-      |
+|[12, 11, 0]                |2      |
+|[6, 6, 6, 6, 6, 1]         |5      |
+
+1. 방법1 3번째 Test Case 예외처리 안한 코드
+
+```python
+def solution(citations):
+    citations.sort(reverse=True)
+    for i, num in enumerate(citations, start=1):
+        if num < i: return i-1
+    return i
+```
+
+**2021-01-14**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 10.1MB  
+> max TaseCase : 0.18ms, 10.2MB  
+
+
+
+# [위장](https://programmers.co.kr/learn/courses/30/lessons/42578)
+
+분류 : 해시
+
+Test Case
+
+|clothes(string[][])|Return |
+|----               |----   |
+|[["yellow_hat", "headgear"], ["blue_sunglasses", "eyewear"], ["green_turban", "headgear"]] |5|
+|[["crow_mask", "face"], ["blue_sunglasses", "face"], ["smoky_makeup", "face"]]             |3|
+|[['a', 'a'], ['b', 'b'], ['c', 'c']]                                                       |7|
+|[[1, 'a'], [2, 'a'], [3, 'a'], [1, 'b'], [2, 'b'], [3, 'b'], [1, 'c'], [2, 'c'], [3, 'c']] |63|
+
+1. 테스트 케이스 4번 예시로 순열 `(3C0 + 3C1) * (3C0 + 3C1) * (3C0 + 3C1) - 1` 조합의 갯수이다.
+
+```python
+def solution(clothes):
+    clothes_dict = {}
+    # 카테고리명과 해당 카테고리 갯수 추출
+    for cloth in clothes:
+        if cloth[1] in clothes_dict:
+            clothes_dict[cloth[1]] += 1
+        else:
+            clothes_dict[cloth[1]] = 1
+    # 조합 연산
+    answer = 1
+    for cloth in clothes_dict.values():
+        answer *= cloth+1
+    return answer-1
+```
+
+**2021-01-14**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.00ms, 10.2MB  
+> max TaseCase : 0.02ms, 10.2MB  
 
 <!--
 # []()
