@@ -495,7 +495,7 @@ def prime_number(num):
 
 # [큰 수 만들기](https://programmers.co.kr/learn/courses/30/lessons/42883)
 
-분류 : 탐욕법(Greedy)  
+분류 : 탐욕법(Greedy)
 
 Test Case  
 
@@ -509,26 +509,18 @@ Test Case
 ```python
 def solution(number, k):
     # 앞숫자가 뒷숫자보다 작은 수일때 앞숫자 삭제
-    i, j = 0, 0
     answer = number[0]
     for j in range(1, len(number)):
+        answer += number[j]
         # 뒤에 숫자가 클때
-        if answer[i] < number[j]:
-            answer = answer[:i] + number[j]
-            k -= 1
-
-            while i and answer[i-1] < answer[i] and k:
-                answer = answer[:i-1] + answer[i]
+        try:
+            while answer[-2] < answer[-1] and k:
+                answer = answer[:-2] + answer[-1]
                 k -= 1
-                i -= 1
-            if not k: break
-
-        # 뒤에 숫자가 같거나 작을때
-        else:
-            answer += number[j]
-            i += 1
-
-    answer += number[j+1:]
+        except IndexError: pass
+        if not k: 
+            answer += number[j+1:]
+            break
     return answer[:len(answer)-k]
 ```
 
@@ -537,7 +529,7 @@ def solution(number, k):
 > 채점 결과  
 > 합계: 100.0 / 100.0  
 > min TaseCase : 0.01ms, 10.1MB  
-> max TaseCase : 206.60ms, 11.3MB  
+> max TaseCase : 190.93ms, 11.4MB  
 
 
 
