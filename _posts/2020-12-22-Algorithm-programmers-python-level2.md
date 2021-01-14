@@ -634,6 +634,43 @@ def solution(clothes):
 > min TaseCase : 0.00ms, 10.2MB  
 > max TaseCase : 0.02ms, 10.2MB  
 
+
+
+# [카펫](https://programmers.co.kr/learn/courses/30/lessons/42842)
+
+분류 : 완전탐색
+
+1. 
+
+```python
+
+
+def prime_number(num):
+    if num == 2:
+        return True
+    elif (num < 2) or (num%2 == 0):
+        return False
+
+    i = 3
+    while i < num**0.5+1: 
+        if num == i:
+            break
+        elif num%i == 0:
+            return False
+        i += 2
+
+    return True
+```
+
+**2021**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase :   
+> max TaseCase :   
+
+
+
 <!--
 # []()
 
