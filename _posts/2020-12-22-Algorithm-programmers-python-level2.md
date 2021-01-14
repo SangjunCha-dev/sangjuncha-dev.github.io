@@ -506,30 +506,27 @@ Test Case
 |"87654321"|3|"87654"|
 |"54329"|4|"9"|
 
+1. 앞숫자가 뒷숫자보다 작은 수일때 앞숫자 삭제
+
 ```python
 def solution(number, k):
-    # 앞숫자가 뒷숫자보다 작은 수일때 앞숫자 삭제
     answer = number[0]
-    for j in range(1, len(number)):
-        answer += number[j]
-        # 뒤에 숫자가 클때
+    for i in number[1:]:
+        answer += i
         try:
-            while answer[-2] < answer[-1] and k:
+            while k and answer[-2] < answer[-1]:
                 answer = answer[:-2] + answer[-1]
                 k -= 1
         except IndexError: pass
-        if not k: 
-            answer += number[j+1:]
-            break
-    return answer[:len(answer)-k]
+    return answer[:-k] if k else answer
 ```
 
 **2021-01-13**
 
 > 채점 결과  
 > 합계: 100.0 / 100.0  
-> min TaseCase : 0.01ms, 10.1MB  
-> max TaseCase : 190.93ms, 11.4MB  
+> min TaseCase : 0.00ms, 10.1MB  
+> max TaseCase : 207.73ms, 11.6MB  
 
 
 
