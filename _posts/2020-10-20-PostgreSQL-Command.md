@@ -115,8 +115,8 @@ ALTER SEQUENCE "TableName_id_seq" RESTART WITH 1;
 ## 4.1 delete 테이블 데이터 삭제 및 ID값 초기화 예제
 
 ```sql
-delete from "UploadData" where id > 0;
-ALTER SEQUENCE "UploadData_id_seq" RESTART WITH 1;
+delete from "DatasheetUpload" where id > 0;
+ALTER SEQUENCE "DatasheetUpload_id_seq" RESTART WITH 1;
 
 delete from "Annotations" where id > 0;
 ALTER SEQUENCE "Annotations_id_seq" RESTART WITH 1;
