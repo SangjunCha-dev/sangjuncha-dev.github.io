@@ -694,7 +694,7 @@ def solution(s):
         cnt = s.count('0')
         s = str(bin(len(s)-cnt))[2:]
         bin_cnt += 1
-        zero_cnt += cnt 
+        zero_cnt += cnt
     return [bin_cnt, zero_cnt]
 ```
 
@@ -704,6 +704,66 @@ def solution(s):
 > 합계: 100.0 / 100.0  
 > min TaseCase : 0.01ms, 10.2MB  
 > max TaseCase : 0.64ms, 10.3MB  
+
+
+
+# [최댓값과 최솟값](https://programmers.co.kr/learn/courses/30/lessons/12939)
+
+분류 : 연습문제
+
+```python
+def solution(s):
+    s = list(map(int, s.split(' ')))
+    return f"{min(s)} {max(s)}"
+```
+
+**2021-01-18**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.02ms, 10.3MB  
+> max TaseCase : 0.05ms, 10.3MB  
+
+
+
+# [피보나치 수](https://programmers.co.kr/learn/courses/30/lessons/12945)
+
+분류 : 연습문제
+
+## 방법1
+
+```python
+def solution(n):
+    num_list = [0, 1] + [0] * (n-1)
+    for i in range(2, len(num_list[2:])+2):
+        num_list[i] = num_list[i-2] + num_list[i-1]
+    return num_list[-1]%1234567 if n else 0
+```
+
+**2021-01-18**
+
+> 채점 결과  
+> 합계: 0 / 100.0  
+> min TaseCase : 0.01ms, 10.1MB  
+> max TaseCase : 376.82ms, 456MB  
+
+## 방법2
+
+```python
+def solution(num):
+    n, m = 0, 1
+    for _ in range(1, num):
+        n, m = m, n+m
+    return m % 1234567 if n else 0
+```
+
+**2021-01-18**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.00ms, 10.1MB  
+> max TaseCase : 147.18ms, 10.1MB  
+
 
 
 <!--
