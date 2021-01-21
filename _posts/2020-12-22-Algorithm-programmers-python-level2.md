@@ -766,6 +766,77 @@ def solution(num):
 
 
 
+# [행렬의 곱셈](https://programmers.co.kr/learn/courses/30/lessons/12949)
+
+분류 : 연습문제
+
+|변수명|형식|크기|
+|-|-|-|
+|arr1|2차원리스트|m * k|
+|arr2|2차원리스트|k * n|
+|answer|2차원리스트|m * n|
+
+## 방법1
+
+```python
+def solution(arr1, arr2):
+    answer = []
+    for m, val1 in enumerate(arr1):
+        arr_list = []
+        for k in range(len(arr2[0])):
+            total = 0
+            for n, val2 in enumerate(arr2):
+                total += val1[n] * val2[k]
+            arr_list.append(total)
+        answer.append(arr_list)
+    return answer
+```
+
+**2021-01-21**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.56ms, 10.3MB  
+> max TaseCase : 52.38ms, 11MB  
+
+## 방법2
+
+```python
+def solution(arr1, arr2):
+    answer = [[0 for _ in range(len(arr2[0]))] for _ in range(len(arr1))]
+    for m, val1 in enumerate(arr1):
+        for k in range(len(arr2[0])):
+            for n, val2 in enumerate(arr2):
+                answer[m][k] += val1[n] * val2[k]
+    return answer
+```
+
+**2021-01-21**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.76ms, 10.3MB  
+> max TaseCase : 78.02ms, 11.2MB  
+
+
+# [JadenCase 문자열 만들기](https://programmers.co.kr/learn/courses/30/lessons/12951)
+
+분류 : 연습문제
+
+1. 
+
+```python
+
+```
+
+**2021**
+
+> 채점 결과  
+> 합계: 0 / 100.0  
+> min TaseCase :   
+> max TaseCase :   
+
+
 <!--
 # []()
 
