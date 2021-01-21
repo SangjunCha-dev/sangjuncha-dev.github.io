@@ -865,6 +865,73 @@ def solution(s):
 
 분류 : 연습문제
 
+1. 유클리드 호제법 사용
+
+## 방법1
+
+```python
+def solution(arr):
+    n_dict = {}
+    for n in arr:
+        for i, val in euclidean(n).items():
+            if (not i in n_dict) or (n_dict[i] < val):
+                n_dict[i] = val
+    answer = 1
+    for i, val in n_dict.items():
+        answer *= (i**val)
+    return answer
+
+def euclidean(n):
+    n_dict = {}
+    i = 2
+    while 1 < n:
+        if not n % i:
+            n //= i
+            n_dict[i] = n_dict[i] + 1 if i in n_dict else 1
+        else:
+            i += 1
+    return n_dict
+```
+
+**2021-01-21**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 10.2MB  
+> max TaseCase : 0.03ms, 10.2MB  
+
+## 방법2
+
+```python
+def solution(arr):
+    answer = arr[0]
+    for i in arr[1:]:
+        answer = lcm(answer, i)
+    return answer
+
+def lcm(m, n):
+    return m * n // gcd(m, n)
+
+def gcd(m, n):
+    while n != 0:
+       t = m % n
+       (m,n) = (n,t)
+    return m
+```
+
+**2021-01-21**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 10.1MB  
+> max TaseCase : 0.01ms, 10.3MB  
+
+
+
+# [소수 만들기](https://programmers.co.kr/learn/courses/30/lessons/12977)
+
+분류 : Summer/Winter Coding(~2018)
+
 1. 
 
 ```python
