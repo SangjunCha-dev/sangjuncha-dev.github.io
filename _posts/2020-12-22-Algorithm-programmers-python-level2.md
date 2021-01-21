@@ -497,7 +497,7 @@ def prime_number(num):
 
 분류 : 탐욕법(Greedy)
 
-Test Case  
+추가 Test Case  
 
 |number|k|return|
 |------|-|------|
@@ -534,7 +534,7 @@ def solution(number, k):
 
 분류 : 정렬
 
-Test Case  
+추가 Test Case  
 
 |citations(int[])           |return |
 |------                     |-      |
@@ -570,7 +570,7 @@ def solution(citations):
 
 ## 방법2
 
-Test Case  
+추가 Test Case  
 
 |citations(int[])           |return |
 |------                     |-      |
@@ -600,7 +600,7 @@ def solution(citations):
 
 분류 : 해시
 
-Test Case
+추가 Test Case
 
 |clothes(string[][])|Return |
 |----               |----   |
@@ -638,7 +638,7 @@ def solution(clothes):
 
 분류 : 완전탐색
 
-Test Case  
+추가 Test Case  
 
 |brown(int) |yellow(int)|return |
 |-          |-          |-      |
@@ -823,6 +823,48 @@ def solution(arr1, arr2):
 
 분류 : 연습문제
 
+추가 Test Case
+
+|s(string)|Return|
+|-|-|
+|"  a b  c   d  "|"  A B  C   D  "|
+
+## 방법1
+
+```python
+def solution(s):
+    return ' '.join([text[0].upper() + text[1:].lower() if text else '' for text in s.split(' ')])
+```
+
+**2021-01-21**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 9.98MB  
+> max TaseCase : 0.01ms, 10.3MB  
+
+## 방법2
+
+1. 내장함수 `capitalize()` : 문자열 첫 글자를 대문자로 변환
+
+```python
+def solution(s):
+    return ' '.join([text.capitalize() if text else '' for text in s.split(' ')])
+```
+
+**2021-01-21**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.00ms, 9.98MB  
+> max TaseCase : 0.01ms, 10.2MB  
+
+
+
+# [N개의 최소공배수](https://programmers.co.kr/learn/courses/30/lessons/12953)
+
+분류 : 연습문제
+
 1. 
 
 ```python
@@ -832,9 +874,10 @@ def solution(arr1, arr2):
 **2021**
 
 > 채점 결과  
-> 합계: 0 / 100.0  
+> 합계: 100.0 / 100.0  
 > min TaseCase :   
 > max TaseCase :   
+
 
 
 <!--
