@@ -461,26 +461,22 @@ def solution(numbers):
     numbers_list = list(set(map(int, numbers_list)))
     
     # 소수 판별후 갯수 체크
-    for num in numbers_list:
-        if prime_number(num):
+    for n in numbers_list:
+        if prime_number(n):
             answer += 1
     
     return answer
 
-def prime_number(num):
-    if num == 2:
+def prime_number(n):
+    if n == 2:
         return True
-    elif (num < 2) or (num%2 == 0):
+    elif (n % 2 == 0) or (n < 2):
         return False
 
-    i = 3
-    while i < num**0.5+1: 
-        if num == i:
-            break
-        elif num%i == 0:
+    sqrt = int(n**0.5)+1
+    for i in range(3,sqrt+1,2):
+        if n % i == 0:
             return False
-        i += 2
-
     return True
 ```
 
@@ -931,6 +927,83 @@ def gcd(m, n):
 # [소수 만들기](https://programmers.co.kr/learn/courses/30/lessons/12977)
 
 분류 : Summer/Winter Coding(~2018)
+
+2부터 제곱근까지 나머지 연산하여 0이 안 나올 때 소수로 판정
+
+## 방법1
+
+1. 순열로 조합 생성
+
+```python
+def solution(nums):
+    cnt = 0
+    nums_list = []
+
+    for i, val1 in enumerate(nums[:-2]):
+        for j, val2 in enumerate(nums[i+1:-1], start=i+1):
+            for val3 in nums[j+1:]:
+                if prime(sum([val1, val2, val3])):
+                    cnt += 1
+    return cnt
+
+def prime(n):
+    if n == 2:
+        return True
+    elif (n % 2 == 0) or (n < 2):
+        return False
+
+    sqrt = int(n**0.5)+1
+    for i in range(3,sqrt+1,2):
+        if n % i == 0:
+            return False
+    return True
+```
+
+**2021-01-23**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 10.2MB  
+> max TaseCase : 12.70ms, 10.3MB  
+
+## 방법2
+
+1. 중복되지 않은 원소를 가진 순열조합 combinations 함수
+
+```python
+from itertools import combinations
+def solution(nums):
+    cnt = 0
+    for n_list in combinations(nums, 3):
+        if prime(sum(n_list)):
+            cnt += 1
+    return cnt
+
+def prime(n):
+    if n == 2:
+        return True
+    elif (n % 2 == 0) or (n < 2):
+        return False
+
+    sqrt = int(n**0.5)+1
+    for i in range(3,sqrt+1,2):
+        if n % i == 0:
+            return False
+    return True
+```
+
+**2021-01-23**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 10.2MB  
+> max TaseCase : 12.11ms, 10.3MB  
+
+
+
+# [예상 대진표](https://programmers.co.kr/learn/courses/30/lessons/12985)
+
+분류 : 2017 팁스타운
 
 1. 
 
