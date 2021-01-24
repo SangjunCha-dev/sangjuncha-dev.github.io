@@ -358,6 +358,13 @@ def solution(name):
 
 분류 : 정렬
 
+추가 Test Case
+|numbers|Return|검증 case|
+|-|-|-|
+|[12, 121]|'12121'|case 1~6|
+|[21, 212]|'21221'|case 1~6|
+|[0, 0, 0]|'0'|case 11|
+
 ## 방법1
 
 변수 정의
@@ -368,11 +375,6 @@ def solution(name):
 3. 두번째 정렬조건 `x%10` 나머지 값으로 정렬 
 4. 정렬된 `numbers` 첫번째 값이 0 아닐때 `numbers`리스트를 하나의 문자열로 합쳐서 반환
 5. 정렬된 `numbers` 첫번째 값이 0 이면 `'0'` 문자반환
-
-검증 테스트 케이스
-- [12, 121] -> '12121'  case 1~6
-- [21, 212] -> '21221'  case 1~6
-- [0, 0, 0] -> '0'      case 11
 
 ```python
 import math
@@ -1005,18 +1007,24 @@ def prime(n):
 
 분류 : 2017 팁스타운
 
-1. 
-
 ```python
-
+def solution(n, a, b):
+    cnt = 1
+    while cnt <= 20:
+        a = (a+1) // 2
+        b = (b+1) // 2
+        if a == b:
+            break
+        cnt += 1
+    return cnt
 ```
 
-**2021**
+**2021-01-24**
 
 > 채점 결과  
 > 합계: 100.0 / 100.0  
-> min TaseCase :   
-> max TaseCase :   
+> min TaseCase : 0.00ms, 10.1MB  
+> max TaseCase : 0.01ms, 10.2MB  
 
 
 
