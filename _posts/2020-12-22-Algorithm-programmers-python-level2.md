@@ -774,6 +774,17 @@ def solution(num):
 |arr2|2차원리스트|k * n|
 |answer|2차원리스트|m * n|
 
+list 자료형 for문 반복문에서 사용할때 일반적인 속도순서(위부터 빠름)
+- for val in list:
+- for i in range(len(list)):
+- for i, val in enumerate(list):
+
+list 자료형 for문 반복문에서 사용할때 list 인젝싱포함될경우 속도순서(list 200개 이상)
+- for i, val in enumerate(list): 
+    - val 
+- for i in range(len(list)): 
+    - list[i]
+
 ## 방법1
 
 ```python
@@ -863,7 +874,7 @@ def solution(s):
 
 분류 : 연습문제
 
-1. 유클리드 호제법 사용
+유클리드 호제법 사용
 
 ## 방법1
 
@@ -1006,6 +1017,8 @@ def prime(n):
 # [예상 대진표](https://programmers.co.kr/learn/courses/30/lessons/12985)
 
 분류 : 2017 팁스타운
+
+바텀업 알고리즘 방식 풀이
 
 ```python
 def solution(n, a, b):
