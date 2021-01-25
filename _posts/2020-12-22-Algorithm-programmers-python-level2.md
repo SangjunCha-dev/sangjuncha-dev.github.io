@@ -666,18 +666,54 @@ def solution(brown, yellow):
 
 분류 : 깊이/너비 우선 탐색(DFS/BFS)
 
-1. 
+재귀 함수 사용
+
+## 방법1
 
 ```python
+def solution(numbers, target):
+    global max
+    global n_list
+    max = len(numbers)
+    n_list = numbers
 
+    return calc(target, 0)
+
+def calc(tot, n):
+    cnt = 0
+    if n < max:
+        cnt += calc(tot + n_list[n], n+1)
+        cnt += calc(tot - n_list[n], n+1)
+    elif tot == 0:
+        cnt = 1
+    return cnt
 ```
 
-**2021**
+**2021-01-25**
 
 > 채점 결과  
 > 합계: 100.0 / 100.0  
-> min TaseCase :   
-> max TaseCase :  
+> min TaseCase : 0.51ms, 10.2MB  
+> max TaseCase : 310.07ms, 10.2MB  
+
+## 방법2
+
+```python
+def solution(numbers, target):
+    if not numbers and target == 0:
+        return 1
+    elif not numbers:
+        return 0
+    else:
+        return solution(numbers[1:], target-numbers[0]) + solution(numbers[1:], target+numbers[0])
+```
+
+**2021-01-25**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.58ms, 10.2MB  
+> max TaseCase : 372.97ms, 10.2MB  
 
 
 
@@ -1018,7 +1054,7 @@ def prime(n):
 
 분류 : 2017 팁스타운
 
-바텀업 알고리즘 방식 풀이
+바텀업 알고리즘 풀이
 
 ```python
 def solution(n, a, b):
