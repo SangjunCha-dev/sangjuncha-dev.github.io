@@ -871,3 +871,34 @@ print(('*' * n + '\n') * m)
 > max TaseCase : 15.18ms, 7.6MB  
 
 
+
+# [크레인 인형뽑기 게임](https://programmers.co.kr/learn/courses/30/lessons/64061)
+
+분류 :2019 카카오 개발자 겨울 인턴십
+
+```python
+def solution(board, moves):
+    answer = 0
+    queue = []
+
+    for i in moves:
+        i -= 1
+        for row in board:
+            if row[i]:
+                queue.append(row[i])
+                row[i] = 0
+                break
+        if (1 < len(queue)) and (queue[-2] == queue[-1]):
+            answer += 2
+            queue.pop()
+            queue.pop()
+    
+    return answer
+```
+
+**2021-01-26**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 10.3MB  
+> max TaseCase : 1.02ms, 10.2MB  
