@@ -950,6 +950,31 @@ def solution(numbers):
 
 
 
+# [완주하지 못한 선수](https://programmers.co.kr/learn/courses/30/lessons/42576)
+
+분류 : 해시
+
+1. 
+
+```python
+
+```
+
+**2021**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+
+정확성  테스트
+> min TaseCase :   
+> max TaseCase :   
+
+효율성  테스트
+> min TaseCase :   
+> max TaseCase :   
+
+
+
 <!--
 # []()
 
