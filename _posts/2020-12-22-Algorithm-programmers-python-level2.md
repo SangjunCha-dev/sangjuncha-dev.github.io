@@ -360,7 +360,7 @@ def solution(name):
 
 추가 Test Case
 |numbers|Return|검증 case|
-|-|-|-|
+|---|---|---|
 |[12, 121]|'12121'|case 1~6|
 |[21, 212]|'21221'|case 1~6|
 |[0, 0, 0]|'0'|case 11|
@@ -639,7 +639,7 @@ def solution(clothes):
 추가 Test Case  
 
 |brown(int) |yellow(int)|return |
-|-          |-          |-      |
+|---        |---        |---      |
 |18         |6          |6      |
 
 1. (산술기하평균 공식)과 (약수 중간값은 수의 제곱근 이하) 2가지 공식 이용
@@ -805,7 +805,7 @@ def solution(num):
 분류 : 연습문제
 
 |변수명|형식|크기|
-|-|-|-|
+|---|---|---|
 |arr1|2차원리스트|m * k|
 |arr2|2차원리스트|k * n|
 |answer|2차원리스트|m * n|
@@ -871,7 +871,7 @@ def solution(arr1, arr2):
 추가 Test Case
 
 |s(string)|Return|
-|-|-|
+|---|---|
 |"  a b  c   d  "|"  A B  C   D  "|
 
 ## 방법1
