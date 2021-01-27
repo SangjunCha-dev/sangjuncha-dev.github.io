@@ -902,3 +902,69 @@ def solution(board, moves):
 > 합계: 100.0 / 100.0  
 > min TaseCase : 0.01ms, 10.3MB  
 > max TaseCase : 1.02ms, 10.2MB  
+
+
+
+# [두 개 뽑아서 더하기](https://programmers.co.kr/learn/courses/30/lessons/68644)
+
+분류 : 월간 코드 챌린지 시즌1
+
+## 방법1
+
+```python
+def solution(numbers):
+    answer = []
+    for i, val1 in enumerate(numbers):
+        for val2 in numbers[i+1:]:
+            answer.append(val1+val2)
+    return sorted(set(answer))
+```
+
+**2021-01-27**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 10.2MB  
+> max TaseCase : 0.58ms, 10.3MB  
+
+## 방법2
+
+1. 중복없는 조합 생성 함수 combinations 사용
+
+```python
+from itertools import combinations
+
+def solution(numbers):
+    answer = []
+    for val in set(combinations(numbers, 2)):
+        answer.append(sum(val))
+    return sorted(set(answer))
+```
+
+**2021-01-27**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 9.98MB  
+> max TaseCase : 1.38ms, 10.3MB  
+
+
+
+<!--
+# []()
+
+분류 : 
+
+1. 
+
+```python
+
+```
+
+**2021**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase :   
+> max TaseCase :   
+-->
