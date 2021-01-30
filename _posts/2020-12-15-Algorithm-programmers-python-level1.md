@@ -1154,6 +1154,25 @@ def solution(arr):
 
 분류 : 연습문제
 
+```python
+def solution(s):
+    s = s.lower()
+    return True if s.count('p') == s.count('y') else False
+```
+
+**2021-01-30**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.00ms, 10.1MB  
+> max TaseCase : 0.01ms, 10.3MB  
+
+
+
+# [소수 찾기](https://programmers.co.kr/learn/courses/30/lessons/12921)
+
+분류 : 연습문제
+
 1. 
 
 ```python
