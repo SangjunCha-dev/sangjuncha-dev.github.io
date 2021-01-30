@@ -1173,6 +1173,33 @@ def solution(s):
 
 분류 : 연습문제
 
+1. 에라토스테네스의 체 원리로 소수 리스트 작성
+
+```python
+def solution(n):
+    p_lst = [False, False, True] + [True, False] * (n//2-1)
+    p_lst = p_lst if n%2 == 0 else p_lst + [True]
+    for i in range(3, int(n**0.5)+1, 2):
+        if not p_lst[i]:
+            continue
+        for j in range(i*2, n+1, i):
+            p_lst[j] = False
+    return p_lst.count(True)
+```
+
+**2021-01-30**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.02ms, 10.3MB  
+> max TaseCase : 89.90ms, 24MB  
+
+
+
+# [키패드 누르기](https://programmers.co.kr/learn/courses/30/lessons/67256)
+
+분류 : 2020 카카오 인턴십
+
 1. 
 
 ```python
