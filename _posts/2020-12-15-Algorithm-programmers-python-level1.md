@@ -1014,6 +1014,70 @@ def solution(participant, completion):
 
 분류 : 2021 KAKAO BLIND RECRUITMENT
 
+1. 정규식 사용
+
+## 방법 1
+
+```python
+import re
+p1 = re.compile(r'[^a-z0-9_.-]')
+p2 = re.compile(r'[.]+')
+p3 = re.compile(r'^[.]|[.]$')
+def solution(new_id):
+    new_id = new_id.lower()
+    new_id = re.sub(p1, '', new_id)
+    new_id = re.sub(p2, '.', new_id)
+
+    while True:
+        new_id = re.sub(p3, '', new_id)
+        if not new_id:
+            new_id = 'a'
+        elif 15 < len(new_id):
+            new_id = new_id[:15]
+        elif len(new_id) < 3:
+            new_id += new_id[-1]
+        else:
+            break
+    return new_id
+```
+
+**2021-01-30**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.02ms, 10.2MB  
+> max TaseCase : 0.21ms, 10.2MB  
+
+## 방법 2
+
+```python
+import re
+p1 = re.compile(r'[^a-z0-9_.-]')
+p2 = re.compile(r'[.]+')
+p3 = re.compile(r'^[.]|[.]$')
+def solution(new_id):
+    new_id = new_id.lower()
+    new_id = re.sub(p1, '', new_id)
+    new_id = re.sub(p2, '.', new_id)
+    new_id = re.sub(p3, '', new_id)
+    new_id = new_id if new_id else 'a'
+    new_id = new_id[:15] if 15 < len(new_id) else new_id
+    new_id = re.sub(p3, '', new_id)
+    new_id = new_id if 2 < len(new_id) else (new_id + new_id[-1] if 1 < len(new_id) else new_id*3)
+    return new_id
+```
+
+**2021-01-30**
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.02ms, 10.1MB  
+> max TaseCase : 0.23ms, 10.2MB  
+
+
+
+# [3진법 뒤집기](https://programmers.co.kr/learn/courses/30/lessons/68935)
+
+분류 : 월간 코드 챌린지 시즌1
 
 1. 
 
@@ -1027,9 +1091,6 @@ def solution(participant, completion):
 > 합계: 100.0 / 100.0  
 > min TaseCase :   
 > max TaseCase :   
-
-
-
 <!--
 # []()
 
