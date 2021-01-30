@@ -1016,7 +1016,7 @@ def solution(participant, completion):
 
 1. 정규식 사용
 
-## 방법 1
+## 방법1
 
 ```python
 import re
@@ -1048,7 +1048,7 @@ def solution(new_id):
 > min TaseCase : 0.02ms, 10.2MB  
 > max TaseCase : 0.21ms, 10.2MB  
 
-## 방법 2
+## 방법2
 
 ```python
 import re
@@ -1079,6 +1079,53 @@ def solution(new_id):
 
 분류 : 월간 코드 챌린지 시즌1
 
+## 방법1
+
+```python
+def solution(n):
+    m = ''
+    while 2 < n:
+        n, m = n//3, m + str(n%3)
+    n, m = 0, int(m + str(n))
+    c = 0
+    while m:
+        n, m, c = n + (m%10 * 3**c), m//10, c+1
+    return n
+```
+
+**2021-01-30**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.02ms, 10.4MB  
+> max TaseCase : 0.04ms, 10.4MB  
+
+## 방법2
+
+1. int함수로 문자열을 10진법으로 변환할 수 있음
+    - (문자열, 문자열의 x진법)
+
+```python
+def solution(n):
+    m = ''
+    while 2 < n:
+        n, m = n//3, m + str(n%3)
+    return int(m + str(n), 3)
+```
+
+**2021-01-30**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.02ms, 10.4MB  
+> max TaseCase : 0.04ms, 10.4MB  
+
+
+
+# [같은 숫자는 싫어](https://programmers.co.kr/learn/courses/30/lessons/12906)
+
+분류 : 연습문제
+
 1. 
 
 ```python
@@ -1091,6 +1138,9 @@ def solution(new_id):
 > 합계: 100.0 / 100.0  
 > min TaseCase :   
 > max TaseCase :   
+
+
+
 <!--
 # []()
 
