@@ -1117,12 +1117,40 @@ def solution(n):
 
 > 채점 결과  
 > 합계: 100.0 / 100.0  
-> min TaseCase : 0.02ms, 10.4MB  
-> max TaseCase : 0.04ms, 10.4MB  
+> min TaseCase : 0.02ms, 10.3MB  
+> max TaseCase : 0.04ms, 10.3MB  
 
 
 
 # [같은 숫자는 싫어](https://programmers.co.kr/learn/courses/30/lessons/12906)
+
+분류 : 연습문제
+
+```python
+def solution(arr):
+    answer = [arr[0]]
+    for n in arr[1:]:
+        if answer[-1] != n:
+            answer.append(n)
+    return answer
+```
+
+**2021-01-30**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+
+정확성 테스트
+> min TaseCase : 0.00ms, 10.2MB  
+> max TaseCase : 0.02ms, 10.2MB  
+
+효율성 테스트
+> min TaseCase : 60.33ms, 32.5MB  
+> max TaseCase : 61.85ms, 32.4MB  
+
+
+
+# [문자열 내 p와 y의 개수](https://programmers.co.kr/learn/courses/30/lessons/12916)
 
 분류 : 연습문제
 
