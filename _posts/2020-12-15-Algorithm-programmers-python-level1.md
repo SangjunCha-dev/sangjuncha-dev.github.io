@@ -1245,7 +1245,85 @@ def solution(numbers, hand):
 
 분류 : Summer/Winter Coding(~2018)
 
-1. 
+## 방법1
+
+```python
+def solution(d, budget):
+    cnt = 0
+    if sum(d) == budget:
+        return len(d)
+    
+    while d and 0 < budget:
+        n = min(d)
+        d.remove(n)
+        budget -= n
+        if budget < 0:
+            break 
+        cnt += 1
+    return cnt
+```
+
+**2021-01-31**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.00ms, 10.2MB  
+> max TaseCase : 0.19ms, 10.2MB  
+
+## 방법2
+
+```python
+def solution(d, budget):
+    d.sort()
+    while budget < sum(d):
+        d.pop()
+    return len(d)
+```
+
+**2021-01-31**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.00ms, 10MB  
+> max TaseCase : 0.05ms, 10.2MB  
+
+
+
+# [1차 비밀지도](https://programmers.co.kr/learn/courses/30/lessons/17681)
+
+분류 : 2018 KAKAO BLIND RECRUITMENT
+
+```python
+def solution(n, arr1, arr2):
+    answer = [[' ' for _ in range(n)] for _ in range(n)]
+
+    for i in range(n):
+        val1 = str(bin(arr1[i]))[2:]
+        val2 = str(bin(arr2[i]))[2:]
+        while len(val1) < n:
+            val1 = '0' + val1
+        while len(val2) < n:
+            val2 = '0' + val2
+
+        for j in range(n):
+            if val1[j] == '1' or val2[j] == '1':
+                answer[i][j] = '#'
+    
+    return [''.join(answer[i]) for i in range(n)]
+```
+
+**2021-01-31**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.02ms, 10.2MB  
+> max TaseCase : 0.09ms, 10.2MB  
+
+
+
+# [1차 다트 게임](https://programmers.co.kr/learn/courses/30/lessons/17682)
+
+분류 : 2018 KAKAO BLIND RECRUITMENT
 
 ```python
 
