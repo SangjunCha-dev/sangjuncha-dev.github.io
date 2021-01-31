@@ -1280,10 +1280,6 @@ def solution(d, budget):
     return len(d)
 ```
 
-**2021-01-31**
-
-> 채점 결과  
-> 합계: 100.0 / 100.0  
 > min TaseCase : 0.00ms, 10MB  
 > max TaseCase : 0.05ms, 10.2MB  
 
@@ -1292,6 +1288,8 @@ def solution(d, budget):
 # [1차 비밀지도](https://programmers.co.kr/learn/courses/30/lessons/17681)
 
 분류 : 2018 KAKAO BLIND RECRUITMENT
+
+## 방법1
 
 ```python
 def solution(n, arr1, arr2):
@@ -1318,6 +1316,27 @@ def solution(n, arr1, arr2):
 > 합계: 100.0 / 100.0  
 > min TaseCase : 0.02ms, 10.2MB  
 > max TaseCase : 0.09ms, 10.2MB  
+
+## 방법2
+
+zip : 동일한 개수로 이루어진 자료형을 묶어 주는 함수
+rjust : 오른쪽 정렬 문자열에 공백을 두번째 인자로 패딩
+ - 첫번째 인자 길이가 문자열의 길이보다 작다면 원래의 문자열을 반환
+
+```python
+def solution(n, arr1, arr2):
+    answer = []
+    for i,j in zip(arr1,arr2):
+        a12 = str(bin(i|j)[2:])
+        a12=a12.rjust(n,'0')
+        a12=a12.replace('1','#')
+        a12=a12.replace('0',' ')
+        answer.append(a12)
+    return answer
+```
+
+> min TaseCase : 0.01ms, 10.2MB  
+> max TaseCase : 0.02ms, 10.2MB  
 
 
 
