@@ -1321,6 +1321,7 @@ def solution(n, arr1, arr2):
 ## 방법2
 
 zip : 동일한 개수로 이루어진 자료형을 묶어 주는 함수
+bin : 비트연산 함수
 rjust : 오른쪽 정렬 문자열에 공백을 두번째 인자로 패딩
  - 첫번째 인자 길이가 문자열의 길이보다 작다면 원래의 문자열을 반환
 
@@ -1344,6 +1345,39 @@ def solution(n, arr1, arr2):
 # [1차 다트 게임](https://programmers.co.kr/learn/courses/30/lessons/17682)
 
 분류 : 2018 KAKAO BLIND RECRUITMENT
+
+1. 정규식 사용하여 리스트 분할
+
+```python
+import re
+p1 = re.compile(r'\d{1,2}')
+p2 = re.compile(r'[SDT][*|#]?')
+def solution(dartResult):
+    answer = []
+    arr1, arr2 = re.findall(p1, dartResult), re.findall(p2, dartResult)
+    for i in range(len(arr1)):
+        squ = 2 if arr2[i][0] == 'D' else 3 if arr2[i][0] == 'T' else 1
+        mul = 2 if arr2[i][-1] == '*' else -1 if arr2[i][-1] == '#' else 1
+        answer.append((int(arr1[i]) ** squ) * mul)
+        if 1 < len(answer) and arr2[i][-1] == '*':
+            answer[i-1] *= 2
+    return sum(answer)
+```
+
+**2021-02-01**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.02ms, 10.3MB  
+> max TaseCase : 0.05ms, 10.3MB  
+
+
+
+# [실패율](https://programmers.co.kr/learn/courses/30/lessons/42889)
+
+분류 : 2019 KAKAO BLIND RECRUITMENT
+
+1. 
 
 ```python
 
