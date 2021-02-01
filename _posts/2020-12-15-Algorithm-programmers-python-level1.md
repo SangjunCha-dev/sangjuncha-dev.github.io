@@ -1174,6 +1174,7 @@ def solution(s):
 분류 : 연습문제
 
 1. 에라토스테네스의 체 원리로 소수 리스트 작성
+2. 2를 제외한 다른 짝수는 변수 선언단계에서 False 처리
 
 ```python
 def solution(n):
