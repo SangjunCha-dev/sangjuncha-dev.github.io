@@ -190,6 +190,8 @@ def solution(s):
 
 분류 : 연습문제
 
+## 방법1
+
 1. `arr` 리스트에 원소를 `divisor`나머지 연산하여 값이 없을 때 `answer`리스트에 추가
     - 조건문에 `==` 사용할 경우 `3.44ms`
     - 조건문에 `not` 사용할 경우 `2.64ms`
@@ -212,6 +214,21 @@ def solution(arr, divisor):
 > 합계: 100.0 / 100.0  
 > min TaseCase : 0.00ms, 10.1MB  
 > max TaseCase : 2.64ms, 13.3MB  
+
+## 방법2
+
+```python
+def solution(arr, divisor):
+    answer = [e for e in arr if not e % divisor]
+    return sorted(answer) if answer else [-1]
+```
+
+**2021-02-02**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.00ms, 10.2MB  
+> max TaseCase : 2.92ms, 13.4MB  
 
 
 
