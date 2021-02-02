@@ -52,6 +52,8 @@ def solution(priorities, location):
 
 분류 : 스택/큐
 
+## 방법1
+
 1. `progresses[0]+(speeds[0]*i)` 값이 100 이상 될 수 있는 `i`값을 `num`변수에 대입 후 for 문 break
 2. `progresses`리스트 원소마다 `speeds[i]`*`num` 값 덧셈
 3. 최대 `progresses`리스트 길이만큼 반복하여 `progresses[0]` 원소를 비교하는 for 문 실행
@@ -93,6 +95,36 @@ def solution(progresses, speeds):
 > 합계: 100.0 / 100.0  
 > min TaseCase : 0.01ms, 10.2MB  
 > max TaseCase : 0.12ms, 10.1MB  
+
+## 방법2
+
+1. (100 - progresses) // speeds 결과값이 작업 소요일자
+
+```python
+def solution(progresses, speeds):
+    answer = []
+    m, cnt = 0, 0
+    for i, j in zip(progresses, speeds):
+        n = (100-i)//j + 1 if (100-i) % j else (100-i)//j
+        if not m:
+            m = n
+
+        if m < n:
+            answer.append(cnt)
+            m = n
+            cnt = 1
+        else:
+            cnt += 1
+    
+    return answer if sum(answer) == len(speeds) else answer + [cnt]
+```
+
+**2021-02-03**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 10.1MB  
+> max TaseCase : 0.03ms, 10.1MB  
 
 
 
