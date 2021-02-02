@@ -1250,13 +1250,10 @@ def solution(numbers, hand):
 
 ```python
 def solution(d, budget):
-    cnt = 0
-    if sum(d) == budget:
-        return len(d)
-    
+    d.sort()
+    cnt = 0  
     while d and 0 < budget:
-        n = min(d)
-        d.remove(n)
+        d.pop(n)
         budget -= n
         if budget < 0:
             break 
@@ -1276,13 +1273,21 @@ def solution(d, budget):
 ```python
 def solution(d, budget):
     d.sort()
-    while budget < sum(d):
-        d.pop()
-    return len(d)
+    cnt = 0
+    for n in d:
+        budget -= n
+        if budget < 0:
+            break 
+        cnt += 1
+    return cnt
 ```
 
-> min TaseCase : 0.00ms, 10MB  
-> max TaseCase : 0.05ms, 10.2MB  
+**2021-02-02**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.00ms, 10.1MB  
+> max TaseCase : 0.02ms, 10.2MB  
 
 
 
