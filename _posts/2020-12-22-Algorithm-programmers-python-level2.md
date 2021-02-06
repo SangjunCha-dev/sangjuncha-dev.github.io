@@ -843,9 +843,9 @@ def solution(num):
 |answer|2차원리스트|m * n|
 
 list 자료형 for문 반복문에서 사용할때 일반적인 속도순서(위부터 빠름)
-- for val in list:
-- for i in range(len(list)):
-- for i, val in enumerate(list):
+- for val in list:  
+- for i in range(len(list)):  
+- for i, val in enumerate(list):  
 
 list 자료형 for문 반복문에서 사용할때 list 인젝싱포함될경우 속도순서(list 200개 이상)
 - for i, val in enumerate(list): 
@@ -1106,6 +1106,67 @@ def solution(n, a, b):
 > 합계: 100.0 / 100.0  
 > min TaseCase : 0.00ms, 10.1MB  
 > max TaseCase : 0.01ms, 10.2MB  
+
+
+
+# [124 나라의 숫자](https://programmers.co.kr/learn/courses/30/lessons/12899)
+
+분류 : 연습문제
+
+## 방법1
+
+```python
+def solution(n):
+    ans = ''
+    while 0 < n:
+        n, m = n//3, n%3
+        if not m: 
+            n, m = n-1, 4 
+        ans = str(m) + ans
+    return ans
+```
+
+**2021-02-06**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 10MB  
+> max TaseCase : 0.01ms, 10.3MB  
+
+## 방법2
+
+```python
+def solution(n):
+    num = ['1','2','4']
+    ans = ''
+    while 0 < n:
+        n -= 1
+        ans = num[n % 3] + ans
+        n //= 3
+    return ans
+```
+
+> min TaseCase : 0.00ms, 10MB  
+> max TaseCase : 0.01ms, 10.3MB  
+
+
+
+# [스킬트리](https://programmers.co.kr/learn/courses/30/lessons/49993)
+
+분류 : Summer/Winter Coding(~2018)
+
+1. 
+
+```python
+
+```
+
+**2021**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase :   
+> max TaseCase :   
 
 
 
