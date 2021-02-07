@@ -1135,6 +1135,32 @@ def solution(n):
 
 ## 방법2
 
+1. divmod(n, a) : 정수를 나눈 몫과 나머지를 구하는 함수
+ - n : 나누어야할 수
+ - a : 나눌 기준값
+
+일반적인 a//b, a%b와 [퍼포먼스 차이](https://stackoverflow.com/questions/30079879/is-divmod-faster-than-using-the-and-operators)
+
+```python
+def solution(n):
+    ans = ''
+    while 0 < n:
+        n, m = divmod(n-1, 3)
+        if not m: 
+            n, m = n-1, 4 
+        ans = str(m) + ans
+    return ans
+```
+
+**2021-02-06**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.00ms, 10.2MB  
+> max TaseCase : 0.01ms, 10.3MB  
+
+## 방법3
+
 ```python
 def solution(n):
     num = ['1','2','4']
@@ -1154,6 +1180,88 @@ def solution(n):
 # [스킬트리](https://programmers.co.kr/learn/courses/30/lessons/49993)
 
 분류 : Summer/Winter Coding(~2018)
+
+추가 Test Case
+|skill|skill_trees|return|
+|---|---|---|
+|"REA"|["POA"]|0|
+|"CBD"|["BDA"]|0|
+|"CBD"|["AEF", "ZJW"]|2|
+
+## 방법1
+
+```python
+def solution(skill, skill_trees):
+    ans = 0
+    for s in skill_trees:
+        n = s.find(skill[0])
+        pos = True
+        for i in skill[1:]:
+            if (0 <= s.find(i) < n) or (n == -1 and i in s):
+                pos = False
+                break 
+            n = s.find(i)
+        if pos: 
+            ans += 1
+    return ans
+```
+
+**2021-02-07**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 10.1MB  
+> max TaseCase : 0.03ms, 10.2MB  
+
+## 방법2
+
+1. for~else문
+ - break 등 중간에 안 끊기고 끝까지 실행하면 else문 실행
+
+```python
+def solution(skill, skill_trees):
+    ans = 0
+    for s in skill_trees:
+        n = s.find(skill[0])
+        for i in skill[1:]:
+            if (0 <= s.find(i) < n) or (n == -1 and i in s):
+                break 
+            n = s.find(i)
+        else: 
+            ans += 1
+    return ans
+```
+
+**2021-02-07**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 10.1MB  
+> max TaseCase : 0.03ms, 10.2MB  
+
+## 방법3
+
+```python
+def solution(skill,skill_tree):
+    ans = 0
+    for i in skill_tree:
+        res = ''
+        for z in i:
+            if z in skill:
+                res += z
+        if res == skill[0:len(res)]:
+            ans += 1
+    return ans
+```
+
+> min TaseCase : 0.01ms, 10.1MB  
+> max TaseCase : 0.02ms, 10.2MB  
+
+
+
+# [주식가격](https://programmers.co.kr/learn/courses/30/lessons/42584)
+
+분류 : 스택/큐
 
 1. 
 
