@@ -1263,6 +1263,37 @@ def solution(skill,skill_tree):
 
 분류 : 스택/큐
 
+```python
+def solution(prices):
+    ans = []
+    for i in range(len(prices)):
+        val = prices[i]
+        for j in range(i+1, len(prices)):
+            if prices[j] < val:
+                break
+        ans.append(j-i)
+    return ans
+```
+
+**2021-02-10**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+
+정확성 테스트  
+> min TaseCase : 0.01ms, 10.2MB  
+> max TaseCase : 1.11ms, 10.3MB  
+
+효율성 테스트
+> min TaseCase : 52.83ms, 17.4MB  
+> max TaseCase : 105.50ms, 20MB  
+
+
+
+# [삼각 달팽이](https://programmers.co.kr/learn/courses/30/lessons/68645)
+
+분류 : 월간 코드 챌린지 시즌1
+
 1. 
 
 ```python
