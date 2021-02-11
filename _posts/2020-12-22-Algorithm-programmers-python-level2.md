@@ -1294,6 +1294,49 @@ def solution(prices):
 
 분류 : 월간 코드 챌린지 시즌1
 
+```python
+def solution(n):
+    m, n = (n**2 + n) // 2, 2
+    ans = [0 for _ in range(m)]
+    pos, val, cnt = 0, 0, 1
+    direct = True
+    for i in range(1, m+1):
+        if direct:
+            if pos + val < m:  # 증가
+                pos += val
+                val += 1
+            else:  # 초과
+                pos += 1
+                if pos == m-1:
+                    m = pos - val
+                    direct = False
+        else:
+            if n <= pos - val:  # 감소
+                pos -= val
+                val -= 1
+            else:  # 미만
+                n += 2 + cnt * 4
+                cnt += 1
+                pos += val
+                val += 1
+                direct = True
+        ans[pos] = i
+    return ans
+```
+
+**2021-02-11**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.01ms, 10.2MB  
+> max TaseCase : 92.56ms, 56.9MB  
+
+
+
+# [문자열 압축](https://programmers.co.kr/learn/courses/30/lessons/60057)
+
+분류 : 2020 KAKAO BLIND RECRUITMENT
+
 1. 
 
 ```python
