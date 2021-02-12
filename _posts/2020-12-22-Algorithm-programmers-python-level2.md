@@ -1337,6 +1337,41 @@ def solution(n):
 
 분류 : 2020 KAKAO BLIND RECRUITMENT
 
+1. 문자열 길이별로 분할
+    - `[s[n:n+i] for n in range(0, len(s), i)]`
+
+```python
+def solution(s):
+    ans = len(s)
+    for i in range(1, ans//2 + 1):
+        t_lst = [s[n:n+i] for n in range(0, len(s), i)]
+        fix, tmp = '', t_lst[0]
+        cnt = 0
+        for txt in t_lst[1:]:
+            cnt += 1
+            if txt != tmp:
+                fix = fix + str(cnt) + tmp if 1 < cnt else fix + tmp
+                tmp, cnt = txt, 0
+        else:
+            fix = fix + str(cnt+1) + tmp if 0 < cnt else fix + tmp
+        x = len(fix)
+        ans = x if x < ans else ans
+    return ans
+```
+
+**2021-02-12**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.00ms, 10.3MB  
+> max TaseCase : 3.03ms, 10.2MB  
+
+
+
+# [괄호 변환](https://programmers.co.kr/learn/courses/30/lessons/60058)
+
+분류 : 2020 KAKAO BLIND RECRUITMENT
+
 1. 
 
 ```python
