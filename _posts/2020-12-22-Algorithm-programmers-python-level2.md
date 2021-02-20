@@ -1391,6 +1391,8 @@ def solution(s):
 
 분류 : 2021 KAKAO BLIND RECRUITMENT
 
+## 방법1
+
 1. orders 리스트를 course 갯수별 조합생성
 2. 조합내 중복제거한 리스트로 조합리스트 내 요소 카운트
 3. 카운트값이 가장 높은 조합 목록을 반환
@@ -1425,6 +1427,97 @@ def solution(orders, course):
 > 합계: 100.0 / 100.0  
 > min TaseCase : 0.05ms, 10.2MB  
 > max TaseCase : 124.96ms, 10.6MB  
+
+## 방법2
+
+1. collections.Counter()
+    - 컨테이너에 동일한 값이 몇개인지를 `dictionary`로 반환하는 객체
+    - 요소의 갯수가 내림차순으로 출력
+2. collections.Counter().most_common(n)
+    - 입력된 값의 요소들 중 빈도수(frequency)가 높은 순으로 상위 n개를 리스트 안의 `tuple`로 반환
+
+```python
+from itertools import combinations
+from collections import Counter
+
+def solution(orders, course):
+    ans = []
+    for n in course:
+        tot_lst = []
+        for order in orders:
+            tot_lst.extend(combinations(sorted(order), n))
+
+        order_sorted = Counter(tot_lst).most_common()
+        cnt_max = order_sorted[0][1]
+        for arr, cnt in order_sorted:
+            if 1 < cnt and cnt == cnt_max:
+                ans += [''.join(arr)]
+            else:
+                break
+    return sorted(ans)
+```
+
+> min TaseCase : 0.07ms, 10.1MB  
+> max TaseCase : 2.11ms, 10.4MB  
+
+
+
+# [더 맵게](https://programmers.co.kr/learn/courses/30/lessons/42626)
+
+분류 : 힙(Heap)
+
+`heapq` : 이진 트리기반의 최소 힙 자료구조로 데이터를 정렬되게 저장하는 내장 모듈
+
+1. heapq.heapify(heap)
+    - 리스트를 힙으로 변환
+2. heapq.heappush(heap, item)
+    - heap 리스트에 item 원소추가
+    - 이진 트리에 원소를 추가하므로 O(logN)의 시간 복잡도를 가짐
+3. heapq.heappop(heap)`
+    - heap_lst 최소값을 반환하고 해당 리스트에서 삭제함
+    - 이진 트리에서 원소를 삭제하므로 O(logN)의 시간 복잡도를 가짐
+4. 힙 삭제없이 최소값 얻기
+    - `heap[0]` : list 자료형 인덱스 접근방식으로 삭제없이 값 획득 가능
+    - 두번째 최소값은 heappop()함수로 첫번쨰 최소값을 삭제한뒤 heap[0] 접근하여 두번째 최소값을 얻을 수 있음
+5. heapq.heappushpop(heap, item)
+    - 힙에 item을 푸시한 다음, heap에서 가장 작은 항목 팝하고 반환
+
+추가 Test Case
+
+|scoville|K|return|
+|---|---|---|
+|[0, 0]|1|-1|
+
+## 방법1
+
+```python
+import heapq
+
+def solution(scoville, K):
+    ans, size = 0, len(scoville)
+    heapq.heapify(scoville)
+    n = heapq.heappop(scoville)
+    while 1 < size:
+        m = heapq.heappop(scoville)
+        n = heapq.heappushpop(scoville, n + m * 2)
+        ans, size = ans + 1, size - 1
+        if K <= n:
+            return ans
+    return -1
+```
+
+**2021-02-20**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+
+정확성 테스트
+> min TaseCase : 0.00ms, 10.2MB  
+> max TaseCase : 1.02ms, 10.2MB  
+
+효율성 테스트
+> min TaseCase : 139.60ms, 15MB  
+> max TaseCase : 2098.58ms, 51.9MB  
 
 
 
