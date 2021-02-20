@@ -1387,6 +1387,47 @@ def solution(s):
 
 
 
+# [메뉴 리뉴얼](https://programmers.co.kr/learn/courses/30/lessons/72411)
+
+분류 : 2021 KAKAO BLIND RECRUITMENT
+
+1. orders 리스트를 course 갯수별 조합생성
+2. 조합내 중복제거한 리스트로 조합리스트 내 요소 카운트
+3. 카운트값이 가장 높은 조합 목록을 반환
+
+```python
+from itertools import combinations
+
+def solution(orders, course):
+    ans = []
+    for n in course:
+        tot_lst = []
+        for order in orders:
+            tot_lst.extend(list(combinations(sorted(order), n)))
+        tot_lst.sort()
+        tot_set = set(tot_lst)
+        m = 0
+        tmp_lst = []
+        for val in tot_set:
+            cnt = tot_lst.count(val)
+            if 1 < cnt and m < cnt:
+                m = cnt
+                tmp_lst = [''.join(val)]
+            elif m == cnt:
+                tmp_lst.append(''.join(val))
+        ans.extend(tmp_lst)
+    return sorted(ans)
+```
+
+**2021-02-20**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.05ms, 10.2MB  
+> max TaseCase : 124.96ms, 10.6MB  
+
+
+
 <!--
 # []()
 
