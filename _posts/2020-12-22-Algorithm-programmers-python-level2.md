@@ -1466,6 +1466,14 @@ def solution(orders, course):
 
 분류 : 힙(Heap)
 
+추가 Test Case
+
+|scoville|K|return|
+|---|---|---|
+|[0, 0]|1|-1|
+
+## 방법1
+
 `heapq` : 이진 트리기반의 최소 힙 자료구조로 데이터를 정렬되게 저장하는 내장 모듈
 
 1. heapq.heapify(heap)
@@ -1481,14 +1489,6 @@ def solution(orders, course):
     - 두번째 최소값은 heappop()함수로 첫번쨰 최소값을 삭제한뒤 heap[0] 접근하여 두번째 최소값을 얻을 수 있음
 5. heapq.heappushpop(heap, item)
     - 힙에 item을 푸시한 다음, heap에서 가장 작은 항목 팝하고 반환
-
-추가 Test Case
-
-|scoville|K|return|
-|---|---|---|
-|[0, 0]|1|-1|
-
-## 방법1
 
 ```python
 import heapq
@@ -1518,6 +1518,19 @@ def solution(scoville, K):
 효율성 테스트
 > min TaseCase : 139.60ms, 15MB  
 > max TaseCase : 2098.58ms, 51.9MB  
+
+## 방법2
+
+deque : 스택과 큐를 일반화 한 것
+
+1. append(x)
+    - 오른쪽에 x 추가
+2. appendleft(x)
+    - 왼쪽에 x 추가
+3. pop()
+    - 오른쪽에서 요소를 제거하고 반환
+4. popleft()
+    - 왼쪽에서 요소를 제거하고 반환
 
 
 
