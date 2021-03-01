@@ -49,7 +49,7 @@ IDE : vscode
 
 컴파일 되기 위해서는 main.go 파일에 코드 작성해야함
 
-또한 main pkackage 와 function main 을 꼭 호출해야함
+또한 main pkackage 와 main function 을 꼭 호출해야함
 
 - go 컴파일시 맨 처음 호출되는 부분이기 때문
 
@@ -84,10 +84,9 @@ func main() {
 vscode에서는 import 없이 함수를 사용해도  `ctrl+s`  저장하면 자동으로 import 코드를 추가해줌  
 반대로 함수를 사용하지 않으면 import 코드가 사라짐  
 
-fmt : formatting을 위한 package
-
-- 다른 package function을 export 하고 싶으면 대문자로 시작되는 function을 호출
-- 소문자로 시작하는 함수는 private 함수로 외부에서 호출할 수 없음
+`fmt` : formatting을 위한 package
+ - 다른 package function을 export 하고 싶으면 대문자로 시작되는 function을 호출
+ - 소문자로 시작하는 함수는 private 함수로 외부에서 호출할 수 없음
 
 ## 1.2. 변수와 상수(Variables and Constants)
 
@@ -161,7 +160,6 @@ func main() {
 ```
 
 함수에 매개변수 여러개를 전달하여 호출하기
-
 - 매개변수 type 앞에 ...(3개) 추가
 - 아래 코드 실행결과는 array 형태로 출력됨
   [one two three]
@@ -312,9 +310,8 @@ func main() {
 ```
 
 if 문안에 조건문에서 사용할 변수를 선언하여 사용가능
-
-	- if-else의 조건에서만 사용하기 위해 variable을 생성한다는 의미
-	- variable expression
+- if-else의 조건에서만 사용하기 위해 variable을 생성한다는 의미
+- variable expression
 
 ```go
 func canIDrink(age int) bool {
@@ -534,8 +531,13 @@ func main() {
 
 # 2. BANK & DICTIONARY PROJECTS
 
-변수명 첫글자가 `대문자`이면 public
-변수명 첫글자가 `소문자`이면 private
+## 2.0 Account + NewAccount
+
+변수명 첫글자가 `대문자`이면 public  
+변수명 첫글자가 `소문자`이면 private  
+- private은 외부 패키지에서 접근할 수 없음
+
+### 2.0.1 pubilc
 
 main.go
 
@@ -565,5 +567,769 @@ type Account struct {
 	Owner   string
 	Balance int
 }
+```
 
+`no required module provides package /lectures/banking`
+
+위와 같은 에러 발생시 아래의 명령어로 mod 파일 생성 및 빌드 진행후 다시 go run 실행  
+- go.mod 파일은 모듈의 루트에 존재
+
+```bash
+go mod init
+go build
+```
+
+### 2.0.2 private
+
+외부 패키지에서 account 정보 수정하지 못하도록 private 방식으로 코드 수정
+
+main.go
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/sangjuncha-dev/lectures/accounts"
+)
+
+func main() {
+	account := accounts.NewAccount("foo")
+	fmt.Println("account : ", account)
+}
+```
+
+생성한 object 주소를 return  
+
+- 이미 만들어진 object를 반환하기 위함  
+- 결과값만 저장한 변수를 새로 만들지 않음  
+
+accounts/accounts.go
+
+```go
+package accounts
+
+// Account struct
+type Account struct {
+	owner   string
+	balance int
+}
+
+// NewAccount creates Account
+func NewAccount(owner string) *Account {
+	account := Account{owner: owner, balance: 0}
+	return &account
+}
+```
+
+## 2.1 Methods
+
+### 2.1.1 receiver(method 설정)
+
+`a Account` : receiver에서 접근할 struct의 첫 글자를 따서 변수명을 소문자로 지어야함  
+- 해당 Account 정보는 복사한 정보
+
+accounts/accounts.go
+
+```go
+package accounts
+
+// Account struct
+type Account struct {
+	owner   string
+	balance int
+}
+
+// NewAccount creates Account
+func NewAccount(owner string) *Account {
+	account := Account{owner: owner, balance: 0}
+	return &account
+}
+
+// Deposit x amount on your account 
+func (a Account) Deposit(amount int) {
+	a.balance += amount
+}
+```
+
+### 2.1.2 Pointer receiver
+
+Deposit method 호출한 account 주소 사용
+
+accounts/accounts.go
+
+```go
+...
+
+// NewAccount creates Account
+func NewAccount(owner string) *Account {
+	account := Account{owner: owner, balance: 0}
+	return &account
+}
+```
+
+### 2.1.3 error handling
+
+error 반환 유형 2가지
+- `return errors.New()`
+- `nil`
+
+```go
+...
+// Withdraw x amount from your account
+func (a *Account) Withdraw(amount int) error {
+	if a.balance < amount {
+		return errors.New("Cant't withdraw you are poor")
+	}
+	a.balance -= amount
+	return nil
+}
+```
+
+main.go 실행 결과 Withdraw error가 반환됨
+- `log.Fatalln(err)` : 에러구문 출력 후 프로그램 종료
+- `fmt.Println(err)` : 에러구문 출력
+
+main.go
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/sangjuncha-dev/lectures/accounts"
+)
+
+func main() {
+	account := accounts.NewAccount("foo")
+	account.Deposit(10)
+	fmt.Println("account : ", account)
+	fmt.Println("balance : ", account.Balance())
+	err := account.Withdraw(20)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	fmt.Println("balance : ", account.Balance())
+}
+
+```
+
+에러구문을 별도의 변수로 선언하여 사용가능
+- 에러 변수명은 `err~` 식으로 선언해야함
+
+```go
+...
+
+var errNoMoney = errors.New("Can't withdraw")
+
+...
+
+// Withdraw x amount from your account
+func (a *Account) Withdraw(amount int) error {
+	if a.balance < amount {
+		return errNoMoney
+	}
+	a.balance -= amount
+	return nil
+}
+```
+
+## 2.2 Finishing Up
+
+Go에서 struct 사용시 내부적으로 호출해주는 method
+- `String` : struct 출력시 실행되는 method
+
+method는 struct, type 에 추가할 수 있음
+
+main.go
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/sangjuncha-dev/lectures/accounts"
+)
+
+func main() {
+	account := accounts.NewAccount("foo")
+	account.Deposit(10)
+	err := account.Withdraw(20)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println("account : ", account.Owner(), ", balance : ", account.Balance())
+}
+```
+
+accounts/accounts.go
+
+```go
+...
+
+// ChangeOwner of the account
+func (a *Account) ChangeOwner(newOnwer string) {
+	a.owner = newOnwer
+}
+
+// Owner of the account
+func (a Account) Owner() string {
+	return a.owner
+}
+
+func (a Account) String() string {
+	return fmt.Sprint(a.Owner(), "'s account.\nHas: ", a.Balance())
+}
+```
+
+## 2.3 Dictionary
+
+type Dictionary는 `map[string]string`자료형의 별명(alias)이다.
+
+mydict/mydict.go
+
+```go
+package mydict
+
+// Dictionary type
+type Dictionary map[string]string
+```
+
+main.go
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/sangjuncha-dev/lectures/mydict"
+)
+
+func main() {
+	dictionary := mydict.Dictionary{}
+	dictionary["hello"] = "foo"
+	fmt.Println(dictionary)
+}
+```
+
+### 2.3.1 Search
+
+dictionary 와 method 사용
+
+Search method 추가
+
+
+mydict/mydict.go
+
+```go
+package mydict
+
+import "errors"
+
+// Dictionary type
+type Dictionary map[string]string
+
+var errNotFound = errors.New("Not Found")
+
+// Search for a word
+func (d Dictionary) Search(word string) (string, error) {
+	value, exists := d[word]
+	if exists {
+		return value, nil
+	}
+	return "", errNotFound
+}
+```
+
+main.go
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/sangjuncha-dev/lectures/mydict"
+)
+
+func main() {
+	dictionary := mydict.Dictionary{"first": "First word"}
+	definition, err := dictionary.Search("second")
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(definition)
+	}
+}
+```
+
+### 2.3.2 Add
+
+Add method 추가
+
+mydict/mydict.go
+
+if문 형식
+
+```go
+var errWordExists = erros.New("That word already exists")
+...
+
+// Add a word to the dictionary
+func (d Dictionary) Add(word, def string) error {
+	_, err := d.Search(word)
+	if err == errNotFound {
+		d[word] = def
+	} else if err == nil {
+		return errWordExists
+	}
+	return nil
+}
+```
+
+switch문 형식
+
+```go
+// Add a word to the dictionary
+func (d Dictionary) Add(word, def string) error {
+	_, err := d.Search(word)
+	switch err {
+	case errNotFound:
+		d[word] = def
+	case nil:
+		return errWordExists
+	}
+	return nil
+}
+```
+
+main.go
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/sangjuncha-dev/lectures/mydict"
+)
+
+func main() {
+	dictionary := mydict.Dictionary{}
+	word := "hello"
+	definition := "Greeting"
+	err := dictionary.Add(word, definition)
+	if err != nil {
+		fmt.Println(err)
+	}
+	hello, _ := dictionary.Search(word)
+	fmt.Println("found :", word, ", definition :", hello)
+	err2 := dictionary.Add(word, definition)
+	if err2 != nil {
+		fmt.Println(err2)
+	}
+}
+```
+
+### 2.3.3 Update Delete
+
+Update method 추가
+
+main.go
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/sangjuncha-dev/lectures/mydict"
+)
+
+func main() {
+	dictionary := mydict.Dictionary{}
+	baseWord := "hello"
+	dictionary.Add(baseWord, "First")
+	err := dictionary.Update(baseWord, "Second")
+	if err != nil {
+		fmt.Println(err)
+	}
+	word, _ := dictionary.Search(baseWord)
+	fmt.Println(word)
+}
+```
+
+mydict/mydict.go
+
+```go
+var (
+	errNotFound   = errors.New("Not Found")
+	errCantUpdate = errors.New("Cant update non-existing word")
+	errWordExists = errors.New("That word already exists")
+)
+
+...
+
+// Update a word
+func (d Dictionary) Update(word, definition string) error {
+	_, err := d.Search(word)
+	switch err {
+	case nil:
+		d[word] = definition
+	case errNotFound:
+		return errCantUpdate
+	}
+	return nil
+}
+```
+
+Delete method 추가
+
+main.go
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/sangjuncha-dev/lectures/mydict"
+)
+
+func main() {
+	dictionary := mydict.Dictionary{}
+	baseWord := "hello"
+	dictionary.Add(baseWord, "First")
+	dictionary.Search(baseWord)
+	dictionary.Delete(baseWord)
+	word, err := dictionary.Search(baseWord)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(word)
+	}
+}
+```
+
+mydict/mydict.go
+
+```go
+...
+
+// Delete a word
+func (d Dictionary) Delete(word string) {
+	delete(d, word)
+}
+```
+
+# 3. URL CHECKER & GO ROUTINES
+
+## 3.0 hitURL
+
+hit : 인터넷 웹 서버의 파일 1개에 접속하는것을 뜻함
+
+request 사용을 위해 내장 library `http` 사용
+
+main.go
+
+```go
+package main
+
+import (
+	"errors"
+	"fmt"
+	"net/http"
+)
+
+var (
+	errRequestFailed = errors.New("Request failed")
+)
+
+func main() {
+	urls := []string{
+		"https://www.airbnb.com/",
+		"https://www.google.com/",
+		"https://www.amazon.com/",
+		"https://www.reddit.com/",
+		"https://soundcloud.com/",
+		"https://www.facebook.com",
+		"https://www.instagram.com/",
+		"https://academy.nomadcoders.co/",
+	}
+	for _, url := range urls {
+		hitURL(url)
+	}
+	for url, result := range results {
+		fmt.Println(url, result)
+	}
+}
+
+func hitURL(url string) error {
+	fmt.Println("Chacking :", url)
+	resp, err := http.Get(url)
+	if err != nil || 400 <= resp.StatusCode {
+		return errRequestFailed
+	}
+	return nil
+}
+```
+
+## 3.1 Slow URLChecker
+
+panic : 컴파일러가 못찾은 에러
+
+map 자료형은 초기화 안 하면 값을 넣을 수 없음
+
+```go
+var results map[string]string
+results["hello"] = "Hello"
+```
+
+map 자료형은 빈 값으로 초기화 선언해야 값을 넣을 수 있음
+
+```go
+var results = map[string]string{}
+results["hello"] = "Hello"
+```
+
+`make()` : empty map 만들고 초기화 해주는 함수
+
+```go
+var results = make(map[string]string)
+```
+
+main.go
+
+```go
+package main
+
+import (
+	"errors"
+	"fmt"
+	"net/http"
+)
+
+var (
+	errRequestFailed = errors.New("Request failed")
+)
+
+func main() {
+	var results = make(map[string]string)
+	urls := []string{
+		"https://www.airbnb.com/",
+		"https://www.google.com/",
+		"https://www.amazon.com/",
+		"https://www.reddit.com/",
+		"https://soundcloud.com/",
+		"https://www.facebook.com",
+		"https://www.instagram.com/",
+		"https://academy.nomadcoders.co/",
+	}
+	for _, url := range urls {
+		result := "OK"
+		err := hitURL(url)
+		if err != nil {
+			result = "FAILED"
+		}
+		results[url] = result
+	}
+	for url, result := range results {
+		fmt.Println(url, result)
+	}
+}
+
+func hitURL(url string) error {
+	fmt.Println("Chacking :", url)
+	resp, err := http.Get(url)
+	if err != nil || 400 <= resp.StatusCode {
+		fmt.Println(err, resp.StatusCode)
+		return errRequestFailed
+	}
+	return nil
+}
+
+```
+
+status code
+ - 401 : Unauthorized
+ - 429 : Too Many Requests
+
+## 3.2 Goroutines
+
+Top-down 방식의 프로그래밍
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	myCount("foo")
+	myCount("bar")
+}
+
+func myCount(person string) {
+	for i := 0; i < 10; i++ {
+		fmt.Println(person, "is number :", i)
+		time.Sleep(time.Second)
+	}
+}
+```
+
+`Goroutines` : 다른 함수와 동시에 실행시키는 함수
+ - Goroutines은 프로그램이 작동하는 동안만 실행
+
+main 함수 부분에서 go 루틴사용시 함수가 끝나기전에 main함수가 끝나면 프로그램이 종료되므로 main함수가 끝나지 않게 만든 상태에서 go 루틴 사용해야함
+
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	go myCount("foo")
+	go myCount("bar")
+	time.Sleep(time.Second * 5)
+}
+
+func myCount(person string) {
+	for i := 0; i < 10; i++ {
+		fmt.Println(person, "is number :", i)
+		time.Sleep(time.Second)
+	}
+}
+```
+
+## 3.3 Channels
+
+`Channel`
+- `goroutine`과 `main`함수 사이에 정보를 전달하기 위한 방법
+- `goroutine`에서 다른 `goroutine`으로 커뮤니케이션
+- 채널을 통해서 데이터를 받거나 보낼 수 있음
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	c := make(chan bool)
+	people := [2]string{"foo", "bar"}
+	for _, person := range people {
+		go isMy(person, c)
+	}
+	fmt.Println(<-c)
+	fmt.Println(<-c)
+}
+
+func isMy(person string, c chan bool) {
+	time.Sleep(time.Second * 5)
+	fmt.Println(person)
+	c <- true
+}
+```
+
+## 3.4 Channels Recap
+
+blocking operation : 해당 작업이 끝날때까지 멈춤
+- `<-c` : 채널로부터 메세지를 얻음
+- 하나의 메세지를 받으면 다음 라인으로 넘어감
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	c := make(chan string)
+	people := [2]string{"foo", "bar"}
+	for _, person := range people {
+		go isMy(person, c)
+	}
+	fmt.Println("Waiting for message")
+	for i := 0; i < len(people); i++ {
+		fmt.Print("waiting for ", i, " ")
+		fmt.Println(<-c)
+	}
+}
+
+func isMy(person string, c chan string) {
+	time.Sleep(time.Second * 5)
+	c <- person + " is OK"
+}
+```
+
+1. 채널의 메세지를 받는것 == blocking operation
+2. 채널을 통해서 보내는 부분과 받는 부분 모두 타입 지정해야함  
+
+## 3.5 URLChecker + Go Routines
+
+`c chan<-` : Send Only(보내기만 가능)
+
+```go
+package main
+
+import (
+	"errors"
+	"fmt"
+	"net/http"
+)
+
+type requestResult struct {
+	url    string
+	status string
+}
+
+var errRequestFailed = errors.New("Request failed")
+
+func main() {
+	var results = make(map[string]string)
+	c := make(chan requestResult)
+	urls := []string{
+		"https://www.airbnb.com/",
+		"https://www.google.com/",
+		"https://www.amazon.com/",
+		"https://www.reddit.com/",
+		"https://soundcloud.com/",
+		"https://www.facebook.com",
+		"https://www.instagram.com/",
+		"https://academy.nomadcoders.co/",
+	}
+	for _, url := range urls {
+		go hitURL(url, c)
+	}
+	for i := 0; i < len(urls); i++ {
+		result := <-c
+		results[result.url] = result.status
+	}
+	for url, status := range results {
+		fmt.Println(url, status)
+	}
+}
+
+func hitURL(url string, c chan<- requestResult) {
+	resp, err := http.Get(url)
+	status := "OK"
+	if err != nil || 400 <= resp.StatusCode {
+		status = "FAILED"
+	}
+	c <- requestResult{url: url, status: status}
+}
 ```
