@@ -32,7 +32,7 @@ IDE : vscode
 
 - go 디렉토리로 이동하여 `bin`, `pkg`, `src` 디렉토리 생성
 - src 디렉토리안에 지정된 도메인 디렉토리 추가
-    - go에서 다운받은 코드를 지정된 도메인 별로 분류하여 저장함
+    - go에서 다운받은 코드를 지정된 도메인 별로 분류하여 저장
 - src 디렉토리안에 `github.com` 디렉토리 생성
 - github.com 디렉토리안에 깃유저별로 디렉토리 구분하여 저장 
 - `C:\Users\[Profle_Name]\go\src\github.com\[git_username]\learngo\` 디렉토리 생성
@@ -1333,3 +1333,763 @@ func hitURL(url string, c chan<- requestResult) {
 	c <- requestResult{url: url, status: status}
 }
 ```
+
+# 4. JOB SCRAPPER
+
+## 4.0 getPages
+
+라이브러리 설치
+
+```bash
+go get github.com/PuerkitoBio/goquery
+```
+
+goquery Doc URL
+- https://github.com/PuerkitoBio/goquery
+- https://pkg.go.dev/github.com/PuerkitoBio/goquery
+
+strconv : 타입 변환 라이브러리
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+	"strconv"
+
+	"github.com/PuerkitoBio/goquery"
+)
+
+var baseURL string = "https://kr.indeed.com/jobs?q=python&limit=50"
+
+func main() {
+	totalPages := getPages()
+	// fmt.Println(totalPages)
+
+	for i := 0; i < totalPages; i++ {
+		getPage(i)
+	}
+}
+
+func getPage(page int) {
+	pageURL := baseURL + "&start=" + strconv.Itoa(page*50)
+	fmt.Println("Requesting :", pageURL)
+}
+
+func getPages() int {
+	pages := 0
+	res, err := http.Get(baseURL)
+	checkErr(err)
+	checkCode(res)
+
+	defer res.Body.Close()
+
+	doc, err := goquery.NewDocumentFromReader(res.Body)
+	checkErr(err)
+
+	doc.Find(".pagination").Each(func(i int, s *goquery.Selection) {
+		// fmt.Println(s.Html())
+		pages = s.Find("a").Length()
+	})
+
+	return pages
+}
+
+func checkErr(err error) {
+	if err != nil {
+		log.Fatalln(err)
+	}
+}
+
+func checkCode(res *http.Response) {
+	if res.StatusCode != 200 {
+		log.Fatalln("Request failed with Status :", res.StatusCode)
+	}
+}
+```
+
+## 4.1 extractJob
+
+strings.TrimSpace(str) : 문자열 양쪽 끝 공백 제거
+
+strings.Fields(str) : 문자열 배열형태로 반환
+
+strings.Join([]string, " ") : 문자열 배열을 " "으로 합쳐서 문자열 변환
+
+append(slice1, slice2) : slice1배열 안의 원소로 slice2 추가
+
+append(slice1, slice2...) : 두개의 배열을 하나의 배열로 합치기
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+	"strconv"
+	"strings"
+
+	"github.com/PuerkitoBio/goquery"
+)
+
+type extractedJob struct {
+	id       string
+	title    string
+	location string
+	salary   string
+	summary  string
+}
+
+var baseURL string = "https://kr.indeed.com/jobs?q=python&limit=50"
+
+func main() {
+	var jobs []extractedJob
+	totalPages := getPages()
+
+	for i := 0; i < totalPages; i++ {
+		extractedJobs := getPage(i)
+		jobs = append(jobs, extractedJobs...)
+	}
+	fmt.Println(jobs)
+}
+
+func getPage(page int) []extractedJob {
+	var jobs []extractedJob
+	pageURL := baseURL + "&start=" + strconv.Itoa(page*50)
+	fmt.Println("Requesting :", pageURL)
+	res, err := http.Get(pageURL)
+	checkErr(err)
+	checkCode(res)
+
+	defer res.Body.Close()
+
+	doc, err := goquery.NewDocumentFromReader(res.Body)
+	checkErr(err)
+
+	searchCards := doc.Find(".jobsearch-SerpJobCard")
+	searchCards.Each(func(i int, card *goquery.Selection) {
+		job := extractJob(card)
+		jobs = append(jobs, job)
+	})
+
+	return jobs
+}
+
+func extractJob(card *goquery.Selection) extractedJob {
+	id, _ := card.Attr("data-jk")
+	title := cleanString(card.Find(".title>a").Text())
+	location := cleanString(card.Find(".sjcl").Text())
+	salary := cleanString(card.Find(".salaryText").Text())
+	summary := cleanString(card.Find(".summary").Text())
+	return extractedJob{
+		id:       id,
+		title:    title,
+		location: location,
+		salary:   salary,
+		summary:  summary,
+	}
+}
+
+// card 데이터에서 공백 제거
+func cleanString(str string) string {
+	return strings.Join(strings.Fields(strings.TrimSpace(str)), " ")
+}
+
+// 전체 페이지수 얻기
+func getPages() int {
+	pages := 0
+	res, err := http.Get(baseURL)
+	checkErr(err)
+	checkCode(res)
+
+	defer res.Body.Close()
+
+	doc, err := goquery.NewDocumentFromReader(res.Body)
+	checkErr(err)
+
+	doc.Find(".pagination").Each(func(i int, s *goquery.Selection) {
+		pages = s.Find("a").Length()
+	})
+
+	return pages
+}
+
+func checkErr(err error) {
+	if err != nil {
+		log.Fatalln(err)
+	}
+}
+
+func checkCode(res *http.Response) {
+	if res.StatusCode != 200 {
+		log.Fatalln("Request failed with Status :", res.StatusCode)
+	}
+}
+```
+
+## 4.2 Writing Jobs
+
+encoding/csv : csv 관련 패키지
+
+w.Write([]string) : 파일 버퍼에 기록
+
+defer w.Flush() : 함수가 끝나는 시점에 파일에 데이터를 작성하는 함수
+
+```go
+package main
+
+import (
+	"encoding/csv"
+	"fmt"
+	"log"
+	"net/http"
+	"os"
+	"strconv"
+	"strings"
+
+	"github.com/PuerkitoBio/goquery"
+)
+
+type extractedJob struct {
+	id       string
+	title    string
+	location string
+	salary   string
+	summary  string
+}
+
+var baseURL string = "https://kr.indeed.com/jobs?q=python&limit=50"
+
+func main() {
+	var jobs []extractedJob
+	totalPages := getPages()
+
+	for i := 0; i < totalPages; i++ {
+		extractedJobs := getPage(i)
+		jobs = append(jobs, extractedJobs...)
+	}
+
+	writeJons(jobs)
+	fmt.Println("Done, extracted", len(jobs))
+}
+
+func writeJons(jobs []extractedJob) {
+	file, err := os.Create("jobs.csv")
+	checkErr(err)
+
+	w := csv.NewWriter(file)
+	defer w.Flush()
+
+	headers := []string{"Link", "Title", "Location", "Salary", "Summary"}
+
+	wErr := w.Write(headers)
+	checkErr(wErr)
+
+	for _, job := range jobs {
+		jobSclice := []string{"https://kr.indeed.com/viewjob?jk=" + job.id, job.title, job.location, job.salary, job.summary}
+		jwErr := w.Write(jobSclice)
+		checkErr(jwErr)
+	}
+}
+
+func getPage(page int) []extractedJob {
+	var jobs []extractedJob
+	pageURL := baseURL + "&start=" + strconv.Itoa(page*50)
+	fmt.Println("Requesting :", pageURL)
+	res, err := http.Get(pageURL)
+	checkErr(err)
+	checkCode(res)
+
+	defer res.Body.Close()
+
+	doc, err := goquery.NewDocumentFromReader(res.Body)
+	checkErr(err)
+
+	searchCards := doc.Find(".jobsearch-SerpJobCard")
+	searchCards.Each(func(i int, card *goquery.Selection) {
+		job := extractJob(card)
+		jobs = append(jobs, job)
+	})
+
+	return jobs
+}
+
+// 카드에서 일자리 정보 추출
+func extractJob(card *goquery.Selection) extractedJob {
+	id, _ := card.Attr("data-jk")
+	title := cleanString(card.Find(".title>a").Text())
+	location := cleanString(card.Find(".sjcl").Text())
+	salary := cleanString(card.Find(".salaryText").Text())
+	summary := cleanString(card.Find(".summary").Text())
+	return extractedJob{
+		id:       id,
+		title:    title,
+		location: location,
+		salary:   salary,
+		summary:  summary,
+	}
+}
+
+// 데이터에서 공백 제거
+func cleanString(str string) string {
+	return strings.Join(strings.Fields(strings.TrimSpace(str)), " ")
+}
+
+// 전체 페이지수 얻기
+func getPages() int {
+	pages := 0
+	res, err := http.Get(baseURL)
+	checkErr(err)
+	checkCode(res)
+
+	defer res.Body.Close()
+
+	doc, err := goquery.NewDocumentFromReader(res.Body)
+	checkErr(err)
+
+	doc.Find(".pagination").Each(func(i int, s *goquery.Selection) {
+		pages = s.Find("a").Length()
+	})
+
+	return pages
+}
+
+func checkErr(err error) {
+	if err != nil {
+		log.Fatalln(err)
+	}
+}
+
+func checkCode(res *http.Response) {
+	if res.StatusCode != 200 {
+		log.Fatalln("Request failed with Status :", res.StatusCode)
+	}
+}
+```
+
+## 4.3 Channels Time
+
+```go
+package main
+
+import (
+	"encoding/csv"
+	"fmt"
+	"log"
+	"net/http"
+	"os"
+	"strconv"
+	"strings"
+
+	"github.com/PuerkitoBio/goquery"
+)
+
+type extractedJob struct {
+	id       string
+	title    string
+	location string
+	salary   string
+	summary  string
+}
+
+var baseURL string = "https://kr.indeed.com/jobs?q=python&limit=50"
+
+func main() {
+	var jobs []extractedJob
+	c := make(chan []extractedJob)
+	totalPages := getPages()
+
+	for i := 0; i < totalPages; i++ {
+		go getPage(i, c)
+	}
+	for i := 0; i < totalPages; i++ {
+		extractJobs := <-c
+		jobs = append(jobs, extractJobs...)
+	}
+
+	writeJons(jobs)
+	fmt.Println("Done, extracted", len(jobs))
+}
+
+func getPage(page int, mainC chan<- []extractedJob) {
+	var jobs []extractedJob
+	c := make(chan extractedJob)
+	pageURL := baseURL + "&start=" + strconv.Itoa(page*50)
+	fmt.Println("Requesting :", pageURL)
+	res, err := http.Get(pageURL)
+	checkErr(err)
+	checkCode(res)
+
+	defer res.Body.Close()
+
+	doc, err := goquery.NewDocumentFromReader(res.Body)
+	checkErr(err)
+
+	searchCards := doc.Find(".jobsearch-SerpJobCard")
+	searchCards.Each(func(i int, card *goquery.Selection) {
+		go extractJob(card, c)
+	})
+
+	for i := 0; i < searchCards.Length(); i++ {
+		job := <-c
+		jobs = append(jobs, job)
+	}
+	mainC <- jobs
+}
+
+// 카드에서 일자리 정보 추출
+func extractJob(card *goquery.Selection, c chan<- extractedJob) {
+	id, _ := card.Attr("data-jk")
+	title := cleanString(card.Find(".title>a").Text())
+	location := cleanString(card.Find(".sjcl").Text())
+	salary := cleanString(card.Find(".salaryText").Text())
+	summary := cleanString(card.Find(".summary").Text())
+	c <- extractedJob{
+		id:       id,
+		title:    title,
+		location: location,
+		salary:   salary,
+		summary:  summary,
+	}
+}
+
+// 데이터에서 공백 제거
+func cleanString(str string) string {
+	return strings.Join(strings.Fields(strings.TrimSpace(str)), " ")
+}
+
+// 전체 페이지수 얻기
+func getPages() int {
+	pages := 0
+	res, err := http.Get(baseURL)
+	checkErr(err)
+	checkCode(res)
+
+	defer res.Body.Close()
+
+	doc, err := goquery.NewDocumentFromReader(res.Body)
+	checkErr(err)
+
+	doc.Find(".pagination").Each(func(i int, s *goquery.Selection) {
+		pages = s.Find("a").Length()
+	})
+
+	return pages
+}
+
+func writeJons(jobs []extractedJob) {
+	file, err := os.Create("jobs.csv")
+	checkErr(err)
+
+	w := csv.NewWriter(file)
+	defer w.Flush()
+
+	headers := []string{"Link", "Title", "Location", "Salary", "Summary"}
+
+	wErr := w.Write(headers)
+	checkErr(wErr)
+
+	for _, job := range jobs {
+		jobSclice := []string{"https://kr.indeed.com/viewjob?jk=" + job.id, job.title, job.location, job.salary, job.summary}
+		jwErr := w.Write(jobSclice)
+		checkErr(jwErr)
+	}
+}
+
+func checkErr(err error) {
+	if err != nil {
+		log.Fatalln(err)
+	}
+}
+
+func checkCode(res *http.Response) {
+	if res.StatusCode != 200 {
+		log.Fatalln("Request failed with Status :", res.StatusCode)
+	}
+}
+```
+
+# 5. WEB SERVER WITH ECHO
+
+## 5.0 Setup
+
+go echo 서버 만들기
+
+라이브러리 설치
+
+```bash
+go get github.com/labstack/echo
+```
+
+main.go
+
+```go
+package main
+
+import (
+	"net/http"
+
+	"github.com/labstack/echo"
+)
+
+func handleHome(c echo.Context) error {
+	return c.String(http.StatusOK, "Hello, World!")
+}
+
+func main() {
+	e := echo.New()
+	e.GET("/", handleHome)
+	e.Logger.Fatal(e.Start(":1323"))
+}
+```
+
+`go run main.go` 실행 후
+
+웹 브라우저에서 `localhost:1323` 접속시 접속되는 것을 확인
+
+## 5.1 scrapper 서버 생성
+
+`scrapper` 폴더 생성후 해당 폴더로 `main.go` 파일 이동후 아래와 같이 수정
+- 파일명 `main.go` -> `scrapper.go`
+- 패키지명 `package main` -> `package scrapper`
+- 함수명 `func main()` -> `func scrape`
+
+scrapper/scrapper.go
+
+```go
+package scrapper
+
+import (
+	"encoding/csv"
+	"fmt"
+	"log"
+	"net/http"
+	"os"
+	"strconv"
+	"strings"
+
+	"github.com/PuerkitoBio/goquery"
+)
+
+type extractedJob struct {
+	id       string
+	title    string
+	location string
+	salary   string
+	summary  string
+}
+
+// Scrape Indeed by a term
+func Scrape(term string) {
+	var baseURL string = "https://kr.indeed.com/jobs?q=" + term + "&limit=50"
+	var jobs []extractedJob
+	c := make(chan []extractedJob)
+	totalPages := getPages(baseURL)
+
+	for i := 0; i < totalPages; i++ {
+		go getPage(i, baseURL, c)
+	}
+	for i := 0; i < totalPages; i++ {
+		extractJobs := <-c
+		jobs = append(jobs, extractJobs...)
+	}
+
+	writeJobs(jobs)
+	fmt.Println("Done, extracted", len(jobs))
+}
+
+func getPage(page int, url string, mainC chan<- []extractedJob) {
+	var jobs []extractedJob
+	c := make(chan extractedJob)
+	pageURL := url + "&start=" + strconv.Itoa(page*50)
+	fmt.Println("Requesting :", pageURL)
+	res, err := http.Get(pageURL)
+	checkErr(err)
+	checkCode(res)
+
+	defer res.Body.Close()
+
+	doc, err := goquery.NewDocumentFromReader(res.Body)
+	checkErr(err)
+
+	searchCards := doc.Find(".jobsearch-SerpJobCard")
+	searchCards.Each(func(i int, card *goquery.Selection) {
+		go extractJob(card, c)
+	})
+
+	for i := 0; i < searchCards.Length(); i++ {
+		job := <-c
+		jobs = append(jobs, job)
+	}
+	mainC <- jobs
+}
+
+// 카드에서 일자리 정보 추출
+func extractJob(card *goquery.Selection, c chan<- extractedJob) {
+	id, _ := card.Attr("data-jk")
+	title := CleanString(card.Find(".title>a").Text())
+	location := CleanString(card.Find(".sjcl").Text())
+	salary := CleanString(card.Find(".salaryText").Text())
+	summary := CleanString(card.Find(".summary").Text())
+	c <- extractedJob{
+		id:       id,
+		title:    title,
+		location: location,
+		salary:   salary,
+		summary:  summary,
+	}
+}
+
+// CleanString cleans a string
+func CleanString(str string) string {
+	return strings.Join(strings.Fields(strings.TrimSpace(str)), " ")
+}
+
+// 전체 페이지수 얻기
+func getPages(url string) int {
+	pages := 0
+	res, err := http.Get(url)
+	checkErr(err)
+	checkCode(res)
+
+	defer res.Body.Close()
+
+	doc, err := goquery.NewDocumentFromReader(res.Body)
+	checkErr(err)
+
+	doc.Find(".pagination").Each(func(i int, s *goquery.Selection) {
+		pages = s.Find("a").Length()
+	})
+
+	return pages
+}
+
+func writeJobs(jobs []extractedJob) {
+	file, err := os.Create("jobs.csv")
+	checkErr(err)
+
+	w := csv.NewWriter(file)
+	defer w.Flush()
+
+	headers := []string{"Link", "Title", "Location", "Salary", "Summary"}
+
+	wErr := w.Write(headers)
+	checkErr(wErr)
+
+	for _, job := range jobs {
+		jobSclice := []string{"https://kr.indeed.com/viewjob?jk=" + job.id, job.title, job.location, job.salary, job.summary}
+		jwErr := w.Write(jobSclice)
+		checkErr(jwErr)
+	}
+}
+
+func checkErr(err error) {
+	if err != nil {
+		log.Fatalln(err)
+	}
+}
+
+func checkCode(res *http.Response) {
+	if res.StatusCode != 200 {
+		log.Fatalln("Request failed with Status :", res.StatusCode)
+	}
+}
+```
+
+main.go
+
+```go
+package main
+
+import (
+	"strings"
+
+	"github.com/SangjunCha-dev/learngo/scrapper"
+	"github.com/labstack/echo"
+)
+
+func handleHome(c echo.Context) error {
+	return c.File("home.html")
+}
+
+func handleScrape(c echo.Context) error {
+	term := strings.ToLower(scrapper.CleanString(c.FormValue("term")))
+	scrapper.Scrape(term)
+	return nil
+}
+
+func main() {
+	e := echo.New()
+	e.GET("/", handleHome)
+	e.POST("/scrape", handleScrape)
+	e.Logger.Fatal(e.Start(":1323"))
+}
+```
+
+home.html 파일 생성
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Go Jobs</title>
+</head>
+    <h1>Go Jobs</h1>
+    <h3>Indeed.com scrapper</h3>
+    <form method="POST" action="/scrape">
+        <input placeholder="what job do you want" name="term"/>
+        <button>Search</button>
+    </form>
+</html>
+```
+
+## 5.2 File Download
+
+return c.Attachment(filename1, filename2) : filename1 파일 찾아서 filename2 이름으로 다운로드
+
+main.go
+
+```go
+package main
+
+import (
+	"os"
+	"strings"
+
+	"github.com/SangjunCha-dev/learngo/scrapper"
+	"github.com/labstack/echo"
+)
+
+const fileName string = "jobs.csv"
+
+func handleHome(c echo.Context) error {
+	return c.File("home.html")
+}
+
+func handleScrape(c echo.Context) error {
+	defer os.Remove(fileName)
+	term := strings.ToLower(scrapper.CleanString(c.FormValue("term")))
+	scrapper.Scrape(term)
+	return c.Attachment(fileName, fileName)
+}
+
+func main() {
+	e := echo.New()
+	e.GET("/", handleHome)
+	e.POST("/scrape", handleScrape)
+	e.Logger.Fatal(e.Start(":1323"))
+}
+```
+
+
+[buffalo](https://gobuffalo.io/en/) - django의 go버전 프레임워크
+
+db, template, api, server, logger, orm 등 모든 것이 있는 풀스택 프레임워크
+
+라우팅, hot code reload, 프론트엔드 파이프라인, 모델, 테스트 등 기능 지원
