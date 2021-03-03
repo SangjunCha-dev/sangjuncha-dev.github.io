@@ -39,3 +39,39 @@ if _, err := os.Stat("/dirname"); !os.IsNotExist(err) {
 	// exist
 }
 ```
+
+## struct 구조체 기본값 지정
+
+```json
+{
+    "index":0,
+    "value":"bar"
+}
+```
+
+```go
+package main
+
+import (
+    "encoding/json"
+    "fmt"
+)
+
+type Config struct {
+    Index   int	    `json:"index"`
+    Value string    `json:"value"`
+}
+
+var data = Config{}
+
+func main() {
+    con, err := ioutil.ReadFile("config.json")
+	if err != nil {
+		log.Print(err)
+	}
+	if err := json.Unmarshal(con, &data); err != nil {
+		log.Print(err)
+	}
+    fmt.Println(data)
+}
+```
