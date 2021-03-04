@@ -68,8 +68,6 @@ if err != nil {
 }
 ```
 
-
-
 # struct 구조체 기본값 지정
 
 ```json
@@ -137,3 +135,21 @@ fmt.Println("yyyy-mm-dd HH:mm:ss :", current.Format("2006-01-02 15:04:05.0000000
 // yyyy-mm-dd HH:mm:ss : 2016-09-02 15:53:07.159994437
 ```
 
+# 디렉토리 내 파일목록 읽기
+
+`ioutil.ReadDir(path)`
+
+```go
+files, err := ioutil.ReadDir("tmp") 
+if err != nil{ 
+    fmt.Println(err) 
+} 
+for i ,f := range files {
+    fmt.Println( i , f.Name())
+}
+```
+
+```bash
+0 test1.txt
+1 test2.txt
+```
