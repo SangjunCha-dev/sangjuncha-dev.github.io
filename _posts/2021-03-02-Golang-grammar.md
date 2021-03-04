@@ -7,28 +7,45 @@ tags: [go]
 pin: false
 ---
 
-# 디렉토리 생성
+# 디렉토리 관련 함수
 
-os.Mkdir()
+## 단일 디렉토리 생성
 
-```go
-func Mkdir(name string, perm FileMode) error
-```
-- name : 생성할 디렉토리 이름
-- perm : 디렉토리 권한 설정
-
-사용예제
+`os.Mkdir(path, permission)`
 
 ```go
-err := os.Mkdir("/temp", 0755)
+err := os.Mkdir("tmp", 0755)
 if err != nil {
     log.Fatal(err)
 }
 ```
 
-# 디렉토리 존재유무 확인
+## 다중 디렉토리 생성
 
-os.Stat()
+`os.MkdirAll(path, permission)` : 
+
+```go
+err := os.MkdirAll("tmp/new", 0755)
+if err != nil {
+    log.Fatal(err)
+}
+```
+
+## 현재 작업 디렉토리 얻기
+
+`os.Getwd()`
+
+```go
+path, err := os.Getwd()
+if err != nil { 
+    log.Println(err) 
+} 
+fmt.Println(path)
+```
+
+## 디렉토리 존재유무 확인
+
+`os.Stat(paht)`
 
 ```go
 if _, err := os.Stat("/dirname"); os.IsNotExist(err) {
@@ -40,7 +57,20 @@ if _, err := os.Stat("/dirname"); !os.IsNotExist(err) {
 }
 ```
 
-## struct 구조체 기본값 지정
+## 디렉토리 이름 바꾸기
+
+`os.Rename(oldpath, newpath)`
+
+```go
+err := os.Rename("tmp", "tmp2") 
+if err != nil { 
+    log.Fatal(err) 
+}
+```
+
+
+
+# struct 구조체 기본값 지정
 
 ```json
 {
@@ -75,3 +105,35 @@ func main() {
     fmt.Println(data)
 }
 ```
+
+# Time 변수 문자열 변환 (convert time.Time to string)
+
+```go
+// caution : format string is `2006-01-02 15:04:05.000000000`
+current := time.Now()
+
+fmt.Println("origin :", current.String())
+// origin :  2016-09-02 15:53:07.159994437 +0800 CST
+
+fmt.Println("mm-dd-yyyy :", current.Format("01-02-2006"))
+// mm-dd-yyyy :  09-02-2016
+
+fmt.Println("yyyy-mm-dd :", current.Format("2006-01-02"))
+// yyyy-mm-dd :  2016-09-02
+
+// separated by .
+fmt.Println("yyyy.mm.dd :", current.Format("2006.01.02"))
+// yyyy.mm.dd :  2016.09.02
+
+fmt.Println("yyyy-mm-dd HH:mm:ss :", current.Format("2006-01-02 15:04:05"))
+// yyyy-mm-dd HH:mm:ss : 2016-09-02 15:53:07
+
+// Stamp Micro second
+fmt.Println("yyyy-mm-dd HH:mm:ss :", current.Format("2006-01-02 15:04:05.000000"))
+// yyyy-mm-dd HH:mm:ss : 2016-09-02 15:53:07.159994
+
+// Stamp Nano second
+fmt.Println("yyyy-mm-dd HH:mm:ss :", current.Format("2006-01-02 15:04:05.000000000"))
+// yyyy-mm-dd HH:mm:ss : 2016-09-02 15:53:07.159994437
+```
+
