@@ -114,17 +114,17 @@ func main() {
 nowTime := time.Now()
 
 fmt.Println("origin :", nowTime.String())
-// origin :  2021-03-03 15:26:37.123456789 +0900 KST
+// origin : 2021-03-03 15:26:37.123456789 +0900 KST
 
 fmt.Println("mm-dd-yyyy :", nowTime.Format("01-02-2006"))
-// mm-dd-yyyy :  03-03-2021
+// mm-dd-yyyy : 03-03-2021
 
 fmt.Println("yyyy-mm-dd :", nowTime.Format("2006-01-02"))
-// yyyy-mm-dd :  2021-03-03
+// yyyy-mm-dd : 2021-03-03
 
 // separated by .
 fmt.Println("yyyy.mm.dd :", nowTime.Format("2006.01.02"))
-// yyyy.mm.dd :  2021.03.03
+// yyyy.mm.dd : 2021.03.03
 
 fmt.Println("yyyy-mm-dd HH:mm:ss :", nowTime.Format("2006-01-02 15:04:05"))
 // yyyy-mm-dd HH:mm:ss : 2021-03-03 15:26:37
@@ -149,11 +149,29 @@ if err != nil{
     fmt.Println(err) 
 } 
 for i ,f := range files {
-    fmt.Println( i , f.Name())
+    fmt.Println(i, f.Name())
 }
 ```
 
 ```bash
 0 test1.txt
 1 test2.txt
+```
+
+# 문자열 분할
+2021년 3월 8일 월요일 오전 1:21:36
+
+```go
+tmp := "one two three"
+slice := strings.Split(tmp, " ")
+
+for i, str := range slice {
+    fmt.Println(i, str)
+}
+```
+
+```bash
+0 one
+1 two
+2 three
 ```
