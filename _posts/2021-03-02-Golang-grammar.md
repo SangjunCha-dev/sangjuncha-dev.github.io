@@ -8,6 +8,7 @@ pin: false
 ---
 
 # 디렉토리 관련 함수
+2021년 3월 3일 수요일 오전 8:55:31
 
 ## 단일 디렉토리 생성
 
@@ -69,6 +70,7 @@ if err != nil {
 ```
 
 # struct 구조체 기본값 지정
+2021년 3월 3일 수요일 오후 5:43:23
 
 ```json
 {
@@ -105,37 +107,39 @@ func main() {
 ```
 
 # Time 변수 문자열 변환 (convert time.Time to string)
+2021년 3월 4일 목요일 오후 2:54:09
 
 ```go
 // caution : format string is `2006-01-02 15:04:05.000000000`
-current := time.Now()
+nowTime := time.Now()
 
-fmt.Println("origin :", current.String())
-// origin :  2016-09-02 15:53:07.159994437 +0800 CST
+fmt.Println("origin :", nowTime.String())
+// origin :  2021-03-03 15:26:37.123456789 +0900 KST
 
-fmt.Println("mm-dd-yyyy :", current.Format("01-02-2006"))
-// mm-dd-yyyy :  09-02-2016
+fmt.Println("mm-dd-yyyy :", nowTime.Format("01-02-2006"))
+// mm-dd-yyyy :  03-03-2021
 
-fmt.Println("yyyy-mm-dd :", current.Format("2006-01-02"))
-// yyyy-mm-dd :  2016-09-02
+fmt.Println("yyyy-mm-dd :", nowTime.Format("2006-01-02"))
+// yyyy-mm-dd :  2021-03-03
 
 // separated by .
-fmt.Println("yyyy.mm.dd :", current.Format("2006.01.02"))
-// yyyy.mm.dd :  2016.09.02
+fmt.Println("yyyy.mm.dd :", nowTime.Format("2006.01.02"))
+// yyyy.mm.dd :  2021.03.03
 
-fmt.Println("yyyy-mm-dd HH:mm:ss :", current.Format("2006-01-02 15:04:05"))
-// yyyy-mm-dd HH:mm:ss : 2016-09-02 15:53:07
+fmt.Println("yyyy-mm-dd HH:mm:ss :", nowTime.Format("2006-01-02 15:04:05"))
+// yyyy-mm-dd HH:mm:ss : 2021-03-03 15:26:37
 
 // Stamp Micro second
-fmt.Println("yyyy-mm-dd HH:mm:ss :", current.Format("2006-01-02 15:04:05.000000"))
-// yyyy-mm-dd HH:mm:ss : 2016-09-02 15:53:07.159994
+fmt.Println("yyyy-mm-dd HH:mm:ss :", nowTime.Format("2006-01-02 15:04:05.000000"))
+// yyyy-mm-dd HH:mm:ss : 2021-03-03 15:26:37.123456
 
 // Stamp Nano second
-fmt.Println("yyyy-mm-dd HH:mm:ss :", current.Format("2006-01-02 15:04:05.000000000"))
-// yyyy-mm-dd HH:mm:ss : 2016-09-02 15:53:07.159994437
+fmt.Println("yyyy-mm-dd HH:mm:ss :", nowTime.Format("2006-01-02 15:04:05.000000000"))
+// yyyy-mm-dd HH:mm:ss : 2021-03-03 15:26:37.123456789
 ```
 
 # 디렉토리 내 파일목록 읽기
+2021년 3월 4일 목요일 오후 5:45:44
 
 `ioutil.ReadDir(path)`
 
