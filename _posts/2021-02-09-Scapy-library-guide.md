@@ -2,16 +2,16 @@
 title: scapy 라이브러리 사용법 (Scapy Library Guide)
 author: Sangjun Cha
 date: 2021-02-09 15:25:35 +0900
-categories: [Python, Scapy, Sniff]
+categories: [Python, Guide, Sniff]
 tags: [python, library, Sniff]
 pin: false
 ---
 
 
 
-설치환경 : Windows 10
-
 Official Docs URL : https://scapy.readthedocs.io/en/latest/#
+
+설치환경 : Windows 10
 
 # 1. 설치
 
