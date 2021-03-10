@@ -3,7 +3,7 @@ title: 노마드코더 쉽고 빠른 Go 시작하기(nomadcoders Go-for-beginner
 author: Sangjun Cha
 date: 2021-02-22 00:09:23 +0900
 categories: [Go, Lecture, Scraper]
-tags: [Go, note, scraper]
+tags: [go, note, scraper]
 pin: false
 ---
 

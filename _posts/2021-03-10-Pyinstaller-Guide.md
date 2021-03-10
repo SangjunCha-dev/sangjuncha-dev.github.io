@@ -46,7 +46,7 @@ pyinstaller --clean --distpath . -F -n [프로그램이름] [변환시킬 파일
 |*-w, --windowed, --noconsole*|Not console 모드|
 |*--hidden-import*  |import 에러 발생한 라이브러리 명시적 포함옵션 </br> 이 옵션은 여러 번 사용가능|
 |*-win-private-assemblies*|응용프로그램에 번들로 제공된 모든 공유 어셈블리가 개인 어셈블리로 변경 </br>즉, 변환한 환경의 어셈블리 버전으로 항상 사용되며 사용자 시스템에 설치된 모든 최신 버전은 시스템 수준에서 무시됨|
-|*-runtime-tmpdir PATH*|onefile 모드 에서 라이브러리 및 지원 파일이 압축 해제될 위치 </br> .exe 실행시 생성되는 임시디렉토리 경로지정 (default : C:\Users\{user*name}\AppData\Local\Temp)|
+|*-runtime-tmpdir PATH*|onefile 모드 에서 라이브러리 및 지원 파일이 압축 해제될 위치 </br> .exe 실행시 생성되는 임시디렉토리 경로지정 (default : C:\Users\{username}\AppData\Local\Temp)|
 |*--icon=icon.ico*  |실행파일에 포함될 아이콘 지정|
 |*-p DIR, --paths DIR*|가져오기를 검색하는 경로 (예: PYTON PATH 사용) </br> 경로가 여러 개 허용되거나 ':'로 구분되거나 이 옵션을 여러 번 사용할 수 있습니다. </br> --paths .\venv\Lib\site-packages|
 |-workpath WORKPATH|모든 임시 작업 파일, .log, .pyz 등을 저장할 위치 (기본값 : ./build)|
