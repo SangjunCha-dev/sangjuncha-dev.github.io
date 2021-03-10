@@ -103,7 +103,7 @@ pyinstaller --clean ^
 문제점 : python 라이브러리에서 조건문을 통한 import 사용시 pyinstaller 에서 인식하지 못함
 해결방안 : 조건문 없이도 import 할 수 있도록 라이브러리 코드 수정해야함
 
-ex) tensorpack 라이브러리 디렉토리안에 모든 `__init__.py` 파일에서 if STATICA_HACK 조건문을 통한 import 코드를
+해결예시 : tensorpack 라이브러리 디렉토리안에 모든 `__init__.py` 파일에서 if STATICA_HACK 조건문을 통한 import 코드를
 조건문 없이 import 하도록 코드 수정
 
 ## 4.3 tensorflow 사용시
