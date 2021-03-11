@@ -347,3 +347,42 @@ log.SetOutput(rl)
 
 log.Println("log write")
 ```
+
+
+# 프로젝트내 다른 로컬패키지 호출
+
+go언어는 패키지를 GOPATH 기준으로 검색하기때문에  
+GOPATH가 아닌 다른경로에서 프로젝트를 개발할 경우  
+프로젝트이름 기준으로 패키지 검색
+
+디렉토리 구조 예시
+
+```
+project1
+├── package1/
+|   └── package1.go
+└── package2/
+    └── package2.go
+```
+
+## 로컬패키지 호출 예시
+
+package1.go파일에서 로컬패키지 package2 호출
+
+./package1.go
+
+```go
+import (
+    "project1/package2"
+)
+```
+
+## 잘못 사용한 예시
+
+go언어에서는 import 구문으로 상대경로를 사용하지 않음
+
+```go
+import (
+    "../package2"
+)
+```
