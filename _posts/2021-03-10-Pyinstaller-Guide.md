@@ -129,3 +129,20 @@ pyinstaller --clean ^
 문제점 : 아이콘 옵션 적용 후 아이콘이 변경되지 않을경우 windows 시스템 버퍼에 저장된 이미지가 적용되어 안바뀐것 처럼 보임
 
 해결방안 : 정상적으로 적용이 되었으나 버퍼상에 전 이미지가 남아있는것으로 다른 경로로 복사하여 아이콘 이미지 적용이 되었는지 확인
+
+## 4.5 멀티프로세싱 사용시 주의사항
+
+문제점 : windows10 환경에서 멀티프로세싱 기능을 사용할때 exe 프로세스마다 main함수가 실행이 됩니다.
+
+해결방안 : `freeze_support()` 함수 호출 후 main 함수를 호출하면 관련된 exe 프로세스에서 main함수는 1번만 실행됩니다.
+
+```python
+from sys import platform
+from multiprocessing import freeze_support
+
+if __name__ == '__main__':
+    if platform.startswith('win'):
+        # 윈도우에서만 해당 코드 실행
+        freeze_support()
+	main()
+```
