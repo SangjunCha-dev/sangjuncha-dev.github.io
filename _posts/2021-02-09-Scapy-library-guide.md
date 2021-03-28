@@ -29,10 +29,8 @@ import datetime as dt
 
 # PCAP 파일 읽기
 # could be used like this rdpcap("filename",500) fetches first 500 pkts
-pkts = rdpcap("./pcap/test.pcapng")  
+pkts = rdpcap("./pcap/test.pcapng", -1)
 
-# pkts = pkts[21]
-# pkts = pkts[:22]
 pkts = pkts[21:100]
 
 cnt = 0

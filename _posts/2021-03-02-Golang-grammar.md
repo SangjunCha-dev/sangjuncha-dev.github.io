@@ -77,7 +77,8 @@ if err != nil {
 ```json
 {
     "index":0,
-    "value":"bar"
+    "value":"bar",
+    "result":false
 }
 ```
 
@@ -92,6 +93,7 @@ import (
 type Config struct {
     Index   int	    `json:"index"`
     Value string    `json:"value"`
+    Result bool     `json:"result"`
 }
 
 var data = Config{}
@@ -309,6 +311,7 @@ default:
 
 
 # 특정 날짜/시간 동작
+2021년 3월 8일 월요일 오후 1:29:32
 
 ```bash
 go get github.com/robfig/cron
@@ -334,6 +337,7 @@ c.Start()
 
 
 # 로그파일 작성
+2021년 3월 8일 월요일 오후 1:29:32
 
 ```go
 rl, _ := rotatelogs.New(
@@ -349,7 +353,9 @@ log.Println("log write")
 ```
 
 
+
 # 프로젝트내 다른 로컬패키지 호출
+2021년 3월 11일 목요일 오후 6:02:36
 
 go언어는 패키지를 GOPATH 기준으로 검색하기때문에  
 GOPATH가 아닌 다른경로에서 프로젝트를 개발할 경우  
@@ -385,4 +391,25 @@ go언어에서는 import 구문으로 상대경로를 사용하지 않음
 import (
     "../package2"
 )
+```
+
+
+# uint16형 데이터 2Byte형태로 변환
+
+```go
+b := make([]byte, 2)
+binary.BigEndian.PutUint16(b, uint16(258))
+
+fmt.Println(string(b))
+```
+
+# 서로 다른 byte 데이터 비교
+
+```go
+b := make([]byte, 2)
+binary.BigEndian.PutUint16(b, uint16(258))
+
+if bytes.Compare(b, []byte{1, 2}) == 0 {
+    fmt.Println("같은 데이터 입니다.")
+}
 ```
