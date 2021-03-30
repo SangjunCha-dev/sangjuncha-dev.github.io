@@ -42,7 +42,7 @@ r4 = magic.from_buffer(file_data, mime=True)
 print(f"filetype = {r3}, \nmime = {r4}")
 ```
 
-UnicodeDecodeError 에러 발생시 
+UnicodeDecodeError 에러 발생시  
 `UnicodeDecodeError: 'cp949' codec can't decode byte 0xd3 in position 23: illegal multibyte sequence`
 
 file open encoding 지정하여 디코딩 가능하도록 코드 수정
