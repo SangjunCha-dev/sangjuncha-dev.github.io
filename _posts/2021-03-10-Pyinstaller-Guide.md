@@ -1,5 +1,5 @@
 ---
-title: Pyinstaller 사용법 (Pyinstaller Guide)
+title: Pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)
 author: Sangjun Cha
 date: 2021-03-10 14:46:19 +0900
 categories: [Python, Guide]
@@ -11,7 +11,7 @@ pin: false
 
 python 파일을 윈도우에서 python 이나 가상환경 설정없이 실행이 가능한 `.exe` 으로 변환해주는 라이브러리
 
-docs URL - https://pyinstaller.readthedocs.io/en/stable/usage.html
+Docs URL - https://pyinstaller.readthedocs.io/en/stable/usage.html
 
 설치환경 : Windows 10
 

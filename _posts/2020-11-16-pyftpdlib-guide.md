@@ -1,5 +1,5 @@
 ---
-title: pyftpdlib 사용법 (pyftpdlib Guide)
+title: pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)
 author: Sangjun Cha
 date: 2020-11-16 13:30:41 +0900
 categories: [Python, Guide]
@@ -7,8 +7,19 @@ tags: [python, library]
 pin: false
 ---
 
+Docs URL - https://pyftpdlib.readthedocs.io/en/latest/
 
-# FTP Server 예제
+# FTP Server 라이브러리 설치
+
+```bash
+pip install pyftpdlib
+```
+
+실습 버전 : pyftpdlib 1.5.6
+
+# 사용예제 코드
+
+## FTP Server 예제
 
 ftp server 실행 후 client 테스트 가능
 
@@ -51,7 +62,7 @@ class FileServer:
 
         server.max_cons = 50  # 최대 연결 개수
         server.max_cons_per_ip = 5  # IP당 최대 연결 개수
-        print(f'[ftpServer] Share Dir = {self.userDir}')
+        print(f'[FileServer] Share Dir = {self.userDir}')
         server.serve_forever()
 
 file_server = FileServer()
@@ -59,7 +70,7 @@ file_server.start()
 ```
 
 
-# FTP Client ftplib 예제
+## FTP Client ftplib 예제
 
 FTPClient.py
 ```python
@@ -194,9 +205,9 @@ class FTPClient:
     def create_dir(self, dir_name: str):
         try:
             # FTP 서버 디렉토리 목록 얻어오기
-            filesList = self.dir_list(f"{dir_name}/../")
+            files_list = self.dir_list(f"{dir_name}/../")
             d_list = []
-            for file in filesList:
+            for file in files_list:
                 if file[0] == 'd':
                     d_list.append(file.split(' ')[-1])
             print(f"\x1b[1;36m [create_dir] d_list = {d_list}")
@@ -228,7 +239,7 @@ class FTPClient:
 
 ```
 
-# FTP Client 예제
+## FTP Client 예제
 
 client.py
 ```python

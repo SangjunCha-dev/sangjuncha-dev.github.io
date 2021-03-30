@@ -1,5 +1,5 @@
 ---
-title: scapy 라이브러리 사용법 (Scapy Library Guide)
+title: pyshark 라이브러리 사용법 (Scapy Library Guide)
 author: Sangjun Cha
 date: 2021-02-10 11:13:23 +0900
 categories: [Python, Guide, Sniff]
@@ -9,7 +9,7 @@ pin: false
 
 
 
-Official Docs URL : https://github.com/KimiNewt/pyshark/
+Docs URL - https://github.com/KimiNewt/pyshark/
 
 설치환경 : Windows 10
 
