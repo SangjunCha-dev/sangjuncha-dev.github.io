@@ -42,12 +42,23 @@ pin: false
 
     참고 URL : [https://www.postgresql.org/docs/current/sql-grant.html](https://www.postgresql.org/docs/current/sql-grant.html)
 
-- 예시
+    - 예시
+
+        ```sql
+        GRANT ALL ON DATABASE "ABCD_DB" TO abcd_user;
+        ```
+
+- 계정 부여권한 해제
 
     ```sql
-    GRANT ALL ON DATABASE "ABCD_DB" TO abcd_user;
+    REVOKE ALL ON DATABASE {db_name} FROM {user_name};
     ```
 
+- 계정 삭제
+
+    ```sql
+    DROP ROLE {user_name};
+    ```
 
 # 3. DB insert
 
