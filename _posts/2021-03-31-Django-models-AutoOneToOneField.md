@@ -2,12 +2,12 @@
 title: django models.AutoOneToOneField 사용법
 author: Sangjun Cha
 date: 2021-03-31 12:55:35 +0900
-categories: [Python, Django]
-tags: [python, django]
+categories: [Django, Models]
+tags: [django, models]
 pin: false
 ---
 
-다중 테이블 상속시 테이블 컬럼 데이터 자동 생성방법
+model 상속할때 테이블 컬럼 데이터 자동 생성방법
 
 # 라이브러리 설치
 
