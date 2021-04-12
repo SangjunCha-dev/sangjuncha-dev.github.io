@@ -11,7 +11,7 @@ pin: false
 
 Docs URL - https://github.com/KimiNewt/pyshark/
 
-설치환경 : Windows 10
+설치환경 : Windows 10, python 3.7
 
 # 1. 설치
 
@@ -21,18 +21,34 @@ Docs URL - https://github.com/KimiNewt/pyshark/
 
 # 2. 사용법
 
-캡쳐파일 읽기
-- capture = pyshark.FileCapture('./pcap/first_box1.pcapng')
+## 캡쳐파일 읽기
+
+```python
+capture = pyshark.FileCapture('./test.pcapng')
+```
+
+## 실시간 패킷캡처 interface
+
+```python
+capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 11:22:33:44:55:66', use_json=True, include_raw=True)
+```
+
+## 패킷 캡처
 
 패킷 1개만 캡처하거나 10ms 경과하면 캡처 결과 반환
+
 - capture.sniff(packet_count=1, timeout=10)
+
 패킷 10개만 캡처하거나 10ms 경과하면 캡처 결과 반환
+
 - capture.sniff(packet_count=10, timeout=10)
 
-패킷 bytes 형태로 반환
+## 패킷 bytes 형태로 반환
+
 - print(capture[0].get_raw_packet())
 
-모든 패킷을 실행하고 읽은대로 각 패킷과 함께 주어진 콜백(함수) 호출
+## 모든 패킷을 실행하고 읽은대로 각 패킷과 함께 주어진 콜백(함수) 호출
+
 ```python
 def print_callback(self, pkt):
     print(f"packet = {pkt}")
@@ -43,21 +59,26 @@ print(capture.apply_on_packets(print_callback(pkt)))
 
 패킷 캡쳐 조건 지정
 
-bpf_filter 사용 참고사이트 
-- https://docs.extrahop.com/8.3/bpf-syntax/
-- https://biot.com/capstats/bpf.html
-
-사용 예제
+사용 예시
 
 - bpf_filter='ether host 11:22:33:44:55:66'
-- bpf_filter='ip src 192.168.0.14'
-- bpf_filter='len == 1178'
+- bpf_filter='ip src 192.168.0.1'
+- bpf_filter='len == 1518'
+
+bpf_filter 사용 참고사이트 
+- [Filter packets with Berkeley Packet Filter syntax](https://docs.extrahop.com/8.3/bpf-syntax/)
+- [Berkeley Packet Filter (BPF) syntax](https://biot.com/capstats/bpf.html)
 
 # 4. display_filter(wireshark) 필터
 
-display_filter='eth.addr == 11:22:33:44:55:66'
+사용 예시
 
-# 4. 예제
+- display_filter='eth.addr == 11:22:33:44:55:66'
+
+display_filter 참고사이트
+- [wireshark-filter](https://www.wireshark.org/docs/man-pages/wireshark-filter.html)
+
+# 5. 예제
 
 ```python
 import pyshark
@@ -68,32 +89,16 @@ import datetime as dt
 
 
 class SniffPacket():
-    def __init__(self):
-        pass
-
     def run(self):
         # 실시간 패킷캡처 interface
         capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 11:22:33:44:55:66', use_json=True, include_raw=True)
 
-        cnt = 1
-        start_time = dt.datetime.now()
         print('capture start')
         for raw_data in capture.sniff_continuously():
             # capture.sniff_continuously() : 설정된 인터페이스에서 캡처하여 패킷을 지속적으로 반환하는 생성기를 반환
             # pyshark.LiveCapture(..., use_json=True, include_raw=True)  # 위의 기능을 사용하기 위해서는 Capture 설정에서 use_json=True, include_raw=True 옵션을 추가해야함
-            
-            if cnt == 1: start_time = dt.datetime.now()
 
             self.analysis_data(raw_data.get_raw_packet())
-            
-            cnt += 1
-            if cnt == 8291: 
-                print(f"cnt {cnt}")
-                print(dt.datetime.now() - start_time)
-                cnt = 1
-
-    def print_callback(self, pkt):
-        print(f"packet = {pkt}")
 
     def analysis_data(self, raw_data):
         src_mac = struct.unpack('!6B', raw_data[6:12])
@@ -103,16 +108,9 @@ class SniffPacket():
             dst_mac = struct.unpack('!6B', raw_data[:6])
             dst_mac = '%02x:%02x:%02x:%02x:%02x:%02x' % dst_mac
 
-            (len1,) = struct.unpack('!H', raw_data[12:14])
+            (len,) = struct.unpack('!H', raw_data[12:14])
 
-            (VH,) = struct.unpack('!B', raw_data[14:15])
-            (HL,) = struct.unpack('!B', raw_data[15:16])
-
-            (frame_num,) = struct.unpack('!L', raw_data[16:20])
-
-            (len2,) = struct.unpack('!H', raw_data[20:22])
-
-            data = raw_data[22:]
+            data = raw_data[14:]
             
 sniffPacket = SniffPacket()
 sniffPacket.run()
