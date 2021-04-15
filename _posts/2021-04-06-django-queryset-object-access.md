@@ -11,20 +11,20 @@ queryset 단일객체와 다중객체 접근방법
 
 # QuerySet 이란?
 
-Database에서 전달받은 객체들의 모음(list)
+Database에서 전달받은 결과 목록(list)
 
-Python 코드가 SQL 구문으로 맵핑(mapping)되고 DB로 전달하여 QuerySet 자료 형태로 값을 응답받는다.
+Python 코드가 SQL 구문으로 맵핑(mapping)되고 DB로 전달하여 QuerySet 자료형으로 값을 응답받는다.
 
 # 객체별 접근방식
-Database Table구조는 column과 row로 구분된다.
+Database Table구조는 column(세로)과 row(가로)로 구분된다.
 
-||id|column1|column2|
+||id|name|age|
 |---|---|---|---|
-|1|1|name1|15|
-|2|2|name2|20|
+|1|1|Foo|15|
+|2|2|Bar|20|
 
-- column : 모델(model)의 각 클래스안에 지정한 속성
-- row : 각 속성에 부여되어 있는 값
+- column : 모델(model)클래스에서 지정한 속성
+- row : 각 속성에 부여된 값
 
 ## 단일 객체
 
