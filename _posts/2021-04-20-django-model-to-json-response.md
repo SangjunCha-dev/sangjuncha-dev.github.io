@@ -72,7 +72,7 @@ views.py
 import json
 
 res_data = Template.objects.values('name')
-# res_data = <QuerySet [{'name': 'Kim'}, {'name': 'Lee'}]>
+# res_data = <QuerySet [{'name': 'KimTester'}, {'name': 'LeeTester'}]>
 
 res_data = json.dumps(list(res_data))
 return HttpResponse(res_data, content_type="text/json-comment-filtered")
@@ -83,10 +83,10 @@ return HttpResponse(res_data, content_type="text/json-comment-filtered")
 ```text
 [
     {
-        "name": "wallet"
+        "name": "KimTester"
     },
     {
-        "name": "back"
+        "name": "LeeTester"
     }
 ]
 ```
