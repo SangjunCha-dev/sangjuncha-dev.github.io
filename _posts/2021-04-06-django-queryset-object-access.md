@@ -15,13 +15,33 @@ Database에서 전달받은 결과 목록(list)
 
 Python 코드가 SQL 구문으로 맵핑(mapping)되고 DB로 전달하여 QuerySet 자료형으로 값을 응답받는다.
 
+# 사전설정
+
+models.py
+```python
+from django.db import models
+
+class User():
+    name = models.CharField(max_length=20)
+    age = models.models.PositiveSmallIntegerField()
+```
+
+```bash
+>>> python manage.py shell #shell 실행
+>>> from user.models import User #모델클래스 임포트
+>>> user1 = User(name='Foo', age=15) # 데이터추가
+>>> user1.save() # 데이터 저장
+>>> user2 = User(name='Bar', age=20) # 데이터추가
+>>> user2.save() # 데이터 저장
+```
+
 # 객체별 접근방식
 Database Table구조는 column(세로)과 row(가로)로 구분된다.
 
-||id|name|age|
-|---|---|---|---|
-|1|1|Foo|15|
-|2|2|Bar|20|
+|id|name|age|
+|---|---|---|
+|1|Foo|15|
+|2|Bar|20|
 
 - column : 모델(model)클래스에서 지정한 속성
 - row : 각 속성에 부여된 값
@@ -38,7 +58,7 @@ Database Table구조는 column(세로)과 row(가로)로 구분된다.
 ```python
 >>> user = User.objects.get(id=1)
 >>> user.name
-'Car'
+'Foo'
 ```
 
 ## 다중 객체
@@ -52,7 +72,7 @@ Database Table구조는 column(세로)과 row(가로)로 구분된다.
 >>> user = User.objects.filter(name__startswith='C')
 >>> <QuerySet [<User: User object (1)>, <User: User object (2)>]>
 >>> user[0].name
-'Car'
+'Foo'
 ```
 
 - `filter()`는 조건식에 따라 필터링하여 query의 결과를 리스트로 반환한다.
@@ -61,7 +81,7 @@ Database Table구조는 column(세로)과 row(가로)로 구분된다.
 
 ```python
 >>> user = User.objects.all()
-<QuerySet [<User: User object (1)>, <User: User object (2)>, <User: User object (3)>]>
->>> user[2]
-<User: User object (3)>
+<QuerySet [<User: User object (1)>, <User: User object (2)>]>
+>>> user[1]
+<User: User object (2)>
 ```
