@@ -18,15 +18,15 @@ pin: false
 
 ```python
 class User(models.Model):
-    name	= models.CharField(max_length = 50)
+    name	= models.CharField(max_length=50)
 	age		= models.IntegerField()
-    job		= models.ForeignKey('Occupation', on_delete = models.CASCADE)
+    job		= models.ForeignKey('Occupation', on_delete=models.CASCADE)
     	
 class Occupation(models.Model):
-    name = models.CharField(max_length = 50)
+    name = models.CharField(max_length=50)
 ```
 
-## 정참조 객체 호출하기
+# 정참조 객체 호출하기
 
 `user1` 객체가 `Occupation` 모델을 참조키(ForeignKey)로 정참조하여, `Occupation` 모델의 속성을 사용할 수 있다.
 
@@ -46,13 +46,19 @@ user1.job.name
 
 
 ```bash
-jobs = Occupation.objects.get(id = 1)
+jobs = Occupation.objects.get(id=1)
 jobs.user_set.get().age
 >>> 20
 ```
 
-## 1:N 참조 관계일 때
-- 참조한 목록을 list형태로 반환
+## 1:N 참조 관계
+- 역참조 목록 list로 반환
 - [역참조할 모델 인스턴스].[정참조한 모델 클래스]_set.all()
-- 특정 조건을 만족하는 역참조 반환
+- 특정 조건을 만족하는 역참조 목록 list로 반환
+- [역참조할 모델 인스턴스].[정참조한 모델 클래스]_set.filter(참조키=조건값)
+
+### 1:1 참조 관계
+- 역참조 항목 반환
+- [역참조할 모델 인스턴스].[정참조한 모델 클래스]_set.all()
+- 특정 조건을 만족하는 역참조 항목 반환
 - [역참조할 모델 인스턴스].[정참조한 모델 클래스]_set.filter(참조키=조건값)
