@@ -9,7 +9,7 @@ pin: false
 
 # 개요
 
-<p align="center"><img src="https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/tree/master/assets/img/posts/Docker-summary/0-1.png"></p>
+<p align="center"><img src="../assets/img/posts/Docker-summary/0-1.png?raw=true"></p>
 
 도커(Docker)는 리눅스 컨테이너를 기반으로 특정 서비스를 패키징하고 배포할 수 있는 오픈소스 프로그램이다.
 
@@ -21,7 +21,7 @@ pin: false
 
 - **도커 이미지** : 컨테이너의 파일시스템과 애플리케이션 실행에 필요한 모든 항목(모든 종속성, 구성, 스크립트, 바이너리, 환경변수, 실행하는 기본 명령)이 포함된다.
 
-![](https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/tree/master/assets/img/posts/Docker-summary/0-2.png)
+![](/assets/img/posts/Docker-summary/0-2.png?raw=true)
 
 `도커파일(Docker File)`을 만들어서 "특정 소프트웨어를 컨테이너에 담아서 구동시킬 것이다."를 명시해주고 `빌드(Build)`하면, 도커 이미지가 생성됩니다. 그리고 해당 도커 이미지를 `구동(run)`시키면 도커 컨테이너에서 실행됩니다.
 
@@ -36,7 +36,7 @@ pin: false
 |:---:|:---:|:---:|
 |느림|많음|많음(GB단위)|
 
-![](https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/tree/master/assets/img/posts/Docker-summary/0-3.png)
+![](/assets/img/posts/Docker-summary/0-3.png?raw=true)
 
 `컨테이너(Container)` : 별도의 Guest OS 없이 도커 엔진(Docker Engine)에서 동작하여 바로 소프트웨어를 실행한다.
 - Guest OS를 사용하지 않아 실행과정이 단순화되어 성능적으로 빨라지고 메모리 용량도 적게 사용한다.
@@ -60,7 +60,7 @@ Download URL - https://www.docker.com/get-started
 
 설치 후 아래와 같은 에러 발생시 
 
-![](https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/tree/master/assets/img/posts/Docker-summary/1-1.png)
+![](/assets/img/posts/Docker-summary/1-1.png?raw=true)
 
 # 오류 해결방법
 
@@ -68,7 +68,7 @@ Download URL - https://www.docker.com/get-started
     - 관리자 권한으로 PowerShell 실행
     - Hyper-V 활성화 후 시스템 재시작  
     `dism.exe /Online /Enable-Feature:Microsoft-Hyper-V /All`
-    ![](https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/tree/master/assets/img/posts/Docker-summary/1-2.png)
+    ![](/assets/img/posts/Docker-summary/1-2.png?raw=true)
 
 2. Hyper-V 기능이 이미 활성화되어 있지만 작동하지 않는 경우
     - 관리자 권한으로 PowerShell 실행
@@ -80,7 +80,7 @@ Download URL - https://www.docker.com/get-started
     - Hyper-V 프로그램이 손상되었을 수 있어 재설치 해야한다.
     - 제어판 - 프로그램 - Windows 기능 켜기/끄기 - Hyper-V 관련요소 체크 해제 후 확인 클릭
     - 시스템 재시작 후 같은 방법으로 Hyper-V 관련요소 체크 후 확인 클릭
-    ![](https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/tree/master/assets/img/posts/Docker-summary/1-3.png)
+    ![](/assets/img/posts/Docker-summary/1-3.png?raw=true)
 
 4. 3번 방법으로도 문제가 지속될 경우
 
@@ -101,13 +101,13 @@ Download URL - https://www.docker.com/get-started
 시스템 재시작 후 WSL2 설치 안내 메세지에서 [kernel update](https://aka.ms/wsl2kernel) 링크에서 `x64 머신용 최신 WSL2 Linux 커널 업데이트 패키지`를 다운받아 업데이트한다.
 - WSL : 윈도우에서 경량 가상화 기술을 사용하여 리눅스를 구동할 수 있도록 도와주는 기능
 
-![](https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/tree/master/assets/img/posts/Docker-summary/1-4.png)
+![](https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/blob/master/assets/img/posts/Docker-summary/1-4.png?raw=true)
 
 그 후 Restart 버튼 클릭하여 도커를 재실행한다.
 
 # Docker 대시보드
 
-![](https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/tree/master/assets/img/posts/Docker-summary/1-5.png)
+![](/assets/img/posts/Docker-summary/1-5.png?raw=true)
 
 도커에서 docker tutorial 실행 후 아래의 튜토리얼 진행
 
