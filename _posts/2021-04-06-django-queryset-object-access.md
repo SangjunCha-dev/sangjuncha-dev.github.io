@@ -48,7 +48,7 @@ Database Table구조는 column(세로)과 row(가로)로 구분된다.
 
 ## 단일 객체
 
-<클래스이름>.objects.get(id=1) or <클래스이름>.objects.latest('id')
+\<클래스이름\>.objects.get(id=1) or \<클래스이름\>.objects.latest('id')
 
 - dictionary의 요소 하나를 반환한다.
 - 해당 조건의 요소가 존재하지 않을때는 `DoesNotExist` 에러가 발생한다. 
@@ -63,7 +63,7 @@ Database Table구조는 column(세로)과 row(가로)로 구분된다.
 
 ## 다중 객체
 
-<클래스이름>.objects.all() or <클래스이름>.objects.values() or <클래스이름>.objects.filter()
+\<클래스이름\>.objects.all() or \<클래스이름\>.objects.values() or \<클래스이름\>.objects.filter()
 
 - dictionary 자료형의 key와 value로 접근가능
 - `QuerySet()`은 리스트 형태이고, 리스트 요소는 dictionary 자료형이므로 `<variable name>[index]['key']` 형식으로 value에 접근할 수 있다.
@@ -77,7 +77,7 @@ Database Table구조는 column(세로)과 row(가로)로 구분된다.
 
 - `filter()`는 조건식에 따라 필터링하여 query의 결과를 리스트로 반환한다.
 - `all()`은 QuerySet안의 모든 객체를 리스트 형태로 반환한다.
-- 따라서, `<variable name>[index]` 형식으로 접근할 수 있다.
+- 따라서, `\<variable name\>[index]` 형식으로 접근할 수 있다.
 
 ```python
 >>> user = User.objects.all()
