@@ -1,5 +1,5 @@
 ---
-title: [django] json 데이터 반환하기
+title: Django json 데이터 반환하기
 author: Sangjun Cha
 date: 2021-04-20 09:30:40 +0900
 categories: [Django, Models]

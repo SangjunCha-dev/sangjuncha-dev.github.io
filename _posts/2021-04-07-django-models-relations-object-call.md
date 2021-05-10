@@ -1,5 +1,5 @@
 ---
-title: [django] model 참조 객체 호출하기
+title: Django model 참조 객체 호출하기
 author: Sangjun Cha
 date: 2021-04-07 17:34:37 +0900
 categories: [Django, Models]

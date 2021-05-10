@@ -1,5 +1,5 @@
 ---
-title: [django] QuerySet 객체 접근방식
+title: Django QuerySet 객체 접근방식
 author: Sangjun Cha
 date: 2021-04-06 15:58:51 +0900
 categories: [Django, Models]
