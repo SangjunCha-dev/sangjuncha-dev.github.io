@@ -1368,25 +1368,6 @@ def solution(s):
 
 
 
-# [괄호 변환](https://programmers.co.kr/learn/courses/30/lessons/60058)
-
-분류 : 2020 KAKAO BLIND RECRUITMENT
-
-1. 
-
-```python
-
-```
-
-**2021**
-
-> 채점 결과  
-> 합계: 100.0 / 100.0  
-> min TaseCase :   
-> max TaseCase :   
-
-
-
 # [메뉴 리뉴얼](https://programmers.co.kr/learn/courses/30/lessons/72411)
 
 분류 : 2021 KAKAO BLIND RECRUITMENT
@@ -1531,6 +1512,124 @@ deque : 스택과 큐를 일반화 한 것
     - 오른쪽에서 요소를 제거하고 반환
 4. popleft()
     - 왼쪽에서 요소를 제거하고 반환
+
+
+
+# [순위 검색](https://programmers.co.kr/learn/courses/30/lessons/72412#)
+
+분류 : 2021 KAKAO BLIND RECRUITMENT
+
+풀이방법 : 재귀함수, 이진탐색 사용
+
+```python
+def binary_search(data: list, target: int):
+    s_idx = 0
+    e_idx = len(data)-1
+    mid = 0
+    if data:
+        if data[-1] < target:
+            mid = len(data)
+        elif data[0] < target:
+            while s_idx <= e_idx:
+                mid = (s_idx+e_idx)//2
+                
+                if target < data[mid]:
+                    e_idx = mid
+                elif data[mid] < target:
+                    if e_idx - s_idx == 1:
+                        mid = e_idx
+                        break
+                    elif e_idx == s_idx:
+                        mid = e_idx + 1
+                        break
+                    else:
+                        s_idx = mid
+                else:
+                    e_idx -= 1
+    return mid
+
+def dict_count(q_val: list, i_val: list):
+    cnt = 0
+    key = q_val[0]
+    if key == '-':
+        for k in i_val:
+            cnt += dict_count(q_val=q_val[1:], i_val=i_val[k])
+    elif 1 < len(q_val):
+        cnt = dict_count(q_val=q_val[1:], i_val=i_val[key])
+    elif i_val:
+        cnt = len(i_val) - binary_search(data=i_val, target=key)
+
+    return cnt
+
+def solution(info, query):
+    answer = []
+
+    soul_food = {'chicken': [], 'pizza': []}
+    career = {'junior': copy.deepcopy(soul_food), 'senior': copy.deepcopy(soul_food)}
+    job_group = {'backend': copy.deepcopy(career), 'frontend': copy.deepcopy(career)}
+    i_info = {'cpp': copy.deepcopy(job_group), 'java': copy.deepcopy(job_group), 'python': copy.deepcopy(job_group)}
+
+    for val in info:
+        val = val.split(' ')
+        data = i_info[val[0]][val[1]][val[2]][val[3]]
+        t_val = int(val[4])
+        data.insert(binary_search(data=data, target=t_val), t_val)
+
+    for val in query:
+        val = val.split(' and ')
+        val[-1], score = val[-1].split(' ')
+        val.append(int(score))
+        answer.append(dict_count(q_val=val, i_val=i_info))
+    
+    return answer
+```
+
+**2021-05-18**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase : 0.24ms, 10.4MB  
+> max TaseCase : 10.82ms, 10.7MB  
+> min TaseCase : 1146.27ms, 35.9MB  
+> max TaseCase : 5534.78ms, 36.2MB  
+
+
+
+# [괄호 변환](https://programmers.co.kr/learn/courses/30/lessons/60058)
+
+분류 : 2020 KAKAO BLIND RECRUITMENT
+
+1. 
+
+```python
+
+```
+
+**2021**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase :   
+> max TaseCase :   
+
+
+
+# [전화번호 목록](https://programmers.co.kr/learn/courses/30/lessons/42577)
+
+분류 : 해시
+
+1. 
+
+```python
+
+```
+
+**2021**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+> min TaseCase :   
+> max TaseCase :   
 
 
 
