@@ -1519,6 +1519,8 @@ deque : 스택과 큐를 일반화 한 것
 
 분류 : 2021 KAKAO BLIND RECRUITMENT
 
+## 방법 1
+
 풀이방법 : 재귀함수, 이진탐색 사용
 
 ```python
@@ -1588,10 +1590,165 @@ def solution(info, query):
 
 > 채점 결과  
 > 합계: 100.0 / 100.0  
+
+정확성 테스트  
 > min TaseCase : 0.24ms, 10.4MB  
 > max TaseCase : 10.82ms, 10.7MB  
+
+효율성 테스트  
 > min TaseCase : 1146.27ms, 35.9MB  
 > max TaseCase : 5534.78ms, 36.2MB  
+
+## 방법 2
+
+풀이방법 : Bit field 연산
+
+```python
+field = {
+    "cpp": 1, "java": 2, "python": 4,
+    "backend": 1, "frontend": 2,
+    "junior": 1, "senior": 2, 
+    "chicken": 1, "pizza": 2,
+    "-": 7,
+}
+
+mask = {
+    "cpp": 6, "java": 5, "python": 3,
+    "backend": 6, "frontend": 5,
+    "junior": 6, "senior": 5, 
+    "chicken": 6, "pizza": 5,
+    "-": 0,
+}
+
+def binary_search(data, target):
+    low = 0
+    high = len(data)
+
+    while low < high:
+        mid = low + (high-low)//2
+        if target <= data[mid]:
+            high = mid
+        else:
+            low = mid + 1
+    return low
+
+def solution(info, query):
+    answer = []
+
+    i_info = {}
+    for v in info:
+        v = v.split(' ')
+        i_bit = (field[v[0]] << 9) + (field[v[1]] << 6) + (field[v[2]] << 3) + field[v[3]]
+        
+        if i_bit in i_info:
+            data = i_info[i_bit]
+        else:
+            data = i_info[i_bit] = []
+        
+        score = int(v[4])
+        data.insert(binary_search(data=data, target=score), score)
+
+    for v in query:
+        v = v.split(' and ')
+        v[-1], score = v[-1].split(' ')
+        score = int(score)
+        q_bit = (mask[v[0]] << 9) + (mask[v[1]] << 6) + (mask[v[2]] << 3) + mask[v[3]]
+
+        cnt = 0
+        for i_bit in i_info:
+            if not (q_bit & i_bit):
+                i_data = i_info[i_bit]
+                cnt += len(i_data) - binary_search(data=i_data, target=score)
+        answer.append(cnt)
+    
+    return answer
+```
+
+**2021-05-18**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+
+정확성 테스트  
+> min TaseCase : 0.11ms, 10.4MB  
+> max TaseCase : 9.42ms, 11MB  
+
+효율성 테스트  
+> min TaseCase : 887.34ms, 35.8MB  
+> max TaseCase : 3955.15ms, 35.9MB  
+
+## 방법 3
+
+풀이방법 : 이진탐색 부분을 내장함수 사용  
+
+- 배열 이진 분할 알고리즘 bisect 라이브러리
+- `insort(a, x)` : a에 x를 정렬된 순서로 추가
+- `bisect_left(a, x)` : 정렬된 순서를 유지하면서 a에 x를 추가할 위치 반환 
+
+```python
+from bisect import insort, bisect_left
+
+field = {
+    "cpp": 1, "java": 2, "python": 4,
+    "backend": 1, "frontend": 2,
+    "junior": 1, "senior": 2, 
+    "chicken": 1, "pizza": 2,
+    "-": 7,
+}
+
+mask = {
+    "cpp": 6, "java": 5, "python": 3,
+    "backend": 6, "frontend": 5,
+    "junior": 6, "senior": 5, 
+    "chicken": 6, "pizza": 5,
+    "-": 0,
+}
+
+@trace
+def solution(info, query):
+    answer = []
+
+    i_info = {}
+    for v in info:
+        v = v.split(' ')
+        i_bit = (field[v[0]] << 9) + (field[v[1]] << 6) + (field[v[2]] << 3) + field[v[3]]
+        
+        if i_bit in i_info:
+            data = i_info[i_bit]
+        else:
+            data = i_info[i_bit] = []
+        
+        score = int(v[4])
+        insort(data, score)
+
+    for v in query:
+        v = v.split(' and ')
+        v[-1], score = v[-1].split(' ')
+        score = int(score)
+        q_bit = (mask[v[0]] << 9) + (mask[v[1]] << 6) + (mask[v[2]] << 3) + mask[v[3]]
+
+        cnt = 0
+        for i_bit in i_info:
+            if not (q_bit & i_bit):
+                i_data = i_info[i_bit]
+                cnt += len(i_data) - bisect_left(i_data, score)
+        answer.append(cnt)
+    
+    return answer
+```
+
+**2021-05-18**
+
+> 채점 결과  
+> 합계: 100.0 / 100.0  
+
+정확성 테스트  
+> min TaseCase : 0.09ms, 10.4MB  
+> max TaseCase : 5.63ms, 10.7MB  
+
+효율성 테스트  
+> min TaseCase : 446.87ms, 35.7MB  
+> max TaseCase : 1198.31ms, 35.9MB  
 
 
 
