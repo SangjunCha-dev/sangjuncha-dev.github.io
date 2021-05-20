@@ -1601,7 +1601,7 @@ def solution(info, query):
 
 ## 방법 2
 
-풀이방법 : Bit field 연산
+풀이방법 : Bit field 연산, 이진탐색 알고리즘 수정
 
 ```python
 field = {
@@ -1704,7 +1704,6 @@ mask = {
     "-": 0,
 }
 
-@trace
 def solution(info, query):
     answer = []
 
