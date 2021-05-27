@@ -26,7 +26,15 @@ import numpy as np
 
 ### arange
 
+`np.arange`([start,] stop, [step,] dtype)
+
 지정한 숫자 범위의 array 생성함수
+
+|매개변수 이름|설명|
+|---|---|
+|start  | |
+|stop   | |
+
 
 ```python
 np.arange(10)
@@ -38,7 +46,7 @@ np.arange(0, 5, 0.5)
 
 ### zeros
 
-`np.zeros(shape, dtype, order)`
+`np.zeros`(shape, dtype)
 
 0으로 선언된 array 생성
 
@@ -53,7 +61,7 @@ np.zeros(shape=(5,), dtype=np.int8)
 
 ### ones
 
-`np.ones`(shape, dtype, order)
+`np.ones`(shape, dtype)
 
 1로 선언된 array 생성
 
@@ -68,7 +76,7 @@ np.ones(shape=(5,), dtype=np.int8)
 
 ### empty
 
-`np.empty`(shape, dtype, order)
+`np.empty`(shape, dtype)
 
 초기화되지 않은 array 생성
 
@@ -81,9 +89,42 @@ np.empty(shape=(5,))
 # [1.13941795e-311 0.00000000e+000 6.95331628e-310 1.13949703e-311 0.00000000e+000]
 ```
 
+### full
+
+`np.full`(shape, fill_value, dtype)
+
+지정한 값으로 채워진 array 생성
+
+```python
+np.full(shape=(2,4), fill_value=5, dtype=np.int8)
+# [[5 5 5 5] 
+#  [5 5 5 5]]
+```
+
+### iinfo
+
+`np.iinfo`(dtype)
+
+지정한 타입의 최댓값, 최솟값 얻기
+
+```python
+np.iinfo(np.int8)
+# Machine parameters for int8
+# ---------------------------------------------------------------
+# min = -128
+# max = 127
+# ---------------------------------------------------------------
+
+np.iinfo(np.int8).min
+# -128
+
+np.iinfo(np.int8).max
+# 127
+```
+
 ### something_like
 
-`zeros_like`(shape), `ones_like`(shape), `empty_like`(shape)
+`zeros_like`, `ones_like`, `empty_like`, `full_like`(shape, dtype)
 
 `_like`는 지정된 array의 shape 크기만큼 like로 지정된 값의 크기로 array 반환
 
@@ -359,4 +400,16 @@ cv.imwrite(image_full_path, img)
 
 ```python
 retval, buffer = cv.imencode('.png', img)
+```
+
+## cv.imshow
+
+변수에 담겨있는 이미지 보기
+
+`cv.imshow`(winname, mat)
+
+```python
+cv.imshow('Window Name', img)
+cv.waitKey()  # 키입력까지 대기
+cv.destroyAllWindows()  # 윈도우창 닫기
 ```
