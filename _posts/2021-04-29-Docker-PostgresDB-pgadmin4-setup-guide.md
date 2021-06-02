@@ -208,3 +208,9 @@ docker run -p 80:80 --name pgadmin4 -e PGADMIN_DEFAULT_EMAIL="account@site.com" 
     - `PGADMIN_DEFAULT_PASSWORD` : 계정 비밀번호 (필수설정)
 - `-d` : 백그라운드에서 컨테이너 실행
 - `dpage/pgadmin4` : 사용할 이미지 이름
+
+## 실행
+
+웹 브라우저에서 `localhost:80` 주소로 접속하여 설정한 계정과 비밀번호로 접속하면된다.
+
+![](/assets/img/posts/Docker-PostgresDB-pgadmin4-setup-guide/1-1.png?raw=true)
