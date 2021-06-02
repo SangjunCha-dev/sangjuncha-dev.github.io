@@ -2,8 +2,8 @@
 title: Python Opencv 사용 방법
 author: Sangjun Cha
 date: 2021-04-29 16:29:43 +0900
-categories: [Python, Numpy]
-tags: [python, numpy]
+categories: [Python, Opencv]
+tags: [python, opencv]
 pin: false
 ---
 

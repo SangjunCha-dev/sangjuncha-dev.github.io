@@ -2,7 +2,7 @@
 title: Windows 10 WSL2(Windows Subsystem for Linux) 사용법
 author: Sangjun Cha
 date: 2021-05-07 10:30:38 +0900
-categories: [WSL]
+categories: [Windows10, WSL]
 tags: [windows10, wsl]
 pin: false
 ---
