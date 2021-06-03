@@ -1625,7 +1625,7 @@ def binary_search(data, target):
     high = len(data)
 
     while low < high:
-        mid = low + (high-low)//2
+        mid = (high+low)//2
         if target <= data[mid]:
             high = mid
         else:
