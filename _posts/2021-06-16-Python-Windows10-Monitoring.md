@@ -125,49 +125,57 @@ print(type(result))
 
 # power shell 명령어 예시
 
-운영체제 및 메모리 사용량 정보 조회
+* 운영체제 및 메모리 사용량 정보 조회
 
 ```powershell
 Get-CimInstance -Class Win32_OperatingSystem | Select-Object -Property Caption, OSArchitecture, Version, TotalVisibleMemorySize, FreePhysicalMemory
 ```
 
-CPU 정보 및 사용량 조회
+* CPU 정보 및 사용량 조회
 
 ```powershell
 Get-CimInstance -ClassName Win32_Processor | Select-Object -Property Name, MaxClockSpeed, LoadPercentage
 ```
 
-CPU 사용량 조회
+* CPU 사용량 조회
 
 ```powershell
 (Get-CimInstance -ClassName Win32_Processor).LoadPercentage
 ```
 
-GPU 정보 조회
+* GPU 정보 조회
+
+AdapterRAM 필드의 자료형이 dword(uint32)형으로 최대 4GB 까지 표현한다.
 
 ```powershell
 Get-CimInstance -ClassName  Win32_VideoController | Select-Object -Property Name, AdapterRAM
 ```
 
-GPU 메모리 사용량 조회
+qwMemorySize 필드 자료형은 qword(uint64)형으로 최대 약 17,175,674,880 GB 까지 표현한다.
+
+```powershell
+(Get-ItemProperty -Path "HKLM:\SYSTEM\ControlSet001\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0*" -Name HardwareInformation.qwMemorySize -ErrorAction SilentlyContinue)."HardwareInformation.qwMemorySize"
+```
+
+* GPU 메모리 사용량 조회
 
 ```powershell
 (((Get-Counter '\GPU Process Memory(*)\Local Usage').CounterSamples | where CookedValue).CookedValue | measure -sum).sum
 ```
 
-메모리 정보 조회
+* 메모리 정보 조회
 
 ```powershell
 Get-CimInstance -ClassName Win32_PhysicalMemory | Select-Object -Property Manufacturer, PartNumber, Speed, Capacity
 ```
 
-디스크 정보 조회
+* 디스크 정보 조회
 
 ```powershell
 Get-CimInstance -ClassName Win32_DiskDrive | Select-Object -Property Index, Model, Size
 ```
 
-볼륨 정보 조회
+* 볼륨 정보 조회
 
 - DriveType 3 (WMI에서 고정 하드 디스크에 사용하는 값)
 
