@@ -1,0 +1,1479 @@
+<!DOCTYPE html><html lang="en" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="theme" content="Chirpy v2.6.2"><meta name="generator" content="Jekyll v4.1.1" /><meta property="og:title" content="Programmers Python (level 2)" /><meta name="author" content="Sangjun Cha" /><meta property="og:locale" content="en_US" /><meta name="description" content="프린터" /><meta property="og:description" content="프린터" /><link rel="canonical" href="https://sangjuncha-dev.github.io//posts/Algorithm-programmers-python-level2/" /><meta property="og:url" content="https://sangjuncha-dev.github.io//posts/Algorithm-programmers-python-level2/" /><meta property="og:site_name" content="Sangjun" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2020-12-22T22:38:31+09:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="Programmers Python (level 2)" /><meta name="twitter:site" content="@/" /><meta name="twitter:creator" content="@Sangjun Cha" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"author":{"@type":"Person","name":"Sangjun Cha"},"description":"프린터","url":"https://sangjuncha-dev.github.io//posts/Algorithm-programmers-python-level2/","@type":"BlogPosting","headline":"Programmers Python (level 2)","dateModified":"2021-06-03T17:45:54+09:00","datePublished":"2020-12-22T22:38:31+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sangjuncha-dev.github.io//posts/Algorithm-programmers-python-level2/"},"@context":"https://schema.org"}</script><title>Programmers Python (level 2) | Sangjun</title><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="manifest" href="/assets/img/favicons/manifest.json"><meta name='msapplication-config' content='/assets/img/favicons/browserconfig.xml'><meta name="msapplication-TileColor" content="#ffffff"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="preconnect" href="cdn.jsdelivr.net"><link rel="dns-prefetch" href="cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"><link rel="preload" href="/assets/css/post.css" as="style"><link rel="stylesheet" href="/assets/css/post.css"><link rel="preload" as="style" href="/assets/css/lib/bootstrap-toc.min.css"><link rel="stylesheet" href="/assets/css/lib/bootstrap-toc.min.css" /> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script async src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.15.0,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script async src="/assets/js/post.min.js"></script> <script defer src="/app.js"></script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column"><div id="nav-wrapper"><div id="profile-wrapper" class="d-flex flex-column"><div id="avatar" class="d-flex justify-content-center"> <a href="/" alt="avatar"> <img src="/assets/img/sample/avatar.jpg" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="profile-text mt-3"><div class="site-title"> <a href="/">Sangjun</a></div><div class="site-subtitle font-italic">정보 블로그</div></div></div><ul class="nav flex-column"><li class="nav-item d-flex justify-content-center "> <a href="/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/categories/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/tags/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-tags ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/archives/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/about/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-info ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul></div><div class="sidebar-bottom d-flex flex-wrap justify-content-around mt-4"> <span id="mode-toggle-wrapper"> <i class="mode-toggle fas fa-adjust"></i> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } constructor() { if (this.mode != null) { if (this.mode == ModeToggle.DARK_MODE) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } var self = this; /* always follow the system prefers */ this.sysDarkPrefers.addListener(function() { if (self.mode != null) { if (self.mode == ModeToggle.DARK_MODE) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } }); } /* constructor() */ setDark() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_KEY); sessionStorage.removeItem(ModeToggle.MODE_KEY); } get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode == ModeToggle.DARK_MODE; } get isLightMode() { return this.mode == ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } flipMode() { if (this.hasMode) { if (this.isSysDarkPrefer) { if (this.isLightMode) { this.clearMode(); } else { this.setLight(); } } else { if (this.isDarkMode) { this.clearMode(); } else { this.setDark(); } } } else { if (this.isSysDarkPrefer) { this.setLight(); } else { this.setDark(); } } } /* flipMode() */ } /* ModeToggle */ let toggle = new ModeToggle(); $(".mode-toggle").click(function() { toggle.flipMode(); }); </script> </span> <span class="icon-border"></span> <a href="https://github.com/sangjuncha-dev" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github-alt"></i> </a> <a href="https://twitter.com//" aria-label="twitter" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['sangjuncha.dev','gmail.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Posts </a> </span> <span>Programmers Python (level 2)</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" placeholder="Search..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="post-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>Programmers Python (level 2)</h1><div class="post-meta text-muted d-flex flex-column"><div> Posted <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Tue, Dec 22, 2020, 10:38 PM +0900" > Dec 22, 2020 <i class="unloaded">2020-12-22T22:38:31+09:00</i> </span> by <span class="author"> Sangjun Cha </span></div><div> Updated <span class="timeago lastmod" data-toggle="tooltip" data-placement="bottom" title="Thu, Jun 3, 2021, 5:45 PM +0900" > Jun 3 <i class="unloaded">2021-06-03T17:45:54+09:00</i> </span></div></div><div class="post-content"><h1 id="프린터"><a href="https://programmers.co.kr/learn/courses/30/lessons/42587">프린터</a></h1><p>분류 : 스택/큐</p><ol><li>우선순위 <code class="language-plaintext highlighter-rouge">priorities</code> 리스트의 최댓값을 <code class="language-plaintext highlighter-rouge">num_max</code>변수에 대입<li><code class="language-plaintext highlighter-rouge">cursor</code>변수에 <code class="language-plaintext highlighter-rouge">priorities[0]</code>값 추출하여 대입<li><code class="language-plaintext highlighter-rouge">cursor</code> 값이 최댓값 일때 <code class="language-plaintext highlighter-rouge">cnt</code> 1증가<li>이때 <code class="language-plaintext highlighter-rouge">location</code>값이 0이면 break<li><code class="language-plaintext highlighter-rouge">cursor</code> 값이 최댓값 아닐때 리스트 맨뒤에 <code class="language-plaintext highlighter-rouge">cursor</code> 값 추가<li>이때 <code class="language-plaintext highlighter-rouge">location</code>값이 0이면 <code class="language-plaintext highlighter-rouge">location</code>변수에 <code class="language-plaintext highlighter-rouge">priorities</code>길이값 대입<li><code class="language-plaintext highlighter-rouge">location</code> 1 감소<li>위의 순서를 <code class="language-plaintext highlighter-rouge">location</code> 0 이상일때 while문 반복실행</ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">priorities</span><span class="p">,</span> <span class="n">location</span><span class="p">):</span>
+    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">num_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">priorities</span><span class="p">)</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">priorities</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cursor</span> <span class="o">==</span> <span class="n">num_max</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">location</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">cnt</span>
+            <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">priorities</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">cursor</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">location</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">location</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">priorities</span><span class="p">)</span>
+        <span class="n">location</span> <span class="o">-=</span> <span class="mi">1</span>
+</pre></table></code></div></div><p><strong>2020-12-22</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.00ms, 10MB<br /> max TaseCase : 0.99ms, 10.1MB</p></blockquote><h1 id="기능개발"><a href="https://programmers.co.kr/learn/courses/30/lessons/42586">기능개발</a></h1><p>분류 : 스택/큐</p><h2 id="방법1">방법1</h2><ol><li><code class="language-plaintext highlighter-rouge">progresses[0]+(speeds[0]*i)</code> 값이 100 이상 될 수 있는 <code class="language-plaintext highlighter-rouge">i</code>값을 <code class="language-plaintext highlighter-rouge">num</code>변수에 대입 후 for 문 break<li><code class="language-plaintext highlighter-rouge">progresses</code>리스트 원소마다 <code class="language-plaintext highlighter-rouge">speeds[i]</code>*<code class="language-plaintext highlighter-rouge">num</code> 값 덧셈<li>최대 <code class="language-plaintext highlighter-rouge">progresses</code>리스트 길이만큼 반복하여 <code class="language-plaintext highlighter-rouge">progresses[0]</code> 원소를 비교하는 for 문 실행<ul><li>해당 원소가 100 이상일 때 <code class="language-plaintext highlighter-rouge">cnt</code> 1증가 및 <code class="language-plaintext highlighter-rouge">progresses[0]</code>, <code class="language-plaintext highlighter-rouge">speeds[0]</code> 삭제,<li>해당 원소가 100미만일 때 break</ul><li><code class="language-plaintext highlighter-rouge">cnt</code>변수값을 <code class="language-plaintext highlighter-rouge">answer</code>리스트에 추가<li>위의 과정을 <code class="language-plaintext highlighter-rouge">progresses</code>리스트 값이 있다면 while 문 반복 실행</ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">progresses</span><span class="p">,</span> <span class="n">speeds</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">while</span> <span class="n">progresses</span><span class="p">:</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="n">progresses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="p">(</span><span class="n">speeds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">if</span> <span class="mi">100</span> <span class="o">&lt;=</span> <span class="n">total</span><span class="p">:</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="n">i</span>
+                <span class="k">break</span>
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">progresses</span><span class="p">)):</span>
+            <span class="n">progresses</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">speeds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">num</span><span class="p">)</span>
+        <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">progresses</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="mi">100</span> <span class="o">&lt;=</span> <span class="n">progresses</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">progresses</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">speeds</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="n">answer</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span>
+            
+    <span class="k">return</span> <span class="n">answer</span>
+</pre></table></code></div></div><p><strong>2020-12-23</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 10.2MB<br /> max TaseCase : 0.12ms, 10.1MB</p></blockquote><h2 id="방법2">방법2</h2><ol><li>(100 - progresses) // speeds 결과값이 작업 소요일자</ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">progresses</span><span class="p">,</span> <span class="n">speeds</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">m</span><span class="p">,</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">progresses</span><span class="p">,</span> <span class="n">speeds</span><span class="p">):</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="o">-</span><span class="n">i</span><span class="p">)</span><span class="o">//</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="p">(</span><span class="mi">100</span><span class="o">-</span><span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">j</span> <span class="k">else</span> <span class="p">(</span><span class="mi">100</span><span class="o">-</span><span class="n">i</span><span class="p">)</span><span class="o">//</span><span class="n">j</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">m</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">n</span>
+
+        <span class="k">if</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+            <span class="n">answer</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">n</span>
+            <span class="n">cnt</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="k">return</span> <span class="n">answer</span> <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">speeds</span><span class="p">)</span> <span class="k">else</span> <span class="n">answer</span> <span class="o">+</span> <span class="p">[</span><span class="n">cnt</span><span class="p">]</span>
+</pre></table></code></div></div><p><strong>2021-02-03</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 10.1MB<br /> max TaseCase : 0.03ms, 10.1MB</p></blockquote><h1 id="다리를-지나는-트럭"><a href="https://programmers.co.kr/learn/courses/30/lessons/42583">다리를 지나는 트럭</a></h1><p>분류 : 스택/큐</p><p>변수 정의</p><ul><li>bridge_length : 다리길이<li>weight : 다리 설계하중<li>truck_weights : 다리를 건널 트럭의 무게(값)와 순서(index)<li>answer : 경과한 시간<li>bredge_list : 다리를 건너는 중인 트럭의 목록과 위치 ex) [[트럭 무게, 트럭 위치], [트럭 무게, 트럭 위치], …]<li>cnt : 한 번에 이동할 거리</ul><ol><li><code class="language-plaintext highlighter-rouge">bredge_list</code>리스트 값이 있을 때<ul><li><code class="language-plaintext highlighter-rouge">bredge_list[0][1]</code>값이 <code class="language-plaintext highlighter-rouge">bridge_length</code>보다 크다면<ul><li><code class="language-plaintext highlighter-rouge">weight</code>값에 <code class="language-plaintext highlighter-rouge">bredge_list[0][0]</code>값 추가<li>첫 번째 트럭이 다리를 다 지나갔다면 다리가 견딜 수 있는 하중을 복구<li><code class="language-plaintext highlighter-rouge">bredge_list[0]</code>삭제<li>리스트에서 첫 번째 트럭 정보 삭제</ul></ul><li><code class="language-plaintext highlighter-rouge">truck_weights</code>리스트 값이 있을 때<ul><li><code class="language-plaintext highlighter-rouge">truck_weights[0]</code>값(첫 번째 트럭)을 <code class="language-plaintext highlighter-rouge">truck</code>변수에 저장<li><code class="language-plaintext highlighter-rouge">weight</code> - <code class="language-plaintext highlighter-rouge">truck</code>값이 0 이상 일 때<ul><li><code class="language-plaintext highlighter-rouge">weight</code>값에서 <code class="language-plaintext highlighter-rouge">truck</code>만큼 뺄셈<li>견딜 수 있는 다리 하중 줄어듦<li><code class="language-plaintext highlighter-rouge">bredge_list</code>리스트에 <code class="language-plaintext highlighter-rouge">[truck, 1]</code>값 추가<li>다리를 건너는 중인 트럭 정보 추가 <code class="language-plaintext highlighter-rouge">무게</code>와 <code class="language-plaintext highlighter-rouge">위치</code><li><code class="language-plaintext highlighter-rouge">truck_weights[0]</code> 삭제<li>진입 대기 중인 트럭 목록에서 첫 번째 트럭 정보 삭제</ul><li>다리에 트럭이 추가로 진입할 수 없을 때<ul><li><code class="language-plaintext highlighter-rouge">bredge_list[0][1]</code>값이 <code class="language-plaintext highlighter-rouge">bridge_length</code>보다 크기 위한 <code class="language-plaintext highlighter-rouge">cnt</code>값 구하기<li>다리에 진입한 맨 앞의 트럭이 다리를 건너기 위해 덧셈할 값</ul></ul><li><code class="language-plaintext highlighter-rouge">bredge_list</code>리스트의 트럭 위치값에 <code class="language-plaintext highlighter-rouge">cnt</code>값 덧셈<ul><li>다리에 진입한 트럭들의 위치 이동</ul><li><code class="language-plaintext highlighter-rouge">answer</code>값에 <code class="language-plaintext highlighter-rouge">cnt</code>값 덧셈<ul><li>다리에서 이동한 거리만큼 시간이 경과하였기에 <code class="language-plaintext highlighter-rouge">cnt</code>값으로 덧셈</ul><li><code class="language-plaintext highlighter-rouge">bredge_list</code>, <code class="language-plaintext highlighter-rouge">truck_weights</code> 둘 중 하나라도 값이 있으면 while 반복 실행</ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">bridge_length</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">truck_weights</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">bredge_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">bredge_list</span> <span class="ow">or</span> <span class="n">truck_weights</span><span class="p">:</span>
+        <span class="c1"># 트럭이 다리를 건넜을때
+</span>        <span class="k">if</span> <span class="n">bredge_list</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">bridge_length</span> <span class="o">&lt;</span> <span class="n">bredge_list</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">weight</span> <span class="o">+=</span> <span class="n">bredge_list</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">del</span> <span class="n">bredge_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">cnt</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># 한번에 이동할 거리
+</span>        <span class="c1"># 트럭 진입
+</span>        <span class="k">if</span> <span class="n">truck_weights</span><span class="p">:</span>
+            <span class="n">truck</span> <span class="o">=</span> <span class="n">truck_weights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="c1"># 진입할 트럭의 무게를 다리가 버틸수 있을때
+</span>            <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">weight</span><span class="o">-</span><span class="n">truck</span><span class="p">:</span>
+                <span class="n">weight</span> <span class="o">-=</span> <span class="n">truck</span>
+                <span class="n">bredge_list</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="n">truck</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+                <span class="k">del</span> <span class="n">truck_weights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># 트럭 추가 진입이 불가능할때 한번에 계산
+</span>                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">bridge_length</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">bridge_length</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">bredge_list</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">i</span><span class="p">):</span>
+                        <span class="n">cnt</span> <span class="o">=</span> <span class="n">i</span>
+                        <span class="k">break</span>
+
+        <span class="c1"># 트럭이 다리를 지나간 정도
+</span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bredge_list</span><span class="p">)):</span>
+            <span class="n">bredge_list</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">cnt</span>
+        <span class="n">answer</span> <span class="o">+=</span> <span class="n">cnt</span>
+    <span class="k">return</span> <span class="n">answer</span>
+</pre></table></code></div></div><p><strong>2020-12-23</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.02ms, 10.3MB<br /> max TaseCase : 27.21ms, 10.3MB</p></blockquote><h1 id="멀쩡한-사각형"><a href="https://programmers.co.kr/learn/courses/30/lessons/62048">멀쩡한 사각형</a></h1><p>분류 : Summer/Winter Coding(2019)</p><h2 id="방법1-1">방법1</h2><ol><li><code class="language-plaintext highlighter-rouge">h</code>값이 정수로 나오기위한 최소 <code class="language-plaintext highlighter-rouge">w</code>값을 구하기 위해 최대공약수를 <code class="language-plaintext highlighter-rouge">gcd</code>변수에 대입<li>이때 색칠된 픽셀의 갯수는 <code class="language-plaintext highlighter-rouge">w+h-1</code>개<li><code class="language-plaintext highlighter-rouge">w+h-1</code> 곱하기 <code class="language-plaintext highlighter-rouge">gcd</code>값이 색칠된 사각형 갯수 <code class="language-plaintext highlighter-rouge">line_pixel</code>변수에 대입<li>반환값은 사각형의 면적인 <code class="language-plaintext highlighter-rouge">w*h</code>에서 <code class="language-plaintext highlighter-rouge">line_pixel</code>값을 뺄셈하여 반환</ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">):</span>
+    <span class="n">gcd</span> <span class="o">=</span> <span class="mi">1</span>
+    
+    <span class="n">dict1</span> <span class="o">=</span> <span class="n">prime</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="n">dict2</span> <span class="o">=</span> <span class="n">prime</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+    <span class="c1"># 최대공약수
+</span>    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">dict1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">dict2</span><span class="p">:</span>
+            <span class="n">gcd</span> <span class="o">*=</span> <span class="p">(</span><span class="n">num</span> <span class="o">**</span> <span class="nb">min</span><span class="p">(</span><span class="n">dict1</span><span class="p">[</span><span class="n">num</span><span class="p">],</span> <span class="n">dict2</span><span class="p">[</span><span class="n">num</span><span class="p">]))</span>
+    
+    <span class="n">line_pixel</span> <span class="o">=</span> <span class="p">((</span><span class="n">w</span><span class="o">+</span><span class="n">h</span><span class="p">)</span><span class="o">/</span><span class="n">gcd</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">gcd</span>
+    <span class="k">return</span> <span class="n">w</span><span class="o">*</span><span class="n">h</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">line_pixel</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">prime</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">num_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">num</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">num</span><span class="o">%</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">num_dict</span><span class="p">:</span>
+                <span class="n">num_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">num_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">num</span> <span class="o">//=</span> <span class="n">i</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">num_dict</span>
+</pre></table></code></div></div><p><strong>2020-12-24</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 10MB<br /> max TaseCase : 6345.39ms, 10.1MB</p></blockquote><h2 id="방법2-1">방법2</h2><ol><li><code class="language-plaintext highlighter-rouge">h</code>값이 정수로 나오기위한 정수 최소 <code class="language-plaintext highlighter-rouge">w</code>값을 구하기 위해 최대공약수 구하기<ul><li>유클리드 호제법 공식으로 최대공약수 구하여 <code class="language-plaintext highlighter-rouge">v_gcd</code> 변수에 대입</ul><li>이때 색칠된 픽셀의 갯수는 <code class="language-plaintext highlighter-rouge">w+h-1</code>개<li><code class="language-plaintext highlighter-rouge">w+h-1</code> 곱하기 <code class="language-plaintext highlighter-rouge">gcd</code>값이 색칠된 사각형 갯수 <code class="language-plaintext highlighter-rouge">line_pixel</code>변수에 대입<li>반환값은 사각형의 면적인 <code class="language-plaintext highlighter-rouge">w*h</code>에서 <code class="language-plaintext highlighter-rouge">line_pixel</code>값을 뺄셈하여 반환</ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">):</span>
+    <span class="n">v_gcd</span> <span class="o">=</span> <span class="n">f_gcd</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">))</span>
+    
+    <span class="n">line_pixel</span> <span class="o">=</span> <span class="p">((</span><span class="n">w</span><span class="o">+</span><span class="n">h</span><span class="p">)</span><span class="o">/</span><span class="n">v_gcd</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">v_gcd</span>
+    <span class="k">return</span> <span class="n">w</span><span class="o">*</span><span class="n">h</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">line_pixel</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">f_gcd</span><span class="p">(</span><span class="n">n_max</span><span class="p">,</span> <span class="n">n_min</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">n_min</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+       <span class="n">t</span> <span class="o">=</span> <span class="n">n_max</span> <span class="o">%</span> <span class="n">n_min</span>
+       <span class="p">(</span><span class="n">n_max</span><span class="p">,</span> <span class="n">n_min</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_min</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">n_max</span><span class="p">)</span>
+</pre></table></code></div></div><p><strong>2020-12-27</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 10.1MB<br /> max TaseCase : 0.01ms, 10.3MB</p></blockquote><h2 id="방법3">방법3</h2><ol><li><code class="language-plaintext highlighter-rouge">h</code>값이 정수로 나오기위한 정수 최소 <code class="language-plaintext highlighter-rouge">w</code>값을 구하기 위해 최대공약수 구하기<ul><li>math 라이브러리의 gcd 함수로 구하고 <code class="language-plaintext highlighter-rouge">gcd</code>변수에 대입</ul><li>이때 색칠된 픽셀의 갯수는 <code class="language-plaintext highlighter-rouge">w+h-1</code>개<li><code class="language-plaintext highlighter-rouge">w+h-1</code> 곱하기 <code class="language-plaintext highlighter-rouge">gcd</code>값이 색칠된 사각형 갯수 <code class="language-plaintext highlighter-rouge">line_pixel</code>변수에 대입<li>반환값은 사각형의 면적인 <code class="language-plaintext highlighter-rouge">w*h</code>에서 <code class="language-plaintext highlighter-rouge">line_pixel</code>값을 뺄셈하여 반환</ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">):</span>
+    <span class="n">gcd</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+    
+    <span class="n">line_pixel</span> <span class="o">=</span> <span class="p">((</span><span class="n">w</span><span class="o">+</span><span class="n">h</span><span class="p">)</span><span class="o">/</span><span class="n">gcd</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">gcd</span>
+    <span class="k">return</span> <span class="n">w</span><span class="o">*</span><span class="n">h</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">line_pixel</span><span class="p">)</span>
+</pre></table></code></div></div><p><strong>2020-12-24</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.00ms, 10.3MB<br /> max TaseCase : 0.01ms, 10.3MB</p></blockquote><h1 id="조이스틱"><a href="https://programmers.co.kr/learn/courses/30/lessons/42860">조이스틱</a></h1><p>분류 : 탐욕법(Greedy)</p><p>변수 정의</p><ul><li>move_cnt : 조이스틱이 움직인 횟수<li>text_len : 입력받은 문자열 길이<li>alphabet : 조이스틱 위아래 움직인 횟수에 따른 알파벳 문자목록<li>tf_list : 문자 ‘A’를 제외한 다른문자 여부목록<li>distance_r : 기준위치 오른쪽으로 <code class="language-plaintext highlighter-rouge">True</code> 까지의 거리<li>distance_l : 기준위치 왼쪽으로 <code class="language-plaintext highlighter-rouge">True</code> 까지의 거리</ul><ol><li>필요한 변수 선언 및 초기화<li>문자열 길이만큼 for 반복문을 실행<ul><li>alphabet리스트에서 <code class="language-plaintext highlighter-rouge">name[i]</code>값의 위치를 <code class="language-plaintext highlighter-rouge">index</code>변수에 대입<li><code class="language-plaintext highlighter-rouge">B~N</code>까지는 조이스틱 위로 이동한것으로 <code class="language-plaintext highlighter-rouge">index</code> + <code class="language-plaintext highlighter-rouge">move_cnt</code>값을 <code class="language-plaintext highlighter-rouge">move_cnt</code>변수에 대입<li><code class="language-plaintext highlighter-rouge">Z~O</code>까지는 조이스틱 아래로 이동한것으로 <code class="language-plaintext highlighter-rouge">index-13</code> + <code class="language-plaintext highlighter-rouge">move_cnt</code>값을 <code class="language-plaintext highlighter-rouge">move_cnt</code>변수에 대입<li>해당 문자로 변환하기까지의 조이스틱 움직인 횟수를 구함</ul><li><code class="language-plaintext highlighter-rouge">tf_list</code>리스트에서 <code class="language-plaintext highlighter-rouge">True</code>값이 있을때만 while 반복문 실행<ul><li>1부터 <code class="language-plaintext highlighter-rouge">text_len</code>까지 반복하여 <code class="language-plaintext highlighter-rouge">tf_list[(i+j)%text_len]</code>값에 <code class="language-plaintext highlighter-rouge">True</code>값 나올때까지 <code class="language-plaintext highlighter-rouge">distance_r</code>변수 1증가<ul><li>기준위치 오른쪽으로 <code class="language-plaintext highlighter-rouge">True</code>값 까지의 거리</ul><li>1부터 <code class="language-plaintext highlighter-rouge">text_len</code>까지 반복하여 <code class="language-plaintext highlighter-rouge">tf_list[(i-j)%text_len]</code>값에 <code class="language-plaintext highlighter-rouge">True</code>값 나올때까지 <code class="language-plaintext highlighter-rouge">distance_l</code>변수 1증가<ul><li>기준위치 왼쪽으로 <code class="language-plaintext highlighter-rouge">True</code>값 까지의 거리</ul><li><code class="language-plaintext highlighter-rouge">distance_l</code>값보다 <code class="language-plaintext highlighter-rouge">distance_r</code>값이 클때 <code class="language-plaintext highlighter-rouge">(i-1)%text_len</code>값을 <code class="language-plaintext highlighter-rouge">i</code>변수에 대입<ul><li>기준위치 왼쪽으로 1이동</ul><li><code class="language-plaintext highlighter-rouge">distance_l</code>값보다 <code class="language-plaintext highlighter-rouge">distance_r</code>값이 작거나 같을때 <code class="language-plaintext highlighter-rouge">(i+1)%text_len</code>값을 <code class="language-plaintext highlighter-rouge">i</code>변수에 대입<ul><li>기준위치 오른쪽으로 1이동</ul><li>거리 확인한 <code class="language-plaintext highlighter-rouge">tf_list[i]</code>값은 <code class="language-plaintext highlighter-rouge">False</code>값 대입하고 <code class="language-plaintext highlighter-rouge">move_cnt</code>변수 1증가</ul></ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="n">move_cnt</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">text_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">alphabet</span> <span class="o">=</span> <span class="p">[</span><span class="s">'A'</span><span class="p">,</span>\
+                <span class="s">'B'</span><span class="p">,</span><span class="s">'C'</span><span class="p">,</span><span class="s">'D'</span><span class="p">,</span><span class="s">'E'</span><span class="p">,</span><span class="s">'F'</span><span class="p">,</span><span class="s">'G'</span><span class="p">,</span><span class="s">'H'</span><span class="p">,</span><span class="s">'I'</span><span class="p">,</span><span class="s">'J'</span><span class="p">,</span><span class="s">'K'</span><span class="p">,</span><span class="s">'L'</span><span class="p">,</span><span class="s">'M'</span><span class="p">,</span><span class="s">'N'</span><span class="p">,</span>\
+                <span class="s">'Z'</span><span class="p">,</span><span class="s">'Y'</span><span class="p">,</span><span class="s">'X'</span><span class="p">,</span><span class="s">'W'</span><span class="p">,</span><span class="s">'V'</span><span class="p">,</span><span class="s">'U'</span><span class="p">,</span><span class="s">'T'</span><span class="p">,</span><span class="s">'S'</span><span class="p">,</span><span class="s">'R'</span><span class="p">,</span><span class="s">'Q'</span><span class="p">,</span><span class="s">'P'</span><span class="p">,</span><span class="s">'O'</span><span class="p">]</span>
+    
+    <span class="n">tf_list</span> <span class="o">=</span> <span class="p">[</span><span class="bp">False</span><span class="p">]</span> <span class="o">*</span> <span class="n">text_len</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">text_len</span><span class="p">):</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">alphabet</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">move_cnt</span> <span class="o">=</span> <span class="n">move_cnt</span><span class="o">+</span><span class="n">index</span> <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;=</span> <span class="mi">13</span> <span class="k">else</span> <span class="n">move_cnt</span><span class="o">+</span><span class="p">(</span><span class="n">index</span><span class="o">-</span><span class="mi">13</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">index</span><span class="p">:</span> <span class="n">tf_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+    
+    <span class="n">tf_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">tf_list</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="bp">True</span><span class="p">):</span>
+        <span class="n">distance_r</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">distance_l</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">text_len</span><span class="p">):</span>
+            <span class="n">distance_r</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">tf_list</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="o">%</span><span class="n">text_len</span><span class="p">]:</span>
+                <span class="k">break</span>
+        
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">text_len</span><span class="p">):</span>
+            <span class="n">distance_l</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">tf_list</span><span class="p">[(</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">)</span><span class="o">%</span><span class="n">text_len</span><span class="p">]:</span>
+                <span class="k">break</span>
+
+        <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">text_len</span> <span class="k">if</span> <span class="n">distance_l</span> <span class="o">&lt;</span> <span class="n">distance_r</span> <span class="k">else</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">text_len</span>
+        <span class="n">tf_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+        
+        <span class="n">move_cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">move_cnt</span>
+</pre></table></code></div></div><p><strong>2020-12-28</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 10.1MB<br /> max TaseCase : 0.03ms, 10.3MB</p></blockquote><h1 id="가장-큰-수"><a href="https://programmers.co.kr/learn/courses/30/lessons/42746">가장 큰 수</a></h1><p>분류 : 정렬</p><p>추가 Test Case |numbers|Return|검증 case| |—|—|—| |[12, 121]|’12121’|case 1~6| |[21, 212]|’21221’|case 1~6| |[0, 0, 0]|’0’|case 11|</p><h2 id="방법1-2">방법1</h2><p>변수 정의</p><ul><li>int(math.log10(x)+1 if x else 0) : 입력값 x의 자릿수 구하기</ul><ol><li>sort함수를 사용하여 <code class="language-plaintext highlighter-rouge">numbers</code> 리스트 역정렬<li>첫번째 정렬조건 원소 <code class="language-plaintext highlighter-rouge">x</code>문자열에 <code class="language-plaintext highlighter-rouge">x[0]</code> 문자를 (최대자릿수-<code class="language-plaintext highlighter-rouge">x</code>자릿수)만큼 추가하여 비교<li>두번째 정렬조건 <code class="language-plaintext highlighter-rouge">x%10</code> 나머지 값으로 정렬<li>정렬된 <code class="language-plaintext highlighter-rouge">numbers</code> 첫번째 값이 0 아닐때 <code class="language-plaintext highlighter-rouge">numbers</code>리스트를 하나의 문자열로 합쳐서 반환<li>정렬된 <code class="language-plaintext highlighter-rouge">numbers</code> 첫번째 값이 0 이면 <code class="language-plaintext highlighter-rouge">'0'</code> 문자반환</ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">numbers</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mi">4</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)))),</span> <span class="n">x</span><span class="o">%</span><span class="mi">10</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">numbers</span><span class="p">))</span> <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="s">'0'</span>
+</pre></table></code></div></div><p><strong>2021-01-07</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.04ms, 10.3MB<br /> max TaseCase : 134.49ms, 23.8MB</p></blockquote><h2 id="방법2-2">방법2</h2><ol><li><code class="language-plaintext highlighter-rouge">numbers</code>리스트 int형 원소들을 map함수로 str형으로 변환<li>원소 x 문자길이를 증가시키기위해 문자열길이 3배 증가시켜 역정렬<ul><li>30, 34, 3 -&gt; 303030, 343434, 333 첫문자부터 비교<li>입력정수는 최대 1000이하 이므로 *3 부터 문제없이 실행가능</ul><li>정렬된 <code class="language-plaintext highlighter-rouge">numbers</code> 첫번째 값이 0 아닐때 <code class="language-plaintext highlighter-rouge">numbers</code>리스트를 하나의 문자열로 합쳐서 반환<li>정렬된 <code class="language-plaintext highlighter-rouge">numbers</code> 첫번째 값이 0 이면 <code class="language-plaintext highlighter-rouge">'0'</code> 문자반환</ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">numbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">numbers</span><span class="p">))</span>
+    <span class="n">numbers</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s">'0'</span> <span class="k">else</span> <span class="s">'0'</span>
+</pre></table></code></div></div><p><strong>2021-01-07</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 10.2MB<br /> max TaseCase : 56.59ms, 27.5MB</p></blockquote><h2 id="방법3-1">방법3</h2><ol><li>방법2와 동일한 알고리즘이나 2줄로 작성하기위해 <code class="language-plaintext highlighter-rouge">sorted</code> 함수를 사용<ul><li><code class="language-plaintext highlighter-rouge">sorted</code>와<code class="language-plaintext highlighter-rouge">sort</code>는 정렬 과정은 동일하나 <code class="language-plaintext highlighter-rouge">sorted</code>의 경우 리스트 복사과정이 추가되어 메모리를 추가로 할당받음</ul></ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">numbers</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="k">if</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s">'0'</span> <span class="k">else</span> <span class="s">'0'</span>
+</pre></table></code></div></div><p><strong>2021-01-07</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 10.1MB<br /> max TaseCase : 55.10ms, 28.2MB</p></blockquote><h1 id="소수-찾기"><a href="https://programmers.co.kr/learn/courses/30/lessons/42839">소수 찾기</a></h1><p>분류 : 완전탐색</p><ol><li>입력받은 <code class="language-plaintext highlighter-rouge">numbers</code> 문자열로 만들수 있는 모든 정수형 리스트 <code class="language-plaintext highlighter-rouge">numbers_list</code> 생성<ul><li>permutations 라이브러리를 사용하여 조합할 수 있는 모든 값 생성</ul><li><code class="language-plaintext highlighter-rouge">numbers_list</code> 리스트 중복제거<li><code class="language-plaintext highlighter-rouge">numbers_list</code> 리스트를 <code class="language-plaintext highlighter-rouge">prime_number</code>함수로 소수 판별<ul><li>숫자 num의 약수는 제곱근(num) 범위에 있다 원리를 이용하여 판별</ul><li>판별결과를 <code class="language-plaintext highlighter-rouge">answer</code>변수에 합산하여 반환</ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+</pre><td class="rouge-code"><pre><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">permutations</span>
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">numbers_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># 모든 정수형 리스트 만들기
+</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">num_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">permutations</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">numbers</span><span class="p">),</span> <span class="n">i</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">num_list</span><span class="p">:</span>
+            <span class="n">numbers_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">num</span><span class="p">))))</span>
+
+    <span class="c1"># 중복제거
+</span>    <span class="n">numbers_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">numbers_list</span><span class="p">)))</span>
+    
+    <span class="c1"># 소수 판별후 갯수 체크
+</span>    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numbers_list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">prime_number</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">answer</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="k">return</span> <span class="n">answer</span>
+
+<span class="k">def</span> <span class="nf">prime_number</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="n">sqrt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">sqrt</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">True</span>
+</pre></table></code></div></div><p><strong>2021-01-09</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.04ms, 10.4MB<br /> max TaseCase : 13.19ms, 10.6MB</p></blockquote><h1 id="큰-수-만들기"><a href="https://programmers.co.kr/learn/courses/30/lessons/42883">큰 수 만들기</a></h1><p>분류 : 탐욕법(Greedy)</p><p>추가 Test Case</p><div class="table-wrapper"><table><thead><tr><th>number<th>k<th>return<tbody><tr><td>“99999”<td>4<td>“9”<tr><td>“543212345”<td>3<td>“543345”<tr><td>“87654321”<td>3<td>“87654”<tr><td>“54329”<td>4<td>“9”</table></div><ol><li>앞숫자가 뒷숫자보다 작은 수일때 앞숫자 삭제</ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">number</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">number</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">answer</span> <span class="o">+=</span> <span class="n">i</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">while</span> <span class="n">k</span> <span class="ow">and</span> <span class="n">answer</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">answer</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">answer</span> <span class="o">=</span> <span class="n">answer</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">answer</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">k</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">except</span> <span class="nb">IndexError</span><span class="p">:</span> <span class="k">pass</span>
+    <span class="k">return</span> <span class="n">answer</span><span class="p">[:</span><span class="o">-</span><span class="n">k</span><span class="p">]</span> <span class="k">if</span> <span class="n">k</span> <span class="k">else</span> <span class="n">answer</span>
+</pre></table></code></div></div><p><strong>2021-01-13</strong></p><blockquote><p> 채점 결과<br />  합계: 100.0 / 100.0<br />  min TaseCase : 0.00ms, 10.1MB<br />  max TaseCase : 207.73ms, 11.6MB</p></blockquote><h1 id="h-index"><a href="https://programmers.co.kr/learn/courses/30/lessons/42747">H-Index</a></h1><p>분류 : 정렬</p><p>추가 Test Case</p><div class="table-wrapper"><table><thead><tr><th>citations(int[])<th>return<tbody><tr><td>[12, 11, 0]<td>2<tr><td>[6, 6, 6, 6, 6, 1]<td>5<tr><td>[0, 1, 1, 1, 1, 3, 3, 4]<td>1</table></div><h2 id="방법1-3">방법1</h2><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">citations</span><span class="p">):</span>
+    <span class="n">citations</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="n">h_index</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">list_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">citations</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">list_len</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">citations</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">h_index</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">h_index</span> <span class="o">&lt;</span> <span class="n">list_len</span><span class="o">-</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">h_index</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">h_index</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">h_index</span>
+</pre></table></code></div></div><p><strong>2021-01-14</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.00ms, 10.2MB<br /> max TaseCase : 0.25ms, 10.2MB</p></blockquote><h2 id="방법2-3">방법2</h2><p>추가 Test Case</p><div class="table-wrapper"><table><thead><tr><th>citations(int[])<th>return<tbody><tr><td>[12, 11, 0]<td>2<tr><td>[6, 6, 6, 6, 6, 1]<td>5</table></div><ol><li>방법1 3번째 Test Case 예외처리 안한 코드</ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">citations</span><span class="p">):</span>
+    <span class="n">citations</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">citations</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">:</span> <span class="k">return</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">i</span>
+</pre></table></code></div></div><p><strong>2021-01-14</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 10.1MB<br /> max TaseCase : 0.18ms, 10.2MB</p></blockquote><h1 id="위장"><a href="https://programmers.co.kr/learn/courses/30/lessons/42578">위장</a></h1><p>분류 : 해시</p><p>추가 Test Case</p><div class="table-wrapper"><table><thead><tr><th>clothes(string[][])<th>Return<tbody><tr><td>[[‘a’, ‘a’], [‘b’, ‘b’], [‘c’, ‘c’]]<td>7<tr><td>[[1, ‘a’], [2, ‘a’], [3, ‘a’], [1, ‘b’], [2, ‘b’], [3, ‘b’], [1, ‘c’], [2, ‘c’], [3, ‘c’]]<td>63</table></div><ol><li>테스트 케이스 2번째 예시로 순열 <code class="language-plaintext highlighter-rouge">(3C0 + 3C1) * (3C0 + 3C1) * (3C0 + 3C1) - 1</code> 조합의 갯수이다.</ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">clothes</span><span class="p">):</span>
+    <span class="n">clothes_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="c1"># 카테고리명과 해당 카테고리 갯수 추출
+</span>    <span class="k">for</span> <span class="n">cloth</span> <span class="ow">in</span> <span class="n">clothes</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">cloth</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">clothes_dict</span><span class="p">:</span>
+            <span class="n">clothes_dict</span><span class="p">[</span><span class="n">cloth</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">clothes_dict</span><span class="p">[</span><span class="n">cloth</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="c1"># 조합 연산
+</span>    <span class="n">answer</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">cloth</span> <span class="ow">in</span> <span class="n">clothes_dict</span><span class="p">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="n">answer</span> <span class="o">*=</span> <span class="n">cloth</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">answer</span><span class="o">-</span><span class="mi">1</span>
+</pre></table></code></div></div><p><strong>2021-01-14</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.00ms, 10.2MB<br /> max TaseCase : 0.02ms, 10.2MB</p></blockquote><h1 id="카펫"><a href="https://programmers.co.kr/learn/courses/30/lessons/42842">카펫</a></h1><p>분류 : 완전탐색</p><p>추가 Test Case</p><div class="table-wrapper"><table><thead><tr><th>brown(int)<th>yellow(int)<th>return<tbody><tr><td>18<td>6<td>6</table></div><ol><li>(산술기하평균 공식)과 (약수 중간값은 수의 제곱근 이하) 2가지 공식 이용</ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">brown</span><span class="p">,</span> <span class="n">yellow</span><span class="p">):</span>
+    <span class="n">sqrt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">yellow</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">while</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">sqrt</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">yellow</span><span class="o">%</span><span class="n">sqrt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">((</span><span class="n">yellow</span><span class="o">/</span><span class="n">sqrt</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">sqrt</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="n">brown</span><span class="o">+</span><span class="n">yellow</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">yellow</span><span class="o">/</span><span class="n">sqrt</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">sqrt</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">sqrt</span> <span class="o">-=</span> <span class="mi">1</span>
+</pre></table></code></div></div><p><strong>2021-01-14</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 10MB<br /> max TaseCase : 0.06ms, 10.3MB</p></blockquote><h1 id="타겟-넘버"><a href="https://programmers.co.kr/learn/courses/30/lessons/43165">타겟 넘버</a></h1><p>분류 : 깊이/너비 우선 탐색(DFS/BFS)</p><p>재귀 함수 사용</p><h2 id="방법1-4">방법1</h2><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="k">global</span> <span class="nb">max</span>
+    <span class="k">global</span> <span class="n">n_list</span>
+    <span class="nb">max</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    <span class="n">n_list</span> <span class="o">=</span> <span class="n">numbers</span>
+
+    <span class="k">return</span> <span class="n">calc</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">tot</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="nb">max</span><span class="p">:</span>
+        <span class="n">cnt</span> <span class="o">+=</span> <span class="n">calc</span><span class="p">(</span><span class="n">tot</span> <span class="o">+</span> <span class="n">n_list</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">cnt</span> <span class="o">+=</span> <span class="n">calc</span><span class="p">(</span><span class="n">tot</span> <span class="o">-</span> <span class="n">n_list</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">tot</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">cnt</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">cnt</span>
+</pre></table></code></div></div><p><strong>2021-01-25</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.51ms, 10.2MB<br /> max TaseCase : 310.07ms, 10.2MB</p></blockquote><h2 id="방법2-4">방법2</h2><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">numbers</span> <span class="ow">and</span> <span class="n">target</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">numbers</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">solution</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">target</span><span class="o">-</span><span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">solution</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">target</span><span class="o">+</span><span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></table></code></div></div><p><strong>2021-01-25</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.58ms, 10.2MB<br /> max TaseCase : 372.97ms, 10.2MB</p></blockquote><h1 id="이진-변환-반복하기"><a href="https://programmers.co.kr/learn/courses/30/lessons/70129">이진 변환 반복하기</a></h1><p>분류 : 월간 코드 챌린지 시즌1</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">bin_cnt</span><span class="p">,</span> <span class="n">zero_cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">s</span> <span class="o">!=</span> <span class="s">'1'</span><span class="p">:</span>
+        <span class="n">cnt</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="s">'0'</span><span class="p">)</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">-</span><span class="n">cnt</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+        <span class="n">bin_cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">zero_cnt</span> <span class="o">+=</span> <span class="n">cnt</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">bin_cnt</span><span class="p">,</span> <span class="n">zero_cnt</span><span class="p">]</span>
+</pre></table></code></div></div><p><strong>2021-01-14</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 10.2MB<br /> max TaseCase : 0.64ms, 10.3MB</p></blockquote><h1 id="최댓값과-최솟값"><a href="https://programmers.co.kr/learn/courses/30/lessons/12939">최댓값과 최솟값</a></h1><p>분류 : 연습문제</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="s">f"</span><span class="si">{</span><span class="nb">min</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="si">}</span><span class="s"> </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="si">}</span><span class="s">"</span>
+</pre></table></code></div></div><p><strong>2021-01-18</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.02ms, 10.3MB<br /> max TaseCase : 0.05ms, 10.3MB</p></blockquote><h1 id="피보나치-수"><a href="https://programmers.co.kr/learn/courses/30/lessons/12945">피보나치 수</a></h1><p>분류 : 연습문제</p><h2 id="방법1-5">방법1</h2><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">num_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">num_list</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span><span class="o">+</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">num_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">num_list</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">num_list</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">num_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">%</span><span class="mi">1234567</span> <span class="k">if</span> <span class="n">n</span> <span class="k">else</span> <span class="mi">0</span>
+</pre></table></code></div></div><p><strong>2021-01-18</strong></p><blockquote><p>채점 결과<br /> 합계: 0 / 100.0<br /> min TaseCase : 0.01ms, 10.1MB<br /> max TaseCase : 376.82ms, 456MB</p></blockquote><h2 id="방법2-5">방법2</h2><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="n">m</span>
+    <span class="k">return</span> <span class="n">m</span> <span class="o">%</span> <span class="mi">1234567</span> <span class="k">if</span> <span class="n">n</span> <span class="k">else</span> <span class="mi">0</span>
+</pre></table></code></div></div><p><strong>2021-01-18</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.00ms, 10.1MB<br /> max TaseCase : 147.18ms, 10.1MB</p></blockquote><h1 id="행렬의-곱셈"><a href="https://programmers.co.kr/learn/courses/30/lessons/12949">행렬의 곱셈</a></h1><p>분류 : 연습문제</p><div class="table-wrapper"><table><thead><tr><th>변수명<th>형식<th>크기<tbody><tr><td>arr1<td>2차원리스트<td>m * k<tr><td>arr2<td>2차원리스트<td>k * n<tr><td>answer<td>2차원리스트<td>m * n</table></div><p>list 자료형 for문 반복문에서 사용할때 일반적인 속도순서(위부터 빠름)</p><ul><li>for val in list:<li>for i in range(len(list)):<li>for i, val in enumerate(list):</ul><p>list 자료형 for문 반복문에서 사용할때 list 인젝싱포함될경우 속도순서(list 200개 이상)</p><ul><li>for i, val in enumerate(list):<ul><li>val</ul><li>for i in range(len(list)):<ul><li>list[i]</ul></ul><h2 id="방법1-6">방법1</h2><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">m</span><span class="p">,</span> <span class="n">val1</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr1</span><span class="p">):</span>
+        <span class="n">arr_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr2</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">val2</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr2</span><span class="p">):</span>
+                <span class="n">total</span> <span class="o">+=</span> <span class="n">val1</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="n">val2</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+            <span class="n">arr_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+        <span class="n">answer</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr_list</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">answer</span>
+</pre></table></code></div></div><p><strong>2021-01-21</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.56ms, 10.3MB<br /> max TaseCase : 52.38ms, 11MB</p></blockquote><h2 id="방법2-6">방법2</h2><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr2</span><span class="p">[</span><span class="mi">0</span><span class="p">]))]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr1</span><span class="p">))]</span>
+    <span class="k">for</span> <span class="n">m</span><span class="p">,</span> <span class="n">val1</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr2</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+            <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">val2</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr2</span><span class="p">):</span>
+                <span class="n">answer</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+=</span> <span class="n">val1</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="n">val2</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">answer</span>
+</pre></table></code></div></div><p><strong>2021-01-21</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.76ms, 10.3MB<br /> max TaseCase : 78.02ms, 11.2MB</p></blockquote><h1 id="jadencase-문자열-만들기"><a href="https://programmers.co.kr/learn/courses/30/lessons/12951">JadenCase 문자열 만들기</a></h1><p>분류 : 연습문제</p><p>추가 Test Case</p><div class="table-wrapper"><table><thead><tr><th>s(string)<th>Return<tbody><tr><td>” a b c d “<td>” A B C D “</table></div><h2 id="방법1-7">방법1</h2><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">' '</span><span class="p">.</span><span class="n">join</span><span class="p">([</span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="n">text</span><span class="p">[</span><span class="mi">1</span><span class="p">:].</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="n">text</span> <span class="k">else</span> <span class="s">''</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">s</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)])</span>
+</pre></table></code></div></div><p><strong>2021-01-21</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 9.98MB<br /> max TaseCase : 0.01ms, 10.3MB</p></blockquote><h2 id="방법2-7">방법2</h2><ol><li>내장함수 <code class="language-plaintext highlighter-rouge">capitalize()</code> : 문자열 첫 글자를 대문자로 변환</ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">' '</span><span class="p">.</span><span class="n">join</span><span class="p">([</span><span class="n">text</span><span class="p">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="k">if</span> <span class="n">text</span> <span class="k">else</span> <span class="s">''</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">s</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)])</span>
+</pre></table></code></div></div><p><strong>2021-01-21</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.00ms, 9.98MB<br /> max TaseCase : 0.01ms, 10.2MB</p></blockquote><h1 id="n개의-최소공배수"><a href="https://programmers.co.kr/learn/courses/30/lessons/12953">N개의 최소공배수</a></h1><p>분류 : 연습문제</p><p>유클리드 호제법 사용</p><h2 id="방법1-8">방법1</h2><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">n_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">euclidean</span><span class="p">(</span><span class="n">n</span><span class="p">).</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">n_dict</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">n_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">val</span><span class="p">):</span>
+                <span class="n">n_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">n_dict</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">answer</span> <span class="o">*=</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="n">val</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">answer</span>
+
+<span class="k">def</span> <span class="nf">euclidean</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">n_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">//=</span> <span class="n">i</span>
+            <span class="n">n_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">n_dict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">n_dict</span> <span class="k">else</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">n_dict</span>
+</pre></table></code></div></div><p><strong>2021-01-21</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 10.2MB<br /> max TaseCase : 0.03ms, 10.2MB</p></blockquote><h2 id="방법2-8">방법2</h2><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="n">lcm</span><span class="p">(</span><span class="n">answer</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">answer</span>
+
+<span class="k">def</span> <span class="nf">lcm</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">m</span> <span class="o">*</span> <span class="n">n</span> <span class="o">//</span> <span class="n">gcd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+       <span class="n">t</span> <span class="o">=</span> <span class="n">m</span> <span class="o">%</span> <span class="n">n</span>
+       <span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">m</span>
+</pre></table></code></div></div><p><strong>2021-01-21</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 10.1MB<br /> max TaseCase : 0.01ms, 10.3MB</p></blockquote><h1 id="소수-만들기"><a href="https://programmers.co.kr/learn/courses/30/lessons/12977">소수 만들기</a></h1><p>분류 : Summer/Winter Coding(~2018)</p><p>2부터 제곱근까지 나머지 연산하여 0이 안 나올 때 소수로 판정</p><h2 id="방법1-9">방법1</h2><ol><li>순열로 조합 생성</ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">nums_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val1</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nums</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">val2</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">start</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">val3</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">:]:</span>
+                <span class="k">if</span> <span class="n">prime</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">,</span> <span class="n">val3</span><span class="p">])):</span>
+                    <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">cnt</span>
+
+<span class="k">def</span> <span class="nf">prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="n">sqrt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">sqrt</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">True</span>
+</pre></table></code></div></div><p><strong>2021-01-23</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 10.2MB<br /> max TaseCase : 12.70ms, 10.3MB</p></blockquote><h2 id="방법2-9">방법2</h2><ol><li>중복되지 않은 원소를 가진 순열조합 combinations 함수</ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre><td class="rouge-code"><pre><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+<span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">n_list</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">prime</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">n_list</span><span class="p">)):</span>
+            <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">cnt</span>
+
+<span class="k">def</span> <span class="nf">prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+    <span class="n">sqrt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">sqrt</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">True</span>
+</pre></table></code></div></div><p><strong>2021-01-23</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 10.2MB<br /> max TaseCase : 12.11ms, 10.3MB</p></blockquote><h1 id="예상-대진표"><a href="https://programmers.co.kr/learn/courses/30/lessons/12985">예상 대진표</a></h1><p>분류 : 2017 팁스타운</p><p>바텀업 알고리즘 풀이</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">cnt</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">cnt</span>
+</pre></table></code></div></div><p><strong>2021-01-24</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.00ms, 10.1MB<br /> max TaseCase : 0.01ms, 10.2MB</p></blockquote><h1 id="124-나라의-숫자"><a href="https://programmers.co.kr/learn/courses/30/lessons/12899">124 나라의 숫자</a></h1><p>분류 : 연습문제</p><h2 id="방법1-10">방법1</h2><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="k">while</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">n</span><span class="o">//</span><span class="mi">3</span><span class="p">,</span> <span class="n">n</span><span class="o">%</span><span class="mi">3</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">m</span><span class="p">:</span> 
+            <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span> 
+        <span class="n">ans</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="n">ans</span>
+    <span class="k">return</span> <span class="n">ans</span>
+</pre></table></code></div></div><p><strong>2021-02-06</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 10MB<br /> max TaseCase : 0.01ms, 10.3MB</p></blockquote><h2 id="방법2-10">방법2</h2><ol><li>divmod(n, a) : 정수를 나눈 몫과 나머지를 구하는 함수<ul><li>n : 나누어야할 수<li>a : 나눌 기준값</ul></ol><p>일반적인 a//b, a%b와 <a href="https://stackoverflow.com/questions/30079879/is-divmod-faster-than-using-the-and-operators">퍼포먼스 차이</a></p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="k">while</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">m</span><span class="p">:</span> 
+            <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span> 
+        <span class="n">ans</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="n">ans</span>
+    <span class="k">return</span> <span class="n">ans</span>
+</pre></table></code></div></div><p><strong>2021-02-06</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.00ms, 10.2MB<br /> max TaseCase : 0.01ms, 10.3MB</p></blockquote><h2 id="방법3-2">방법3</h2><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="s">'1'</span><span class="p">,</span><span class="s">'2'</span><span class="p">,</span><span class="s">'4'</span><span class="p">]</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="k">while</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="n">n</span> <span class="o">%</span> <span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">ans</span>
+        <span class="n">n</span> <span class="o">//=</span> <span class="mi">3</span>
+    <span class="k">return</span> <span class="n">ans</span>
+</pre></table></code></div></div><blockquote><p>min TaseCase : 0.00ms, 10MB<br /> max TaseCase : 0.01ms, 10.3MB</p></blockquote><h1 id="스킬트리"><a href="https://programmers.co.kr/learn/courses/30/lessons/49993">스킬트리</a></h1><p>분류 : Summer/Winter Coding(~2018)</p><p>추가 Test Case |skill|skill_trees|return| |—|—|—| |”REA”|[“POA”]|0| |”CBD”|[“BDA”]|0| |”CBD”|[“AEF”, “ZJW”]|2|</p><h2 id="방법1-11">방법1</h2><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">skill</span><span class="p">,</span> <span class="n">skill_trees</span><span class="p">):</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">skill_trees</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">skill</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">skill</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">s</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">):</span>
+                <span class="n">pos</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">break</span> 
+            <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pos</span><span class="p">:</span> 
+            <span class="n">ans</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">ans</span>
+</pre></table></code></div></div><p><strong>2021-02-07</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 10.1MB<br /> max TaseCase : 0.03ms, 10.2MB</p></blockquote><h2 id="방법2-11">방법2</h2><ol><li>for~else문<ul><li>break 등 중간에 안 끊기고 끝까지 실행하면 else문 실행</ul></ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">skill</span><span class="p">,</span> <span class="n">skill_trees</span><span class="p">):</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">skill_trees</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">skill</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">skill</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">s</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">):</span>
+                <span class="k">break</span> 
+            <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span> 
+            <span class="n">ans</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">ans</span>
+</pre></table></code></div></div><p><strong>2021-02-07</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 10.1MB<br /> max TaseCase : 0.03ms, 10.2MB</p></blockquote><h2 id="방법3-3">방법3</h2><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">skill</span><span class="p">,</span><span class="n">skill_tree</span><span class="p">):</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">skill_tree</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s">''</span>
+        <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">i</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">skill</span><span class="p">:</span>
+                <span class="n">res</span> <span class="o">+=</span> <span class="n">z</span>
+        <span class="k">if</span> <span class="n">res</span> <span class="o">==</span> <span class="n">skill</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)]:</span>
+            <span class="n">ans</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">ans</span>
+</pre></table></code></div></div><blockquote><p>min TaseCase : 0.01ms, 10.1MB<br /> max TaseCase : 0.02ms, 10.2MB</p></blockquote><h1 id="주식가격"><a href="https://programmers.co.kr/learn/courses/30/lessons/42584">주식가격</a></h1><p>분류 : 스택/큐</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">prices</span><span class="p">):</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">prices</span><span class="p">)):</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">prices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">prices</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">prices</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">val</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="n">ans</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ans</span>
+</pre></table></code></div></div><p><strong>2021-02-10</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0</p></blockquote><p>정확성 테스트</p><blockquote><p>min TaseCase : 0.01ms, 10.2MB<br /> max TaseCase : 1.11ms, 10.3MB</p></blockquote><p>효율성 테스트</p><blockquote><p>min TaseCase : 52.83ms, 17.4MB<br /> max TaseCase : 105.50ms, 20MB</p></blockquote><h1 id="삼각-달팽이"><a href="https://programmers.co.kr/learn/courses/30/lessons/68645">삼각 달팽이</a></h1><p>분류 : 월간 코드 챌린지 시즌1</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">n</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)]</span>
+    <span class="n">pos</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="n">direct</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">direct</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">pos</span> <span class="o">+</span> <span class="n">val</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">:</span>  <span class="c1"># 증가
+</span>                <span class="n">pos</span> <span class="o">+=</span> <span class="n">val</span>
+                <span class="n">val</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># 초과
+</span>                <span class="n">pos</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">pos</span> <span class="o">==</span> <span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="n">m</span> <span class="o">=</span> <span class="n">pos</span> <span class="o">-</span> <span class="n">val</span>
+                    <span class="n">direct</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">pos</span> <span class="o">-</span> <span class="n">val</span><span class="p">:</span>  <span class="c1"># 감소
+</span>                <span class="n">pos</span> <span class="o">-=</span> <span class="n">val</span>
+                <span class="n">val</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># 미만
+</span>                <span class="n">n</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">cnt</span> <span class="o">*</span> <span class="mi">4</span>
+                <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">pos</span> <span class="o">+=</span> <span class="n">val</span>
+                <span class="n">val</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">direct</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">ans</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">ans</span>
+</pre></table></code></div></div><p><strong>2021-02-11</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.01ms, 10.2MB<br /> max TaseCase : 92.56ms, 56.9MB</p></blockquote><h1 id="문자열-압축"><a href="https://programmers.co.kr/learn/courses/30/lessons/60057">문자열 압축</a></h1><p>분류 : 2020 KAKAO BLIND RECRUITMENT</p><ol><li>문자열 길이별로 분할<ul><li><code class="language-plaintext highlighter-rouge">[s[n:n+i] for n in range(0, len(s), i)]</code></ul></ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ans</span><span class="o">//</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">t_lst</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="n">n</span><span class="p">:</span><span class="n">n</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">i</span><span class="p">)]</span>
+        <span class="n">fix</span><span class="p">,</span> <span class="n">tmp</span> <span class="o">=</span> <span class="s">''</span><span class="p">,</span> <span class="n">t_lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">txt</span> <span class="ow">in</span> <span class="n">t_lst</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">txt</span> <span class="o">!=</span> <span class="n">tmp</span><span class="p">:</span>
+                <span class="n">fix</span> <span class="o">=</span> <span class="n">fix</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span> <span class="o">+</span> <span class="n">tmp</span> <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">cnt</span> <span class="k">else</span> <span class="n">fix</span> <span class="o">+</span> <span class="n">tmp</span>
+                <span class="n">tmp</span><span class="p">,</span> <span class="n">cnt</span> <span class="o">=</span> <span class="n">txt</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fix</span> <span class="o">=</span> <span class="n">fix</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cnt</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">tmp</span> <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">cnt</span> <span class="k">else</span> <span class="n">fix</span> <span class="o">+</span> <span class="n">tmp</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">fix</span><span class="p">)</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">ans</span> <span class="k">else</span> <span class="n">ans</span>
+    <span class="k">return</span> <span class="n">ans</span>
+</pre></table></code></div></div><p><strong>2021-02-12</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.00ms, 10.3MB<br /> max TaseCase : 3.03ms, 10.2MB</p></blockquote><h1 id="메뉴-리뉴얼"><a href="https://programmers.co.kr/learn/courses/30/lessons/72411">메뉴 리뉴얼</a></h1><p>분류 : 2021 KAKAO BLIND RECRUITMENT</p><h2 id="방법1-12">방법1</h2><ol><li>orders 리스트를 course 갯수별 조합생성<li>조합내 중복제거한 리스트로 조합리스트 내 요소 카운트<li>카운트값이 가장 높은 조합 목록을 반환</ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre><td class="rouge-code"><pre><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">orders</span><span class="p">,</span> <span class="n">course</span><span class="p">):</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">course</span><span class="p">:</span>
+        <span class="n">tot_lst</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">order</span> <span class="ow">in</span> <span class="n">orders</span><span class="p">:</span>
+            <span class="n">tot_lst</span><span class="p">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">combinations</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">order</span><span class="p">),</span> <span class="n">n</span><span class="p">)))</span>
+        <span class="n">tot_lst</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="n">tot_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">tot_lst</span><span class="p">)</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">tmp_lst</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">tot_set</span><span class="p">:</span>
+            <span class="n">cnt</span> <span class="o">=</span> <span class="n">tot_lst</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+            <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">cnt</span> <span class="ow">and</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="n">cnt</span><span class="p">:</span>
+                <span class="n">m</span> <span class="o">=</span> <span class="n">cnt</span>
+                <span class="n">tmp_lst</span> <span class="o">=</span> <span class="p">[</span><span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">val</span><span class="p">)]</span>
+            <span class="k">elif</span> <span class="n">m</span> <span class="o">==</span> <span class="n">cnt</span><span class="p">:</span>
+                <span class="n">tmp_lst</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">val</span><span class="p">))</span>
+        <span class="n">ans</span><span class="p">.</span><span class="n">extend</span><span class="p">(</span><span class="n">tmp_lst</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+</pre></table></code></div></div><p><strong>2021-02-20</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : 0.05ms, 10.2MB<br /> max TaseCase : 124.96ms, 10.6MB</p></blockquote><h2 id="방법2-12">방법2</h2><ol><li>collections.Counter()<ul><li>컨테이너에 동일한 값이 몇개인지를 <code class="language-plaintext highlighter-rouge">dictionary</code>로 반환하는 객체<li>요소의 갯수가 내림차순으로 출력</ul><li>collections.Counter().most_common(n)<ul><li>입력된 값의 요소들 중 빈도수(frequency)가 높은 순으로 상위 n개를 리스트 안의 <code class="language-plaintext highlighter-rouge">tuple</code>로 반환</ul></ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre><td class="rouge-code"><pre><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">orders</span><span class="p">,</span> <span class="n">course</span><span class="p">):</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">course</span><span class="p">:</span>
+        <span class="n">tot_lst</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">order</span> <span class="ow">in</span> <span class="n">orders</span><span class="p">:</span>
+            <span class="n">tot_lst</span><span class="p">.</span><span class="n">extend</span><span class="p">(</span><span class="n">combinations</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">order</span><span class="p">),</span> <span class="n">n</span><span class="p">))</span>
+
+        <span class="n">order_sorted</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">tot_lst</span><span class="p">).</span><span class="n">most_common</span><span class="p">()</span>
+        <span class="n">cnt_max</span> <span class="o">=</span> <span class="n">order_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">arr</span><span class="p">,</span> <span class="n">cnt</span> <span class="ow">in</span> <span class="n">order_sorted</span><span class="p">:</span>
+            <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">cnt</span> <span class="ow">and</span> <span class="n">cnt</span> <span class="o">==</span> <span class="n">cnt_max</span><span class="p">:</span>
+                <span class="n">ans</span> <span class="o">+=</span> <span class="p">[</span><span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">arr</span><span class="p">)]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">break</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+</pre></table></code></div></div><blockquote><p>min TaseCase : 0.07ms, 10.1MB<br /> max TaseCase : 2.11ms, 10.4MB</p></blockquote><h1 id="더-맵게"><a href="https://programmers.co.kr/learn/courses/30/lessons/42626">더 맵게</a></h1><p>분류 : 힙(Heap)</p><p>추가 Test Case</p><div class="table-wrapper"><table><thead><tr><th>scoville<th>K<th>return<tbody><tr><td>[0, 0]<td>1<td>-1</table></div><h2 id="방법1-13">방법1</h2><p><code class="language-plaintext highlighter-rouge">heapq</code> : 이진 트리기반의 최소 힙 자료구조로 데이터를 정렬되게 저장하는 내장 모듈</p><ol><li>heapq.heapify(heap)<ul><li>리스트를 힙으로 변환</ul><li>heapq.heappush(heap, item)<ul><li>heap 리스트에 item 원소추가<li>이진 트리에 원소를 추가하므로 O(logN)의 시간 복잡도를 가짐</ul><li>heapq.heappop(heap)`<ul><li>heap_lst 최소값을 반환하고 해당 리스트에서 삭제함<li>이진 트리에서 원소를 삭제하므로 O(logN)의 시간 복잡도를 가짐</ul><li>힙 삭제없이 최소값 얻기<ul><li><code class="language-plaintext highlighter-rouge">heap[0]</code> : list 자료형 인덱스 접근방식으로 삭제없이 값 획득 가능<li>두번째 최소값은 heappop()함수로 첫번쨰 최소값을 삭제한뒤 heap[0] 접근하여 두번째 최소값을 얻을 수 있음</ul><li>heapq.heappushpop(heap, item)<ul><li>힙에 item을 푸시한 다음, heap에서 가장 작은 항목 팝하고 반환</ul></ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">heapq</span>
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">scoville</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
+    <span class="n">ans</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">scoville</span><span class="p">)</span>
+    <span class="n">heapq</span><span class="p">.</span><span class="n">heapify</span><span class="p">(</span><span class="n">scoville</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">scoville</span><span class="p">)</span>
+    <span class="k">while</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">:</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">scoville</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">heapq</span><span class="p">.</span><span class="n">heappushpop</span><span class="p">(</span><span class="n">scoville</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="n">m</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">ans</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">ans</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">K</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ans</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</pre></table></code></div></div><p><strong>2021-02-20</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0</p></blockquote><p>정확성 테스트</p><blockquote><p>min TaseCase : 0.00ms, 10.2MB<br /> max TaseCase : 1.02ms, 10.2MB</p></blockquote><p>효율성 테스트</p><blockquote><p>min TaseCase : 139.60ms, 15MB<br /> max TaseCase : 2098.58ms, 51.9MB</p></blockquote><h2 id="방법2-13">방법2</h2><p>deque : 스택과 큐를 일반화 한 것</p><ol><li>append(x)<ul><li>오른쪽에 x 추가</ul><li>appendleft(x)<ul><li>왼쪽에 x 추가</ul><li>pop()<ul><li>오른쪽에서 요소를 제거하고 반환</ul><li>popleft()<ul><li>왼쪽에서 요소를 제거하고 반환</ul></ol><h1 id="순위-검색"><a href="https://programmers.co.kr/learn/courses/30/lessons/72412#">순위 검색</a></h1><p>분류 : 2021 KAKAO BLIND RECRUITMENT</p><h2 id="방법-1">방법 1</h2><p>풀이방법 : 재귀함수, 이진탐색 사용</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="n">s_idx</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">e_idx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">mid</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+            <span class="k">while</span> <span class="n">s_idx</span> <span class="o">&lt;=</span> <span class="n">e_idx</span><span class="p">:</span>
+                <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">s_idx</span><span class="o">+</span><span class="n">e_idx</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+                
+                <span class="k">if</span> <span class="n">target</span> <span class="o">&lt;</span> <span class="n">data</span><span class="p">[</span><span class="n">mid</span><span class="p">]:</span>
+                    <span class="n">e_idx</span> <span class="o">=</span> <span class="n">mid</span>
+                <span class="k">elif</span> <span class="n">data</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">e_idx</span> <span class="o">-</span> <span class="n">s_idx</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">mid</span> <span class="o">=</span> <span class="n">e_idx</span>
+                        <span class="k">break</span>
+                    <span class="k">elif</span> <span class="n">e_idx</span> <span class="o">==</span> <span class="n">s_idx</span><span class="p">:</span>
+                        <span class="n">mid</span> <span class="o">=</span> <span class="n">e_idx</span> <span class="o">+</span> <span class="mi">1</span>
+                        <span class="k">break</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">s_idx</span> <span class="o">=</span> <span class="n">mid</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">e_idx</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">mid</span>
+
+<span class="k">def</span> <span class="nf">dict_count</span><span class="p">(</span><span class="n">q_val</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">i_val</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="n">q_val</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s">'-'</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">i_val</span><span class="p">:</span>
+            <span class="n">cnt</span> <span class="o">+=</span> <span class="n">dict_count</span><span class="p">(</span><span class="n">q_val</span><span class="o">=</span><span class="n">q_val</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">i_val</span><span class="o">=</span><span class="n">i_val</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">q_val</span><span class="p">):</span>
+        <span class="n">cnt</span> <span class="o">=</span> <span class="n">dict_count</span><span class="p">(</span><span class="n">q_val</span><span class="o">=</span><span class="n">q_val</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">i_val</span><span class="o">=</span><span class="n">i_val</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">i_val</span><span class="p">:</span>
+        <span class="n">cnt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">i_val</span><span class="p">)</span> <span class="o">-</span> <span class="n">binary_search</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">i_val</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">cnt</span>
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">soul_food</span> <span class="o">=</span> <span class="p">{</span><span class="s">'chicken'</span><span class="p">:</span> <span class="p">[],</span> <span class="s">'pizza'</span><span class="p">:</span> <span class="p">[]}</span>
+    <span class="n">career</span> <span class="o">=</span> <span class="p">{</span><span class="s">'junior'</span><span class="p">:</span> <span class="n">copy</span><span class="p">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">soul_food</span><span class="p">),</span> <span class="s">'senior'</span><span class="p">:</span> <span class="n">copy</span><span class="p">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">soul_food</span><span class="p">)}</span>
+    <span class="n">job_group</span> <span class="o">=</span> <span class="p">{</span><span class="s">'backend'</span><span class="p">:</span> <span class="n">copy</span><span class="p">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">career</span><span class="p">),</span> <span class="s">'frontend'</span><span class="p">:</span> <span class="n">copy</span><span class="p">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">career</span><span class="p">)}</span>
+    <span class="n">i_info</span> <span class="o">=</span> <span class="p">{</span><span class="s">'cpp'</span><span class="p">:</span> <span class="n">copy</span><span class="p">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">job_group</span><span class="p">),</span> <span class="s">'java'</span><span class="p">:</span> <span class="n">copy</span><span class="p">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">job_group</span><span class="p">),</span> <span class="s">'python'</span><span class="p">:</span> <span class="n">copy</span><span class="p">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">job_group</span><span class="p">)}</span>
+
+    <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">info</span><span class="p">:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">val</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">i_info</span><span class="p">[</span><span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">val</span><span class="p">[</span><span class="mi">1</span><span class="p">]][</span><span class="n">val</span><span class="p">[</span><span class="mi">2</span><span class="p">]][</span><span class="n">val</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span>
+        <span class="n">t_val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+        <span class="n">data</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">binary_search</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">t_val</span><span class="p">),</span> <span class="n">t_val</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">query</span><span class="p">:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">val</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">' and '</span><span class="p">)</span>
+        <span class="n">val</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">score</span> <span class="o">=</span> <span class="n">val</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span>
+        <span class="n">val</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">score</span><span class="p">))</span>
+        <span class="n">answer</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">dict_count</span><span class="p">(</span><span class="n">q_val</span><span class="o">=</span><span class="n">val</span><span class="p">,</span> <span class="n">i_val</span><span class="o">=</span><span class="n">i_info</span><span class="p">))</span>
+    
+    <span class="k">return</span> <span class="n">answer</span>
+</pre></table></code></div></div><p><strong>2021-05-18</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0</p></blockquote><p>정확성 테스트</p><blockquote><p>min TaseCase : 0.24ms, 10.4MB<br /> max TaseCase : 10.82ms, 10.7MB</p></blockquote><p>효율성 테스트</p><blockquote><p>min TaseCase : 1146.27ms, 35.9MB<br /> max TaseCase : 5534.78ms, 36.2MB</p></blockquote><h2 id="방법-2">방법 2</h2><p>풀이방법 : Bit field 연산, 이진탐색 알고리즘 수정</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+</pre><td class="rouge-code"><pre><span class="n">field</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"cpp"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"java"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">"python"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s">"backend"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"frontend"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s">"junior"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"senior"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
+    <span class="s">"chicken"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"pizza"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s">"-"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"cpp"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">"java"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">"python"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s">"backend"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">"frontend"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s">"junior"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">"senior"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> 
+    <span class="s">"chicken"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">"pizza"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s">"-"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="n">low</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="n">low</span> <span class="o">&lt;</span> <span class="n">high</span><span class="p">:</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">high</span><span class="o">+</span><span class="n">low</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+        <span class="k">if</span> <span class="n">target</span> <span class="o">&lt;=</span> <span class="n">data</span><span class="p">[</span><span class="n">mid</span><span class="p">]:</span>
+            <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">low</span>
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">i_info</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">info</span><span class="p">:</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span>
+        <span class="n">i_bit</span> <span class="o">=</span> <span class="p">(</span><span class="n">field</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">&lt;&lt;</span> <span class="mi">9</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">field</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">field</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">field</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span>
+        
+        <span class="k">if</span> <span class="n">i_bit</span> <span class="ow">in</span> <span class="n">i_info</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">i_info</span><span class="p">[</span><span class="n">i_bit</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">i_info</span><span class="p">[</span><span class="n">i_bit</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="n">score</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+        <span class="n">data</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">binary_search</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">score</span><span class="p">),</span> <span class="n">score</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">query</span><span class="p">:</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">' and '</span><span class="p">)</span>
+        <span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">score</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+        <span class="n">q_bit</span> <span class="o">=</span> <span class="p">(</span><span class="n">mask</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">&lt;&lt;</span> <span class="mi">9</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">mask</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">mask</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">mask</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span>
+
+        <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i_bit</span> <span class="ow">in</span> <span class="n">i_info</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">q_bit</span> <span class="o">&amp;</span> <span class="n">i_bit</span><span class="p">):</span>
+                <span class="n">i_data</span> <span class="o">=</span> <span class="n">i_info</span><span class="p">[</span><span class="n">i_bit</span><span class="p">]</span>
+                <span class="n">cnt</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">i_data</span><span class="p">)</span> <span class="o">-</span> <span class="n">binary_search</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">i_data</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">score</span><span class="p">)</span>
+        <span class="n">answer</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">answer</span>
+</pre></table></code></div></div><p><strong>2021-05-18</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0</p></blockquote><p>정확성 테스트</p><blockquote><p>min TaseCase : 0.11ms, 10.4MB<br /> max TaseCase : 9.42ms, 11MB</p></blockquote><p>효율성 테스트</p><blockquote><p>min TaseCase : 887.34ms, 35.8MB<br /> max TaseCase : 3955.15ms, 35.9MB</p></blockquote><h2 id="방법-3">방법 3</h2><p>풀이방법 : 이진탐색 부분을 내장함수 사용</p><ul><li>배열 이진 분할 알고리즘 bisect 라이브러리<li><code class="language-plaintext highlighter-rouge">insort(a, x)</code> : a에 x를 정렬된 순서로 추가<li><code class="language-plaintext highlighter-rouge">bisect_left(a, x)</code> : 정렬된 순서를 유지하면서 a에 x를 추가할 위치 반환</ul><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+</pre><td class="rouge-code"><pre><span class="kn">from</span> <span class="nn">bisect</span> <span class="kn">import</span> <span class="n">insort</span><span class="p">,</span> <span class="n">bisect_left</span>
+
+<span class="n">field</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"cpp"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"java"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">"python"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s">"backend"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"frontend"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s">"junior"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"senior"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
+    <span class="s">"chicken"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"pizza"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s">"-"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"cpp"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">"java"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">"python"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s">"backend"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">"frontend"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s">"junior"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">"senior"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> 
+    <span class="s">"chicken"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">"pizza"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s">"-"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">i_info</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">info</span><span class="p">:</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span>
+        <span class="n">i_bit</span> <span class="o">=</span> <span class="p">(</span><span class="n">field</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">&lt;&lt;</span> <span class="mi">9</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">field</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">field</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">field</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span>
+        
+        <span class="k">if</span> <span class="n">i_bit</span> <span class="ow">in</span> <span class="n">i_info</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">i_info</span><span class="p">[</span><span class="n">i_bit</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">i_info</span><span class="p">[</span><span class="n">i_bit</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="n">score</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+        <span class="n">insort</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">query</span><span class="p">:</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">' and '</span><span class="p">)</span>
+        <span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">score</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+        <span class="n">q_bit</span> <span class="o">=</span> <span class="p">(</span><span class="n">mask</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">&lt;&lt;</span> <span class="mi">9</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">mask</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">mask</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">mask</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span>
+
+        <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i_bit</span> <span class="ow">in</span> <span class="n">i_info</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">q_bit</span> <span class="o">&amp;</span> <span class="n">i_bit</span><span class="p">):</span>
+                <span class="n">i_data</span> <span class="o">=</span> <span class="n">i_info</span><span class="p">[</span><span class="n">i_bit</span><span class="p">]</span>
+                <span class="n">cnt</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">i_data</span><span class="p">)</span> <span class="o">-</span> <span class="n">bisect_left</span><span class="p">(</span><span class="n">i_data</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+        <span class="n">answer</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">answer</span>
+</pre></table></code></div></div><p><strong>2021-05-18</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0</p></blockquote><p>정확성 테스트</p><blockquote><p>min TaseCase : 0.09ms, 10.4MB<br /> max TaseCase : 5.63ms, 10.7MB</p></blockquote><p>효율성 테스트</p><blockquote><p>min TaseCase : 446.87ms, 35.7MB<br /> max TaseCase : 1198.31ms, 35.9MB</p></blockquote><h1 id="괄호-변환"><a href="https://programmers.co.kr/learn/courses/30/lessons/60058">괄호 변환</a></h1><p>분류 : 2020 KAKAO BLIND RECRUITMENT</p><ol><li></ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>
+</pre></table></code></div></div><p><strong>2021</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : <br /> max TaseCase :</p></blockquote><h1 id="전화번호-목록"><a href="https://programmers.co.kr/learn/courses/30/lessons/42577">전화번호 목록</a></h1><p>분류 : 해시</p><ol><li></ol><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>
+</pre></table></code></div></div><p><strong>2021</strong></p><blockquote><p>채점 결과<br /> 합계: 100.0 / 100.0<br /> min TaseCase : <br /> max TaseCase :</p></blockquote></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/algorithm/'>Algorithm</a>, <a href='/categories/programmers/'>Programmers</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/algorithm/" class="post-tag no-text-decoration" >algorithm</a> <a href="/tags/programmers/" class="post-tag no-text-decoration" >programmers</a> <a href="/tags/python/" class="post-tag no-text-decoration" >python</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=Programmers Python (level 2) - Sangjun&url=https://sangjuncha-dev.github.io//posts/Algorithm-programmers-python-level2/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=Programmers Python (level 2) - Sangjun&u=https://sangjuncha-dev.github.io//posts/Algorithm-programmers-python-level2/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=Programmers Python (level 2) - Sangjun&url=https://sangjuncha-dev.github.io//posts/Algorithm-programmers-python-level2/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down"><div class="access"><div id="access-lastmod" class="post"> <span>Recent Update</span><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/posts/Python-Windows10-Monitoring/">python을 이용한 windows10 시스템 정보 및 사용량 모니터링</a><li><a href="/posts/Python-DataStructures-and-Algorithms/">Python 자료구조와 알고리즘(by 미아 스타인) 책 정리</a><li><a href="/posts/Algorithm-programmers-python-level2/">Programmers Python (level 2)</a><li><a href="/posts/Python-Opencv-use-Guide/">Python Opencv 사용 방법</a><li><a href="/posts/Windows10-WSL2-Guide/">Windows 10 WSL2(Windows Subsystem for Linux) 사용법</a></ul></div><div id="access-tags"> <span>Trending Tags</span><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/python/">python</a> <a class="post-tag" href="/tags/django/">django</a> <a class="post-tag" href="/tags/library/">library</a> <a class="post-tag" href="/tags/db/">db</a> <a class="post-tag" href="/tags/models/">models</a> <a class="post-tag" href="/tags/algorithm/">algorithm</a> <a class="post-tag" href="/tags/docker/">docker</a> <a class="post-tag" href="/tags/sql/">sql</a> <a class="post-tag" href="/tags/go/">go</a> <a class="post-tag" href="/tags/mssql/">mssql</a></div></div></div><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contents</span><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/Algorithm-programmers-python-level1/"><div class="card-body"> <span class="timeago small" > Dec 15, 2020 <i class="unloaded">2020-12-15T15:05:35+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Programmers Python (level 1)</h3><div class="text-muted small"><p> 모의고사 분류 : 완전탐색 입력받은 answers 리스트와 수포자들의 답 리스트와 비교하여 같다면 answer_cnt변수에 정답 개수 추가 answer_cnt 리스트의 최댓값과 각 answer_cnt 원소와 비교하여 같다면 index+1 값을 answer리스트에 추가 최대 정답자 answer 리스트 return def solutio...</p></div></div></a></div><div class="card"> <a href="/posts/Algorithm-leetcode-python-easy/"><div class="card-body"> <span class="timeago small" > Dec 1, 2020 <i class="unloaded">2020-12-01T17:30:00+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>LeetCode Python (Easy)</h3><div class="text-muted small"><p> 1. Two Sum nums 리스트 속성값 중 두개의 값이 target 값과 동일할때 해당 속성 값의 index 반환 class Solution: def twoSum(self, nums: List[int], target: int) -&gt; List[int]: for i, num in enumerate(nums): ...</p></div></div></a></div><div class="card"> <a href="/posts/Python-DataStructures-and-Algorithms/"><div class="card-body"> <span class="timeago small" > Apr 29 <i class="unloaded">2021-04-29T16:29:43+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Python 자료구조와 알고리즘(by 미아 스타인) 책 정리</h3><div class="text-muted small"><p> Part 1 헬로, 자료구조! Chapter 01 숫자 1.1 정수 int() 불변형 객체로 문자열을 정수로 변환하거나 다른 진법의 문자열을 정수로 변환 int(문자열, 밑(n진법)) 1 2 3 4 &gt;&gt;&gt; s = '11' &gt;&gt;&gt; b = int(s, 2) &gt;&gt;&gt; print(b) 11 정수에 ...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/Algorithm-programmers-python-level1/" class="btn btn-outline-primary"><p>Programmers Python (level 1)</p></a> <a href="/posts/Linux-NFS-Setting/" class="btn btn-outline-primary"><p>리눅스 NFS 설정 (Linux NFS Setting)</p></a></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script> <script type="text/javascript"> const imgs = document.querySelectorAll('#post-wrapper img'); const observer = lozad(imgs); observer.observe(); </script><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center"><div class="footer-left"><p class="mb-0"> © 2021 <a href="https://twitter.com/username">Cha Sangjun</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy/" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-xl-11 post-content"><div id="search-hints"><h4 class="text-muted mb-4">Trending Tags</h4><a class="post-tag" href="/tags/python/">python</a> <a class="post-tag" href="/tags/django/">django</a> <a class="post-tag" href="/tags/library/">library</a> <a class="post-tag" href="/tags/db/">db</a> <a class="post-tag" href="/tags/models/">models</a> <a class="post-tag" href="/tags/algorithm/">algorithm</a> <a class="post-tag" href="/tags/docker/">docker</a> <a class="post-tag" href="/tags/sql/">sql</a> <a class="post-tag" href="/tags/go/">go</a> <a class="post-tag" href="/tags/mssql/">mssql</a></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="https://sangjuncha-dev.github.io/{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"><div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>{categories}</div><div><i class="fa fa-tag fa-fw"></i>{tags}</div></div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>' }); </script> <script async src="https://www.googletagmanager.com/gtag/js?id="></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', ''); </script>

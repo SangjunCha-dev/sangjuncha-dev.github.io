@@ -1,0 +1,901 @@
+<!DOCTYPE html><html lang="en" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="theme" content="Chirpy v2.6.2"><meta name="generator" content="Jekyll v4.1.1" /><meta property="og:title" content="Python 자료구조와 알고리즘(by 미아 스타인) 책 정리" /><meta name="author" content="Sangjun Cha" /><meta property="og:locale" content="en_US" /><meta name="description" content="A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation." /><meta property="og:description" content="A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation." /><link rel="canonical" href="https://sangjuncha-dev.github.io//posts/Python-DataStructures-and-Algorithms/" /><meta property="og:url" content="https://sangjuncha-dev.github.io//posts/Python-DataStructures-and-Algorithms/" /><meta property="og:site_name" content="Sangjun" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2021-04-29T16:29:43+09:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="Python 자료구조와 알고리즘(by 미아 스타인) 책 정리" /><meta name="twitter:site" content="@/" /><meta name="twitter:creator" content="@Sangjun Cha" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"author":{"@type":"Person","name":"Sangjun Cha"},"description":"A minimal, portfolio, sidebar, bootstrap Jekyll theme with responsive web design and focuses on text presentation.","url":"https://sangjuncha-dev.github.io//posts/Python-DataStructures-and-Algorithms/","@type":"BlogPosting","headline":"Python 자료구조와 알고리즘(by 미아 스타인) 책 정리","dateModified":"2021-06-04T17:12:30+09:00","datePublished":"2021-04-29T16:29:43+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sangjuncha-dev.github.io//posts/Python-DataStructures-and-Algorithms/"},"@context":"https://schema.org"}</script><title>Python 자료구조와 알고리즘(by 미아 스타인) 책 정리 | Sangjun</title><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="icon" href="/assets/img/favicons/favicon.ico" type="image/x-icon"><link rel="manifest" href="/assets/img/favicons/manifest.json"><meta name='msapplication-config' content='/assets/img/favicons/browserconfig.xml'><meta name="msapplication-TileColor" content="#ffffff"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="preconnect" href="cdn.jsdelivr.net"><link rel="dns-prefetch" href="cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha256-LA89z+k9fjgMKQ/kq4OO2Mrf8VltYml/VES+Rg0fh20=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"><link rel="preload" href="/assets/css/post.css" as="style"><link rel="stylesheet" href="/assets/css/post.css"><link rel="preload" as="style" href="/assets/css/lib/bootstrap-toc.min.css"><link rel="stylesheet" href="/assets/css/lib/bootstrap-toc.min.css" /> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script async src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.15.0,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script async src="/assets/js/post.min.js"></script> <script defer src="/app.js"></script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column"><div id="nav-wrapper"><div id="profile-wrapper" class="d-flex flex-column"><div id="avatar" class="d-flex justify-content-center"> <a href="/" alt="avatar"> <img src="/assets/img/sample/avatar.jpg" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="profile-text mt-3"><div class="site-title"> <a href="/">Sangjun</a></div><div class="site-subtitle font-italic">정보 블로그</div></div></div><ul class="nav flex-column"><li class="nav-item d-flex justify-content-center "> <a href="/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/categories/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/tags/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-tags ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/archives/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item d-flex justify-content-center "> <a href="/tabs/about/" class="nav-link d-flex justify-content-center align-items-center w-100"> <i class="fa-fw fas fa-info ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul></div><div class="sidebar-bottom d-flex flex-wrap justify-content-around mt-4"> <span id="mode-toggle-wrapper"> <i class="mode-toggle fas fa-adjust"></i> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } constructor() { if (this.mode != null) { if (this.mode == ModeToggle.DARK_MODE) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } var self = this; /* always follow the system prefers */ this.sysDarkPrefers.addListener(function() { if (self.mode != null) { if (self.mode == ModeToggle.DARK_MODE) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } }); } /* constructor() */ setDark() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_KEY); sessionStorage.removeItem(ModeToggle.MODE_KEY); } get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode == ModeToggle.DARK_MODE; } get isLightMode() { return this.mode == ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } flipMode() { if (this.hasMode) { if (this.isSysDarkPrefer) { if (this.isLightMode) { this.clearMode(); } else { this.setLight(); } } else { if (this.isDarkMode) { this.clearMode(); } else { this.setDark(); } } } else { if (this.isSysDarkPrefer) { this.setLight(); } else { this.setDark(); } } } /* flipMode() */ } /* ModeToggle */ let toggle = new ModeToggle(); $(".mode-toggle").click(function() { toggle.flipMode(); }); </script> </span> <span class="icon-border"></span> <a href="https://github.com/sangjuncha-dev" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github-alt"></i> </a> <a href="https://twitter.com//" aria-label="twitter" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['sangjuncha.dev','gmail.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Posts </a> </span> <span>Python 자료구조와 알고리즘(by 미아 스타인) 책 정리</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" placeholder="Search..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="post-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>Python 자료구조와 알고리즘(by 미아 스타인) 책 정리</h1><div class="post-meta text-muted d-flex flex-column"><div> Posted <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Thu, Apr 29, 2021, 4:29 PM +0900" > Apr 29 <i class="unloaded">2021-04-29T16:29:43+09:00</i> </span> by <span class="author"> Sangjun Cha </span></div><div> Updated <span class="timeago lastmod" data-toggle="tooltip" data-placement="bottom" title="Fri, Jun 4, 2021, 5:12 PM +0900" > Jun 4 <i class="unloaded">2021-06-04T17:12:30+09:00</i> </span></div></div><div class="post-content"><h1 id="part-1-헬로-자료구조">Part 1 헬로, 자료구조!</h1><h2 id="chapter-01-숫자">Chapter 01 숫자</h2><h3 id="11-정수-int">1.1 정수 int()</h3><p>불변형 객체로 문자열을 정수로 변환하거나 다른 진법의 문자열을 정수로 변환</p><p><code class="language-plaintext highlighter-rouge">int(문자열, 밑(n진법))</code></p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="s">'11'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="mi">11</span>
+</pre></table></code></div></div><p>정수에 필요한 바이트 수(python 3.1이상)</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">정수</span><span class="p">).</span><span class="n">bit_length</span><span class="p">()</span>
+<span class="mi">10</span>
+</pre></table></code></div></div><p>발생가능한 Exception : ValueError</p><h3 id="12-부동-소수점-float">1.2 부동 소수점 float()</h3><p><strong>float 32bit</strong></p><ul><li>1bit 부호, 8bit 지수, 23bit 유효 숫자 자릿수</ul><h4 id="121-부동소수점끼리-비교하기">1.2.1 부동소수점끼리 비교하기</h4><p>이진수 분수로 표현으로 소수점의 정확한 비교는 어렵지만,</p><p>동등성 테스트로 사전에 정의된 정밀도 범위 내에서 비교는 가능한다.</p><p>unittest 모듈의 assertAlmostEqual() 메소드 같은 접근법 사용</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">a</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">places</span><span class="o">=</span><span class="mi">7</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">rount</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">),</span> <span class="n">places</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></table></code></div></div><h4 id="122-정수와-부동소수점-메서드">1.2.2 정수와 부동소수점 메서드</h4><p>나누기 <code class="language-plaintext highlighter-rouge">연산자 /</code> 는 항상 부동소수점을 <code class="language-plaintext highlighter-rouge">연산자 //</code> 는 정수를 반환한다.</p><p><strong>divmod(x, y)</strong></p><ul><li>x를 y로 나눌 때, 몫과 나머지를 반환</ul><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">divmod</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></table></code></div></div><p><strong>round(x, n)</strong></p><ul><li>n이 양수인 경우, x를 소수점 이하 n번째 자리로 반올림한 값을 반환한다.<li>n이 음수인 경우, x를 정수 n번째 자리에서 반올림한 값을 반환한다.</ul><p><strong>as_interger_ratio()</strong></p><ul><li>부동소수점을 분수로 표현</ul><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="o">&gt;&gt;&gt;</span> <span class="mf">2.75</span><span class="p">.</span><span class="n">as_integer_ratio</span><span class="p">()</span>
+<span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></table></code></div></div><h3 id="13-복소수">1.3 복소수</h3><h3 id="14-fraction-모듈">1.4 fraction 모듈</h3><p>분수를 다루는 라이브러리</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+</pre><td class="rouge-code"><pre><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
+
+<span class="k">def</span> <span class="nf">rounding_floats</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">places</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">places</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">float_to_fractions</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Fraction</span><span class="p">(</span><span class="o">*</span><span class="n">num</span><span class="p">.</span><span class="n">as_integer_ratio</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">get_denominator</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+    <span class="s">''' 분모 반환 '''</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">denominator</span>
+
+<span class="k">def</span> <span class="nf">get_numerator</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+    <span class="s">''' 분자 반환 '''</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">.</span><span class="n">numerator</span>
+
+<span class="k">def</span> <span class="nf">test_testing_floats</span><span class="p">():</span>
+    <span class="n">num1</span> <span class="o">=</span> <span class="mf">1.25</span>
+    <span class="n">num2</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">num3</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">num4</span> <span class="o">=</span> <span class="mi">5</span><span class="o">/</span><span class="mi">4</span>
+    <span class="n">num6</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">rounding_floats</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">1.2</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">rounding_floats</span><span class="p">(</span><span class="n">num1</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span> <span class="n">num3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">float_to_fractions</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span> <span class="o">==</span> <span class="n">num4</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">get_denominator</span><span class="p">(</span><span class="n">num2</span><span class="p">,</span> <span class="n">num6</span><span class="p">)</span> <span class="o">==</span> <span class="n">num6</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">get_numerator</span><span class="p">(</span><span class="n">num2</span><span class="p">,</span> <span class="n">num6</span><span class="p">)</span> <span class="o">==</span> <span class="n">num2</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"테스트 통과!"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">test_testing_floats</span><span class="p">()</span>
+</pre></table></code></div></div><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>테스트 통과!
+</pre></table></code></div></div><h3 id="15-decimal-모듈">1.5 decimal 모듈</h3><p>정확한 10진법의 부동소수점 숫자가 필요한 경우, 부동소수점 불변 타입인 <code class="language-plaintext highlighter-rouge">decimal.Decimal</code> 사용할 수 있다.</p><p>일반적인 float 데이터는 정확한 값 비교를 할 수 없다.</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="mf">0.1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+<span class="bp">False</span>
+</pre></table></code></div></div><p><code class="language-plaintext highlighter-rouge">decimal.Decimal</code> 모듈을 사용한 float 데이터는 정확한 값 비교가 가능하다.</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s">'0.1'</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s">'1.0'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+<span class="bp">True</span>
+</pre></table></code></div></div><h3 id="16-2진수-8진수-16진수">1.6 2진수, 8진수, 16진수</h3><p><strong>bin(n)</strong></p><ul><li>정수 n의 2진수 문자열 반환한다.</ul><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">bin</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="s">'0b11110'</span>
+</pre></table></code></div></div><p><strong>oct(n)</strong></p><ul><li>정수 n의 8진수 문자열 반환한다.</ul><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">oct</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="s">'0o36'</span>
+</pre></table></code></div></div><p><strong>hex(n)</strong></p><ul><li>정수 n의 16진수 문자열 반환한다.</ul><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">hex</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="s">'0x1e'</span>
+</pre></table></code></div></div><h3 id="17-random-모듈">1.7 random 모듈</h3><p>난수 생성 모듈 예제 코드</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">testing_random</span><span class="p">():</span>
+    <span class="s">''' random 모듈 테스트 '''</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">sample</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">sample</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+    <span class="s">''' values 리스트를 섞는다. '''</span>
+    <span class="n">random</span><span class="p">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="s">''' 0~10의 임의의 정수를 생성한다. '''</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">testing_random</span><span class="p">()</span>
+</pre></table></code></div></div><p>결과는 매번 다르게 출력된다.</p><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre>3
+3
+2
+<span class="o">[</span>4, 3]
+<span class="o">[</span>1, 3, 4]
+<span class="o">[</span>4, 3, 2, 1]
+4
+3
+</pre></table></code></div></div><h3 id="18-numpy-패키지">1.8 numpy 패키지</h3><p>대규모의 다차원 배열 및 행렬을 지원하며, 배열 연산에 쓰이는 수학함수 라이브러리를 제공한다.</p><h4 id="array-메서드">array 메서드</h4><p><strong>np.array()</strong></p><ul><li>다차원 배열 생성 함수<li>예시 : 시퀀스의 시퀀스(리스트 또는 튜플)를 2차원 numpy 배열로 생성할 수 있다.</ul><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(((</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">),</span> <span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">),</span> <span class="p">(</span><span class="mi">31</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">33</span><span class="p">)))</span>
+<span class="p">[[</span><span class="mi">11</span> <span class="mi">12</span> <span class="mi">13</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">21</span> <span class="mi">22</span> <span class="mi">23</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">31</span> <span class="mi">32</span> <span class="mi">33</span><span class="p">]]</span>
+</pre></table></code></div></div><p><strong>ndim</strong> 속성은 배열의 차원 수를 반환한다.</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(((</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">),</span> <span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">)))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">ndim</span>
+<span class="mi">2</span>
+</pre></table></code></div></div><p>간단한 사용예제</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="k">def</span> <span class="nf">testing_numpy</span><span class="p">():</span>
+    <span class="s">''' tests many features of numpy '''</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+    <span class="n">ay</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+    <span class="c1"># [1 2 3]
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">ax</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="c1"># [2 4 6]
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">ax</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="c1"># [11 12 13]
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ax</span><span class="p">))</span>
+    <span class="c1"># [1.         1.41421356 1.73205081]
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ax</span><span class="p">))</span>
+    <span class="c1"># [ 0.54030231 -0.41614684 -0.9899925 ]
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">ax</span><span class="o">-</span><span class="n">ay</span><span class="p">)</span>
+    <span class="c1"># [-2 -2 -2]
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">where</span><span class="p">(</span><span class="n">ax</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="c1"># [ 1 10 10]
+</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">matrix</span><span class="p">([</span><span class="n">ax</span><span class="p">,</span> <span class="n">ay</span><span class="p">,</span> <span class="n">ax</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="c1"># [[1 2 3]
+</span>    <span class="c1">#  [3 4 5]
+</span>    <span class="c1">#  [1 2 3]]
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="c1"># [[1 3 1]
+</span>    <span class="c1">#  [2 4 2]
+</span>    <span class="c1">#  [3 5 3]]
+</span>
+    <span class="n">grid1</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">grid2</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">grid1</span><span class="p">)</span>
+    <span class="c1"># [[0. 0. 0.]
+</span>    <span class="c1">#  [0. 0. 0.]
+</span>    <span class="c1">#  [0. 0. 0.]]
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">grid2</span><span class="p">)</span>
+    <span class="c1"># [[1. 1. 1.]
+</span>    <span class="c1">#  [1. 1. 1.]
+</span>    <span class="c1">#  [1. 1. 1.]]
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">grid1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">10</span><span class="p">)</span>
+    <span class="c1"># [10. 10. 10.]
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">grid2</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+    <span class="c1"># [2. 2. 2.]
+</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">testing_numpy</span><span class="p">()</span>
+</pre></table></code></div></div><p>numpy 배열은 파이썬 list 보다 더 효율적이다.</p><ul><li>numpy 연산이 약 80배 정도 빠르다.</ul><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">trad_version</span><span class="p">():</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
+        <span class="n">Z</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t1</span>
+
+<span class="k">def</span> <span class="nf">numpy_version</span><span class="p">():</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="n">Y</span>
+    <span class="k">return</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t1</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">trad_version</span><span class="p">())</span>
+    <span class="c1"># 2.2733571529388428
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">numpy_version</span><span class="p">())</span>
+    <span class="c1"># 0.028986215591430664
+</span></pre></table></code></div></div><h3 id="19-연습문제">1.9 연습문제</h3><h4 id="191-n진법-변환">1.9.1 n진법 변환</h4><p>n진법의 숫자를 10진법으로 변환하는 코드작성(2&lt;= n &lt;=10)</p><ul><li>테스트 실행함수</ul><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre><td class="rouge-code"><pre>
+<span class="k">def</span> <span class="nf">convert_to_decimal1</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">base</span><span class="p">):</span>
+    <span class="s">''' 나머지, 나누기 연산 이용한 방법 '''</span>
+    <span class="n">digit</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">n</span><span class="o">//</span><span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="o">%</span><span class="mi">10</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="p">(</span><span class="n">m</span> <span class="o">*</span> <span class="n">digit</span><span class="p">)</span>
+        <span class="n">digit</span> <span class="o">*=</span> <span class="n">base</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">def</span> <span class="nf">convert_to_decimal2</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">base</span><span class="p">):</span>
+    <span class="s">''' 내장함수 int 이용한 방법 '''</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">),</span> <span class="n">base</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">number</span><span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">1001</span><span class="p">,</span> <span class="mi">2</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">convert_to_decimal1</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">convert_to_decimal2</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'테스트 통과!'</span><span class="p">)</span>
+</pre></table></code></div></div><p>10진법의 숫자를 n진법로 변환하는 코드작성(2&lt;= n &lt;=10)</p><ul><li>테스트 실행함수</ul><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">convert_from_decimal</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">base</span><span class="p">):</span>
+    <span class="n">digit</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="n">base</span><span class="p">,</span> <span class="n">n</span> <span class="o">%</span> <span class="n">base</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="p">(</span><span class="n">m</span> <span class="o">*</span> <span class="n">digit</span><span class="p">)</span>
+        <span class="n">digit</span> <span class="o">*=</span> <span class="mi">10</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">number</span><span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">convert_from_decimal</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1001</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'테스트 통과!'</span><span class="p">)</span>
+</pre></table></code></div></div><p>10진법의 숫자를 20이하 진법으로 변환하는 코드작성(2&lt;= n &lt;=20)</p><ul><li>테스트 실행함수</ul><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">convert_from_decimal_larger_bases</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">base</span><span class="p">):</span>
+    <span class="n">digit</span> <span class="o">=</span> <span class="s">'0123456789ABCDEFGHIJ'</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s">''</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="n">base</span><span class="p">,</span> <span class="n">n</span> <span class="o">%</span> <span class="n">base</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">digit</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">+</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">number</span><span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">16</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">convert_from_decimal_larger_bases</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">base</span><span class="p">)</span> <span class="o">==</span> <span class="s">'1F'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'테스트 통과!'</span><span class="p">)</span>
+</pre></table></code></div></div><h4 id="192-최대-공약수">1.9.2 최대 공약수</h4><p>두 정수의 최대 공약수를 계산하는 코드작성</p><ul><li>테스트 실행함수</ul><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">find_gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="s">''' a가 b보다 큰 값일때 '''</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">b</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">b</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">number1</span> <span class="o">=</span> <span class="mi">21</span>
+    <span class="n">number2</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">find_gcd</span><span class="p">(</span><span class="n">number1</span><span class="p">,</span> <span class="n">number2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'테스트 통과!'</span><span class="p">)</span>
+</pre></table></code></div></div><h3 id="193-피보나치-수열">1.9.3 피보나치 수열</h3><p><strong>피보나치 수열</strong> : 첫째 및 둘째 항이 1이며, 그 이후 모든 항은 바로 앞 두항의 합인 수열</p><p>피보나치 수열의 특정 인덱스 값을 계산하는 코드작성</p><ul class="task-list"><li><p>테스트 실행함수 (시간 복잡도 O(n))</p><li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />a<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />a</ul><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">find_fibonacci_seq_iter</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span> <span class="k">return</span> <span class="n">n</span>
+    
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+    <span class="k">return</span> <span class="n">a</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">find_fibonacci_seq_iter</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="mi">55</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'테스트 통과!'</span><span class="p">)</span>
+</pre></table></code></div></div><p><strong>제너레이터(generator)</strong> 이용한 방법</p><ul><li><code class="language-plaintext highlighter-rouge">yield</code>문을 사용<li>전체 시퀀스를 한 번에 메모리에 생성하고 정렬할 필요 없이, 시퀀스를 순회할 수 있다.<li>제너레이터를 순회할 때마다 마지막으로 호출된 요소를 기억하고 다음 값을 반환한다.</ul><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">fib_generator</span><span class="p">():</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">b</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">fg</span> <span class="o">=</span> <span class="n">fib_generator</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">fg</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+</pre></table></code></div></div><h3 id="194-소수">1.9.4 소수</h3><p><strong>소수</strong> : 자신보다 작은 두 개의 자연수를 곱하여 만들 수 없는 1보다 큰 자연수</p><p>소수를 판단하는 코드작성</p><ul><li>테스트 실행 함수</ul><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">finding_prime</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="s">''' 무차별 대입 방법 '''</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span> <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">def</span> <span class="nf">finding_prime_sqrt</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="s">''' 제곱근 활용한 방법 '''</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span> <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="c1"># 직접 연산한것 보다 math 라이브러리가 약 10% 정도 빠르다.
+</span>    <span class="n">sqrt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">num</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="c1"># sqrt = int(num ** 0.5) + 1
+</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">def</span> <span class="nf">finding_prime_fermat</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="s">''' 확률론적 테스트와 페르마의 소정리를 활용한 방법 '''</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;=</span> <span class="mi">102</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">num1</span> <span class="o">=</span> <span class="mi">17</span>
+    <span class="n">num2</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">finding_prime</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">finding_prime</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">finding_prime_sqrt</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">finding_prime_sqrt</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">finding_prime_fermat</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">finding_prime_fermat</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'테스트 통과!'</span><span class="p">)</span>
+</pre></table></code></div></div><p>random 모듈을 이용한 n비트 소수 생성하는 코드작성</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">def</span> <span class="nf">finding_prime_sqrt</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span> <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="n">sqrt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">num</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">def</span> <span class="nf">generate_prime</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">num</span><span class="o">-</span><span class="mi">2</span><span class="p">),</span> <span class="nb">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">p</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">finding_prime_sqrt</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">p</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Usage: generate_prime.py number"</span><span class="p">)</span>
+        <span class="n">sys</span><span class="p">.</span><span class="nb">exit</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">generate_prime</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
+</pre></table></code></div></div><div class="language-shell highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="nv">$ </span>generate_prime.py 3
+5 <span class="o">(</span>또는 7<span class="o">)</span>
+</pre></table></code></div></div><h2 id="chapter-02-내장-시퀀스-타입">Chapter 02 내장 시퀀스 타입</h2><p>시퀀스 타입은 다음과 같은 속성을 가진다.</p><ul><li>멤버십(membership) 연산 : in 키워드 사용<li>크기(size) 함수 : len(seq)<li>슬라이싱(slicing) 속성 : seq[:-1]<li>반복성(iterability) : 반복문에 있는 데이터를 순회할 수 있음</ul><p>Python에는 문자열, 튜플, 리스트, 바이트 배열, 바이트 등 5개의 내장 시퀀스 타입이 있다.</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre><td class="rouge-code"><pre><span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+<span class="c1"># &lt;class 'list'&gt;
+</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s">''</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="c1"># &lt;class 'str'&gt;
+</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="c1"># &lt;class 'tuple'&gt;
+</span>
+<span class="n">ba</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="s">b''</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ba</span><span class="p">))</span>
+<span class="c1"># &lt;class 'bytearray'&gt;
+</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">([])</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+<span class="c1"># &lt;class 'bytes'&gt;
+</span></pre></table></code></div></div><h3 id="21-깊은-복사와-슬라이싱-연산">2.1 깊은 복사와 슬라이싱 연산</h3><p>python 불변 객체 타입</p><ul><li>숫자<li>튜플<li>문자열<li>바이트</ul><p>python 가변 객체 타입</p><ul><li>리스트<li>바이트</ul><h4 id="211-가변성">2.1.1 가변성</h4><p>일반적으로 불변 객체 타입은 가변 객체 타입보다 효율적이다.</p><p>파이썬의 모든 변수는 객체 참조(reference)이므로 가변 객체 복사할 때는 주의해야 한다.</p><p><strong>리스트(list)의 깊은 복사 예제</strong></p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">new_list</span> <span class="o">=</span> <span class="n">my_list</span><span class="p">[:]</span>
+<span class="n">new_list2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</pre></table></code></div></div><p><strong>셋(set)의 깊은 복사 예제</strong></p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre><span class="n">people</span> <span class="o">=</span> <span class="p">{</span><span class="s">'버피'</span><span class="p">,</span> <span class="s">'에인절'</span><span class="p">,</span> <span class="s">'자일스'</span><span class="p">}</span>
+<span class="n">slayers</span> <span class="o">=</span> <span class="n">people</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">slayers</span><span class="p">.</span><span class="n">discard</span><span class="p">(</span><span class="s">'자일스'</span><span class="p">)</span>
+<span class="n">slayers</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="s">'에인절'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">slayers</span><span class="p">)</span>
+<span class="c1"># {'버피'}
+</span>
+<span class="k">print</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
+<span class="c1"># {'버피', '에인절', '자일스'}
+</span></pre></table></code></div></div><p><strong>딕셔너리(dict)의 깊은 복사 예제</strong></p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s">'hello'</span><span class="p">:</span> <span class="s">'world'</span><span class="p">}</span>
+<span class="n">new_dict</span> <span class="o">=</span> <span class="n">my_dict</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></table></code></div></div><p>기타 객체의 깊은 복사는 copy 모듈을 사용한다.</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="n">my_obj</span> <span class="o">=</span> <span class="s">'other something object'</span>
+<span class="n">new_obj</span> <span class="o">=</span> <span class="n">copy</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="n">my_obj</span><span class="p">)</span>  <span class="c1"># 얕은 복사(shallow copy)
+</span><span class="n">new_obj2</span> <span class="o">=</span> <span class="n">copy</span><span class="p">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">my_obj</span><span class="p">)</span>  <span class="c1"># 깊은 복사(deep copy)
+</span></pre></table></code></div></div><h4 id="212-슬라이싱-연산자">2.1.2 슬라이싱 연산자</h4><p>파이썬 시퀀스 타입의 슬라이싱 연산자 구문</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="n">seq</span><span class="p">[</span><span class="n">시작</span><span class="p">]</span>
+<span class="n">seq</span><span class="p">[</span><span class="n">시작</span><span class="p">:</span><span class="n">끝</span><span class="p">]</span>
+<span class="n">seq</span><span class="p">[</span><span class="n">시작</span><span class="p">:</span><span class="n">끝</span><span class="p">:</span><span class="n">스텝</span><span class="p">]</span>
+</pre></table></code></div></div><p>슬라이싱 예제</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="n">word</span> <span class="o">=</span> <span class="s">'abcde'</span>
+<span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>    <span class="c1"># a
+</span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>    <span class="c1"># b
+</span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># e
+</span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:])</span>  <span class="c1"># de
+</span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">0</span><span class="p">])</span>   <span class="c1"># a
+</span><span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># ace
+</span></pre></table></code></div></div><h3 id="22-문자열">2.2 문자열</h3><h4 id="221-유니코드-문자열">2.2.1 유니코드 문자열</h4><p><code class="language-plaintext highlighter-rouge">유니코드</code> : 전 세계 언어의 문자를 정의하기 위한 국제 표준 코드</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre><span class="k">print</span><span class="p">(</span><span class="s">u'Hello</span><span class="se">\u0020</span><span class="s">World !'</span><span class="p">)</span>
+<span class="c1"># Hello World !
+</span></pre></table></code></div></div><p>문자열 코드 크기</p><ul><li>아스키코드 7bit<li>ANSI코드 8ibt<li>유니코드 16bit</ul><h4 id="222-문자열-메서드">2.2.2 문자열 메서드</h4><p><code class="language-plaintext highlighter-rouge">join()</code></p><p>A.join(B) : 리스트 B에 있는 모든 문자열을 하나의 단일 문자열 A로 결합한다.</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre><td class="rouge-code"><pre><span class="n">slayer</span> <span class="o">=</span> <span class="p">[</span><span class="s">'버피'</span><span class="p">,</span> <span class="s">'앤'</span><span class="p">,</span> <span class="s">'아스틴'</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="s">' '</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">slayer</span><span class="p">))</span>
+<span class="c1"># 버피 앤 아스틴
+</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'-'</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">slayer</span><span class="p">))</span>
+<span class="c1"># 버피-앤-아스틴
+</span>
+<span class="k">print</span><span class="p">(</span><span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">slayer</span><span class="p">))</span>
+<span class="c1"># 버피앤아스틴
+</span>
+<span class="k">print</span><span class="p">(</span><span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">slayer</span><span class="p">)))</span>
+<span class="c1"># 아스틴앤버피
+</span></pre></table></code></div></div><p><code class="language-plaintext highlighter-rouge">ljust()</code>, <code class="language-plaintext highlighter-rouge">rjust()</code></p><p>A.ljust(width, fillchar) : 문자열 A <code class="language-plaintext highlighter-rouge">맨 처음</code>부터 문자열을 포함한 길이 width 만큼 문자 fillchar로 채운다.<br /> A.rjust(width, fillchar) : 문자열 A <code class="language-plaintext highlighter-rouge">맨 끝</code>부터 문자열을 포함한 길이 width 만큼 문자 fillchar로 채운다.</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="n">name</span> <span class="o">=</span> <span class="s">'스칼렛'</span>
+<span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="s">'-'</span><span class="p">))</span>
+<span class="c1"># 스칼렛-----------------
+</span><span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="s">'-'</span><span class="p">))</span>
+<span class="c1"># -----------------스칼렛
+</span></pre></table></code></div></div><p><code class="language-plaintext highlighter-rouge">format()</code></p><p>A.format() : 문자열 A에 변수를 추가하거나 형식화하는데 사용한다.</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre><td class="rouge-code"><pre><span class="k">print</span><span class="p">(</span><span class="s">"{0} {1}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="s">'Hello,'</span><span class="p">,</span> <span class="s">'Python!'</span><span class="p">))</span>
+<span class="c1"># Hello, Python!
+</span><span class="k">print</span><span class="p">(</span><span class="s">"이름 : {who}, 나이 : {age}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">who</span><span class="o">=</span><span class="s">'제임스'</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
+<span class="c1"># 이름 : 제임스, 나이 : 20
+</span><span class="k">print</span><span class="p">(</span><span class="s">"이름 : {who}, 나이 : {0}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="n">who</span><span class="o">=</span><span class="s">'에이미'</span><span class="p">))</span>
+<span class="c1"># 이름 : 에이미, 나이 : 21
+</span>
+<span class="c1"># python 3.1이상
+</span><span class="k">print</span><span class="p">(</span><span class="s">"{} {} {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="s">'파이썬'</span><span class="p">,</span> <span class="s">'자료구조'</span><span class="p">,</span> <span class="s">'알고리즘'</span><span class="p">))</span>
+<span class="c1"># 파이썬 자료구조 알고리즘
+</span>
+<span class="kn">import</span> <span class="nn">decimal</span>
+<span class="c1"># !s : 문자열 형식
+# !r : 표현 형식
+# !a : 아스키코드 형식 
+</span><span class="k">print</span><span class="p">(</span><span class="s">"{0} {0!s} {0!r} {0!a}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">decimal</span><span class="p">.</span><span class="n">Decimal</span><span class="p">(</span><span class="s">'99.9'</span><span class="p">)))</span>
+<span class="c1"># 99.9 99.9 Decimal('99.9') Decimal('99.9')
+</span></pre></table></code></div></div><p><code class="language-plaintext highlighter-rouge">문자열 언패킹</code></p><p>연산자 ** : 함수로 전달하기 적합한 키-값 딕셔너리가 생성된다.</p><p>locals() 메서드는 현재 스코프에 있는 지역변수를 딕셔너리로 반환한다.</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="n">hero</span> <span class="o">=</span> <span class="s">'버피'</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">999</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"{number}: {hero}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="o">**</span><span class="nb">locals</span><span class="p">()))</span>
+<span class="c1"># 999: 버피
+</span></pre></table></code></div></div><p><code class="language-plaintext highlighter-rouge">splitlines()</code></p><p>A.splitlines() : 문자열 A에 대해 줄 바꿈 문자를 기준으로 분리한 결과를 문자열 리스트로 반환한다.</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="n">slayers</span> <span class="o">=</span> <span class="s">"로미오</span><span class="se">\n</span><span class="s">줄리엣"</span>
+<span class="k">print</span><span class="p">(</span><span class="n">slayers</span><span class="p">.</span><span class="n">splitlines</span><span class="p">())</span>
+<span class="c1"># ['로미오', '줄리엣']
+</span></pre></table></code></div></div><p><code class="language-plaintext highlighter-rouge">split()</code></p><p>A.split(t, n) : 문자열 A의 왼쪽부터 문자열 t를 기준으로 정수 n번만큼 분리한 문자열 리스트를 반환한다. t의 기본값은 공백(‘ ‘)이다.</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="n">slayers</span> <span class="o">=</span> <span class="s">"버피 크리스-메리 16"</span>
+<span class="k">print</span><span class="p">(</span><span class="n">slayers</span><span class="p">.</span><span class="n">split</span><span class="p">())</span>
+<span class="c1"># ['버피', '크리스-메리', '16']
+</span><span class="k">print</span><span class="p">(</span><span class="n">slayers</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">'-'</span><span class="p">))</span>
+<span class="c1"># ['버피 크리스', '메리 16']
+</span></pre></table></code></div></div><p>A.rsplit(t, n) : 문자열 A의 오른쪽부터 문자열 t를 기준으로 정수 n번만큼 분리한 문자열 리스트를 반환한다.</p><p><code class="language-plaintext highlighter-rouge">strip(s)</code>, <code class="language-plaintext highlighter-rouge">lstrip(s)</code>, <code class="language-plaintext highlighter-rouge">rstrip(s)</code></p><p>각각 양쪽, 왼쪽, 오른쪽 문자열 s를 삭제한다. s의 기본값은 공백(‘ ‘)이다.</p><p><code class="language-plaintext highlighter-rouge">swapcase()</code></p><p>A.swapcase() : 문자열 A에서 대소문자를 반전한 문자열의 복사본을 반환한다.</p><p><code class="language-plaintext highlighter-rouge">index(), find(), rindex(), rfind()</code></p><p>A.index(sub, start, end) : 문자열A 에서 부분 문자열 sub의 인덱스 위치를 반환하며, 실패하면 ValueError 예외를 발생시킨다.</p><p>A.find(sub, start, end) : 문자열 A에서 부분 문자열 sub의 인덱스 위치를 반환하며, 실패하면 -1을 반환한다.</p><p>인덱스 start와 end는 문자열 범위이며, 생략할 경우 전체 문자열에서 부분 문자열 sub를 찾는다.</p><p><code class="language-plaintext highlighter-rouge">count()</code></p><p>A.count(sub, start, end) : 문자열 A에서 인덱스 start, end 범위 내의 부분 문자열 sub가 나온 횟수를 반환한다.</p><p><code class="language-plaintext highlighter-rouge">replace()</code></p><p>A.replace(old, new, max_replace) : 문자열 A에서 문자열 old를 대체 문자열 new로 max_replace만큼 변경한 문자열을 복사본을 반환한다.</p><p><code class="language-plaintext highlighter-rouge">f-strings</code></p><p>f-strings은 파이썬 3.6부터 사용가능하다.</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="n">name</span> <span class="o">=</span> <span class="s">'abcde'</span>
+<span class="k">print</span><span class="p">(</span><span class="s">f"이름은 </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s"> 입니다."</span><span class="p">)</span>
+<span class="c1"># 이름은 abcde 입니다.
+</span><span class="k">print</span><span class="p">(</span><span class="s">f"이름은 </span><span class="si">{</span><span class="n">name</span><span class="err">!</span><span class="n">r</span><span class="si">}</span><span class="s"> 입니다."</span><span class="p">)</span>
+<span class="c1"># 이름은 'abcde' 입니다.
+</span></pre></table></code></div></div><h3 id="23-튜플">2.3 튜플</h3><p><code class="language-plaintext highlighter-rouge">튜플</code> : 쉼표로 구분된 값으로 이루어지는 불변 시퀀스 타입</p><p>튜플은 값과 쉼표를 사용해 생성한다.</p><p>괄호안에 쉼표없이 값 하나만 넣으면 튜플이 생성되지 않는다.</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre><span class="n">t1</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">,</span> <span class="s">'Hello!'</span>
+<span class="k">print</span><span class="p">(</span><span class="n">t1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1"># 1234
+</span><span class="k">print</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+<span class="c1"># (1234, 'Hello!')
+</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">t1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># 중첩가능
+</span><span class="k">print</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+<span class="c1"># ((1234, 'Hello!'), (1, 2, 3))
+</span></pre></table></code></div></div><h4 id="231-튜플-메서드">2.3.1 튜플 메서드</h4><p>A.count(x) : 튜플 A에 담긴 항목 x의 개수를 반환한다.</p><p>A.index(x) : 튜플 A에 담긴 항목 x의 인덱스 위치를 반환한다.</p><h4 id="232-튜플-언패킹">2.3.2 튜플 언패킹</h4><p>파이썬에서 모든 반복 가능한(iterable) 객체는 <code class="language-plaintext highlighter-rouge">시퀀스 언패킹 연산자 *</code>를 사용하여 언패킹 할 수 있다.</p><div class="language-python highlighter-rouge"><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># 1
+</span><span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># [2, 3, 4]
+</span>
+<span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># [1, 2, 3]
+</span><span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># 4
+</span></pre></table></code></div></div><h4 id="233-네임드-튜플">2.3.3 네임드 튜플</h4><p>파이썬 표준 모듈 collections에는 <code class="language-plaintext highlighter-rouge">네임드 튜플</code> 시퀀스 타입이 있다.</p><ul><li>네임드 튜플은 일반 튜플과 비슷한 성능과 특성을 가진다.<li>튜플 항목을 인덱스 위치, 이름으로 참조할 수 있다.</ul><p>collections.namedtuple() 메서드의 첫번째 인수는 만들고자 하는 사용자 정의 튜플 데이터 타입의 이름이다.</p></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/python/'>Python</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/python/" class="post-tag no-text-decoration" >python</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=Python 자료구조와 알고리즘(by 미아 스타인) 책 정리 - Sangjun&url=https://sangjuncha-dev.github.io//posts/Python-DataStructures-and-Algorithms/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=Python 자료구조와 알고리즘(by 미아 스타인) 책 정리 - Sangjun&u=https://sangjuncha-dev.github.io//posts/Python-DataStructures-and-Algorithms/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=Python 자료구조와 알고리즘(by 미아 스타인) 책 정리 - Sangjun&url=https://sangjuncha-dev.github.io//posts/Python-DataStructures-and-Algorithms/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i class="fa-fw fas fa-link small" onclick="copyLink()" data-toggle="tooltip" data-placement="top" title="Copy link"></i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down"><div class="access"><div id="access-lastmod" class="post"> <span>Recent Update</span><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/posts/Python-Windows10-Monitoring/">python을 이용한 windows10 시스템 정보 및 사용량 모니터링</a><li><a href="/posts/Python-DataStructures-and-Algorithms/">Python 자료구조와 알고리즘(by 미아 스타인) 책 정리</a><li><a href="/posts/Algorithm-programmers-python-level2/">Programmers Python (level 2)</a><li><a href="/posts/Python-Opencv-use-Guide/">Python Opencv 사용 방법</a><li><a href="/posts/Windows10-WSL2-Guide/">Windows 10 WSL2(Windows Subsystem for Linux) 사용법</a></ul></div><div id="access-tags"> <span>Trending Tags</span><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/python/">python</a> <a class="post-tag" href="/tags/django/">django</a> <a class="post-tag" href="/tags/library/">library</a> <a class="post-tag" href="/tags/db/">db</a> <a class="post-tag" href="/tags/models/">models</a> <a class="post-tag" href="/tags/algorithm/">algorithm</a> <a class="post-tag" href="/tags/docker/">docker</a> <a class="post-tag" href="/tags/sql/">sql</a> <a class="post-tag" href="/tags/go/">go</a> <a class="post-tag" href="/tags/mssql/">mssql</a></div></div></div><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contents</span><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/Algorithm-leetcode-python-easy/"><div class="card-body"> <span class="timeago small" > Dec 1, 2020 <i class="unloaded">2020-12-01T17:30:00+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>LeetCode Python (Easy)</h3><div class="text-muted small"><p> 1. Two Sum nums 리스트 속성값 중 두개의 값이 target 값과 동일할때 해당 속성 값의 index 반환 class Solution: def twoSum(self, nums: List[int], target: int) -&gt; List[int]: for i, num in enumerate(nums): ...</p></div></div></a></div><div class="card"> <a href="/posts/Algorithm-programmers-python-level1/"><div class="card-body"> <span class="timeago small" > Dec 15, 2020 <i class="unloaded">2020-12-15T15:05:35+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Programmers Python (level 1)</h3><div class="text-muted small"><p> 모의고사 분류 : 완전탐색 입력받은 answers 리스트와 수포자들의 답 리스트와 비교하여 같다면 answer_cnt변수에 정답 개수 추가 answer_cnt 리스트의 최댓값과 각 answer_cnt 원소와 비교하여 같다면 index+1 값을 answer리스트에 추가 최대 정답자 answer 리스트 return def solutio...</p></div></div></a></div><div class="card"> <a href="/posts/Algorithm-programmers-python-level2/"><div class="card-body"> <span class="timeago small" > Dec 22, 2020 <i class="unloaded">2020-12-22T22:38:31+09:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Programmers Python (level 2)</h3><div class="text-muted small"><p> 프린터 분류 : 스택/큐 우선순위 priorities 리스트의 최댓값을 num_max변수에 대입 cursor변수에 priorities[0]값 추출하여 대입 cursor 값이 최댓값 일때 cnt 1증가 이때 location값이 0이면 break cursor 값이 최댓값 아닐때 리스트 맨뒤에 cursor 값 추가 이때 locat...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/Docker-PostgresDB-pgadmin4-setup-guide/" class="btn btn-outline-primary"><p>PostgresDB, pgadmin4 도커 설치 방법</p></a> <a href="/posts/Python-Numpy-use-Guide/" class="btn btn-outline-primary"><p>Python Numpy 사용 방법</p></a></div></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script> <script type="text/javascript"> const imgs = document.querySelectorAll('#post-wrapper img'); const observer = lozad(imgs); observer.observe(); </script><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center"><div class="footer-left"><p class="mb-0"> © 2021 <a href="https://twitter.com/username">Cha Sangjun</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy/" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-xl-11 post-content"><div id="search-hints"><h4 class="text-muted mb-4">Trending Tags</h4><a class="post-tag" href="/tags/python/">python</a> <a class="post-tag" href="/tags/django/">django</a> <a class="post-tag" href="/tags/library/">library</a> <a class="post-tag" href="/tags/db/">db</a> <a class="post-tag" href="/tags/models/">models</a> <a class="post-tag" href="/tags/algorithm/">algorithm</a> <a class="post-tag" href="/tags/docker/">docker</a> <a class="post-tag" href="/tags/sql/">sql</a> <a class="post-tag" href="/tags/go/">go</a> <a class="post-tag" href="/tags/mssql/">mssql</a></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.7.3/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="https://sangjuncha-dev.github.io/{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"><div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>{categories}</div><div><i class="fa fa-tag fa-fw"></i>{tags}</div></div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>' }); </script> <script async src="https://www.googletagmanager.com/gtag/js?id="></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', ''); </script>
