@@ -151,7 +151,7 @@ AdapterRAM 필드의 자료형이 dword(uint32)형으로 최대 4GB 까지 표�
 Get-CimInstance -ClassName  Win32_VideoController | Select-Object -Property Name, AdapterRAM
 ```
 
-qwMemorySize 필드 자료형은 qword(uint64)형으로 최대 약 17,175,674,880 GB 까지 표현한다.
+qwMemorySize 필드 자료형은 qword(uint64)형으로 최대 약 16 EB(엑사바이트) 까지 표현한다.
 
 ```powershell
 (Get-ItemProperty -Path "HKLM:\SYSTEM\ControlSet001\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0*" -Name HardwareInformation.qwMemorySize -ErrorAction SilentlyContinue)."HardwareInformation.qwMemorySize"
