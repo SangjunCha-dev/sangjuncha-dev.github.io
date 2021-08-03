@@ -7,10 +7,14 @@ tags: [go]
 pin: false
 ---
 
+
+
 # 사이트 주소
 
 원본 : https://github.com/quii/learn-go-with-tests  
 한글 번역본 : https://github.com/MiryangJung/learn-go-with-tests-ko
+
+
 
 # 5. struct, method & interface
 
@@ -122,6 +126,8 @@ func TestArea(t *testing.T) {
 }
 ```
 
+
+
 # 6. pointer & error
 
 ## Pointer
@@ -232,6 +238,8 @@ func assertError(t testing.TB, got error, want error) {
 	}
 }
 ```
+
+
 
 # 7. map
 
@@ -434,5 +442,58 @@ func assertDefinition(t testing.TB, dictionary Dictionary, word, definition stri
 	if definition != got {
 		t.Errorf("got %q want %q", got, definition)
 	}
+}
+```
+
+
+
+# 8. dependency injection
+
+`fmt.Printf` : 기본적으로 stdout을 사용한다.  
+`fmt.Fprintf` : fmt.Printf와 비슷하지만, 문자열을 보낼 곳 Writer를 가진다.  
+
+## 특징
+
+- 프레임워크가 필요하지 않다.
+- 디자인을 지나치게 복잡하게 하지 않는다.
+- 테스트를 용이하게 한다.
+- 범용 함수를 작성할 수 있다.
+
+## 예제코드
+
+di_test.go
+```go
+package main
+
+import (
+	"bytes"
+	"fmt"
+	"io"
+	"net/http"
+	"testing"
+)
+
+func Greet(writer io.Writer, name string) {
+	fmt.Fprintf(writer, "Hello, %s", name)
+}
+
+func MyGreeterHandler(w http.ResponseWriter, r *http.Request) {
+	Greet(w, "world")
+}
+
+func TestGreat(t *testing.T) {
+	buffer := bytes.Buffer{}
+	Greet(&buffer, "Chris")
+
+	got := buffer.String()
+	want := "Hello, Chris"
+
+	if got != want {
+		t.Errorf("got %q want %q", got, want)
+	}
+}
+
+func main() {
+	http.ListenAndServe(":5000", http.HandlerFunc(MyGreeterHandler))
 }
 ```
