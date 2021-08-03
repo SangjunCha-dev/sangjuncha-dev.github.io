@@ -2,8 +2,8 @@
 title: Python 자료구조와 알고리즘(by 미아 스타인) 책 정리
 author: Sangjun Cha
 date: 2021-04-29 16:29:43 +0900
-categories: [Python]
-tags: [python]
+categories: [Python, Learning]
+tags: [python, learning]
 pin: false
 ---
 

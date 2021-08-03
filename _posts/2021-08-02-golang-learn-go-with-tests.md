@@ -2,8 +2,8 @@
 title: golang learn-go-with-tests GitBook 정리
 author: Sangjun Cha
 date: 2021-08-02 17:56:14 +0900
-categories: [Go]
-tags: [go]
+categories: [Go, Learning]
+tags: [go, learning]
 pin: false
 ---
 

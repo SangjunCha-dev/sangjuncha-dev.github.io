@@ -1,9 +1,9 @@
 ---
-title: PostgresDB, pgadmin4 도커 설치 방법
+title: PostgreDB, pgadmin4 도커 설치 방법
 author: Sangjun Cha
 date: 2021-04-29 16:29:43 +0900
-categories: [Docker]
-tags: [docker]
+categories: [Docker, PostgreDB]
+tags: [docker, postgredb]
 pin: false
 ---
 

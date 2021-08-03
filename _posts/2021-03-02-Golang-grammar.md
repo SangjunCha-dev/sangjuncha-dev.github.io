@@ -2,8 +2,8 @@
 title: Go 언어 문법 (Golang grammar)
 author: Sangjun Cha
 date: 2021-02-10 11:13:23 +0900
-categories: [Go]
-tags: [go]
+categories: [Go, Learning]
+tags: [go, learning]
 pin: false
 ---
 
