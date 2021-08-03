@@ -1,5 +1,5 @@
 ---
-title: [golang] learn-go-with-tests
+title: golang learn-go-with-tests GitBook 정리
 author: Sangjun Cha
 date: 2021-08-02 17:56:14 +0900
 categories: [Go]
@@ -11,8 +11,8 @@ pin: false
 
 # 사이트 주소
 
-원본 : https://github.com/quii/learn-go-with-tests  
-한글 번역본 : https://github.com/MiryangJung/learn-go-with-tests-ko
+[원본 링크](https://github.com/quii/learn-go-with-tests)  
+[한글 번역 링크](https://github.com/MiryangJung/learn-go-with-tests-ko)
 
 
 
