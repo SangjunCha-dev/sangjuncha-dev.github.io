@@ -232,3 +232,207 @@ func assertError(t testing.TB, got error, want error) {
 	}
 }
 ```
+
+# 7. map
+
+## map
+맵을 선언하려면 map이라는 키워드로 시작하고 두 개의 타입이 있어야한다.  
+첫번째 타입 : key 타입으로 비교 가능한 타입만 사용 가능하다.  
+두번째 타입 : value 타입으로 어떤타입이든 사용 가능하다.  
+
+map은 두 개의 값을 반환하며 두번째 값은 키를 찾는데 성공 여부를 boolean으로 반환한다.
+
+```go
+definition, ok := d[word]
+```
+
+## error
+
+Error는 .Error() 메소드를 통해 문자열로 변환될 수 있다.
+
+## pointer
+
+map의 주소를 전달(&myMap)하지 않고서도 수정할 수 있다
+
+## map 초기화 방법
+
+```go
+var dictionary = map[string]string{}
+
+// OR
+
+var dictionary = make(map[string]string)
+```
+
+## 예제 코드
+
+dictionary_test.go
+```go
+
+package main
+
+import (
+	"testing"
+)
+
+const (
+	ErrNotFound         = DictionaryErr("could not find the word you were looking for")
+	ErrWordExists       = DictionaryErr("cannot add word because it already exists")
+	ErrWordDoesNotExist = DictionaryErr("cannot update word because it does not exist")
+)
+
+type DictionaryErr string
+
+func (e DictionaryErr) Error() string {
+	return string(e)
+}
+
+type Dictionary map[string]string
+
+func (d Dictionary) Search(word string) (string, error) {
+	definition, ok := d[word]
+	if !ok {
+		return "", ErrNotFound
+	}
+	return definition, nil
+}
+
+func (d Dictionary) Add(word, definition string) error {
+	_, err := d.Search(word)
+
+	switch err {
+	case ErrNotFound:
+		d[word] = definition
+	case nil:
+		return ErrWordExists
+	default:
+		return err
+	}
+
+	return nil
+}
+
+func (d Dictionary) Update(word, definition string) error {
+	_, err := d.Search(word)
+
+	switch err {
+	case ErrNotFound:
+		return ErrWordDoesNotExist
+	case nil:
+		d[word] = definition
+	default:
+		return err
+	}
+
+	return nil
+}
+
+func (d Dictionary) Delete(word string) {
+	delete(d, word)
+}
+
+func TestSearch(t *testing.T) {
+	dictionary := Dictionary{"test": "this is just a test"}
+
+	t.Run("known word", func(t *testing.T) {
+		got, _ := dictionary.Search("test")
+		want := "this is just a test"
+
+		assertStrings(t, got, want)
+	})
+
+	t.Run("unknown word", func(t *testing.T) {
+		_, got := dictionary.Search("unknown")
+
+		assertError(t, got, ErrNotFound)
+	})
+}
+
+func TestAdd(t *testing.T) {
+	t.Run("new word", func(t *testing.T) {
+		dictionary := Dictionary{}
+		word := "test"
+		definition := "this is just a test"
+
+		err := dictionary.Add(word, definition)
+
+		assertError(t, err, nil)
+		assertDefinition(t, dictionary, word, definition)
+	})
+
+	t.Run("existing word", func(t *testing.T) {
+		word := "test"
+		definition := "this is just a test"
+		dictionary := Dictionary{word: definition}
+		err := dictionary.Add(word, "new test")
+
+		assertError(t, err, ErrWordExists)
+		assertDefinition(t, dictionary, word, definition)
+	})
+}
+
+func TestUpdate(t *testing.T) {
+	t.Run("existing word", func(t *testing.T) {
+		word := "test"
+		definition := "this is just a test"
+		newDefinition := "new definition"
+		dictionary := Dictionary{word: definition}
+
+		err := dictionary.Update(word, newDefinition)
+
+		assertError(t, err, nil)
+		assertDefinition(t, dictionary, word, newDefinition)
+	})
+
+	t.Run("new word", func(t *testing.T) {
+		word := "test"
+		definition := "this is just a test"
+		dictionary := Dictionary{}
+
+		err := dictionary.Update(word, definition)
+
+		assertError(t, err, ErrWordExists)
+	})
+}
+
+func TestDelete(t *testing.T) {
+	word := "test"
+	dictionary := Dictionary{word: "test definition"}
+
+	dictionary.Delete(word)
+
+	_, err := dictionary.Search(word)
+	if err != ErrNotFound {
+		t.Errorf("Expected %q to be deleted", word)
+	}
+}
+
+func assertStrings(t testing.TB, got, want string) {
+	t.Helper()
+
+	if got != want {
+		t.Errorf("got %q want %q", got, want)
+	}
+}
+
+func assertError(t testing.TB, got, want error) {
+	t.Helper()
+
+	if got != want {
+		t.Errorf("got %q want %q", got, want)
+	}
+}
+
+func assertDefinition(t testing.TB, dictionary Dictionary, word, definition string) {
+	t.Helper()
+
+	got, err := dictionary.Search(word)
+	if err != nil {
+		t.Fatal("should find added word :", err)
+	}
+
+	if definition != got {
+		t.Errorf("got %q want %q", got, definition)
+	}
+}
+```
