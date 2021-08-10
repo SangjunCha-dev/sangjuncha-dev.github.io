@@ -497,3 +497,139 @@ func main() {
 	http.ListenAndServe(":5000", http.HandlerFunc(MyGreeterHandler))
 }
 ```
+
+# 9. mocking
+
+유닛 테스트 용도로 사용한다.
+
+## 예제 코드
+
+countdown_test.go
+```go
+package main
+
+import (
+	"bytes"
+	"reflect"
+	"testing"
+	"time"
+)
+
+const (
+	write = "write"
+	sleep = "sleep"
+)
+
+type CountdownOperationSpy struct {
+	Calls []string
+}
+
+func (s *CountdownOperationSpy) Sleep() {
+	s.Calls = append(s.Calls, sleep)
+}
+
+func (s *CountdownOperationSpy) Write(p []byte) (n int, err error) {
+	s.Calls = append(s.Calls, write)
+	return
+}
+
+type SpyTime struct {
+	durationSlept time.Duration
+}
+
+func (s *SpyTime) Sleep(duration time.Duration) {
+	s.durationSlept = duration
+}
+
+func TestCountdown(t *testing.T) {
+	t.Run("prints 3 to Go!", func(t *testing.T) {
+		buffer := &bytes.Buffer{}
+		Countdown(buffer, &CountdownOperationSpy{})
+
+		got := buffer.String()
+		want := "3\n2\n1\nGo!"
+
+		if got != want {
+			t.Errorf("got %q want %q", got, want)
+		}
+	})
+
+	t.Run("sleep before every print", func(t *testing.T) {
+		spySleepPrinter := &CountdownOperationSpy{}
+		Countdown(spySleepPrinter, spySleepPrinter)
+
+		want := []string{
+			sleep, write,
+			sleep, write,
+			sleep, write,
+			sleep, write,
+		}
+
+		if !reflect.DeepEqual(want, spySleepPrinter) {
+			t.Errorf("wanted calls %v got %v", want, spySleepPrinter.Calls)
+		}
+	})
+}
+
+func TestConfigurableSleeper(t *testing.T) {
+	sleepTime := 5 * time.Second
+
+	spyTime := &SpyTime{}
+	sleeper := ConfigurableSleeper{sleepTime, spyTime.Sleep}
+	sleeper.Sleep()
+
+	if spyTime.durationSlept != sleepTime {
+		t.Errorf("should have slept for %v but slept for %v", sleepTime, spyTime.durationSlept)
+	}
+}
+```
+
+main.go
+```go
+package main
+
+import (
+	"fmt"
+	"io"
+	"os"
+	"time"
+)
+
+const (
+	finalWord      = "Go!"
+	countdownStart = 3
+)
+
+// Sleeper allows you to put delays.
+type Sleeper interface {
+	Sleep()
+}
+
+// ConfigurableSleeper is an implementation of Sleeper with a defined delay.
+type ConfigurableSleeper struct {
+	duration time.Duration
+	sleep    func(time.Duration)
+}
+
+// Sleep will pause execution for the defined Duration.
+func (c *ConfigurableSleeper) Sleep() {
+	c.sleep(c.duration)
+}
+
+// Countdown prints a countdown from 3 to out with a delay between count provided by Sleeper.
+func Countdown(out io.Writer, sleeper Sleeper) {
+
+	for i := countdownStart; i > 0; i-- {
+		sleeper.Sleep()
+		fmt.Fprintln(out, i)
+	}
+
+	sleeper.Sleep()
+	fmt.Fprint(out, finalWord)
+}
+
+func main() {
+	sleeper := &ConfigurableSleeper{1 * time.Second, time.Sleep}
+	Countdown(os.Stdout, sleeper)
+}
+```
