@@ -1,4 +1,4 @@
-baseURL: https://hugo-toha.github.io
+baseURL: https://sangjuncha-dev.github.io
 
 languageCode: ko-kr
 title: "Sangjun 개발 블로그"
@@ -10,7 +10,7 @@ defaultContentLanguage: ko
 languages:
   # en:
   #   languageName: English
-  #   weight: 1
+  #   weight: 2
   ko:
     languageName: Korean
     weight: 1
