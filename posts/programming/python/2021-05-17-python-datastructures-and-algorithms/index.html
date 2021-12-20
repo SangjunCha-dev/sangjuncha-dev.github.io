@@ -1,0 +1,971 @@
+<!doctype html><html>
+<head>
+<title>Python 자료구조와 알고리즘(by 미아 스타인) 책 정리</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<meta property="og:title" content="Python 자료구조와 알고리즘(by 미아 스타인) 책 정리">
+<meta property="og:description" content="Python 자료구조와 알고리즘(by 미아 스타인) 책 정리">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hugo-toha.github.io/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-05-17T16:29:43+09:00">
+<meta property="article:modified_time" content="2021-05-17T16:29:43+09:00">
+<meta name=description content="Python 자료구조와 알고리즘(by 미아 스타인) 책 정리">
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
+<link rel=stylesheet href=/css/layouts/single.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+Sangjun 개발 블로그</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
+<div class=subtree>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
+<ul>
+<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
+<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
+<li><a href=/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/ title="LeetCode Python">LeetCode Python</a></li>
+<li><a href=/posts/algorithm/programmers/2020-12-15-algorithm-programmers-python-level1/ title="Programmers Python level 1">Programmers Python level 1</a></li>
+<li><a href=/posts/algorithm/programmers/2020-12-22-algorithm-programmers-python-level2/ title="Programmers Python level 2">Programmers Python level 2</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/db/>db</a>
+<ul>
+<li><a href=/posts/db/2020-09-28-mariadb-command/ title=mariadb-sql-command>mariadb-sql-command</a></li>
+<li><a href=/posts/db/2020-10-13-mssql-command/ title=mssql-sql-command>mssql-sql-command</a></li>
+<li><a href=/posts/db/2020-09-29-postgredb-setup/ title=postgredb-setup>postgredb-setup</a></li>
+<li><a href=/posts/db/2020-10-20-postgresql-command/ title=postgredb-sql-command>postgredb-sql-command</a></li>
+<li><a href=/posts/db/2020-09-30-sqlcmd-guide/ title=sqlcmd-guide>sqlcmd-guide</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/docker/>docker</a>
+<ul>
+<li><a href=/posts/docker/2021-04-08-docker-summary/ title="Docker Summary Setup Windows">Docker Summary Setup Windows</a></li>
+<li><a href=/posts/docker/2021-05-06-docker-mssql2017-setup/ title="Docker MSSQL Setup">Docker MSSQL Setup</a></li>
+<li><a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ title="Docker PostgreDB Pgadmin4 Setup">Docker PostgreDB Pgadmin4 Setup</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/framework/django/>django</a>
+<ul>
+<li><a href=/posts/framework/django/2021-04-07-django-dynamic-model-and-table-create/ title="Django Create Dynamic Model">Django Create Dynamic Model</a></li>
+<li><a href=/posts/framework/django/2021-04-22-django-file-upload/ title="Django File Upload">Django File Upload</a></li>
+<li><a href=/posts/framework/django/2021-04-07-django-models-relations-object-call/ title="Django Model Reference Object">Django Model Reference Object</a></li>
+<li><a href=/posts/framework/django/2021-03-31-django-models-autoonetoonefield/ title="Django Models AutoOneToOneField">Django Models AutoOneToOneField</a></li>
+<li><a href=/posts/framework/django/2021-04-06-django-queryset-object-access/ title="Django QuerySet Object Access">Django QuerySet Object Access</a></li>
+<li><a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ title="Django Return json Data">Django Return json Data</a></li>
+<li><a href=/posts/framework/django/2021-06-11-django-websocket-using-channels-library-guide/ title="Django socketio">Django socketio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/linux/>linux</a>
+<ul>
+<li><a href=/posts/os/linux/2021-01-06-linux-nfs-setting/ title="Linux NFS Setting">Linux NFS Setting</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/windows/>windows</a>
+<ul>
+<li><a href=/posts/os/windows/2021-05-07-windows10-wsl2-guide/ title="Windows10 WSL2">Windows10 WSL2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a>
+<ul class=active>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/programming/golang/>golang</a>
+<ul>
+<li><a href=/posts/programming/golang/2021-07-29-golang-gopacket/ title="Golang Gopacket">Golang Gopacket</a></li>
+<li><a href=/posts/programming/golang/2021-03-02-golang-grammar/ title="Golang Grammar">Golang Grammar</a></li>
+<li><a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ title="golang learn-go-with-tests">golang learn-go-with-tests</a></li>
+<li><a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ title="nomadcoders Go-for-beginners lectures">nomadcoders Go-for-beginners lectures</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/python/>python</a>
+<ul class=active>
+<li><a href=/posts/programming/python/2020-11-05-python-magic-guide/ title="libmagic Library Guide">libmagic Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ title="paramiko-scp Library Guide">paramiko-scp Library Guide</a></li>
+<li><a href=/posts/programming/python/2020-11-16-pyftpdlib-guide/ title="pyftpdlib Library Guide">pyftpdlib Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ title="Pyinstaller Library Guide">Pyinstaller Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ title="pyshark Library Guide">pyshark Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-21-python-numpy-use-guide/ title="Python Numpy Guide">Python Numpy Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-21-python-opencv-use-guide/ title="Python Opencv Guide">Python Opencv Guide</a></li>
+<li><a class=active href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ title="Python structures and algorithms books">Python structures and algorithms books</a></li>
+<li><a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-throughput-difference/ title="Python variable Class vs Local">Python variable Class vs Local</a></li>
+<li><a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ title="Python windows10 system monitoring">Python windows10 system monitoring</a></li>
+<li><a href=/posts/programming/python/2021-02-09-scapy-library-guide/ title="Scapy Library Guide">Scapy Library Guide</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class=content>
+<div class="container p-0 read-area">
+<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://hugo-toha.github.io/images/default-hero.jpg)>
+</div>
+<div class=page-content>
+<div class="author-profile ml-auto align-self-lg-center">
+<img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image">
+<h5 class=author-name>Sangjun</h5>
+<p>May 17, 2021</p>
+</div>
+<div class=title>
+<h1>Python 자료구조와 알고리즘(by 미아 스타인) 책 정리</h1>
+</div>
+<div class=post-content id=post-content>
+<p>{:toc}</p>
+<h1 id=part-1-헬로-자료구조>Part 1 헬로, 자료구조!</h1>
+<h2 id=chapter-01-숫자>Chapter 01 숫자</h2>
+<h3 id=11-정수-int>1.1 정수 int()</h3>
+<p>불변형 객체로 문자열을 정수로 변환하거나 다른 진법의 문자열을 정수로 변환</p>
+<p><code>int(문자열, 밑(n진법))</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> s <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;11&#39;</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> b <span style=color:#f92672>=</span> int(s, <span style=color:#ae81ff>2</span>)
+<span style=color:#f92672>&gt;&gt;&gt;</span> print(b)
+<span style=color:#ae81ff>11</span>
+</code></pre></div><p>정수에 필요한 바이트 수(python 3.1이상)</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> (정수)<span style=color:#f92672>.</span>bit_length()
+<span style=color:#ae81ff>10</span>
+</code></pre></div><p>발생가능한 Exception : ValueError</p>
+<h3 id=12-부동-소수점-float>1.2 부동 소수점 float()</h3>
+<p><strong>float 32bit</strong></p>
+<ul>
+<li>1bit 부호, 8bit 지수, 23bit 유효 숫자 자릿수</li>
+</ul>
+<h4 id=121-부동소수점끼리-비교하기>1.2.1 부동소수점끼리 비교하기</h4>
+<p>이진수 분수로 표현으로 소수점의 정확한 비교는 어렵지만,</p>
+<p>동등성 테스트로 사전에 정의된 정밀도 범위 내에서 비교는 가능한다.</p>
+<p>unittest 모듈의 assertAlmostEqual() 메소드 같은 접근법 사용</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>a</span>(x, y, places<span style=color:#f92672>=</span><span style=color:#ae81ff>7</span>):
+        <span style=color:#66d9ef>return</span> rount(abs(x<span style=color:#f92672>-</span>y), places) <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>
+</code></pre></div><h4 id=122-정수와-부동소수점-메서드>1.2.2 정수와 부동소수점 메서드</h4>
+<p>나누기 <code>연산자 /</code> 는 항상 부동소수점을 <code>연산자 //</code> 는 정수를 반환한다.</p>
+<p><strong>divmod(x, y)</strong></p>
+<ul>
+<li>x를 y로 나눌 때, 몫과 나머지를 반환</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> divmod(<span style=color:#ae81ff>45</span>, <span style=color:#ae81ff>6</span>)
+(<span style=color:#ae81ff>7</span>, <span style=color:#ae81ff>3</span>)
+</code></pre></div><p><strong>round(x, n)</strong></p>
+<ul>
+<li>n이 양수인 경우, x를 소수점 이하 n번째 자리로 반올림한 값을 반환한다.</li>
+<li>n이 음수인 경우, x를 정수 n번째 자리에서 반올림한 값을 반환한다.</li>
+</ul>
+<p><strong>as_interger_ratio()</strong></p>
+<ul>
+<li>부동소수점을 분수로 표현</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#ae81ff>2.75</span><span style=color:#f92672>.</span>as_integer_ratio()
+(<span style=color:#ae81ff>11</span>, <span style=color:#ae81ff>4</span>)
+</code></pre></div><h3 id=13-복소수>1.3 복소수</h3>
+<h3 id=14-fraction-모듈>1.4 fraction 모듈</h3>
+<p>분수를 다루는 라이브러리</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> fractions <span style=color:#f92672>import</span> Fraction
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>rounding_floats</span>(num1, places):
+    <span style=color:#66d9ef>return</span> round(num1, places)
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>float_to_fractions</span>(num):
+    <span style=color:#66d9ef>return</span> Fraction(<span style=color:#f92672>*</span>num<span style=color:#f92672>.</span>as_integer_ratio())
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_denominator</span>(num1, num2):
+    <span style=color:#e6db74>&#39;&#39;&#39; 분모 반환 &#39;&#39;&#39;</span>
+    a <span style=color:#f92672>=</span> Fraction(num1, num2)
+    <span style=color:#66d9ef>return</span> a<span style=color:#f92672>.</span>denominator
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_numerator</span>(num1, num2):
+    <span style=color:#e6db74>&#39;&#39;&#39; 분자 반환 &#39;&#39;&#39;</span>
+    a <span style=color:#f92672>=</span> Fraction(num1, num2)
+    <span style=color:#66d9ef>return</span> a<span style=color:#f92672>.</span>numerator
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_testing_floats</span>():
+    num1 <span style=color:#f92672>=</span> <span style=color:#ae81ff>1.25</span>
+    num2 <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+    num3 <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
+    num4 <span style=color:#f92672>=</span> <span style=color:#ae81ff>5</span><span style=color:#f92672>/</span><span style=color:#ae81ff>4</span>
+    num6 <span style=color:#f92672>=</span> <span style=color:#ae81ff>6</span>
+    <span style=color:#66d9ef>assert</span>(rounding_floats(num1, num2) <span style=color:#f92672>==</span> <span style=color:#ae81ff>1.2</span>)
+    <span style=color:#66d9ef>assert</span>(rounding_floats(num1<span style=color:#f92672>*</span><span style=color:#ae81ff>10</span>, num3) <span style=color:#f92672>==</span> <span style=color:#ae81ff>10</span>)
+    <span style=color:#66d9ef>assert</span>(float_to_fractions(num1) <span style=color:#f92672>==</span> num4)
+    <span style=color:#66d9ef>assert</span>(get_denominator(num2, num6) <span style=color:#f92672>==</span> num6)
+    <span style=color:#66d9ef>assert</span>(get_numerator(num2, num6) <span style=color:#f92672>==</span> num2)
+    print(<span style=color:#e6db74>&#34;테스트 통과!&#34;</span>)
+
+<span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
+    test_testing_floats()
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>테스트 통과!
+</code></pre></div><h3 id=15-decimal-모듈>1.5 decimal 모듈</h3>
+<p>정확한 10진법의 부동소수점 숫자가 필요한 경우, 부동소수점 불변 타입인 <code>decimal.Decimal</code> 사용할 수 있다.</p>
+<p>일반적인 float 데이터는 정확한 값 비교를 할 수 없다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> a <span style=color:#f92672>=</span> sum([<span style=color:#ae81ff>0.1</span> <span style=color:#66d9ef>for</span> _ <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>10</span>)])
+<span style=color:#f92672>&gt;&gt;&gt;</span> b <span style=color:#f92672>=</span> <span style=color:#ae81ff>1.0</span>
+<span style=color:#f92672>&gt;&gt;&gt;</span> a <span style=color:#f92672>==</span> b
+<span style=color:#66d9ef>False</span>
+</code></pre></div><p><code>decimal.Decimal</code> 모듈을 사용한 float 데이터는 정확한 값 비교가 가능하다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#f92672>from</span> decimal <span style=color:#f92672>import</span> Decimal
+<span style=color:#f92672>&gt;&gt;&gt;</span> a <span style=color:#f92672>=</span> sum(Decimal(<span style=color:#e6db74>&#39;0.1&#39;</span>) <span style=color:#66d9ef>for</span> _ <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>10</span>))
+<span style=color:#f92672>&gt;&gt;&gt;</span> b <span style=color:#f92672>=</span> Decimal(<span style=color:#e6db74>&#39;1.0&#39;</span>)
+<span style=color:#f92672>&gt;&gt;&gt;</span> a <span style=color:#f92672>==</span> b
+<span style=color:#66d9ef>True</span>
+</code></pre></div><h3 id=16-2진수-8진수-16진수>1.6 2진수, 8진수, 16진수</h3>
+<p><strong>bin(n)</strong></p>
+<ul>
+<li>정수 n의 2진수 문자열 반환한다.</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> bin(<span style=color:#ae81ff>30</span>)
+<span style=color:#e6db74>&#39;0b11110&#39;</span>
+</code></pre></div><p><strong>oct(n)</strong></p>
+<ul>
+<li>정수 n의 8진수 문자열 반환한다.</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> oct(<span style=color:#ae81ff>30</span>)
+<span style=color:#e6db74>&#39;0o36&#39;</span>
+</code></pre></div><p><strong>hex(n)</strong></p>
+<ul>
+<li>정수 n의 16진수 문자열 반환한다.</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> hex(<span style=color:#ae81ff>30</span>)
+<span style=color:#e6db74>&#39;0x1e&#39;</span>
+</code></pre></div><h3 id=17-random-모듈>1.7 random 모듈</h3>
+<p>난수 생성 모듈 예제 코드</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> random
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>testing_random</span>():
+    <span style=color:#e6db74>&#39;&#39;&#39; random 모듈 테스트 &#39;&#39;&#39;</span>
+    values <span style=color:#f92672>=</span> [<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>]
+    print(random<span style=color:#f92672>.</span>choice(values))
+    print(random<span style=color:#f92672>.</span>choice(values))
+    print(random<span style=color:#f92672>.</span>choice(values))
+    print(random<span style=color:#f92672>.</span>sample(values, <span style=color:#ae81ff>2</span>))
+    print(random<span style=color:#f92672>.</span>sample(values, <span style=color:#ae81ff>3</span>))
+
+    <span style=color:#e6db74>&#39;&#39;&#39; values 리스트를 섞는다. &#39;&#39;&#39;</span>
+    random<span style=color:#f92672>.</span>shuffle(values)
+    print(values)
+
+    <span style=color:#e6db74>&#39;&#39;&#39; 0~10의 임의의 정수를 생성한다. &#39;&#39;&#39;</span>
+    print(random<span style=color:#f92672>.</span>randint(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>10</span>))
+    print(random<span style=color:#f92672>.</span>randint(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>10</span>))
+
+<span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
+    testing_random()
+</code></pre></div><p>결과는 매번 다르게 출력된다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#ae81ff>3</span>
+<span style=color:#ae81ff>3</span>
+<span style=color:#ae81ff>2</span>
+<span style=color:#f92672>[</span>4, 3<span style=color:#f92672>]</span>
+<span style=color:#f92672>[</span>1, 3, 4<span style=color:#f92672>]</span>
+<span style=color:#f92672>[</span>4, 3, 2, 1<span style=color:#f92672>]</span>
+<span style=color:#ae81ff>4</span>
+<span style=color:#ae81ff>3</span>
+</code></pre></div><h3 id=18-numpy-패키지>1.8 numpy 패키지</h3>
+<p>대규모의 다차원 배열 및 행렬을 지원하며, 배열 연산에 쓰이는 수학함수 라이브러리를 제공한다.</p>
+<h4 id=array-메서드>array 메서드</h4>
+<p><strong>np.array()</strong></p>
+<ul>
+<li>다차원 배열 생성 함수</li>
+<li>예시 : 시퀀스의 시퀀스(리스트 또는 튜플)를 2차원 numpy 배열로 생성할 수 있다.</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#f92672>import</span> numpy <span style=color:#66d9ef>as</span> np
+<span style=color:#f92672>&gt;&gt;&gt;</span> np<span style=color:#f92672>.</span>array(((<span style=color:#ae81ff>11</span>,<span style=color:#ae81ff>12</span>,<span style=color:#ae81ff>13</span>), (<span style=color:#ae81ff>21</span>,<span style=color:#ae81ff>22</span>,<span style=color:#ae81ff>23</span>), (<span style=color:#ae81ff>31</span>,<span style=color:#ae81ff>32</span>,<span style=color:#ae81ff>33</span>)))
+[[<span style=color:#ae81ff>11</span> <span style=color:#ae81ff>12</span> <span style=color:#ae81ff>13</span>]
+ [<span style=color:#ae81ff>21</span> <span style=color:#ae81ff>22</span> <span style=color:#ae81ff>23</span>]
+ [<span style=color:#ae81ff>31</span> <span style=color:#ae81ff>32</span> <span style=color:#ae81ff>33</span>]]
+</code></pre></div><p><strong>ndim</strong> 속성은 배열의 차원 수를 반환한다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> <span style=color:#f92672>import</span> numpy <span style=color:#66d9ef>as</span> np
+<span style=color:#f92672>&gt;&gt;&gt;</span> a <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>array(((<span style=color:#ae81ff>11</span>,<span style=color:#ae81ff>12</span>,<span style=color:#ae81ff>13</span>), (<span style=color:#ae81ff>21</span>,<span style=color:#ae81ff>22</span>,<span style=color:#ae81ff>23</span>)))
+<span style=color:#f92672>&gt;&gt;&gt;</span> a<span style=color:#f92672>.</span>ndim
+<span style=color:#ae81ff>2</span>
+</code></pre></div><p>간단한 사용예제</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> numpy <span style=color:#66d9ef>as</span> np
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>testing_numpy</span>():
+    <span style=color:#e6db74>&#39;&#39;&#39; tests many features of numpy &#39;&#39;&#39;</span>
+    ax <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>array([<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>])
+    ay <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>array([<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>4</span>,<span style=color:#ae81ff>5</span>])
+    print(ax)
+    <span style=color:#75715e># [1 2 3]</span>
+    print(ax <span style=color:#f92672>*</span> <span style=color:#ae81ff>2</span>)
+    <span style=color:#75715e># [2 4 6]</span>
+    print(ax <span style=color:#f92672>+</span> <span style=color:#ae81ff>10</span>)
+    <span style=color:#75715e># [11 12 13]</span>
+    print(np<span style=color:#f92672>.</span>sqrt(ax))
+    <span style=color:#75715e># [1.         1.41421356 1.73205081]</span>
+    print(np<span style=color:#f92672>.</span>cos(ax))
+    <span style=color:#75715e># [ 0.54030231 -0.41614684 -0.9899925 ]</span>
+    print(ax<span style=color:#f92672>-</span>ay)
+    <span style=color:#75715e># [-2 -2 -2]</span>
+    print(np<span style=color:#f92672>.</span>where(ax<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>2</span>, ax, <span style=color:#ae81ff>10</span>))
+    <span style=color:#75715e># [ 1 10 10]</span>
+
+    m <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>matrix([ax, ay, ax])
+    print(m)
+    <span style=color:#75715e># [[1 2 3]</span>
+    <span style=color:#75715e>#  [3 4 5]</span>
+    <span style=color:#75715e>#  [1 2 3]]</span>
+    print(m<span style=color:#f92672>.</span>T)
+    <span style=color:#75715e># [[1 3 1]</span>
+    <span style=color:#75715e>#  [2 4 2]</span>
+    <span style=color:#75715e>#  [3 5 3]]</span>
+
+    grid1 <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>zeros(shape<span style=color:#f92672>=</span>(<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>3</span>), dtype<span style=color:#f92672>=</span>float)
+    grid2 <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>ones(shape<span style=color:#f92672>=</span>(<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>3</span>), dtype<span style=color:#f92672>=</span>float)
+    print(grid1)
+    <span style=color:#75715e># [[0. 0. 0.]</span>
+    <span style=color:#75715e>#  [0. 0. 0.]</span>
+    <span style=color:#75715e>#  [0. 0. 0.]]</span>
+    print(grid2)
+    <span style=color:#75715e># [[1. 1. 1.]</span>
+    <span style=color:#75715e>#  [1. 1. 1.]</span>
+    <span style=color:#75715e>#  [1. 1. 1.]]</span>
+    print(grid1[<span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span><span style=color:#ae81ff>10</span>)
+    <span style=color:#75715e># [10. 10. 10.]</span>
+    print(grid2[:,<span style=color:#ae81ff>2</span>]<span style=color:#f92672>*</span><span style=color:#ae81ff>2</span>)
+    <span style=color:#75715e># [2. 2. 2.]</span>
+
+<span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
+    testing_numpy()
+</code></pre></div><p>numpy 배열은 파이썬 list 보다 더 효율적이다.</p>
+<ul>
+<li>numpy 연산이 약 80배 정도 빠르다.</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> numpy <span style=color:#66d9ef>as</span> np
+<span style=color:#f92672>import</span> time
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>trad_version</span>():
+    t1 <span style=color:#f92672>=</span> time<span style=color:#f92672>.</span>time()
+    X <span style=color:#f92672>=</span> range(<span style=color:#ae81ff>10000000</span>)
+    Y <span style=color:#f92672>=</span> range(<span style=color:#ae81ff>10000000</span>)
+    Z <span style=color:#f92672>=</span> []
+    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(X)):
+        Z<span style=color:#f92672>.</span>append(X[i] <span style=color:#f92672>+</span> Y[i])
+    <span style=color:#66d9ef>return</span> time<span style=color:#f92672>.</span>time() <span style=color:#f92672>-</span> t1
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>numpy_version</span>():
+    t1 <span style=color:#f92672>=</span> time<span style=color:#f92672>.</span>time()
+    X <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>arange(<span style=color:#ae81ff>10000000</span>)
+    Y <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>arange(<span style=color:#ae81ff>10000000</span>)
+    Z <span style=color:#f92672>=</span> X <span style=color:#f92672>+</span> Y
+    <span style=color:#66d9ef>return</span> time<span style=color:#f92672>.</span>time() <span style=color:#f92672>-</span> t1
+
+<span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
+    print(trad_version())
+    <span style=color:#75715e># 2.2733571529388428</span>
+    print(numpy_version())
+    <span style=color:#75715e># 0.028986215591430664</span>
+</code></pre></div><h3 id=19-연습문제>1.9 연습문제</h3>
+<h4 id=191-n진법-변환>1.9.1 n진법 변환</h4>
+<p>n진법의 숫자를 10진법으로 변환하는 코드작성(2&lt;= n &lt;=10)</p>
+<ul>
+<li>테스트 실행함수</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>convert_to_decimal1</span>(n, base):
+    <span style=color:#e6db74>&#39;&#39;&#39; 나머지, 나누기 연산 이용한 방법 &#39;&#39;&#39;</span>
+    digit <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+    result <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+    <span style=color:#66d9ef>while</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>&lt;</span> n:
+        n, m <span style=color:#f92672>=</span> n<span style=color:#f92672>//</span><span style=color:#ae81ff>10</span>, n<span style=color:#f92672>%</span><span style=color:#ae81ff>10</span>
+        result <span style=color:#f92672>+=</span> (m <span style=color:#f92672>*</span> digit)
+        digit <span style=color:#f92672>*=</span> base
+    <span style=color:#66d9ef>return</span> result
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>convert_to_decimal2</span>(number, base):
+    <span style=color:#e6db74>&#39;&#39;&#39; 내장함수 int 이용한 방법 &#39;&#39;&#39;</span>
+    result <span style=color:#f92672>=</span> int(str(number), base)
+    <span style=color:#66d9ef>return</span> result
+
+<span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
+    number, base <span style=color:#f92672>=</span> <span style=color:#ae81ff>1001</span>, <span style=color:#ae81ff>2</span>
+    <span style=color:#66d9ef>assert</span>(convert_to_decimal1(number, base) <span style=color:#f92672>==</span> <span style=color:#ae81ff>9</span>)
+    <span style=color:#66d9ef>assert</span>(convert_to_decimal2(number, base) <span style=color:#f92672>==</span> <span style=color:#ae81ff>9</span>)
+    print(<span style=color:#e6db74>&#39;테스트 통과!&#39;</span>)
+</code></pre></div><p>10진법의 숫자를 n진법로 변환하는 코드작성(2&lt;= n &lt;=10)</p>
+<ul>
+<li>테스트 실행함수</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>convert_from_decimal</span>(n, base):
+    digit <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+    result <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+    <span style=color:#66d9ef>while</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>&lt;</span> n:
+        n, m <span style=color:#f92672>=</span> n <span style=color:#f92672>//</span> base, n <span style=color:#f92672>%</span> base
+        result <span style=color:#f92672>+=</span> (m <span style=color:#f92672>*</span> digit)
+        digit <span style=color:#f92672>*=</span> <span style=color:#ae81ff>10</span>
+    <span style=color:#66d9ef>return</span> result
+
+<span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
+    number, base <span style=color:#f92672>=</span> <span style=color:#ae81ff>9</span>, <span style=color:#ae81ff>2</span>
+    <span style=color:#66d9ef>assert</span>(convert_from_decimal(number, base) <span style=color:#f92672>==</span> <span style=color:#ae81ff>1001</span>)
+    print(<span style=color:#e6db74>&#39;테스트 통과!&#39;</span>)
+</code></pre></div><p>10진법의 숫자를 20이하 진법으로 변환하는 코드작성(2&lt;= n &lt;=20)</p>
+<ul>
+<li>테스트 실행함수</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>convert_from_decimal_larger_bases</span>(n, base):
+    digit <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;0123456789ABCDEFGHIJ&#39;</span>
+    result <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>
+    m <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+    <span style=color:#66d9ef>while</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>&lt;</span> n:
+        n, m <span style=color:#f92672>=</span> n <span style=color:#f92672>//</span> base, n <span style=color:#f92672>%</span> base
+        result <span style=color:#f92672>=</span> digit[m] <span style=color:#f92672>+</span> result
+    <span style=color:#66d9ef>return</span> result
+
+<span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
+    number, base <span style=color:#f92672>=</span> <span style=color:#ae81ff>31</span>, <span style=color:#ae81ff>16</span>
+    <span style=color:#66d9ef>assert</span>(convert_from_decimal_larger_bases(number, base) <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;1F&#39;</span>)
+    print(<span style=color:#e6db74>&#39;테스트 통과!&#39;</span>)
+</code></pre></div><h4 id=192-최대-공약수>1.9.2 최대 공약수</h4>
+<p>두 정수의 최대 공약수를 계산하는 코드작성</p>
+<ul>
+<li>테스트 실행함수</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>find_gcd</span>(a, b):
+    <span style=color:#e6db74>&#39;&#39;&#39; a가 b보다 큰 값일때 &#39;&#39;&#39;</span>
+    result <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+    <span style=color:#66d9ef>while</span> b <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span>:
+        result <span style=color:#f92672>=</span> b
+        a, b <span style=color:#f92672>=</span> b, a <span style=color:#f92672>%</span> b
+    <span style=color:#66d9ef>return</span> result
+
+<span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
+    number1 <span style=color:#f92672>=</span> <span style=color:#ae81ff>21</span>
+    number2 <span style=color:#f92672>=</span> <span style=color:#ae81ff>12</span>
+    <span style=color:#66d9ef>assert</span>(find_gcd(number1, number2) <span style=color:#f92672>==</span> <span style=color:#ae81ff>3</span>)
+    print(<span style=color:#e6db74>&#39;테스트 통과!&#39;</span>)
+</code></pre></div><h3 id=193-피보나치-수열>1.9.3 피보나치 수열</h3>
+<p><strong>피보나치 수열</strong> : 첫째 및 둘째 항이 1이며, 그 이후 모든 항은 바로 앞 두항의 합인 수열</p>
+<p>피보나치 수열의 특정 인덱스 값을 계산하는 코드작성</p>
+<ul>
+<li>
+<p>테스트 실행함수 (시간 복잡도 O(n))</p>
+</li>
+<li>
+<p><input disabled type=checkbox> a</p>
+</li>
+<li>
+<p><input checked disabled type=checkbox> a</p>
+</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>find_fibonacci_seq_iter</span>(n):
+    <span style=color:#66d9ef>if</span> n <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>2</span>: <span style=color:#66d9ef>return</span> n
+    
+    a, b <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>
+    <span style=color:#66d9ef>for</span> _ <span style=color:#f92672>in</span> range(n):
+        a, b <span style=color:#f92672>=</span> b, a<span style=color:#f92672>+</span>b
+    <span style=color:#66d9ef>return</span> a
+
+<span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
+    n <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span>
+    <span style=color:#66d9ef>assert</span>(find_fibonacci_seq_iter(n) <span style=color:#f92672>==</span> <span style=color:#ae81ff>55</span>)
+    print(<span style=color:#e6db74>&#39;테스트 통과!&#39;</span>)
+</code></pre></div><p><strong>제너레이터(generator)</strong> 이용한 방법</p>
+<ul>
+<li><code>yield</code>문을 사용</li>
+<li>전체 시퀀스를 한 번에 메모리에 생성하고 정렬할 필요 없이, 시퀀스를 순회할 수 있다.</li>
+<li>제너레이터를 순회할 때마다 마지막으로 호출된 요소를 기억하고 다음 값을 반환한다.</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>fib_generator</span>():
+    a, b <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>
+    <span style=color:#66d9ef>while</span> <span style=color:#66d9ef>True</span>:
+        <span style=color:#66d9ef>yield</span> b
+        a, b <span style=color:#f92672>=</span> b, a<span style=color:#f92672>+</span>b
+
+<span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
+    fg <span style=color:#f92672>=</span> fib_generator()
+    <span style=color:#66d9ef>for</span> _ <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>10</span>):
+        print(next(fg), end<span style=color:#f92672>=</span><span style=color:#e6db74>&#39; &#39;</span>)
+</code></pre></div><h3 id=194-소수>1.9.4 소수</h3>
+<p><strong>소수</strong> : 자신보다 작은 두 개의 자연수를 곱하여 만들 수 없는 1보다 큰 자연수</p>
+<p>소수를 판단하는 코드작성</p>
+<ul>
+<li>테스트 실행 함수</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> math
+<span style=color:#f92672>import</span> random
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>finding_prime</span>(num):
+    <span style=color:#e6db74>&#39;&#39;&#39; 무차별 대입 방법 &#39;&#39;&#39;</span>
+    num <span style=color:#f92672>=</span> abs(num)
+    <span style=color:#66d9ef>if</span> num <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>4</span>: <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
+    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>2</span>, num):
+        <span style=color:#66d9ef>if</span> num <span style=color:#f92672>%</span> i <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
+            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>finding_prime_sqrt</span>(num):
+    <span style=color:#e6db74>&#39;&#39;&#39; 제곱근 활용한 방법 &#39;&#39;&#39;</span>
+    num <span style=color:#f92672>=</span> abs(num)
+    <span style=color:#66d9ef>if</span> num <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>4</span>: <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
+
+    <span style=color:#75715e># 직접 연산한것 보다 math 라이브러리가 약 10% 정도 빠르다.</span>
+    sqrt <span style=color:#f92672>=</span> int(math<span style=color:#f92672>.</span>sqrt(num)) <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+    <span style=color:#75715e># sqrt = int(num ** 0.5) + 1</span>
+
+    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>2</span>, sqrt):
+        <span style=color:#66d9ef>if</span> num <span style=color:#f92672>%</span> i <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
+            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>finding_prime_fermat</span>(num):
+    <span style=color:#e6db74>&#39;&#39;&#39; 확률론적 테스트와 페르마의 소정리를 활용한 방법 &#39;&#39;&#39;</span>
+    <span style=color:#66d9ef>if</span> num <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>102</span>:
+        <span style=color:#66d9ef>for</span> a <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>2</span>, num):
+            <span style=color:#66d9ef>if</span> pow(a, num<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, num) <span style=color:#f92672>!=</span> <span style=color:#ae81ff>1</span>:
+                <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
+    <span style=color:#66d9ef>else</span>:
+        <span style=color:#66d9ef>for</span> _ <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>100</span>):
+            a <span style=color:#f92672>=</span> random<span style=color:#f92672>.</span>randint(<span style=color:#ae81ff>2</span>, num<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)
+            <span style=color:#66d9ef>if</span> pow(a, num<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, num) <span style=color:#f92672>!=</span> <span style=color:#ae81ff>1</span>:
+                <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
+
+<span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
+    num1 <span style=color:#f92672>=</span> <span style=color:#ae81ff>17</span>
+    num2 <span style=color:#f92672>=</span> <span style=color:#ae81ff>20</span>
+    <span style=color:#66d9ef>assert</span>(finding_prime(num1) <span style=color:#f92672>is</span> <span style=color:#66d9ef>True</span>)
+    <span style=color:#66d9ef>assert</span>(finding_prime(num2) <span style=color:#f92672>is</span> <span style=color:#66d9ef>False</span>)
+    <span style=color:#66d9ef>assert</span>(finding_prime_sqrt(num1) <span style=color:#f92672>is</span> <span style=color:#66d9ef>True</span>)
+    <span style=color:#66d9ef>assert</span>(finding_prime_sqrt(num2) <span style=color:#f92672>is</span> <span style=color:#66d9ef>False</span>)
+    <span style=color:#66d9ef>assert</span>(finding_prime_fermat(num1) <span style=color:#f92672>is</span> <span style=color:#66d9ef>True</span>)
+    <span style=color:#66d9ef>assert</span>(finding_prime_fermat(num2) <span style=color:#f92672>is</span> <span style=color:#66d9ef>False</span>)
+    print(<span style=color:#e6db74>&#39;테스트 통과!&#39;</span>)
+</code></pre></div><p>random 모듈을 이용한 n비트 소수 생성하는 코드작성</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> math
+<span style=color:#f92672>import</span> random
+<span style=color:#f92672>import</span> sys
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>finding_prime_sqrt</span>(num):
+    num <span style=color:#f92672>=</span> abs(num)
+    <span style=color:#66d9ef>if</span> num <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>4</span>: <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
+
+    sqrt <span style=color:#f92672>=</span> int(math<span style=color:#f92672>.</span>sqrt(num)) <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>2</span>, sqrt):
+        <span style=color:#66d9ef>if</span> num <span style=color:#f92672>%</span> i <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
+            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>generate_prime</span>(num):
+    <span style=color:#66d9ef>while</span> <span style=color:#ae81ff>1</span>:
+        p <span style=color:#f92672>=</span> random<span style=color:#f92672>.</span>randint(pow(<span style=color:#ae81ff>2</span>, num<span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>), pow(<span style=color:#ae81ff>2</span>, num<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)
+        p <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span> <span style=color:#f92672>*</span> p <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+        <span style=color:#66d9ef>if</span> finding_prime_sqrt(p):
+            <span style=color:#66d9ef>return</span> p
+
+<span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
+    <span style=color:#66d9ef>if</span> len(sys<span style=color:#f92672>.</span>argv) <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>2</span>:
+        print(<span style=color:#e6db74>&#34;Usage: generate_prime.py number&#34;</span>)
+        sys<span style=color:#f92672>.</span>exit()
+    <span style=color:#66d9ef>else</span>:
+        num <span style=color:#f92672>=</span> int(sys<span style=color:#f92672>.</span>argv[<span style=color:#ae81ff>1</span>])
+        print(generate_prime(num))
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ generate_prime.py <span style=color:#ae81ff>3</span>
+<span style=color:#ae81ff>5</span> <span style=color:#f92672>(</span>또는 7<span style=color:#f92672>)</span>
+</code></pre></div><h2 id=chapter-02-내장-시퀀스-타입>Chapter 02 내장 시퀀스 타입</h2>
+<p>시퀀스 타입은 다음과 같은 속성을 가진다.</p>
+<ul>
+<li>멤버십(membership) 연산 : in 키워드 사용</li>
+<li>크기(size) 함수 : len(seq)</li>
+<li>슬라이싱(slicing) 속성 : seq[:-1]</li>
+<li>반복성(iterability) : 반복문에 있는 데이터를 순회할 수 있음</li>
+</ul>
+<p>Python에는 문자열, 튜플, 리스트, 바이트 배열, 바이트 등 5개의 내장 시퀀스 타입이 있다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>l <span style=color:#f92672>=</span> []
+print(type(l))
+<span style=color:#75715e># &lt;class &#39;list&#39;&gt;</span>
+
+s <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>
+print(type(s))
+<span style=color:#75715e># &lt;class &#39;str&#39;&gt;</span>
+
+t <span style=color:#f92672>=</span> ()
+print(type(t))
+<span style=color:#75715e># &lt;class &#39;tuple&#39;&gt;</span>
+
+ba <span style=color:#f92672>=</span> bytearray(<span style=color:#e6db74>b</span><span style=color:#e6db74>&#39;&#39;</span>)
+print(type(ba))
+<span style=color:#75715e># &lt;class &#39;bytearray&#39;&gt;</span>
+
+b <span style=color:#f92672>=</span> bytes([])
+print(type(b))
+<span style=color:#75715e># &lt;class &#39;bytes&#39;&gt;</span>
+</code></pre></div><h3 id=21-깊은-복사와-슬라이싱-연산>2.1 깊은 복사와 슬라이싱 연산</h3>
+<p>python 불변 객체 타입</p>
+<ul>
+<li>숫자</li>
+<li>튜플</li>
+<li>문자열</li>
+<li>바이트</li>
+</ul>
+<p>python 가변 객체 타입</p>
+<ul>
+<li>리스트</li>
+<li>바이트</li>
+</ul>
+<h4 id=211-가변성>2.1.1 가변성</h4>
+<p>일반적으로 불변 객체 타입은 가변 객체 타입보다 효율적이다.</p>
+<p>파이썬의 모든 변수는 객체 참조(reference)이므로 가변 객체 복사할 때는 주의해야 한다.</p>
+<p><strong>리스트(list)의 깊은 복사 예제</strong></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>my_list <span style=color:#f92672>=</span> [<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>]
+new_list <span style=color:#f92672>=</span> my_list[:]
+new_list2 <span style=color:#f92672>=</span> list(my_list)
+</code></pre></div><p><strong>셋(set)의 깊은 복사 예제</strong></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>people <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#39;버피&#39;</span>, <span style=color:#e6db74>&#39;에인절&#39;</span>, <span style=color:#e6db74>&#39;자일스&#39;</span>}
+slayers <span style=color:#f92672>=</span> people<span style=color:#f92672>.</span>copy()
+slayers<span style=color:#f92672>.</span>discard(<span style=color:#e6db74>&#39;자일스&#39;</span>)
+slayers<span style=color:#f92672>.</span>remove(<span style=color:#e6db74>&#39;에인절&#39;</span>)
+print(slayers)
+<span style=color:#75715e># {&#39;버피&#39;}</span>
+
+print(people)
+<span style=color:#75715e># {&#39;버피&#39;, &#39;에인절&#39;, &#39;자일스&#39;}</span>
+</code></pre></div><p><strong>딕셔너리(dict)의 깊은 복사 예제</strong></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>my_dict <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#39;hello&#39;</span>: <span style=color:#e6db74>&#39;world&#39;</span>}
+new_dict <span style=color:#f92672>=</span> my_dict<span style=color:#f92672>.</span>copy()
+</code></pre></div><p>기타 객체의 깊은 복사는 copy 모듈을 사용한다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> copy
+
+my_obj <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;other something object&#39;</span>
+new_obj <span style=color:#f92672>=</span> copy<span style=color:#f92672>.</span>copy(my_obj)  <span style=color:#75715e># 얕은 복사(shallow copy)</span>
+new_obj2 <span style=color:#f92672>=</span> copy<span style=color:#f92672>.</span>deepcopy(my_obj)  <span style=color:#75715e># 깊은 복사(deep copy)</span>
+</code></pre></div><h4 id=212-슬라이싱-연산자>2.1.2 슬라이싱 연산자</h4>
+<p>파이썬 시퀀스 타입의 슬라이싱 연산자 구문</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>seq[시작]
+seq[시작:끝]
+seq[시작:끝:스텝]
+</code></pre></div><p>슬라이싱 예제</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>word <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;abcde&#39;</span>
+print(word[<span style=color:#ae81ff>0</span>])    <span style=color:#75715e># a</span>
+print(word[<span style=color:#ae81ff>1</span>])    <span style=color:#75715e># b</span>
+print(word[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>])   <span style=color:#75715e># e</span>
+print(word[<span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>:])  <span style=color:#75715e># de</span>
+print(word[<span style=color:#f92672>-</span><span style=color:#ae81ff>0</span>])   <span style=color:#75715e># a</span>
+print(word[::<span style=color:#ae81ff>2</span>])  <span style=color:#75715e># ace</span>
+</code></pre></div><h3 id=22-문자열>2.2 문자열</h3>
+<h4 id=221-유니코드-문자열>2.2.1 유니코드 문자열</h4>
+<p><code>유니코드</code> : 전 세계 언어의 문자를 정의하기 위한 국제 표준 코드</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(<span style=color:#e6db74>u</span><span style=color:#e6db74>&#39;Hello</span><span style=color:#ae81ff>\u0020</span><span style=color:#e6db74>World !&#39;</span>)
+<span style=color:#75715e># Hello World !</span>
+</code></pre></div><p>문자열 코드 크기</p>
+<ul>
+<li>아스키코드 7bit</li>
+<li>ANSI코드 8ibt</li>
+<li>유니코드 16bit</li>
+</ul>
+<h4 id=222-문자열-메서드>2.2.2 문자열 메서드</h4>
+<p><code>join()</code></p>
+<p>A.join(B) : 리스트 B에 있는 모든 문자열을 하나의 단일 문자열 A로 결합한다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>slayer <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#39;버피&#39;</span>, <span style=color:#e6db74>&#39;앤&#39;</span>, <span style=color:#e6db74>&#39;아스틴&#39;</span>]
+print(<span style=color:#e6db74>&#39; &#39;</span><span style=color:#f92672>.</span>join(slayer))
+<span style=color:#75715e># 버피 앤 아스틴</span>
+
+print(<span style=color:#e6db74>&#39;-&#39;</span><span style=color:#f92672>.</span>join(slayer))
+<span style=color:#75715e># 버피-앤-아스틴</span>
+
+print(<span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>join(slayer))
+<span style=color:#75715e># 버피앤아스틴</span>
+
+print(<span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>join(reversed(slayer)))
+<span style=color:#75715e># 아스틴앤버피</span>
+</code></pre></div><p><code>ljust()</code>, <code>rjust()</code></p>
+<p>A.ljust(width, fillchar) : 문자열 A <code>맨 처음</code>부터 문자열을 포함한 길이 width 만큼 문자 fillchar로 채운다.<br>
+A.rjust(width, fillchar) : 문자열 A <code>맨 끝</code>부터 문자열을 포함한 길이 width 만큼 문자 fillchar로 채운다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;스칼렛&#39;</span>
+print(name<span style=color:#f92672>.</span>ljust(<span style=color:#ae81ff>20</span>, <span style=color:#e6db74>&#39;-&#39;</span>))
+<span style=color:#75715e># 스칼렛-----------------</span>
+print(name<span style=color:#f92672>.</span>rjust(<span style=color:#ae81ff>20</span>, <span style=color:#e6db74>&#39;-&#39;</span>))
+<span style=color:#75715e># -----------------스칼렛</span>
+</code></pre></div><p><code>format()</code></p>
+<p>A.format() : 문자열 A에 변수를 추가하거나 형식화하는데 사용한다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{0}</span><span style=color:#e6db74> </span><span style=color:#e6db74>{1}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(<span style=color:#e6db74>&#39;Hello,&#39;</span>, <span style=color:#e6db74>&#39;Python!&#39;</span>))
+<span style=color:#75715e># Hello, Python!</span>
+print(<span style=color:#e6db74>&#34;이름 : </span><span style=color:#e6db74>{who}</span><span style=color:#e6db74>, 나이 : </span><span style=color:#e6db74>{age}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(who<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;제임스&#39;</span>, age<span style=color:#f92672>=</span><span style=color:#ae81ff>20</span>))
+<span style=color:#75715e># 이름 : 제임스, 나이 : 20</span>
+print(<span style=color:#e6db74>&#34;이름 : </span><span style=color:#e6db74>{who}</span><span style=color:#e6db74>, 나이 : </span><span style=color:#e6db74>{0}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(<span style=color:#ae81ff>21</span>, who<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;에이미&#39;</span>))
+<span style=color:#75715e># 이름 : 에이미, 나이 : 21</span>
+
+<span style=color:#75715e># python 3.1이상</span>
+print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74> </span><span style=color:#e6db74>{}</span><span style=color:#e6db74> </span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(<span style=color:#e6db74>&#39;파이썬&#39;</span>, <span style=color:#e6db74>&#39;자료구조&#39;</span>, <span style=color:#e6db74>&#39;알고리즘&#39;</span>))
+<span style=color:#75715e># 파이썬 자료구조 알고리즘</span>
+
+<span style=color:#f92672>import</span> decimal
+<span style=color:#75715e># !s : 문자열 형식</span>
+<span style=color:#75715e># !r : 표현 형식</span>
+<span style=color:#75715e># !a : 아스키코드 형식 </span>
+print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{0}</span><span style=color:#e6db74> </span><span style=color:#e6db74>{0!s}</span><span style=color:#e6db74> </span><span style=color:#e6db74>{0!r}</span><span style=color:#e6db74> </span><span style=color:#e6db74>{0!a}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(decimal<span style=color:#f92672>.</span>Decimal(<span style=color:#e6db74>&#39;99.9&#39;</span>)))
+<span style=color:#75715e># 99.9 99.9 Decimal(&#39;99.9&#39;) Decimal(&#39;99.9&#39;)</span>
+</code></pre></div><p><code>문자열 언패킹</code></p>
+<p>연산자 ** : 함수로 전달하기 적합한 키-값 딕셔너리가 생성된다.</p>
+<p>locals() 메서드는 현재 스코프에 있는 지역변수를 딕셔너리로 반환한다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>hero <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;버피&#39;</span>
+num <span style=color:#f92672>=</span> <span style=color:#ae81ff>999</span>
+print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{number}</span><span style=color:#e6db74>: </span><span style=color:#e6db74>{hero}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(<span style=color:#f92672>**</span>locals()))
+<span style=color:#75715e># 999: 버피</span>
+</code></pre></div><p><code>splitlines()</code></p>
+<p>A.splitlines() : 문자열 A에 대해 줄 바꿈 문자를 기준으로 분리한 결과를 문자열 리스트로 반환한다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>slayers <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;로미오</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>줄리엣&#34;</span>
+print(slayers<span style=color:#f92672>.</span>splitlines())
+<span style=color:#75715e># [&#39;로미오&#39;, &#39;줄리엣&#39;]</span>
+</code></pre></div><p><code>split()</code></p>
+<p>A.split(t, n) : 문자열 A의 왼쪽부터 문자열 t를 기준으로 정수 n번만큼 분리한 문자열 리스트를 반환한다. t의 기본값은 공백(' &lsquo;)이다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>slayers <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;버피 크리스-메리 16&#34;</span>
+print(slayers<span style=color:#f92672>.</span>split())
+<span style=color:#75715e># [&#39;버피&#39;, &#39;크리스-메리&#39;, &#39;16&#39;]</span>
+print(slayers<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#39;-&#39;</span>))
+<span style=color:#75715e># [&#39;버피 크리스&#39;, &#39;메리 16&#39;]</span>
+</code></pre></div><p>A.rsplit(t, n) : 문자열 A의 오른쪽부터 문자열 t를 기준으로 정수 n번만큼 분리한 문자열 리스트를 반환한다.</p>
+<p><code>strip(s)</code>, <code>lstrip(s)</code>, <code>rstrip(s)</code></p>
+<p>각각 양쪽, 왼쪽, 오른쪽 문자열 s를 삭제한다. s의 기본값은 공백(&rsquo; &lsquo;)이다.</p>
+<p><code>swapcase()</code></p>
+<p>A.swapcase() : 문자열 A에서 대소문자를 반전한 문자열의 복사본을 반환한다.</p>
+<p><code>index(), find(), rindex(), rfind()</code></p>
+<p>A.index(sub, start, end) : 문자열A 에서 부분 문자열 sub의 인덱스 위치를 반환하며, 실패하면 ValueError 예외를 발생시킨다.</p>
+<p>A.find(sub, start, end) : 문자열 A에서 부분 문자열 sub의 인덱스 위치를 반환하며, 실패하면 -1을 반환한다.</p>
+<p>인덱스 start와 end는 문자열 범위이며, 생략할 경우 전체 문자열에서 부분 문자열 sub를 찾는다.</p>
+<p><code>count()</code></p>
+<p>A.count(sub, start, end) : 문자열 A에서 인덱스 start, end 범위 내의 부분 문자열 sub가 나온 횟수를 반환한다.</p>
+<p><code>replace()</code></p>
+<p>A.replace(old, new, max_replace) : 문자열 A에서 문자열 old를 대체 문자열 new로 max_replace만큼 변경한 문자열을 복사본을 반환한다.</p>
+<p><code>f-strings</code></p>
+<p>f-strings은 파이썬 3.6부터 사용가능하다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;abcde&#39;</span>
+print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;이름은 </span><span style=color:#e6db74>{</span>name<span style=color:#e6db74>}</span><span style=color:#e6db74> 입니다.&#34;</span>)
+<span style=color:#75715e># 이름은 abcde 입니다.</span>
+print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;이름은 </span><span style=color:#e6db74>{</span>name<span style=color:#e6db74>!r}</span><span style=color:#e6db74> 입니다.&#34;</span>)
+<span style=color:#75715e># 이름은 &#39;abcde&#39; 입니다.</span>
+</code></pre></div><h3 id=23-튜플>2.3 튜플</h3>
+<p><code>튜플</code> : 쉼표로 구분된 값으로 이루어지는 불변 시퀀스 타입</p>
+<p>튜플은 값과 쉼표를 사용해 생성한다.</p>
+<p>괄호안에 쉼표없이 값 하나만 넣으면 튜플이 생성되지 않는다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>t1 <span style=color:#f92672>=</span> <span style=color:#ae81ff>1234</span>, <span style=color:#e6db74>&#39;Hello!&#39;</span>
+print(t1[<span style=color:#ae81ff>0</span>])
+<span style=color:#75715e># 1234</span>
+print(t1)
+<span style=color:#75715e># (1234, &#39;Hello!&#39;)</span>
+
+t2 <span style=color:#f92672>=</span> t1, (<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>)  <span style=color:#75715e># 중첩가능</span>
+print(t2)
+<span style=color:#75715e># ((1234, &#39;Hello!&#39;), (1, 2, 3))</span>
+</code></pre></div><h4 id=231-튜플-메서드>2.3.1 튜플 메서드</h4>
+<p>A.count(x) : 튜플 A에 담긴 항목 x의 개수를 반환한다.</p>
+<p>A.index(x) : 튜플 A에 담긴 항목 x의 인덱스 위치를 반환한다.</p>
+<h4 id=232-튜플-언패킹>2.3.2 튜플 언패킹</h4>
+<p>파이썬에서 모든 반복 가능한(iterable) 객체는 <code>시퀀스 언패킹 연산자 *</code>를 사용하여 언패킹 할 수 있다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>x, <span style=color:#f92672>*</span>y <span style=color:#f92672>=</span> (<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>)
+print(x)  <span style=color:#75715e># 1</span>
+print(y)  <span style=color:#75715e># [2, 3, 4]</span>
+
+<span style=color:#f92672>*</span>x, y <span style=color:#f92672>=</span> (<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>)
+print(x)  <span style=color:#75715e># [1, 2, 3]</span>
+print(y)  <span style=color:#75715e># 4</span>
+</code></pre></div><h4 id=233-네임드-튜플>2.3.3 네임드 튜플</h4>
+<p>파이썬 표준 모듈 collections에는 <code>네임드 튜플</code> 시퀀스 타입이 있다.</p>
+<ul>
+<li>네임드 튜플은 일반 튜플과 비슷한 성능과 특성을 가진다.</li>
+<li>튜플 항목을 인덱스 위치, 이름으로 참조할 수 있다.</li>
+</ul>
+<p>collections.namedtuple() 메서드의 첫번째 인수는 만들고자 하는 사용자 정의 튜플 데이터 타입의 이름이다.</p>
+</div>
+<div class="row pl-3 pr-3">
+<div class="col-md-6 share-buttons">
+</div>
+<div class="col-md-6 btn-improve-page">
+<a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/programming/python/2021-05-17-Python-DataStructures-and-Algorithms.md title="이 페이지를 개선" target=_blank rel=noopener>
+<i class="fas fa-code-branch"></i>
+이 페이지를 개선
+</a>
+</div>
+</div>
+<hr>
+<div class="row next-prev-navigator">
+<div class="col-md-6 previous-article">
+<a href=/posts/programming/python/2021-05-21-python-opencv-use-guide/ title="Python Opencv 사용 방법" class="btn btn-outline-info">
+<div><i class="fas fa-chevron-circle-left"></i> 이전</div>
+<div class=next-prev-text>Python Opencv 사용 방법</div>
+</a>
+</div>
+<div class="col-md-6 next-article">
+<a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-throughput-difference/ title="클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이" class="btn btn-outline-info">
+<div>다음 <i class="fas fa-chevron-circle-right"></i></div>
+<div class=next-prev-text>클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이</div>
+</a>
+</div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
+</section>
+<section class=toc-section id=toc-section>
+<div class=toc-holder>
+<h5 class="text-center pl-3">목차</h5>
+<hr>
+<div class=toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#chapter-01-숫자>Chapter 01 숫자</a>
+<ul>
+<li><a href=#11-정수-int>1.1 정수 int()</a></li>
+<li><a href=#12-부동-소수점-float>1.2 부동 소수점 float()</a>
+<ul>
+<li><a href=#121-부동소수점끼리-비교하기>1.2.1 부동소수점끼리 비교하기</a></li>
+<li><a href=#122-정수와-부동소수점-메서드>1.2.2 정수와 부동소수점 메서드</a></li>
+</ul>
+</li>
+<li><a href=#13-복소수>1.3 복소수</a></li>
+<li><a href=#14-fraction-모듈>1.4 fraction 모듈</a></li>
+<li><a href=#15-decimal-모듈>1.5 decimal 모듈</a></li>
+<li><a href=#16-2진수-8진수-16진수>1.6 2진수, 8진수, 16진수</a></li>
+<li><a href=#17-random-모듈>1.7 random 모듈</a></li>
+<li><a href=#18-numpy-패키지>1.8 numpy 패키지</a>
+<ul>
+<li><a href=#array-메서드>array 메서드</a></li>
+</ul>
+</li>
+<li><a href=#19-연습문제>1.9 연습문제</a>
+<ul>
+<li><a href=#191-n진법-변환>1.9.1 n진법 변환</a></li>
+<li><a href=#192-최대-공약수>1.9.2 최대 공약수</a></li>
+</ul>
+</li>
+<li><a href=#193-피보나치-수열>1.9.3 피보나치 수열</a></li>
+<li><a href=#194-소수>1.9.4 소수</a></li>
+</ul>
+</li>
+<li><a href=#chapter-02-내장-시퀀스-타입>Chapter 02 내장 시퀀스 타입</a>
+<ul>
+<li><a href=#21-깊은-복사와-슬라이싱-연산>2.1 깊은 복사와 슬라이싱 연산</a>
+<ul>
+<li><a href=#211-가변성>2.1.1 가변성</a></li>
+<li><a href=#212-슬라이싱-연산자>2.1.2 슬라이싱 연산자</a></li>
+</ul>
+</li>
+<li><a href=#22-문자열>2.2 문자열</a>
+<ul>
+<li><a href=#221-유니코드-문자열>2.2.1 유니코드 문자열</a></li>
+<li><a href=#222-문자열-메서드>2.2.2 문자열 메서드</a></li>
+</ul>
+</li>
+<li><a href=#23-튜플>2.3 튜플</a>
+<ul>
+<li><a href=#231-튜플-메서드>2.3.1 튜플 메서드</a></li>
+<li><a href=#232-튜플-언패킹>2.3.2 튜플 언패킹</a></li>
+<li><a href=#233-네임드-튜플>2.3.3 네임드 튜플</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>바로가기</h5>
+<ul>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#about>About</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#skills>Skills</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#recent-posts>Recent Posts</a>
+</li>
+</ul>
+</div>
+<div class="col-md-4 col-sm-12">
+<h5>Contact me:</h5>
+<ul>
+<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
+<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<div class=container>
+<div class="row text-left">
+<div class=col-md-4>
+<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
+<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha
+</a>
+</div>
+<div class="col-md-4 text-center">© 2020 Copyright.</div>
+<div class="col-md-4 text-right">
+<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
+<script src=/js/single.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

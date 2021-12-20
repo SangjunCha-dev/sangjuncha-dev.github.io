@@ -1,0 +1,406 @@
+<!doctype html><html>
+<head>
+<title>python</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<meta property="og:title" content="python">
+<meta property="og:description" content>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hugo-toha.github.io/tags/python/">
+<link rel=stylesheet href=/css/layouts/list.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+Sangjun 개발 블로그</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/tags data-filter=all>태그</a></li>
+<div class="subtree taxonomy-terms">
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/algorithm/ data-taxonomy-term=algorithm><span class=taxonomy-label>algorithm</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/db/ data-taxonomy-term=db><span class=taxonomy-label>db</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/django/ data-taxonomy-term=django><span class=taxonomy-label>django</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/docker/ data-taxonomy-term=docker><span class=taxonomy-label>docker</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/go/ data-taxonomy-term=go><span class=taxonomy-label>go</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/gopacket/ data-taxonomy-term=gopacket><span class=taxonomy-label>gopacket</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/learning/ data-taxonomy-term=learning><span class=taxonomy-label>learning</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/leetcode/ data-taxonomy-term=leetcode><span class=taxonomy-label>leetcode</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/library/ data-taxonomy-term=library><span class=taxonomy-label>library</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/linux/ data-taxonomy-term=linux><span class=taxonomy-label>linux</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/mariadb/ data-taxonomy-term=mariadb><span class=taxonomy-label>mariadb</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/models/ data-taxonomy-term=models><span class=taxonomy-label>models</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/mssql/ data-taxonomy-term=mssql><span class=taxonomy-label>mssql</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/nfs/ data-taxonomy-term=nfs><span class=taxonomy-label>nfs</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/numpy/ data-taxonomy-term=numpy><span class=taxonomy-label>numpy</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/opencv/ data-taxonomy-term=opencv><span class=taxonomy-label>opencv</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/postgredb/ data-taxonomy-term=postgredb><span class=taxonomy-label>postgredb</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/programmers/ data-taxonomy-term=programmers><span class=taxonomy-label>programmers</span></a></li>
+<li><a class="taxonomy-term active" href=https://hugo-toha.github.io/tags/python/ data-taxonomy-term=python><span class=taxonomy-label>python</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/scraper/ data-taxonomy-term=scraper><span class=taxonomy-label>scraper</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/sniff/ data-taxonomy-term=sniff><span class=taxonomy-label>sniff</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/sql/ data-taxonomy-term=sql><span class=taxonomy-label>sql</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/sqlcmd/ data-taxonomy-term=sqlcmd><span class=taxonomy-label>sqlcmd</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/windows/ data-taxonomy-term=windows><span class=taxonomy-label>windows</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/windows10/ data-taxonomy-term=windows10><span class=taxonomy-label>windows10</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/wsl/ data-taxonomy-term=wsl><span class=taxonomy-label>wsl</span></a></li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class="content container-fluid" id=content>
+<div class="container-fluid post-card-holder" id=post-card-holder>
+<div class=post-card>
+<a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>python을 이용한 windows10 시스템 정보 및 사용량 모니터링</h5>
+<p class="card-text post-summary">운영체제 : windows 10 설치환경 : python 3.8.8, powershell 7.1
+powershell 명령어 사용법 WMI 개체 가져오기(Get-CimInstance) python에서 powershell 명령 실행 방법 1. 콘솔 명령 실행 cmd = "Get-CimInstance -Class Win32_OperatingSystem" subprocess.Popen(f'powershell.exe {cmd}') 2. 실행결과 반환 디코딩을 하지 않으면 바이트 문자열로 나열되서 반환된다.
+cmd = "Get-CimInstance -Class Win32_OperatingSystem" result = subprocess.Popen(f'powershell.exe {cmd}', stdout=subprocess.PIPE) print(result) result = result.stdout.read() print(result) 결과
+&lt;subprocess.Popen object at 0x0000025175617B50> b'\r\nSystemDirectory Organization BuildNumber RegisteredUser SerialNumber Version \r\n--------------- ------------ ----------- -------------- ------------ ------- \r\nC:\\Windows\\system32 19000 UserName 00000-00000 10.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>June 16, 2021</span>
+<a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-throughput-difference/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이</h5>
+<p class="card-text post-summary">설치버전 : python 3.8.8
+클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이 예제 코드 1 import timeit class CheckTime: def __init__(self): self.a = 0 self.b = 0 self.c = 0 def process_self(self): self.a + self.b + self.c def process_argument(self, a, b, c): a + b + c def get_time(self): self.a = 1 self.b = 2 self.c = 3 def test1(): self.process_self() process_self_time = timeit.Timer(stmt=test1).repeat(number=1000000) a = self.a b = self.b c = self.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>May 24, 2021</span>
+<a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-throughput-difference/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2021-05-21-python-opencv-use-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Python Opencv 사용 방법</h5>
+<p class="card-text post-summary">opencv 사용법 설치버전 : opencv-python 4.5.1.48
+docs url import 라이브러리
+import cv2 as cv cv.imread 이미지 파일 읽기
+cv.imread(filename[, flags]) -> retval
+매개변수 이름 설명 filename 로드할 파일 이름 flags cv 값을 사용할 수 있는 플래그 img = cv.imread(image_full_path) cv.imwrite 이미지 파일 저장
+cv.imwrite(filename, img[, params]) -> retval
+이미지 형식은 파일 이름 확장자에 따라 선택됨
+cv.imwrite(image_full_path, img) cv.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>May 21, 2021</span>
+<a href=/posts/programming/python/2021-05-21-python-opencv-use-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2021-05-21-python-numpy-use-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Python Numpy 사용 방법</h5>
+<p class="card-text post-summary">numpy 사용법 선형대수 기반의 python 라이브러리
+루프없이 배열 연산이 가능하여 연산속도가 빠름 설치버전 : numpy 1.20.2
+import 라이브러리 import numpy as np 생성 arange np.arange([start,] stop, [step,] dtype)
+지정한 숫자 범위의 array 생성함수
+매개변수 이름 설명 start stop np.arange(10) # [0 1 2 3 4 5 6 7 8 9] np.arange(0, 5, 0.5) # [0.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>May 21, 2021</span>
+<a href=/posts/programming/python/2021-05-21-python-numpy-use-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Python 자료구조와 알고리즘(by 미아 스타인) 책 정리</h5>
+<p class="card-text post-summary">{:toc}
+Part 1 헬로, 자료구조! Chapter 01 숫자 1.1 정수 int() 불변형 객체로 문자열을 정수로 변환하거나 다른 진법의 문자열을 정수로 변환
+int(문자열, 밑(n진법))
+>>> s = '11' >>> b = int(s, 2) >>> print(b) 11 정수에 필요한 바이트 수(python 3.1이상)
+>>> (정수).bit_length() 10 발생가능한 Exception : ValueError
+1.2 부동 소수점 float() float 32bit
+1bit 부호, 8bit 지수, 23bit 유효 숫자 자릿수 1.2.1 부동소수점끼리 비교하기 이진수 분수로 표현으로 소수점의 정확한 비교는 어렵지만,</p>
+</div>
+<div class=card-footer>
+<span class=float-left>May 17, 2021</span>
+<a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)</h5>
+<p class="card-text post-summary">python 파일을 윈도우에서 python 이나 가상환경 설정없이 실행이 가능한 .exe 으로 변환해주는 라이브러리
+Docs URL - https://pyinstaller.readthedocs.io/en/stable/usage.html
+설치환경 : Windows 10
+1. 설치 python 실행이 가능한 가상환경 터미널에서 아래의 명령어 실행
+pip install pyinstaller 2. 간단한 사용예제 pyinstaller --clean --distpath . -F -n [프로그램이름] [변환시킬 파일].py 3. 옵션 옵션 설명 &ndash;clean 빌드하기 전에 PyInstaller 캐시를 정리하고 임시파일 제거 -F, &ndash;onefile 단일 실행파일로 생성(실행시 사용한 라이브러리 임시파일 생성됨) -D, &ndash;onedir 실행 파일을 포함하는 단일 폴더로 생성 &ndash;distpath DIR 실행파일 생성 경로(default: .</p>
+</div>
+<div class=card-footer>
+<span class=float-left>March 10, 2021</span>
+<a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>pyshark 라이브러리 사용법 (pyshark Library Guide)</h5>
+<p class="card-text post-summary">Docs URL - https://github.com/KimiNewt/pyshark/
+설치환경 : Windows 10, python 3.7
+1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install pyshark 2. 사용법 캡쳐파일 읽기 capture = pyshark.FileCapture('./test.pcapng') 실시간 패킷캡처 interface capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 11:22:33:44:55:66', use_json=True, include_raw=True) 패킷 캡처 패킷 1개만 캡처하거나 10ms 경과하면 캡처 결과 반환
+capture.sniff(packet_count=1, timeout=10) 패킷 10개만 캡처하거나 10ms 경과하면 캡처 결과 반환
+capture.sniff(packet_count=10, timeout=10) 패킷 bytes 형태로 반환 print(capture[0].</p>
+</div>
+<div class=card-footer>
+<span class=float-left>February 10, 2021</span>
+<a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>scapy 라이브러리 사용법 (Scapy Library Guide)</h5>
+<p class="card-text post-summary">Docs URL - https://scapy.readthedocs.io/en/latest/#
+설치환경 : Windows 10
+1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install --pre scapy[basic] 2. Client 예제 from scapy.all import * from scapy.utils import rdpcap import datetime as dt # PCAP 파일 읽기 # could be used like this rdpcap("filename",500) fetches first 500 pkts pkts = rdpcap("./pcap/test.pcapng", -1) pkts = pkts[21:100] cnt = 0 repeat = 10 s_time = dt.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>February 9, 2021</span>
+<a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>paramiko-scp 라이브러리 사용법 (paramiko-scp Library Guide)</h5>
+<p class="card-text post-summary">paramiko, scp 라이브러리 연계 사용한 ssh 파일 전송
+라이브러리 암호화 여부 속도 paramiko 로그인:암호화 / 파일전송:암호화 느림 paramiko+scp 로그인:암호화 / 파일전송:평문 보통 실습환경 : windows10, 원격서버환경 : linux(RHEL8)
+사전에 ssh 접속가능한 linux를 구축한 후 실습 진행
+라이브러리 설치 pip install paramiko pip install scp paramiko : SSH 접속 및 종료 기능
+Docs URL - http://docs.paramiko.org/en/stable/ scp : 파일 전송 및 다운로드 기능</p>
+</div>
+<div class=card-footer>
+<span class=float-left>January 6, 2021</span>
+<a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/algorithm/programmers/2020-12-22-algorithm-programmers-python-level2/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Programmers Python (level 2)</h5>
+<p class="card-text post-summary">프린터 분류 : 스택/큐
+우선순위 priorities 리스트의 최댓값을 num_max변수에 대입 cursor변수에 priorities[0]값 추출하여 대입 cursor 값이 최댓값 일때 cnt 1증가 이때 location값이 0이면 break cursor 값이 최댓값 아닐때 리스트 맨뒤에 cursor 값 추가 이때 location값이 0이면 location변수에 priorities길이값 대입 location 1 감소 위의 순서를 location 0 이상일때 while문 반복실행 def solution(priorities, location): cnt = 1 while True: num_max = max(priorities) cursor = priorities.pop(0) if cursor == num_max: if location == 0: return cnt cnt += 1 else: priorities.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 22, 2020</span>
+<a href=/posts/algorithm/programmers/2020-12-22-algorithm-programmers-python-level2/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/algorithm/programmers/2020-12-15-algorithm-programmers-python-level1/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Programmers Python (level 1)</h5>
+<p class="card-text post-summary">모의고사 분류 : 완전탐색
+입력받은 answers 리스트와 수포자들의 답 리스트와 비교하여 같다면 answer_cnt변수에 정답 개수 추가 answer_cnt 리스트의 최댓값과 각 answer_cnt 원소와 비교하여 같다면 index+1 값을 answer리스트에 추가 최대 정답자 answer 리스트 return def solution(answers): answer = [] answer_cnt = [0, 0, 0] answer_list = [ [1, 2, 3, 4, 5], [2, 1, 2, 3, 2, 4, 2, 5], [3, 3, 1, 1, 2, 2, 4, 4, 5, 5] ] # 정답 매칭 for i in range(len(answers)): ans = answers[i] if ans == answer_list[0][i%5]: answer_cnt[0] += 1 if ans == answer_list[1][i%8]: answer_cnt[1] += 1 if ans == answer_list[2][i%10]: answer_cnt[2] += 1 # 최다 정답자 추출 max_cnt = max(answer_cnt) for i, cnt in enumerate(answer_cnt): if max_cnt == cnt: answer.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 15, 2020</span>
+<a href=/posts/algorithm/programmers/2020-12-15-algorithm-programmers-python-level1/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>LeetCode Python (Easy)</h5>
+<p class="card-text post-summary">1. Two Sum nums 리스트 속성값 중 두개의 값이 target 값과 동일할때 해당 속성 값의 index 반환 class Solution: def twoSum(self, nums: List[int], target: int) -> List[int]: for i, num in enumerate(nums): for j, num2 in enumerate(nums[i+1:]): if i != j+i+1: if target == num+num2: return [i, j+i+1] 2020-11-27
+Runtime: 40 ms, faster than 97.02% of Python3 online submissions for Two Sum. Memory Usage: 14.5 MB, less than 89.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 1, 2020</span>
+<a href=/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class=paginator>
+<ul class="pagination pagination-default">
+<li class="page-item disabled">
+<a aria-disabled=true aria-label=First class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;&#171;</span></a>
+</li>
+<li class="page-item disabled">
+<a aria-disabled=true aria-label=Previous class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;</span></a>
+</li>
+<li class="page-item active">
+<a aria-current=page aria-label="Page 1" class=page-link role=button>1</a>
+</li>
+<li class=page-item>
+<a href=/tags/python/page/2/ aria-label="Page 2" class=page-link role=button>2</a>
+</li>
+<li class=page-item>
+<a href=/tags/python/page/2/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
+</li>
+<li class=page-item>
+<a href=/tags/python/page/2/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
+</li>
+</ul>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>바로가기</h5>
+<ul>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#about>About</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#skills>Skills</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#recent-posts>Recent Posts</a>
+</li>
+</ul>
+</div>
+<div class="col-md-4 col-sm-12">
+<h5>Contact me:</h5>
+<ul>
+<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
+<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<div class=container>
+<div class="row text-left">
+<div class=col-md-4>
+<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
+<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha
+</a>
+</div>
+<div class="col-md-4 text-center">© 2020 Copyright.</div>
+<div class="col-md-4 text-right">
+<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=/js/list.js></script>
+</body>
+</html>

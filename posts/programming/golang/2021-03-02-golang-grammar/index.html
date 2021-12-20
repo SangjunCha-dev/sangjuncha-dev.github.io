@@ -1,0 +1,533 @@
+<!doctype html><html>
+<head>
+<title>Go 언어 문법 (Golang grammar)</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<meta property="og:title" content="Go 언어 문법 (Golang grammar)">
+<meta property="og:description" content="Go 언어 문법 (Golang grammar)">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hugo-toha.github.io/posts/programming/golang/2021-03-02-golang-grammar/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-02-10T11:13:23+09:00">
+<meta property="article:modified_time" content="2021-02-10T11:13:23+09:00">
+<meta name=description content="Go 언어 문법 (Golang grammar)">
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
+<link rel=stylesheet href=/css/layouts/single.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+Sangjun 개발 블로그</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
+<div class=subtree>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
+<ul>
+<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
+<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
+<li><a href=/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/ title="LeetCode Python">LeetCode Python</a></li>
+<li><a href=/posts/algorithm/programmers/2020-12-15-algorithm-programmers-python-level1/ title="Programmers Python level 1">Programmers Python level 1</a></li>
+<li><a href=/posts/algorithm/programmers/2020-12-22-algorithm-programmers-python-level2/ title="Programmers Python level 2">Programmers Python level 2</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/db/>db</a>
+<ul>
+<li><a href=/posts/db/2020-09-28-mariadb-command/ title=mariadb-sql-command>mariadb-sql-command</a></li>
+<li><a href=/posts/db/2020-10-13-mssql-command/ title=mssql-sql-command>mssql-sql-command</a></li>
+<li><a href=/posts/db/2020-09-29-postgredb-setup/ title=postgredb-setup>postgredb-setup</a></li>
+<li><a href=/posts/db/2020-10-20-postgresql-command/ title=postgredb-sql-command>postgredb-sql-command</a></li>
+<li><a href=/posts/db/2020-09-30-sqlcmd-guide/ title=sqlcmd-guide>sqlcmd-guide</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/docker/>docker</a>
+<ul>
+<li><a href=/posts/docker/2021-04-08-docker-summary/ title="Docker Summary Setup Windows">Docker Summary Setup Windows</a></li>
+<li><a href=/posts/docker/2021-05-06-docker-mssql2017-setup/ title="Docker MSSQL Setup">Docker MSSQL Setup</a></li>
+<li><a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ title="Docker PostgreDB Pgadmin4 Setup">Docker PostgreDB Pgadmin4 Setup</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/framework/django/>django</a>
+<ul>
+<li><a href=/posts/framework/django/2021-04-07-django-dynamic-model-and-table-create/ title="Django Create Dynamic Model">Django Create Dynamic Model</a></li>
+<li><a href=/posts/framework/django/2021-04-22-django-file-upload/ title="Django File Upload">Django File Upload</a></li>
+<li><a href=/posts/framework/django/2021-04-07-django-models-relations-object-call/ title="Django Model Reference Object">Django Model Reference Object</a></li>
+<li><a href=/posts/framework/django/2021-03-31-django-models-autoonetoonefield/ title="Django Models AutoOneToOneField">Django Models AutoOneToOneField</a></li>
+<li><a href=/posts/framework/django/2021-04-06-django-queryset-object-access/ title="Django QuerySet Object Access">Django QuerySet Object Access</a></li>
+<li><a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ title="Django Return json Data">Django Return json Data</a></li>
+<li><a href=/posts/framework/django/2021-06-11-django-websocket-using-channels-library-guide/ title="Django socketio">Django socketio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/linux/>linux</a>
+<ul>
+<li><a href=/posts/os/linux/2021-01-06-linux-nfs-setting/ title="Linux NFS Setting">Linux NFS Setting</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/windows/>windows</a>
+<ul>
+<li><a href=/posts/os/windows/2021-05-07-windows10-wsl2-guide/ title="Windows10 WSL2">Windows10 WSL2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a>
+<ul class=active>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/golang/>golang</a>
+<ul class=active>
+<li><a href=/posts/programming/golang/2021-07-29-golang-gopacket/ title="Golang Gopacket">Golang Gopacket</a></li>
+<li><a class=active href=/posts/programming/golang/2021-03-02-golang-grammar/ title="Golang Grammar">Golang Grammar</a></li>
+<li><a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ title="golang learn-go-with-tests">golang learn-go-with-tests</a></li>
+<li><a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ title="nomadcoders Go-for-beginners lectures">nomadcoders Go-for-beginners lectures</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/programming/python/>python</a>
+<ul>
+<li><a href=/posts/programming/python/2020-11-05-python-magic-guide/ title="libmagic Library Guide">libmagic Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ title="paramiko-scp Library Guide">paramiko-scp Library Guide</a></li>
+<li><a href=/posts/programming/python/2020-11-16-pyftpdlib-guide/ title="pyftpdlib Library Guide">pyftpdlib Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ title="Pyinstaller Library Guide">Pyinstaller Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ title="pyshark Library Guide">pyshark Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-21-python-numpy-use-guide/ title="Python Numpy Guide">Python Numpy Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-21-python-opencv-use-guide/ title="Python Opencv Guide">Python Opencv Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ title="Python structures and algorithms books">Python structures and algorithms books</a></li>
+<li><a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-throughput-difference/ title="Python variable Class vs Local">Python variable Class vs Local</a></li>
+<li><a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ title="Python windows10 system monitoring">Python windows10 system monitoring</a></li>
+<li><a href=/posts/programming/python/2021-02-09-scapy-library-guide/ title="Scapy Library Guide">Scapy Library Guide</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class=content>
+<div class="container p-0 read-area">
+<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://hugo-toha.github.io/images/default-hero.jpg)>
+</div>
+<div class=page-content>
+<div class="author-profile ml-auto align-self-lg-center">
+<img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image">
+<h5 class=author-name>Sangjun</h5>
+<p>February 10, 2021</p>
+</div>
+<div class=title>
+<h1>Go 언어 문법 (Golang grammar)</h1>
+</div>
+<div class=post-content id=post-content>
+<h1 id=디렉토리-관련-함수>디렉토리 관련 함수</h1>
+<p>2021년 3월 3일 수요일 오전 8:55:31</p>
+<h2 id=단일-디렉토리-생성>단일 디렉토리 생성</h2>
+<p><code>os.Mkdir(path, permission)</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Mkdir</span>(<span style=color:#e6db74>&#34;tmp&#34;</span>, <span style=color:#ae81ff>0755</span>)
+<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+    <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#a6e22e>err</span>)
+}
+</code></pre></div><h2 id=다중-디렉토리-생성>다중 디렉토리 생성</h2>
+<p><code>os.MkdirAll(path, permission)</code> :</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>MkdirAll</span>(<span style=color:#e6db74>&#34;tmp/new&#34;</span>, <span style=color:#ae81ff>0755</span>)
+<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+    <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#a6e22e>err</span>)
+}
+</code></pre></div><h2 id=현재-작업-디렉토리-얻기>현재 작업 디렉토리 얻기</h2>
+<p><code>os.Getwd()</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>path</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Getwd</span>()
+<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> { 
+    <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>err</span>) 
+} 
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>path</span>)
+</code></pre></div><h2 id=디렉토리-존재유무-확인>디렉토리 존재유무 확인</h2>
+<p><code>os.Stat(paht)</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>if</span> <span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Stat</span>(<span style=color:#e6db74>&#34;/dirname&#34;</span>); <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>IsNotExist</span>(<span style=color:#a6e22e>err</span>) {
+	<span style=color:#75715e>// does not exist
+</span><span style=color:#75715e></span>}
+
+<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Stat</span>(<span style=color:#e6db74>&#34;/dirname&#34;</span>); !<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>IsNotExist</span>(<span style=color:#a6e22e>err</span>) {
+	<span style=color:#75715e>// exist
+</span><span style=color:#75715e></span>}
+</code></pre></div><h2 id=디렉토리-이름-바꾸기>디렉토리 이름 바꾸기</h2>
+<p><code>os.Rename(oldpath, newpath)</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Rename</span>(<span style=color:#e6db74>&#34;tmp&#34;</span>, <span style=color:#e6db74>&#34;tmp2&#34;</span>) 
+<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> { 
+    <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#a6e22e>err</span>) 
+}
+</code></pre></div><h1 id=struct-구조체-기본값-지정>struct 구조체 기본값 지정</h1>
+<p>2021년 3월 3일 수요일 오후 5:43:23</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+    <span style=color:#f92672>&#34;index&#34;</span>:<span style=color:#ae81ff>0</span>,
+    <span style=color:#f92672>&#34;value&#34;</span>:<span style=color:#e6db74>&#34;bar&#34;</span>,
+    <span style=color:#f92672>&#34;result&#34;</span>:<span style=color:#66d9ef>false</span>
+}
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+
+<span style=color:#f92672>import</span> (
+    <span style=color:#e6db74>&#34;encoding/json&#34;</span>
+    <span style=color:#e6db74>&#34;fmt&#34;</span>
+)
+
+<span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Config</span> <span style=color:#66d9ef>struct</span> {
+    <span style=color:#a6e22e>Index</span>   <span style=color:#66d9ef>int</span>	    <span style=color:#e6db74>`json:&#34;index&#34;`</span>
+    <span style=color:#a6e22e>Value</span> <span style=color:#66d9ef>string</span>    <span style=color:#e6db74>`json:&#34;value&#34;`</span>
+    <span style=color:#a6e22e>Result</span> <span style=color:#66d9ef>bool</span>     <span style=color:#e6db74>`json:&#34;result&#34;`</span>
+}
+
+<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>data</span> = <span style=color:#a6e22e>Config</span>{}
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+    <span style=color:#a6e22e>con</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>ioutil</span>.<span style=color:#a6e22e>ReadFile</span>(<span style=color:#e6db74>&#34;config.json&#34;</span>)
+	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Print</span>(<span style=color:#a6e22e>err</span>)
+	}
+	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>json</span>.<span style=color:#a6e22e>Unmarshal</span>(<span style=color:#a6e22e>con</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>data</span>); <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Print</span>(<span style=color:#a6e22e>err</span>)
+	}
+    <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>data</span>)
+}
+</code></pre></div><h1 id=time-변수-문자열-변환-convert-timetime-to-string>Time 변수 문자열 변환 (convert time.Time to string)</h1>
+<p>2021년 3월 4일 목요일 오후 2:54:09</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// caution : format string is `2006-01-02 15:04:05.000000000`
+</span><span style=color:#75715e></span><span style=color:#a6e22e>nowTime</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Now</span>()
+
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;origin :&#34;</span>, <span style=color:#a6e22e>nowTime</span>.<span style=color:#a6e22e>String</span>())
+<span style=color:#75715e>// origin : 2021-03-03 15:26:37.123456789 +0900 KST
+</span><span style=color:#75715e></span>
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;mm-dd-yyyy :&#34;</span>, <span style=color:#a6e22e>nowTime</span>.<span style=color:#a6e22e>Format</span>(<span style=color:#e6db74>&#34;01-02-2006&#34;</span>))
+<span style=color:#75715e>// mm-dd-yyyy : 03-03-2021
+</span><span style=color:#75715e></span>
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;yyyy-mm-dd :&#34;</span>, <span style=color:#a6e22e>nowTime</span>.<span style=color:#a6e22e>Format</span>(<span style=color:#e6db74>&#34;2006-01-02&#34;</span>))
+<span style=color:#75715e>// yyyy-mm-dd : 2021-03-03
+</span><span style=color:#75715e></span>
+<span style=color:#75715e>// separated by .
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;yyyy.mm.dd :&#34;</span>, <span style=color:#a6e22e>nowTime</span>.<span style=color:#a6e22e>Format</span>(<span style=color:#e6db74>&#34;2006.01.02&#34;</span>))
+<span style=color:#75715e>// yyyy.mm.dd : 2021.03.03
+</span><span style=color:#75715e></span>
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;yyyy-mm-dd HH:mm:ss :&#34;</span>, <span style=color:#a6e22e>nowTime</span>.<span style=color:#a6e22e>Format</span>(<span style=color:#e6db74>&#34;2006-01-02 15:04:05&#34;</span>))
+<span style=color:#75715e>// yyyy-mm-dd HH:mm:ss : 2021-03-03 15:26:37
+</span><span style=color:#75715e></span>
+<span style=color:#75715e>// Stamp Micro second
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;yyyy-mm-dd HH:mm:ss :&#34;</span>, <span style=color:#a6e22e>nowTime</span>.<span style=color:#a6e22e>Format</span>(<span style=color:#e6db74>&#34;2006-01-02 15:04:05.000000&#34;</span>))
+<span style=color:#75715e>// yyyy-mm-dd HH:mm:ss : 2021-03-03 15:26:37.123456
+</span><span style=color:#75715e></span>
+<span style=color:#75715e>// Stamp Nano second
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;yyyy-mm-dd HH:mm:ss :&#34;</span>, <span style=color:#a6e22e>nowTime</span>.<span style=color:#a6e22e>Format</span>(<span style=color:#e6db74>&#34;2006-01-02 15:04:05.000000000&#34;</span>))
+<span style=color:#75715e>// yyyy-mm-dd HH:mm:ss : 2021-03-03 15:26:37.123456789
+</span></code></pre></div><h1 id=디렉토리-내-파일목록-읽기>디렉토리 내 파일목록 읽기</h1>
+<p>2021년 3월 4일 목요일 오후 5:45:44</p>
+<p><code>ioutil.ReadDir(path)</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>files</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>ioutil</span>.<span style=color:#a6e22e>ReadDir</span>(<span style=color:#e6db74>&#34;tmp&#34;</span>) 
+<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span>{ 
+    <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>err</span>) 
+} 
+<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span> ,<span style=color:#a6e22e>f</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>range</span> <span style=color:#a6e22e>files</span> {
+    <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>i</span>, <span style=color:#a6e22e>f</span>.<span style=color:#a6e22e>Name</span>())
+}
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#ae81ff>0</span> test1.txt
+<span style=color:#ae81ff>1</span> test2.txt
+</code></pre></div><h1 id=문자열-분할>문자열 분할</h1>
+<p>2021년 3월 8일 월요일 오전 1:21:36</p>
+<p>Split (s, sep string ) [] string</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>tmp</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;one_two_three&#34;</span>
+<span style=color:#a6e22e>slice</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strings</span>.<span style=color:#a6e22e>Split</span>(<span style=color:#a6e22e>tmp</span>, <span style=color:#e6db74>&#34;_&#34;</span>)
+
+<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span>, <span style=color:#a6e22e>str</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>range</span> <span style=color:#a6e22e>slice</span> {
+    <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>i</span>, <span style=color:#a6e22e>str</span>)
+}
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#ae81ff>0</span> one
+<span style=color:#ae81ff>1</span> two
+<span style=color:#ae81ff>2</span> three
+</code></pre></div><p>SplitAfter(s, sep string) []string</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>tmp</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;one_two_three&#34;</span>
+<span style=color:#a6e22e>slice</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strings</span>.<span style=color:#a6e22e>SplitAfter</span>(<span style=color:#a6e22e>tmp</span>, <span style=color:#e6db74>&#34;_&#34;</span>)
+
+<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span>, <span style=color:#a6e22e>str</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>range</span> <span style=color:#a6e22e>slice</span> {
+    <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>i</span>, <span style=color:#a6e22e>str</span>)
+}
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#ae81ff>0</span> one_
+<span style=color:#ae81ff>1</span> two_
+<span style=color:#ae81ff>2</span> three
+</code></pre></div><p>아래의 함수는 split 횟수를 n번으로 제한하는 함수</p>
+<p>SplitN(s, sep string, n int) []string<br>
+SplitAfterN(s, sep string, n int) []string</p>
+<h1 id=타입-확인>타입 확인</h1>
+<p>2021년 3월 8일 월요일 오전 9:26:56</p>
+<p>reflect.TypeOf(i interface{}) reflect.Type</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>y</span>, <span style=color:#a6e22e>z</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#34;2&#34;</span>, <span style=color:#ae81ff>3.14</span>
+
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;x type :&#34;</span>, <span style=color:#a6e22e>reflect</span>.<span style=color:#a6e22e>TypeOf</span>(<span style=color:#a6e22e>x</span>))
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;y type :&#34;</span>, <span style=color:#a6e22e>reflect</span>.<span style=color:#a6e22e>TypeOf</span>(<span style=color:#a6e22e>y</span>))
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;z type :&#34;</span>, <span style=color:#a6e22e>reflect</span>.<span style=color:#a6e22e>TypeOf</span>(<span style=color:#a6e22e>z</span>))
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>x type : int
+y type : string
+z type : float64
+</code></pre></div><h1 id=타입-변경>타입 변경</h1>
+<p>strconv</p>
+<h2 id=숫자-변환>숫자 변환</h2>
+<p>Atoi : 문자열에서 int로<br>
+Itoa : int에서 문자열로</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>i</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>Atoi</span>(<span style=color:#e6db74>&#34;-42&#34;</span>)
+<span style=color:#a6e22e>s</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>Itoa</span>(<span style=color:#f92672>-</span><span style=color:#ae81ff>42</span>)
+</code></pre></div><p>문자열을 값으로 변환</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>b</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>ParseBool</span>(<span style=color:#e6db74>&#34;true&#34;</span>)
+<span style=color:#a6e22e>f</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>ParseFloat</span>(<span style=color:#e6db74>&#34;3.1415&#34;</span>, <span style=color:#ae81ff>64</span>)
+<span style=color:#a6e22e>i</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>ParseInt</span>(<span style=color:#e6db74>&#34;-42&#34;</span>, <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>64</span>)
+<span style=color:#a6e22e>u</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>ParseUint</span>(<span style=color:#e6db74>&#34;42&#34;</span>, <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>64</span>)
+</code></pre></div><p>문자열을 가장 넓은 유형 (float64, int64 및 uint64)을 반환</p>
+<ul>
+<li>size 인수가 더 좁은 너비를 지정하면 결과를 데이터 손실없이 더 좁은 유형으로 변환</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>s</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;2147483647&#34;</span> <span style=color:#75715e>// biggest int32
+</span><span style=color:#75715e></span><span style=color:#a6e22e>i64</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>ParseInt</span>(<span style=color:#a6e22e>s</span>, <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>32</span>)
+<span style=color:#f92672>...</span>
+<span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> int32(<span style=color:#a6e22e>i64</span>)
+</code></pre></div><p>값을 문자열로 변환</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>s</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>FormatBool</span>(<span style=color:#66d9ef>true</span>)
+<span style=color:#a6e22e>s</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>FormatFloat</span>(<span style=color:#ae81ff>3.1415</span>, <span style=color:#e6db74>&#39;E&#39;</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>64</span>)
+<span style=color:#a6e22e>s</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>FormatInt</span>(<span style=color:#f92672>-</span><span style=color:#ae81ff>42</span>, <span style=color:#ae81ff>16</span>)
+<span style=color:#a6e22e>s</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>FormatUint</span>(<span style=color:#ae81ff>42</span>, <span style=color:#ae81ff>16</span>)
+</code></pre></div><h2 id=문자열-변환>문자열 변환</h2>
+<p>2021년 3월 8일 월요일 오전 10:14:38</p>
+<p>문자열을 인용 된 Go 문자열 리터럴로 변환</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>q</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>Quote</span>(<span style=color:#e6db74>&#34;Hello, World&#34;</span>)
+<span style=color:#a6e22e>q</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>QuoteToASCII</span>(<span style=color:#e6db74>&#34;Hello, World&#34;</span>)
+</code></pre></div><h1 id=에러-핸들링>에러 핸들링</h1>
+<p>2021년 3월 8일 월요일 오전 10:52:04</p>
+<h2 id=복합한-에러-핸들링>복합한 에러 핸들링</h2>
+<p>빈 디렉토리 tmp 생성후 해당 코드 실행시<br>
+<code>*fs.PathError</code> 에러가 발생하는데 아래의 switch case <code>err.(*fs.PathError)</code> 구문으로 별도의 에러 핸들링이 가능해진다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>dirPath</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;tmp&#34;</span>
+<span style=color:#a6e22e>files</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>ioutil</span>.<span style=color:#a6e22e>ReadDir</span>(<span style=color:#a6e22e>dirPath</span>)
+<span style=color:#66d9ef>switch</span> <span style=color:#a6e22e>err</span> {
+<span style=color:#66d9ef>case</span> <span style=color:#66d9ef>nil</span>:
+    <span style=color:#66d9ef>break</span>
+<span style=color:#66d9ef>case</span> <span style=color:#a6e22e>err</span>.(<span style=color:#f92672>*</span><span style=color:#a6e22e>fs</span>.<span style=color:#a6e22e>PathError</span>):
+    <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;[findKey] 현재 디렉토리에 파일이 없습니다.&#34;</span>)
+<span style=color:#66d9ef>default</span>:
+    <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;[findKey] Error :&#34;</span>, <span style=color:#a6e22e>err</span>)
+}
+</code></pre></div><h1 id=특정-날짜시간-동작>특정 날짜/시간 동작</h1>
+<p>2021년 3월 8일 월요일 오후 1:29:32</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>go get github.com/robfig/cron
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>c</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>cron</span>.<span style=color:#a6e22e>New</span>()
+<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>AddFunc</span>(<span style=color:#e6db74>&#34;@midnight&#34;</span>, <span style=color:#66d9ef>func</span>() {
+    <span style=color:#a6e22e>findKey</span>()
+})
+<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Start</span>()
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>customLocation</span>, <span style=color:#a6e22e>_</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>LoadLocation</span>(<span style=color:#e6db74>&#34;Asia/Seoul&#34;</span>)
+<span style=color:#a6e22e>c</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>cron</span>.<span style=color:#a6e22e>NewWithLocation</span>(<span style=color:#a6e22e>customLocation</span>)
+<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>AddFunc</span>(<span style=color:#e6db74>&#34;@midnight&#34;</span>, <span style=color:#66d9ef>func</span>() {
+    <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Print</span>(<span style=color:#e6db74>&#34;time :&#34;</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Now</span>())
+})
+<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Start</span>()
+</code></pre></div><h1 id=로그파일-작성>로그파일 작성</h1>
+<p>2021년 3월 8일 월요일 오후 1:29:32</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>rl</span>, <span style=color:#a6e22e>_</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>rotatelogs</span>.<span style=color:#a6e22e>New</span>(
+<span style=color:#e6db74>&#34;D:/tmp/Logfile.%Y-%m-%d.log&#34;</span>,
+<span style=color:#a6e22e>rotatelogs</span>.<span style=color:#a6e22e>WithMaxAge</span>(<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>),              <span style=color:#75715e>// 정해진 시간보다 지난 파일 삭제 (-1은 비활성화)
+</span><span style=color:#75715e></span><span style=color:#a6e22e>rotatelogs</span>.<span style=color:#a6e22e>WithRotationTime</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Hour</span>), <span style=color:#75715e>// 로테이션 반복 주기
+</span><span style=color:#75715e></span><span style=color:#a6e22e>rotatelogs</span>.<span style=color:#a6e22e>WithClock</span>(<span style=color:#a6e22e>rotatelogs</span>.<span style=color:#a6e22e>Local</span>), <span style=color:#75715e>// 로컬 시간으로 설정
+</span><span style=color:#75715e></span><span style=color:#a6e22e>rotatelogs</span>.<span style=color:#a6e22e>WithRotationCount</span>(<span style=color:#ae81ff>30</span>),       <span style=color:#75715e>// 유지되는 파일 개수
+</span><span style=color:#75715e></span>)
+<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>SetOutput</span>(<span style=color:#a6e22e>rl</span>)
+
+<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;log write&#34;</span>)
+</code></pre></div><h1 id=프로젝트내-다른-로컬패키지-호출>프로젝트내 다른 로컬패키지 호출</h1>
+<p>2021년 3월 11일 목요일 오후 6:02:36</p>
+<p>go언어는 패키지를 GOPATH 기준으로 검색하기때문에<br>
+GOPATH가 아닌 다른경로에서 프로젝트를 개발할 경우<br>
+프로젝트이름 기준으로 패키지 검색</p>
+<p>디렉토리 구조 예시</p>
+<pre tabindex=0><code>project1
+├── package1/
+|   └── package1.go
+└── package2/
+    └── package2.go
+</code></pre><h2 id=로컬패키지-호출-예시>로컬패키지 호출 예시</h2>
+<p>package1.go파일에서 로컬패키지 package2 호출</p>
+<p>./package1.go</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>import</span> (
+    <span style=color:#e6db74>&#34;project1/package2&#34;</span>
+)
+</code></pre></div><h2 id=잘못-사용한-예시>잘못 사용한 예시</h2>
+<p>go언어에서는 import 구문으로 상대경로를 사용하지 않음</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>import</span> (
+    <span style=color:#e6db74>&#34;../package2&#34;</span>
+)
+</code></pre></div><h1 id=uint16형-데이터-2byte형태로-변환>uint16형 데이터 2Byte형태로 변환</h1>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>b</span> <span style=color:#f92672>:=</span> make([]<span style=color:#66d9ef>byte</span>, <span style=color:#ae81ff>2</span>)
+<span style=color:#a6e22e>binary</span>.<span style=color:#a6e22e>BigEndian</span>.<span style=color:#a6e22e>PutUint16</span>(<span style=color:#a6e22e>b</span>, uint16(<span style=color:#ae81ff>258</span>))
+
+<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(string(<span style=color:#a6e22e>b</span>))
+</code></pre></div><h1 id=서로-다른-byte-데이터-비교>서로 다른 byte 데이터 비교</h1>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>b</span> <span style=color:#f92672>:=</span> make([]<span style=color:#66d9ef>byte</span>, <span style=color:#ae81ff>2</span>)
+<span style=color:#a6e22e>binary</span>.<span style=color:#a6e22e>BigEndian</span>.<span style=color:#a6e22e>PutUint16</span>(<span style=color:#a6e22e>b</span>, uint16(<span style=color:#ae81ff>258</span>))
+
+<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>bytes</span>.<span style=color:#a6e22e>Compare</span>(<span style=color:#a6e22e>b</span>, []<span style=color:#66d9ef>byte</span>{<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>}) <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span> {
+    <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;같은 데이터 입니다.&#34;</span>)
+}
+</code></pre></div>
+</div>
+<div class="row pl-3 pr-3">
+<div class="col-md-6 share-buttons">
+</div>
+<div class="col-md-6 btn-improve-page">
+<a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/programming/golang/2021-03-02-Golang-grammar.md title="이 페이지를 개선" target=_blank rel=noopener>
+<i class="fas fa-code-branch"></i>
+이 페이지를 개선
+</a>
+</div>
+</div>
+<hr>
+<div class="row next-prev-navigator">
+<div class="col-md-6 previous-article">
+<a href=/posts/programming/golang/2021-07-29-golang-gopacket/ title="golang gopacket 라이브러리를 이용한 통신" class="btn btn-outline-info">
+<div><i class="fas fa-chevron-circle-left"></i> 이전</div>
+<div class=next-prev-text>golang gopacket 라이브러리를 이용한 통신</div>
+</a>
+</div>
+<div class="col-md-6 next-article">
+<a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ title="golang learn-go-with-tests GitBook 정리" class="btn btn-outline-info">
+<div>다음 <i class="fas fa-chevron-circle-right"></i></div>
+<div class=next-prev-text>golang learn-go-with-tests GitBook 정리</div>
+</a>
+</div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
+</section>
+<section class=toc-section id=toc-section>
+<div class=toc-holder>
+<h5 class="text-center pl-3">목차</h5>
+<hr>
+<div class=toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#단일-디렉토리-생성>단일 디렉토리 생성</a></li>
+<li><a href=#다중-디렉토리-생성>다중 디렉토리 생성</a></li>
+<li><a href=#현재-작업-디렉토리-얻기>현재 작업 디렉토리 얻기</a></li>
+<li><a href=#디렉토리-존재유무-확인>디렉토리 존재유무 확인</a></li>
+<li><a href=#디렉토리-이름-바꾸기>디렉토리 이름 바꾸기</a></li>
+</ul>
+<ul>
+<li><a href=#숫자-변환>숫자 변환</a></li>
+<li><a href=#문자열-변환>문자열 변환</a></li>
+</ul>
+<ul>
+<li><a href=#복합한-에러-핸들링>복합한 에러 핸들링</a></li>
+</ul>
+<ul>
+<li><a href=#로컬패키지-호출-예시>로컬패키지 호출 예시</a></li>
+<li><a href=#잘못-사용한-예시>잘못 사용한 예시</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>바로가기</h5>
+<ul>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#about>About</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#skills>Skills</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#recent-posts>Recent Posts</a>
+</li>
+</ul>
+</div>
+<div class="col-md-4 col-sm-12">
+<h5>Contact me:</h5>
+<ul>
+<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
+<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<div class=container>
+<div class="row text-left">
+<div class=col-md-4>
+<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
+<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha
+</a>
+</div>
+<div class="col-md-4 text-center">© 2020 Copyright.</div>
+<div class="col-md-4 text-right">
+<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
+<script src=/js/single.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

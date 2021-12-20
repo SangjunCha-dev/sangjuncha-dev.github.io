@@ -1,0 +1,266 @@
+<!doctype html><html>
+<head>
+<title>Docker</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<meta property="og:title" content="Docker">
+<meta property="og:description" content>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hugo-toha.github.io/posts/docker/">
+<link rel=stylesheet href=/css/layouts/list.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+Sangjun 개발 블로그</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
+<div class=subtree>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
+<ul>
+<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
+<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
+<li><a href=/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/ title="LeetCode Python">LeetCode Python</a></li>
+<li><a href=/posts/algorithm/programmers/2020-12-15-algorithm-programmers-python-level1/ title="Programmers Python level 1">Programmers Python level 1</a></li>
+<li><a href=/posts/algorithm/programmers/2020-12-22-algorithm-programmers-python-level2/ title="Programmers Python level 2">Programmers Python level 2</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/db/>db</a>
+<ul>
+<li><a href=/posts/db/2020-09-28-mariadb-command/ title=mariadb-sql-command>mariadb-sql-command</a></li>
+<li><a href=/posts/db/2020-10-13-mssql-command/ title=mssql-sql-command>mssql-sql-command</a></li>
+<li><a href=/posts/db/2020-09-29-postgredb-setup/ title=postgredb-setup>postgredb-setup</a></li>
+<li><a href=/posts/db/2020-10-20-postgresql-command/ title=postgredb-sql-command>postgredb-sql-command</a></li>
+<li><a href=/posts/db/2020-09-30-sqlcmd-guide/ title=sqlcmd-guide>sqlcmd-guide</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/docker/>docker</a>
+<ul class=active>
+<li><a href=/posts/docker/2021-04-08-docker-summary/ title="Docker Summary Setup Windows">Docker Summary Setup Windows</a></li>
+<li><a href=/posts/docker/2021-05-06-docker-mssql2017-setup/ title="Docker MSSQL Setup">Docker MSSQL Setup</a></li>
+<li><a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ title="Docker PostgreDB Pgadmin4 Setup">Docker PostgreDB Pgadmin4 Setup</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/framework/django/>django</a>
+<ul>
+<li><a href=/posts/framework/django/2021-04-07-django-dynamic-model-and-table-create/ title="Django Create Dynamic Model">Django Create Dynamic Model</a></li>
+<li><a href=/posts/framework/django/2021-04-22-django-file-upload/ title="Django File Upload">Django File Upload</a></li>
+<li><a href=/posts/framework/django/2021-04-07-django-models-relations-object-call/ title="Django Model Reference Object">Django Model Reference Object</a></li>
+<li><a href=/posts/framework/django/2021-03-31-django-models-autoonetoonefield/ title="Django Models AutoOneToOneField">Django Models AutoOneToOneField</a></li>
+<li><a href=/posts/framework/django/2021-04-06-django-queryset-object-access/ title="Django QuerySet Object Access">Django QuerySet Object Access</a></li>
+<li><a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ title="Django Return json Data">Django Return json Data</a></li>
+<li><a href=/posts/framework/django/2021-06-11-django-websocket-using-channels-library-guide/ title="Django socketio">Django socketio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/linux/>linux</a>
+<ul>
+<li><a href=/posts/os/linux/2021-01-06-linux-nfs-setting/ title="Linux NFS Setting">Linux NFS Setting</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/windows/>windows</a>
+<ul>
+<li><a href=/posts/os/windows/2021-05-07-windows10-wsl2-guide/ title="Windows10 WSL2">Windows10 WSL2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/programming/>programming</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/programming/golang/>golang</a>
+<ul>
+<li><a href=/posts/programming/golang/2021-07-29-golang-gopacket/ title="Golang Gopacket">Golang Gopacket</a></li>
+<li><a href=/posts/programming/golang/2021-03-02-golang-grammar/ title="Golang Grammar">Golang Grammar</a></li>
+<li><a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ title="golang learn-go-with-tests">golang learn-go-with-tests</a></li>
+<li><a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ title="nomadcoders Go-for-beginners lectures">nomadcoders Go-for-beginners lectures</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/programming/python/>python</a>
+<ul>
+<li><a href=/posts/programming/python/2020-11-05-python-magic-guide/ title="libmagic Library Guide">libmagic Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ title="paramiko-scp Library Guide">paramiko-scp Library Guide</a></li>
+<li><a href=/posts/programming/python/2020-11-16-pyftpdlib-guide/ title="pyftpdlib Library Guide">pyftpdlib Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ title="Pyinstaller Library Guide">Pyinstaller Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ title="pyshark Library Guide">pyshark Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-21-python-numpy-use-guide/ title="Python Numpy Guide">Python Numpy Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-21-python-opencv-use-guide/ title="Python Opencv Guide">Python Opencv Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ title="Python structures and algorithms books">Python structures and algorithms books</a></li>
+<li><a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-throughput-difference/ title="Python variable Class vs Local">Python variable Class vs Local</a></li>
+<li><a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ title="Python windows10 system monitoring">Python windows10 system monitoring</a></li>
+<li><a href=/posts/programming/python/2021-02-09-scapy-library-guide/ title="Scapy Library Guide">Scapy Library Guide</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class="content container-fluid" id=content>
+<div class="container-fluid post-card-holder" id=post-card-holder>
+<div class=post-card>
+<a href=/posts/docker/2021-05-06-docker-mssql2017-setup/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>mssql 2017 도커 이미지 설치 및 컨테이너 실행방법</h5>
+<p class="card-text post-summary">mssql docker 도커 설치 방법 도커 허브에서 이미지 검색 docker search &lt;검색할 이미지 이름> pull - 도커 이미지 다운받기 docker pull mcr.microsoft.com/mssql/server:2017-latest docs 예시 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=&lt;YourStrong@Passw0rd>" -p 1433:1433 --name mssql2017 -h mssql2017 -v &lt;host directory>/data:/var/opt/mssql/data -v &lt;host directory>/log:/var/opt/mssql/log -v &lt;host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/mssql/server:2017-latest Docker on Windows 의 호스트 볼륨 매핑은 현재 /var/opt/mssql 디렉토리가 아닌 /var/opt/mssql/data 등의 하위 디렉터리를 호스트 머신에 매핑할 수 있다.
+사용 명령어 예시 docker volume create mssqldata docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Airiss123!</p>
+</div>
+<div class=card-footer>
+<span class=float-left>May 6, 2021</span>
+<a href=/posts/docker/2021-05-06-docker-mssql2017-setup/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>PostgreDB, pgadmin4 도커 설치 방법</h5>
+<p class="card-text post-summary">Postgres Docker 이미지 설치 Postgres Version : 13.2
+다운로드 및 설정 아래 명령어를 실행한다.
+$ docker run -p 15432:5432 --name postgres -e POSTGRES_PASSWORD=password1! -d postgres -d : 백그라운드에서 컨테이너 실행 -p 15432:5432 : 호스트와 컨테이너 간의 배포(publish)포트/바인드(bind)포트 호스트 15432번 포트를 컨테이너 5432번 포트에 매핑 --name : 생성할 컨테이너 이름 -e : 도커 컨테이너의 환경변수 설정 POSTGRES_PASSWORD : PostgresDB 관리자 비밀번호 실행 결과</p>
+</div>
+<div class=card-footer>
+<span class=float-left>April 29, 2021</span>
+<a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/docker/2021-04-08-docker-summary/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>도커의 개요 및 windows10 버전 설치 방법</h5>
+<p class="card-text post-summary">개요 도커(Docker)는 리눅스 컨테이너를 기반으로 특정 서비스를 패키징하고 배포할 수 있는 오픈소스 프로그램이다.
+컨테이너 : 리눅스 커널 네임 스페이스, cgroup의 기능을 활용하여 호스트 시스템의 모든 프로세스와 격리된 시스템의 프로세스 도커를 사용하는 이유 도커는 소프트웨어 버전관리, 애플리케이션 배포, 개발환경 구성등 사전에 생성하고 도커 이미지를 배포하고 배포한 이미지를 컨테이너에 담아서 사용된다.
+도커 이미지 : 컨테이너의 파일시스템과 애플리케이션 실행에 필요한 모든 항목(모든 종속성, 구성, 스크립트, 바이너리, 환경변수, 실행하는 기본 명령)이 포함된다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>April 8, 2021</span>
+<a href=/posts/docker/2021-04-08-docker-summary/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class=paginator>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>바로가기</h5>
+<ul>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#about>About</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#skills>Skills</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#recent-posts>Recent Posts</a>
+</li>
+</ul>
+</div>
+<div class="col-md-4 col-sm-12">
+<h5>Contact me:</h5>
+<ul>
+<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
+<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<div class=container>
+<div class="row text-left">
+<div class=col-md-4>
+<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
+<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha
+</a>
+</div>
+<div class="col-md-4 text-center">© 2020 Copyright.</div>
+<div class="col-md-4 text-right">
+<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=/js/list.js></script>
+</body>
+</html>

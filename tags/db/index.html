@@ -1,0 +1,252 @@
+<!doctype html><html>
+<head>
+<title>db</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<meta property="og:title" content="db">
+<meta property="og:description" content>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hugo-toha.github.io/tags/db/">
+<link rel=stylesheet href=/css/layouts/list.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+Sangjun 개발 블로그</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/tags data-filter=all>태그</a></li>
+<div class="subtree taxonomy-terms">
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/algorithm/ data-taxonomy-term=algorithm><span class=taxonomy-label>algorithm</span></a></li>
+<li><a class="taxonomy-term active" href=https://hugo-toha.github.io/tags/db/ data-taxonomy-term=db><span class=taxonomy-label>db</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/django/ data-taxonomy-term=django><span class=taxonomy-label>django</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/docker/ data-taxonomy-term=docker><span class=taxonomy-label>docker</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/go/ data-taxonomy-term=go><span class=taxonomy-label>go</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/gopacket/ data-taxonomy-term=gopacket><span class=taxonomy-label>gopacket</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/learning/ data-taxonomy-term=learning><span class=taxonomy-label>learning</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/leetcode/ data-taxonomy-term=leetcode><span class=taxonomy-label>leetcode</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/library/ data-taxonomy-term=library><span class=taxonomy-label>library</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/linux/ data-taxonomy-term=linux><span class=taxonomy-label>linux</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/mariadb/ data-taxonomy-term=mariadb><span class=taxonomy-label>mariadb</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/models/ data-taxonomy-term=models><span class=taxonomy-label>models</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/mssql/ data-taxonomy-term=mssql><span class=taxonomy-label>mssql</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/nfs/ data-taxonomy-term=nfs><span class=taxonomy-label>nfs</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/numpy/ data-taxonomy-term=numpy><span class=taxonomy-label>numpy</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/opencv/ data-taxonomy-term=opencv><span class=taxonomy-label>opencv</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/postgredb/ data-taxonomy-term=postgredb><span class=taxonomy-label>postgredb</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/programmers/ data-taxonomy-term=programmers><span class=taxonomy-label>programmers</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/python/ data-taxonomy-term=python><span class=taxonomy-label>python</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/scraper/ data-taxonomy-term=scraper><span class=taxonomy-label>scraper</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/sniff/ data-taxonomy-term=sniff><span class=taxonomy-label>sniff</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/sql/ data-taxonomy-term=sql><span class=taxonomy-label>sql</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/sqlcmd/ data-taxonomy-term=sqlcmd><span class=taxonomy-label>sqlcmd</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/windows/ data-taxonomy-term=windows><span class=taxonomy-label>windows</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/windows10/ data-taxonomy-term=windows10><span class=taxonomy-label>windows10</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/tags/wsl/ data-taxonomy-term=wsl><span class=taxonomy-label>wsl</span></a></li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class="content container-fluid" id=content>
+<div class="container-fluid post-card-holder" id=post-card-holder>
+<div class=post-card>
+<a href=/posts/db/2020-10-13-mssql-command/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>MSSQL SQL 명령어 (MSSQL SQL Command)</h5>
+<p class="card-text post-summary">1. 테이블 생성 (Create Table) 1.1 테이블 생성 문법 구조 ```sql CREATE TABLE 테이블명( 컬럼명 타입(크기) NOT NULL, --NULL 값이 들어갈 수 없음 컬럼명 타입 NULL DEFAULT(값), --초기값 지정 CONSTRAIN PK이름 PRIMARY KEY(컬럼명) --PK설정 ) ``` 1.2 테이블 생성 (예제) 컬럼 타입 : INT / NVARCHAR / VARCHAR / DATETIME ```sql CREATE TABLE MY_TABLE( NO_EMP NVARCHAR(10)NOT NULL, -- NULL 값이 들어갈 수 없음 NM_KOR NVARCHAR(40)NOT NULL, -- NULL 값이 들어갈 수 없음 AGE INT NULL DEFAULT (0), --초기값 = 0 TODAY DATETIME DEFAULT(GETDATE()), --초기값 현재날짜 ) --CONSTRAINT PK_MY_TABLE PRIMARY KEY(NO_EMP)--PK : NO_EMP ) ``` ```sql CREATE TABLE TB_AIX_AI001I( ID int PRIMARY KEY, AI_JSON nvarchar NULL, BL nvarchar(11) NOT NULL, IMGE_PATH nvarchar(300) NOT NULL, IMGE_NAME nvarchar(100) NOT NULL, DRCT_VH nvarchar(2) NOT NULL, IN_DT datetime default(GETDATE()) NOT NULL ) ``` 2.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>October 13, 2020</span>
+<a href=/posts/db/2020-10-13-mssql-command/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/db/2020-09-28-mariadb-command/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>MariaDB SQL 명령어 (MariaDB SQL Command)</h5>
+<p class="card-text post-summary">명령어 1. database 확인 ```sql SHOW DATABASES; ``` 2. database 생성 ```sql CREATE DATABASE database_name; ``` 3. 특정 database 접속 ```sql USE database_name; ``` 3-1. mysql database 접속 ```sql USE mysql; ``` 4. 사용자 확인 - (MariaDB[mysql]) ```sql SELECT HOST, USER, PASSWORD FROM USER; ``` 5. 사용자 계정 생성 - 'id'@'localhost' 이면 로컬에서만 접속 가능 ```sql CREATE USER 'user_id'@'%' IDENTIFIED BY 'user_password'; ``` ```sql CREATE USER 'user_id' IDENTIFIED BY 'user_password'; ``` 6.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>September 30, 2020</span>
+<a href=/posts/db/2020-09-28-mariadb-command/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/db/2020-09-30-sqlcmd-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>sqlcmd 사용법 (sqlcmd-guide)</h5>
+<p class="card-text post-summary">sqlcmd 사용목적 : 대용량 sql 파일실행은 sqlcmd만 실행가능
+sqlcmd 사용 예시 sqlcmd \ -S 127.0.0.1,1433 \ -i input_file[ , input_file2...] \ -o output_file \ -U login_id \ -P password \ -d db_name -S : 접속할 IP,접속포트
+-i : 실행할 sql 파일 지정
+-i C:&lt;filename>
+-i \&lt;Share$>&lt;filename>
+-i &ldquo;C:\Some Folder&lt;file name>&rdquo;
+-o : 실행결과 저장할 파일 지정
+-U : 계정
+-P : 패스워드
+-d : Database 이름
+windows 환경</p>
+</div>
+<div class=card-footer>
+<span class=float-left>September 30, 2020</span>
+<a href=/posts/db/2020-09-30-sqlcmd-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/db/2020-09-29-postgredb-setup/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>PostgreDB 설치 (PostgreDB Setup)</h5>
+<p class="card-text post-summary">설치환경 : Windows 10
+1. PostgreDB 설치 1.1 설치파일 다운로드 윈도우즈용 설치 파일은 현재 EnterpriseDB사가 배포
+Download URL
+https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+1.2 PostgreSQL 설치 postgresql-[버전]-windows-x64.exe 파일을 실행 Next 클릭 설치할 소프트웨어를 선택하는 대화창(Select Components)에서 아래 2개만 설치 [ ] PostgreSQL Server
+[ ] Command Line Tools
+Next 클릭 후, PostgreSQL 서버를 사용하면서 자료저장 위치 지정(default) 기본 데이터베이스 관리자 postgres계정 비밀번호 지정 포트 지정 > 15432(기본포트가 아닌 다른포트번호) 으로 수정후 [Next] 클릭 2.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>September 29, 2020</span>
+<a href=/posts/db/2020-09-29-postgredb-setup/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/db/2020-10-20-postgresql-command/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>PostgreDB SQL 명령어 (PostgreDB SQL Command)</h5>
+<p class="card-text post-summary">1. DATABASE 생성 DATABASE 생성
+PostgreDB의 경우 대문자인식은 &ldquo;&ldquo;으로만 가능
+CREATE DATABASE "{database_name}"; 2. USER 생성 USER 생성
+CREATE USER {user_name} WITH PASSWORD '{user_password}' 개발용 계정으로 사용할 예정이기 때문에 SUPAERUSER 권한부여
+ALTER USER {user_name} WITH SUPERUSER; 유저에게 특정 권한 부여
+GRANT {permissions} ON DATABASE {db_name} TO {user_name}; 참고 URL : https://www.postgresql.org/docs/current/sql-grant.html
+예시
+GRANT ALL ON DATABASE "ABCD_DB" TO abcd_user; 계정 부여권한 해제</p>
+</div>
+<div class=card-footer>
+<span class=float-left>January 1, 0001</span>
+<a href=/posts/db/2020-10-20-postgresql-command/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class=paginator>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>바로가기</h5>
+<ul>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#about>About</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#skills>Skills</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#recent-posts>Recent Posts</a>
+</li>
+</ul>
+</div>
+<div class="col-md-4 col-sm-12">
+<h5>Contact me:</h5>
+<ul>
+<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
+<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<div class=container>
+<div class="row text-left">
+<div class=col-md-4>
+<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
+<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha
+</a>
+</div>
+<div class="col-md-4 text-center">© 2020 Copyright.</div>
+<div class="col-md-4 text-right">
+<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=/js/list.js></script>
+</body>
+</html>

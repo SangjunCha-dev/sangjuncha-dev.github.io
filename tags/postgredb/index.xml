@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>postgredb on Sangjun 개발 블로그</title><link>https://hugo-toha.github.io/tags/postgredb/</link><description>Recent content in postgredb on Sangjun 개발 블로그</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><lastBuildDate>Thu, 29 Apr 2021 16:29:43 +0900</lastBuildDate><atom:link href="https://hugo-toha.github.io/tags/postgredb/index.xml" rel="self" type="application/rss+xml"/><item><title>PostgreDB, pgadmin4 도커 설치 방법</title><link>https://hugo-toha.github.io/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/</link><pubDate>Thu, 29 Apr 2021 16:29:43 +0900</pubDate><guid>https://hugo-toha.github.io/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/</guid><description>Postgres Docker 이미지 설치 Postgres Version : 13.2
+다운로드 및 설정 아래 명령어를 실행한다.
+$ docker run -p 15432:5432 --name postgres -e POSTGRES_PASSWORD=password1! -d postgres -d : 백그라운드에서 컨테이너 실행 -p 15432:5432 : 호스트와 컨테이너 간의 배포(publish)포트/바인드(bind)포트 호스트 15432번 포트를 컨테이너 5432번 포트에 매핑 --name : 생성할 컨테이너 이름 -e : 도커 컨테이너의 환경변수 설정 POSTGRES_PASSWORD : PostgresDB 관리자 비밀번호 실행 결과</description></item><item><title>PostgreDB 설치 (PostgreDB Setup)</title><link>https://hugo-toha.github.io/posts/db/2020-09-29-postgredb-setup/</link><pubDate>Tue, 29 Sep 2020 15:07:59 +0900</pubDate><guid>https://hugo-toha.github.io/posts/db/2020-09-29-postgredb-setup/</guid><description>설치환경 : Windows 10
+1. PostgreDB 설치 1.1 설치파일 다운로드 윈도우즈용 설치 파일은 현재 EnterpriseDB사가 배포
+Download URL
+https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+1.2 PostgreSQL 설치 postgresql-[버전]-windows-x64.exe 파일을 실행 Next 클릭 설치할 소프트웨어를 선택하는 대화창(Select Components)에서 아래 2개만 설치 [ ] PostgreSQL Server
+[ ] Command Line Tools
+Next 클릭 후, PostgreSQL 서버를 사용하면서 자료저장 위치 지정(default) 기본 데이터베이스 관리자 postgres계정 비밀번호 지정 포트 지정 &amp;gt; 15432(기본포트가 아닌 다른포트번호) 으로 수정후 [Next] 클릭 2.</description></item><item><title>PostgreDB SQL 명령어 (PostgreDB SQL Command)</title><link>https://hugo-toha.github.io/posts/db/2020-10-20-postgresql-command/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hugo-toha.github.io/posts/db/2020-10-20-postgresql-command/</guid><description>1. DATABASE 생성 DATABASE 생성
+PostgreDB의 경우 대문자인식은 &amp;ldquo;&amp;ldquo;으로만 가능
+CREATE DATABASE &amp;#34;{database_name}&amp;#34;; 2. USER 생성 USER 생성
+CREATE USER {user_name} WITH PASSWORD &amp;#39;{user_password}&amp;#39; 개발용 계정으로 사용할 예정이기 때문에 SUPAERUSER 권한부여
+ALTER USER {user_name} WITH SUPERUSER; 유저에게 특정 권한 부여
+GRANT {permissions} ON DATABASE {db_name} TO {user_name}; 참고 URL : https://www.postgresql.org/docs/current/sql-grant.html
+예시
+GRANT ALL ON DATABASE &amp;#34;ABCD_DB&amp;#34; TO abcd_user; 계정 부여권한 해제</description></item></channel></rss>

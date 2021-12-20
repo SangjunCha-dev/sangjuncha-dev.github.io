@@ -1,0 +1,353 @@
+<!doctype html><html>
+<head>
+<title>django</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<meta property="og:title" content="django">
+<meta property="og:description" content>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hugo-toha.github.io/posts/framework/django/">
+<link rel=stylesheet href=/css/layouts/list.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+Sangjun 개발 블로그</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
+<div class=subtree>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
+<ul>
+<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
+<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
+<li><a href=/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/ title="LeetCode Python">LeetCode Python</a></li>
+<li><a href=/posts/algorithm/programmers/2020-12-15-algorithm-programmers-python-level1/ title="Programmers Python level 1">Programmers Python level 1</a></li>
+<li><a href=/posts/algorithm/programmers/2020-12-22-algorithm-programmers-python-level2/ title="Programmers Python level 2">Programmers Python level 2</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/db/>db</a>
+<ul>
+<li><a href=/posts/db/2020-09-28-mariadb-command/ title=mariadb-sql-command>mariadb-sql-command</a></li>
+<li><a href=/posts/db/2020-10-13-mssql-command/ title=mssql-sql-command>mssql-sql-command</a></li>
+<li><a href=/posts/db/2020-09-29-postgredb-setup/ title=postgredb-setup>postgredb-setup</a></li>
+<li><a href=/posts/db/2020-10-20-postgresql-command/ title=postgredb-sql-command>postgredb-sql-command</a></li>
+<li><a href=/posts/db/2020-09-30-sqlcmd-guide/ title=sqlcmd-guide>sqlcmd-guide</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/docker/>docker</a>
+<ul>
+<li><a href=/posts/docker/2021-04-08-docker-summary/ title="Docker Summary Setup Windows">Docker Summary Setup Windows</a></li>
+<li><a href=/posts/docker/2021-05-06-docker-mssql2017-setup/ title="Docker MSSQL Setup">Docker MSSQL Setup</a></li>
+<li><a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ title="Docker PostgreDB Pgadmin4 Setup">Docker PostgreDB Pgadmin4 Setup</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/framework/>framework</a>
+<ul class=active>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/framework/django/>django</a>
+<ul class=active>
+<li><a href=/posts/framework/django/2021-04-07-django-dynamic-model-and-table-create/ title="Django Create Dynamic Model">Django Create Dynamic Model</a></li>
+<li><a href=/posts/framework/django/2021-04-22-django-file-upload/ title="Django File Upload">Django File Upload</a></li>
+<li><a href=/posts/framework/django/2021-04-07-django-models-relations-object-call/ title="Django Model Reference Object">Django Model Reference Object</a></li>
+<li><a href=/posts/framework/django/2021-03-31-django-models-autoonetoonefield/ title="Django Models AutoOneToOneField">Django Models AutoOneToOneField</a></li>
+<li><a href=/posts/framework/django/2021-04-06-django-queryset-object-access/ title="Django QuerySet Object Access">Django QuerySet Object Access</a></li>
+<li><a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ title="Django Return json Data">Django Return json Data</a></li>
+<li><a href=/posts/framework/django/2021-06-11-django-websocket-using-channels-library-guide/ title="Django socketio">Django socketio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/linux/>linux</a>
+<ul>
+<li><a href=/posts/os/linux/2021-01-06-linux-nfs-setting/ title="Linux NFS Setting">Linux NFS Setting</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/windows/>windows</a>
+<ul>
+<li><a href=/posts/os/windows/2021-05-07-windows10-wsl2-guide/ title="Windows10 WSL2">Windows10 WSL2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/programming/>programming</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/programming/golang/>golang</a>
+<ul>
+<li><a href=/posts/programming/golang/2021-07-29-golang-gopacket/ title="Golang Gopacket">Golang Gopacket</a></li>
+<li><a href=/posts/programming/golang/2021-03-02-golang-grammar/ title="Golang Grammar">Golang Grammar</a></li>
+<li><a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ title="golang learn-go-with-tests">golang learn-go-with-tests</a></li>
+<li><a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ title="nomadcoders Go-for-beginners lectures">nomadcoders Go-for-beginners lectures</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/programming/python/>python</a>
+<ul>
+<li><a href=/posts/programming/python/2020-11-05-python-magic-guide/ title="libmagic Library Guide">libmagic Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ title="paramiko-scp Library Guide">paramiko-scp Library Guide</a></li>
+<li><a href=/posts/programming/python/2020-11-16-pyftpdlib-guide/ title="pyftpdlib Library Guide">pyftpdlib Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ title="Pyinstaller Library Guide">Pyinstaller Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ title="pyshark Library Guide">pyshark Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-21-python-numpy-use-guide/ title="Python Numpy Guide">Python Numpy Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-21-python-opencv-use-guide/ title="Python Opencv Guide">Python Opencv Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ title="Python structures and algorithms books">Python structures and algorithms books</a></li>
+<li><a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-throughput-difference/ title="Python variable Class vs Local">Python variable Class vs Local</a></li>
+<li><a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ title="Python windows10 system monitoring">Python windows10 system monitoring</a></li>
+<li><a href=/posts/programming/python/2021-02-09-scapy-library-guide/ title="Scapy Library Guide">Scapy Library Guide</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class="content container-fluid" id=content>
+<div class="container-fluid post-card-holder" id=post-card-holder>
+<div class=post-card>
+<a href=/posts/framework/django/2021-06-11-django-websocket-using-channels-library-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django socketio 라이브러리 활용한 통신</h5>
+<p class="card-text post-summary">라이브러리 설치 server 라이브러리 설치 pip install python-socketio client 라이브러리 설치 pip install "python-socketio[client]" Server django settings django server
+wsgi.py
+... import socketio from appname.views import sio # sio code path ... # application = get_wsgi_application() sio.register_namespace(TransferNamespace('/transfer')) django_app = get_wsgi_application() application = socketio.WSGIApp(sio, django_app) appname.views.py
+import socketio sio = socketio.Server(async_mode='threading', async_handlers=True, ping_interval=60) class TransferNamespace(socketio.Namespace): def on_connect(self, sid: str, environ: dict): ''' 클라이언트 접속 ''' print(f"connect address = {environ['REMOTE_ADDR']}, sid = {sid}") def on_disconnect(self, sid: str): ''' 클라이언트 접속 종료 ''' print(f"disconnect Client disconnected = {sid}") def send_event(self, sid: str): ''' 특정 sid 클라이언트에 이벤트 전송 ''' print("send_event") self.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>June 11, 2021</span>
+<a href=/posts/framework/django/2021-06-11-django-websocket-using-channels-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/framework/django/2021-04-22-django-file-upload/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django 파일 업로드</h5>
+<p class="card-text post-summary">django 파일 업로드
+청크단위 파일 업로드 대용량 업로드 가능 실시간 업로드 프로그래스바에 응용가능 from django.conf import settings def upload(request): if request.method == 'POST': path = settings.MEDIA_ROOT files = request.FILES['file'] for file in files: file_path = f'{path}/{file.name}' with open(file_path,'wb+') as dst_file: for chunk in file.chunks(): dst_file.write(chunk) </p>
+</div>
+<div class=card-footer>
+<span class=float-left>April 22, 2021</span>
+<a href=/posts/framework/django/2021-04-22-django-file-upload/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django json 데이터 반환하기</h5>
+<p class="card-text post-summary">api 서버 등 json 데이터로 통신하는 서버에서 사용할 수 있는 예제이다.
+사전 설정 프로젝트 생성 후 user 앱의 User 모델을 생성한다.
+임의의 user 데이터를 2개 등록한다.
+models.py
+class User(models.Model): id = models.AutoField(primary_key=True) name = models.CharField(max_length=20, unique=True) 사용 예시 QuerySet(Model Instance)을 json형태로 변환할 경우 .all() serializers.serialize(&lsquo;json&rsquo;, value_name) 함수를 사용하여 json 형태로 변환시킨다.
+views.py
+from django.core import serializers res_data = User.objects.all() # &lt;QuerySet [&lt;User: User object (1)>, &lt;User: User object (2)>]> res_data = serializers.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>April 20, 2021</span>
+<a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/framework/django/2021-04-07-django-models-relations-object-call/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django model 참조 객체 호출하기</h5>
+<p class="card-text post-summary">title: author: Sangjun Cha date: 2021-04-07 +0900 categories: [Django, Models] tags: [django, models] pin: false 정참조와 역참조 객체 호출 데이터베이스의 임의의 테이블로 User, Occupation 생성한다.
+두 테이블은 User 모델의 객체가 Occupation 모델의 객체를 N:1 참조관계를 가진다.
+models.py 설정
+class User(models.Model): name = models.CharField(max_length=50) age = models.IntegerField() job = models.ForeignKey('Occupation', on_delete=models.CASCADE) class Occupation(models.Model): name = models.CharField(max_length=50) 정참조 객체 호출하기 user1 객체가 Occupation 모델을 참조키(ForeignKey)로 정참조하여, Occupation 모델의 속성을 사용할 수 있다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>April 7, 2021</span>
+<a href=/posts/framework/django/2021-04-07-django-models-relations-object-call/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/framework/django/2021-04-07-django-dynamic-model-and-table-create/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django 동적 모델 및 테이블 생성</h5>
+<p class="card-text post-summary">Django 동적 모델 및 테이블 생성 django는 makemigrations, migrate 명령어를 통하여 테이블 생성한다.
+이때 웹서버는 실행중일 경우 중단하고 다시 재시작한다.
+운영환경에 따라서 웹서버가 중단되지 않고 운영이 필요한경우에는 위의 방법이 아닌 동적 모델 및 테이블 생성방법이 필요하다.
+사용 방법 상속받을 추상모델 작성 models.py
+from django.db import models class Board(models.Model): title = models.CharField(max_length=100) contents = models.CharField(max_length=500) class Meta: abstract = True 동적 모델 생성 및 삭제 from .models import Board TABLE_MAP = {} def create_model(name: str): ''' 동적 모델 생성 ''' baseclass = Board tablename = board2 # attrs 를 dict 형태로 지정한다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>April 7, 2021</span>
+<a href=/posts/framework/django/2021-04-07-django-dynamic-model-and-table-create/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/framework/django/2021-04-06-django-queryset-object-access/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django QuerySet 객체 접근방식 및 조회</h5>
+<p class="card-text post-summary">queryset 단일객체와 다중객체 접근방법 QuerySet 이란? Database에서 응답받은 결과 목록(list)
+Python 코드가 SQL 구문으로 맵핑(mapping)되고 DB로 전달하여 받은 응답값을 QuerySet 자료형으로 반환한다.
+사전설정 django version : 3.2
+models.py
+from django.db import models class User(): name = models.CharField(max_length=20) age = models.models.PositiveSmallIntegerField() >>> python manage.py shell #shell 실행 >>> from user.models import User #모델클래스 임포트 >>> user1 = User(name='Foo', age=15) # 데이터추가 >>> user1.save() # 데이터 저장 >>> user2 = User(name='Bar', age=20) # 데이터추가 >>> user2.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>April 6, 2021</span>
+<a href=/posts/framework/django/2021-04-06-django-queryset-object-access/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/framework/django/2021-03-31-django-models-autoonetoonefield/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django models.AutoOneToOneField 사용법</h5>
+<p class="card-text post-summary">model 상속할때 테이블 컬럼 데이터 자동 생성방법
+라이브러리 설치 pip install django-annoying models 설정 django의 models.OneToOneField는 데이터 변경없이(default 설정) 저장하면 해당 데이터(row)가 생성되지않음
+models.AutoOneToOneField는 데이터가 default값이어도 데이터(row) 생성됨
+from annoying.fields import AutoOneToOneField # User모델 Save에서 제어 class User(models.Model): name = models.CharField(max_length=30) def save(self): is_new = False if self.pk is None: is_new = True if is_new: Profile.objects.create(user=self) class Profile(models.Model): user = AutoOneToOneField(User, primary_key=True) home_page = models.URLField(max_length=255, blank=True) icq = models.IntegerField(blank=True, null=True) 참고사항 문제점 : TypeError: __init__() missing 1 required positional argument: 'on_delete' 에러 발생</p>
+</div>
+<div class=card-footer>
+<span class=float-left>March 31, 2021</span>
+<a href=/posts/framework/django/2021-03-31-django-models-autoonetoonefield/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class=paginator>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>바로가기</h5>
+<ul>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#about>About</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#skills>Skills</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#recent-posts>Recent Posts</a>
+</li>
+</ul>
+</div>
+<div class="col-md-4 col-sm-12">
+<h5>Contact me:</h5>
+<ul>
+<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
+<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<div class=container>
+<div class="row text-left">
+<div class=col-md-4>
+<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
+<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha
+</a>
+</div>
+<div class="col-md-4 text-center">© 2020 Copyright.</div>
+<div class="col-md-4 text-right">
+<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=/js/list.js></script>
+</body>
+</html>

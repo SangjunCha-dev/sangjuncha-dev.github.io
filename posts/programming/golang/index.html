@@ -1,0 +1,291 @@
+<!doctype html><html>
+<head>
+<title>golang</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<meta property="og:title" content="golang">
+<meta property="og:description" content>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hugo-toha.github.io/posts/programming/golang/">
+<link rel=stylesheet href=/css/layouts/list.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+Sangjun 개발 블로그</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
+<div class=subtree>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
+<ul>
+<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
+<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
+<li><a href=/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/ title="LeetCode Python">LeetCode Python</a></li>
+<li><a href=/posts/algorithm/programmers/2020-12-15-algorithm-programmers-python-level1/ title="Programmers Python level 1">Programmers Python level 1</a></li>
+<li><a href=/posts/algorithm/programmers/2020-12-22-algorithm-programmers-python-level2/ title="Programmers Python level 2">Programmers Python level 2</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/db/>db</a>
+<ul>
+<li><a href=/posts/db/2020-09-28-mariadb-command/ title=mariadb-sql-command>mariadb-sql-command</a></li>
+<li><a href=/posts/db/2020-10-13-mssql-command/ title=mssql-sql-command>mssql-sql-command</a></li>
+<li><a href=/posts/db/2020-09-29-postgredb-setup/ title=postgredb-setup>postgredb-setup</a></li>
+<li><a href=/posts/db/2020-10-20-postgresql-command/ title=postgredb-sql-command>postgredb-sql-command</a></li>
+<li><a href=/posts/db/2020-09-30-sqlcmd-guide/ title=sqlcmd-guide>sqlcmd-guide</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/docker/>docker</a>
+<ul>
+<li><a href=/posts/docker/2021-04-08-docker-summary/ title="Docker Summary Setup Windows">Docker Summary Setup Windows</a></li>
+<li><a href=/posts/docker/2021-05-06-docker-mssql2017-setup/ title="Docker MSSQL Setup">Docker MSSQL Setup</a></li>
+<li><a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ title="Docker PostgreDB Pgadmin4 Setup">Docker PostgreDB Pgadmin4 Setup</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/framework/django/>django</a>
+<ul>
+<li><a href=/posts/framework/django/2021-04-07-django-dynamic-model-and-table-create/ title="Django Create Dynamic Model">Django Create Dynamic Model</a></li>
+<li><a href=/posts/framework/django/2021-04-22-django-file-upload/ title="Django File Upload">Django File Upload</a></li>
+<li><a href=/posts/framework/django/2021-04-07-django-models-relations-object-call/ title="Django Model Reference Object">Django Model Reference Object</a></li>
+<li><a href=/posts/framework/django/2021-03-31-django-models-autoonetoonefield/ title="Django Models AutoOneToOneField">Django Models AutoOneToOneField</a></li>
+<li><a href=/posts/framework/django/2021-04-06-django-queryset-object-access/ title="Django QuerySet Object Access">Django QuerySet Object Access</a></li>
+<li><a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ title="Django Return json Data">Django Return json Data</a></li>
+<li><a href=/posts/framework/django/2021-06-11-django-websocket-using-channels-library-guide/ title="Django socketio">Django socketio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/linux/>linux</a>
+<ul>
+<li><a href=/posts/os/linux/2021-01-06-linux-nfs-setting/ title="Linux NFS Setting">Linux NFS Setting</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/windows/>windows</a>
+<ul>
+<li><a href=/posts/os/windows/2021-05-07-windows10-wsl2-guide/ title="Windows10 WSL2">Windows10 WSL2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a>
+<ul class=active>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/golang/>golang</a>
+<ul class=active>
+<li><a href=/posts/programming/golang/2021-07-29-golang-gopacket/ title="Golang Gopacket">Golang Gopacket</a></li>
+<li><a href=/posts/programming/golang/2021-03-02-golang-grammar/ title="Golang Grammar">Golang Grammar</a></li>
+<li><a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ title="golang learn-go-with-tests">golang learn-go-with-tests</a></li>
+<li><a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ title="nomadcoders Go-for-beginners lectures">nomadcoders Go-for-beginners lectures</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/programming/python/>python</a>
+<ul>
+<li><a href=/posts/programming/python/2020-11-05-python-magic-guide/ title="libmagic Library Guide">libmagic Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ title="paramiko-scp Library Guide">paramiko-scp Library Guide</a></li>
+<li><a href=/posts/programming/python/2020-11-16-pyftpdlib-guide/ title="pyftpdlib Library Guide">pyftpdlib Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ title="Pyinstaller Library Guide">Pyinstaller Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ title="pyshark Library Guide">pyshark Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-21-python-numpy-use-guide/ title="Python Numpy Guide">Python Numpy Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-21-python-opencv-use-guide/ title="Python Opencv Guide">Python Opencv Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ title="Python structures and algorithms books">Python structures and algorithms books</a></li>
+<li><a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-throughput-difference/ title="Python variable Class vs Local">Python variable Class vs Local</a></li>
+<li><a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ title="Python windows10 system monitoring">Python windows10 system monitoring</a></li>
+<li><a href=/posts/programming/python/2021-02-09-scapy-library-guide/ title="Scapy Library Guide">Scapy Library Guide</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class="content container-fluid" id=content>
+<div class="container-fluid post-card-holder" id=post-card-holder>
+<div class=post-card>
+<a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>golang learn-go-with-tests GitBook 정리</h5>
+<p class="card-text post-summary">사이트 주소 원본 링크
+한글 번역 링크
+5. struct, method & interface struct 구조체의 변수 첫글자는 대문자여야한다. (외부에서 사용 가능하도록)
+type Rectangle struct { Width float64 Height float64 } 구조체 필드이름을 선택적으로 지정할 수 있다.
+{shape: Rectangle{Width: 12, Height: 6}, want: 72.0}, {shape: Circle{Radius: 10}, want: 314.1592653589793}, methods func (receiverName ReceiverType) MethodName(args) r Rectangle 수신자 변수를 유형의 첫 번째 문자로 지정하는 것이 Go의 관례이다.
+func (r Rectangle) Area() float64 { return 0 } interface Go에서 인터페이스 자료형은 암시적 이다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>August 2, 2021</span>
+<a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/golang/2021-07-29-golang-gopacket/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>golang gopacket 라이브러리를 이용한 통신</h5>
+<p class="card-text post-summary">설명 ethernet 통신
+이더넷 어댑터 설명(dev.Description)을 기준으로 통신하는 코드이다. 예제 코드 package main import ( "fmt" "log" "net" "strings" "time" "github.com/google/gopacket" "github.com/google/gopacket/layers" "github.com/google/gopacket/pcap" ) var ( device string = "Realtek PCIe GbE Family Controller" eth_name string currentIP string snapshot_len int32 = 1522 promiscuous bool = false err error timeout time.Duration = 30 * time.Second handle *pcap.Handle buffer gopacket.SerializeBuffer options gopacket.SerializeOptions ) func main() { devices, err := pcap.FindAllDevs() if err !</p>
+</div>
+<div class=card-footer>
+<span class=float-left>July 29, 2021</span>
+<a href=/posts/programming/golang/2021-07-29-golang-gopacket/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>노마드코더 쉽고 빠른 Go 시작하기(nomadcoders Go-for-beginners lectures)</h5>
+<p class="card-text post-summary">0. 소개 설치 환경 : Windows 10 IDE : vscode
+0.1. 설치 해당 URL에서 golang 설치파일을 다운받아 실행
+https://golang.org/dl/ 설치파일에서 안내한 경로인 C:\Program Files\Go 폴더에 Go 설치 되었는지 확인 0.2. 설정 Go Path 환경변수 확인 Go는 지정된 Go Path 디렉토리에만 저장되어야함 시스템 환경변수에 등록된 GOPATH 값 확인 %USERPROFILE%\go -> C:\Users\[Profle_Name]\go 해당 경로가 Go Path 환경변수로 사용되는 경로 기본 설정 go 디렉토리로 이동하여 bin, pkg, src 디렉토리 생성 src 디렉토리안에 지정된 도메인 디렉토리 추가 go에서 다운받은 코드를 지정된 도메인 별로 분류하여 저장 src 디렉토리안에 github.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>February 22, 2021</span>
+<a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/golang/2021-03-02-golang-grammar/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Go 언어 문법 (Golang grammar)</h5>
+<p class="card-text post-summary">디렉토리 관련 함수 2021년 3월 3일 수요일 오전 8:55:31
+단일 디렉토리 생성 os.Mkdir(path, permission)
+err := os.Mkdir("tmp", 0755) if err != nil { log.Fatal(err) } 다중 디렉토리 생성 os.MkdirAll(path, permission) :
+err := os.MkdirAll("tmp/new", 0755) if err != nil { log.Fatal(err) } 현재 작업 디렉토리 얻기 os.Getwd()
+path, err := os.Getwd() if err != nil { log.Println(err) } fmt.Println(path) 디렉토리 존재유무 확인 os.Stat(paht)
+if _, err := os.Stat("/dirname"); os.IsNotExist(err) { // does not exist } if _, err := os.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>February 10, 2021</span>
+<a href=/posts/programming/golang/2021-03-02-golang-grammar/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class=paginator>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>바로가기</h5>
+<ul>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#about>About</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#skills>Skills</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#recent-posts>Recent Posts</a>
+</li>
+</ul>
+</div>
+<div class="col-md-4 col-sm-12">
+<h5>Contact me:</h5>
+<ul>
+<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
+<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<div class=container>
+<div class="row text-left">
+<div class=col-md-4>
+<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
+<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha
+</a>
+</div>
+<div class="col-md-4 text-center">© 2020 Copyright.</div>
+<div class="col-md-4 text-right">
+<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=/js/list.js></script>
+</body>
+</html>

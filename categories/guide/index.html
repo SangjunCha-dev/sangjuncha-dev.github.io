@@ -1,0 +1,266 @@
+<!doctype html><html>
+<head>
+<title>Guide</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<meta property="og:title" content="Guide">
+<meta property="og:description" content>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hugo-toha.github.io/categories/guide/">
+<link rel=stylesheet href=/css/layouts/list.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+Sangjun 개발 블로그</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/categories data-filter=all>카테고리</a></li>
+<div class="subtree taxonomy-terms">
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/algorithm/ data-taxonomy-term=algorithm><span class=taxonomy-label>Algorithm</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/db/ data-taxonomy-term=db><span class=taxonomy-label>DB</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/django/ data-taxonomy-term=django><span class=taxonomy-label>Django</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/docker/ data-taxonomy-term=docker><span class=taxonomy-label>Docker</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/go/ data-taxonomy-term=go><span class=taxonomy-label>Go</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/gopacket/ data-taxonomy-term=gopacket><span class=taxonomy-label>Gopacket</span></a></li>
+<li><a class="taxonomy-term active" href=https://hugo-toha.github.io/categories/guide/ data-taxonomy-term=guide><span class=taxonomy-label>Guide</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/learning/ data-taxonomy-term=learning><span class=taxonomy-label>Learning</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/leetcode/ data-taxonomy-term=leetcode><span class=taxonomy-label>LeetCode</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/linux/ data-taxonomy-term=linux><span class=taxonomy-label>Linux</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/mariadb/ data-taxonomy-term=mariadb><span class=taxonomy-label>mariaDB</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/models/ data-taxonomy-term=models><span class=taxonomy-label>Models</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/mssql/ data-taxonomy-term=mssql><span class=taxonomy-label>MSSQL</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/nfs/ data-taxonomy-term=nfs><span class=taxonomy-label>NFS</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/numpy/ data-taxonomy-term=numpy><span class=taxonomy-label>Numpy</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/opencv/ data-taxonomy-term=opencv><span class=taxonomy-label>Opencv</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/postgredb/ data-taxonomy-term=postgredb><span class=taxonomy-label>PostgreDB</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/programmers/ data-taxonomy-term=programmers><span class=taxonomy-label>Programmers</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/python/ data-taxonomy-term=python><span class=taxonomy-label>Python</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/scraper/ data-taxonomy-term=scraper><span class=taxonomy-label>Scraper</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/sniff/ data-taxonomy-term=sniff><span class=taxonomy-label>Sniff</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/sqlcmd/ data-taxonomy-term=sqlcmd><span class=taxonomy-label>sqlcmd</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/windows/ data-taxonomy-term=windows><span class=taxonomy-label>Windows</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/windows10/ data-taxonomy-term=windows10><span class=taxonomy-label>Windows10</span></a></li>
+<li><a class=taxonomy-term href=https://hugo-toha.github.io/categories/wsl/ data-taxonomy-term=wsl><span class=taxonomy-label>WSL</span></a></li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class="content container-fluid" id=content>
+<div class="container-fluid post-card-holder" id=post-card-holder>
+<div class=post-card>
+<a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)</h5>
+<p class="card-text post-summary">python 파일을 윈도우에서 python 이나 가상환경 설정없이 실행이 가능한 .exe 으로 변환해주는 라이브러리
+Docs URL - https://pyinstaller.readthedocs.io/en/stable/usage.html
+설치환경 : Windows 10
+1. 설치 python 실행이 가능한 가상환경 터미널에서 아래의 명령어 실행
+pip install pyinstaller 2. 간단한 사용예제 pyinstaller --clean --distpath . -F -n [프로그램이름] [변환시킬 파일].py 3. 옵션 옵션 설명 &ndash;clean 빌드하기 전에 PyInstaller 캐시를 정리하고 임시파일 제거 -F, &ndash;onefile 단일 실행파일로 생성(실행시 사용한 라이브러리 임시파일 생성됨) -D, &ndash;onedir 실행 파일을 포함하는 단일 폴더로 생성 &ndash;distpath DIR 실행파일 생성 경로(default: .</p>
+</div>
+<div class=card-footer>
+<span class=float-left>March 10, 2021</span>
+<a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>pyshark 라이브러리 사용법 (pyshark Library Guide)</h5>
+<p class="card-text post-summary">Docs URL - https://github.com/KimiNewt/pyshark/
+설치환경 : Windows 10, python 3.7
+1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install pyshark 2. 사용법 캡쳐파일 읽기 capture = pyshark.FileCapture('./test.pcapng') 실시간 패킷캡처 interface capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 11:22:33:44:55:66', use_json=True, include_raw=True) 패킷 캡처 패킷 1개만 캡처하거나 10ms 경과하면 캡처 결과 반환
+capture.sniff(packet_count=1, timeout=10) 패킷 10개만 캡처하거나 10ms 경과하면 캡처 결과 반환
+capture.sniff(packet_count=10, timeout=10) 패킷 bytes 형태로 반환 print(capture[0].</p>
+</div>
+<div class=card-footer>
+<span class=float-left>February 10, 2021</span>
+<a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>scapy 라이브러리 사용법 (Scapy Library Guide)</h5>
+<p class="card-text post-summary">Docs URL - https://scapy.readthedocs.io/en/latest/#
+설치환경 : Windows 10
+1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install --pre scapy[basic] 2. Client 예제 from scapy.all import * from scapy.utils import rdpcap import datetime as dt # PCAP 파일 읽기 # could be used like this rdpcap("filename",500) fetches first 500 pkts pkts = rdpcap("./pcap/test.pcapng", -1) pkts = pkts[21:100] cnt = 0 repeat = 10 s_time = dt.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>February 9, 2021</span>
+<a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>paramiko-scp 라이브러리 사용법 (paramiko-scp Library Guide)</h5>
+<p class="card-text post-summary">paramiko, scp 라이브러리 연계 사용한 ssh 파일 전송
+라이브러리 암호화 여부 속도 paramiko 로그인:암호화 / 파일전송:암호화 느림 paramiko+scp 로그인:암호화 / 파일전송:평문 보통 실습환경 : windows10, 원격서버환경 : linux(RHEL8)
+사전에 ssh 접속가능한 linux를 구축한 후 실습 진행
+라이브러리 설치 pip install paramiko pip install scp paramiko : SSH 접속 및 종료 기능
+Docs URL - http://docs.paramiko.org/en/stable/ scp : 파일 전송 및 다운로드 기능</p>
+</div>
+<div class=card-footer>
+<span class=float-left>January 6, 2021</span>
+<a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2020-11-16-pyftpdlib-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)</h5>
+<p class="card-text post-summary">Docs URL - https://pyftpdlib.readthedocs.io/en/latest/
+FTP Server 라이브러리 설치 pip install pyftpdlib 실습 버전 : pyftpdlib 1.5.6
+사용예제 코드 FTP Server 예제 ftp server 실행 후 client 테스트 가능
+from pyftpdlib.authorizers import DummyAuthorizer # 사용자 인증을 생성하는 모듈 from pyftpdlib.handlers import FTPHandler # 사용자 인증, 파일 전송, 로깅 등 FTP서버를 조작하는 모듈 # from pyftpdlib.handlers import TLS_FTPHandler from pyftpdlib.servers import FTPServer # FTP서버를 실행하는 모듈 # from pyftpdlib.servers import ThreadedFTPServer import os class FileServer: def __init__(self): self.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>November 16, 2020</span>
+<a href=/posts/programming/python/2020-11-16-pyftpdlib-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2020-11-05-python-magic-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>libmagic 라이브러리 사용법 (libmagic Library Guide)</h5>
+<p class="card-text post-summary">미디어 타입(media type), MIME 타입(MIME type)
+실행환경 : windows 10
+라이브러리 설치 pip install libmagic pip install python-magic-bin libmagic : 파일타입을 MIME 타입으로 확인해주는 라이브러리
+magic은 리눅스 환경에서 실행되는 프로그램 윈도우즈 환경에서는 윈도우용 magic 설치가 필요함 python-magic-bin : 윈도우용 magic 라이브러리
+예제 코드 import magic r1 = magic.from_file("test1.txt") r2 = magic.from_file("test1.txt", mime=True) print(f"filetype = {r1}, \nmime = {r2}") # filetype = UTF-8 Unicode text, with CRLF line terminators, # mime = text/plain file_data = open('test1.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>November 5, 2020</span>
+<a href=/posts/programming/python/2020-11-05-python-magic-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class=paginator>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>바로가기</h5>
+<ul>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#about>About</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#skills>Skills</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#recent-posts>Recent Posts</a>
+</li>
+</ul>
+</div>
+<div class="col-md-4 col-sm-12">
+<h5>Contact me:</h5>
+<ul>
+<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
+<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<div class=container>
+<div class="row text-left">
+<div class=col-md-4>
+<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
+<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha
+</a>
+</div>
+<div class="col-md-4 text-center">© 2020 Copyright.</div>
+<div class="col-md-4 text-right">
+<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=/js/list.js></script>
+</body>
+</html>

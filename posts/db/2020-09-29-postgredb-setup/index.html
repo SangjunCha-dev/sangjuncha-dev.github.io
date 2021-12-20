@@ -1,0 +1,343 @@
+<!doctype html><html>
+<head>
+<title>PostgreDB 설치 (PostgreDB Setup)</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<meta property="og:title" content="PostgreDB 설치 (PostgreDB Setup)">
+<meta property="og:description" content="PostgreDB 설치 방법">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hugo-toha.github.io/posts/db/2020-09-29-postgredb-setup/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2020-09-29T15:07:59+09:00">
+<meta property="article:modified_time" content="2020-09-29T15:07:59+09:00">
+<meta name=description content="PostgreDB 설치 방법">
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
+<link rel=stylesheet href=/css/layouts/single.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+Sangjun 개발 블로그</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
+<div class=subtree>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
+<ul>
+<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
+<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
+<li><a href=/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/ title="LeetCode Python">LeetCode Python</a></li>
+<li><a href=/posts/algorithm/programmers/2020-12-15-algorithm-programmers-python-level1/ title="Programmers Python level 1">Programmers Python level 1</a></li>
+<li><a href=/posts/algorithm/programmers/2020-12-22-algorithm-programmers-python-level2/ title="Programmers Python level 2">Programmers Python level 2</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/db/>db</a>
+<ul class=active>
+<li><a href=/posts/db/2020-09-28-mariadb-command/ title=mariadb-sql-command>mariadb-sql-command</a></li>
+<li><a href=/posts/db/2020-10-13-mssql-command/ title=mssql-sql-command>mssql-sql-command</a></li>
+<li><a class=active href=/posts/db/2020-09-29-postgredb-setup/ title=postgredb-setup>postgredb-setup</a></li>
+<li><a href=/posts/db/2020-10-20-postgresql-command/ title=postgredb-sql-command>postgredb-sql-command</a></li>
+<li><a href=/posts/db/2020-09-30-sqlcmd-guide/ title=sqlcmd-guide>sqlcmd-guide</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/docker/>docker</a>
+<ul>
+<li><a href=/posts/docker/2021-04-08-docker-summary/ title="Docker Summary Setup Windows">Docker Summary Setup Windows</a></li>
+<li><a href=/posts/docker/2021-05-06-docker-mssql2017-setup/ title="Docker MSSQL Setup">Docker MSSQL Setup</a></li>
+<li><a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ title="Docker PostgreDB Pgadmin4 Setup">Docker PostgreDB Pgadmin4 Setup</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/framework/django/>django</a>
+<ul>
+<li><a href=/posts/framework/django/2021-04-07-django-dynamic-model-and-table-create/ title="Django Create Dynamic Model">Django Create Dynamic Model</a></li>
+<li><a href=/posts/framework/django/2021-04-22-django-file-upload/ title="Django File Upload">Django File Upload</a></li>
+<li><a href=/posts/framework/django/2021-04-07-django-models-relations-object-call/ title="Django Model Reference Object">Django Model Reference Object</a></li>
+<li><a href=/posts/framework/django/2021-03-31-django-models-autoonetoonefield/ title="Django Models AutoOneToOneField">Django Models AutoOneToOneField</a></li>
+<li><a href=/posts/framework/django/2021-04-06-django-queryset-object-access/ title="Django QuerySet Object Access">Django QuerySet Object Access</a></li>
+<li><a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ title="Django Return json Data">Django Return json Data</a></li>
+<li><a href=/posts/framework/django/2021-06-11-django-websocket-using-channels-library-guide/ title="Django socketio">Django socketio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/linux/>linux</a>
+<ul>
+<li><a href=/posts/os/linux/2021-01-06-linux-nfs-setting/ title="Linux NFS Setting">Linux NFS Setting</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/windows/>windows</a>
+<ul>
+<li><a href=/posts/os/windows/2021-05-07-windows10-wsl2-guide/ title="Windows10 WSL2">Windows10 WSL2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/programming/>programming</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/programming/golang/>golang</a>
+<ul>
+<li><a href=/posts/programming/golang/2021-07-29-golang-gopacket/ title="Golang Gopacket">Golang Gopacket</a></li>
+<li><a href=/posts/programming/golang/2021-03-02-golang-grammar/ title="Golang Grammar">Golang Grammar</a></li>
+<li><a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ title="golang learn-go-with-tests">golang learn-go-with-tests</a></li>
+<li><a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ title="nomadcoders Go-for-beginners lectures">nomadcoders Go-for-beginners lectures</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/programming/python/>python</a>
+<ul>
+<li><a href=/posts/programming/python/2020-11-05-python-magic-guide/ title="libmagic Library Guide">libmagic Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ title="paramiko-scp Library Guide">paramiko-scp Library Guide</a></li>
+<li><a href=/posts/programming/python/2020-11-16-pyftpdlib-guide/ title="pyftpdlib Library Guide">pyftpdlib Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ title="Pyinstaller Library Guide">Pyinstaller Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ title="pyshark Library Guide">pyshark Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-21-python-numpy-use-guide/ title="Python Numpy Guide">Python Numpy Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-21-python-opencv-use-guide/ title="Python Opencv Guide">Python Opencv Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ title="Python structures and algorithms books">Python structures and algorithms books</a></li>
+<li><a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-throughput-difference/ title="Python variable Class vs Local">Python variable Class vs Local</a></li>
+<li><a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ title="Python windows10 system monitoring">Python windows10 system monitoring</a></li>
+<li><a href=/posts/programming/python/2021-02-09-scapy-library-guide/ title="Scapy Library Guide">Scapy Library Guide</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class=content>
+<div class="container p-0 read-area">
+<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://hugo-toha.github.io/images/default-hero.jpg)>
+</div>
+<div class=page-content>
+<div class="author-profile ml-auto align-self-lg-center">
+<img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image">
+<h5 class=author-name>Sangjun</h5>
+<p>September 29, 2020</p>
+</div>
+<div class=title>
+<h1>PostgreDB 설치 (PostgreDB Setup)</h1>
+</div>
+<div class=post-content id=post-content>
+<p>설치환경 : Windows 10</p>
+<h1 id=1-postgredb-설치>1. PostgreDB 설치</h1>
+<h2 id=11-설치파일-다운로드>1.1 설치파일 다운로드</h2>
+<p>윈도우즈용 설치 파일은 현재 EnterpriseDB사가 배포</p>
+<blockquote>
+<p>Download URL<br>
+<a href=https://www.enterprisedb.com/downloads/postgres-postgresql-downloads>https://www.enterprisedb.com/downloads/postgres-postgresql-downloads</a></p>
+</blockquote>
+<h2 id=12-postgresql-설치>1.2 PostgreSQL 설치</h2>
+<ul>
+<li>postgresql-[버전]-windows-x64.exe 파일을 실행</li>
+<li>Next 클릭</li>
+<li>설치할 소프트웨어를 선택하는 대화창(Select Components)에서 아래 2개만 설치
+<blockquote>
+<p>[ ] <code>PostgreSQL Server</code><br>
+[ ] <code>Command Line Tools </code></p>
+</blockquote>
+</li>
+<li>Next 클릭 후, PostgreSQL 서버를 사용하면서 자료저장 위치 지정(default)</li>
+<li>기본 데이터베이스 관리자 postgres계정 <code>비밀번호</code> 지정</li>
+<li>포트 지정 > <code>15432</code>(기본포트가 아닌 다른포트번호) 으로 수정후 [Next] 클릭</li>
+</ul>
+<h1 id=2-postgredb-서버-사용하기>2. PostgreDB 서버 사용하기</h1>
+<h2 id=21-pgadmin-설치파일-다운로드>2.1 PGADMIN 설치파일 다운로드</h2>
+<p>클라이언트 - 데이터베이스 조작 GUI 도구</p>
+<blockquote>
+<p>Download URL<br>
+<a href=https://www.pgadmin.org/download/>https://www.pgadmin.org/download/</a></p>
+</blockquote>
+<h2 id=22-pgadmin-설치>2.2 PGADMIN 설치</h2>
+<p>pgadmin4-[버전]-x64.exe 실행</p>
+<p>기본 설정대로 [Next] 클릭하여 설치</p>
+<h2 id=23-pgadmin-실행>2.3 PGADMIN 실행</h2>
+<p>특징</p>
+<ul>
+<li>자체 웹서버 실행</li>
+<li><code>웹 브라우저</code>로 접속하여 데이터베이스 조작가능</li>
+<li>pgAdmin 응용프로그램을 실행시 OS의 기본 웹브라우저가 실행되면서 pgAdmin 웹프로그램을 실행하는 url을 호출</li>
+<li>첫 접속시 최상위 관리용 비밀번호 지정</li>
+<li>왼쪽에 있는 Servers 글자 클릭시 <code>기본 PostgreSQL 서버</code> 접속됨</li>
+</ul>
+<h2 id=24-pgadmin-사용>2.4 PGADMIN 사용</h2>
+<ul>
+<li>
+<p>화면 왼쪽 서버 트리 영역(객체 트리 영역)에서 데이터베이스 - 스키마까지 선택</p>
+</li>
+<li>
+<p>상단의 (Tools)도구들 -> (<code>Query Tools</code>)쿼리 도구 선택하면, SQL명령 입력 및 실행 가능</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>select</span> <span style=color:#66d9ef>version</span>()
+</code></pre></div></li>
+</ul>
+<h2 id=25-windows-postgresql-외부접속-허용설정>2.5 Windows PostgreSQL 외부접속 허용설정</h2>
+<ul>
+<li>
+<p><code>pg_hba.conf</code> 접속 허용 IP 설정</p>
+<pre tabindex=0><code>C:\Program Files\PostgreSQL\{Version}\data\**pg_hba.conf**
+</code></pre><pre tabindex=0><code>C:\Program Files\PostgreSQL\13\data\**pg_hba.conf**
+</code></pre><p>pg_hba.conf</p>
+<pre tabindex=0><code># TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# 특정 IP 허용
+host 	all				all				192.168.0.X/32		scram-sha-256
+
+# 특정 IP대역 허용
+host 	all				all				192.168.0.X/24		scram-sha-256
+</code></pre></li>
+</ul>
+</div>
+<div class="row pl-3 pr-3">
+<div class="col-md-6 share-buttons">
+</div>
+<div class="col-md-6 btn-improve-page">
+<a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/db/2020-09-29-PostgreDB-Setup.md title="이 페이지를 개선" target=_blank rel=noopener>
+<i class="fas fa-code-branch"></i>
+이 페이지를 개선
+</a>
+</div>
+</div>
+<hr>
+<div class="row next-prev-navigator">
+<div class="col-md-6 previous-article">
+<a href=/posts/db/2020-10-13-mssql-command/ title="MSSQL SQL 명령어 (MSSQL SQL Command)" class="btn btn-outline-info">
+<div><i class="fas fa-chevron-circle-left"></i> 이전</div>
+<div class=next-prev-text>MSSQL SQL 명령어 (MSSQL SQL Command)</div>
+</a>
+</div>
+<div class="col-md-6 next-article">
+<a href=/posts/db/2020-10-20-postgresql-command/ title="PostgreDB SQL 명령어 (PostgreDB SQL Command)" class="btn btn-outline-info">
+<div>다음 <i class="fas fa-chevron-circle-right"></i></div>
+<div class=next-prev-text>PostgreDB SQL 명령어 (PostgreDB SQL Command)</div>
+</a>
+</div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
+</section>
+<section class=toc-section id=toc-section>
+<div class=toc-holder>
+<h5 class="text-center pl-3">목차</h5>
+<hr>
+<div class=toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#11-설치파일-다운로드>1.1 설치파일 다운로드</a></li>
+<li><a href=#12-postgresql-설치>1.2 PostgreSQL 설치</a></li>
+</ul>
+<ul>
+<li><a href=#21-pgadmin-설치파일-다운로드>2.1 PGADMIN 설치파일 다운로드</a></li>
+<li><a href=#22-pgadmin-설치>2.2 PGADMIN 설치</a></li>
+<li><a href=#23-pgadmin-실행>2.3 PGADMIN 실행</a></li>
+<li><a href=#24-pgadmin-사용>2.4 PGADMIN 사용</a></li>
+<li><a href=#25-windows-postgresql-외부접속-허용설정>2.5 Windows PostgreSQL 외부접속 허용설정</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>바로가기</h5>
+<ul>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#about>About</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#skills>Skills</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#recent-posts>Recent Posts</a>
+</li>
+</ul>
+</div>
+<div class="col-md-4 col-sm-12">
+<h5>Contact me:</h5>
+<ul>
+<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
+<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<div class=container>
+<div class="row text-left">
+<div class=col-md-4>
+<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
+<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha
+</a>
+</div>
+<div class="col-md-4 text-center">© 2020 Copyright.</div>
+<div class="col-md-4 text-right">
+<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
+<script src=/js/single.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

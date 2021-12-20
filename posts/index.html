@@ -1,0 +1,472 @@
+<!doctype html><html>
+<head>
+<title>Posts</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<meta property="og:title" content="Posts">
+<meta property="og:description" content>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hugo-toha.github.io/posts/">
+<link rel=stylesheet href=/css/layouts/list.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+Sangjun 개발 블로그</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
+<div class=subtree>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
+<ul>
+<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
+<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
+<li><a href=/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/ title="LeetCode Python">LeetCode Python</a></li>
+<li><a href=/posts/algorithm/programmers/2020-12-15-algorithm-programmers-python-level1/ title="Programmers Python level 1">Programmers Python level 1</a></li>
+<li><a href=/posts/algorithm/programmers/2020-12-22-algorithm-programmers-python-level2/ title="Programmers Python level 2">Programmers Python level 2</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/db/>db</a>
+<ul>
+<li><a href=/posts/db/2020-09-28-mariadb-command/ title=mariadb-sql-command>mariadb-sql-command</a></li>
+<li><a href=/posts/db/2020-10-13-mssql-command/ title=mssql-sql-command>mssql-sql-command</a></li>
+<li><a href=/posts/db/2020-09-29-postgredb-setup/ title=postgredb-setup>postgredb-setup</a></li>
+<li><a href=/posts/db/2020-10-20-postgresql-command/ title=postgredb-sql-command>postgredb-sql-command</a></li>
+<li><a href=/posts/db/2020-09-30-sqlcmd-guide/ title=sqlcmd-guide>sqlcmd-guide</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/docker/>docker</a>
+<ul>
+<li><a href=/posts/docker/2021-04-08-docker-summary/ title="Docker Summary Setup Windows">Docker Summary Setup Windows</a></li>
+<li><a href=/posts/docker/2021-05-06-docker-mssql2017-setup/ title="Docker MSSQL Setup">Docker MSSQL Setup</a></li>
+<li><a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ title="Docker PostgreDB Pgadmin4 Setup">Docker PostgreDB Pgadmin4 Setup</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/framework/django/>django</a>
+<ul>
+<li><a href=/posts/framework/django/2021-04-07-django-dynamic-model-and-table-create/ title="Django Create Dynamic Model">Django Create Dynamic Model</a></li>
+<li><a href=/posts/framework/django/2021-04-22-django-file-upload/ title="Django File Upload">Django File Upload</a></li>
+<li><a href=/posts/framework/django/2021-04-07-django-models-relations-object-call/ title="Django Model Reference Object">Django Model Reference Object</a></li>
+<li><a href=/posts/framework/django/2021-03-31-django-models-autoonetoonefield/ title="Django Models AutoOneToOneField">Django Models AutoOneToOneField</a></li>
+<li><a href=/posts/framework/django/2021-04-06-django-queryset-object-access/ title="Django QuerySet Object Access">Django QuerySet Object Access</a></li>
+<li><a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ title="Django Return json Data">Django Return json Data</a></li>
+<li><a href=/posts/framework/django/2021-06-11-django-websocket-using-channels-library-guide/ title="Django socketio">Django socketio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/linux/>linux</a>
+<ul>
+<li><a href=/posts/os/linux/2021-01-06-linux-nfs-setting/ title="Linux NFS Setting">Linux NFS Setting</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/windows/>windows</a>
+<ul>
+<li><a href=/posts/os/windows/2021-05-07-windows10-wsl2-guide/ title="Windows10 WSL2">Windows10 WSL2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/programming/>programming</a>
+<ul>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/programming/golang/>golang</a>
+<ul>
+<li><a href=/posts/programming/golang/2021-07-29-golang-gopacket/ title="Golang Gopacket">Golang Gopacket</a></li>
+<li><a href=/posts/programming/golang/2021-03-02-golang-grammar/ title="Golang Grammar">Golang Grammar</a></li>
+<li><a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ title="golang learn-go-with-tests">golang learn-go-with-tests</a></li>
+<li><a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ title="nomadcoders Go-for-beginners lectures">nomadcoders Go-for-beginners lectures</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/programming/python/>python</a>
+<ul>
+<li><a href=/posts/programming/python/2020-11-05-python-magic-guide/ title="libmagic Library Guide">libmagic Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ title="paramiko-scp Library Guide">paramiko-scp Library Guide</a></li>
+<li><a href=/posts/programming/python/2020-11-16-pyftpdlib-guide/ title="pyftpdlib Library Guide">pyftpdlib Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ title="Pyinstaller Library Guide">Pyinstaller Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ title="pyshark Library Guide">pyshark Library Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-21-python-numpy-use-guide/ title="Python Numpy Guide">Python Numpy Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-21-python-opencv-use-guide/ title="Python Opencv Guide">Python Opencv Guide</a></li>
+<li><a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ title="Python structures and algorithms books">Python structures and algorithms books</a></li>
+<li><a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-throughput-difference/ title="Python variable Class vs Local">Python variable Class vs Local</a></li>
+<li><a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ title="Python windows10 system monitoring">Python windows10 system monitoring</a></li>
+<li><a href=/posts/programming/python/2021-02-09-scapy-library-guide/ title="Scapy Library Guide">Scapy Library Guide</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class="content container-fluid" id=content>
+<div class="container-fluid post-card-holder" id=post-card-holder>
+<div class=post-card>
+<a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>golang learn-go-with-tests GitBook 정리</h5>
+<p class="card-text post-summary">사이트 주소 원본 링크
+한글 번역 링크
+5. struct, method & interface struct 구조체의 변수 첫글자는 대문자여야한다. (외부에서 사용 가능하도록)
+type Rectangle struct { Width float64 Height float64 } 구조체 필드이름을 선택적으로 지정할 수 있다.
+{shape: Rectangle{Width: 12, Height: 6}, want: 72.0}, {shape: Circle{Radius: 10}, want: 314.1592653589793}, methods func (receiverName ReceiverType) MethodName(args) r Rectangle 수신자 변수를 유형의 첫 번째 문자로 지정하는 것이 Go의 관례이다.
+func (r Rectangle) Area() float64 { return 0 } interface Go에서 인터페이스 자료형은 암시적 이다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>August 2, 2021</span>
+<a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/golang/2021-07-29-golang-gopacket/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>golang gopacket 라이브러리를 이용한 통신</h5>
+<p class="card-text post-summary">설명 ethernet 통신
+이더넷 어댑터 설명(dev.Description)을 기준으로 통신하는 코드이다. 예제 코드 package main import ( "fmt" "log" "net" "strings" "time" "github.com/google/gopacket" "github.com/google/gopacket/layers" "github.com/google/gopacket/pcap" ) var ( device string = "Realtek PCIe GbE Family Controller" eth_name string currentIP string snapshot_len int32 = 1522 promiscuous bool = false err error timeout time.Duration = 30 * time.Second handle *pcap.Handle buffer gopacket.SerializeBuffer options gopacket.SerializeOptions ) func main() { devices, err := pcap.FindAllDevs() if err !</p>
+</div>
+<div class=card-footer>
+<span class=float-left>July 29, 2021</span>
+<a href=/posts/programming/golang/2021-07-29-golang-gopacket/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>python을 이용한 windows10 시스템 정보 및 사용량 모니터링</h5>
+<p class="card-text post-summary">운영체제 : windows 10 설치환경 : python 3.8.8, powershell 7.1
+powershell 명령어 사용법 WMI 개체 가져오기(Get-CimInstance) python에서 powershell 명령 실행 방법 1. 콘솔 명령 실행 cmd = "Get-CimInstance -Class Win32_OperatingSystem" subprocess.Popen(f'powershell.exe {cmd}') 2. 실행결과 반환 디코딩을 하지 않으면 바이트 문자열로 나열되서 반환된다.
+cmd = "Get-CimInstance -Class Win32_OperatingSystem" result = subprocess.Popen(f'powershell.exe {cmd}', stdout=subprocess.PIPE) print(result) result = result.stdout.read() print(result) 결과
+&lt;subprocess.Popen object at 0x0000025175617B50> b'\r\nSystemDirectory Organization BuildNumber RegisteredUser SerialNumber Version \r\n--------------- ------------ ----------- -------------- ------------ ------- \r\nC:\\Windows\\system32 19000 UserName 00000-00000 10.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>June 16, 2021</span>
+<a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/framework/django/2021-06-11-django-websocket-using-channels-library-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django socketio 라이브러리 활용한 통신</h5>
+<p class="card-text post-summary">라이브러리 설치 server 라이브러리 설치 pip install python-socketio client 라이브러리 설치 pip install "python-socketio[client]" Server django settings django server
+wsgi.py
+... import socketio from appname.views import sio # sio code path ... # application = get_wsgi_application() sio.register_namespace(TransferNamespace('/transfer')) django_app = get_wsgi_application() application = socketio.WSGIApp(sio, django_app) appname.views.py
+import socketio sio = socketio.Server(async_mode='threading', async_handlers=True, ping_interval=60) class TransferNamespace(socketio.Namespace): def on_connect(self, sid: str, environ: dict): ''' 클라이언트 접속 ''' print(f"connect address = {environ['REMOTE_ADDR']}, sid = {sid}") def on_disconnect(self, sid: str): ''' 클라이언트 접속 종료 ''' print(f"disconnect Client disconnected = {sid}") def send_event(self, sid: str): ''' 특정 sid 클라이언트에 이벤트 전송 ''' print("send_event") self.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>June 11, 2021</span>
+<a href=/posts/framework/django/2021-06-11-django-websocket-using-channels-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-throughput-difference/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이</h5>
+<p class="card-text post-summary">설치버전 : python 3.8.8
+클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이 예제 코드 1 import timeit class CheckTime: def __init__(self): self.a = 0 self.b = 0 self.c = 0 def process_self(self): self.a + self.b + self.c def process_argument(self, a, b, c): a + b + c def get_time(self): self.a = 1 self.b = 2 self.c = 3 def test1(): self.process_self() process_self_time = timeit.Timer(stmt=test1).repeat(number=1000000) a = self.a b = self.b c = self.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>May 24, 2021</span>
+<a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-throughput-difference/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2021-05-21-python-opencv-use-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Python Opencv 사용 방법</h5>
+<p class="card-text post-summary">opencv 사용법 설치버전 : opencv-python 4.5.1.48
+docs url import 라이브러리
+import cv2 as cv cv.imread 이미지 파일 읽기
+cv.imread(filename[, flags]) -> retval
+매개변수 이름 설명 filename 로드할 파일 이름 flags cv 값을 사용할 수 있는 플래그 img = cv.imread(image_full_path) cv.imwrite 이미지 파일 저장
+cv.imwrite(filename, img[, params]) -> retval
+이미지 형식은 파일 이름 확장자에 따라 선택됨
+cv.imwrite(image_full_path, img) cv.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>May 21, 2021</span>
+<a href=/posts/programming/python/2021-05-21-python-opencv-use-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2021-05-21-python-numpy-use-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Python Numpy 사용 방법</h5>
+<p class="card-text post-summary">numpy 사용법 선형대수 기반의 python 라이브러리
+루프없이 배열 연산이 가능하여 연산속도가 빠름 설치버전 : numpy 1.20.2
+import 라이브러리 import numpy as np 생성 arange np.arange([start,] stop, [step,] dtype)
+지정한 숫자 범위의 array 생성함수
+매개변수 이름 설명 start stop np.arange(10) # [0 1 2 3 4 5 6 7 8 9] np.arange(0, 5, 0.5) # [0.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>May 21, 2021</span>
+<a href=/posts/programming/python/2021-05-21-python-numpy-use-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Python 자료구조와 알고리즘(by 미아 스타인) 책 정리</h5>
+<p class="card-text post-summary">{:toc}
+Part 1 헬로, 자료구조! Chapter 01 숫자 1.1 정수 int() 불변형 객체로 문자열을 정수로 변환하거나 다른 진법의 문자열을 정수로 변환
+int(문자열, 밑(n진법))
+>>> s = '11' >>> b = int(s, 2) >>> print(b) 11 정수에 필요한 바이트 수(python 3.1이상)
+>>> (정수).bit_length() 10 발생가능한 Exception : ValueError
+1.2 부동 소수점 float() float 32bit
+1bit 부호, 8bit 지수, 23bit 유효 숫자 자릿수 1.2.1 부동소수점끼리 비교하기 이진수 분수로 표현으로 소수점의 정확한 비교는 어렵지만,</p>
+</div>
+<div class=card-footer>
+<span class=float-left>May 17, 2021</span>
+<a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/os/windows/2021-05-07-windows10-wsl2-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Windows10 WSL2(Windows Subsystem for Linux) 사용법</h5>
+<p class="card-text post-summary">title: author: Sangjun Cha date: 10:30:38 +0900 categories: [Windows10, WSL] tags: [windows10, wsl] pin: false WSL(Windows Subsystem for Linux)2 리눅스용 윈도우 하위 시스템(Windows Subsystem for Linux)은 Windows 10에서 네이티브로 리눅스 실행 파일을 실행하기 위한 호환성 계층 프로그램이다.
+사전 설정 microsoft store에서 Windows Terminal 설치한다. Windows Terminal 프로그램을 관리자 권한으로 실행한다. WSL2 활성화를 위한 DISM 명령어 실행후 재부팅 > dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart > dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart Windows Store 에서 설치하는 모든 Linux 배포판 포맷을 WSL 2로 설정 > wsl --set-default-version 2 실습 및 팁 기존에 설치한 WSL 배포 목록확인 microsoft store에서 Ubuntu 18.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>May 7, 2021</span>
+<a href=/posts/os/windows/2021-05-07-windows10-wsl2-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/docker/2021-05-06-docker-mssql2017-setup/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>mssql 2017 도커 이미지 설치 및 컨테이너 실행방법</h5>
+<p class="card-text post-summary">mssql docker 도커 설치 방법 도커 허브에서 이미지 검색 docker search &lt;검색할 이미지 이름> pull - 도커 이미지 다운받기 docker pull mcr.microsoft.com/mssql/server:2017-latest docs 예시 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=&lt;YourStrong@Passw0rd>" -p 1433:1433 --name mssql2017 -h mssql2017 -v &lt;host directory>/data:/var/opt/mssql/data -v &lt;host directory>/log:/var/opt/mssql/log -v &lt;host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/mssql/server:2017-latest Docker on Windows 의 호스트 볼륨 매핑은 현재 /var/opt/mssql 디렉토리가 아닌 /var/opt/mssql/data 등의 하위 디렉터리를 호스트 머신에 매핑할 수 있다.
+사용 명령어 예시 docker volume create mssqldata docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Airiss123!</p>
+</div>
+<div class=card-footer>
+<span class=float-left>May 6, 2021</span>
+<a href=/posts/docker/2021-05-06-docker-mssql2017-setup/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>PostgreDB, pgadmin4 도커 설치 방법</h5>
+<p class="card-text post-summary">Postgres Docker 이미지 설치 Postgres Version : 13.2
+다운로드 및 설정 아래 명령어를 실행한다.
+$ docker run -p 15432:5432 --name postgres -e POSTGRES_PASSWORD=password1! -d postgres -d : 백그라운드에서 컨테이너 실행 -p 15432:5432 : 호스트와 컨테이너 간의 배포(publish)포트/바인드(bind)포트 호스트 15432번 포트를 컨테이너 5432번 포트에 매핑 --name : 생성할 컨테이너 이름 -e : 도커 컨테이너의 환경변수 설정 POSTGRES_PASSWORD : PostgresDB 관리자 비밀번호 실행 결과</p>
+</div>
+<div class=card-footer>
+<span class=float-left>April 29, 2021</span>
+<a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/framework/django/2021-04-22-django-file-upload/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django 파일 업로드</h5>
+<p class="card-text post-summary">django 파일 업로드
+청크단위 파일 업로드 대용량 업로드 가능 실시간 업로드 프로그래스바에 응용가능 from django.conf import settings def upload(request): if request.method == 'POST': path = settings.MEDIA_ROOT files = request.FILES['file'] for file in files: file_path = f'{path}/{file.name}' with open(file_path,'wb+') as dst_file: for chunk in file.chunks(): dst_file.write(chunk) </p>
+</div>
+<div class=card-footer>
+<span class=float-left>April 22, 2021</span>
+<a href=/posts/framework/django/2021-04-22-django-file-upload/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class=paginator>
+<ul class="pagination pagination-default">
+<li class="page-item disabled">
+<a aria-disabled=true aria-label=First class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;&#171;</span></a>
+</li>
+<li class="page-item disabled">
+<a aria-disabled=true aria-label=Previous class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;</span></a>
+</li>
+<li class="page-item active">
+<a aria-current=page aria-label="Page 1" class=page-link role=button>1</a>
+</li>
+<li class=page-item>
+<a href=/posts/page/2/ aria-label="Page 2" class=page-link role=button>2</a>
+</li>
+<li class=page-item>
+<a href=/posts/page/3/ aria-label="Page 3" class=page-link role=button>3</a>
+</li>
+<li class=page-item>
+<a href=/posts/page/2/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
+</li>
+<li class=page-item>
+<a href=/posts/page/3/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
+</li>
+</ul>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>바로가기</h5>
+<ul>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#about>About</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#skills>Skills</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://hugo-toha.github.io#recent-posts>Recent Posts</a>
+</li>
+</ul>
+</div>
+<div class="col-md-4 col-sm-12">
+<h5>Contact me:</h5>
+<ul>
+<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
+<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<div class=container>
+<div class="row text-left">
+<div class=col-md-4>
+<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
+<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha
+</a>
+</div>
+<div class="col-md-4 text-center">© 2020 Copyright.</div>
+<div class="col-md-4 text-right">
+<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=/js/list.js></script>
+</body>
+</html>
