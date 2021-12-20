@@ -6,7 +6,7 @@ menu:
   sidebar:
     name: Programmers Python level 1
     identifier: programmers-python-level1
-    parent: algorithm
+    parent: programmers
     weight: 30
 tags: ["algorithm", "programmers", "python"]
 categories: ["Algorithm", "Programmers"]

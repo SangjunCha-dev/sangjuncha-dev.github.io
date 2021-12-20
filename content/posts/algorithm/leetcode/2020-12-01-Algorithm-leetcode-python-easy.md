@@ -6,7 +6,7 @@ menu:
   sidebar:
     name: LeetCode Python
     identifier: leetcode-python
-    parent: algorithm
+    parent: leetcode
     weight: 30
 tags: ["algorithm", "leetcode", "python"]
 categories: ["Algorithm", "LeetCode"]
