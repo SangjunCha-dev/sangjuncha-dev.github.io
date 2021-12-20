@@ -1665,7 +1665,7 @@ def solution(info, query):
 
 # [행렬 테두리 회전하기](https://programmers.co.kr/learn/courses/30/lessons/77485?language=python3)
 
-분류 : 2021 Dev-Matching: 웹 백엔드 개발자(하반기)
+분류 : 2021 Dev-Matching: 웹 백엔드 개발자(상반기)
 
 ## 방법1
 
@@ -1761,6 +1761,33 @@ def solution(rows, columns, queries):
 > min TaseCase : 0.03ms, 10.3MB  
 > max TaseCase : 134.78ms, 12MB  
 
+
+
+# [로또의 최고 순위와 최저 순위](https://programmers.co.kr/learn/courses/30/lessons/77484)
+
+분류 : 2021 Dev-Matching: 웹 백엔드 개발자(상반기)
+
+```python
+def solution(lottos, win_nums):
+    win_cnt, zero_cnt = 0, 0
+    for lotto in lottos:
+        if lotto in win_nums:
+            win_cnt += 1
+        elif not lotto:
+            zero_cnt += 1
+
+    max_rank = 7-(win_cnt+zero_cnt) if 1 < (win_cnt+zero_cnt) else 6
+    min_rank = 7-win_cnt if 1 < win_cnt else 6
+
+    answer = [max_rank, min_rank]
+    return answer
+```
+
+**2021-12-20**
+
+> min TaseCase : 0.00ms, 10.2MB  
+> max TaseCase : 0.01ms, 10.2MB  
+
 <!-- 
 # [괄호 변환](https://programmers.co.kr/learn/courses/30/lessons/60058)
 
@@ -1773,7 +1800,6 @@ def solution(rows, columns, queries):
 ```
 
 **2021**
-
 
 > min TaseCase :   
 > max TaseCase :   
@@ -1793,7 +1819,6 @@ def solution(rows, columns, queries):
 
 **2021**
 
-
 > min TaseCase :   
 > max TaseCase :    
 -->
@@ -1811,7 +1836,6 @@ def solution(rows, columns, queries):
 ```
 
 **2021**
-
 
 > min TaseCase :   
 > max TaseCase :   
