@@ -1,0 +1,32 @@
+# section information
+section:
+  name: Skills
+  id: skills
+  enable: true
+  weight: 2
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# Your Skills.
+# Give a summary of you each skill in the summary section.
+skills:
+- name: Docker
+  logo: "/images/sections/skills/docker.svg"
+  summary: "Capable of deploying, managing application on Kubernetes. Experienced in writing Kubernetes controllers for CRDs."
+  url: "https://www.docker.com/"
+
+- name: Go Development
+  logo: "/images/sections/skills/go.png"
+  summary: "Using as the main language for professional development. Capable of writing scalable, testable, and maintainable program."
+  url: "https://go.dev/"
+
+- name: Python Development
+  logo: "/images/sections/skills/python.png"
+  summary: "Using as the main language for professional development. Capable of writing scalable, testable, and maintainable program."
+  url: "https://www.python.org/"
+  
+- name: Django Development
+  logo: "/images/sections/skills/django.png"
+  summary: "Ddistribute websites using the django rest framework development. Capable of writing scalable, testable, and maintainable program."
+  url: "https://www.djangoproject.com/"
