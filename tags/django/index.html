@@ -151,10 +151,11 @@ from django.core import serializers res_data = User.objects.all() # &lt;QuerySet
 </div>
 <div class=card-body>
 <h5 class=card-title>Django model 참조 객체 호출하기</h5>
-<p class="card-text post-summary">title: author: Sangjun Cha date: 2021-04-07 +0900 categories: [Django, Models] tags: [django, models] pin: false 정참조와 역참조 객체 호출 데이터베이스의 임의의 테이블로 User, Occupation 생성한다.
+<p class="card-text post-summary">정참조와 역참조 객체 호출 데이터베이스의 임의의 테이블로 User, Occupation 생성한다.
 두 테이블은 User 모델의 객체가 Occupation 모델의 객체를 N:1 참조관계를 가진다.
 models.py 설정
-class User(models.Model): name = models.CharField(max_length=50) age = models.IntegerField() job = models.ForeignKey('Occupation', on_delete=models.CASCADE) class Occupation(models.Model): name = models.CharField(max_length=50) 정참조 객체 호출하기 user1 객체가 Occupation 모델을 참조키(ForeignKey)로 정참조하여, Occupation 모델의 속성을 사용할 수 있다.</p>
+class User(models.Model): name = models.CharField(max_length=50) age = models.IntegerField() job = models.ForeignKey('Occupation', on_delete=models.CASCADE) class Occupation(models.Model): name = models.CharField(max_length=50) 정참조 객체 호출하기 user1 객체가 Occupation 모델을 참조키(ForeignKey)로 정참조하여, Occupation 모델의 속성을 사용할 수 있다.
+user1 = User.objects.get(id = 1) user1.job.name >>> 'Developer' 역참조 객체 호출하기 역참조 관계에서는 정참조와 같이 바로 참조한 모델의 속성을 사용할 수 없다.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>April 7, 2021</span>

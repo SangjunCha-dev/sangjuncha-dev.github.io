@@ -89,8 +89,9 @@ Sangjun 개발 블로그</a>
 </div>
 <div class=card-body>
 <h5 class=card-title>python을 이용한 windows10 시스템 정보 및 사용량 모니터링</h5>
-<p class="card-text post-summary">운영체제 : windows 10 설치환경 : python 3.8.8, powershell 7.1
-powershell 명령어 사용법 WMI 개체 가져오기(Get-CimInstance) python에서 powershell 명령 실행 방법 1. 콘솔 명령 실행 cmd = "Get-CimInstance -Class Win32_OperatingSystem" subprocess.Popen(f'powershell.exe {cmd}') 2. 실행결과 반환 디코딩을 하지 않으면 바이트 문자열로 나열되서 반환된다.
+<p class="card-text post-summary">운영체제 : windows 10
+설치환경 : python 3.8.8, powershell 7.1
+powershell 명령어 사용법 WMI 개체 가져오기(Get-CimInstance) python에서 powershell 명령 실행 방법 1. 콘솔 명령 실행 import subprocess import json cmd = "Get-CimInstance -Class Win32_OperatingSystem" subprocess.Popen(f'powershell.exe {cmd}') 2. 실행결과 반환 디코딩을 하지 않으면 바이트 문자열로 나열되서 반환된다.
 cmd = "Get-CimInstance -Class Win32_OperatingSystem" result = subprocess.Popen(f'powershell.exe {cmd}', stdout=subprocess.PIPE) print(result) result = result.stdout.read() print(result) 결과
 &lt;subprocess.Popen object at 0x0000025175617B50> b'\r\nSystemDirectory Organization BuildNumber RegisteredUser SerialNumber Version \r\n--------------- ------------ ----------- -------------- ------------ ------- \r\nC:\\Windows\\system32 19000 UserName 00000-00000 10.</p>
 </div>
@@ -102,7 +103,7 @@ cmd = "Get-CimInstance -Class Win32_OperatingSystem" result = subprocess.Popen(f
 </a>
 </div>
 <div class=post-card>
-<a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-throughput-difference/ class=post-card-link>
+<a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-performance/ class=post-card-link>
 <div class=card>
 <div class=card-head>
 <img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
@@ -114,52 +115,45 @@ cmd = "Get-CimInstance -Class Win32_OperatingSystem" result = subprocess.Popen(f
 </div>
 <div class=card-footer>
 <span class=float-left>May 24, 2021</span>
-<a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-throughput-difference/ class="float-right btn btn-outline-info btn-sm">Read</a>
+<a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-performance/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
 </div>
 <div class=post-card>
-<a href=/posts/programming/python/2021-05-21-python-opencv-use-guide/ class=post-card-link>
+<a href=/posts/programming/python/2021-05-21-python-opencv-guide/ class=post-card-link>
 <div class=card>
 <div class=card-head>
 <img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
 </div>
 <div class=card-body>
-<h5 class=card-title>Python Opencv 사용 방법</h5>
-<p class="card-text post-summary">opencv 사용법 설치버전 : opencv-python 4.5.1.48
+<h5 class=card-title>python opencv 사용법</h5>
+<p class="card-text post-summary">설치버전 : opencv-python 4.5.1.48
 docs url import 라이브러리
-import cv2 as cv cv.imread 이미지 파일 읽기
-cv.imread(filename[, flags]) -> retval
-매개변수 이름 설명 filename 로드할 파일 이름 flags cv 값을 사용할 수 있는 플래그 img = cv.imread(image_full_path) cv.imwrite 이미지 파일 저장
-cv.imwrite(filename, img[, params]) -> retval
-이미지 형식은 파일 이름 확장자에 따라 선택됨
-cv.imwrite(image_full_path, img) cv.</p>
+import cv2 as cv cv.imread 이미지 파일 읽기 cv.imread(filename[, flags]) -> retval 매개변수 이름 설명 filename 로드할 파일 이름 flags cv 값을 사용할 수 있는 플래그 img = cv.imread(image_full_path) cv.imwrite 이미지 파일 저장 cv.imwrite(filename, img[, params]) -> retval 이미지 형식은 파일 이름 확장자에 따라 선택됨 cv.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>May 21, 2021</span>
-<a href=/posts/programming/python/2021-05-21-python-opencv-use-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+<a href=/posts/programming/python/2021-05-21-python-opencv-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
 </div>
 <div class=post-card>
-<a href=/posts/programming/python/2021-05-21-python-numpy-use-guide/ class=post-card-link>
+<a href=/posts/programming/python/2021-05-21-python-numpy-guide/ class=post-card-link>
 <div class=card>
 <div class=card-head>
 <img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
 </div>
 <div class=card-body>
-<h5 class=card-title>Python Numpy 사용 방법</h5>
-<p class="card-text post-summary">numpy 사용법 선형대수 기반의 python 라이브러리
+<h5 class=card-title>python numpy 사용법</h5>
+<p class="card-text post-summary">선형대수 기반의 python 라이브러리
 루프없이 배열 연산이 가능하여 연산속도가 빠름 설치버전 : numpy 1.20.2
-import 라이브러리 import numpy as np 생성 arange np.arange([start,] stop, [step,] dtype)
-지정한 숫자 범위의 array 생성함수
-매개변수 이름 설명 start stop np.arange(10) # [0 1 2 3 4 5 6 7 8 9] np.arange(0, 5, 0.5) # [0.</p>
+import 라이브러리 import numpy as np 1. 생성 arange np.arange([start,] stop, [step,] dtype) 지정한 숫자 범위의 array 생성함수 np.arange(10) # [0 1 2 3 4 5 6 7 8 9] np.arange(0, 5, 0.5) # [0. 0.5 1. 1.5 2. 2.5 3. 3.5 4. 4.5] zeros np.zeros(shape, dtype) 0으로 선언된 array 생성 np.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>May 21, 2021</span>
-<a href=/posts/programming/python/2021-05-21-python-numpy-use-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+<a href=/posts/programming/python/2021-05-21-python-numpy-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
@@ -171,9 +165,8 @@ import 라이브러리 import numpy as np 생성 arange np.arange([start,] stop,
 <img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
 </div>
 <div class=card-body>
-<h5 class=card-title>Python 자료구조와 알고리즘(by 미아 스타인) 책 정리</h5>
-<p class="card-text post-summary">{:toc}
-Part 1 헬로, 자료구조! Chapter 01 숫자 1.1 정수 int() 불변형 객체로 문자열을 정수로 변환하거나 다른 진법의 문자열을 정수로 변환
+<h5 class=card-title>python 자료구조와 알고리즘(by 미아 스타인) 책 정리</h5>
+<p class="card-text post-summary">Part 1 헬로, 자료구조! Chapter 01 숫자 1.1 정수 int() 불변형 객체로 문자열을 정수로 변환하거나 다른 진법의 문자열을 정수로 변환
 int(문자열, 밑(n진법))
 >>> s = '11' >>> b = int(s, 2) >>> print(b) 11 정수에 필요한 바이트 수(python 3.1이상)
 >>> (정수).bit_length() 10 발생가능한 Exception : ValueError
@@ -194,7 +187,7 @@ int(문자열, 밑(n진법))
 <img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
 </div>
 <div class=card-body>
-<h5 class=card-title>Pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)</h5>
+<h5 class=card-title>pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)</h5>
 <p class="card-text post-summary">python 파일을 윈도우에서 python 이나 가상환경 설정없이 실행이 가능한 .exe 으로 변환해주는 라이브러리
 Docs URL - https://pyinstaller.readthedocs.io/en/stable/usage.html
 설치환경 : Windows 10
@@ -218,9 +211,10 @@ pip install pyinstaller 2. 간단한 사용예제 pyinstaller --clean --distpath
 <h5 class=card-title>pyshark 라이브러리 사용법 (pyshark Library Guide)</h5>
 <p class="card-text post-summary">Docs URL - https://github.com/KimiNewt/pyshark/
 설치환경 : Windows 10, python 3.7
-1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install pyshark 2. 사용법 캡쳐파일 읽기 capture = pyshark.FileCapture('./test.pcapng') 실시간 패킷캡처 interface capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 11:22:33:44:55:66', use_json=True, include_raw=True) 패킷 캡처 패킷 1개만 캡처하거나 10ms 경과하면 캡처 결과 반환
-capture.sniff(packet_count=1, timeout=10) 패킷 10개만 캡처하거나 10ms 경과하면 캡처 결과 반환
-capture.sniff(packet_count=10, timeout=10) 패킷 bytes 형태로 반환 print(capture[0].</p>
+1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install pyshark 2. 사용법 캡쳐파일 읽기
+capture = pyshark.FileCapture('./test.pcapng') 실시간 패킷캡처 interface
+capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 11:22:33:44:55:66', use_json=True, include_raw=True) 패킷 캡처
+패킷 1개 캡처하거나 10ms 경과하면 캡처 결과 반환 capture.sniff(packet_count=1, timeout=10) 패킷 10개 캡처하거나 10ms 경과하면 캡처 결과 반환 capture.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>February 10, 2021</span>
@@ -239,7 +233,7 @@ capture.sniff(packet_count=10, timeout=10) 패킷 bytes 형태로 반환 print(c
 <h5 class=card-title>scapy 라이브러리 사용법 (Scapy Library Guide)</h5>
 <p class="card-text post-summary">Docs URL - https://scapy.readthedocs.io/en/latest/#
 설치환경 : Windows 10
-1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install --pre scapy[basic] 2. Client 예제 from scapy.all import * from scapy.utils import rdpcap import datetime as dt # PCAP 파일 읽기 # could be used like this rdpcap("filename",500) fetches first 500 pkts pkts = rdpcap("./pcap/test.pcapng", -1) pkts = pkts[21:100] cnt = 0 repeat = 10 s_time = dt.</p>
+설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install --pre scapy[basic] Client 예제 from scapy.all import * from scapy.utils import rdpcap import datetime as dt # PCAP 파일 읽기 # could be used like this rdpcap("filename",500) fetches first 500 pkts pkts = rdpcap("./pcap/test.pcapng", -1) pkts = pkts[21:100] cnt = 0 repeat = 10 s_time = dt.datetime.now() for _ in range(repeat): for pkt in pkts: # print(f"hexdump(pkt) = {hexdump(pkt)}") # Send one or more packets at 2 layer sendp(pkt, inter=0, loop=0, count=1, iface=None) # Send one or more packets at 3 layer # send(pkt, inter=0, loop=0, count=1, iface=None) cnt += 1 print(cnt) sendp(b'', inter=0, loop=0, count=1, iface=None) time.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>February 9, 2021</span>
