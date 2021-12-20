@@ -1818,7 +1818,7 @@ max TaseCase : 5.63ms, 10.7MB</p>
 max TaseCase : 1198.31ms, 35.9MB</p>
 </blockquote>
 <h1 id=행렬-테두리-회전하기httpsprogrammerscokrlearncourses30lessons77485languagepython3><a href="https://programmers.co.kr/learn/courses/30/lessons/77485?language=python3">행렬 테두리 회전하기</a></h1>
-<p>분류 : 2021 Dev-Matching: 웹 백엔드 개발자(하반기)</p>
+<p>분류 : 2021 Dev-Matching: 웹 백엔드 개발자(상반기)</p>
 <h2 id=방법1-14>방법1</h2>
 <ol>
 <li>테두리에 해당되는 행과 열의 데이터를 모아 <code>큐</code>를 만든다.
@@ -1915,6 +1915,62 @@ max TaseCase : 245.02ms, 11.7MB</p>
 <blockquote>
 <p>min TaseCase : 0.03ms, 10.3MB<br>
 max TaseCase : 134.78ms, 12MB</p>
+</blockquote>
+<h1 id=로또의-최고-순위와-최저-순위httpsprogrammerscokrlearncourses30lessons77484><a href=https://programmers.co.kr/learn/courses/30/lessons/77484>로또의 최고 순위와 최저 순위</a></h1>
+<p>분류 : 2021 Dev-Matching: 웹 백엔드 개발자(상반기)</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>solution</span>(lottos, win_nums):
+    win_cnt, zero_cnt <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>
+    <span style=color:#66d9ef>for</span> lotto <span style=color:#f92672>in</span> lottos:
+        <span style=color:#66d9ef>if</span> lotto <span style=color:#f92672>in</span> win_nums:
+            win_cnt <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+        <span style=color:#66d9ef>elif</span> <span style=color:#f92672>not</span> lotto:
+            zero_cnt <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+
+    max_rank <span style=color:#f92672>=</span> <span style=color:#ae81ff>7</span><span style=color:#f92672>-</span>(win_cnt<span style=color:#f92672>+</span>zero_cnt) <span style=color:#66d9ef>if</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>&lt;</span> (win_cnt<span style=color:#f92672>+</span>zero_cnt) <span style=color:#66d9ef>else</span> <span style=color:#ae81ff>6</span>
+    min_rank <span style=color:#f92672>=</span> <span style=color:#ae81ff>7</span><span style=color:#f92672>-</span>win_cnt <span style=color:#66d9ef>if</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>&lt;</span> win_cnt <span style=color:#66d9ef>else</span> <span style=color:#ae81ff>6</span>
+
+    answer <span style=color:#f92672>=</span> [max_rank, min_rank]
+    <span style=color:#66d9ef>return</span> answer
+</code></pre></div><p><strong>2021-12-20</strong></p>
+<blockquote>
+<p>min TaseCase : 0.00ms, 10.2MB<br>
+max TaseCase : 0.01ms, 10.2MB</p>
+</blockquote>
+<h1 id=다단계-칫솔-판매httpsprogrammerscokrlearncourses30lessons77486><a href=https://programmers.co.kr/learn/courses/30/lessons/77486>다단계 칫솔 판매</a></h1>
+<p>분류 : 2021 Dev-Matching: 웹 백엔드 개발자(상반기)</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>solution</span>(enroll, referral, seller, amount):
+    answer <span style=color:#f92672>=</span> []
+
+    data <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#39;center&#39;</span>: {<span style=color:#e6db74>&#39;amount&#39;</span>: <span style=color:#ae81ff>0</span>,<span style=color:#e6db74>&#39;parent&#39;</span>: <span style=color:#66d9ef>None</span>}}
+    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(enroll)):
+        data[enroll[i]] <span style=color:#f92672>=</span> {
+            <span style=color:#e6db74>&#39;amount&#39;</span>: <span style=color:#ae81ff>0</span>,
+            <span style=color:#e6db74>&#39;parent&#39;</span>: referral[i] <span style=color:#66d9ef>if</span> referral[i] <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#39;-&#39;</span> <span style=color:#66d9ef>else</span> <span style=color:#e6db74>&#39;center&#39;</span>
+        }
+
+    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(seller)):
+        sell <span style=color:#f92672>=</span> seller[i]
+        price <span style=color:#f92672>=</span> amount[i] <span style=color:#f92672>*</span> <span style=color:#ae81ff>100</span>
+        data[sell][<span style=color:#e6db74>&#39;amount&#39;</span>] <span style=color:#f92672>+=</span> price<span style=color:#f92672>-</span>price<span style=color:#f92672>//</span><span style=color:#ae81ff>10</span>
+        price <span style=color:#f92672>=</span> price<span style=color:#f92672>//</span><span style=color:#ae81ff>10</span>
+
+        <span style=color:#66d9ef>while</span> data[sell][<span style=color:#e6db74>&#39;parent&#39;</span>] <span style=color:#f92672>and</span> price:
+            sell <span style=color:#f92672>=</span> data[sell][<span style=color:#e6db74>&#39;parent&#39;</span>]
+            <span style=color:#66d9ef>if</span> sell <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;center&#39;</span>:
+                data[sell][<span style=color:#e6db74>&#39;amount&#39;</span>] <span style=color:#f92672>+=</span> price
+                <span style=color:#66d9ef>break</span>
+            data[sell][<span style=color:#e6db74>&#39;amount&#39;</span>] <span style=color:#f92672>+=</span> price<span style=color:#f92672>-</span>price<span style=color:#f92672>//</span><span style=color:#ae81ff>10</span>
+            price <span style=color:#f92672>=</span> price<span style=color:#f92672>//</span><span style=color:#ae81ff>10</span>
+
+    <span style=color:#66d9ef>del</span> data[<span style=color:#e6db74>&#39;center&#39;</span>]
+    <span style=color:#66d9ef>for</span> value <span style=color:#f92672>in</span> data<span style=color:#f92672>.</span>values():
+        answer<span style=color:#f92672>.</span>append(value[<span style=color:#e6db74>&#39;amount&#39;</span>])
+
+    <span style=color:#66d9ef>return</span> answer
+</code></pre></div><p><strong>2021-12-20</strong></p>
+<blockquote>
+<p>min TaseCase : 0.08ms, 10.2MB<br>
+max TaseCase : 167.55ms, 22.2MB</p>
 </blockquote>
 </div>
 <div class="row pl-3 pr-3">
