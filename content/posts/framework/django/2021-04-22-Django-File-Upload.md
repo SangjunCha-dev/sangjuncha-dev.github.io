@@ -4,7 +4,7 @@ date: 2021-04-22T13:18:18+09:00
 description: Django 파일 업로드
 menu:
   sidebar:
-    name: Django File Upload
+    name: 파일 업로드
     identifier: django-file-upload
     parent: django
     weight: 30

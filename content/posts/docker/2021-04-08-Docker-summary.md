@@ -4,7 +4,7 @@ date: 2021-04-08T19:04:55+09:00
 description: 도커의 개요 및 windows10 버전 설치 방법
 menu:
   sidebar:
-    name: Docker Summary Setup Windows
+    name: Summary Setup Windows
     identifier: docker-summary-setup-windows
     parent: docker
     weight: 21

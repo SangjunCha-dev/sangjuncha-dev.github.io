@@ -14,7 +14,7 @@ categories: ["Algorithm", "Programmers"]
 
 
 
-# [모의고사](https://programmers.co.kr/learn/courses/30/lessons/42840)
+## [모의고사](https://programmers.co.kr/learn/courses/30/lessons/42840)
 
 분류 : 완전탐색
 
@@ -58,7 +58,7 @@ def solution(answers):
 
 
 
-# [K번째수](https://programmers.co.kr/learn/courses/30/lessons/42748)
+## [K번째수](https://programmers.co.kr/learn/courses/30/lessons/42748)
 
 분류 : 정렬
 
@@ -89,7 +89,7 @@ def solution(array, commands):
 
 
 
-# [체육복](https://programmers.co.kr/learn/courses/30/lessons/42862)
+## [체육복](https://programmers.co.kr/learn/courses/30/lessons/42862)
 
 분류 - 탐욕법(Greedy)
 
@@ -141,7 +141,7 @@ def solution(n, lost, reserve):
 
 
 
-# [2016년](https://programmers.co.kr/learn/courses/30/lessons/12901)
+## [2016년](https://programmers.co.kr/learn/courses/30/lessons/12901)
 
 분류 : 연습문제
 
@@ -170,7 +170,7 @@ def solution(a, b):
 
 
 
-# [가운데 글자 가져오기](https://programmers.co.kr/learn/courses/30/lessons/12903)
+## [가운데 글자 가져오기](https://programmers.co.kr/learn/courses/30/lessons/12903)
 
 분류 : 연습문제
 
@@ -193,11 +193,11 @@ def solution(s):
 
 
 
-# [나누어 떨어지는 숫자 배열](https://programmers.co.kr/learn/courses/30/lessons/12910)
+## [나누어 떨어지는 숫자 배열](https://programmers.co.kr/learn/courses/30/lessons/12910)
 
 분류 : 연습문제
 
-## 방법1
+### 방법1
 
 1. `arr` 리스트에 원소를 `divisor`나머지 연산하여 값이 없을 때 `answer`리스트에 추가
     - 조건문에 `==` 사용할 경우 `3.44ms`
@@ -222,7 +222,7 @@ def solution(arr, divisor):
 > min TaseCase : 0.00ms, 10.1MB  
 > max TaseCase : 2.64ms, 13.3MB  
 
-## 방법2
+### 방법2
 
 ```python
 def solution(arr, divisor):
@@ -239,7 +239,7 @@ def solution(arr, divisor):
 
 
 
-# [두 정수 사이의 합](https://programmers.co.kr/learn/courses/30/lessons/12912)
+## [두 정수 사이의 합](https://programmers.co.kr/learn/courses/30/lessons/12912)
 
 분류 : 연습문제
 
@@ -274,7 +274,7 @@ def solution(a, b):
 
 
 
-# [문자열 내 마음대로 정렬하기](https://programmers.co.kr/learn/courses/30/lessons/12915)
+## [문자열 내 마음대로 정렬하기](https://programmers.co.kr/learn/courses/30/lessons/12915)
 
 분류 : 연습문제
 
@@ -295,7 +295,7 @@ def solution(strings, n):
 
 
 
-# [문자열 내림차순으로 배치하기](https://programmers.co.kr/learn/courses/30/lessons/12917)
+## [문자열 내림차순으로 배치하기](https://programmers.co.kr/learn/courses/30/lessons/12917)
 
 분류 : 연습문제
 
@@ -316,7 +316,7 @@ def solution(s):
 
 
 
-# [문자열 다루기 기본](https://programmers.co.kr/learn/courses/30/lessons/12918)
+## [문자열 다루기 기본](https://programmers.co.kr/learn/courses/30/lessons/12918)
 
 분류 : 연습문제
 
@@ -337,7 +337,7 @@ def solution(s):
 
 
 
-# [서울에서 김서방 찾기](https://programmers.co.kr/learn/courses/30/lessons/12919)
+## [서울에서 김서방 찾기](https://programmers.co.kr/learn/courses/30/lessons/12919)
 
 분류 : 연습문제
 
@@ -357,7 +357,7 @@ def solution(seoul):
 
 
 
-# [수박수박수박수박수박수?](https://programmers.co.kr/learn/courses/30/lessons/12922)
+## [수박수박수박수박수박수?](https://programmers.co.kr/learn/courses/30/lessons/12922)
 
 분류 : 연습문제
 
@@ -380,7 +380,7 @@ def solution(n):
 
 
 
-# [문자열을 정수로 바꾸기](https://programmers.co.kr/learn/courses/30/lessons/12925)
+## [문자열을 정수로 바꾸기](https://programmers.co.kr/learn/courses/30/lessons/12925)
 
 분류 : 연습문제
 
@@ -400,7 +400,7 @@ def solution(s):
 
 
 
-# [내적](https://programmers.co.kr/learn/courses/30/lessons/70128)
+## [내적](https://programmers.co.kr/learn/courses/30/lessons/70128)
 
 분류 : 월간 코드 챌린지 시즌1
 
@@ -425,7 +425,7 @@ def solution(a, b):
 
 
 
-# [시저 암호](https://programmers.co.kr/learn/courses/30/lessons/12926)
+## [시저 암호](https://programmers.co.kr/learn/courses/30/lessons/12926)
 
 분류 : 연습문제
 
@@ -465,7 +465,7 @@ def solution(s, n):
 
 
 
-# [약수의 합](https://programmers.co.kr/learn/courses/30/lessons/12928)
+## [약수의 합](https://programmers.co.kr/learn/courses/30/lessons/12928)
 
 분류 : 연습문제
 
@@ -504,7 +504,7 @@ def solution(n):
 
 
 
-# [이상한 문자 만들기](https://programmers.co.kr/learn/courses/30/lessons/12930)
+## [이상한 문자 만들기](https://programmers.co.kr/learn/courses/30/lessons/12930)
 
 분류 : 연습문제
 
@@ -543,7 +543,7 @@ def solution(s):
 
 
 
-# [자릿수 더하기](https://programmers.co.kr/learn/courses/30/lessons/12931)
+## [자릿수 더하기](https://programmers.co.kr/learn/courses/30/lessons/12931)
 
 분류 : 연습문제
 
@@ -569,7 +569,7 @@ def solution(n):
 
 
 
-# [자연수 뒤집어 배열로 만들기](https://programmers.co.kr/learn/courses/30/lessons/12932)
+## [자연수 뒤집어 배열로 만들기](https://programmers.co.kr/learn/courses/30/lessons/12932)
 
 분류 : 연습문제
 
@@ -595,7 +595,7 @@ def solution(n):
 
 
 
-# [정수 내림차순으로 배치하기](https://programmers.co.kr/learn/courses/30/lessons/12933)
+## [정수 내림차순으로 배치하기](https://programmers.co.kr/learn/courses/30/lessons/12933)
 
 분류 : 연습문제
 
@@ -617,7 +617,7 @@ def solution(n):
 
 
 
-# [정수 제곱근 판별](https://programmers.co.kr/learn/courses/30/lessons/12934)
+## [정수 제곱근 판별](https://programmers.co.kr/learn/courses/30/lessons/12934)
 
 분류 : 연습문제
 
@@ -642,7 +642,7 @@ def solution(n):
 
 
 
-# [제일 작은 수 제거하기](https://programmers.co.kr/learn/courses/30/lessons/12935)
+## [제일 작은 수 제거하기](https://programmers.co.kr/learn/courses/30/lessons/12935)
 
 분류 : 연습문제
 
@@ -665,7 +665,7 @@ def solution(arr):
 
 
 
-# [짝수와 홀수](https://programmers.co.kr/learn/courses/30/lessons/12937)
+## [짝수와 홀수](https://programmers.co.kr/learn/courses/30/lessons/12937)
 
 분류 : 연습문제
 
@@ -686,7 +686,7 @@ def solution(num):
 
 
 
-# [최대공약수와 최소공배수](https://programmers.co.kr/learn/courses/30/lessons/12940)
+## [최대공약수와 최소공배수](https://programmers.co.kr/learn/courses/30/lessons/12940)
 
 분류 : 연습문제
 
@@ -734,7 +734,7 @@ def prime(num):
 ```
 
 
-# [콜라츠 추측](https://programmers.co.kr/learn/courses/30/lessons/12943)
+## [콜라츠 추측](https://programmers.co.kr/learn/courses/30/lessons/12943)
 
 분류 : 연습문제
 
@@ -762,7 +762,7 @@ def solution(num):
 
 
 
-# [평균 구하기](https://programmers.co.kr/learn/courses/30/lessons/12944)
+## [평균 구하기](https://programmers.co.kr/learn/courses/30/lessons/12944)
 
 분류 : 연습문제
 
@@ -782,7 +782,7 @@ def solution(arr):
 
 
 
-# [하샤드 수](https://programmers.co.kr/learn/courses/30/lessons/12947)
+## [하샤드 수](https://programmers.co.kr/learn/courses/30/lessons/12947)
 
 분류 : 연습문제
 
@@ -806,7 +806,7 @@ def solution(x):
 
 
 
-# [핸드폰 번호 가리기](https://programmers.co.kr/learn/courses/30/lessons/12948)
+## [핸드폰 번호 가리기](https://programmers.co.kr/learn/courses/30/lessons/12948)
 
 분류 : 연습문제
 
@@ -827,7 +827,7 @@ def solution(phone_number):
 
 
 
-# [행렬의 덧셈](https://programmers.co.kr/learn/courses/30/lessons/12950)
+## [행렬의 덧셈](https://programmers.co.kr/learn/courses/30/lessons/12950)
 
 분류 : 연습문제
 
@@ -852,7 +852,7 @@ def solution(arr1, arr2):
 
 
 
-# [x만큼 간격이 있는 n개의 숫자](https://programmers.co.kr/learn/courses/30/lessons/12954)
+## [x만큼 간격이 있는 n개의 숫자](https://programmers.co.kr/learn/courses/30/lessons/12954)
 
 분류 : 연습문제
 
@@ -876,7 +876,7 @@ def solution(x, n):
 
 
 
-# [직사각형 별찍기](https://programmers.co.kr/learn/courses/30/lessons/12969)
+## [직사각형 별찍기](https://programmers.co.kr/learn/courses/30/lessons/12969)
 
 분류 : 연습문제
 
@@ -896,7 +896,7 @@ print(('*' * n + '\n') * m)
 
 
 
-# [크레인 인형뽑기 게임](https://programmers.co.kr/learn/courses/30/lessons/64061)
+## [크레인 인형뽑기 게임](https://programmers.co.kr/learn/courses/30/lessons/64061)
 
 분류 :2019 카카오 개발자 겨울 인턴십
 
@@ -929,11 +929,11 @@ def solution(board, moves):
 
 
 
-# [두 개 뽑아서 더하기](https://programmers.co.kr/learn/courses/30/lessons/68644)
+## [두 개 뽑아서 더하기](https://programmers.co.kr/learn/courses/30/lessons/68644)
 
 분류 : 월간 코드 챌린지 시즌1
 
-## 방법1
+### 방법1
 
 ```python
 def solution(numbers):
@@ -951,7 +951,7 @@ def solution(numbers):
 > min TaseCase : 0.01ms, 10.2MB  
 > max TaseCase : 0.58ms, 10.3MB  
 
-## 방법2
+### 방법2
 
 1. 중복없는 조합 생성 함수 combinations 사용
 
@@ -974,11 +974,11 @@ def solution(numbers):
 
 
 
-# [완주하지 못한 선수](https://programmers.co.kr/learn/courses/30/lessons/42576)
+## [완주하지 못한 선수](https://programmers.co.kr/learn/courses/30/lessons/42576)
 
 분류 : 해시
 
-## 방법1
+### 방법1
 
 1. 두개의 리스트 정렬 후 순서대로 비교하여 다른 문자열일때 해당 participant 리스트의 문자열 반환
 
@@ -1005,7 +1005,7 @@ def solution(participant, completion):
 > min TaseCase : 36.78ms, 18MB  
 > max TaseCase : 86.29ms, 26.3MB  
 
-## 방법2
+### 방법2
 
 zip(*iterable) : 두개이상의 자료형을 묶어주는 함수
 
@@ -1034,13 +1034,13 @@ def solution(participant, completion):
 
 
 
-# [신규 아이디 추천](https://programmers.co.kr/learn/courses/30/lessons/72410)
+## [신규 아이디 추천](https://programmers.co.kr/learn/courses/30/lessons/72410)
 
 분류 : 2021 KAKAO BLIND RECRUITMENT
 
 1. 정규식 사용
 
-## 방법1
+### 방법1
 
 ```python
 import re
@@ -1072,7 +1072,7 @@ def solution(new_id):
 > min TaseCase : 0.02ms, 10.2MB  
 > max TaseCase : 0.21ms, 10.2MB  
 
-## 방법2
+### 방법2
 
 ```python
 import re
@@ -1099,11 +1099,11 @@ def solution(new_id):
 
 
 
-# [3진법 뒤집기](https://programmers.co.kr/learn/courses/30/lessons/68935)
+## [3진법 뒤집기](https://programmers.co.kr/learn/courses/30/lessons/68935)
 
 분류 : 월간 코드 챌린지 시즌1
 
-## 방법1
+### 방법1
 
 ```python
 def solution(n):
@@ -1124,7 +1124,7 @@ def solution(n):
 > min TaseCase : 0.02ms, 10.4MB  
 > max TaseCase : 0.04ms, 10.4MB  
 
-## 방법2
+### 방법2
 
 1. int함수로 문자열을 10진법으로 변환할 수 있음
     - (문자열, 문자열의 x진법)
@@ -1146,7 +1146,7 @@ def solution(n):
 
 
 
-# [같은 숫자는 싫어](https://programmers.co.kr/learn/courses/30/lessons/12906)
+## [같은 숫자는 싫어](https://programmers.co.kr/learn/courses/30/lessons/12906)
 
 분류 : 연습문제
 
@@ -1174,7 +1174,7 @@ def solution(arr):
 
 
 
-# [문자열 내 p와 y의 개수](https://programmers.co.kr/learn/courses/30/lessons/12916)
+## [문자열 내 p와 y의 개수](https://programmers.co.kr/learn/courses/30/lessons/12916)
 
 분류 : 연습문제
 
@@ -1193,7 +1193,7 @@ def solution(s):
 
 
 
-# [소수 찾기](https://programmers.co.kr/learn/courses/30/lessons/12921)
+## [소수 찾기](https://programmers.co.kr/learn/courses/30/lessons/12921)
 
 분류 : 연습문제
 
@@ -1221,7 +1221,7 @@ def solution(n):
 
 
 
-# [키패드 누르기](https://programmers.co.kr/learn/courses/30/lessons/67256)
+## [키패드 누르기](https://programmers.co.kr/learn/courses/30/lessons/67256)
 
 분류 : 2020 카카오 인턴십
 
@@ -1266,11 +1266,11 @@ def solution(numbers, hand):
 
 
 
-# [예산](https://programmers.co.kr/learn/courses/30/lessons/12982)
+## [예산](https://programmers.co.kr/learn/courses/30/lessons/12982)
 
 분류 : Summer/Winter Coding(~2018)
 
-## 방법1
+### 방법1
 
 ```python
 def solution(d, budget):
@@ -1292,7 +1292,7 @@ def solution(d, budget):
 > min TaseCase : 0.00ms, 10.2MB  
 > max TaseCase : 0.19ms, 10.2MB  
 
-## 방법2
+### 방법2
 
 ```python
 def solution(d, budget):
@@ -1315,11 +1315,11 @@ def solution(d, budget):
 
 
 
-# [1차 비밀지도](https://programmers.co.kr/learn/courses/30/lessons/17681)
+## [1차 비밀지도](https://programmers.co.kr/learn/courses/30/lessons/17681)
 
 분류 : 2018 KAKAO BLIND RECRUITMENT
 
-## 방법1
+### 방법1
 
 ```python
 def solution(n, arr1, arr2):
@@ -1347,7 +1347,7 @@ def solution(n, arr1, arr2):
 > min TaseCase : 0.02ms, 10.2MB  
 > max TaseCase : 0.09ms, 10.2MB  
 
-## 방법2
+### 방법2
 
 zip : 동일한 개수로 이루어진 자료형을 묶어 주는 함수
 bin : 비트연산 함수
@@ -1371,7 +1371,7 @@ def solution(n, arr1, arr2):
 
 
 
-# [1차 다트 게임](https://programmers.co.kr/learn/courses/30/lessons/17682)
+## [1차 다트 게임](https://programmers.co.kr/learn/courses/30/lessons/17682)
 
 분류 : 2018 KAKAO BLIND RECRUITMENT
 
@@ -1402,7 +1402,7 @@ def solution(dartResult):
 
 
 
-# [실패율](https://programmers.co.kr/learn/courses/30/lessons/42889)
+## [실패율](https://programmers.co.kr/learn/courses/30/lessons/42889)
 
 분류 : 2019 KAKAO BLIND RECRUITMENT
 

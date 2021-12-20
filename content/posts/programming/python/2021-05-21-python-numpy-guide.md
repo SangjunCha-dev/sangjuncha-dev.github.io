@@ -1,10 +1,10 @@
 ---
-title: "Python Numpy 사용 방법"
+title: "python numpy 사용법"
 date: 2021-05-21T15:13:24+09:00
-description: Python Numpy 사용 방법
+description: python numpy 사용법
 menu:
   sidebar:
-    name: Python Numpy Guide
+    name: numpy 사용법
     identifier: python-numpy-guide
     parent: python
     weight: 30
@@ -13,8 +13,6 @@ categories: ["Python", "Numpy"]
 ---
 
 
-
-# numpy 사용법
 
 선형대수 기반의 python 라이브러리
 - 루프없이 배열 연산이 가능하여 연산속도가 빠름
@@ -27,19 +25,12 @@ categories: ["Python", "Numpy"]
 import numpy as np
 ```
 
-## 생성
+## 1. 생성
 
 ### arange
 
-`np.arange`([start,] stop, [step,] dtype)
-
-지정한 숫자 범위의 array 생성함수
-
-|매개변수 이름|설명|
-|---|---|
-|start  | |
-|stop   | |
-
+- `np.arange`([start,] stop, [step,] dtype)
+- 지정한 숫자 범위의 array 생성함수
 
 ```python
 np.arange(10)
@@ -51,9 +42,8 @@ np.arange(0, 5, 0.5)
 
 ### zeros
 
-`np.zeros`(shape, dtype)
-
-0으로 선언된 array 생성
+- `np.zeros`(shape, dtype)
+- 0으로 선언된 array 생성
 
 ```python
 np.zeros((2,4))
@@ -66,9 +56,8 @@ np.zeros(shape=(5,), dtype=np.int8)
 
 ### ones
 
-`np.ones`(shape, dtype)
-
-1로 선언된 array 생성
+- `np.ones`(shape, dtype)
+- 1로 선언된 array 생성
 
 ```python
 np.ones((2,4))
@@ -81,9 +70,8 @@ np.ones(shape=(5,), dtype=np.int8)
 
 ### empty
 
-`np.empty`(shape, dtype)
-
-초기화되지 않은 array 생성
+- `np.empty`(shape, dtype)
+- 초기화되지 않은 array 생성
 
 ```python
 np.empty(shape=(2,4), dtype=np.int8)
@@ -96,9 +84,8 @@ np.empty(shape=(5,))
 
 ### full
 
-`np.full`(shape, fill_value, dtype)
-
-지정한 값으로 채워진 array 생성
+- `np.full`(shape, fill_value, dtype)
+- 지정한 값으로 채워진 array 생성
 
 ```python
 np.full(shape=(2,4), fill_value=5, dtype=np.int8)
@@ -108,9 +95,8 @@ np.full(shape=(2,4), fill_value=5, dtype=np.int8)
 
 ### iinfo
 
-`np.iinfo`(dtype)
-
-지정한 타입의 최댓값, 최솟값 얻기
+- `np.iinfo`(dtype)
+- 지정한 타입의 최댓값, 최솟값 얻기
 
 ```python
 np.iinfo(np.int8)
@@ -129,9 +115,8 @@ np.iinfo(np.int8).max
 
 ### something_like
 
-`zeros_like`, `ones_like`, `empty_like`, `full_like`(shape, dtype)
-
-`_like`는 지정된 array의 shape 크기만큼 like로 지정된 값의 크기로 array 반환
+- `zeros_like`, `ones_like`, `empty_like`, `full_like`(shape, dtype)
+- `_like`는 지정된 array의 shape 크기만큼 like로 지정된 값의 크기로 array 반환
 
 ```python
 exp_array = np.arange(8).reshape(2,4)
@@ -151,9 +136,8 @@ np.empty_like(exp_array)
 
 ### random
 
-`np.random.rand`(shape)
-
-(0, 1) 범위의 난수 array 생성
+- `np.random.rand`(shape)
+- (0, 1) 범위의 난수 array 생성
 
 ```python
 np.random.rand(5)
@@ -164,9 +148,8 @@ np.random.rand(2, 4)
 #  [0.21131956 0.00997556 0.39068644 0.74352718]]
 ```
 
-`random.randint`(min, max, size)
-
-(최소값, 최대값)의 범위에서 임의의 정수 array 생성
+- `random.randint`(min, max, size)
+- (최소값, 최대값)의 범위에서 임의의 정수 array 생성
 
 ```python
 np.random.randint(1, 5, size=5)
@@ -177,9 +160,8 @@ np.random.randint(1, 5, size=(2, 4))
 #  [4 1 3 1]]
 ```
 
-`random.randn`(shape)
-
-표준정규분포에서 샘플링된 난수로 array 생성
+- `random.randn`(shape)
+- 표준정규분포에서 샘플링된 난수로 array 생성
 
 ```python
 np.random.randn(5)
@@ -193,18 +175,18 @@ sigma, mu = 1.5, 2.0
 sigma * np.random.randn(5) + mu
 ```
 
-표준정규분포 N(1, 0)가 아닌  
-평균 μ, 표준편차 σ 를 갖는 정규분포 N(μ, σ2)의 난수 생성  
-`σ * np.random.randn(shape) + μ` 형태로 사용할 수 있음
+- 표준정규분포 N(1, 0)가 아닌  
+  평균 μ, 표준편차 σ 를 갖는 정규분포 N(μ, σ2)의 난수 생성  
+- `σ * np.random.randn(shape) + μ` 형태로 사용할 수 있음
 
 ```python
 sigma, mu = 1.5, 2.0
 sigma * np.random.randn(5) + mu
 ```
 
-## 차원 출력 및 변경
+## 2. 차원 출력 및 변경
 
-행렬의 차원을 `shape`로 표현
+- 행렬의 차원을 `shape`로 표현
 
 사용예제
 
@@ -215,14 +197,9 @@ exp_array = np.array([
     ])
 ```
 
-| | | | |
-|---|---|---|---|
-|1|2|3|4|
-|1|2|3|4|
-
 ### Shape
 
-1차원 4, 2차원 2 -> (4,2) 표현
+- 1차원 4, 2차원 2 -> (4,2) 표현
 
 ```python
 exp_matrix = exp_array.shape
@@ -235,7 +212,7 @@ print(exp_matrix)
 
 `np.reshape`(n, ...)
 
-배열의 차원크기 변경  
+- 배열의 차원크기 변경  
 - 배열의 요소 갯수는 유지하며 차원만 조정함
 
 ```python
@@ -262,7 +239,7 @@ exp_array.reshape(-1,2)
 
 ### flatten
 
-배열을 1차원 배열로 변환함
+- 배열을 1차원 배열로 변환함
 
 ```python
 exp_array.flatten()
@@ -270,7 +247,7 @@ exp_array.flatten()
 ```
 
 
-## 올림, 내림, 반올림
+## 3. 올림, 내림, 반올림
 
 사용예제
 
@@ -280,7 +257,7 @@ exp_array = np.array([-3.16, -2.58, -1.72, -0.83, 0.39, 1.26, 2.71, 3.46])
 
 ### 올림
 
-`np.ceil`(array)
+- `np.ceil`(array)
 
 ```python
 np.ceil(exp_array)
@@ -296,27 +273,24 @@ np.trunc(exp_array)
 
 ### 반올림
 
-`np.around`(array)
-
-0.5 기준으로 반올림
+- `np.around`(array)
+- 0.5 기준으로 반올림
 
 ```python
 np.around(exp_array)
 # [-3. -2. -2. -1.  0.  1.  3.  3.]
 ```
 
-`np.round`(array, n)
-
-n 소수점 자리까지 반올림
+- `np.round`(array, n)
+- n 소수점 자리까지 반올림
 
 ```python
 np.around(exp_array, 1)
 # [-3.1 -2.5 -1.7 -0.8  0.3  1.2  2.7  3.4]
 ```
 
-`np.rint`
-
-가장 가까운 정수로 반올림
+- `np.rint`
+- 가장 가까운 정수로 반올림
 
 ```python
 np.rint(exp_array)
@@ -325,7 +299,7 @@ np.rint(exp_array)
 
 ### 0에 수렴하는 정수
 
-`np.fix`(array)
+- `np.fix`(array)
 
 ```python
 np.fix(exp_array)
@@ -333,11 +307,11 @@ np.fix(exp_array)
 ```
 
 
-## 조건 연산
+## 4. 조건 연산
 
 ### where
 
-`where(조건, 참, 거짓)`
+- `where(조건, 참, 거짓)`
 
 ```python
 np.where(0 < exp_array, True, False)

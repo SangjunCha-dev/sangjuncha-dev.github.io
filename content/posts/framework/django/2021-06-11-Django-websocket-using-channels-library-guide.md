@@ -4,7 +4,7 @@ date: 2021-06-11T10:59:51+09:00
 description: Django socketio 라이브러리 활용한 통신
 menu:
   sidebar:
-    name: Django socketio
+    name: socketio 라이브러리 활용한 통신
     identifier: django-socketio
     parent: django
     weight: 30

@@ -4,7 +4,7 @@ date: 2021-07-29T17:12:58+09:00
 description: golang gopacket 라이브러리를 이용한 통신
 menu:
   sidebar:
-    name: Golang Gopacket
+    name: gopacket 라이브러리 사용법
     identifier: golang-gopacket
     parent: golang
     weight: 30
@@ -68,6 +68,7 @@ func main() {
 
 	src_mac := get_mac(currentIP)
 
+	// sender
 	// Open device
 	handle, err = pcap.OpenLive(device, snapshot_len, promiscuous, timeout)
 	if err != nil {
@@ -103,6 +104,27 @@ func main() {
 		log.Fatal("handle.WritePacketData Error :", err)
 	}
 	fmt.Println(outgoingPacket)
+
+	// receiver
+	// 패킷 스니핑 설정 Open device
+	promiscuous := true
+	handle, err := pcap.OpenLive(deviceName, snapshotLength, promiscuous, timeout)
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer handle.Close()
+
+	// BPF Filter 문법에 맞는 필터구문
+	filter := "ether src host " + systemConfig.BoardMacAddress
+	if err := handle.SetBPFFilter(filter); err != nil {
+		fmt.Println(err)
+	}
+
+	packetSource := gopacket.NewPacketSource(handle, handle.LinkType())
+
+	for packet := range packetSource.Packets() {
+		fmt.Printf(packet.Data())
+	}
 }
 
 func get_mac(currentIP string) net.HardwareAddr {

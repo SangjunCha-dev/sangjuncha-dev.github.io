@@ -4,7 +4,7 @@ date: 2021-02-09T15:25:35+09:00
 description: scapy 라이브러리 사용법 (Scapy Library Guide)
 menu:
   sidebar:
-    name: Scapy Library Guide
+    name: scapy 라이브러리 사용법
     identifier: scapy-library-guide
     parent: python
     weight: 30
@@ -18,13 +18,13 @@ Docs URL - https://scapy.readthedocs.io/en/latest/#
 
 설치환경 : Windows 10
 
-# 1. 설치
+## 설치
 
 1. 와이어샤크 프로그램에 포함된 `npcap` 설치 필요
     - https://www.wireshark.org/download.html
 2. `pip install --pre scapy[basic]`
 
-# 2. Client 예제
+## Client 예제
 
 ```python
 from scapy.all import *
@@ -59,7 +59,7 @@ e_time = dt.datetime.now()
 print(f"실행시간 : {e_time - s_time}")
 ```
 
-# 3. Server 예제
+## Server 예제
 
 - 소량 데이터 스니핑에는 문제없으나 패킷 전송간격 1ms 이내의 스니핑은 TShark 이용하는 pyshark를 추천함
 
@@ -77,43 +77,38 @@ while 1:
 
     # 동기 sniff 실행방식
     # filter 사용 참고사이트 (https://docs.extrahop.com/8.3/bpf-syntax/)
-    # pkts = sniff(prn=lambda x: x.summary(), count=10, store=True, filter='ether src host 11:22:33:44:55:66')
     pkts = sniff(iface=None, count=800, store=True, filter='ether src host 11:22:33:44:55:66')
 
     for pkt in pkts:
         # 802.3 11:22:33:44:55:66 > e4:54:e8:51:d0:6f / LLC / Raw
         cnt += 1
-        # val = ls(pkt)
         raw_data = bytes(pkt)
 
         print(f"1. pkt.src = {pkt.src}")  # 11:22:33:44:55:66
-        print(f"2. pkt.dst = {pkt.dst}")  # e4:54:e8:51:d0:6f
-        print(f"3. pkt.len = {pkt.len}")  # 1164
-        print(f"4. len(pkt) = {len(pkt)}")  # 1178
+        print(f"2. pkt.dst = {pkt.dst}")  # aa:bb:cc:dd:ee:ff
+        print(f"3. pkt.len = {pkt.len}")
+
         dst_mac = struct.unpack('!6B', raw_data[:6])
         dst_mac = '%02x:%02x:%02x:%02x:%02x:%02x' % dst_mac
-        print(f"6. dst_mac = {dst_mac}")
+        print(f"4. dst_mac = {dst_mac}")
 
         src_mac = struct.unpack('!6B', raw_data[6:12])
         src_mac = '%02x:%02x:%02x:%02x:%02x:%02x' % src_mac
-        print(f"6. src_mac = {src_mac}")
+        print(f"5. src_mac = {src_mac}")
 
-        (len1,) = struct.unpack('!H', raw_data[12:14])
-        print(f"6. len1 = {len1}")
+        (header,) = struct.unpack('!H', raw_data[12:14])
+        print(f"6. header = {header}")
 
-        (VH,) = struct.unpack('!B', raw_data[14:15])
-        print(f"6. VH = {VH}")
-        (HL,) = struct.unpack('!B', raw_data[15:16])
-        print(f"6. HL = {HL}")
+        (val1,) = struct.unpack('!B', raw_data[14:15])
+        print(f"7. val1 = {val1}")
+        (val2,) = struct.unpack('!B', raw_data[15:16])
+        print(f"8. val2 = {val2}")
 
-        (frame_num,) = struct.unpack('!L', raw_data[16:20])
-        print(f"6. frame_num = {frame_num}")
+        (val3,) = struct.unpack('!L', raw_data[16:20])
+        print(f"9. val3 = {val3}")
 
-        (len2,) = struct.unpack('!H', raw_data[20:22])
-        print(f"6. len2 = {len2}")
-
-        data = raw_data[22:]
-        print(f"6. len(data) = {len(data)}")
+        data = raw_data[20:]
+        print(f"10. len(data) = {len(data)}")
 
     print(f"cnt = {cnt}")
 ```

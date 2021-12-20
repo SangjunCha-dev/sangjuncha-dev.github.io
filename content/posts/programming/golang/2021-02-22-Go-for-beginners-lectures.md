@@ -4,7 +4,7 @@ date: 2021-02-22T00:09:23+09:00
 description: 노마드코더 쉽고 빠른 Go 시작하기(nomadcoders Go-for-beginners lectures)
 menu:
   sidebar:
-    name: nomadcoders Go-for-beginners lectures
+    name: 노마드코더 쉽고 빠른 Go 시작하기
     identifier: nomadcoders-go-for-beginners-lectures
     parent: golang
     weight: 30

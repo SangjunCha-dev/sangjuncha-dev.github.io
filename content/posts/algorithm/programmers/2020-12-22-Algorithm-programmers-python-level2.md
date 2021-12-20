@@ -14,7 +14,7 @@ categories: ["Algorithm", "Programmers"]
 
 
 
-# [프린터](https://programmers.co.kr/learn/courses/30/lessons/42587)
+## [프린터](https://programmers.co.kr/learn/courses/30/lessons/42587)
 
 분류 : 스택/큐
 
@@ -51,11 +51,11 @@ def solution(priorities, location):
 
 
 
-# [기능개발](https://programmers.co.kr/learn/courses/30/lessons/42586)
+## [기능개발](https://programmers.co.kr/learn/courses/30/lessons/42586)
 
 분류 : 스택/큐
 
-## 방법1
+### 방법1
 
 1. `progresses[0]+(speeds[0]*i)` 값이 100 이상 될 수 있는 `i`값을 `num`변수에 대입 후 for 문 break
 2. `progresses`리스트 원소마다 `speeds[i]`*`num` 값 덧셈
@@ -97,7 +97,7 @@ def solution(progresses, speeds):
 > min TaseCase : 0.01ms, 10.2MB  
 > max TaseCase : 0.12ms, 10.1MB  
 
-## 방법2
+### 방법2
 
 1. (100 - progresses) // speeds 결과값이 작업 소요일자
 
@@ -127,7 +127,7 @@ def solution(progresses, speeds):
 
 
 
-# [다리를 지나는 트럭](https://programmers.co.kr/learn/courses/30/lessons/42583)
+## [다리를 지나는 트럭](https://programmers.co.kr/learn/courses/30/lessons/42583)
 
 분류 : 스택/큐
 
@@ -204,11 +204,11 @@ def solution(bridge_length, weight, truck_weights):
 
 
 
-# [멀쩡한 사각형](https://programmers.co.kr/learn/courses/30/lessons/62048)
+## [멀쩡한 사각형](https://programmers.co.kr/learn/courses/30/lessons/62048)
 
 분류 : Summer/Winter Coding(2019)
 
-## 방법1
+### 방법1
 
 1. `h`값이 정수로 나오기위한 최소 `w`값을 구하기 위해 최대공약수를 `gcd`변수에 대입
 2. 이때 색칠된 픽셀의 갯수는 `w+h-1`개
@@ -249,7 +249,7 @@ def prime(num):
 > min TaseCase : 0.01ms, 10MB  
 > max TaseCase : 6345.39ms, 10.1MB  
 
-## 방법2
+### 방법2
 
 1. `h`값이 정수로 나오기위한 정수 최소 `w`값을 구하기 위해 최대공약수 구하기 
 - 유클리드 호제법 공식으로 최대공약수 구하여 `v_gcd` 변수에 대입
@@ -276,7 +276,7 @@ def f_gcd(n_max, n_min):
 > min TaseCase : 0.01ms, 10.1MB  
 > max TaseCase : 0.01ms, 10.3MB  
 
-## 방법3
+### 방법3
 
 1. `h`값이 정수로 나오기위한 정수 최소 `w`값을 구하기 위해 최대공약수 구하기
 - math 라이브러리의 gcd 함수로 구하고 `gcd`변수에 대입
@@ -301,7 +301,7 @@ def solution(w,h):
 
 
 
-# [조이스틱](https://programmers.co.kr/learn/courses/30/lessons/42860)
+## [조이스틱](https://programmers.co.kr/learn/courses/30/lessons/42860)
 
 분류 : 탐욕법(Greedy)
 
@@ -375,7 +375,7 @@ def solution(name):
 
 
 
-# [가장 큰 수](https://programmers.co.kr/learn/courses/30/lessons/42746)
+## [가장 큰 수](https://programmers.co.kr/learn/courses/30/lessons/42746)
 
 분류 : 정렬
 
@@ -386,7 +386,7 @@ def solution(name):
 |[21, 212]|'21221'|case 1~6|
 |[0, 0, 0]|'0'|case 11|
 
-## 방법1
+### 방법1
 
 변수 정의
 - int(math.log10(x)+1 if x else 0) : 입력값 x의 자릿수 구하기
@@ -410,7 +410,7 @@ def solution(numbers):
 > min TaseCase : 0.04ms, 10.3MB  
 > max TaseCase : 134.49ms, 23.8MB  
 
-## 방법2
+### 방법2
 
 1. `numbers`리스트 int형 원소들을 map함수로 str형으로 변환
 2. 원소 x 문자길이를 증가시키기위해 문자열길이 3배 증가시켜 역정렬
@@ -431,7 +431,7 @@ def solution(numbers):
 > min TaseCase : 0.01ms, 10.2MB  
 > max TaseCase : 56.59ms, 27.5MB  
 
-## 방법3
+### 방법3
 
 1. 방법2와 동일한 알고리즘이나 2줄로 작성하기위해 `sorted` 함수를 사용
 - `sorted`와`sort`는 정렬 과정은 동일하나 `sorted`의 경우 리스트 복사과정이 추가되어 메모리를 추가로 할당받음 
@@ -449,7 +449,7 @@ def solution(numbers):
 
 
 
-# [소수 찾기](https://programmers.co.kr/learn/courses/30/lessons/42839)
+## [소수 찾기](https://programmers.co.kr/learn/courses/30/lessons/42839)
 
 분류 : 완전탐색
 
@@ -504,7 +504,7 @@ def prime_number(n):
 
 
 
-# [큰 수 만들기](https://programmers.co.kr/learn/courses/30/lessons/42883)
+## [큰 수 만들기](https://programmers.co.kr/learn/courses/30/lessons/42883)
 
 분류 : 탐욕법(Greedy)
 
@@ -539,7 +539,7 @@ def solution(number, k):
 
 
 
-# [H-Index](https://programmers.co.kr/learn/courses/30/lessons/42747)
+## [H-Index](https://programmers.co.kr/learn/courses/30/lessons/42747)
 
 분류 : 정렬
 
@@ -551,7 +551,7 @@ def solution(number, k):
 |[6, 6, 6, 6, 6, 1]         |5      |
 |[0, 1, 1, 1, 1, 3, 3, 4]   |1      |
 
-## 방법1
+### 방법1
 
 ```python
 def solution(citations):
@@ -575,7 +575,7 @@ def solution(citations):
 > min TaseCase : 0.00ms, 10.2MB  
 > max TaseCase : 0.25ms, 10.2MB  
 
-## 방법2
+### 방법2
 
 추가 Test Case  
 
@@ -601,7 +601,7 @@ def solution(citations):
 
 
 
-# [위장](https://programmers.co.kr/learn/courses/30/lessons/42578)
+## [위장](https://programmers.co.kr/learn/courses/30/lessons/42578)
 
 분류 : 해시
 
@@ -637,7 +637,7 @@ def solution(clothes):
 
 
 
-# [카펫](https://programmers.co.kr/learn/courses/30/lessons/42842)
+## [카펫](https://programmers.co.kr/learn/courses/30/lessons/42842)
 
 분류 : 완전탐색
 
@@ -665,13 +665,13 @@ def solution(brown, yellow):
 
 
 
-# [타겟 넘버](https://programmers.co.kr/learn/courses/30/lessons/43165)
+## [타겟 넘버](https://programmers.co.kr/learn/courses/30/lessons/43165)
 
 분류 : 깊이/너비 우선 탐색(DFS/BFS)
 
 재귀 함수 사용
 
-## 방법1
+### 방법1
 
 ```python
 def solution(numbers, target):
@@ -697,7 +697,7 @@ def calc(tot, n):
 > min TaseCase : 0.51ms, 10.2MB  
 > max TaseCase : 310.07ms, 10.2MB  
 
-## 방법2
+### 방법2
 
 ```python
 def solution(numbers, target):
@@ -716,7 +716,7 @@ def solution(numbers, target):
 
 
 
-# [이진 변환 반복하기](https://programmers.co.kr/learn/courses/30/lessons/70129)
+## [이진 변환 반복하기](https://programmers.co.kr/learn/courses/30/lessons/70129)
 
 분류 : 월간 코드 챌린지 시즌1
 
@@ -738,7 +738,7 @@ def solution(s):
 
 
 
-# [최댓값과 최솟값](https://programmers.co.kr/learn/courses/30/lessons/12939)
+## [최댓값과 최솟값](https://programmers.co.kr/learn/courses/30/lessons/12939)
 
 분류 : 연습문제
 
@@ -755,11 +755,11 @@ def solution(s):
 
 
 
-# [피보나치 수](https://programmers.co.kr/learn/courses/30/lessons/12945)
+## [피보나치 수](https://programmers.co.kr/learn/courses/30/lessons/12945)
 
 분류 : 연습문제
 
-## 방법1
+### 방법1
 
 ```python
 def solution(n):
@@ -774,7 +774,7 @@ def solution(n):
 > min TaseCase : 0.01ms, 10.1MB  
 > max TaseCase : 376.82ms, 456MB  
 
-## 방법2
+### 방법2
 
 ```python
 def solution(num):
@@ -791,7 +791,7 @@ def solution(num):
 
 
 
-# [행렬의 곱셈](https://programmers.co.kr/learn/courses/30/lessons/12949)
+## [행렬의 곱셈](https://programmers.co.kr/learn/courses/30/lessons/12949)
 
 분류 : 연습문제
 
@@ -812,7 +812,7 @@ list 자료형 for문 반복문에서 사용할때 list 인젝싱포함될경우
 - for i in range(len(list)): 
     - list[i]
 
-## 방법1
+### 방법1
 
 ```python
 def solution(arr1, arr2):
@@ -833,7 +833,7 @@ def solution(arr1, arr2):
 > min TaseCase : 0.56ms, 10.3MB  
 > max TaseCase : 52.38ms, 11MB  
 
-## 방법2
+### 방법2
 
 ```python
 def solution(arr1, arr2):
@@ -851,7 +851,7 @@ def solution(arr1, arr2):
 > max TaseCase : 78.02ms, 11.2MB  
 
 
-# [JadenCase 문자열 만들기](https://programmers.co.kr/learn/courses/30/lessons/12951)
+## [JadenCase 문자열 만들기](https://programmers.co.kr/learn/courses/30/lessons/12951)
 
 분류 : 연습문제
 
@@ -861,7 +861,7 @@ def solution(arr1, arr2):
 |---|---|
 |"  a b  c   d  "|"  A B  C   D  "|
 
-## 방법1
+### 방법1
 
 ```python
 def solution(s):
@@ -873,7 +873,7 @@ def solution(s):
 > min TaseCase : 0.01ms, 9.98MB  
 > max TaseCase : 0.01ms, 10.3MB  
 
-## 방법2
+### 방법2
 
 1. 내장함수 `capitalize()` : 문자열 첫 글자를 대문자로 변환
 
@@ -889,13 +889,13 @@ def solution(s):
 
 
 
-# [N개의 최소공배수](https://programmers.co.kr/learn/courses/30/lessons/12953)
+## [N개의 최소공배수](https://programmers.co.kr/learn/courses/30/lessons/12953)
 
 분류 : 연습문제
 
 유클리드 호제법 사용
 
-## 방법1
+### 방법1
 
 ```python
 def solution(arr):
@@ -926,7 +926,7 @@ def euclidean(n):
 > min TaseCase : 0.01ms, 10.2MB  
 > max TaseCase : 0.03ms, 10.2MB  
 
-## 방법2
+### 방법2
 
 ```python
 def solution(arr):
@@ -952,13 +952,13 @@ def gcd(m, n):
 
 
 
-# [소수 만들기](https://programmers.co.kr/learn/courses/30/lessons/12977)
+## [소수 만들기](https://programmers.co.kr/learn/courses/30/lessons/12977)
 
 분류 : Summer/Winter Coding(~2018)
 
 2부터 제곱근까지 나머지 연산하여 0이 안 나올 때 소수로 판정
 
-## 방법1
+### 방법1
 
 1. 순열로 조합 생성
 
@@ -992,7 +992,7 @@ def prime(n):
 > min TaseCase : 0.01ms, 10.2MB  
 > max TaseCase : 12.70ms, 10.3MB  
 
-## 방법2
+### 방법2
 
 1. 중복되지 않은 원소를 가진 순열조합 combinations 함수
 
@@ -1025,7 +1025,7 @@ def prime(n):
 
 
 
-# [예상 대진표](https://programmers.co.kr/learn/courses/30/lessons/12985)
+## [예상 대진표](https://programmers.co.kr/learn/courses/30/lessons/12985)
 
 분류 : 2017 팁스타운
 
@@ -1050,11 +1050,11 @@ def solution(n, a, b):
 
 
 
-# [124 나라의 숫자](https://programmers.co.kr/learn/courses/30/lessons/12899)
+## [124 나라의 숫자](https://programmers.co.kr/learn/courses/30/lessons/12899)
 
 분류 : 연습문제
 
-## 방법1
+### 방법1
 
 ```python
 def solution(n):
@@ -1072,7 +1072,7 @@ def solution(n):
 > min TaseCase : 0.01ms, 10MB  
 > max TaseCase : 0.01ms, 10.3MB  
 
-## 방법2
+### 방법2
 
 1. divmod(n, a) : 정수를 나눈 몫과 나머지를 구하는 함수
  - n : 나누어야할 수
@@ -1096,7 +1096,7 @@ def solution(n):
 > min TaseCase : 0.00ms, 10.2MB  
 > max TaseCase : 0.01ms, 10.3MB  
 
-## 방법3
+### 방법3
 
 ```python
 def solution(n):
@@ -1114,7 +1114,7 @@ def solution(n):
 
 
 
-# [스킬트리](https://programmers.co.kr/learn/courses/30/lessons/49993)
+## [스킬트리](https://programmers.co.kr/learn/courses/30/lessons/49993)
 
 분류 : Summer/Winter Coding(~2018)
 
@@ -1125,7 +1125,7 @@ def solution(n):
 |"CBD"|["BDA"]|0|
 |"CBD"|["AEF", "ZJW"]|2|
 
-## 방법1
+### 방법1
 
 ```python
 def solution(skill, skill_trees):
@@ -1148,7 +1148,7 @@ def solution(skill, skill_trees):
 > min TaseCase : 0.01ms, 10.1MB  
 > max TaseCase : 0.03ms, 10.2MB  
 
-## 방법2
+### 방법2
 
 1. for~else문
  - break 등 중간에 안 끊기고 끝까지 실행하면 else문 실행
@@ -1172,7 +1172,7 @@ def solution(skill, skill_trees):
 > min TaseCase : 0.01ms, 10.1MB  
 > max TaseCase : 0.03ms, 10.2MB  
 
-## 방법3
+### 방법3
 
 ```python
 def solution(skill,skill_tree):
@@ -1192,7 +1192,7 @@ def solution(skill,skill_tree):
 
 
 
-# [주식가격](https://programmers.co.kr/learn/courses/30/lessons/42584)
+## [주식가격](https://programmers.co.kr/learn/courses/30/lessons/42584)
 
 분류 : 스택/큐
 
@@ -1220,7 +1220,7 @@ def solution(prices):
 
 
 
-# [삼각 달팽이](https://programmers.co.kr/learn/courses/30/lessons/68645)
+## [삼각 달팽이](https://programmers.co.kr/learn/courses/30/lessons/68645)
 
 분류 : 월간 코드 챌린지 시즌1
 
@@ -1261,7 +1261,7 @@ def solution(n):
 
 
 
-# [문자열 압축](https://programmers.co.kr/learn/courses/30/lessons/60057)
+## [문자열 압축](https://programmers.co.kr/learn/courses/30/lessons/60057)
 
 분류 : 2020 KAKAO BLIND RECRUITMENT
 
@@ -1294,11 +1294,11 @@ def solution(s):
 
 
 
-# [메뉴 리뉴얼](https://programmers.co.kr/learn/courses/30/lessons/72411)
+## [메뉴 리뉴얼](https://programmers.co.kr/learn/courses/30/lessons/72411)
 
 분류 : 2021 KAKAO BLIND RECRUITMENT
 
-## 방법1
+### 방법1
 
 1. orders 리스트를 course 갯수별 조합생성
 2. 조합내 중복제거한 리스트로 조합리스트 내 요소 카운트
@@ -1333,7 +1333,7 @@ def solution(orders, course):
 > min TaseCase : 0.05ms, 10.2MB  
 > max TaseCase : 124.96ms, 10.6MB  
 
-## 방법2
+### 방법2
 
 1. collections.Counter()
     - 컨테이너에 동일한 값이 몇개인지를 `dictionary`로 반환하는 객체
@@ -1367,7 +1367,7 @@ def solution(orders, course):
 
 
 
-# [더 맵게](https://programmers.co.kr/learn/courses/30/lessons/42626)
+## [더 맵게](https://programmers.co.kr/learn/courses/30/lessons/42626)
 
 분류 : 힙(Heap)
 
@@ -1377,7 +1377,7 @@ def solution(orders, course):
 |---|---|---|
 |[0, 0]|1|-1|
 
-## 방법1
+### 방법1
 
 `heapq` : 이진 트리기반의 최소 힙 자료구조로 데이터를 정렬되게 저장하는 내장 모듈
 
@@ -1421,7 +1421,7 @@ def solution(scoville, K):
 > min TaseCase : 139.60ms, 15MB  
 > max TaseCase : 2098.58ms, 51.9MB  
 
-## 방법2
+### 방법2
 
 deque : 스택과 큐를 일반화 한 것
 
@@ -1436,11 +1436,11 @@ deque : 스택과 큐를 일반화 한 것
 
 
 
-# [순위 검색](https://programmers.co.kr/learn/courses/30/lessons/72412#)
+## [순위 검색](https://programmers.co.kr/learn/courses/30/lessons/72412#)
 
 분류 : 2021 KAKAO BLIND RECRUITMENT
 
-## 방법 1
+### 방법1
 
 풀이방법 : 재귀함수, 이진탐색 사용
 
@@ -1517,7 +1517,7 @@ def solution(info, query):
 > min TaseCase : 1146.27ms, 35.9MB  
 > max TaseCase : 5534.78ms, 36.2MB  
 
-## 방법 2
+### 방법2
 
 풀이방법 : Bit field 연산, 이진탐색 알고리즘 수정
 
@@ -1592,7 +1592,7 @@ def solution(info, query):
 > min TaseCase : 887.34ms, 35.8MB  
 > max TaseCase : 3955.15ms, 35.9MB  
 
-## 방법 3
+### 방법3
 
 풀이방법 : 이진탐색 부분을 내장함수 사용  
 
@@ -1663,11 +1663,11 @@ def solution(info, query):
 
 
 
-# [행렬 테두리 회전하기](https://programmers.co.kr/learn/courses/30/lessons/77485?language=python3)
+## [행렬 테두리 회전하기](https://programmers.co.kr/learn/courses/30/lessons/77485?language=python3)
 
 분류 : 2021 Dev-Matching: 웹 백엔드 개발자(상반기)
 
-## 방법1
+### 방법1
 
 1. 테두리에 해당되는 행과 열의 데이터를 모아 `큐`를 만든다.
     - 예시: [1, 2, 3, 4, 5]
@@ -1716,7 +1716,7 @@ def solution(rows, columns, queries):
 > min TaseCase : 0.03ms, 10.2MB  
 > max TaseCase : 245.02ms, 11.7MB  
 
-## 방법2
+### 방법2
 
 1. 방법1 for문 대신 list연산 가능한 부분은 list연산으로 대체한다.
 
@@ -1763,7 +1763,7 @@ def solution(rows, columns, queries):
 
 
 
-# [로또의 최고 순위와 최저 순위](https://programmers.co.kr/learn/courses/30/lessons/77484)
+## [로또의 최고 순위와 최저 순위](https://programmers.co.kr/learn/courses/30/lessons/77484)
 
 분류 : 2021 Dev-Matching: 웹 백엔드 개발자(상반기)
 
@@ -1790,7 +1790,7 @@ def solution(lottos, win_nums):
 
 
 
-# [다단계 칫솔 판매](https://programmers.co.kr/learn/courses/30/lessons/77486)
+## [다단계 칫솔 판매](https://programmers.co.kr/learn/courses/30/lessons/77486)
 
 분류 : 2021 Dev-Matching: 웹 백엔드 개발자(상반기)
 
@@ -1834,7 +1834,7 @@ def solution(enroll, referral, seller, amount):
 
 
 <!-- 
-# [괄호 변환](https://programmers.co.kr/learn/courses/30/lessons/60058)
+## [괄호 변환](https://programmers.co.kr/learn/courses/30/lessons/60058)
 
 분류 : 2020 KAKAO BLIND RECRUITMENT
 
@@ -1852,7 +1852,7 @@ def solution(enroll, referral, seller, amount):
 
 
 <!-- 
-# [전화번호 목록](https://programmers.co.kr/learn/courses/30/lessons/42577)
+## [전화번호 목록](https://programmers.co.kr/learn/courses/30/lessons/42577)
 
 분류 : 해시
 
@@ -1870,7 +1870,7 @@ def solution(enroll, referral, seller, amount):
 
 
 <!--
-# []()
+## []()
 
 분류 : 
 

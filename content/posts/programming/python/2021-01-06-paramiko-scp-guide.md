@@ -4,7 +4,7 @@ date: 2021-01-06T17:36:17+09:00
 description: paramiko-scp 라이브러리 사용법 (paramiko-scp Library Guide)
 menu:
   sidebar:
-    name: paramiko-scp Library Guide
+    name: paramiko-scp 라이브러리 사용법
     identifier: paramiko-scp-library-guide
     parent: python
     weight: 30
@@ -21,14 +21,14 @@ paramiko, scp 라이브러리 연계 사용한 ssh 파일 전송
 |paramiko|로그인:암호화 / 파일전송:암호화|느림|
 |paramiko+scp|로그인:암호화 / 파일전송:평문|보통|
 
-<br>
+<br><br>
 
 실습환경 : windows10, 
 원격서버환경 : linux(RHEL8)
 
 사전에 ssh 접속가능한 linux를 구축한 후 실습 진행
 
-# 라이브러리 설치
+## 라이브러리 설치
 
 ```bash
 pip install paramiko
@@ -41,9 +41,9 @@ paramiko : SSH 접속 및 종료 기능
 scp : 파일 전송 및 다운로드 기능
 - Docs URL - https://pypi.org/project/scp/
 
-# 사용예제 코드
+## 사용예제 코드
 
-## SSHManager
+### SSHManager
 
 SSHManager.py
 
@@ -105,7 +105,7 @@ class SSHManager:
             print(f"[send_command] Error : {ex} | cmd = {cmd}")
 ```
 
-## client
+### client
 
 client.py
 

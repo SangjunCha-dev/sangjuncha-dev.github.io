@@ -4,7 +4,7 @@ date: 2020-11-05T09:53:16+09:00
 description: libmagic 라이브러리 사용법 (libmagic Library Guide)
 menu:
   sidebar:
-    name: libmagic Library Guide
+    name: libmagic 라이브러리 사용법
     identifier: libmagic-library-guide
     parent: python
     weight: 30
@@ -18,7 +18,7 @@ categories: ["Python", "Guide"]
 
 실행환경 : windows 10
 
-# 라이브러리 설치
+## 라이브러리 설치
 
 ```bash
 pip install libmagic
@@ -32,7 +32,7 @@ libmagic : 파일타입을 MIME 타입으로 확인해주는 라이브러리
 python-magic-bin : 윈도우용 magic 라이브러리
 
 
-# 예제 코드
+## 예제 코드
 
 ```python
 import magic

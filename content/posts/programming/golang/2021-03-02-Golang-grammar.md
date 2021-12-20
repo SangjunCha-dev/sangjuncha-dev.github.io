@@ -4,7 +4,7 @@ date: 2021-02-10T11:13:23+09:00
 description: Go 언어 문법 (Golang grammar)
 menu:
   sidebar:
-    name: Golang Grammar
+    name: Go 언어 문법
     identifier: golang-grammar
     parent: golang
     weight: 30
@@ -14,10 +14,10 @@ categories: ["Go", "Learning"]
 
 
 
-# 디렉토리 관련 함수
+## 디렉토리 관련 함수
 2021년 3월 3일 수요일 오전 8:55:31
 
-## 단일 디렉토리 생성
+### 단일 디렉토리 생성
 
 `os.Mkdir(path, permission)`
 
@@ -28,7 +28,7 @@ if err != nil {
 }
 ```
 
-## 다중 디렉토리 생성
+### 다중 디렉토리 생성
 
 `os.MkdirAll(path, permission)` : 
 
@@ -39,7 +39,7 @@ if err != nil {
 }
 ```
 
-## 현재 작업 디렉토리 얻기
+### 현재 작업 디렉토리 얻기
 
 `os.Getwd()`
 
@@ -51,7 +51,7 @@ if err != nil {
 fmt.Println(path)
 ```
 
-## 디렉토리 존재유무 확인
+### 디렉토리 존재유무 확인
 
 `os.Stat(paht)`
 
@@ -65,7 +65,7 @@ if _, err := os.Stat("/dirname"); !os.IsNotExist(err) {
 }
 ```
 
-## 디렉토리 이름 바꾸기
+### 디렉토리 이름 바꾸기
 
 `os.Rename(oldpath, newpath)`
 
@@ -78,7 +78,7 @@ if err != nil {
 
 
 
-# struct 구조체 기본값 지정
+## struct 구조체 기본값 지정
 2021년 3월 3일 수요일 오후 5:43:23
 
 ```json
@@ -119,7 +119,7 @@ func main() {
 
 
 
-# Time 변수 문자열 변환 (convert time.Time to string)
+## Time 변수 문자열 변환 (convert time.Time to string)
 2021년 3월 4일 목요일 오후 2:54:09
 
 ```go
@@ -153,7 +153,7 @@ fmt.Println("yyyy-mm-dd HH:mm:ss :", nowTime.Format("2006-01-02 15:04:05.0000000
 
 
 
-# 디렉토리 내 파일목록 읽기
+## 디렉토리 내 파일목록 읽기
 2021년 3월 4일 목요일 오후 5:45:44
 
 `ioutil.ReadDir(path)`
@@ -175,7 +175,7 @@ for i ,f := range files {
 
 
 
-# 문자열 분할
+## 문자열 분할
 2021년 3월 8일 월요일 오전 1:21:36
 
 Split (s, sep string ) [] string
@@ -219,7 +219,7 @@ SplitAfterN(s, sep string, n int) []string
 
 
 
-# 타입 확인
+## 타입 확인
 2021년 3월 8일 월요일 오전 9:26:56  
 
 reflect.TypeOf(i interface{}) reflect.Type
@@ -238,11 +238,11 @@ y type : string
 z type : float64
 ```
 
-# 타입 변경
+## 타입 변경
 
 strconv
 
-## 숫자 변환
+### 숫자 변환
 
 Atoi : 문자열에서 int로  
 Itoa : int에서 문자열로  
@@ -282,7 +282,7 @@ s := strconv.FormatUint(42, 16)
 
 
 
-## 문자열 변환
+### 문자열 변환
 2021년 3월 8일 월요일 오전 10:14:38 
 
 문자열을 인용 된 Go 문자열 리터럴로 변환
@@ -294,10 +294,10 @@ q := strconv.QuoteToASCII("Hello, World")
 
 
 
-# 에러 핸들링
+## 에러 핸들링
 2021년 3월 8일 월요일 오전 10:52:04  
 
-## 복합한 에러 핸들링
+### 복합한 에러 핸들링
 
 빈 디렉토리 tmp 생성후 해당 코드 실행시  
 `*fs.PathError` 에러가 발생하는데 아래의 switch case `err.(*fs.PathError)` 구문으로 별도의 에러 핸들링이 가능해진다.
@@ -317,7 +317,7 @@ default:
 
 
 
-# 특정 날짜/시간 동작
+## 특정 날짜/시간 동작
 2021년 3월 8일 월요일 오후 1:29:32
 
 ```bash
@@ -343,7 +343,7 @@ c.Start()
 
 
 
-# 로그파일 작성
+## 로그파일 작성
 2021년 3월 8일 월요일 오후 1:29:32
 
 ```go
@@ -354,6 +354,7 @@ rotatelogs.WithRotationTime(time.Hour), // 로테이션 반복 주기
 rotatelogs.WithClock(rotatelogs.Local), // 로컬 시간으로 설정
 rotatelogs.WithRotationCount(30),       // 유지되는 파일 개수
 )
+log.SetFlags(log.Ldate | log.Ltime | log.Lmicroseconds)
 log.SetOutput(rl)
 
 log.Println("log write")
@@ -361,7 +362,7 @@ log.Println("log write")
 
 
 
-# 프로젝트내 다른 로컬패키지 호출
+## 프로젝트내 다른 로컬패키지 호출
 2021년 3월 11일 목요일 오후 6:02:36
 
 go언어는 패키지를 GOPATH 기준으로 검색하기때문에  
@@ -378,7 +379,7 @@ project1
     └── package2.go
 ```
 
-## 로컬패키지 호출 예시
+### 로컬패키지 호출 예시
 
 package1.go파일에서 로컬패키지 package2 호출
 
@@ -390,7 +391,7 @@ import (
 )
 ```
 
-## 잘못 사용한 예시
+### 잘못 사용한 예시
 
 go언어에서는 import 구문으로 상대경로를 사용하지 않음
 
@@ -401,7 +402,7 @@ import (
 ```
 
 
-# uint16형 데이터 2Byte형태로 변환
+## uint16형 데이터 2Byte형태로 변환
 
 ```go
 b := make([]byte, 2)
@@ -410,7 +411,7 @@ binary.BigEndian.PutUint16(b, uint16(258))
 fmt.Println(string(b))
 ```
 
-# 서로 다른 byte 데이터 비교
+## 서로 다른 byte 데이터 비교
 
 ```go
 b := make([]byte, 2)

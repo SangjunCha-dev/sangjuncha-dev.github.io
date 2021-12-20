@@ -4,7 +4,7 @@ date: 2020-11-16T13:30:41+09:00
 description: pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)
 menu:
   sidebar:
-    name: pyftpdlib Library Guide
+    name: pyftpdlib 라이브러리 사용법
     identifier: pyftpdlib-library-guide
     parent: python
     weight: 30
@@ -16,7 +16,7 @@ categories: ["Python", "Guide"]
 
 Docs URL - https://pyftpdlib.readthedocs.io/en/latest/
 
-# FTP Server 라이브러리 설치
+## FTP Server 라이브러리 설치
 
 ```bash
 pip install pyftpdlib
@@ -24,9 +24,9 @@ pip install pyftpdlib
 
 실습 버전 : pyftpdlib 1.5.6
 
-# 사용예제 코드
+## 사용예제 코드
 
-## FTP Server 예제
+### FTP Server 예제
 
 ftp server 실행 후 client 테스트 가능
 
@@ -77,7 +77,7 @@ file_server.start()
 ```
 
 
-## FTP Client ftplib 예제
+### FTP Client ftplib 예제
 
 FTPClient.py
 ```python
@@ -246,7 +246,7 @@ class FTPClient:
 
 ```
 
-## FTP Client 예제
+### FTP Client 예제
 
 client.py
 ```python

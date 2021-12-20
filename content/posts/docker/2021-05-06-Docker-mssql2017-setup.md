@@ -4,7 +4,7 @@ date: 2021-05-06T22:29:30+09:00
 description: 도커의 개요 및 windows10 버전 설치 방법
 menu:
   sidebar:
-    name: Docker MSSQL Setup
+    name: MSSQL Setup
     identifier: docker-mssql-setup
     parent: docker
     weight: 30
@@ -14,21 +14,21 @@ categories: ["Docker", "MSSQL"]
 
 
 
-# mssql docker 도커 설치 방법
+## mssql docker 도커 설치 방법
 
-## 도커 허브에서 이미지 검색
+### 도커 허브에서 이미지 검색
 
 ```bash
 docker search <검색할 이미지 이름>
 ```
 
-## pull - 도커 이미지 다운받기
+### pull - 도커 이미지 다운받기
 
 ```bash
 docker pull mcr.microsoft.com/mssql/server:2017-latest
 ```
 
-## docs 예시
+### docs 예시
 
 ```powershell
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=<YourStrong@Passw0rd>"
@@ -42,7 +42,7 @@ docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=<YourStrong@Passw0rd>"
 Docker on Windows 의 호스트 볼륨 매핑은 현재 `/var/opt/mssql` 디렉토리가 아닌
 `/var/opt/mssql/data` 등의 하위 디렉터리를 호스트 머신에 매핑할 수 있다.
 
-## 사용 명령어 예시
+### 사용 명령어 예시
 
 ```bash
 docker volume create mssqldata
@@ -62,7 +62,7 @@ docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Airiss123!" -p 11433:1433 --name m
 |`-d`|백그라운드에서 컨테이너 실행|
 
 
-## 기본 파일 위치 변경
+### 기본 파일 위치 변경
 
 ```powershell
 -e "MSSQL_DATA_DIR=/my/file/path"

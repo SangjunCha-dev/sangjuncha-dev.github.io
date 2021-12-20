@@ -4,7 +4,7 @@ date: 2021-04-20T09:30:40+09:00
 description: Django json 데이터 반환하기
 menu:
   sidebar:
-    name: Django Return json Data
+    name: json 데이터 반환하기
     identifier: django-return-json-data
     parent: django
     weight: 30
