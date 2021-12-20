@@ -1788,6 +1788,51 @@ def solution(lottos, win_nums):
 > min TaseCase : 0.00ms, 10.2MB  
 > max TaseCase : 0.01ms, 10.2MB  
 
+
+
+# [다단계 칫솔 판매](https://programmers.co.kr/learn/courses/30/lessons/77486)
+
+분류 : 2021 Dev-Matching: 웹 백엔드 개발자(상반기)
+
+```python
+def solution(enroll, referral, seller, amount):
+    answer = []
+
+    data = {'center': {'amount': 0,'parent': None}}
+    for i in range(len(enroll)):
+        data[enroll[i]] = {
+            'amount': 0,
+            'parent': referral[i] if referral[i] != '-' else 'center'
+        }
+
+    for i in range(len(seller)):
+        sell = seller[i]
+        price = amount[i] * 100
+        data[sell]['amount'] += price-price//10
+        price = price//10
+
+        while data[sell]['parent'] and price:
+            sell = data[sell]['parent']
+            if sell == 'center':
+                data[sell]['amount'] += price
+                break
+            data[sell]['amount'] += price-price//10
+            price = price//10
+
+    del data['center']
+    for value in data.values():
+        answer.append(value['amount'])
+
+    return answer
+```
+
+**2021-12-20**
+
+> min TaseCase : 0.08ms, 10.2MB  
+> max TaseCase : 167.55ms, 22.2MB  
+
+
+
 <!-- 
 # [괄호 변환](https://programmers.co.kr/learn/courses/30/lessons/60058)
 
