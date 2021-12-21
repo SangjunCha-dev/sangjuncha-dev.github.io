@@ -172,6 +172,27 @@ I am a passionate software backend developer with 2 years of working experience.
 <div class=container>
 <div class=row id=recent-post-cards>
 <div class="col-lg-4 col-md-6 pt-2 post-card">
+<a href=/posts/docker/2021-12-21-docker-reduce-the-volume/ title="도커 경량화 이미지 만들기" class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
+</div>
+<div class=card-body>
+<h5 class=card-title>도커 경량화 이미지 만들기</h5>
+<p class="card-text post-summary"> Docker Image 경량화의 장점 저장공간 절약 이미지 빌드 및 배포시간 단축 클라우드 서비스를 이용한 배포의 경우 비용 절약 1. 가벼운 Base image 사용 Base image에는 사용하지 않은 기능들이 포함되어 있기때문에 Debian계열과 Alpine 계열등 다양한 Base image를 사용하여 용량을 줄일 수 있다.
+단, 필요한 패키지나 파일이 없어 별도의 설치가 필요할 수 있다. 기본 python 이미지와 slim형 이미지를 각각 빌드한다.
+image-test1
+FROM python:3.8.10 image-test2
+FROM python:3.8.10-slim-buster 각각 빌드된 이미지 크기는 다음과 같다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 21, 2021</span>
+<a href=/posts/docker/2021-12-21-docker-reduce-the-volume/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class="col-lg-4 col-md-6 pt-2 post-card">
 <a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ title="golang learn-go-with-tests GitBook 정리" class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -207,27 +228,6 @@ func (r Rectangle) Area() float64 { return 0 } interface Go에서 인터페이�
 <div class=card-footer>
 <span class=float-left>July 29, 2021</span>
 <a href=/posts/programming/golang/2021-07-29-golang-gopacket/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class="col-lg-4 col-md-6 pt-2 post-card">
-<a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ title="python을 이용한 windows10 시스템 정보 및 사용량 모니터링" class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
-</div>
-<div class=card-body>
-<h5 class=card-title>python을 이용한 windows10 시스템 정보 및 사용량 모니터링</h5>
-<p class="card-text post-summary"> 운영체제 : windows 10
-설치환경 : python 3.8.8, powershell 7.1
-powershell 명령어 사용법 WMI 개체 가져오기(Get-CimInstance) python에서 powershell 명령 실행 방법 1. 콘솔 명령 실행 import subprocess import json cmd = "Get-CimInstance -Class Win32_OperatingSystem" subprocess.Popen(f'powershell.exe {cmd}') 2. 실행결과 반환 디코딩을 하지 않으면 바이트 문자열로 나열되서 반환된다.
-cmd = "Get-CimInstance -Class Win32_OperatingSystem" result = subprocess.Popen(f'powershell.exe {cmd}', stdout=subprocess.PIPE) print(result) result = result.stdout.read() print(result) 결과
-&lt;subprocess.Popen object at 0x0000025175617B50> b'\r\nSystemDirectory Organization BuildNumber RegisteredUser SerialNumber Version \r\n--------------- ------------ ----------- -------------- ------------ ------- \r\nC:\\Windows\\system32 19000 UserName 00000-00000 10.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>June 16, 2021</span>
-<a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
