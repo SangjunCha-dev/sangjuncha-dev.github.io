@@ -102,6 +102,7 @@ apt-get 사용하여 패키지 설치시 용량을 최소화 하는 방법
 
 Docker Image에는 Layer라는 Stack구조가 있다. 도커 이미지를 효과적으로 관리하기 위해 Stack형태로 이미지가 누적되며, 동일한 Stack이 동일한 Repository에 존재하면 해당 Layer를 사용하도록 구현되어 있다.
 Docker Image는 Container 용량을 결정하고, 관리측면에서 Local Repository나 Docker Registry의 용량에 영향을 준다.
+- Dockerfile 작성 시 라이브러리 설치 등 수정이 적은 명령어를 상단에 프로젝트 코드 등 데이터 수정이 빈번한 명령어는 하단에 작성하면 이미지 중복 생성을 최소화할 수 있다.
 
 image-test1
 
