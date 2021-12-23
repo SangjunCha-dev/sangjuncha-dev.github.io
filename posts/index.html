@@ -107,6 +107,46 @@ FROM python:3.8.10-slim-buster 각각 빌드된 이미지 크기는 다음과 �
 </a>
 </div>
 <div class=post-card>
+<a href=/posts/programming/golang/2021-12-21-golang-cron/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>golang cron 스케줄링 라이브러리 사용법</h5>
+<p class="card-text post-summary">go언어에서 cron 처럼 동작하는 스케줄링 외부 라이브러리 사용법
+cron 함수는 지정한 주기마다 동작시키는 기능으로 별도의 비동기함수로 실행된다. main 함수가 종료되면 go 프로세스가 종료되어 비동기 함수도 종료된다. cron 기능을 사용할려면 main 함수가 종료되지 않도록 적절한 조치를 해야한다. 라이브러리 설치 go version : 1.17
+> go get github.com/robfig/cron/v3@v3.0.0 예제코드 select : 복수 채널이 대기하면서 준비된 (데이터를 전송받은) 채널을 실행하는 기능이다. case 채널들이 준비되지 않으면 계속 대기하게 되고, 가장 먼저 도착한 채널의 case를 실행한다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 21, 2021</span>
+<a href=/posts/programming/golang/2021-12-21-golang-cron/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>golang postgreDB CURD</h5>
+<p class="card-text post-summary">golang에서 postgre데이터 베이스의 SQL 생성, 수정, 읽기, 삭제 기능의 간단한 사용법이다.
+postgreDB가 이미 설치되어 있다는 전제하에 진행한다.
+로컬 설정 : PostgreDB 설치 도커 이미지 : PostgreDB, pgadmin4 도커 설치 방법 라이브러리 설치 go version : 1.17
+> go get github.com/lib/pq 테이블 구조 postgreDB에 아래와 같은 구조의 User 테이블이 선언된 상태로 진행한다.
+CREATE TABLE user ( id SERIAL PRIMARY KEY, name VARCHAR(20), age INT ); DB 설정 초기화 package main import ( "database/sql" "fmt" _ "github.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 16, 2021</span>
+<a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -283,43 +323,6 @@ int(문자열, 밑(n진법))
 </div>
 </a>
 </div>
-<div class=post-card>
-<a href=/posts/docker/2021-05-06-docker-mssql2017-setup/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>mssql 2017 도커 이미지 설치 및 컨테이너 실행방법</h5>
-<p class="card-text post-summary">mssql docker 도커 설치 방법 도커 허브에서 이미지 검색 docker search &lt;검색할 이미지 이름> pull - 도커 이미지 다운받기 docker pull mcr.microsoft.com/mssql/server:2017-latest docs 예시 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=&lt;YourStrong@Passw0rd>" -p 1433:1433 --name mssql2017 -h mssql2017 -v &lt;host directory>/data:/var/opt/mssql/data -v &lt;host directory>/log:/var/opt/mssql/log -v &lt;host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/mssql/server:2017-latest Docker on Windows 의 호스트 볼륨 매핑은 현재 /var/opt/mssql 디렉토리가 아닌 /var/opt/mssql/data 등의 하위 디렉터리를 호스트 머신에 매핑할 수 있다.
-사용 명령어 예시 docker volume create mssqldata docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Airiss123!</p>
-</div>
-<div class=card-footer>
-<span class=float-left>May 6, 2021</span>
-<a href=/posts/docker/2021-05-06-docker-mssql2017-setup/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>PostgreDB, pgadmin4 도커 설치 방법</h5>
-<p class="card-text post-summary">Postgres Docker 이미지 설치 Postgres Version : 13.2
-다운로드 및 설정 아래 명령어를 실행한다.
-$ docker run -p 15432:5432 --name postgres -e POSTGRES_PASSWORD=password1! -d postgres -d : 백그라운드에서 컨테이너 실행 -p 15432:5432 : 호스트와 컨테이너 간의 배포(publish)포트/바인드(bind)포트 호스트 15432번 포트를 컨테이너 5432번 포트에 매핑 --name : 생성할 컨테이너 이름 -e : 도커 컨테이너의 환경변수 설정 POSTGRES_PASSWORD : PostgresDB 관리자 비밀번호 실행 결과</p>
-</div>
-<div class=card-footer>
-<span class=float-left>April 29, 2021</span>
-<a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
 </div>
 <div class=paginator>
 <ul class="pagination pagination-default">
@@ -339,10 +342,13 @@ $ docker run -p 15432:5432 --name postgres -e POSTGRES_PASSWORD=password1! -d po
 <a href=/posts/page/3/ aria-label="Page 3" class=page-link role=button>3</a>
 </li>
 <li class=page-item>
+<a href=/posts/page/4/ aria-label="Page 4" class=page-link role=button>4</a>
+</li>
+<li class=page-item>
 <a href=/posts/page/2/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
 </li>
 <li class=page-item>
-<a href=/posts/page/3/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
+<a href=/posts/page/4/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
 </li>
 </ul>
 </div>

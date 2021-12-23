@@ -86,6 +86,46 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/programming/golang/2021-12-21-golang-cron/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>golang cron 스케줄링 라이브러리 사용법</h5>
+<p class="card-text post-summary">go언어에서 cron 처럼 동작하는 스케줄링 외부 라이브러리 사용법
+cron 함수는 지정한 주기마다 동작시키는 기능으로 별도의 비동기함수로 실행된다. main 함수가 종료되면 go 프로세스가 종료되어 비동기 함수도 종료된다. cron 기능을 사용할려면 main 함수가 종료되지 않도록 적절한 조치를 해야한다. 라이브러리 설치 go version : 1.17
+> go get github.com/robfig/cron/v3@v3.0.0 예제코드 select : 복수 채널이 대기하면서 준비된 (데이터를 전송받은) 채널을 실행하는 기능이다. case 채널들이 준비되지 않으면 계속 대기하게 되고, 가장 먼저 도착한 채널의 case를 실행한다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 21, 2021</span>
+<a href=/posts/programming/golang/2021-12-21-golang-cron/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>golang postgreDB CURD</h5>
+<p class="card-text post-summary">golang에서 postgre데이터 베이스의 SQL 생성, 수정, 읽기, 삭제 기능의 간단한 사용법이다.
+postgreDB가 이미 설치되어 있다는 전제하에 진행한다.
+로컬 설정 : PostgreDB 설치 도커 이미지 : PostgreDB, pgadmin4 도커 설치 방법 라이브러리 설치 go version : 1.17
+> go get github.com/lib/pq 테이블 구조 postgreDB에 아래와 같은 구조의 User 테이블이 선언된 상태로 진행한다.
+CREATE TABLE user ( id SERIAL PRIMARY KEY, name VARCHAR(20), age INT ); DB 설정 초기화 package main import ( "database/sql" "fmt" _ "github.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 16, 2021</span>
+<a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -282,47 +322,6 @@ if _, err := os.Stat("/dirname"); os.IsNotExist(err) { // does not exist } if _,
 <div class=card-footer>
 <span class=float-left>February 10, 2021</span>
 <a href=/posts/programming/golang/2021-03-02-golang-grammar/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>pyshark 라이브러리 사용법 (pyshark Library Guide)</h5>
-<p class="card-text post-summary">Docs URL - https://github.com/KimiNewt/pyshark/
-설치환경 : Windows 10, python 3.7
-1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install pyshark 2. 사용법 캡쳐파일 읽기
-capture = pyshark.FileCapture('./test.pcapng') 실시간 패킷캡처 interface
-capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 11:22:33:44:55:66', use_json=True, include_raw=True) 패킷 캡처
-패킷 1개 캡처하거나 10ms 경과하면 캡처 결과 반환 capture.sniff(packet_count=1, timeout=10) 패킷 10개 캡처하거나 10ms 경과하면 캡처 결과 반환 capture.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>February 10, 2021</span>
-<a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>scapy 라이브러리 사용법 (Scapy Library Guide)</h5>
-<p class="card-text post-summary">Docs URL - https://scapy.readthedocs.io/en/latest/#
-설치환경 : Windows 10
-설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install --pre scapy[basic] Client 예제 from scapy.all import * from scapy.utils import rdpcap import datetime as dt # PCAP 파일 읽기 # could be used like this rdpcap("filename",500) fetches first 500 pkts pkts = rdpcap("./pcap/test.pcapng", -1) pkts = pkts[21:100] cnt = 0 repeat = 10 s_time = dt.datetime.now() for _ in range(repeat): for pkt in pkts: # print(f"hexdump(pkt) = {hexdump(pkt)}") # Send one or more packets at 2 layer sendp(pkt, inter=0, loop=0, count=1, iface=None) # Send one or more packets at 3 layer # send(pkt, inter=0, loop=0, count=1, iface=None) cnt += 1 print(cnt) sendp(b'', inter=0, loop=0, count=1, iface=None) time.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>February 9, 2021</span>
-<a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

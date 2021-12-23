@@ -86,6 +86,43 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/docker/2021-05-06-docker-mssql2017-setup/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>mssql 2017 도커 이미지 설치 및 컨테이너 실행방법</h5>
+<p class="card-text post-summary">mssql docker 도커 설치 방법 도커 허브에서 이미지 검색 docker search &lt;검색할 이미지 이름> pull - 도커 이미지 다운받기 docker pull mcr.microsoft.com/mssql/server:2017-latest docs 예시 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=&lt;YourStrong@Passw0rd>" -p 1433:1433 --name mssql2017 -h mssql2017 -v &lt;host directory>/data:/var/opt/mssql/data -v &lt;host directory>/log:/var/opt/mssql/log -v &lt;host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/mssql/server:2017-latest Docker on Windows 의 호스트 볼륨 매핑은 현재 /var/opt/mssql 디렉토리가 아닌 /var/opt/mssql/data 등의 하위 디렉터리를 호스트 머신에 매핑할 수 있다.
+사용 명령어 예시 docker volume create mssqldata docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Airiss123!</p>
+</div>
+<div class=card-footer>
+<span class=float-left>May 6, 2021</span>
+<a href=/posts/docker/2021-05-06-docker-mssql2017-setup/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>PostgreDB, pgadmin4 도커 설치 방법</h5>
+<p class="card-text post-summary">Postgres Docker 이미지 설치 Postgres Version : 13.2
+다운로드 및 설정 아래 명령어를 실행한다.
+$ docker run -p 15432:5432 --name postgres -e POSTGRES_PASSWORD=password1! -d postgres -d : 백그라운드에서 컨테이너 실행 -p 15432:5432 : 호스트와 컨테이너 간의 배포(publish)포트/바인드(bind)포트 호스트 15432번 포트를 컨테이너 5432번 포트에 매핑 --name : 생성할 컨테이너 이름 -e : 도커 컨테이너의 환경변수 설정 POSTGRES_PASSWORD : PostgresDB 관리자 비밀번호 실행 결과</p>
+</div>
+<div class=card-footer>
+<span class=float-left>April 29, 2021</span>
+<a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/framework/django/2021-04-22-django-file-upload/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -290,47 +327,6 @@ if _, err := os.Stat("/dirname"); os.IsNotExist(err) { // does not exist } if _,
 </div>
 </a>
 </div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>pyshark 라이브러리 사용법 (pyshark Library Guide)</h5>
-<p class="card-text post-summary">Docs URL - https://github.com/KimiNewt/pyshark/
-설치환경 : Windows 10, python 3.7
-1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install pyshark 2. 사용법 캡쳐파일 읽기
-capture = pyshark.FileCapture('./test.pcapng') 실시간 패킷캡처 interface
-capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 11:22:33:44:55:66', use_json=True, include_raw=True) 패킷 캡처
-패킷 1개 캡처하거나 10ms 경과하면 캡처 결과 반환 capture.sniff(packet_count=1, timeout=10) 패킷 10개 캡처하거나 10ms 경과하면 캡처 결과 반환 capture.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>February 10, 2021</span>
-<a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>scapy 라이브러리 사용법 (Scapy Library Guide)</h5>
-<p class="card-text post-summary">Docs URL - https://scapy.readthedocs.io/en/latest/#
-설치환경 : Windows 10
-설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install --pre scapy[basic] Client 예제 from scapy.all import * from scapy.utils import rdpcap import datetime as dt # PCAP 파일 읽기 # could be used like this rdpcap("filename",500) fetches first 500 pkts pkts = rdpcap("./pcap/test.pcapng", -1) pkts = pkts[21:100] cnt = 0 repeat = 10 s_time = dt.datetime.now() for _ in range(repeat): for pkt in pkts: # print(f"hexdump(pkt) = {hexdump(pkt)}") # Send one or more packets at 2 layer sendp(pkt, inter=0, loop=0, count=1, iface=None) # Send one or more packets at 3 layer # send(pkt, inter=0, loop=0, count=1, iface=None) cnt += 1 print(cnt) sendp(b'', inter=0, loop=0, count=1, iface=None) time.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>February 9, 2021</span>
-<a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
 </div>
 <div class=paginator>
 <ul class="pagination pagination-default">
@@ -350,10 +346,13 @@ capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 
 <a href=/posts/page/3/ aria-label="Page 3" class=page-link role=button>3</a>
 </li>
 <li class=page-item>
+<a href=/posts/page/4/ aria-label="Page 4" class=page-link role=button>4</a>
+</li>
+<li class=page-item>
 <a href=/posts/page/3/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
 </li>
 <li class=page-item>
-<a href=/posts/page/3/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
+<a href=/posts/page/4/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
 </li>
 </ul>
 </div>

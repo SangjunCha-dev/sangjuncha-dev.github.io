@@ -48,6 +48,7 @@ Sangjun 개발 블로그</a>
 <li id=list-heading><a href=/categories data-filter=all>카테고리</a></li>
 <div class="subtree taxonomy-terms">
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/algorithm/ data-taxonomy-term=algorithm><span class=taxonomy-label>Algorithm</span></a></li>
+<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/cron/ data-taxonomy-term=cron><span class=taxonomy-label>cron</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/db/ data-taxonomy-term=db><span class=taxonomy-label>DB</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/django/ data-taxonomy-term=django><span class=taxonomy-label>Django</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/docker/ data-taxonomy-term=docker><span class=taxonomy-label>Docker</span></a></li>
@@ -81,6 +82,27 @@ Sangjun 개발 블로그</a>
 <section class=content-section id=content-section>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
+<div class=post-card>
+<a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>golang postgreDB CURD</h5>
+<p class="card-text post-summary">golang에서 postgre데이터 베이스의 SQL 생성, 수정, 읽기, 삭제 기능의 간단한 사용법이다.
+postgreDB가 이미 설치되어 있다는 전제하에 진행한다.
+로컬 설정 : PostgreDB 설치 도커 이미지 : PostgreDB, pgadmin4 도커 설치 방법 라이브러리 설치 go version : 1.17
+> go get github.com/lib/pq 테이블 구조 postgreDB에 아래와 같은 구조의 User 테이블이 선언된 상태로 진행한다.
+CREATE TABLE user ( id SERIAL PRIMARY KEY, name VARCHAR(20), age INT ); DB 설정 초기화 package main import ( "database/sql" "fmt" _ "github.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 16, 2021</span>
+<a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
 <div class=post-card>
 <a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ class=post-card-link>
 <div class=card>

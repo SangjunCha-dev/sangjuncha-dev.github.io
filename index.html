@@ -193,41 +193,41 @@ FROM python:3.8.10-slim-buster 각각 빌드된 이미지 크기는 다음과 �
 </a>
 </div>
 <div class="col-lg-4 col-md-6 pt-2 post-card">
-<a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ title="golang learn-go-with-tests GitBook 정리" class=post-card-link>
+<a href=/posts/programming/golang/2021-12-21-golang-cron/ title="golang cron 스케줄링 라이브러리 사용법" class=post-card-link>
 <div class=card>
 <div class=card-head>
 <img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
 </div>
 <div class=card-body>
-<h5 class=card-title>golang learn-go-with-tests GitBook 정리</h5>
-<p class="card-text post-summary"> 사이트 주소 원본 링크
-한글 번역 링크
-5. struct, method & interface struct 구조체의 변수 첫글자는 대문자여야한다. (외부에서 사용 가능하도록)
-type Rectangle struct { Width float64 Height float64 } 구조체 필드이름을 선택적으로 지정할 수 있다.
-{shape: Rectangle{Width: 12, Height: 6}, want: 72.0}, {shape: Circle{Radius: 10}, want: 314.1592653589793}, methods func (receiverName ReceiverType) MethodName(args) r Rectangle 수신자 변수를 유형의 첫 번째 문자로 지정하는 것이 Go의 관례이다.
-func (r Rectangle) Area() float64 { return 0 } interface Go에서 인터페이스 자료형은 암시적 이다.</p>
+<h5 class=card-title>golang cron 스케줄링 라이브러리 사용법</h5>
+<p class="card-text post-summary"> go언어에서 cron 처럼 동작하는 스케줄링 외부 라이브러리 사용법
+cron 함수는 지정한 주기마다 동작시키는 기능으로 별도의 비동기함수로 실행된다. main 함수가 종료되면 go 프로세스가 종료되어 비동기 함수도 종료된다. cron 기능을 사용할려면 main 함수가 종료되지 않도록 적절한 조치를 해야한다. 라이브러리 설치 go version : 1.17
+> go get github.com/robfig/cron/v3@v3.0.0 예제코드 select : 복수 채널이 대기하면서 준비된 (데이터를 전송받은) 채널을 실행하는 기능이다. case 채널들이 준비되지 않으면 계속 대기하게 되고, 가장 먼저 도착한 채널의 case를 실행한다.</p>
 </div>
 <div class=card-footer>
-<span class=float-left>August 2, 2021</span>
-<a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
+<span class=float-left>December 21, 2021</span>
+<a href=/posts/programming/golang/2021-12-21-golang-cron/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
 </div>
 <div class="col-lg-4 col-md-6 pt-2 post-card">
-<a href=/posts/programming/golang/2021-07-29-golang-gopacket/ title="golang gopacket 라이브러리를 이용한 통신" class=post-card-link>
+<a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ title="golang postgreDB CURD" class=post-card-link>
 <div class=card>
 <div class=card-head>
 <img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
 </div>
 <div class=card-body>
-<h5 class=card-title>golang gopacket 라이브러리를 이용한 통신</h5>
-<p class="card-text post-summary"> 설명 ethernet 통신
-이더넷 어댑터 설명(dev.Description)을 기준으로 통신하는 코드이다. 예제 코드 package main import ( "fmt" "log" "net" "strings" "time" "github.com/google/gopacket" "github.com/google/gopacket/layers" "github.com/google/gopacket/pcap" ) var ( device string = "Realtek PCIe GbE Family Controller" eth_name string currentIP string snapshot_len int32 = 1522 promiscuous bool = false err error timeout time.Duration = 30 * time.Second handle *pcap.Handle buffer gopacket.SerializeBuffer options gopacket.SerializeOptions ) func main() { devices, err := pcap.FindAllDevs() if err !</p>
+<h5 class=card-title>golang postgreDB CURD</h5>
+<p class="card-text post-summary"> golang에서 postgre데이터 베이스의 SQL 생성, 수정, 읽기, 삭제 기능의 간단한 사용법이다.
+postgreDB가 이미 설치되어 있다는 전제하에 진행한다.
+로컬 설정 : PostgreDB 설치 도커 이미지 : PostgreDB, pgadmin4 도커 설치 방법 라이브러리 설치 go version : 1.17
+> go get github.com/lib/pq 테이블 구조 postgreDB에 아래와 같은 구조의 User 테이블이 선언된 상태로 진행한다.
+CREATE TABLE user ( id SERIAL PRIMARY KEY, name VARCHAR(20), age INT ); DB 설정 초기화 package main import ( "database/sql" "fmt" _ "github.</p>
 </div>
 <div class=card-footer>
-<span class=float-left>July 29, 2021</span>
-<a href=/posts/programming/golang/2021-07-29-golang-gopacket/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
+<span class=float-left>December 16, 2021</span>
+<a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
