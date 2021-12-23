@@ -2,12 +2,12 @@
 title: "Django models.AutoOneToOneField 사용법"
 date: 2021-03-31T12:55:35+09:00
 description: Django models.AutoOneToOneField 사용법
-menu:
-  sidebar:
-    name: Models AutoOneToOneField 사용법
-    identifier: django-models-autoOneToOneField
-    parent: django
-    weight: 30
+# menu:
+#   sidebar:
+#     name: Models AutoOneToOneField 사용법
+#     identifier: django-models-autoOneToOneField
+#     parent: django
+#     weight: 30
 tags: ["django", "models"]
 categories: ["Django", "Models"]
 ---

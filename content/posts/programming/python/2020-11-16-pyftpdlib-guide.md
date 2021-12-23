@@ -2,12 +2,12 @@
 title: "pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)"
 date: 2020-11-16T13:30:41+09:00
 description: pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)
-menu:
-  sidebar:
-    name: pyftpdlib 라이브러리 사용법
-    identifier: pyftpdlib-library-guide
-    parent: python
-    weight: 30
+# menu:
+#   sidebar:
+#     name: pyftpdlib 라이브러리 사용법
+#     identifier: pyftpdlib-library-guide
+#     parent: python
+#     weight: 30
 tags: ["python", "library"]
 categories: ["Python", "Guide"]
 ---

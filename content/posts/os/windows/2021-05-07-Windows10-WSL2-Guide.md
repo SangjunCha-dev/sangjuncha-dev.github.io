@@ -2,12 +2,12 @@
 title: "Windows10 WSL2(Windows Subsystem for Linux) 사용법"
 date: 2021-05-07T13:36:31+09:00
 description: Windows 10 WSL2(Windows Subsystem for Linux) 사용법
-menu:
-  sidebar:
-    name: Windows10 WSL2
-    identifier: windows10-wsl2
-    parent: windows
-    weight: 30
+# menu:
+#   sidebar:
+#     name: Windows10 WSL2
+#     identifier: windows10-wsl2
+#     parent: windows
+#     weight: 30
 tags: ["windows10", "wsl"]
 categories: ["Windows10", "WSL"]
 ---

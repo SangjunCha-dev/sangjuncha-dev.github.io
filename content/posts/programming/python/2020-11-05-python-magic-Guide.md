@@ -2,12 +2,12 @@
 title: "libmagic 라이브러리 사용법 (libmagic Library Guide)"
 date: 2020-11-05T09:53:16+09:00
 description: libmagic 라이브러리 사용법 (libmagic Library Guide)
-menu:
-  sidebar:
-    name: libmagic 라이브러리 사용법
-    identifier: libmagic-library-guide
-    parent: python
-    weight: 30
+# menu:
+#   sidebar:
+#     name: libmagic 라이브러리 사용법
+#     identifier: libmagic-library-guide
+#     parent: python
+#     weight: 30
 tags: ["python", "library"]
 categories: ["Python", "Guide"]
 ---

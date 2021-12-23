@@ -2,12 +2,12 @@
 title: "golang learn-go-with-tests GitBook 정리"
 date: 2021-08-02T17:56:14+09:00
 description: golang learn-go-with-tests GitBook 정리
-menu:
-  sidebar:
-    name: golang learn-go-with-tests
-    identifier: golang-learn-go-with-tests
-    parent: golang
-    weight: 30
+# menu:
+#   sidebar:
+#     name: golang learn-go-with-tests
+#     identifier: golang-learn-go-with-tests
+#     parent: golang
+#     weight: 30
 tags: ["go", "learning"]
 categories: ["Go", "Learning"]
 ---

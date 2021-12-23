@@ -2,12 +2,12 @@
 title: "Django QuerySet 객체 접근방식 및 조회"
 date: 2021-04-06T15:58:51+09:00
 description: Django QuerySet 객체 접근방식 및 조회
-menu:
-  sidebar:
-    name: QuerySet 객체 접근방식 및 조회
-    identifier: django-queryset-object-access
-    parent: django
-    weight: 30
+# menu:
+#   sidebar:
+#     name: QuerySet 객체 접근방식 및 조회
+#     identifier: django-queryset-object-access
+#     parent: django
+#     weight: 30
 tags: ["django", "models"]
 categories: ["Django", "Models"]
 ---

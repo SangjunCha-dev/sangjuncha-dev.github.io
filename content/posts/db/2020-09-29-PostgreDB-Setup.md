@@ -2,12 +2,12 @@
 title: "PostgreDB 설치 (PostgreDB Setup)"
 date: 2020-09-29T15:07:59+09:00
 description: PostgreDB 설치 방법
-menu:
-  sidebar:
-    name: postgredb-setup
-    identifier: postgredb-setup
-    parent: db
-    weight: 30
+# menu:
+#   sidebar:
+#     name: postgredb-setup
+#     identifier: postgredb-setup
+#     parent: db
+#     weight: 30
 tags: ["db", "postgredb"]
 categories: ["DB", "PostgreDB"]
 ---

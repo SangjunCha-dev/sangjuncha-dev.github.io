@@ -2,12 +2,12 @@
 title: "Programmers Python (level 2)"
 date: 2020-12-22T22:38:31+09:00
 description: Programmers Python (level 2) 문제풀이 
-menu:
-  sidebar:
-    name: Programmers Python level 2
-    identifier: programmers-python-level2
-    parent: programmers
-    weight: 30
+# menu:
+#   sidebar:
+#     name: Programmers Python level 2
+#     identifier: programmers-python-level2
+#     parent: programmers
+#     weight: 30
 tags: ["algorithm", "programmers", "python"]
 categories: ["Algorithm", "Programmers"]
 ---

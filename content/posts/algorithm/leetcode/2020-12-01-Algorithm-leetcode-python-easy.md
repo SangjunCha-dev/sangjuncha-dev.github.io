@@ -2,12 +2,12 @@
 title: "LeetCode Python (Easy)"
 date: 2020-12-01T17:30:00+09:00
 description: LeetCode Python(Easy) 문제풀이 
-menu:
-  sidebar:
-    name: LeetCode Python
-    identifier: leetcode-python
-    parent: leetcode
-    weight: 30
+# menu:
+#   sidebar:
+#     name: LeetCode Python
+#     identifier: leetcode-python
+#     parent: leetcode
+#     weight: 30
 tags: ["algorithm", "leetcode", "python"]
 categories: ["Algorithm", "LeetCode"]
 ---

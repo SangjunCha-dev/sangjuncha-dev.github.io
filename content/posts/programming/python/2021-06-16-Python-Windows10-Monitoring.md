@@ -2,12 +2,12 @@
 title: "python을 이용한 windows10 시스템 정보 및 사용량 모니터링"
 date: 2021-06-16T16:10:28+09:00
 description: python을 이용한 windows10 시스템 정보 및 사용량 모니터링
-menu:
-  sidebar:
-    name: windows10 시스템 모니터링
-    identifier: python-windows10-system-monitoring
-    parent: python
-    weight: 30
+# menu:
+#   sidebar:
+#     name: windows10 시스템 모니터링
+#     identifier: python-windows10-system-monitoring
+#     parent: python
+#     weight: 30
 tags: ["python", "windows"]
 categories: ["Python", "Windows"]
 ---

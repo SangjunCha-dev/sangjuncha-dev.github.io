@@ -2,12 +2,12 @@
 title: "mssql 2017 도커 이미지 설치 및 컨테이너 실행방법"
 date: 2021-05-06T22:29:30+09:00
 description: 도커의 개요 및 windows10 버전 설치 방법
-menu:
-  sidebar:
-    name: MSSQL Setup
-    identifier: docker-mssql-setup
-    parent: docker
-    weight: 30
+# menu:
+#   sidebar:
+#     name: MSSQL Setup
+#     identifier: docker-mssql-setup
+#     parent: docker
+#     weight: 30
 tags: ["docker", "mssql"]
 categories: ["Docker", "MSSQL"]
 ---

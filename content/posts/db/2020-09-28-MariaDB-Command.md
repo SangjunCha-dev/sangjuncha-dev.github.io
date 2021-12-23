@@ -2,12 +2,12 @@
 title: "MariaDB SQL 명령어 (MariaDB SQL Command)"
 date: 2020-09-30T14:41:18+09:00
 description: MariaDB SQL 명령어 예시
-menu:
-  sidebar:
-    name: mariadb-sql-command
-    identifier: mariadb-sql-command
-    parent: db
-    weight: 30
+# menu:
+#   sidebar:
+#     name: mariadb-sql-command
+#     identifier: mariadb-sql-command
+#     parent: db
+#     weight: 30
 tags: ["db", "mariadb", "sql"]
 categories: ["DB", "mariaDB"]
 ---

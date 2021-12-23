@@ -2,12 +2,12 @@
 title: "sqlcmd 사용법 (sqlcmd-guide)"
 date: 2020-09-30T14:41:18+09:00
 description: sqlcmd 사용법 설명
-menu:
-  sidebar:
-    name: sqlcmd-guide
-    identifier: sqlcmd-guide
-    parent: db
-    weight: 30
+# menu:
+#   sidebar:
+#     name: sqlcmd-guide
+#     identifier: sqlcmd-guide
+#     parent: db
+#     weight: 30
 tags: ["db", "sqlcmd"]
 categories: ["DB", "sqlcmd"]
 ---

@@ -2,12 +2,12 @@
 title: "리눅스 NFS 설정 (Linux NFS Setting)"
 date: 2021-01-06T13:36:31+09:00
 description: 리눅스 NFS 설정 (Linux NFS Setting)
-menu:
-  sidebar:
-    name: Linux NFS Setting
-    identifier: linux-nfs-setting
-    parent: linux
-    weight: 30
+# menu:
+#   sidebar:
+#     name: Linux NFS Setting
+#     identifier: linux-nfs-setting
+#     parent: linux
+#     weight: 30
 tags: ["linux", "nfs"]
 categories: ["Linux", "NFS"]
 ---

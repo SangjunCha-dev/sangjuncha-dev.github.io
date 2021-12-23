@@ -2,12 +2,12 @@
 title: "pyshark 라이브러리 사용법 (pyshark Library Guide)"
 date: 2021-02-10T11:13:23+09:00
 description: pyshark 라이브러리 사용법 (pyshark Library Guide)
-menu:
-  sidebar:
-    name: pyshark 라이브러리 사용법
-    identifier: pyshark-library-guide
-    parent: python
-    weight: 30
+# menu:
+#   sidebar:
+#     name: pyshark 라이브러리 사용법
+#     identifier: pyshark-library-guide
+#     parent: python
+#     weight: 30
 tags: ["python", "library", "sniff"]
 categories: ["Python", "Guide", "Sniff"]
 ---

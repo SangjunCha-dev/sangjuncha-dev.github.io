@@ -2,12 +2,12 @@
 title: "python opencv 사용법"
 date: 2021-05-21T17:43:21+09:00
 description: python opencv 사용법
-menu:
-  sidebar:
-    name: opencv 사용법
-    identifier: python-opencv-guide
-    parent: python
-    weight: 30
+# menu:
+#   sidebar:
+#     name: opencv 사용법
+#     identifier: python-opencv-guide
+#     parent: python
+#     weight: 30
 tags: ["python", "opencv"]
 categories: ["Python", "Opencv"]
 ---

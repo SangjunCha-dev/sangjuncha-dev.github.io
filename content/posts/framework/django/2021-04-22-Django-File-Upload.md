@@ -2,12 +2,12 @@
 title: "Django 파일 업로드"
 date: 2021-04-22T13:18:18+09:00
 description: Django 파일 업로드
-menu:
-  sidebar:
-    name: 파일 업로드
-    identifier: django-file-upload
-    parent: django
-    weight: 30
+# menu:
+#   sidebar:
+#     name: 파일 업로드
+#     identifier: django-file-upload
+#     parent: django
+#     weight: 30
 tags: ["django"]
 categories: ["Django"]
 ---

@@ -2,12 +2,12 @@
 title: "Django 동적 모델 및 테이블 생성"
 date: 2021-04-07T10:51:18+09:00
 description: Django 동적 모델 및 테이블 생성
-menu:
-  sidebar:
-    name: 동적 모델 및 테이블 생성
-    identifier: django-create-dynamic-model
-    parent: django
-    weight: 30
+# menu:
+#   sidebar:
+#     name: 동적 모델 및 테이블 생성
+#     identifier: django-create-dynamic-model
+#     parent: django
+#     weight: 30
 tags: ["django", "models"]
 categories: ["Django", "Models"]
 ---

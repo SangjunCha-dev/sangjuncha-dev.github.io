@@ -2,12 +2,12 @@
 title: "MSSQL SQL 명령어 (MSSQL SQL Command)"
 date: 2020-10-13T14:52:25+09:00
 description: MariaDB SQL 명령어 예시
-menu:
-  sidebar:
-    name: mssql-sql-command
-    identifier: mssql-sql-command
-    parent: db
-    weight: 30
+# menu:
+#   sidebar:
+#     name: mssql-sql-command
+#     identifier: mssql-sql-command
+#     parent: db
+#     weight: 30
 tags: ["db", "mssql", "sql"]
 categories: ["DB", "MSSQL"]
 ---

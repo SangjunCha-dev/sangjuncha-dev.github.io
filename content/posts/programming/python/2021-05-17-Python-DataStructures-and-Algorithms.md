@@ -2,12 +2,12 @@
 title: "python 자료구조와 알고리즘(by 미아 스타인) 책 정리"
 date: 2021-05-17T16:29:43+09:00
 description: python 자료구조와 알고리즘(by 미아 스타인) 책 정리
-menu:
-  sidebar:
-    name: python structures and algorithms books
-    identifier: python-structures-and-algorithms-books
-    parent: python
-    weight: 30
+# menu:
+#   sidebar:
+#     name: python structures and algorithms books
+#     identifier: python-structures-and-algorithms-books
+#     parent: python
+#     weight: 30
 tags: ["python", "learning"]
 categories: ["Python", "Learning"]
 ---
@@ -440,9 +440,6 @@ if __name__ == '__main__':
 피보나치 수열의 특정 인덱스 값을 계산하는 코드작성
 
 - 테스트 실행함수 (시간 복잡도 O(n))
-
-- [ ] a 
-- [x] a 
 
 ```python
 def find_fibonacci_seq_iter(n):

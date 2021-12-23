@@ -2,12 +2,12 @@
 title: "PostgreDB, pgadmin4 도커 설치 방법"
 date: 2021-04-29T16:29:43+09:00
 description: 도커의 개요 및 windows10 버전 설치 방법
-menu:
-  sidebar:
-    name: PostgreDB Pgadmin4 Setup
-    identifier: docker-postgredb-pgadmin4-setup
-    parent: docker
-    weight: 30
+# menu:
+#   sidebar:
+#     name: PostgreDB Pgadmin4 Setup
+#     identifier: docker-postgredb-pgadmin4-setup
+#     parent: docker
+#     weight: 30
 tags: ["docker", "postgredb"]
 categories: ["Docker", "PostgreDB"]
 ---

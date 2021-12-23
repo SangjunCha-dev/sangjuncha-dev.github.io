@@ -2,12 +2,12 @@
 title: "Programmers Python (level 1)"
 date: 2020-12-15T15:05:35+09:00
 description: Programmers Python (level 1) 문제풀이 
-menu:
-  sidebar:
-    name: Programmers Python level 1
-    identifier: programmers-python-level1
-    parent: programmers
-    weight: 30
+# menu:
+#   sidebar:
+#     name: Programmers Python level 1
+#     identifier: programmers-python-level1
+#     parent: programmers
+#     weight: 30
 tags: ["algorithm", "programmers", "python"]
 categories: ["Algorithm", "Programmers"]
 ---

@@ -2,12 +2,12 @@
 title: "pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)"
 date: 2021-03-10T14:46:19+09:00
 description: pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)
-menu:
-  sidebar:
-    name: pyinstaller 라이브러리 사용법
-    identifier: pyinstaller-library-guide
-    parent: python
-    weight: 30
+# menu:
+#   sidebar:
+#     name: pyinstaller 라이브러리 사용법
+#     identifier: pyinstaller-library-guide
+#     parent: python
+#     weight: 30
 tags: ["python", "library"]
 categories: ["Python", "Guide"]
 ---

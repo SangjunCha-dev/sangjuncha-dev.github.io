@@ -2,12 +2,12 @@
 title: "paramiko-scp 라이브러리 사용법 (paramiko-scp Library Guide)"
 date: 2021-01-06T17:36:17+09:00
 description: paramiko-scp 라이브러리 사용법 (paramiko-scp Library Guide)
-menu:
-  sidebar:
-    name: paramiko-scp 라이브러리 사용법
-    identifier: paramiko-scp-library-guide
-    parent: python
-    weight: 30
+# menu:
+#   sidebar:
+#     name: paramiko-scp 라이브러리 사용법
+#     identifier: paramiko-scp-library-guide
+#     parent: python
+#     weight: 30
 tags: ["python", "library"]
 categories: ["Python", "Guide"]
 ---

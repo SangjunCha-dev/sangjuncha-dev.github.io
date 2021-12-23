@@ -2,12 +2,12 @@
 title: "scapy 라이브러리 사용법 (Scapy Library Guide)"
 date: 2021-02-09T15:25:35+09:00
 description: scapy 라이브러리 사용법 (Scapy Library Guide)
-menu:
-  sidebar:
-    name: scapy 라이브러리 사용법
-    identifier: scapy-library-guide
-    parent: python
-    weight: 30
+# menu:
+#   sidebar:
+#     name: scapy 라이브러리 사용법
+#     identifier: scapy-library-guide
+#     parent: python
+#     weight: 30
 tags: ["python", "library", "sniff"]
 categories: ["Python", "Guide", "Sniff"]
 ---

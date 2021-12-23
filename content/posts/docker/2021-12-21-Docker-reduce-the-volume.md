@@ -2,12 +2,12 @@
 title: "도커 경량화 이미지 만들기"
 date: 2021-12-21T11:24:13+09:00
 description: 도커 경량화 이미지 만들기
-menu:
-  sidebar:
-    name: 도커 경량화 이미지 만들기
-    identifier: docker-reduce-the-volume
-    parent: docker
-    weight: 30
+# menu:
+#   sidebar:
+#     name: 도커 경량화 이미지 만들기
+#     identifier: docker-reduce-the-volume
+#     parent: docker
+#     weight: 30
 tags: ["docker"]
 categories: ["Docker"]
 ---

@@ -2,12 +2,12 @@
 title: "PostgreDB SQL 명령어 (PostgreDB SQL Command)"
 date: 2020-10-20T15:27:3309:00
 description: MariaDB SQL 명령어 예시
-menu:
-  sidebar:
-    name: postgredb-sql-command
-    identifier: postgredb-sql-command
-    parent: db
-    weight: 30
+# menu:
+#   sidebar:
+#     name: postgredb-sql-command
+#     identifier: postgredb-sql-command
+#     parent: db
+#     weight: 30
 tags: ["db", "postgredb", "sql"]
 categories: ["DB", "PostgreDB"]
 ---

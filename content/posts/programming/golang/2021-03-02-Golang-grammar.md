@@ -2,12 +2,12 @@
 title: "Go 언어 문법 (Golang grammar)"
 date: 2021-02-10T11:13:23+09:00
 description: Go 언어 문법 (Golang grammar)
-menu:
-  sidebar:
-    name: Go 언어 문법
-    identifier: golang-grammar
-    parent: golang
-    weight: 30
+# menu:
+#   sidebar:
+#     name: Go 언어 문법
+#     identifier: golang-grammar
+#     parent: golang
+#     weight: 30
 tags: ["go", "learning"]
 categories: ["Go", "Learning"]
 ---

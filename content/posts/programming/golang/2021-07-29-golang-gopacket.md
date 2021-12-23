@@ -2,12 +2,12 @@
 title: "golang gopacket 라이브러리를 이용한 통신"
 date: 2021-07-29T17:12:58+09:00
 description: golang gopacket 라이브러리를 이용한 통신
-menu:
-  sidebar:
-    name: gopacket 라이브러리 사용법
-    identifier: golang-gopacket
-    parent: golang
-    weight: 30
+# menu:
+#   sidebar:
+#     name: gopacket 라이브러리 사용법
+#     identifier: golang-gopacket
+#     parent: golang
+#     weight: 30
 tags: ["go", "gopacket"]
 categories: ["Go", "Gopacket"]
 ---

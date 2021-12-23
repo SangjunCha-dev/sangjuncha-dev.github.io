@@ -2,12 +2,12 @@
 title: "클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이"
 date: 2021-05-24T10:34:10+09:00
 description: 클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이
-menu:
-  sidebar:
-    name: 변수 class vs local 처리속도차이
-    identifier: python-variable-class-vs-local
-    parent: python
-    weight: 30
+# menu:
+#   sidebar:
+#     name: 변수 class vs local 처리속도차이
+#     identifier: python-variable-class-vs-local
+#     parent: python
+#     weight: 30
 tags: ["python"]
 categories: ["Python"]
 ---

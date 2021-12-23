@@ -2,12 +2,12 @@
 title: "Django model 참조 객체 호출하기"
 date: 2021-04-07T17:34:37+09:00
 description: Django model 참조 객체 호출하기
-menu:
-  sidebar:
-    name: Model 참조 객체 호출하기
-    identifier: django-model-reference-object
-    parent: django
-    weight: 30
+# menu:
+#   sidebar:
+#     name: Model 참조 객체 호출하기
+#     identifier: django-model-reference-object
+#     parent: django
+#     weight: 30
 tags: ["django", "models"]
 categories: ["Django", "Models"]
 ---

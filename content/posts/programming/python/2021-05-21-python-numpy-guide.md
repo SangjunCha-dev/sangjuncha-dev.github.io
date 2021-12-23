@@ -2,12 +2,12 @@
 title: "python numpy 사용법"
 date: 2021-05-21T15:13:24+09:00
 description: python numpy 사용법
-menu:
-  sidebar:
-    name: numpy 사용법
-    identifier: python-numpy-guide
-    parent: python
-    weight: 30
+# menu:
+#   sidebar:
+#     name: numpy 사용법
+#     identifier: python-numpy-guide
+#     parent: python
+#     weight: 30
 tags: ["python", "numpy"]
 categories: ["Python", "Numpy"]
 ---
