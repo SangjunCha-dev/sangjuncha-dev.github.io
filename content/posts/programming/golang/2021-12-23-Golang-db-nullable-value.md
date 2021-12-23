@@ -146,3 +146,9 @@ func main() {
 [Read] id: 1, name: { false}, age: 20
 [Read] id: 2, name: bar, age: 20
 ```
+
+
+
+## 예시코드 Git 주소
+
+[golang-db-nullable-value](https://github.com/SangjunCha-dev/blog/tree/main/golang/golang-db-nullable-value)
