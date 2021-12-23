@@ -52,6 +52,7 @@ Sangjun 개발 블로그</a>
 <li><a class="taxonomy-term active" href=https://sangjuncha-dev.github.io/categories/db/ data-taxonomy-term=db><span class=taxonomy-label>DB</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/django/ data-taxonomy-term=django><span class=taxonomy-label>Django</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/docker/ data-taxonomy-term=docker><span class=taxonomy-label>Docker</span></a></li>
+<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/fcm/ data-taxonomy-term=fcm><span class=taxonomy-label>fcm</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/go/ data-taxonomy-term=go><span class=taxonomy-label>Go</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/gopacket/ data-taxonomy-term=gopacket><span class=taxonomy-label>Gopacket</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/guide/ data-taxonomy-term=guide><span class=taxonomy-label>Guide</span></a></li>
@@ -82,6 +83,27 @@ Sangjun 개발 블로그</a>
 <section class=content-section id=content-section>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
+<div class=post-card>
+<a href=/posts/programming/golang/2021-12-23-golang-db-nullable-value/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>golang db nullable 데이터 처리</h5>
+<p class="card-text post-summary">golang에서는 타입별로 정해진 zero value가 있는데, DB colume 타입의 zero value와 맞지 않을 때 다음과 에러가 발생한다.
+panic: sql: Scan error on column index : converting NULL to string is unsupported 각 타입별 zero value
+문자열 타입 string : "" 부울린 타입 boolean : false 정수형, Float등 숫자형 타입 : 0 기타 타입 : nil 사전환경 아래의 글을 진행했다는 가정에서 설명한다.
+golang postgreDB CURD
+에러가 발생한 코드 기존에 작성한 코드에서 Update 함수의 name 부분을 nil 값으로 수정하여 실행한다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 23, 2021</span>
+<a href=/posts/programming/golang/2021-12-23-golang-db-nullable-value/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
 <div class=post-card>
 <a href=/posts/db/2020-10-13-mssql-command/ class=post-card-link>
 <div class=card>

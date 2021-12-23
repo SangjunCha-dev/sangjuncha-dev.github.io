@@ -86,6 +86,68 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)</h5>
+<p class="card-text post-summary">python 파일을 윈도우에서 python 이나 가상환경 설정없이 실행이 가능한 .exe 으로 변환해주는 라이브러리
+Docs URL - https://pyinstaller.readthedocs.io/en/stable/usage.html
+설치환경 : Windows 10
+1. 설치 python 실행이 가능한 가상환경 터미널에서 아래의 명령어 실행
+pip install pyinstaller 2. 간단한 사용예제 pyinstaller --clean --distpath . -F -n [프로그램이름] [변환시킬 파일].py 3. 옵션 옵션 설명 &ndash;clean 빌드하기 전에 PyInstaller 캐시를 정리하고 임시파일 제거 -F, &ndash;onefile 단일 실행파일로 생성(실행시 사용한 라이브러리 임시파일 생성됨) -D, &ndash;onedir 실행 파일을 포함하는 단일 폴더로 생성 &ndash;distpath DIR 실행파일 생성 경로(default: .</p>
+</div>
+<div class=card-footer>
+<span class=float-left>March 10, 2021</span>
+<a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>노마드코더 쉽고 빠른 Go 시작하기(nomadcoders Go-for-beginners lectures)</h5>
+<p class="card-text post-summary">0. 소개 설치 환경 : Windows 10 IDE : vscode
+0.1. 설치 해당 URL에서 golang 설치파일을 다운받아 실행
+https://golang.org/dl/ 설치파일에서 안내한 경로인 C:\Program Files\Go 폴더에 Go 설치 되었는지 확인 0.2. 설정 Go Path 환경변수 확인 Go는 지정된 Go Path 디렉토리에만 저장되어야함 시스템 환경변수에 등록된 GOPATH 값 확인 %USERPROFILE%\go -> C:\Users\[Profle_Name]\go 해당 경로가 Go Path 환경변수로 사용되는 경로 기본 설정 go 디렉토리로 이동하여 bin, pkg, src 디렉토리 생성 src 디렉토리안에 지정된 도메인 디렉토리 추가 go에서 다운받은 코드를 지정된 도메인 별로 분류하여 저장 src 디렉토리안에 github.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>February 22, 2021</span>
+<a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/golang/2021-03-02-golang-grammar/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Go 언어 문법 (Golang grammar)</h5>
+<p class="card-text post-summary">디렉토리 관련 함수 2021년 3월 3일 수요일 오전 8:55:31
+단일 디렉토리 생성 os.Mkdir(path, permission)
+err := os.Mkdir("tmp", 0755) if err != nil { log.Fatal(err) } 다중 디렉토리 생성 os.MkdirAll(path, permission) :
+err := os.MkdirAll("tmp/new", 0755) if err != nil { log.Fatal(err) } 현재 작업 디렉토리 얻기 os.Getwd()
+path, err := os.Getwd() if err != nil { log.Println(err) } fmt.Println(path) 디렉토리 존재유무 확인 os.Stat(paht)
+if _, err := os.Stat("/dirname"); os.IsNotExist(err) { // does not exist } if _, err := os.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>February 10, 2021</span>
+<a href=/posts/programming/golang/2021-03-02-golang-grammar/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -260,67 +322,6 @@ magic은 리눅스 환경에서 실행되는 프로그램 윈도우즈 환경에
 <div class=card-footer>
 <span class=float-left>November 5, 2020</span>
 <a href=/posts/programming/python/2020-11-05-python-magic-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/db/2020-10-13-mssql-command/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>MSSQL SQL 명령어 (MSSQL SQL Command)</h5>
-<p class="card-text post-summary">1. 테이블 생성 (Create Table) 1.1 테이블 생성 문법 구조 ```sql CREATE TABLE 테이블명( 컬럼명 타입(크기) NOT NULL, --NULL 값이 들어갈 수 없음 컬럼명 타입 NULL DEFAULT(값), --초기값 지정 CONSTRAIN PK이름 PRIMARY KEY(컬럼명) --PK설정 ) ``` 1.2 테이블 생성 (예제) 컬럼 타입 : INT / NVARCHAR / VARCHAR / DATETIME ```sql CREATE TABLE MY_TABLE( NO_EMP NVARCHAR(10)NOT NULL, -- NULL 값이 들어갈 수 없음 NM_KOR NVARCHAR(40)NOT NULL, -- NULL 값이 들어갈 수 없음 AGE INT NULL DEFAULT (0), --초기값 = 0 TODAY DATETIME DEFAULT(GETDATE()), --초기값 현재날짜 ) --CONSTRAINT PK_MY_TABLE PRIMARY KEY(NO_EMP)--PK : NO_EMP ) ``` ```sql CREATE TABLE TB_AIX_AI001I( ID int PRIMARY KEY, AI_JSON nvarchar NULL, BL nvarchar(11) NOT NULL, IMGE_PATH nvarchar(300) NOT NULL, IMGE_NAME nvarchar(100) NOT NULL, DRCT_VH nvarchar(2) NOT NULL, IN_DT datetime default(GETDATE()) NOT NULL ) ``` 2.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>October 13, 2020</span>
-<a href=/posts/db/2020-10-13-mssql-command/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/db/2020-09-28-mariadb-command/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>MariaDB SQL 명령어 (MariaDB SQL Command)</h5>
-<p class="card-text post-summary">명령어 1. database 확인 ```sql SHOW DATABASES; ``` 2. database 생성 ```sql CREATE DATABASE database_name; ``` 3. 특정 database 접속 ```sql USE database_name; ``` 3-1. mysql database 접속 ```sql USE mysql; ``` 4. 사용자 확인 - (MariaDB[mysql]) ```sql SELECT HOST, USER, PASSWORD FROM USER; ``` 5. 사용자 계정 생성 - 'id'@'localhost' 이면 로컬에서만 접속 가능 ```sql CREATE USER 'user_id'@'%' IDENTIFIED BY 'user_password'; ``` ```sql CREATE USER 'user_id' IDENTIFIED BY 'user_password'; ``` 6.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>September 30, 2020</span>
-<a href=/posts/db/2020-09-28-mariadb-command/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/db/2020-09-30-sqlcmd-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>sqlcmd 사용법 (sqlcmd-guide)</h5>
-<p class="card-text post-summary">sqlcmd 사용목적 : 대용량 sql 파일실행은 sqlcmd만 실행가능
-sqlcmd 사용 예시 sqlcmd \ -S 127.0.0.1,1433 \ -i input_file[ , input_file2...] \ -o output_file \ -U login_id \ -P password \ -d db_name -S : 접속할 IP,접속포트
--i : 실행할 sql 파일 지정
--i C:&lt;filename>
--i \&lt;Share$>&lt;filename>
--i &ldquo;C:\Some Folder&lt;file name>&rdquo;
--o : 실행결과 저장할 파일 지정
--U : 계정
--P : 패스워드
--d : Database 이름
-windows 환경</p>
-</div>
-<div class=card-footer>
-<span class=float-left>September 30, 2020</span>
-<a href=/posts/db/2020-09-30-sqlcmd-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

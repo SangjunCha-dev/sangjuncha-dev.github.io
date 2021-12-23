@@ -172,6 +172,51 @@ I am a passionate software backend developer with 2 years of working experience.
 <div class=container>
 <div class=row id=recent-post-cards>
 <div class="col-lg-4 col-md-6 pt-2 post-card">
+<a href=/posts/programming/golang/2021-12-23-golang-db-nullable-value/ title="golang db nullable 데이터 처리" class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
+</div>
+<div class=card-body>
+<h5 class=card-title>golang db nullable 데이터 처리</h5>
+<p class="card-text post-summary"> golang에서는 타입별로 정해진 zero value가 있는데, DB colume 타입의 zero value와 맞지 않을 때 다음과 에러가 발생한다.
+panic: sql: Scan error on column index : converting NULL to string is unsupported 각 타입별 zero value
+문자열 타입 string : "" 부울린 타입 boolean : false 정수형, Float등 숫자형 타입 : 0 기타 타입 : nil 사전환경 아래의 글을 진행했다는 가정에서 설명한다.
+golang postgreDB CURD
+에러가 발생한 코드 기존에 작성한 코드에서 Update 함수의 name 부분을 nil 값으로 수정하여 실행한다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 23, 2021</span>
+<a href=/posts/programming/golang/2021-12-23-golang-db-nullable-value/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class="col-lg-4 col-md-6 pt-2 post-card">
+<a href=/posts/docker/2021-12-22-docker-golang-image-build/ title="golang 도커 이미지 만들기" class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
+</div>
+<div class=card-body>
+<h5 class=card-title>golang 도커 이미지 만들기</h5>
+<p class="card-text post-summary"> 간단한 golang 웹 프로그램을 Docker 이미지로 실행방법으로
+golang 코드보다는 docker 설정 위주로 설명한다.
+예제 코드 사용예시는 아래의 주소를 git clone 받는다.
+> git clone https://github.com/olliefr/docker-gs-ping docker-gs-ping 예제 프로그램 실행 git clone 받은 프로젝트 경로에서 터미널을 실행하고 진행한다.
+> go run main.go 설정한 웹주소로 접속 요청시 간단한 response 메세지를 응답한다.
+> curl localhost:8080 Hello, Docker! &lt;3 Dockerfile dockerfile 명칭은 Dockerfile.&lt;something> 또는 &lt;something>.Dockerfile 형식으로 생성한다.
+도커 명령어
+FROM : 기본 이미지 지정 WORKDIR : 작업 디렉터리 지정 COPY : 소스코드 복사 https://docs.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 22, 2021</span>
+<a href=/posts/docker/2021-12-22-docker-golang-image-build/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class="col-lg-4 col-md-6 pt-2 post-card">
 <a href=/posts/docker/2021-12-21-docker-reduce-the-volume/ title="도커 경량화 이미지 만들기" class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -188,46 +233,6 @@ FROM python:3.8.10-slim-buster 각각 빌드된 이미지 크기는 다음과 �
 <div class=card-footer>
 <span class=float-left>December 21, 2021</span>
 <a href=/posts/docker/2021-12-21-docker-reduce-the-volume/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class="col-lg-4 col-md-6 pt-2 post-card">
-<a href=/posts/programming/golang/2021-12-21-golang-cron/ title="golang cron 스케줄링 라이브러리 사용법" class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
-</div>
-<div class=card-body>
-<h5 class=card-title>golang cron 스케줄링 라이브러리 사용법</h5>
-<p class="card-text post-summary"> go언어에서 cron 처럼 동작하는 스케줄링 외부 라이브러리 사용법
-cron 함수는 지정한 주기마다 동작시키는 기능으로 별도의 비동기함수로 실행된다. main 함수가 종료되면 go 프로세스가 종료되어 비동기 함수도 종료된다. cron 기능을 사용할려면 main 함수가 종료되지 않도록 적절한 조치를 해야한다. 라이브러리 설치 go version : 1.17
-> go get github.com/robfig/cron/v3@v3.0.0 예제코드 select : 복수 채널이 대기하면서 준비된 (데이터를 전송받은) 채널을 실행하는 기능이다. case 채널들이 준비되지 않으면 계속 대기하게 되고, 가장 먼저 도착한 채널의 case를 실행한다.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 21, 2021</span>
-<a href=/posts/programming/golang/2021-12-21-golang-cron/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class="col-lg-4 col-md-6 pt-2 post-card">
-<a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ title="golang postgreDB CURD" class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
-</div>
-<div class=card-body>
-<h5 class=card-title>golang postgreDB CURD</h5>
-<p class="card-text post-summary"> golang에서 postgre데이터 베이스의 SQL 생성, 수정, 읽기, 삭제 기능의 간단한 사용법이다.
-postgreDB가 이미 설치되어 있다는 전제하에 진행한다.
-로컬 설정 : PostgreDB 설치 도커 이미지 : PostgreDB, pgadmin4 도커 설치 방법 라이브러리 설치 go version : 1.17
-> go get github.com/lib/pq 테이블 구조 postgreDB에 아래와 같은 구조의 User 테이블이 선언된 상태로 진행한다.
-CREATE TABLE user ( id SERIAL PRIMARY KEY, name VARCHAR(20), age INT ); DB 설정 초기화 package main import ( "database/sql" "fmt" _ "github.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 16, 2021</span>
-<a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

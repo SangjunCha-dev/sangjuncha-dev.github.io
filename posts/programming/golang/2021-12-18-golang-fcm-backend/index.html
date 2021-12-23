@@ -1,0 +1,336 @@
+<!doctype html><html>
+<head>
+<title>golang fcm(firebase cloud messaging) push 메세지 사용법</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<meta property="og:title" content="golang fcm(firebase cloud messaging) push 메세지 사용법">
+<meta property="og:description" content="golang fcm push 메세지 사용법">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sangjuncha-dev.github.io/posts/programming/golang/2021-12-18-golang-fcm-backend/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-12-18T17:49:21+09:00">
+<meta property="article:modified_time" content="2021-12-18T17:49:21+09:00">
+<meta name=description content="golang fcm push 메세지 사용법">
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
+<link rel=stylesheet href=/css/layouts/single.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+Sangjun 개발 블로그</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
+<div class=subtree>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
+<ul>
+<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
+<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
+</ul>
+</li>
+<li><a href=/posts/db/ title=db>db</a></li>
+<li><a href=/posts/docker/ title=docker>docker</a></li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
+<ul>
+<li><a href=/posts/framework/django/ title=django>django</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
+<ul>
+<li><a href=/posts/os/linux/ title=linux>linux</a></li>
+<li><a href=/posts/os/windows/ title=windows>windows</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a>
+<ul class=active>
+<li><a class=active href=/posts/programming/golang/ title=golang>golang</a></li>
+<li><a href=/posts/programming/python/ title=python>python</a></li>
+</ul>
+</li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class=content>
+<div class="container p-0 read-area">
+<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)>
+</div>
+<div class=page-content>
+<div class="author-profile ml-auto align-self-lg-center">
+<img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image">
+<h5 class=author-name>Sangjun</h5>
+<p>December 18, 2021</p>
+</div>
+<div class=title>
+<h1>golang fcm(firebase cloud messaging) push 메세지 사용법</h1>
+</div>
+<div class=post-content id=post-content>
+<p>Firebase Cloud Messaging(FCM)은 firebase에서 무료로 메시지 전송할 수 있는 교차 플랫폼 메시징 솔루션이다.<br>
+최대 4,000바이트의 페이로드를 클라이언트 앱에 전송할 수 있다.</p>
+<p>아래의 예제는 <code>Go언어 기반의 백엔드 서버</code> 예시이며 fcm token이 이미 발급받았다는 가정하에 진행된다.</p>
+<h2 id=라이브러리-설치>라이브러리 설치</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&gt; go get firebase.google.com/go/v4
+&gt; go get google.golang.org/api
+</code></pre></div><h2 id=firebase-app-초기화>Firebase APP 초기화</h2>
+<p><a href="https://firebase.google.com/docs/cloud-messaging/auth-server?hl=ko#provide-credentials-manually">사용자 인증 정보 제공</a>의 안내에 따라 서비스 계정의 비공개 키 파일을 다운받는다.</p>
+<p>해당 파일에는 다음과 같은 정보가 있다.</p>
+<p>파일명은 <code>serviceAccountKey.json</code>라고 가정한다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+  <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;service_account&#34;</span>,
+  <span style=color:#f92672>&#34;project_id&#34;</span>: <span style=color:#e6db74>&#34;[project_id]&#34;</span>,
+  <span style=color:#f92672>&#34;private_key_id&#34;</span>: <span style=color:#e6db74>&#34;[private_key_id]&#34;</span>,
+  <span style=color:#f92672>&#34;private_key&#34;</span>: <span style=color:#e6db74>&#34;[private_key]&#34;</span>,
+  <span style=color:#f92672>&#34;client_email&#34;</span>: <span style=color:#e6db74>&#34;[client_email]&#34;</span>,
+  <span style=color:#f92672>&#34;client_id&#34;</span>: <span style=color:#e6db74>&#34;[client_id]&#34;</span>,
+  <span style=color:#f92672>&#34;auth_uri&#34;</span>: <span style=color:#e6db74>&#34;https://accounts.google.com/o/oauth2/auth&#34;</span>,
+  <span style=color:#f92672>&#34;token_uri&#34;</span>: <span style=color:#e6db74>&#34;https://oauth2.googleapis.com/token&#34;</span>,
+  <span style=color:#f92672>&#34;auth_provider_x509_cert_url&#34;</span>: <span style=color:#e6db74>&#34;https://www.googleapis.com/oauth2/v1/certs&#34;</span>,
+  <span style=color:#f92672>&#34;client_x509_cert_url&#34;</span>: <span style=color:#e6db74>&#34;[client_x509_cert_url]&#34;</span>
+}
+
+</code></pre></div><p></p>
+<p>Firebase APP 초기화</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>var</span> (
+	<span style=color:#a6e22e>client</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>messaging</span>.<span style=color:#a6e22e>Client</span>
+	<span style=color:#a6e22e>ctx</span>    <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span> = <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Background</span>()
+)
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>initApp</span>() {
+	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>err</span> <span style=color:#66d9ef>error</span>
+
+	<span style=color:#66d9ef>type</span> <span style=color:#a6e22e>AccountKey</span> <span style=color:#66d9ef>struct</span> {
+		<span style=color:#a6e22e>ProjectID</span> <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`json:&#34;project_id&#34;`</span>
+	}
+	<span style=color:#a6e22e>accountkey</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>AccountKey</span>{}
+
+	<span style=color:#a6e22e>serviceAccountKeyPath</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;./serviceAccountKey.json&#34;</span>
+
+	<span style=color:#a6e22e>keyFile</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>ioutil</span>.<span style=color:#a6e22e>ReadFile</span>(<span style=color:#a6e22e>serviceAccountKeyPath</span>)
+	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Print</span>(<span style=color:#e6db74>&#34;[initApp] setConfig error :&#34;</span>, <span style=color:#a6e22e>err</span>)
+	}
+	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>json</span>.<span style=color:#a6e22e>Unmarshal</span>(<span style=color:#a6e22e>keyFile</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>accountkey</span>); <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Print</span>(<span style=color:#e6db74>&#34;[initApp] getConfig error :&#34;</span>, <span style=color:#a6e22e>err</span>)
+	}
+
+	<span style=color:#a6e22e>opt</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>option</span>.<span style=color:#a6e22e>WithCredentialsFile</span>(<span style=color:#a6e22e>serviceAccountKeyPath</span>)
+	<span style=color:#a6e22e>config</span> <span style=color:#f92672>:=</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>firebase</span>.<span style=color:#a6e22e>Config</span>{<span style=color:#a6e22e>ProjectID</span>: <span style=color:#a6e22e>accountkey</span>.<span style=color:#a6e22e>ProjectID</span>}
+
+	<span style=color:#a6e22e>app</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>firebase</span>.<span style=color:#a6e22e>NewApp</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>config</span>, <span style=color:#a6e22e>opt</span>)
+	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatalln</span>(<span style=color:#e6db74>&#34;[initApp] initializing app error :&#34;</span>, <span style=color:#a6e22e>err</span>)
+	}
+
+	<span style=color:#75715e>// Obtain a messaging.Client from the App.
+</span><span style=color:#75715e></span>	<span style=color:#a6e22e>client</span>, <span style=color:#a6e22e>err</span> = <span style=color:#a6e22e>app</span>.<span style=color:#a6e22e>Messaging</span>(<span style=color:#a6e22e>ctx</span>)
+	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatalln</span>(<span style=color:#e6db74>&#34;[initApp] getting Messaging client error :&#34;</span>, <span style=color:#a6e22e>err</span>)
+	}
+}
+</code></pre></div><h2 id=특정-기기에-메시지-전송>특정 기기에 메시지 전송</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>sendNotification</span>(<span style=color:#a6e22e>title</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>body</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>fcmToken</span> <span style=color:#66d9ef>string</span>) {
+
+	<span style=color:#75715e>// This registration token comes from the client FCM SDKs.
+</span><span style=color:#75715e></span>	<span style=color:#a6e22e>registrationToken</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>fcmToken</span>
+
+	<span style=color:#a6e22e>notification</span> <span style=color:#f92672>:=</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>messaging</span>.<span style=color:#a6e22e>Notification</span>{
+		<span style=color:#a6e22e>Title</span>: <span style=color:#a6e22e>title</span>,
+		<span style=color:#a6e22e>Body</span>:  <span style=color:#a6e22e>body</span>,
+	}
+
+	<span style=color:#75715e>// See documentation on defining a message payload.
+</span><span style=color:#75715e></span>	<span style=color:#a6e22e>message</span> <span style=color:#f92672>:=</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>messaging</span>.<span style=color:#a6e22e>Message</span>{
+		<span style=color:#a6e22e>Data</span>: <span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>string</span>{
+			<span style=color:#e6db74>&#34;Type&#34;</span>:    <span style=color:#a6e22e>title</span>,
+			<span style=color:#e6db74>&#34;Content&#34;</span>: <span style=color:#a6e22e>body</span>,
+		},
+		<span style=color:#a6e22e>Token</span>:        <span style=color:#a6e22e>registrationToken</span>,
+		<span style=color:#a6e22e>Notification</span>: <span style=color:#a6e22e>notification</span>,
+	}
+
+	<span style=color:#a6e22e>response</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>Send</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>message</span>)
+	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;[sendNotification] client.Send error :&#34;</span>, <span style=color:#a6e22e>err</span>, <span style=color:#a6e22e>registrationToken</span>)
+	}
+	<span style=color:#a6e22e>_</span> = <span style=color:#a6e22e>response</span>
+}
+</code></pre></div><h2 id=여러-기기에-메시지-전송>여러 기기에 메시지 전송</h2>
+<p>호출당 최대 500개의 기기 등록 토큰을 지정할 수 있다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>sendNotifications</span>(<span style=color:#a6e22e>title</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>body</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>fcmTokens</span> []<span style=color:#66d9ef>string</span>) {
+	<span style=color:#75715e>// fcm tokens
+</span><span style=color:#75715e></span>	<span style=color:#a6e22e>registrationTokens</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>fcmTokens</span>
+
+	<span style=color:#a6e22e>notification</span> <span style=color:#f92672>:=</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>messaging</span>.<span style=color:#a6e22e>Notification</span>{
+		<span style=color:#a6e22e>Title</span>: <span style=color:#a6e22e>title</span>,
+		<span style=color:#a6e22e>Body</span>:  <span style=color:#a6e22e>body</span>,
+	}
+
+	<span style=color:#a6e22e>message</span> <span style=color:#f92672>:=</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>messaging</span>.<span style=color:#a6e22e>MulticastMessage</span>{
+		<span style=color:#a6e22e>Data</span>: <span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>string</span>{
+			<span style=color:#e6db74>&#34;Type&#34;</span>:    <span style=color:#a6e22e>title</span>,
+			<span style=color:#e6db74>&#34;Content&#34;</span>: <span style=color:#a6e22e>body</span>,
+		},
+		<span style=color:#a6e22e>Tokens</span>:       <span style=color:#a6e22e>registrationTokens</span>,
+		<span style=color:#a6e22e>Notification</span>: <span style=color:#a6e22e>notification</span>,
+	}
+
+	<span style=color:#a6e22e>br</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>SendMulticast</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>message</span>)
+	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+		panic(<span style=color:#a6e22e>err</span>)
+	}
+
+	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;[sendNotifications] &#34;</span>, <span style=color:#a6e22e>br</span>.<span style=color:#a6e22e>SuccessCount</span>, <span style=color:#e6db74>&#34; messages were sent successfully, &#34;</span>, <span style=color:#a6e22e>br</span>.<span style=color:#a6e22e>FailureCount</span>, <span style=color:#e6db74>&#34; messages fail count&#34;</span>)
+
+	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>br</span>.<span style=color:#a6e22e>FailureCount</span> &gt; <span style=color:#ae81ff>0</span> {
+		<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>failedTokens</span> []<span style=color:#66d9ef>string</span>
+		<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>idx</span>, <span style=color:#a6e22e>resp</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>range</span> <span style=color:#a6e22e>br</span>.<span style=color:#a6e22e>Responses</span> {
+			<span style=color:#66d9ef>if</span> !<span style=color:#a6e22e>resp</span>.<span style=color:#a6e22e>Success</span> {
+				<span style=color:#75715e>// The order of responses corresponds to the order of the registration tokens.
+</span><span style=color:#75715e></span>				<span style=color:#a6e22e>failedTokens</span> = append(<span style=color:#a6e22e>failedTokens</span>, <span style=color:#a6e22e>registrationTokens</span>[<span style=color:#a6e22e>idx</span>])
+			}
+		}
+
+		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;[sendNotifications] List of tokens that caused failures: %v\n&#34;</span>, <span style=color:#a6e22e>failedTokens</span>)
+	}
+}
+</code></pre></div><p></p>
+<p>firebase 서버 상황에 따라 Push 알림 수신까지 수초~수분 걸릴 수 있다.</p>
+<h2 id=예시코드-git-주소>예시코드 Git 주소</h2>
+<p><a href=https://github.com/SangjunCha-dev/blog/tree/main/golang/golang-fcm-push>golang-fcm-push</a></p>
+<h2 id=참조-docs-url>참조 Docs URL</h2>
+<ul>
+<li><a href="https://firebase.google.com/docs/cloud-messaging?hl=ko">Firebase 클라우드 메시징</a></li>
+<li><a href="https://firebase.google.com/docs/cloud-messaging/send-message?hl=ko#send-messages-to-specific-devices">특정 기기에 메시지 전송</a></li>
+<li><a href="https://firebase.google.com/docs/cloud-messaging/send-message?hl=ko#send-messages-to-multiple-devices">여러 기기에 메시지 전송</a></li>
+</ul>
+</div>
+<div class="row pl-3 pr-3">
+<div class="col-md-6 share-buttons">
+</div>
+<div class="col-md-6 btn-improve-page">
+<a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/programming/golang/2021-12-18-Golang-fcm-backend.md title="이 페이지를 개선" target=_blank rel=noopener>
+<i class="fas fa-code-branch"></i>
+이 페이지를 개선
+</a>
+</div>
+</div>
+<hr>
+<div class="row next-prev-navigator">
+</div>
+<hr>
+</div>
+</div>
+</div>
+<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
+</section>
+<section class=toc-section id=toc-section>
+<div class=toc-holder>
+<h5 class="text-center pl-3">목차</h5>
+<hr>
+<div class=toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#라이브러리-설치>라이브러리 설치</a></li>
+<li><a href=#firebase-app-초기화>Firebase APP 초기화</a></li>
+<li><a href=#특정-기기에-메시지-전송>특정 기기에 메시지 전송</a></li>
+<li><a href=#여러-기기에-메시지-전송>여러 기기에 메시지 전송</a></li>
+<li><a href=#예시코드-git-주소>예시코드 Git 주소</a></li>
+<li><a href=#참조-docs-url>참조 Docs URL</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>바로가기</h5>
+<ul>
+<li class=nav-item>
+<a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a>
+</li>
+</ul>
+</div>
+<div class="col-md-4 col-sm-12">
+<h5>Contact me:</h5>
+<ul>
+<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
+<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<div class=container>
+<div class="row text-left">
+<div class=col-md-4>
+<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
+<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha
+</a>
+</div>
+<div class="col-md-4 text-center">© 2020 Copyright.</div>
+<div class="col-md-4 text-right">
+<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
+<script src=/js/single.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

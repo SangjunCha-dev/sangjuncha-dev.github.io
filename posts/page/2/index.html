@@ -86,6 +86,65 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/programming/python/2021-05-21-python-numpy-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>python numpy 사용법</h5>
+<p class="card-text post-summary">선형대수 기반의 python 라이브러리
+루프없이 배열 연산이 가능하여 연산속도가 빠름 설치버전 : numpy 1.20.2
+import 라이브러리 import numpy as np 1. 생성 arange np.arange([start,] stop, [step,] dtype) 지정한 숫자 범위의 array 생성함수 np.arange(10) # [0 1 2 3 4 5 6 7 8 9] np.arange(0, 5, 0.5) # [0. 0.5 1. 1.5 2. 2.5 3. 3.5 4. 4.5] zeros np.zeros(shape, dtype) 0으로 선언된 array 생성 np.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>May 21, 2021</span>
+<a href=/posts/programming/python/2021-05-21-python-numpy-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>python 자료구조와 알고리즘(by 미아 스타인) 책 정리</h5>
+<p class="card-text post-summary">Part 1 헬로, 자료구조! Chapter 01 숫자 1.1 정수 int() 불변형 객체로 문자열을 정수로 변환하거나 다른 진법의 문자열을 정수로 변환
+int(문자열, 밑(n진법))
+>>> s = '11' >>> b = int(s, 2) >>> print(b) 11 정수에 필요한 바이트 수(python 3.1이상)
+>>> (정수).bit_length() 10 발생가능한 Exception : ValueError
+1.2 부동 소수점 float() float 32bit
+1bit 부호, 8bit 지수, 23bit 유효 숫자 자릿수 1.2.1 부동소수점끼리 비교하기 이진수 분수로 표현으로 소수점의 정확한 비교는 어렵지만,</p>
+</div>
+<div class=card-footer>
+<span class=float-left>May 17, 2021</span>
+<a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/os/windows/2021-05-07-windows10-wsl2-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Windows10 WSL2(Windows Subsystem for Linux) 사용법</h5>
+<p class="card-text post-summary">WSL(Windows Subsystem for Linux)2 리눅스용 윈도우 하위 시스템(Windows Subsystem for Linux)은 Windows 10에서 네이티브로 리눅스 실행 파일을 실행하기 위한 호환성 계층 프로그램이다.
+사전 설정 microsoft store에서 Windows Terminal 설치한다. Windows Terminal 프로그램을 관리자 권한으로 실행한다. WSL2 활성화를 위한 DISM 명령어 실행후 재부팅 > dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart > dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart Windows Store 에서 설치하는 모든 Linux 배포판 포맷을 WSL 2로 설정 > wsl --set-default-version 2 실습 및 팁 기존에 설치한 WSL 배포 목록확인 microsoft store에서 Ubuntu 18.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>May 7, 2021</span>
+<a href=/posts/os/windows/2021-05-07-windows10-wsl2-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/docker/2021-05-06-docker-mssql2017-setup/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -261,68 +320,6 @@ from annoying.fields import AutoOneToOneField # User모델 Save에서 제어 cla
 <div class=card-footer>
 <span class=float-left>March 31, 2021</span>
 <a href=/posts/framework/django/2021-03-31-django-models-autoonetoonefield/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)</h5>
-<p class="card-text post-summary">python 파일을 윈도우에서 python 이나 가상환경 설정없이 실행이 가능한 .exe 으로 변환해주는 라이브러리
-Docs URL - https://pyinstaller.readthedocs.io/en/stable/usage.html
-설치환경 : Windows 10
-1. 설치 python 실행이 가능한 가상환경 터미널에서 아래의 명령어 실행
-pip install pyinstaller 2. 간단한 사용예제 pyinstaller --clean --distpath . -F -n [프로그램이름] [변환시킬 파일].py 3. 옵션 옵션 설명 &ndash;clean 빌드하기 전에 PyInstaller 캐시를 정리하고 임시파일 제거 -F, &ndash;onefile 단일 실행파일로 생성(실행시 사용한 라이브러리 임시파일 생성됨) -D, &ndash;onedir 실행 파일을 포함하는 단일 폴더로 생성 &ndash;distpath DIR 실행파일 생성 경로(default: .</p>
-</div>
-<div class=card-footer>
-<span class=float-left>March 10, 2021</span>
-<a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>노마드코더 쉽고 빠른 Go 시작하기(nomadcoders Go-for-beginners lectures)</h5>
-<p class="card-text post-summary">0. 소개 설치 환경 : Windows 10 IDE : vscode
-0.1. 설치 해당 URL에서 golang 설치파일을 다운받아 실행
-https://golang.org/dl/ 설치파일에서 안내한 경로인 C:\Program Files\Go 폴더에 Go 설치 되었는지 확인 0.2. 설정 Go Path 환경변수 확인 Go는 지정된 Go Path 디렉토리에만 저장되어야함 시스템 환경변수에 등록된 GOPATH 값 확인 %USERPROFILE%\go -> C:\Users\[Profle_Name]\go 해당 경로가 Go Path 환경변수로 사용되는 경로 기본 설정 go 디렉토리로 이동하여 bin, pkg, src 디렉토리 생성 src 디렉토리안에 지정된 도메인 디렉토리 추가 go에서 다운받은 코드를 지정된 도메인 별로 분류하여 저장 src 디렉토리안에 github.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>February 22, 2021</span>
-<a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/golang/2021-03-02-golang-grammar/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Go 언어 문법 (Golang grammar)</h5>
-<p class="card-text post-summary">디렉토리 관련 함수 2021년 3월 3일 수요일 오전 8:55:31
-단일 디렉토리 생성 os.Mkdir(path, permission)
-err := os.Mkdir("tmp", 0755) if err != nil { log.Fatal(err) } 다중 디렉토리 생성 os.MkdirAll(path, permission) :
-err := os.MkdirAll("tmp/new", 0755) if err != nil { log.Fatal(err) } 현재 작업 디렉토리 얻기 os.Getwd()
-path, err := os.Getwd() if err != nil { log.Println(err) } fmt.Println(path) 디렉토리 존재유무 확인 os.Stat(paht)
-if _, err := os.Stat("/dirname"); os.IsNotExist(err) { // does not exist } if _, err := os.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>February 10, 2021</span>
-<a href=/posts/programming/golang/2021-03-02-golang-grammar/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
