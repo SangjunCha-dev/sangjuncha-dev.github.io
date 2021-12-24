@@ -39,8 +39,8 @@ body {
 .toc-holder {
   position: -webkit-sticky;
   position: sticky;
-  top: 4.5rem;
-  overflow-x: hidden;
+  top: 4rem;
+  /* overflow-x: hidden; */
   overflow-y: auto;
   background-color: #f9fafc;
   margin-right: 0.5rem;
@@ -52,10 +52,13 @@ body {
   position: relative;
   padding-top: 0px;
   transition: all ease-out 0.3s;
+  max-height: 51rem;
+  overflow-y: auto;
 }
 
 .toc nav {
   padding-top: 0px;
+  padding-bottom: 1rem;
   margin-top: 0px;
   display: flex;
   flex-direction: column;
@@ -150,6 +153,8 @@ h6 {
   background-color: #248baa15;
   padding: 0.3rem;
   padding-left: 1rem;
+  margin: 5px;
+  margin-bottom: 1rem;
 }
 
 .post-content blockquote > p {

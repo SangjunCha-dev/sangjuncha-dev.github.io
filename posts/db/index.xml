@@ -17,7 +17,7 @@ https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
 Next 클릭 후, PostgreSQL 서버를 사용하면서 자료저장 위치 지정(default) 기본 데이터베이스 관리자 postgres계정 비밀번호 지정 포트 지정 &amp;gt; 15432(기본포트가 아닌 다른포트번호) 으로 수정후 [Next] 클릭 2.</description></item><item><title>PostgreDB SQL 명령어 (PostgreDB SQL Command)</title><link>https://sangjuncha-dev.github.io/posts/db/2020-10-20-postgresql-command/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://sangjuncha-dev.github.io/posts/db/2020-10-20-postgresql-command/</guid><description>1. DATABASE 생성 DATABASE 생성
 PostgreDB의 경우 대문자인식은 &amp;ldquo;&amp;ldquo;으로만 가능
 CREATE DATABASE &amp;#34;{database_name}&amp;#34;; 2. USER 생성 USER 생성
-CREATE USER {user_name} WITH PASSWORD &amp;#39;{user_password}&amp;#39; 개발용 계정으로 사용할 예정이기 때문에 SUPAERUSER 권한부여
+CREATE USER {user_name} WITH PASSWORD &amp;#39;{user_password}&amp;#39; 개발용 계정으로 사용할 예정이기 때문에 SUPERUSER 권한부여
 ALTER USER {user_name} WITH SUPERUSER; 유저에게 특정 권한 부여
 GRANT {permissions} ON DATABASE {db_name} TO {user_name}; 참고 URL : https://www.postgresql.org/docs/current/sql-grant.html
 예시

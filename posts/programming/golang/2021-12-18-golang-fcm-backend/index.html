@@ -124,8 +124,7 @@ Sangjun 개발 블로그</a>
   <span style=color:#f92672>&#34;client_x509_cert_url&#34;</span>: <span style=color:#e6db74>&#34;[client_x509_cert_url]&#34;</span>
 }
 
-</code></pre></div><p></p>
-<p>Firebase APP 초기화</p>
+</code></pre></div><p>Firebase APP 초기화</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>var</span> (
 	<span style=color:#a6e22e>client</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>messaging</span>.<span style=color:#a6e22e>Client</span>
 	<span style=color:#a6e22e>ctx</span>    <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span> = <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Background</span>()
@@ -229,8 +228,7 @@ Sangjun 개발 블로그</a>
 		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;[sendNotifications] List of tokens that caused failures: %v\n&#34;</span>, <span style=color:#a6e22e>failedTokens</span>)
 	}
 }
-</code></pre></div><p></p>
-<p>firebase 서버 상황에 따라 Push 알림 수신까지 수초~수분 걸릴 수 있다.</p>
+</code></pre></div><p>firebase 서버 상황에 따라 Push 알림 수신까지 수초~수분 걸릴 수 있다.</p>
 <h2 id=예시코드-git-주소>예시코드 Git 주소</h2>
 <p><a href=https://github.com/SangjunCha-dev/blog/tree/main/golang/golang-fcm-push>golang-fcm-push</a></p>
 <h2 id=참조-docs-url>참조 Docs URL</h2>

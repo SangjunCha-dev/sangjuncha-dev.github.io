@@ -161,8 +161,7 @@ Sangjun 개발 블로그</a>
 
 	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Close</span>()
 }
-</code></pre></div><p></p>
-<p>데이터 수정후 해당 데이터를 조회하면 아래와 같은 에러가 발생한다.</p>
+</code></pre></div><p>데이터 수정후 해당 데이터를 조회하면 아래와 같은 에러가 발생한다.</p>
 <p>golang에서는 타입별로 정해진 <code>zero value</code>와, DB colume 타입의 <code>zero value</code>와 맞지 않아서 발생한 에러이다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&gt; go run main.go
 <span style=color:#f92672>[</span>Update<span style=color:#f92672>]</span> Total rows/record affected <span style=color:#ae81ff>1</span>
@@ -208,8 +207,7 @@ panic: sql: Scan error on column index 1, name <span style=color:#e6db74>&#34;na
 
 	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Close</span>()
 }
-</code></pre></div><p></p>
-<p><code>.Valid</code> 조건문을 통해 <code>nil</code>값에 대한 필터링을 하거나 별도로 처리할 수 있다.</p>
+</code></pre></div><p><code>.Valid</code> 조건문을 통해 <code>nil</code>값에 대한 필터링을 하거나 별도로 처리할 수 있다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&gt; go run main.go
 <span style=color:#f92672>[</span>Read<span style=color:#f92672>]</span> id: 1, name: <span style=color:#f92672>{</span> false<span style=color:#f92672>}</span>, age: <span style=color:#ae81ff>20</span>
 <span style=color:#f92672>[</span>Read<span style=color:#f92672>]</span> id: 2, name: bar, age: <span style=color:#ae81ff>20</span>

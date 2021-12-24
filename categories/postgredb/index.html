@@ -157,7 +157,7 @@ Next 클릭 후, PostgreSQL 서버를 사용하면서 자료저장 위치 지정
 <p class="card-text post-summary">1. DATABASE 생성 DATABASE 생성
 PostgreDB의 경우 대문자인식은 &ldquo;&ldquo;으로만 가능
 CREATE DATABASE "{database_name}"; 2. USER 생성 USER 생성
-CREATE USER {user_name} WITH PASSWORD '{user_password}' 개발용 계정으로 사용할 예정이기 때문에 SUPAERUSER 권한부여
+CREATE USER {user_name} WITH PASSWORD '{user_password}' 개발용 계정으로 사용할 예정이기 때문에 SUPERUSER 권한부여
 ALTER USER {user_name} WITH SUPERUSER; 유저에게 특정 권한 부여
 GRANT {permissions} ON DATABASE {db_name} TO {user_name}; 참고 URL : https://www.postgresql.org/docs/current/sql-grant.html
 예시

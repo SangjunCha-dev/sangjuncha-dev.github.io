@@ -112,8 +112,7 @@ golang 코드보다는 docker 설정 위주로 설명한다.</p>
 <h2 id=예제-프로그램-실행>예제 프로그램 실행</h2>
 <p>git clone 받은 프로젝트 경로에서 터미널을 실행하고 진행한다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&gt; go run main.go
-</code></pre></div><p></p>
-<p>설정한 웹주소로 접속 요청시 간단한 response 메세지를 응답한다.</p>
+</code></pre></div><p>설정한 웹주소로 접속 요청시 간단한 response 메세지를 응답한다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&gt; curl localhost:8080
 Hello, Docker! &lt;<span style=color:#ae81ff>3</span>
 </code></pre></div><h2 id=dockerfile>Dockerfile</h2>
@@ -150,16 +149,13 @@ EXPOSE 8080
 
 # go 프로그램 실행
 CMD [&quot;/docker-gs-ping&quot;]
-</code></pre><p></p>
-<p>도커 이미지 빌드</p>
+</code></pre><p>도커 이미지 빌드</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&gt; docker build --tag docker-gs-ping .
-</code></pre></div><p></p>
-<p><code>docker image ls</code> : 도커 로컬이미지 조회</p>
+</code></pre></div><p><code>docker image ls</code> : 도커 로컬이미지 조회</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&gt; docker image ls
 REPOSITORY       TAG      IMAGE ID       CREATED          SIZE
 docker-gs-ping   latest   4f0670869ed5   <span style=color:#ae81ff>12</span> seconds ago   540MB
-</code></pre></div><p></p>
-<p><code>docker image tag</code> : 도커 이미지 태그 지정</p>
+</code></pre></div><p><code>docker image tag</code> : 도커 이미지 태그 지정</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># Usage:  docker image tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]</span>
 &gt; docker image tag docker-gs-ping:latest docker-gs-ping:v1.0
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&gt; docker image ls
@@ -207,8 +203,7 @@ EXPOSE 8080
 USER nonroot:nonroot
 
 ENTRYPOINT [&quot;/docker-gs-ping&quot;]
-</code></pre><p></p>
-<p>도커 이미지 빌드</p>
+</code></pre><p>도커 이미지 빌드</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&gt; docker build -t docker-gs-ping:multistage -f Dockerfile.multistage .
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&gt;docker image ls
 REPOSITORY       TAG          IMAGE ID       CREATED          SIZE
@@ -224,13 +219,11 @@ docker-gs-ping   latest       4f0670869ed5   <span style=color:#ae81ff>13</span>
 <li><code>-d</code> : detached mode로 백그라운드에 실행 컨테이너가 실행된다.</li>
 </ul>
 <pre tabindex=0><code>&gt; docker run -d -p 8080:8080 docker-gs-ping
-</code></pre><p></p>
-<p><code>docker ps</code> : 도커 컨테이너 실행 확인</p>
+</code></pre><p><code>docker ps</code> : 도커 컨테이너 실행 확인</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&gt; docker ps
 CONTAINER ID   IMAGE            COMMAND             CREATED         STATUS         PORTS                    NAMES
 4984da23dfa3   docker-gs-ping   <span style=color:#e6db74>&#34;/docker-gs-ping&#34;</span>   <span style=color:#ae81ff>8</span> minutes ago   Up <span style=color:#ae81ff>8</span> minutes   0.0.0.0:8080-&gt;8080/tcp   stoic_shaw
-</code></pre></div><p></p>
-<p>컨테이너가 정상적으로 실행되었다면 접속시 아래와 같은 응답 값을 받을 수 있다.</p>
+</code></pre></div><p>컨테이너가 정상적으로 실행되었다면 접속시 아래와 같은 응답 값을 받을 수 있다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&gt; curl localhost:8080
 Hello, Docker! &lt;<span style=color:#ae81ff>3</span>
 </code></pre></div><h2 id=참조-url>참조 URL</h2>
