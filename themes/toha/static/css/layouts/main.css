@@ -231,10 +231,13 @@ figcaption {
 
 pre {
   margin: 5px;
+  margin-bottom: 1rem;
+  width: 100%;
 }
 
-pre > code {
+pre code {
   padding: 10px !important;
+  width: 100%;
 }
 
 a.header-anchor {
