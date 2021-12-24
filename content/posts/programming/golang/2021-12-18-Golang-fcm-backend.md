@@ -48,7 +48,7 @@ Firebase Cloud Messaging(FCM)은 firebase에서 무료로 메시지 전송할 �
 
 ```
 
-<br><br>
+
 
 Firebase APP 초기화
 
@@ -171,7 +171,7 @@ func sendNotifications(title string, body string, fcmTokens []string) {
 }
 ```
 
-<br><br>
+
 
 firebase 서버 상황에 따라 Push 알림 수신까지 수초~수분 걸릴 수 있다.
 

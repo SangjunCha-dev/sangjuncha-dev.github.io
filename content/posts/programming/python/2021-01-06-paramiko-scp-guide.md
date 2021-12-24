@@ -21,7 +21,7 @@ paramiko, scp 라이브러리 연계 사용한 ssh 파일 전송
 |paramiko|로그인:암호화 / 파일전송:암호화|느림|
 |paramiko+scp|로그인:암호화 / 파일전송:평문|보통|
 
-<br><br>
+
 
 실습환경 : windows10, 
 원격서버환경 : linux(RHEL8)

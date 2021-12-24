@@ -29,8 +29,6 @@ git clone 받은 프로젝트 경로에서 터미널을 실행하고 진행한�
 > go run main.go
 ```
 
-<br><br>
-
 설정한 웹주소로 접속 요청시 간단한 response 메세지를 응답한다.
 
 ```bash
@@ -76,7 +74,7 @@ EXPOSE 8080
 CMD ["/docker-gs-ping"]
 ```
 
-<br><br>
+
 
 도커 이미지 빌드
 
@@ -84,7 +82,7 @@ CMD ["/docker-gs-ping"]
 > docker build --tag docker-gs-ping .
 ```
 
-<br><br>
+
 
 `docker image ls` : 도커 로컬이미지 조회
 
@@ -94,7 +92,7 @@ REPOSITORY       TAG      IMAGE ID       CREATED          SIZE
 docker-gs-ping   latest   4f0670869ed5   12 seconds ago   540MB
 ```
 
-<br><br>
+
 
 `docker image tag` : 도커 이미지 태그 지정
 
@@ -154,7 +152,7 @@ USER nonroot:nonroot
 ENTRYPOINT ["/docker-gs-ping"]
 ```
 
-<br><br>
+
 
 도커 이미지 빌드
 
@@ -179,7 +177,7 @@ docker-gs-ping   latest       4f0670869ed5   13 minutes ago   540MB
 > docker run -d -p 8080:8080 docker-gs-ping
 ```
 
-<br><br>
+
 
 `docker ps` : 도커 컨테이너 실행 확인
 
@@ -189,7 +187,7 @@ CONTAINER ID   IMAGE            COMMAND             CREATED         STATUS      
 4984da23dfa3   docker-gs-ping   "/docker-gs-ping"   8 minutes ago   Up 8 minutes   0.0.0.0:8080->8080/tcp   stoic_shaw
 ```
 
-<br><br>
+
 
 컨테이너가 정상적으로 실행되었다면 접속시 아래와 같은 응답 값을 받을 수 있다.
 

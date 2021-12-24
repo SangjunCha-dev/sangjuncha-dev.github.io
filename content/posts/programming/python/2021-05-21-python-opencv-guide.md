@@ -34,7 +34,7 @@ import cv2 as cv
 |filename   |로드할 파일 이름|
 |flags      |cv 값을 사용할 수 있는 플래그|
 
-<br><br>
+
 
 ```python
 img = cv.imread(image_full_path)
@@ -64,7 +64,7 @@ cv.imwrite(image_full_path, img)
 |params |이미지 형식별 매개 변수|
 |buf    |이미지 형식에 맞게 크기가 조정된 출력 버퍼|
 
-<br><br>
+
 
 ```python
 retval, buffer = cv.imencode('.png', img)
