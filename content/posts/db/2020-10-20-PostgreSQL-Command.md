@@ -32,7 +32,7 @@ categories: ["DB", "PostgreDB"]
     CREATE USER {user_name} WITH PASSWORD '{user_password}'
     ```
 
-- 개발용 계정으로 사용할 예정이기 때문에 SUPAERUSER 권한부여
+- 개발용 계정으로 사용할 예정이기 때문에 SUPERUSER 권한부여
 
     ```sql
     ALTER USER {user_name} WITH SUPERUSER;
