@@ -86,6 +86,26 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>python 날짜와 시간 계산</h5>
+<p class="card-text post-summary">python 날짜 및 시간 계산은 python 표준 라이브러리 datetime, 확장 라이브러리 dateutil 2개의 라이브러리가 있으며 단위의 차이가 있다.
+datetime : 마이크로초, 밀리초, 초, 분, 시, 일, 주 단위 사용 dateutil : 마이크로초, 초, 분, 시, 일, 주, 월, 년 단위 사용 1. datetime 라이브러리 날짜와 시간을 조작하는 클래스를 제공하는 python 표준 라이브러리
+사용예시 now : 현재 날짜 및 시간
+import datetime as dt now = dt.datetime.now() print(f"now = {now}") now = 2021-12-27 11:24:27.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 26, 2021</span>
+<a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/golang/2021-12-23-golang-db-nullable-value/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -215,6 +235,27 @@ CREATE TABLE user ( id SERIAL PRIMARY KEY, name VARCHAR(20), age INT ); DB 설�
 </a>
 </div>
 <div class=post-card>
+<a href=/posts/framework/django/2021-12-09-django-corntab-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django crontab 라이브러리 사용법</h5>
+<p class="card-text post-summary">django-crontab 라이브러리는 OS의 cron/crontab 서비스를 사용하는것으로 해당 서비스 설치가 되지 않았다면 별도로 설치를 해야함.
+windows 환경에서는 docker를 설치하여 진행 1. 라이브러리 설치 $ pip install django-crontab 2. django 설정 임의의 app 디렉터리내 cron.py 생성 아래의 함수를 작성한다.
+반복 실행할 임의의 함수 선언 def hello_every_minute(): print("hello world") settings.py
+django_crontab 앱 추가
+INSTALLED_APPS = [ 'django_crontab', ... ] CRONJOBS 변수 선언</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 9, 2021</span>
+<a href=/posts/framework/django/2021-12-09-django-corntab-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -291,43 +332,6 @@ import socketio sio = socketio.Server(async_mode='threading', async_handlers=Tru
 <div class=card-footer>
 <span class=float-left>June 11, 2021</span>
 <a href=/posts/framework/django/2021-06-11-django-websocket-using-channels-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-performance/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이</h5>
-<p class="card-text post-summary">설치버전 : python 3.8.8
-클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이 예제 코드 1 import timeit class CheckTime: def __init__(self): self.a = 0 self.b = 0 self.c = 0 def process_self(self): self.a + self.b + self.c def process_argument(self, a, b, c): a + b + c def get_time(self): self.a = 1 self.b = 2 self.c = 3 def test1(): self.process_self() process_self_time = timeit.Timer(stmt=test1).repeat(number=1000000) a = self.a b = self.b c = self.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>May 24, 2021</span>
-<a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-performance/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-05-21-python-opencv-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>python opencv 사용법</h5>
-<p class="card-text post-summary">설치버전 : opencv-python 4.5.1.48
-docs url import 라이브러리
-import cv2 as cv cv.imread 이미지 파일 읽기 cv.imread(filename[, flags]) -> retval 매개변수 이름 설명 filename 로드할 파일 이름 flags cv 값을 사용할 수 있는 플래그 img = cv.imread(image_full_path) cv.imwrite 이미지 파일 저장 cv.imwrite(filename, img[, params]) -> retval 이미지 형식은 파일 이름 확장자에 따라 선택됨 cv.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>May 21, 2021</span>
-<a href=/posts/programming/python/2021-05-21-python-opencv-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

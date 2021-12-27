@@ -86,6 +86,43 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-performance/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이</h5>
+<p class="card-text post-summary">설치버전 : python 3.8.8
+클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이 예제 코드 1 import timeit class CheckTime: def __init__(self): self.a = 0 self.b = 0 self.c = 0 def process_self(self): self.a + self.b + self.c def process_argument(self, a, b, c): a + b + c def get_time(self): self.a = 1 self.b = 2 self.c = 3 def test1(): self.process_self() process_self_time = timeit.Timer(stmt=test1).repeat(number=1000000) a = self.a b = self.b c = self.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>May 24, 2021</span>
+<a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-performance/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/programming/python/2021-05-21-python-opencv-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>python opencv 사용법</h5>
+<p class="card-text post-summary">설치버전 : opencv-python 4.5.1.48
+docs url import 라이브러리
+import cv2 as cv cv.imread 이미지 파일 읽기 cv.imread(filename[, flags]) -> retval 매개변수 이름 설명 filename 로드할 파일 이름 flags cv 값을 사용할 수 있는 플래그 img = cv.imread(image_full_path) cv.imwrite 이미지 파일 저장 cv.imwrite(filename, img[, params]) -> retval 이미지 형식은 파일 이름 확장자에 따라 선택됨 cv.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>May 21, 2021</span>
+<a href=/posts/programming/python/2021-05-21-python-opencv-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/python/2021-05-21-python-numpy-guide/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -279,47 +316,6 @@ from django.db import models class Board(models.Model): title = models.CharField
 <div class=card-footer>
 <span class=float-left>April 7, 2021</span>
 <a href=/posts/framework/django/2021-04-07-django-dynamic-model-and-table-create/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/framework/django/2021-04-06-django-queryset-object-access/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Django QuerySet 객체 접근방식 및 조회</h5>
-<p class="card-text post-summary">queryset 단일객체와 다중객체 접근방법 QuerySet 이란? Database에서 응답받은 결과 목록(list)
-Python 코드가 SQL 구문으로 맵핑(mapping)되고 DB로 전달하여 받은 응답값을 QuerySet 자료형으로 반환한다.
-사전설정 django version : 3.2
-models.py
-from django.db import models class User(): name = models.CharField(max_length=20) age = models.models.PositiveSmallIntegerField() >>> python manage.py shell #shell 실행 >>> from user.models import User #모델클래스 임포트 >>> user1 = User(name='Foo', age=15) # 데이터추가 >>> user1.save() # 데이터 저장 >>> user2 = User(name='Bar', age=20) # 데이터추가 >>> user2.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>April 6, 2021</span>
-<a href=/posts/framework/django/2021-04-06-django-queryset-object-access/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/framework/django/2021-03-31-django-models-autoonetoonefield/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Django models.AutoOneToOneField 사용법</h5>
-<p class="card-text post-summary">model 상속할때 테이블 컬럼 데이터 자동 생성방법
-라이브러리 설치 pip install django-annoying models 설정 django의 models.OneToOneField는 데이터 변경없이(default 설정) 저장하면 해당 데이터(row)가 생성되지않음
-models.AutoOneToOneField는 데이터가 default값이어도 데이터(row) 생성됨
-from annoying.fields import AutoOneToOneField # User모델 Save에서 제어 class User(models.Model): name = models.CharField(max_length=30) def save(self): is_new = False if self.pk is None: is_new = True if is_new: Profile.objects.create(user=self) class Profile(models.Model): user = AutoOneToOneField(User, primary_key=True) home_page = models.URLField(max_length=255, blank=True) icq = models.IntegerField(blank=True, null=True) 참고사항 문제점 : TypeError: __init__() missing 1 required positional argument: 'on_delete' 에러 발생</p>
-</div>
-<div class=card-footer>
-<span class=float-left>March 31, 2021</span>
-<a href=/posts/framework/django/2021-03-31-django-models-autoonetoonefield/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

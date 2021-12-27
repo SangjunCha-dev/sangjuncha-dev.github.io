@@ -1,6 +1,6 @@
 <!doctype html><html lang=ko>
 <head>
-<meta name=generator content="Hugo 0.91.1">
+<meta name=generator content="Hugo 0.91.2">
 <title>Sangjun 개발 블로그</title>
 <meta name=description content="Portfolio and personal blog of Sangjun.">
 <meta charset=utf-8>
@@ -172,6 +172,26 @@ I am a passionate software backend developer with 2 years of working experience.
 <div class=container>
 <div class=row id=recent-post-cards>
 <div class="col-lg-4 col-md-6 pt-2 post-card">
+<a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ title="python 날짜와 시간 계산" class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
+</div>
+<div class=card-body>
+<h5 class=card-title>python 날짜와 시간 계산</h5>
+<p class="card-text post-summary"> python 날짜 및 시간 계산은 python 표준 라이브러리 datetime, 확장 라이브러리 dateutil 2개의 라이브러리가 있으며 단위의 차이가 있다.
+datetime : 마이크로초, 밀리초, 초, 분, 시, 일, 주 단위 사용 dateutil : 마이크로초, 초, 분, 시, 일, 주, 월, 년 단위 사용 1. datetime 라이브러리 날짜와 시간을 조작하는 클래스를 제공하는 python 표준 라이브러리
+사용예시 now : 현재 날짜 및 시간
+import datetime as dt now = dt.datetime.now() print(f"now = {now}") now = 2021-12-27 11:24:27.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 26, 2021</span>
+<a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class="col-lg-4 col-md-6 pt-2 post-card">
 <a href=/posts/programming/golang/2021-12-23-golang-db-nullable-value/ title="golang db nullable 데이터 처리" class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -212,27 +232,6 @@ FROM : 기본 이미지 지정 WORKDIR : 작업 디렉터리 지정 COPY : 소�
 <div class=card-footer>
 <span class=float-left>December 22, 2021</span>
 <a href=/posts/docker/2021-12-22-docker-golang-image-build/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class="col-lg-4 col-md-6 pt-2 post-card">
-<a href=/posts/docker/2021-12-21-docker-reduce-the-volume/ title="도커 경량화 이미지 만들기" class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
-</div>
-<div class=card-body>
-<h5 class=card-title>도커 경량화 이미지 만들기</h5>
-<p class="card-text post-summary"> Docker Image 경량화의 장점 저장공간 절약 이미지 빌드 및 배포시간 단축 클라우드 서비스를 이용한 배포의 경우 비용 절약 1. 가벼운 Base image 사용 Base image에는 사용하지 않은 기능들이 포함되어 있기때문에 Debian계열과 Alpine 계열등 다양한 Base image를 사용하여 용량을 줄일 수 있다.
-단, 필요한 패키지나 파일이 없어 별도의 설치가 필요할 수 있다. 기본 python 이미지와 slim형 이미지를 각각 빌드한다.
-image-test1
-FROM python:3.8.10 image-test2
-FROM python:3.8.10-slim-buster 각각 빌드된 이미지 크기는 다음과 같다.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 21, 2021</span>
-<a href=/posts/docker/2021-12-21-docker-reduce-the-volume/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

@@ -86,6 +86,26 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>python 날짜와 시간 계산</h5>
+<p class="card-text post-summary">python 날짜 및 시간 계산은 python 표준 라이브러리 datetime, 확장 라이브러리 dateutil 2개의 라이브러리가 있으며 단위의 차이가 있다.
+datetime : 마이크로초, 밀리초, 초, 분, 시, 일, 주 단위 사용 dateutil : 마이크로초, 초, 분, 시, 일, 주, 월, 년 단위 사용 1. datetime 라이브러리 날짜와 시간을 조작하는 클래스를 제공하는 python 표준 라이브러리
+사용예시 now : 현재 날짜 및 시간
+import datetime as dt now = dt.datetime.now() print(f"now = {now}") now = 2021-12-27 11:24:27.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 26, 2021</span>
+<a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/golang/2021-12-23-golang-db-nullable-value/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -304,27 +324,6 @@ int(문자열, 밑(n진법))
 <div class=card-footer>
 <span class=float-left>May 17, 2021</span>
 <a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)</h5>
-<p class="card-text post-summary">python 파일을 윈도우에서 python 이나 가상환경 설정없이 실행이 가능한 .exe 으로 변환해주는 라이브러리
-Docs URL - https://pyinstaller.readthedocs.io/en/stable/usage.html
-설치환경 : Windows 10
-1. 설치 python 실행이 가능한 가상환경 터미널에서 아래의 명령어 실행
-pip install pyinstaller 2. 간단한 사용예제 pyinstaller --clean --distpath . -F -n [프로그램이름] [변환시킬 파일].py 3. 옵션 옵션 설명 &ndash;clean 빌드하기 전에 PyInstaller 캐시를 정리하고 임시파일 제거 -F, &ndash;onefile 단일 실행파일로 생성(실행시 사용한 라이브러리 임시파일 생성됨) -D, &ndash;onedir 실행 파일을 포함하는 단일 폴더로 생성 &ndash;distpath DIR 실행파일 생성 경로(default: .</p>
-</div>
-<div class=card-footer>
-<span class=float-left>March 10, 2021</span>
-<a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

@@ -49,6 +49,7 @@ Sangjun 개발 블로그</a>
 <div class="subtree taxonomy-terms">
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/algorithm/ data-taxonomy-term=algorithm><span class=taxonomy-label>algorithm</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/cron/ data-taxonomy-term=cron><span class=taxonomy-label>cron</span></a></li>
+<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/crontab/ data-taxonomy-term=crontab><span class=taxonomy-label>crontab</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/db/ data-taxonomy-term=db><span class=taxonomy-label>db</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/django/ data-taxonomy-term=django><span class=taxonomy-label>django</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/docker/ data-taxonomy-term=docker><span class=taxonomy-label>docker</span></a></li>
@@ -84,6 +85,26 @@ Sangjun 개발 블로그</a>
 <section class=content-section id=content-section>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
+<div class=post-card>
+<a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>python 날짜와 시간 계산</h5>
+<p class="card-text post-summary">python 날짜 및 시간 계산은 python 표준 라이브러리 datetime, 확장 라이브러리 dateutil 2개의 라이브러리가 있으며 단위의 차이가 있다.
+datetime : 마이크로초, 밀리초, 초, 분, 시, 일, 주 단위 사용 dateutil : 마이크로초, 초, 분, 시, 일, 주, 월, 년 단위 사용 1. datetime 라이브러리 날짜와 시간을 조작하는 클래스를 제공하는 python 표준 라이브러리
+사용예시 now : 현재 날짜 및 시간
+import datetime as dt now = dt.datetime.now() print(f"now = {now}") now = 2021-12-27 11:24:27.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 26, 2021</span>
+<a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
 <div class=post-card>
 <a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ class=post-card-link>
 <div class=card>
@@ -298,24 +319,6 @@ Docs URL - http://docs.paramiko.org/en/stable/ scp : 파일 전송 및 다운로
 <div class=card-footer>
 <span class=float-left>December 15, 2020</span>
 <a href=/posts/algorithm/programmers/2020-12-15-algorithm-programmers-python-level1/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>LeetCode Python (Easy)</h5>
-<p class="card-text post-summary">1. Two Sum nums 리스트 속성값 중 두개의 값이 target 값과 동일할때 해당 속성 값의 index 반환 class Solution: def twoSum(self, nums: List[int], target: int) -> List[int]: for i, num in enumerate(nums): for j, num2 in enumerate(nums[i+1:]): if i != j+i+1: if target == num+num2: return [i, j+i+1] 2020-11-27
-Runtime: 40 ms, faster than 97.02% of Python3 online submissions for Two Sum. Memory Usage: 14.5 MB, less than 89.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 1, 2020</span>
-<a href=/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
