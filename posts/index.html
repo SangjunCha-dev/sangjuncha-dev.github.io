@@ -191,6 +191,25 @@ cron 함수는 지정한 주기마다 동작시키는 기능으로 별도의 비
 </a>
 </div>
 <div class=post-card>
+<a href=/posts/algorithm/programmers/2021-12-20-algorithm-programmers-python-level3/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Programmers Python (level 3)</h5>
+<p class="card-text post-summary">다단계 칫솔 판매 분류 : 2021 Dev-Matching: 웹 백엔드 개발자(상반기)
+문제 링크
+방법1 def solution(enroll, referral, seller, amount): answer = [] data = {'center': {'amount': 0,'parent': None}} for i in range(len(enroll)): data[enroll[i]] = { 'amount': 0, 'parent': referral[i] if referral[i] != '-' else 'center' } for i in range(len(seller)): sell = seller[i] price = amount[i] * 100 data[sell]['amount'] += price-price//10 price = price//10 while data[sell]['parent'] and price: sell = data[sell]['parent'] if sell == 'center': data[sell]['amount'] += price break data[sell]['amount'] += price-price//10 price = price//10 del data['center'] for value in data.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 20, 2021</span>
+<a href=/posts/algorithm/programmers/2021-12-20-algorithm-programmers-python-level3/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/golang/2021-12-18-golang-fcm-backend/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -312,26 +331,6 @@ cmd = "Get-CimInstance -Class Win32_OperatingSystem" result = subprocess.Popen(f
 <div class=card-footer>
 <span class=float-left>June 16, 2021</span>
 <a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/framework/django/2021-06-11-django-websocket-using-channels-library-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Django socketio 라이브러리 활용한 통신</h5>
-<p class="card-text post-summary">라이브러리 설치 server 라이브러리 설치 pip install python-socketio client 라이브러리 설치 pip install "python-socketio[client]" Server django settings django server
-wsgi.py
-... import socketio from appname.views import sio # sio code path ... # application = get_wsgi_application() sio.register_namespace(TransferNamespace('/transfer')) django_app = get_wsgi_application() application = socketio.WSGIApp(sio, django_app) appname.views.py
-import socketio sio = socketio.Server(async_mode='threading', async_handlers=True, ping_interval=60) class TransferNamespace(socketio.Namespace): def on_connect(self, sid: str, environ: dict): ''' 클라이언트 접속 ''' print(f"connect address = {environ['REMOTE_ADDR']}, sid = {sid}") def on_disconnect(self, sid: str): ''' 클라이언트 접속 종료 ''' print(f"disconnect Client disconnected = {sid}") def send_event(self, sid: str): ''' 특정 sid 클라이언트에 이벤트 전송 ''' print("send_event") self.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>June 11, 2021</span>
-<a href=/posts/framework/django/2021-06-11-django-websocket-using-channels-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

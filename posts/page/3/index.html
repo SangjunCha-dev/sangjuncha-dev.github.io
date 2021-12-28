@@ -86,6 +86,27 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/framework/django/2021-04-07-django-dynamic-model-and-table-create/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django 동적 모델 및 테이블 생성</h5>
+<p class="card-text post-summary">Django 동적 모델 및 테이블 생성 django는 makemigrations, migrate 명령어를 통하여 테이블 생성한다.
+이때 웹서버는 실행중일 경우 중단하고 다시 재시작한다.
+운영환경에 따라서 웹서버가 중단되지 않고 운영이 필요한경우에는 위의 방법이 아닌 동적 모델 및 테이블 생성방법이 필요하다.
+사용 방법 상속받을 추상모델 작성 models.py
+from django.db import models class Board(models.Model): title = models.CharField(max_length=100) contents = models.CharField(max_length=500) class Meta: abstract = True 동적 모델 생성 및 삭제 from .models import Board TABLE_MAP = {} def create_model(name: str): ''' 동적 모델 생성 ''' baseclass = Board tablename = board2 # attrs 를 dict 형태로 지정한다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>April 7, 2021</span>
+<a href=/posts/framework/django/2021-04-07-django-dynamic-model-and-table-create/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/framework/django/2021-04-06-django-queryset-object-access/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -281,6 +302,7 @@ vi /etc/exports /NFSVOL01 192.168.0.0/255.255.255.0(rw) /NFSVOL01 : 공유할 
 <div class=card-body>
 <h5 class=card-title>Programmers Python (level 2)</h5>
 <p class="card-text post-summary">프린터 분류 : 스택/큐
+문제 링크
 우선순위 priorities 리스트의 최댓값을 num_max변수에 대입 cursor변수에 priorities[0]값 추출하여 대입 cursor 값이 최댓값 일때 cnt 1증가 이때 location값이 0이면 break cursor 값이 최댓값 아닐때 리스트 맨뒤에 cursor 값 추가 이때 location값이 0이면 location변수에 priorities길이값 대입 location 1 감소 위의 순서를 location 0 이상일때 while문 반복실행 def solution(priorities, location): cnt = 1 while True: num_max = max(priorities) cursor = priorities.pop(0) if cursor == num_max: if location == 0: return cnt cnt += 1 else: priorities.</p>
 </div>
 <div class=card-footer>
@@ -299,29 +321,12 @@ vi /etc/exports /NFSVOL01 192.168.0.0/255.255.255.0(rw) /NFSVOL01 : 공유할 
 <div class=card-body>
 <h5 class=card-title>Programmers Python (level 1)</h5>
 <p class="card-text post-summary">모의고사 분류 : 완전탐색
+문제 링크
 입력받은 answers 리스트와 수포자들의 답 리스트와 비교하여 같다면 answer_cnt변수에 정답 개수 추가 answer_cnt 리스트의 최댓값과 각 answer_cnt 원소와 비교하여 같다면 index+1 값을 answer리스트에 추가 최대 정답자 answer 리스트 return def solution(answers): answer = [] answer_cnt = [0, 0, 0] answer_list = [ [1, 2, 3, 4, 5], [2, 1, 2, 3, 2, 4, 2, 5], [3, 3, 1, 1, 2, 2, 4, 4, 5, 5] ] # 정답 매칭 for i in range(len(answers)): ans = answers[i] if ans == answer_list[0][i%5]: answer_cnt[0] += 1 if ans == answer_list[1][i%8]: answer_cnt[1] += 1 if ans == answer_list[2][i%10]: answer_cnt[2] += 1 # 최다 정답자 추출 max_cnt = max(answer_cnt) for i, cnt in enumerate(answer_cnt): if max_cnt == cnt: answer.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>December 15, 2020</span>
 <a href=/posts/algorithm/programmers/2020-12-15-algorithm-programmers-python-level1/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>LeetCode Python (Easy)</h5>
-<p class="card-text post-summary">1. Two Sum nums 리스트 속성값 중 두개의 값이 target 값과 동일할때 해당 속성 값의 index 반환 class Solution: def twoSum(self, nums: List[int], target: int) -> List[int]: for i, num in enumerate(nums): for j, num2 in enumerate(nums[i+1:]): if i != j+i+1: if target == num+num2: return [i, j+i+1] 2020-11-27
-Runtime: 40 ms, faster than 97.02% of Python3 online submissions for Two Sum. Memory Usage: 14.5 MB, less than 89.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 1, 2020</span>
-<a href=/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
