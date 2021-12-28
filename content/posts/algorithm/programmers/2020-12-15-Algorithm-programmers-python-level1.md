@@ -14,9 +14,11 @@ categories: ["Algorithm", "Programmers"]
 
 
 
-## [모의고사](https://programmers.co.kr/learn/courses/30/lessons/42840)
+## 모의고사
 
 분류 : 완전탐색
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42840)
 
 1. 입력받은 `answers` 리스트와 수포자들의 답 리스트와 비교하여 같다면 `answer_cnt`변수에 정답 개수 추가
 2. `answer_cnt` 리스트의 최댓값과 각 `answer_cnt` 원소와 비교하여 같다면 `index+1` 값을 `answer`리스트에 추가
@@ -58,9 +60,11 @@ def solution(answers):
 
 
 
-## [K번째수](https://programmers.co.kr/learn/courses/30/lessons/42748)
+## K번째수
 
 분류 : 정렬
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42748)
 
 1. 입력받은 `commands` 2차원 리스트에서 `command` 1차원 리스트 추출
 2. `array`리스트 `command[0]-1`번째부터 `command[1]`번째까지 추출하여 `array_ext`변수에 저장
@@ -89,9 +93,11 @@ def solution(array, commands):
 
 
 
-## [체육복](https://programmers.co.kr/learn/courses/30/lessons/42862)
+## 체육복
 
 분류 - 탐욕법(Greedy)
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42862)
 
 1. `reserve` 리스트에서 `lost` 리스트와 같은 원소를 삭제
     - 먼저 여분의 체육복을 가진 사람이 도난당한 경우를 고려
@@ -141,9 +147,11 @@ def solution(n, lost, reserve):
 
 
 
-## [2016년](https://programmers.co.kr/learn/courses/30/lessons/12901)
+## 2016년
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12901)
 
 1. 요일 `day_list` 와, 윤년에 해당되는 달의 일수 `month_dict` 선언
 2. 2016년 1월 1일 금요일에 해당하는 초기 `days`값 선언
@@ -170,9 +178,11 @@ def solution(a, b):
 
 
 
-## [가운데 글자 가져오기](https://programmers.co.kr/learn/courses/30/lessons/12903)
+## 가운데 글자 가져오기
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12903)
 
 1. 문자열 `s` 길이값 나누기 연산값을 `index`변수에 저장
 2. `s` 길이값이 나머지 연산으로 홀수이면 `s[index]` 반환
@@ -193,9 +203,11 @@ def solution(s):
 
 
 
-## [나누어 떨어지는 숫자 배열](https://programmers.co.kr/learn/courses/30/lessons/12910)
+## 나누어 떨어지는 숫자 배열
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12910)
 
 ### 방법1
 
@@ -239,9 +251,11 @@ def solution(arr, divisor):
 
 
 
-## [두 정수 사이의 합](https://programmers.co.kr/learn/courses/30/lessons/12912)
+## 두 정수 사이의 합
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12912)
 
 1. 입력값 `a`, `b` 중 작은 값을 `num_min`변수에 큰 값을 `num_max`변수에 대입
 2. 값이 같으면 `a` 반환
@@ -274,9 +288,11 @@ def solution(a, b):
 
 
 
-## [문자열 내 마음대로 정렬하기](https://programmers.co.kr/learn/courses/30/lessons/12915)
+## 문자열 내 마음대로 정렬하기
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12915)
 
 1. `strings`문자열 리스트 정렬 후
 2. n번째 글자를 기준으로 다시 정렬하여 반환
@@ -295,9 +311,11 @@ def solution(strings, n):
 
 
 
-## [문자열 내림차순으로 배치하기](https://programmers.co.kr/learn/courses/30/lessons/12917)
+## 문자열 내림차순으로 배치하기
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12917)
 
 1. 문자열을 역순으로 정렬한 다음 `sorted`함수로 인해 list 자료형으로 수정됨
 2. list형 자료형을 하나의 문자열로 바꾸기 위해 `join` 함수 이용
@@ -316,9 +334,11 @@ def solution(s):
 
 
 
-## [문자열 다루기 기본](https://programmers.co.kr/learn/courses/30/lessons/12918)
+## 문자열 다루기 기본
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12918)
 
 1. 조건문으로 문자열의 길이가 `4` or `6` 이면서
 2. 문자열이 `int`타입으로 변환이 가능한지 확인하는 `isdecimal()`함수를 이용하여 반환
@@ -337,9 +357,11 @@ def solution(s):
 
 
 
-## [서울에서 김서방 찾기](https://programmers.co.kr/learn/courses/30/lessons/12919)
+## 서울에서 김서방 찾기
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12919)
 
 1. `index`함수로 찾는 문자열의 위치값 반환
 
@@ -357,9 +379,11 @@ def solution(seoul):
 
 
 
-## [수박수박수박수박수박수?](https://programmers.co.kr/learn/courses/30/lessons/12922)
+## 수박수박수박수박수박수?
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12922)
 
 1. `n` 나누기 2 만큼의 `수박` 문자열 선언
 2. `n`값이 홀수이면 `수`문자 추가하여 `answer` 반환
@@ -380,9 +404,11 @@ def solution(n):
 
 
 
-## [문자열을 정수로 바꾸기](https://programmers.co.kr/learn/courses/30/lessons/12925)
+## 문자열을 정수로 바꾸기
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12925)
 
 1. int형으로 변환하여 반환
 
@@ -400,9 +426,11 @@ def solution(s):
 
 
 
-## [내적](https://programmers.co.kr/learn/courses/30/lessons/70128)
+## 내적
 
 분류 : 월간 코드 챌린지 시즌1
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/70128)
 
 1. `a`리스트의 길이만큼 for 문 반복
 2. `a`, `b`리스트의 같은 위치끼리 곱셈한 값을 `answer`변수에 덧셈
@@ -425,9 +453,11 @@ def solution(a, b):
 
 
 
-## [시저 암호](https://programmers.co.kr/learn/courses/30/lessons/12926)
+## 시저 암호
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12926)
 
 1. 문자열 길이만큼 for문 반복 실행
 2. ` `일 경우 `answer`변수에 추가하고 다음 반복문 실행
@@ -465,9 +495,11 @@ def solution(s, n):
 
 
 
-## [약수의 합](https://programmers.co.kr/learn/courses/30/lessons/12928)
+## 약수의 합
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12928)
 
 1. `i`변수 초깃값 `1`
 2. `quot`변수에 `n/i`몫을 대입
@@ -504,9 +536,11 @@ def solution(n):
 
 
 
-## [이상한 문자 만들기](https://programmers.co.kr/learn/courses/30/lessons/12930)
+## 이상한 문자 만들기
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12930)
 
 1. 문자열 길이만큼 for 반복문 실행
 2. `even`변수 초깃값 `True`
@@ -543,9 +577,11 @@ def solution(s):
 
 
 
-## [자릿수 더하기](https://programmers.co.kr/learn/courses/30/lessons/12931)
+## 자릿수 더하기
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12931)
 
 1. `n`변수가 0 이상일 때 while 반복문 실행
 2. `n`변수의 10 나머지 값을 `answer`변수에 덧셈
@@ -569,9 +605,11 @@ def solution(n):
 
 
 
-## [자연수 뒤집어 배열로 만들기](https://programmers.co.kr/learn/courses/30/lessons/12932)
+## 자연수 뒤집어 배열로 만들기
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12932)
 
 1. `n`값이 0 이상일 때 while 반복문 실행
 2. `n`변수의 10 나머지 값을 `answer`리스트에 원소 추가
@@ -595,9 +633,11 @@ def solution(n):
 
 
 
-## [정수 내림차순으로 배치하기](https://programmers.co.kr/learn/courses/30/lessons/12933)
+## 정수 내림차순으로 배치하기
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12933)
 
 1. 정수 `n`을 문자열 변환 후에 list로 내림차순 정렬한 값을 `answer`변수에 대입
 2. `answer`리스트를 `join`으로 문자열 변환하고 int형 변환한 값을 반환
@@ -617,9 +657,11 @@ def solution(n):
 
 
 
-## [정수 제곱근 판별](https://programmers.co.kr/learn/courses/30/lessons/12934)
+## 정수 제곱근 판별
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12934)
 
 1. 입력값 `n` 루트 값이 정수형이면 제곱근이므로
 2. (`n`제곱근+1) 제곱 값 반환
@@ -642,9 +684,11 @@ def solution(n):
 
 
 
-## [제일 작은 수 제거하기](https://programmers.co.kr/learn/courses/30/lessons/12935)
+## 제일 작은 수 제거하기
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12935)
 
 1. `arr`리스트의 최소값을 찾아 삭제
 2. `arr`리스트의 값이 없으면 `[-1]` 반환
@@ -665,9 +709,11 @@ def solution(arr):
 
 
 
-## [짝수와 홀수](https://programmers.co.kr/learn/courses/30/lessons/12937)
+## [짝수와 홀수]
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12937)
 
 1. `num` 나머지 `2` 연산결과가 1일 경우 `Odd` 반환
 2. 그외의 경우 `Even` 반환
@@ -686,9 +732,11 @@ def solution(num):
 
 
 
-## [최대공약수와 최소공배수](https://programmers.co.kr/learn/courses/30/lessons/12940)
+## 최대공약수와 최소공배수
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12940)
 
 1. 각 입력값 `n`, `m`에 대해서 소인수를 구한다.
 2. 각 소인수의 집합에서 중복된 원소들의 곱이 `최대공약수`
@@ -734,9 +782,11 @@ def prime(num):
 ```
 
 
-## [콜라츠 추측](https://programmers.co.kr/learn/courses/30/lessons/12943)
+## 콜라츠 추측
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12943)
 
 1. 500번 반복하여 조건만족하지 못하면 `-1` 반환
 2. `num`값이 짝수면 `num/2` 연산을 홀수면 `num*3+1`연산 수행
@@ -762,9 +812,11 @@ def solution(num):
 
 
 
-## [평균 구하기](https://programmers.co.kr/learn/courses/30/lessons/12944)
+## 평균 구하기
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12944)
 
 1. `arr`리스트 원소들의 합을 `arr`리스트 길이로 나눈값 반환
 
@@ -782,9 +834,11 @@ def solution(arr):
 
 
 
-## [하샤드 수](https://programmers.co.kr/learn/courses/30/lessons/12947)
+## 하샤드 수
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12947)
 
 1. 각 자리수의 합으로 입력값 `x`를 나누었을때 0이 나오면 `True` 아니면 `False` 반환
 
@@ -806,9 +860,11 @@ def solution(x):
 
 
 
-## [핸드폰 번호 가리기](https://programmers.co.kr/learn/courses/30/lessons/12948)
+## 핸드폰 번호 가리기
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12948)
 
 1. 입력값 (`phone_number`길이-4)만큼 `*`문자를 추가하고
 2. 뒤에 `phone_number` 뒤에서 4번째부터 마지막까지의 문자열을 추가하여 반환
@@ -827,9 +883,11 @@ def solution(phone_number):
 
 
 
-## [행렬의 덧셈](https://programmers.co.kr/learn/courses/30/lessons/12950)
+## 행렬의 덧셈
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12950)
 
 1. `arr1`리스트 길이만큼 2차원 `answer` 리스트 선언
 2. 이중 for 반복문을 사용하여 `arr1[i][j] + arr2[i][j]`연산값을 `answer[i][j]`리스트 원소에 저장
@@ -852,9 +910,11 @@ def solution(arr1, arr2):
 
 
 
-## [x만큼 간격이 있는 n개의 숫자](https://programmers.co.kr/learn/courses/30/lessons/12954)
+## x만큼 간격이 있는 n개의 숫자
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12954)
 
 1. i는 1부터 n까지 반복 실행
 2. `answer`리스트에 x*i 원소를 추가하여 반환
@@ -876,9 +936,11 @@ def solution(x, n):
 
 
 
-## [직사각형 별찍기](https://programmers.co.kr/learn/courses/30/lessons/12969)
+## 직사각형 별찍기
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12969)
 
 1. 입력값 `n`가로길이, `m`세로길이만큼 `*`출력
 
@@ -896,9 +958,11 @@ print(('*' * n + '\n') * m)
 
 
 
-## [크레인 인형뽑기 게임](https://programmers.co.kr/learn/courses/30/lessons/64061)
+## 크레인 인형뽑기 게임
 
 분류 :2019 카카오 개발자 겨울 인턴십
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/64061)
 
 ```python
 def solution(board, moves):
@@ -929,9 +993,11 @@ def solution(board, moves):
 
 
 
-## [두 개 뽑아서 더하기](https://programmers.co.kr/learn/courses/30/lessons/68644)
+## 두 개 뽑아서 더하기
 
 분류 : 월간 코드 챌린지 시즌1
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/68644)
 
 ### 방법1
 
@@ -974,9 +1040,11 @@ def solution(numbers):
 
 
 
-## [완주하지 못한 선수](https://programmers.co.kr/learn/courses/30/lessons/42576)
+## 완주하지 못한 선수
 
 분류 : 해시
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42576)
 
 ### 방법1
 
@@ -1034,9 +1102,11 @@ def solution(participant, completion):
 
 
 
-## [신규 아이디 추천](https://programmers.co.kr/learn/courses/30/lessons/72410)
+## 신규 아이디 추천
 
 분류 : 2021 KAKAO BLIND RECRUITMENT
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/72410)
 
 1. 정규식 사용
 
@@ -1099,9 +1169,11 @@ def solution(new_id):
 
 
 
-## [3진법 뒤집기](https://programmers.co.kr/learn/courses/30/lessons/68935)
+## 3진법 뒤집기
 
 분류 : 월간 코드 챌린지 시즌1
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/68935)
 
 ### 방법1
 
@@ -1146,9 +1218,11 @@ def solution(n):
 
 
 
-## [같은 숫자는 싫어](https://programmers.co.kr/learn/courses/30/lessons/12906)
+## 같은 숫자는 싫어
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12906)
 
 ```python
 def solution(arr):
@@ -1174,9 +1248,11 @@ def solution(arr):
 
 
 
-## [문자열 내 p와 y의 개수](https://programmers.co.kr/learn/courses/30/lessons/12916)
+## 문자열 내 p와 y의 개수
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12916)
 
 ```python
 def solution(s):
@@ -1193,9 +1269,11 @@ def solution(s):
 
 
 
-## [소수 찾기](https://programmers.co.kr/learn/courses/30/lessons/12921)
+## 소수 찾기
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12921)
 
 1. 에라토스테네스의 체 원리로 소수 리스트 작성
 2. 2를 제외한 다른 짝수는 변수 선언단계에서 False 처리
@@ -1221,9 +1299,11 @@ def solution(n):
 
 
 
-## [키패드 누르기](https://programmers.co.kr/learn/courses/30/lessons/67256)
+## 키패드 누르기
 
 분류 : 2020 카카오 인턴십
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/67256)
 
 ```python
 def solution(numbers, hand):
@@ -1266,9 +1346,11 @@ def solution(numbers, hand):
 
 
 
-## [예산](https://programmers.co.kr/learn/courses/30/lessons/12982)
+## 예산
 
 분류 : Summer/Winter Coding(~2018)
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12982)
 
 ### 방법1
 
@@ -1315,9 +1397,11 @@ def solution(d, budget):
 
 
 
-## [1차 비밀지도](https://programmers.co.kr/learn/courses/30/lessons/17681)
+## 1차 비밀지도
 
 분류 : 2018 KAKAO BLIND RECRUITMENT
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/17681)
 
 ### 방법1
 
@@ -1371,9 +1455,11 @@ def solution(n, arr1, arr2):
 
 
 
-## [1차 다트 게임](https://programmers.co.kr/learn/courses/30/lessons/17682)
+## 1차 다트 게임
 
 분류 : 2018 KAKAO BLIND RECRUITMENT
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/17682)
 
 1. 정규식 사용하여 리스트 분할
 
@@ -1402,9 +1488,11 @@ def solution(dartResult):
 
 
 
-## [실패율](https://programmers.co.kr/learn/courses/30/lessons/42889)
+## 실패율
 
 분류 : 2019 KAKAO BLIND RECRUITMENT
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42889)
 
 ```python
 def solution(N, stages):
@@ -1434,3 +1522,32 @@ def solution(N, stages):
 > 합계: 100.0 / 100.0  
 > min TaseCase : 0.01ms, 10.1MB  
 > max TaseCase : 27.56ms, 18.4MB  
+
+
+
+## 로또의 최고 순위와 최저 순위
+
+분류 : 2021 Dev-Matching: 웹 백엔드 개발자(상반기)
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/77484)
+
+```python
+def solution(lottos, win_nums):
+    win_cnt, zero_cnt = 0, 0
+    for lotto in lottos:
+        if lotto in win_nums:
+            win_cnt += 1
+        elif not lotto:
+            zero_cnt += 1
+
+    max_rank = 7-(win_cnt+zero_cnt) if 1 < (win_cnt+zero_cnt) else 6
+    min_rank = 7-win_cnt if 1 < win_cnt else 6
+
+    answer = [max_rank, min_rank]
+    return answer
+```
+
+**2021-12-20**
+
+> min TaseCase : 0.00ms, 10.2MB  
+> max TaseCase : 0.01ms, 10.2MB  

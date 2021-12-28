@@ -14,9 +14,11 @@ categories: ["Algorithm", "Programmers"]
 
 
 
-## [프린터](https://programmers.co.kr/learn/courses/30/lessons/42587)
+## 프린터
 
 분류 : 스택/큐
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42587)
 
 1. 우선순위 `priorities` 리스트의 최댓값을 `num_max`변수에 대입
 2. `cursor`변수에 `priorities[0]`값 추출하여 대입
@@ -51,9 +53,11 @@ def solution(priorities, location):
 
 
 
-## [기능개발](https://programmers.co.kr/learn/courses/30/lessons/42586)
+## 기능개발
 
 분류 : 스택/큐
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42586)
 
 ### 방법1
 
@@ -127,9 +131,11 @@ def solution(progresses, speeds):
 
 
 
-## [다리를 지나는 트럭](https://programmers.co.kr/learn/courses/30/lessons/42583)
+## 다리를 지나는 트럭
 
 분류 : 스택/큐
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42583)
 
 변수 정의
 - bridge_length : 다리길이
@@ -204,9 +210,11 @@ def solution(bridge_length, weight, truck_weights):
 
 
 
-## [멀쩡한 사각형](https://programmers.co.kr/learn/courses/30/lessons/62048)
+## 멀쩡한 사각형
 
 분류 : Summer/Winter Coding(2019)
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/62048)
 
 ### 방법1
 
@@ -301,9 +309,11 @@ def solution(w,h):
 
 
 
-## [조이스틱](https://programmers.co.kr/learn/courses/30/lessons/42860)
+## 조이스틱
 
 분류 : 탐욕법(Greedy)
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42860)
 
 변수 정의
 - move_cnt : 조이스틱이 움직인 횟수
@@ -375,9 +385,11 @@ def solution(name):
 
 
 
-## [가장 큰 수](https://programmers.co.kr/learn/courses/30/lessons/42746)
+## 가장 큰 수
 
 분류 : 정렬
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42746)
 
 추가 Test Case
 |numbers|Return|검증 case|
@@ -449,9 +461,11 @@ def solution(numbers):
 
 
 
-## [소수 찾기](https://programmers.co.kr/learn/courses/30/lessons/42839)
+## 소수 찾기
 
 분류 : 완전탐색
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42839)
 
 1. 입력받은 `numbers` 문자열로 만들수 있는 모든 정수형 리스트 `numbers_list` 생성
     - permutations 라이브러리를 사용하여 조합할 수 있는 모든 값 생성
@@ -504,9 +518,11 @@ def prime_number(n):
 
 
 
-## [큰 수 만들기](https://programmers.co.kr/learn/courses/30/lessons/42883)
+## 큰 수 만들기
 
 분류 : 탐욕법(Greedy)
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42883)
 
 추가 Test Case  
 
@@ -539,9 +555,11 @@ def solution(number, k):
 
 
 
-## [H-Index](https://programmers.co.kr/learn/courses/30/lessons/42747)
+## H-Index
 
 분류 : 정렬
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42747)
 
 추가 Test Case  
 
@@ -601,9 +619,11 @@ def solution(citations):
 
 
 
-## [위장](https://programmers.co.kr/learn/courses/30/lessons/42578)
+## 위장
 
 분류 : 해시
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42578)
 
 추가 Test Case
 
@@ -637,9 +657,11 @@ def solution(clothes):
 
 
 
-## [카펫](https://programmers.co.kr/learn/courses/30/lessons/42842)
+## 카펫
 
 분류 : 완전탐색
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42842)
 
 추가 Test Case  
 
@@ -665,9 +687,11 @@ def solution(brown, yellow):
 
 
 
-## [타겟 넘버](https://programmers.co.kr/learn/courses/30/lessons/43165)
+## 타겟 넘버
 
 분류 : 깊이/너비 우선 탐색(DFS/BFS)
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/43165)
 
 재귀 함수 사용
 
@@ -716,9 +740,11 @@ def solution(numbers, target):
 
 
 
-## [이진 변환 반복하기](https://programmers.co.kr/learn/courses/30/lessons/70129)
+## 이진 변환 반복하기
 
 분류 : 월간 코드 챌린지 시즌1
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/70129)
 
 ```python
 def solution(s):
@@ -738,9 +764,11 @@ def solution(s):
 
 
 
-## [최댓값과 최솟값](https://programmers.co.kr/learn/courses/30/lessons/12939)
+## 최댓값과 최솟값
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12939)
 
 ```python
 def solution(s):
@@ -755,9 +783,11 @@ def solution(s):
 
 
 
-## [피보나치 수](https://programmers.co.kr/learn/courses/30/lessons/12945)
+## 피보나치 수
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12945)
 
 ### 방법1
 
@@ -791,9 +821,11 @@ def solution(num):
 
 
 
-## [행렬의 곱셈](https://programmers.co.kr/learn/courses/30/lessons/12949)
+## 행렬의 곱셈
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12949)
 
 |변수명|형식|크기|
 |---|---|---|
@@ -851,9 +883,11 @@ def solution(arr1, arr2):
 > max TaseCase : 78.02ms, 11.2MB  
 
 
-## [JadenCase 문자열 만들기](https://programmers.co.kr/learn/courses/30/lessons/12951)
+## JadenCase 문자열 만들기
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12951)
 
 추가 Test Case
 
@@ -889,9 +923,11 @@ def solution(s):
 
 
 
-## [N개의 최소공배수](https://programmers.co.kr/learn/courses/30/lessons/12953)
+## N개의 최소공배수
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12953)
 
 유클리드 호제법 사용
 
@@ -952,9 +988,11 @@ def gcd(m, n):
 
 
 
-## [소수 만들기](https://programmers.co.kr/learn/courses/30/lessons/12977)
+## 소수 만들기
 
 분류 : Summer/Winter Coding(~2018)
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12977)
 
 2부터 제곱근까지 나머지 연산하여 0이 안 나올 때 소수로 판정
 
@@ -1025,9 +1063,11 @@ def prime(n):
 
 
 
-## [예상 대진표](https://programmers.co.kr/learn/courses/30/lessons/12985)
+## 예상 대진표
 
 분류 : 2017 팁스타운
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12985)
 
 바텀업 알고리즘 풀이
 
@@ -1050,9 +1090,11 @@ def solution(n, a, b):
 
 
 
-## [124 나라의 숫자](https://programmers.co.kr/learn/courses/30/lessons/12899)
+## 124 나라의 숫자
 
 분류 : 연습문제
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12899)
 
 ### 방법1
 
@@ -1114,9 +1156,11 @@ def solution(n):
 
 
 
-## [스킬트리](https://programmers.co.kr/learn/courses/30/lessons/49993)
+## 스킬트리
 
 분류 : Summer/Winter Coding(~2018)
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/49993)
 
 추가 Test Case
 |skill|skill_trees|return|
@@ -1192,9 +1236,11 @@ def solution(skill,skill_tree):
 
 
 
-## [주식가격](https://programmers.co.kr/learn/courses/30/lessons/42584)
+## 주식가격
 
 분류 : 스택/큐
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42584)
 
 ```python
 def solution(prices):
@@ -1220,9 +1266,11 @@ def solution(prices):
 
 
 
-## [삼각 달팽이](https://programmers.co.kr/learn/courses/30/lessons/68645)
+## 삼각 달팽이
 
 분류 : 월간 코드 챌린지 시즌1
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/68645)
 
 ```python
 def solution(n):
@@ -1261,9 +1309,11 @@ def solution(n):
 
 
 
-## [문자열 압축](https://programmers.co.kr/learn/courses/30/lessons/60057)
+## 문자열 압축
 
 분류 : 2020 KAKAO BLIND RECRUITMENT
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/60057)
 
 1. 문자열 길이별로 분할
     - `[s[n:n+i] for n in range(0, len(s), i)]`
@@ -1294,9 +1344,11 @@ def solution(s):
 
 
 
-## [메뉴 리뉴얼](https://programmers.co.kr/learn/courses/30/lessons/72411)
+## 메뉴 리뉴얼
 
 분류 : 2021 KAKAO BLIND RECRUITMENT
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/72411)
 
 ### 방법1
 
@@ -1367,9 +1419,11 @@ def solution(orders, course):
 
 
 
-## [더 맵게](https://programmers.co.kr/learn/courses/30/lessons/42626)
+## 더 맵게
 
 분류 : 힙(Heap)
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42626)
 
 추가 Test Case
 
@@ -1436,9 +1490,11 @@ deque : 스택과 큐를 일반화 한 것
 
 
 
-## [순위 검색](https://programmers.co.kr/learn/courses/30/lessons/72412#)
+## 순위 검색
 
 분류 : 2021 KAKAO BLIND RECRUITMENT
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/72412#)
 
 ### 방법1
 
@@ -1663,9 +1719,11 @@ def solution(info, query):
 
 
 
-## [행렬 테두리 회전하기](https://programmers.co.kr/learn/courses/30/lessons/77485?language=python3)
+## 행렬 테두리 회전하기
 
 분류 : 2021 Dev-Matching: 웹 백엔드 개발자(상반기)
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/77485?language=python3)
 
 ### 방법1
 
@@ -1763,80 +1821,12 @@ def solution(rows, columns, queries):
 
 
 
-## [로또의 최고 순위와 최저 순위](https://programmers.co.kr/learn/courses/30/lessons/77484)
-
-분류 : 2021 Dev-Matching: 웹 백엔드 개발자(상반기)
-
-```python
-def solution(lottos, win_nums):
-    win_cnt, zero_cnt = 0, 0
-    for lotto in lottos:
-        if lotto in win_nums:
-            win_cnt += 1
-        elif not lotto:
-            zero_cnt += 1
-
-    max_rank = 7-(win_cnt+zero_cnt) if 1 < (win_cnt+zero_cnt) else 6
-    min_rank = 7-win_cnt if 1 < win_cnt else 6
-
-    answer = [max_rank, min_rank]
-    return answer
-```
-
-**2021-12-20**
-
-> min TaseCase : 0.00ms, 10.2MB  
-> max TaseCase : 0.01ms, 10.2MB  
-
-
-
-## [다단계 칫솔 판매](https://programmers.co.kr/learn/courses/30/lessons/77486)
-
-분류 : 2021 Dev-Matching: 웹 백엔드 개발자(상반기)
-
-```python
-def solution(enroll, referral, seller, amount):
-    answer = []
-
-    data = {'center': {'amount': 0,'parent': None}}
-    for i in range(len(enroll)):
-        data[enroll[i]] = {
-            'amount': 0,
-            'parent': referral[i] if referral[i] != '-' else 'center'
-        }
-
-    for i in range(len(seller)):
-        sell = seller[i]
-        price = amount[i] * 100
-        data[sell]['amount'] += price-price//10
-        price = price//10
-
-        while data[sell]['parent'] and price:
-            sell = data[sell]['parent']
-            if sell == 'center':
-                data[sell]['amount'] += price
-                break
-            data[sell]['amount'] += price-price//10
-            price = price//10
-
-    del data['center']
-    for value in data.values():
-        answer.append(value['amount'])
-
-    return answer
-```
-
-**2021-12-20**
-
-> min TaseCase : 0.08ms, 10.2MB  
-> max TaseCase : 167.55ms, 22.2MB  
-
-
-
 <!-- 
-## [괄호 변환](https://programmers.co.kr/learn/courses/30/lessons/60058)
+## 괄호 변환
 
 분류 : 2020 KAKAO BLIND RECRUITMENT
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/60058)
 
 1. 
 
@@ -1852,9 +1842,11 @@ def solution(enroll, referral, seller, amount):
 
 
 <!-- 
-## [전화번호 목록](https://programmers.co.kr/learn/courses/30/lessons/42577)
+## 전화번호 목록
 
 분류 : 해시
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42577)
 
 1. 
 
@@ -1870,9 +1862,11 @@ def solution(enroll, referral, seller, amount):
 
 
 <!--
-## []()
+## 
 
 분류 : 
+
+[문제 링크]()
 
 1. 
 
