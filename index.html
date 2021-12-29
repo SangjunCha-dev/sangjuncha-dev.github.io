@@ -172,6 +172,24 @@ I am a passionate software backend developer with 2 years of working experience.
 <div class=container>
 <div class=row id=recent-post-cards>
 <div class="col-lg-4 col-md-6 pt-2 post-card">
+<a href=/posts/framework/django/2021-12-28-django-oauth2-apple/ title="Django oauth apple login" class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django oauth apple login</h5>
+<p class="card-text post-summary"> django restframework 기반의 애플 인증 로그인 백엔드서버 구현 설명이다.
+라이브러리 설치 $ pip install django # restframework $ pip install djangorestframework $ pip install djangorestframework-simplejwt # pyjwt[crypto] $ pip install pyjwt[crypto] Apple 로그인 변수 설정 import os APPLE_CONFIG = { "APPLE_TEAM_ID": TEAM_ID, "APPLE_CLIENT_ID": 모바일 로그인시 Bundle ID or 웹 로그인시 Service ID, "APPLE_REDIRECT_URI": "https://domain/REDIRECT_URI", "APPLE_KEY_ID": KEY_ID, "APPLE_KEY_PATH": "./AuthKey_KEY_ID.p8", "APPLE_PRIVATE_KEY": "", } apple_key_path = os.path.join(CONFIG_BASE_DIR, f"./{APPLE_CONFIG['APPLE_KEY_PATH']}") with open(apple_key_path, 'r') as apple_key_file: APPLE_CONFIG['APPLE_PRIVATE_KEY'] = apple_key_file.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 28, 2021</span>
+<a href=/posts/framework/django/2021-12-28-django-oauth2-apple/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class="col-lg-4 col-md-6 pt-2 post-card">
 <a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ title="python 날짜와 시간 계산" class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -208,30 +226,6 @@ golang postgreDB CURD
 <div class=card-footer>
 <span class=float-left>December 23, 2021</span>
 <a href=/posts/programming/golang/2021-12-23-golang-db-nullable-value/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class="col-lg-4 col-md-6 pt-2 post-card">
-<a href=/posts/docker/2021-12-22-docker-golang-image-build/ title="golang 도커 이미지 만들기" class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
-</div>
-<div class=card-body>
-<h5 class=card-title>golang 도커 이미지 만들기</h5>
-<p class="card-text post-summary"> 간단한 golang 웹 프로그램을 Docker 이미지로 실행방법으로
-golang 코드보다는 docker 설정 위주로 설명한다.
-예제 코드 사용예시는 아래의 주소를 git clone 받는다.
-> git clone https://github.com/olliefr/docker-gs-ping docker-gs-ping 예제 프로그램 실행 git clone 받은 프로젝트 경로에서 터미널을 실행하고 진행한다.
-> go run main.go 설정한 웹주소로 접속 요청시 간단한 response 메세지를 응답한다.
-> curl localhost:8080 Hello, Docker! &lt;3 Dockerfile dockerfile 명칭은 Dockerfile.&lt;something> 또는 &lt;something>.Dockerfile 형식으로 생성한다.
-도커 명령어
-FROM : 기본 이미지 지정 WORKDIR : 작업 디렉터리 지정 COPY : 소스코드 복사 https://docs.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 22, 2021</span>
-<a href=/posts/docker/2021-12-22-docker-golang-image-build/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

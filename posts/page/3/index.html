@@ -86,6 +86,27 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/framework/django/2021-04-07-django-models-relations-object-call/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django model 참조 객체 호출하기</h5>
+<p class="card-text post-summary">정참조와 역참조 객체 호출 데이터베이스의 임의의 테이블로 User, Occupation 생성한다.
+두 테이블은 User 모델의 객체가 Occupation 모델의 객체를 N:1 참조관계를 가진다.
+models.py 설정
+class User(models.Model): name = models.CharField(max_length=50) age = models.IntegerField() job = models.ForeignKey('Occupation', on_delete=models.CASCADE) class Occupation(models.Model): name = models.CharField(max_length=50) 정참조 객체 호출하기 user1 객체가 Occupation 모델을 참조키(ForeignKey)로 정참조하여, Occupation 모델의 속성을 사용할 수 있다.
+user1 = User.objects.get(id = 1) user1.job.name >>> 'Developer' 역참조 객체 호출하기 역참조 관계에서는 정참조와 같이 바로 참조한 모델의 속성을 사용할 수 없다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>April 7, 2021</span>
+<a href=/posts/framework/django/2021-04-07-django-models-relations-object-call/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/framework/django/2021-04-07-django-dynamic-model-and-table-create/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -308,25 +329,6 @@ vi /etc/exports /NFSVOL01 192.168.0.0/255.255.255.0(rw) /NFSVOL01 : 공유할 
 <div class=card-footer>
 <span class=float-left>December 22, 2020</span>
 <a href=/posts/algorithm/programmers/2020-12-22-algorithm-programmers-python-level2/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/algorithm/programmers/2020-12-15-algorithm-programmers-python-level1/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Programmers Python (level 1)</h5>
-<p class="card-text post-summary">모의고사 분류 : 완전탐색
-문제 링크
-입력받은 answers 리스트와 수포자들의 답 리스트와 비교하여 같다면 answer_cnt변수에 정답 개수 추가 answer_cnt 리스트의 최댓값과 각 answer_cnt 원소와 비교하여 같다면 index+1 값을 answer리스트에 추가 최대 정답자 answer 리스트 return def solution(answers): answer = [] answer_cnt = [0, 0, 0] answer_list = [ [1, 2, 3, 4, 5], [2, 1, 2, 3, 2, 4, 2, 5], [3, 3, 1, 1, 2, 2, 4, 4, 5, 5] ] # 정답 매칭 for i in range(len(answers)): ans = answers[i] if ans == answer_list[0][i%5]: answer_cnt[0] += 1 if ans == answer_list[1][i%8]: answer_cnt[1] += 1 if ans == answer_list[2][i%10]: answer_cnt[2] += 1 # 최다 정답자 추출 max_cnt = max(answer_cnt) for i, cnt in enumerate(answer_cnt): if max_cnt == cnt: answer.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 15, 2020</span>
-<a href=/posts/algorithm/programmers/2020-12-15-algorithm-programmers-python-level1/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
