@@ -107,6 +107,26 @@ import datetime as dt now = dt.datetime.now() print(f"now = {now}") now = 2021-1
 </a>
 </div>
 <div class=post-card>
+<a href=/posts/programming/python/2021-12-06-python-json-read-write-performance/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>python json 파일 읽기/쓰기 성능</h5>
+<p class="card-text post-summary">python 언어에서 대용량 json 읽기/쓰기 성능은 사용방법과 라이브러리에 따라서 성능 차이가 있다.
+테스트 기준은 동일한 json 파일을 100번씩 반복 실행하였다.
+json 라이브러리의 파일 읽기/쓰기 모두 byte 모드가 상대적으로 빠르다.
+라이브러리 버전 python : 3.8.10 ujson : 5.1.0 orjson : 3.6.5 1. json ========================= json_r = 0.045 sec json_w_dump = 0.186 sec json_w_dumps = 0.065 sec ========================= json_rb = 0.034 sec json_wb_dumps = 0.055 sec 1-1. read with open('github.json', "r") as json_file: data = json.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 6, 2021</span>
+<a href=/posts/programming/python/2021-12-06-python-json-read-write-performance/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -308,29 +328,28 @@ from pyftpdlib.authorizers import DummyAuthorizer # 사용자 인증을 생성�
 </div>
 </a>
 </div>
-<div class=post-card>
-<a href=/posts/programming/python/2020-11-05-python-magic-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>libmagic 라이브러리 사용법 (libmagic Library Guide)</h5>
-<p class="card-text post-summary">미디어 타입(media type), MIME 타입(MIME type)
-실행환경 : windows 10
-라이브러리 설치 pip install libmagic pip install python-magic-bin libmagic : 파일타입을 MIME 타입으로 확인해주는 라이브러리
-magic은 리눅스 환경에서 실행되는 프로그램 윈도우즈 환경에서는 윈도우용 magic 설치가 필요함 python-magic-bin : 윈도우용 magic 라이브러리
-예제 코드 import magic r1 = magic.from_file("test1.txt") r2 = magic.from_file("test1.txt", mime=True) print(f"filetype = {r1}, \nmime = {r2}") # filetype = UTF-8 Unicode text, with CRLF line terminators, # mime = text/plain file_data = open('test1.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>November 5, 2020</span>
-<a href=/posts/programming/python/2020-11-05-python-magic-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
 </div>
 <div class=paginator>
+<ul class="pagination pagination-default">
+<li class="page-item disabled">
+<a aria-disabled=true aria-label=First class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;&#171;</span></a>
+</li>
+<li class="page-item disabled">
+<a aria-disabled=true aria-label=Previous class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;</span></a>
+</li>
+<li class="page-item active">
+<a aria-current=page aria-label="Page 1" class=page-link role=button>1</a>
+</li>
+<li class=page-item>
+<a href=/categories/python/page/2/ aria-label="Page 2" class=page-link role=button>2</a>
+</li>
+<li class=page-item>
+<a href=/categories/python/page/2/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
+</li>
+<li class=page-item>
+<a href=/categories/python/page/2/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
+</li>
+</ul>
 </div>
 </div>
 </section>

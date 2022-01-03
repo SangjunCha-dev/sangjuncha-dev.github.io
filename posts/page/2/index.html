@@ -86,6 +86,24 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/programming/golang/2021-07-29-golang-gopacket/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>golang gopacket 라이브러리를 이용한 통신</h5>
+<p class="card-text post-summary">설명 ethernet 통신
+이더넷 어댑터 설명(dev.Description)을 기준으로 통신하는 코드이다. 예제 코드 package main import ( "fmt" "log" "net" "strings" "time" "github.com/google/gopacket" "github.com/google/gopacket/layers" "github.com/google/gopacket/pcap" ) var ( device string = "Realtek PCIe GbE Family Controller" eth_name string currentIP string snapshot_len int32 = 1522 promiscuous bool = false err error timeout time.Duration = 30 * time.Second handle *pcap.Handle buffer gopacket.SerializeBuffer options gopacket.SerializeOptions ) func main() { devices, err := pcap.FindAllDevs() if err !</p>
+</div>
+<div class=card-footer>
+<span class=float-left>July 29, 2021</span>
+<a href=/posts/programming/golang/2021-07-29-golang-gopacket/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -296,25 +314,6 @@ from django.core import serializers res_data = User.objects.all() # &lt;QuerySet
 <div class=card-footer>
 <span class=float-left>April 20, 2021</span>
 <a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/docker/2021-04-08-docker-summary/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>도커의 개요 및 windows10 버전 설치 방법</h5>
-<p class="card-text post-summary">개요 도커(Docker)는 리눅스 컨테이너를 기반으로 특정 서비스를 패키징하고 배포할 수 있는 오픈소스 프로그램이다.
-컨테이너 : 리눅스 커널 네임 스페이스, cgroup의 기능을 활용하여 호스트 시스템의 모든 프로세스와 격리된 시스템의 프로세스 도커를 사용하는 이유 도커는 소프트웨어 버전관리, 애플리케이션 배포, 개발환경 구성등 사전에 생성하고 도커 이미지를 배포하고 배포한 이미지를 컨테이너에 담아서 사용된다.
-도커 이미지 : 컨테이너의 파일시스템과 애플리케이션 실행에 필요한 모든 항목(모든 종속성, 구성, 스크립트, 바이너리, 환경변수, 실행하는 기본 명령)이 포함된다.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>April 8, 2021</span>
-<a href=/posts/docker/2021-04-08-docker-summary/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

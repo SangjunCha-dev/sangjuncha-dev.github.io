@@ -190,6 +190,26 @@ CREATE TABLE user ( id SERIAL PRIMARY KEY, name VARCHAR(20), age INT ); DB 설�
 </a>
 </div>
 <div class=post-card>
+<a href=/posts/programming/python/2021-12-06-python-json-read-write-performance/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>python json 파일 읽기/쓰기 성능</h5>
+<p class="card-text post-summary">python 언어에서 대용량 json 읽기/쓰기 성능은 사용방법과 라이브러리에 따라서 성능 차이가 있다.
+테스트 기준은 동일한 json 파일을 100번씩 반복 실행하였다.
+json 라이브러리의 파일 읽기/쓰기 모두 byte 모드가 상대적으로 빠르다.
+라이브러리 버전 python : 3.8.10 ujson : 5.1.0 orjson : 3.6.5 1. json ========================= json_r = 0.045 sec json_w_dump = 0.186 sec json_w_dumps = 0.065 sec ========================= json_rb = 0.034 sec json_wb_dumps = 0.055 sec 1-1. read with open('github.json', "r") as json_file: data = json.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 6, 2021</span>
+<a href=/posts/programming/python/2021-12-06-python-json-read-write-performance/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -302,28 +322,6 @@ import 라이브러리 import numpy as np 1. 생성 arange np.arange([start,] st
 <div class=card-footer>
 <span class=float-left>May 21, 2021</span>
 <a href=/posts/programming/python/2021-05-21-python-numpy-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>python 자료구조와 알고리즘(by 미아 스타인) 책 정리</h5>
-<p class="card-text post-summary">Part 1 헬로, 자료구조! Chapter 01 숫자 1.1 정수 int() 불변형 객체로 문자열을 정수로 변환하거나 다른 진법의 문자열을 정수로 변환
-int(문자열, 밑(n진법))
->>> s = '11' >>> b = int(s, 2) >>> print(b) 11 정수에 필요한 바이트 수(python 3.1이상)
->>> (정수).bit_length() 10 발생가능한 Exception : ValueError
-1.2 부동 소수점 float() float 32bit
-1bit 부호, 8bit 지수, 23bit 유효 숫자 자릿수 1.2.1 부동소수점끼리 비교하기 이진수 분수로 표현으로 소수점의 정확한 비교는 어렵지만,</p>
-</div>
-<div class=card-footer>
-<span class=float-left>May 17, 2021</span>
-<a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

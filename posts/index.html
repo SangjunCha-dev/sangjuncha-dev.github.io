@@ -293,6 +293,26 @@ INSTALLED_APPS = [ 'django_crontab', ... ] CRONJOBS 변수 선언</p>
 </a>
 </div>
 <div class=post-card>
+<a href=/posts/programming/python/2021-12-06-python-json-read-write-performance/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>python json 파일 읽기/쓰기 성능</h5>
+<p class="card-text post-summary">python 언어에서 대용량 json 읽기/쓰기 성능은 사용방법과 라이브러리에 따라서 성능 차이가 있다.
+테스트 기준은 동일한 json 파일을 100번씩 반복 실행하였다.
+json 라이브러리의 파일 읽기/쓰기 모두 byte 모드가 상대적으로 빠르다.
+라이브러리 버전 python : 3.8.10 ujson : 5.1.0 orjson : 3.6.5 1. json ========================= json_r = 0.045 sec json_w_dump = 0.186 sec json_w_dumps = 0.065 sec ========================= json_rb = 0.034 sec json_wb_dumps = 0.055 sec 1-1. read with open('github.json', "r") as json_file: data = json.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 6, 2021</span>
+<a href=/posts/programming/python/2021-12-06-python-json-read-write-performance/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -310,24 +330,6 @@ func (r Rectangle) Area() float64 { return 0 } interface Go에서 인터페이�
 <div class=card-footer>
 <span class=float-left>August 2, 2021</span>
 <a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/golang/2021-07-29-golang-gopacket/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>golang gopacket 라이브러리를 이용한 통신</h5>
-<p class="card-text post-summary">설명 ethernet 통신
-이더넷 어댑터 설명(dev.Description)을 기준으로 통신하는 코드이다. 예제 코드 package main import ( "fmt" "log" "net" "strings" "time" "github.com/google/gopacket" "github.com/google/gopacket/layers" "github.com/google/gopacket/pcap" ) var ( device string = "Realtek PCIe GbE Family Controller" eth_name string currentIP string snapshot_len int32 = 1522 promiscuous bool = false err error timeout time.Duration = 30 * time.Second handle *pcap.Handle buffer gopacket.SerializeBuffer options gopacket.SerializeOptions ) func main() { devices, err := pcap.FindAllDevs() if err !</p>
-</div>
-<div class=card-footer>
-<span class=float-left>July 29, 2021</span>
-<a href=/posts/programming/golang/2021-07-29-golang-gopacket/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

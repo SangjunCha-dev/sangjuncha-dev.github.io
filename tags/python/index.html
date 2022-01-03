@@ -127,6 +127,26 @@ import datetime as dt now = dt.datetime.now() print(f"now = {now}") now = 2021-1
 </a>
 </div>
 <div class=post-card>
+<a href=/posts/programming/python/2021-12-06-python-json-read-write-performance/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>python json 파일 읽기/쓰기 성능</h5>
+<p class="card-text post-summary">python 언어에서 대용량 json 읽기/쓰기 성능은 사용방법과 라이브러리에 따라서 성능 차이가 있다.
+테스트 기준은 동일한 json 파일을 100번씩 반복 실행하였다.
+json 라이브러리의 파일 읽기/쓰기 모두 byte 모드가 상대적으로 빠르다.
+라이브러리 버전 python : 3.8.10 ujson : 5.1.0 orjson : 3.6.5 1. json ========================= json_r = 0.045 sec json_w_dump = 0.186 sec json_w_dumps = 0.065 sec ========================= json_rb = 0.034 sec json_wb_dumps = 0.055 sec 1-1. read with open('github.json', "r") as json_file: data = json.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 6, 2021</span>
+<a href=/posts/programming/python/2021-12-06-python-json-read-write-performance/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -304,25 +324,6 @@ Docs URL - http://docs.paramiko.org/en/stable/ scp : 파일 전송 및 다운로
 <div class=card-footer>
 <span class=float-left>January 6, 2021</span>
 <a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/algorithm/programmers/2020-12-22-algorithm-programmers-python-level2/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Programmers Python (level 2)</h5>
-<p class="card-text post-summary">프린터 분류 : 스택/큐
-문제 링크
-우선순위 priorities 리스트의 최댓값을 num_max변수에 대입 cursor변수에 priorities[0]값 추출하여 대입 cursor 값이 최댓값 일때 cnt 1증가 이때 location값이 0이면 break cursor 값이 최댓값 아닐때 리스트 맨뒤에 cursor 값 추가 이때 location값이 0이면 location변수에 priorities길이값 대입 location 1 감소 위의 순서를 location 0 이상일때 while문 반복실행 def solution(priorities, location): cnt = 1 while True: num_max = max(priorities) cursor = priorities.pop(0) if cursor == num_max: if location == 0: return cnt cnt += 1 else: priorities.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 22, 2020</span>
-<a href=/posts/algorithm/programmers/2020-12-22-algorithm-programmers-python-level2/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
