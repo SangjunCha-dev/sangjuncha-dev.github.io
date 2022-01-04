@@ -8,10 +8,7 @@ categories: ["Django", "Swagger"]
 
 ---
 
-## drf_yasg
-
-REST 프레임워크용 swagger/openAPI 자동 문서화 라이브러리로 게시글 작성 기준 최신 Django 버전을 지원한다.
-
+`drf_yasg` : REST 프레임워크용 swagger/openAPI 문서 자동화 라이브러리
 `swagger` : 개발자가 REST 웹 서비스를 설계, 빌드, 문서화, 테스트를 도와주는 오픈소스 소프트웨어 프레임워크
 
 drf_yasg : 1.20.0 호환버전
@@ -27,6 +24,7 @@ pip install -U drf-yasg
 ```
 
 ---
+
 
 ## 1. 프로젝트 생성
 
@@ -48,6 +46,7 @@ pip install -U drf-yasg
 ```
 
 ---
+
 
 ## 2. django 설정
 
@@ -101,7 +100,9 @@ if settings.DEBUG:
 
 ---
 
+
 ## 3. 예시코드
+
 
 ### 3-1. models
 
@@ -164,6 +165,7 @@ DB 마이그레이션
 
 musics 테이블 생성된 것을 확인할 수 있다.
 
+
 ### 3-2. seializers
 
 `api/serializers.py`
@@ -196,6 +198,7 @@ class MusicQuerySerializer(serializers.Serializer):
     category = serializers.ChoiceField(help_text="카테고리로 검색", choices=('KPOP', 'POP', 'CLASSIC', 'ETC'), required=False)
     created_at = serializers.DateTimeField(help_text="입력한 날짜를 기준으로 그 이전에 추가된 곡들을 검색", required=False)
 ```
+
 
 ### 3-3. class views
 
@@ -305,6 +308,7 @@ class MusicView(APIView):
         return response
 ```
 
+
 ### 3-4. urls
 
 관리의 편의성을 위해 각 앱별로 urls.py 설정한다. 
@@ -346,15 +350,18 @@ swagger 실행후 웹브라우저에서 `localhost:8000/swagger/` 주소로 접�
 
 ---
 
+
 ## 4. Swagger API 입력값 지정
 
 swagger api 메소드에서 특정 입력값을 받기 위해서는 `@swagger_auto_schema` 데코레이터를 지정해야한다.
+
 
 ### 4-1. query_serializer
 
 - query string 지정
 - GET, DELETE Method 용도
 - 메소드 입력값을 `request.query_params`, `request.GET`로 받는다.
+- request 데이터를 변경하거나 추가할 경우 `copy()` 함수로 복사해서 사용해야 한다.
 ```python
 # api/views.py 코드
 @swagger_auto_schema(query_serializer=MusicQuerySerializer)
@@ -375,9 +382,10 @@ class MusicQuerySerializer(serializers.Serializer):
     created_at = serializers.DateTimeField(help_text="입력한 날짜를 기준으로 그 이전에 추가된 곡들을 검색", required=False)
 ```
 
-swagger GET 메소드 예시
+- swagger GET 메소드 예시
 
 ![](../images/django-swagger/django-swagger-3.png?raw=true)
+
 
 ### 4-2. request_body
 
@@ -416,12 +424,10 @@ class MusicSerializer(serializers.ModelSerializer):
         fields = ('id', 'created_at', 'title', 'category', 'star_rating',)  # 응답 필드 지정
 ```
 
-swagger POST 메소드 예시
+- swagger POST 메소드 예시
 
 ![](../images/django-swagger/django-swagger-4.png?raw=true)
 
-
-> request 데이터를 변경하거나 추가할 경우 `copy()` 함수로 복사해서 사용해야 한다.
 
 ### 4-3. path value
 
@@ -443,17 +449,19 @@ class MusicView(APIView):
         ...
 ```
 
-swagger DELETE 메소드 예시
+- swagger DELETE 메소드 예시
 
 ![](../images/django-swagger/django-swagger-5.png?raw=true)
 
 ---
+
 
 ## 5. 예시 코드 Git 
 
 - [django-swagger](https://github.com/SangjunCha-dev/django_swagger)
 
 ---
+
 
 ## 참고(Reference)
 
