@@ -13,21 +13,27 @@ categories: ["Python", "Opencv"]
 ---
 
 
+---
 
 설치버전 : opencv-python 4.5.1.48
 - [docs url](https://docs.opencv.org/4.5.1/d4/da8/group__imgcodecs.html)
 
-import 라이브러리 
+라이브러리 import
 
 ```python
 import cv2 as cv
 ```
 
 
-## cv.imread
+---
 
-- 이미지 파일 읽기
+## 이미지 파일 읽기
+
 - `cv.imread`(filename[, flags]) -> retval
+
+```python
+img = cv.imread(image_full_path)
+```
 
 |매개변수 이름|설명|
 |---|---|
@@ -35,15 +41,10 @@ import cv2 as cv
 |flags      |cv 값을 사용할 수 있는 플래그|
 
 
+---
 
-```python
-img = cv.imread(image_full_path)
-```
+## 이미지 파일 저장
 
-
-## cv.imwrite
-
-- 이미지 파일 저장
 - `cv.imwrite`(filename, img[, params]) -> retval
 - 이미지 형식은 파일 이름 확장자에 따라 선택됨
 
@@ -52,10 +53,16 @@ cv.imwrite(image_full_path, img)
 ```
 
 
-## cv.imencode
+---
+
+## 메모리 버퍼로 인코딩
 
 - 이미지를 ext형식으로 변환하여 메모리 버퍼로 인코딩
 - `cv.imencode`(ext, img[, params]) -> refval, buf
+
+```python
+retval, buffer = cv.imencode('.png', img)
+```
 
 |매개변수 이름|설명|
 |---|---|
@@ -65,12 +72,10 @@ cv.imwrite(image_full_path, img)
 |buf    |이미지 형식에 맞게 크기가 조정된 출력 버퍼|
 
 
+---
 
-```python
-retval, buffer = cv.imencode('.png', img)
-```
 
-## cv.imshow
+## 이미지 보기
 
 - 변수에 담겨있는 이미지 보기
 - `cv.imshow`(winname, mat)

@@ -104,7 +104,7 @@ if settings.DEBUG:
 ## 3. 예시코드
 
 
-### 3-1. models
+### 3.1. models
 
 `api/models.py`
 
@@ -166,7 +166,7 @@ DB 마이그레이션
 musics 테이블 생성된 것을 확인할 수 있다.
 
 
-### 3-2. seializers
+### 3.2. seializers
 
 `api/serializers.py`
 
@@ -200,7 +200,7 @@ class MusicQuerySerializer(serializers.Serializer):
 ```
 
 
-### 3-3. class views
+### 3.3. class views
 
 `api/views.py`
 
@@ -309,7 +309,7 @@ class MusicView(APIView):
 ```
 
 
-### 3-4. urls
+### 3.4. urls
 
 관리의 편의성을 위해 각 앱별로 urls.py 설정한다. 
 앱 내부에서 urls 설정한 경우 프로젝트 urls 설정도 같이 해줘야 한다. 
@@ -356,7 +356,7 @@ swagger 실행후 웹브라우저에서 `localhost:8000/swagger/` 주소로 접�
 swagger api 메소드에서 특정 입력값을 받기 위해서는 `@swagger_auto_schema` 데코레이터를 지정해야한다.
 
 
-### 4-1. query_serializer
+### 4.1. query_serializer
 
 - query string 지정
 - GET, DELETE Method 용도
@@ -387,7 +387,7 @@ class MusicQuerySerializer(serializers.Serializer):
 ![](../images/django-swagger/django-swagger-3.png?raw=true)
 
 
-### 4-2. request_body
+### 4.2. request_body
 
 - body 지정
 - POST, PUT Method 용도
@@ -429,7 +429,7 @@ class MusicSerializer(serializers.ModelSerializer):
 ![](../images/django-swagger/django-swagger-4.png?raw=true)
 
 
-### 4-3. path value
+### 4.3. path value
 
 - path value 지정
 - 모든 메소드에서 사용가능하다.

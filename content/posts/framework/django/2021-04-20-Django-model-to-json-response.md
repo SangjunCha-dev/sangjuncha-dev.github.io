@@ -13,10 +13,11 @@ categories: ["Django", "Models"]
 ---
 
 
+---
 
 api 서버 등 json 데이터로 통신하는 서버에서 사용할 수 있는 예제이다.
 
-# 사전 설정
+## 1. 사전 설정
 
 프로젝트 생성 후 user 앱의 User 모델을 생성한다.  
 임의의 user 데이터를 2개 등록한다.
@@ -28,11 +29,14 @@ class User(models.Model):
     name = models.CharField(max_length=20, unique=True)
 ```
 
-# 사용 예시
 
-## QuerySet(Model Instance)을 json형태로 변환할 경우 `.all()`
+---
 
-serializers.serialize('json', value_name) 함수를 사용하여 json 형태로 변환시킨다.
+## 2. 사용 예시
+
+### 2.1. QuerySet(Model Instance)을 json형태로 변환할 경우 `.all()`
+
+`serializers.serialize('json', value_name)` 함수를 사용하여 json 형태로 변환시킨다.
 
 views.py
 ```python
@@ -45,7 +49,7 @@ res_data = serializers.serialize('json', res_data)
 return HttpResponse(res_data, content_type="text/json-comment-filtered")
 ```
 
-`출력결과`
+출력결과
 
 ```text
 [
@@ -66,11 +70,9 @@ return HttpResponse(res_data, content_type="text/json-comment-filtered")
 ]
 ```
 
-## QuerySet(dict)을  json형태로 변환할 경우 `.values()`
+### 2.2. QuerySet(dict)을  json형태로 변환할 경우 `.values()`
 
-QuerySet 자료형은 json 내장함수를 사용할 수 없어 QuerySet를 list형으로 변환시킨후 
-
-json.dumps() 함수를 통해 json형태로 변환시킨다.
+QuerySet 자료형은 json 내장함수를 사용할 수 없어 QuerySet를 list형으로 변환시킨후 `json.dumps()` 함수를 통해 json형태로 변환시킨다.
 
 views.py
 ```python
@@ -83,7 +85,7 @@ res_data = json.dumps(list(res_data))
 return HttpResponse(res_data, content_type="text/json-comment-filtered")
 ```
 
-`출력결과`
+출력결과
 
 ```text
 [

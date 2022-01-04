@@ -13,17 +13,19 @@ categories: ["Go", "Learning"]
 ---
 
 
+---
 
-# 사이트 주소
+## 사이트 주소
 
 [원본 링크](https://github.com/quii/learn-go-with-tests)  
 [한글 번역 링크](https://github.com/MiryangJung/learn-go-with-tests-ko)
 
 
+---
 
-# 5. struct, method & interface
+## 5. struct, method & interface
 
-## struct
+### struct
 구조체의 변수 첫글자는 대문자여야한다. (외부에서 사용 가능하도록)
 
 ```go
@@ -39,7 +41,7 @@ type Rectangle struct {
 {shape: Circle{Radius: 10}, want: 314.1592653589793},
 ```
 
-## methods
+### methods
 func (receiverName ReceiverType) MethodName(args)
 `r Rectangle` 수신자 변수를 유형의 첫 번째 문자로 지정하는 것이 Go의 관례이다.
 
@@ -49,7 +51,7 @@ func (r Rectangle) Area() float64 {
 }
 ```
 
-## interface
+### interface
 Go에서 인터페이스 자료형은 암시적 이다. 전달하는 유형이 인터페이스가 요청하는 유형과 일치하면 컴파일 된다.
 
 ```go
@@ -58,7 +60,7 @@ type Shape interface {
 }
 ```
 
-## 익명구조
+### 익명구조
 익명구조 예시로 shape와 want라는 두 개의 필드가 있는 []struct를 사용하여 구조체를 선언한다.
 ```go
 areaTests := []struct {
@@ -70,7 +72,7 @@ areaTests := []struct {
 }
 ```
 
-## 예제 코드
+### 예제 코드
 
 struct_method_interface_test.go
 ```go
@@ -132,20 +134,21 @@ func TestArea(t *testing.T) {
 ```
 
 
+---
 
-# 6. pointer & error
+## 6. pointer & error
 
-## Pointer
+### Pointer
 
 구조체에 대한 포인터는 구조체 포인터 라고 불리고 특별한 역참조에 대한 명시 없이도 `자동 역참조`가 된다. `(*w).balance` 와 `w.balance` 는 같은 의미로 사용된다.
 
-## Error
+### Error
 
 반환되는 에러를 확인하지 않은 코드라인을 확인할 수 있는 라이브러리 설치
 `go get -u github.com/kisielk/errcheck`
 실행 명령 : `errcheck .`
 
-## 예제 코드
+### 예제 코드
 
 pointer_error_test.go
 ```go 
@@ -245,10 +248,11 @@ func assertError(t testing.TB, got error, want error) {
 ```
 
 
+---
 
-# 7. map
+## 7. map
 
-## map
+### map
 맵을 선언하려면 map이라는 키워드로 시작하고 두 개의 타입이 있어야한다.  
 첫번째 타입 : key 타입으로 비교 가능한 타입만 사용 가능하다.  
 두번째 타입 : value 타입으로 어떤타입이든 사용 가능하다.  
@@ -259,15 +263,15 @@ map은 두 개의 값을 반환하며 두번째 값은 키를 찾는데 성공 �
 definition, ok := d[word]
 ```
 
-## error
+### error
 
 Error는 .Error() 메소드를 통해 문자열로 변환될 수 있다.
 
-## pointer
+### pointer
 
 map의 주소를 전달(&myMap)하지 않고서도 수정할 수 있다
 
-## map 초기화 방법
+### map 초기화 방법
 
 ```go
 var dictionary = map[string]string{}
@@ -277,7 +281,7 @@ var dictionary = map[string]string{}
 var dictionary = make(map[string]string)
 ```
 
-## 예제 코드
+### 예제 코드
 
 dictionary_test.go
 ```go
@@ -451,20 +455,21 @@ func assertDefinition(t testing.TB, dictionary Dictionary, word, definition stri
 ```
 
 
+---
 
-# 8. dependency injection
+## 8. dependency injection
 
 `fmt.Printf` : 기본적으로 stdout을 사용한다.  
 `fmt.Fprintf` : fmt.Printf와 비슷하지만, 문자열을 보낼 곳 Writer를 가진다.  
 
-## 특징
+### 특징
 
 - 프레임워크가 필요하지 않다.
 - 디자인을 지나치게 복잡하게 하지 않는다.
 - 테스트를 용이하게 한다.
 - 범용 함수를 작성할 수 있다.
 
-## 예제코드
+### 예제코드
 
 di_test.go
 ```go
@@ -503,11 +508,11 @@ func main() {
 }
 ```
 
-# 9. mocking
+## 9. mocking
 
 유닛 테스트 용도로 사용한다.
 
-## 예제 코드
+### 예제 코드
 
 countdown_test.go
 ```go

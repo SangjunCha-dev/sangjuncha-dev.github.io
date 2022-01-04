@@ -7,6 +7,7 @@ categories: ["Go", "db"]
 ---
 
 
+---
 
 golang에서는 타입별로 정해진 `zero value`가 있는데, DB colume 타입의 `zero value`와 맞지 않을 때 다음과 에러가 발생한다.
 
@@ -21,13 +22,19 @@ panic: sql: Scan error on column index : converting NULL to string is unsupporte
 - 정수형, Float등 숫자형 타입 : 0
 - 기타 타입 : nil
 
-## 사전환경
+
+---
+
+## 1. 사전환경
 
 아래의 글을 진행했다는 가정에서 설명한다.
 
 [golang postgreDB CURD](https://sangjuncha-dev.github.io/posts/programming/golang/2021-12-16-golang-postgredb-crud/)
 
-## 에러가 발생한 코드
+
+---
+
+## 2. 에러가 발생한 코드
 
 기존에 작성한 코드에서 Update 함수의 `name` 부분을 `nil` 값으로 수정하여 실행한다.
 
@@ -80,8 +87,6 @@ func main() {
 }
 ```
 
-
-
 데이터 수정후 해당 데이터를 조회하면 아래와 같은 에러가 발생한다. 
 
 golang에서는 타입별로 정해진 `zero value`와, DB colume 타입의 `zero value`와 맞지 않아서 발생한 에러이다.
@@ -92,7 +97,10 @@ golang에서는 타입별로 정해진 `zero value`와, DB colume 타입의 `zer
 panic: sql: Scan error on column index 1, name "name": converting NULL to string is unsupported
 ```
 
-## 문제 해결한 코드
+
+---
+
+## 3. 문제 해결한 코드
 
 `database/sql` 패키지의 Null*자료형을 사용한다.  
 `Null* 자료형`은 zerovalue가 `null`값이 아닌 기본 자료형을 지원한다.
@@ -137,8 +145,6 @@ func main() {
 }
 ```
 
-
-
 `.Valid` 조건문을 통해 `nil`값에 대한 필터링을 하거나 별도로 처리할 수 있다.
 
 ```bash
@@ -148,7 +154,8 @@ func main() {
 ```
 
 
+---
 
-## 예시코드 Git 주소
+## 4. 예시코드 Git
 
 [golang-db-nullable-value](https://github.com/SangjunCha-dev/blog/tree/main/golang/golang-db-nullable-value)

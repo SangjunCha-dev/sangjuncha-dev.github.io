@@ -7,11 +7,13 @@ categories: ["Django", "crontab"]
 ---
 
 
+---
 
 django-crontab 라이브러리는 OS의 cron/crontab 서비스를 사용하는것으로 해당 서비스 설치가 되지 않았다면 별도로 설치를 해야함.
 - windows 환경에서는 docker를 설치하여 진행
 
 
+---
 
 ## 1. 라이브러리 설치
 
@@ -20,6 +22,7 @@ $ pip install django-crontab
 ```
 
 
+---
 
 ## 2. django 설정
 
@@ -41,15 +44,20 @@ $ pip install django-crontab
             ...
         ]
         ```
-
     - `CRONJOBS` 변수 선언
+        - 첫번째 매개변수 : 실행주기 설정으로 기존 cron 사용법(분,시,일,월,요일)과 동일하다.
+            - `* * * * *` : 매분마다 실행
+            - `*/10 * * * *` : 10분마다 실행
+            - `0 * * * *` : 매시간마다 실행
+            - `0 0 * * *` : 자정마다 실행
+        - 두번째 매개변수 : 반복 실행할 함수
+        - 세번째 매개변수 : cron 실행로그 저장 경로 (선택사항)
         ```python
         ...
         CRONJOBS = [
             ('* * * * *', 'app.cron.hello_every_minute', '>> /app/log/cron.log'),
         ]
         ```
-
     - crontab 프로젝트의 settings 파일 경로 지정
         ```python
         ...
@@ -57,17 +65,7 @@ $ pip install django-crontab
         ```
 
 
-CRONJOBS 매개변수
-
-- 첫번째 매개변수 : 실행주기 설정으로 기존 cron 사용법(분,시,일,월,요일)과 동일하다.
-    - `* * * * *` : 매분마다 실행
-    - `*/10 * * * *` : 10분마다 실행
-    - `0 * * * *` : 매시간마다 실행
-    - `0 0 * * *` : 자정마다 실행
-- 두번째 매개변수 : 반복 실행할 함수
-- 세번째 매개변수 : cron 실행로그 저장 경로 (선택사항)
-
-
+---
 
 ## 3. crontab 명령어
 
@@ -95,6 +93,7 @@ CRONJOBS 매개변수
     > removing cronjob: (2d7f1e3059afc75b51927955cb7ccb92) -> ('* * * * *', 'app.cron.hello_every_minute', '>> /app/log/cron.log')
 
 
+---
 
 ## 4. 실행 결과
 
@@ -107,6 +106,7 @@ CRONJOBS 매개변수
     > hello
 
 
+---
 
 ## 5. Docker-compose 사용시 설정
 
@@ -128,6 +128,7 @@ CRONJOBS 매개변수
     ```
 
 
+---
 
 ## 6. Docker-compose 실행
 
@@ -138,14 +139,15 @@ CRONJOBS 매개변수
     ```
 
 
+---
 
-## 7. 예시코드 Git 주소
+## 7. 예시코드 Git
 
 [django-crontab](https://github.com/SangjunCha-dev/blog/tree/main/django/django-crontab)
 
 
 
-## 참고 사이트
+## 참고(Reference)
 
 - [Docs](https://github.com/kraiz/django-crontab)
 - [Django-Crontab 활용방법](https://systemtrade.tistory.com/477)

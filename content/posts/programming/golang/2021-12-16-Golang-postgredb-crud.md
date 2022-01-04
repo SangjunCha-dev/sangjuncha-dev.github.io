@@ -7,6 +7,7 @@ categories: ["Go", "PostgreDB"]
 ---
 
 
+---
 
 golang에서 postgre데이터 베이스의 SQL 생성, 수정, 읽기, 삭제 기능의 간단한 사용법이다.
 
@@ -16,8 +17,9 @@ postgreDB가 이미 설치되어 있다는 전제하에 진행한다.
 - 도커 이미지 : [PostgreDB, pgadmin4 도커 설치 방법](https://sangjuncha-dev.github.io/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/)
 
 
+---
 
-## 라이브러리 설치
+## 1. 라이브러리 설치
 
 go version : 1.17
 
@@ -26,8 +28,9 @@ go version : 1.17
 ```
 
 
+---
 
-## 테이블 구조
+## 2. 테이블 구조
 
 postgreDB에 아래와 같은 구조의 User 테이블이 선언된 상태로 진행한다.
 
@@ -40,8 +43,9 @@ CREATE TABLE user (
 ```
 
 
+---
 
-## DB 설정 초기화
+## 3. DB 설정 초기화
 
 ```go
 package main
@@ -100,8 +104,9 @@ func main() {
 ```
 
 
+---
 
-## create
+## 4. create
 
 데이터 생성
 
@@ -140,8 +145,9 @@ create id : 2
 ```
 
 
+---
 
-## read
+## 5. read
 
 데이터 조회
 
@@ -183,8 +189,9 @@ id: 1, name: foo, age: 10
 ```
 
 
+---
 
-## update
+## 6. update
 
 데이터 수정
 
@@ -222,7 +229,10 @@ Total rows/record affected 1
 id: 1, name: foo1, age: 21
 ```
 
-## delete
+
+---
+
+## 7. delete
 
 데이터 삭제
 
@@ -259,13 +269,15 @@ Total rows/record affected 1
 ```
 
 
+---
 
-## 예시코드 Git 주소
+## 8. 예시코드 Git
 
 [golang-postgredb-crud](https://github.com/SangjunCha-dev/blog/tree/main/golang/golang-postgredb-crud)
 
 
+---
 
-## 참고 URL
+## 참고(Reference)
 
 - [GoLang PostgreSQL Example](https://golangdocs.com/golang-postgresql-example)

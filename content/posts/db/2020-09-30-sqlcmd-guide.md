@@ -13,12 +13,14 @@ categories: ["DB", "sqlcmd"]
 ---
 
 
+---
 
-# sqlcmd
+## sqlcmd
 
-사용목적 : 대용량 sql 파일실행은 `sqlcmd`만 실행가능
+대용량 sql 파일실행은 `sqlcmd`로만 실행가능하다.  
+다른 sql 실행방법은 메모리에 해당 sql 파일을 로딩한 상태로 실행하여 크기제한이 있지만 sqlcmd는 해당 sql문 하나하나 별도로 실행하기 때문이다.
 
-### sqlcmd 사용 예시
+## 사용 예시
 
 ```bash
 sqlcmd \
@@ -46,7 +48,7 @@ windows 환경
 linux 환경에서 대용량 파일 줄단위 분할
 - split -l 10000 "aaa.sql" "aaa.sql."
 
-### sqlcmd 옵션
+## sqlcmd 옵션
 
 ```bash
 sqlcmd

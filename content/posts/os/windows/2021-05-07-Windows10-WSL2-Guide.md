@@ -13,32 +13,39 @@ categories: ["Windows10", "WSL"]
 ---
 
 
+---
 
-## WSL(Windows Subsystem for Linux)2
+## 1. WSL(Windows Subsystem for Linux)2
 
 리눅스용 윈도우 하위 시스템(Windows Subsystem for Linux)은 Windows 10에서 네이티브로 리눅스 실행 파일을 실행하기 위한 호환성 계층 프로그램이다.
 
-## 사전 설정
+
+---
+
+## 2. 사전 설정
 
 - microsoft store에서 `Windows Terminal` 설치한다.
 - `Windows Terminal` 프로그램을 관리자 권한으로 실행한다.
 
-### WSL2 활성화를 위한 DISM 명령어 실행후 재부팅
+### 2.1. WSL2 활성화를 위한 DISM 명령어 실행후 재부팅
 
 ```powershell
 > dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 > dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
 
-### Windows Store 에서 설치하는 모든 Linux 배포판 포맷을 WSL 2로 설정
+### 2.2. Windows Store 에서 설치하는 모든 Linux 배포판 포맷을 WSL 2로 설정
 
 ```powershell
 > wsl --set-default-version 2
 ```
 
-## 실습 및 팁
 
-### 기존에 설치한 WSL 배포 목록확인
+---
+
+## 3. 실습 및 팁
+
+### 3.1. 기존에 설치한 WSL 배포 목록확인
 
 microsoft store에서 `Ubuntu 18.04 LTS` 설치
 
@@ -52,15 +59,15 @@ microsoft store에서 `Ubuntu 18.04 LTS` 설치
 
 윈도우 탐색기에서 `\\wsl$` 경로로 접속하면 wsl 리눅스 배포판 접속가능하다.
 
-### wsl 터미널에서 현재 작업 위치 Windows 탐색기로 열기
+### 3.2. wsl 터미널에서 현재 작업 위치 Windows 탐색기로 열기
 
 ```bash
 explorer.exe .
 ```
 
-### wsl에서 vscode  실행하기 
+### 3.3. wsl에서 vscode  실행하기 
 
-vscode 확장 프로그램으로 `Remote-WSL` 설치
+vscode 확장 프로그램에서 `Remote-WSL` 설치 후
 
 wsl 터미널에서 `code .` 명령어 실행하면 리눅스 배포환경에서 vscode로 작업 가능하다.
 
@@ -68,10 +75,8 @@ wsl 터미널에서 `code .` 명령어 실행하면 리눅스 배포환경에서
 $ code .
 ```
 
-참고사이트  
-- WSL2 설치 및 사용 방법
-  - https://www.44bits.io/ko/post/wsl2-install-and-basic-usage
-- 도커 데스크톱 WSL 2 백엔드
-  - https://docs.docker.com/docker-for-windows/wsl/
-- WSL 1과 WSL 2 비교
-  - https://docs.microsoft.com/en-us/windows/wsl/compare-versions
+## 참고(Reference)
+
+- [WSL2 설치 및 사용 방법](https://www.44bits.io/ko/post/wsl2-install-and-basic-usage)
+- [도커 데스크톱 WSL 2 백엔드](https://docs.docker.com/docker-for-windows/wsl/)
+- [WSL 1과 WSL 2 비교](https://docs.microsoft.com/en-us/windows/wsl/compare-versions)

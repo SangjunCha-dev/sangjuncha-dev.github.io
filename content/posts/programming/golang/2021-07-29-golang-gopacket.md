@@ -13,14 +13,11 @@ categories: ["Go", "Gopacket"]
 ---
 
 
+---
 
-# 설명
+gopacket : 이더넷 어댑터 설명(dev.Description)명칭으로 ethernet 통신하는 라이브러리이다.
 
-ethernet 통신
-
-- 이더넷 어댑터 설명(dev.Description)을 기준으로 통신하는 코드이다.
-
-# 예제 코드
+## 예제 코드
 
 
 ```go

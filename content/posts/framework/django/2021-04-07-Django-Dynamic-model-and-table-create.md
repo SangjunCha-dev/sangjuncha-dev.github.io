@@ -13,8 +13,9 @@ categories: ["Django", "Models"]
 ---
 
 
+---
 
-# Django 동적 모델 및 테이블 생성
+## 1. Django 동적 모델 및 테이블 생성
 
 django는 makemigrations, migrate 명령어를 통하여 테이블 생성한다.  
 이때 웹서버는 실행중일 경우 중단하고 다시 재시작한다.  
@@ -22,10 +23,11 @@ django는 makemigrations, migrate 명령어를 통하여 테이블 생성한다.
 운영환경에 따라서 웹서버가 중단되지 않고 운영이 필요한경우에는 위의 방법이 아닌 동적 모델 및 테이블 생성방법이 필요하다.  
 
 
+---
 
-# 사용 방법
+## 2. 예시코드
 
-## 상속받을 추상모델 작성
+### 2.1. 상속받을 추상모델 작성
 
 models.py
 ```python
@@ -39,7 +41,7 @@ class Board(models.Model):
         abstract = True
 ```
 
-## 동적 모델 생성 및 삭제
+### 2.2. 동적 모델 생성 및 삭제
 
 ```python
 from .models import Board
@@ -69,7 +71,7 @@ def delete_model(name: str):
 	del TABLE_MAP[name]
 ```
 
-## 동적 테이블 생성 및 삭제
+### 2.3. 동적 테이블 생성 및 삭제
 
 ```python
 from django.db import connection
@@ -90,22 +92,15 @@ def delete_table(name: str):
 ```
 
 
+---
 
-# 참고사이트
+## 참고(Reference)
 
-추상클래스
-- 모델 생성시 사용  
-- https://dojang.io/mod/page/view.php?id=2389
-
-
-closure 사용하기  
-- 모델 생성시 `type()` 동작 원리  
-- https://dojang.io/mod/page/view.php?id=2366
-
-
-django 동적 모델 생성 (type 활용)  
-- https://stackoverflow.com/questions/7320705/python-missing-class-attribute-module-when-using-type/7320926  
-
-
-django 동적 테이블 생성 (connection.schema_editor)  
-- https://docs.djangoproject.com/en/3.1/ref/schema-editor/#create-model
+- [추상클래스](https://dojang.io/mod/page/view.php?id=2389)
+	- 모델 생성시 사용  
+- [closure 사용하기](https://dojang.io/mod/page/view.php?id=2366)
+	- 모델 생성시 `type()` 동작 원리  
+- [django 동적 모델 생성](https://stackoverflow.com/questions/7320705/python-missing-class-attribute-module-when-using-type/7320926)
+	- type 활용
+- [django 동적 테이블 생성](https://docs.djangoproject.com/en/3.1/ref/schema-editor/#create-model)
+	- connection.schema_editor

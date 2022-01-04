@@ -13,14 +13,16 @@ categories: ["Python", "Guide"]
 ---
 
 
+---
 
 python 파일을 윈도우에서 python 이나 가상환경 설정없이 실행이 가능한 `.exe` 으로 변환해주는 라이브러리
 
-Docs URL - https://pyinstaller.readthedocs.io/en/stable/usage.html
 
-설치환경 : Windows 10
+---
 
 ## 1. 설치
+
+설치환경 : Windows 10
 
 python 실행이 가능한 가상환경 터미널에서 아래의 명령어 실행
 
@@ -29,6 +31,7 @@ pip install pyinstaller
 ```
 
 
+---
 
 ## 2. 간단한 사용예제
 
@@ -37,6 +40,7 @@ pyinstaller --clean --distpath . -F -n [프로그램이름] [변환시킬 파일
 ```
 
 
+---
 
 ## 3. 옵션
 
@@ -93,6 +97,7 @@ pyinstaller --clean ^
 ```
 
 
+---
 
 ## 4. 참고사항
 
@@ -150,3 +155,10 @@ if __name__ == '__main__':
         freeze_support()
 	main()
 ```
+
+
+---
+
+## 참고(Reference)
+
+- [Using PyInstaller Docs](https://pyinstaller.readthedocs.io/en/stable/usage.html)

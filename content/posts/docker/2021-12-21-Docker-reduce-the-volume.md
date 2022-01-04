@@ -13,12 +13,14 @@ categories: ["Docker"]
 ---
 
 
+---
 
-## Docker Image 경량화의 장점
-
+Docker Image 경량화의 장점
 - 저장공간 절약
 - 이미지 빌드 및 배포시간 단축
 - 클라우드 서비스를 이용한 배포의 경우 비용 절약
+
+---
 
 ## 1. 가벼운 Base image 사용
 
@@ -55,6 +57,9 @@ image-test2    latest    004c04ba9ac3   2 months ago    114MB
     RUN apt-get update && apt-get install -y --no-install-recommends libmagic1 && rm -rf /var/lib/apt/lists/*
     ```
 
+
+---
+
 ## 2. Dockerfile 명령어 체인방식 사용
 
 Dockerfile에서 RUN명령을 개별로 실행시 실행이 끝날때마다 중간 이미지가 생성된다.  
@@ -77,6 +82,9 @@ ENV APP_HOME=/app
 RUN mkdir $APP_HOME && mkdir $APP_HOME/.static_root && mkdir $APP_HOME/media
 ```
 
+
+---
+
 ## 3. 패키지 관리
 
 Package 매니저로 패키지를 설치할 경우 보통 사용하지않은 패키지가 함께 설치된다.
@@ -97,6 +105,8 @@ apt-get 사용하여 패키지 설치시 용량을 최소화 하는 방법
     rm -rf /var/lib/apt/lists/*
     ```
 
+
+---
 
 ## 4. Docker Layer 관리
 
@@ -133,7 +143,7 @@ image-test2   latest    297340498b12   1 minutes ago      213MB
 
 Docker Layer는 Union Mount라는 Linux Mount 기술을 활용하여 여러 Layer를 통합하여 하나의 이미지로 관리한다.
 
-#### Docker Layer 별 용량 확인
+### Docker Layer 별 용량 확인
 
 `docker history [IMAGE]` : 해당 Docker 이미지의 각 layer마다 사용된 용량을 확인할 수 있다.
 
@@ -157,9 +167,15 @@ IMAGE          CREATED          CREATED BY                                      
 # docker history --no-trunc [IMAGE]
 ```
 
+
+---
+
 ## 5. 배포 시 불필요한 빌드 도구를 설치하지 않기
 
 소스코드를 빌드해서 이미지에 포함시키면, 불필요한 빌드 도구가 차지하는 공간을 줄일 수 있다.
+
+
+---
 
 ## 6. .dockerignore 활용하기
 
@@ -167,6 +183,9 @@ Docker build 시 명령어 COPY 등을 통해서 프로젝트 파일을 컨테�
 - Docker는 Go 언어기반으로 파일 매칭도 Go 언어규칙을 적용한다.
 - 임시파일, Git, Docker 관련, 비공개 정보 파일 등 예외 처리한다.
 - docker volumes 참조와 겹치지 않도록 한다.(volumes 우선적용)
+
+
+---
 
 ## 7. multi-stage 빌드
 
@@ -204,7 +223,10 @@ image-test2    latest    004c04ba9ac3   1 minutes ago   151MB
 - 사용하는 라이브러리에 따라 용량 차이가 더 많이 나올 수 있다.
 - 외부 설정이 까다로운 경우에는 multi-stage를 사용하지 않을 수 있다.
 
-## 참조 URL
+
+---
+
+## 참고(Reference)
 - [컨테이너 이미지 생성시 고려사항](https://waspro.tistory.com/692)
 - [Docker - image 크기 줄이기](https://velog.io/@idnnbi/Docker-image-%ED%81%AC%EA%B8%B0-%EC%A4%84%EC%9D%B4%EA%B8%B0)
 - [Alpine을 사용하면 Python Docker를 50배 더 느리게 만들 수 있다.](https://pythonspeed.com/articles/alpine-docker-python/)

@@ -7,6 +7,7 @@ categories: ["Go", "fcm"]
 ---
 
 
+---
 
 Firebase Cloud Messaging(FCM)은 firebase에서 무료로 메시지 전송할 수 있는 교차 플랫폼 메시징 솔루션이다.  
 최대 4,000바이트의 페이로드를 클라이언트 앱에 전송할 수 있다.
@@ -14,8 +15,9 @@ Firebase Cloud Messaging(FCM)은 firebase에서 무료로 메시지 전송할 �
 아래의 예제는 `Go언어 기반의 백엔드 서버` 예시이며 fcm token이 이미 발급받았다는 가정하에 진행된다.
 
 
+---
 
-## 라이브러리 설치
+## 1. 라이브러리 설치
 
 ```bash
 > go get firebase.google.com/go/v4
@@ -23,8 +25,9 @@ Firebase Cloud Messaging(FCM)은 firebase에서 무료로 메시지 전송할 �
 ```
 
 
+---
 
-## Firebase APP 초기화
+## 2. Firebase APP 초기화
 
 [사용자 인증 정보 제공](https://firebase.google.com/docs/cloud-messaging/auth-server?hl=ko#provide-credentials-manually)의 안내에 따라 서비스 계정의 비공개 키 파일을 다운받는다.
 
@@ -93,8 +96,9 @@ func initApp() {
 ```
 
 
+---
 
-## 특정 기기에 메시지 전송
+## 3. 특정 기기에 메시지 전송
 
 ```go
 func sendNotification(title string, body string, fcmToken string) {
@@ -126,8 +130,9 @@ func sendNotification(title string, body string, fcmToken string) {
 ```
 
 
+---
 
-## 여러 기기에 메시지 전송
+## 4. 여러 기기에 메시지 전송
 
 호출당 최대 500개의 기기 등록 토큰을 지정할 수 있다.
 
@@ -171,19 +176,20 @@ func sendNotifications(title string, body string, fcmTokens []string) {
 }
 ```
 
-
-
 firebase 서버 상황에 따라 Push 알림 수신까지 수초~수분 걸릴 수 있다.
 
 
+---
 
-## 예시코드 Git 주소
+
+## 5. 예시코드 Git
 
 [golang-fcm-push](https://github.com/SangjunCha-dev/blog/tree/main/golang/golang-fcm-push)
 
 
+---
 
-## 참조 Docs URL
+## 참고(Reference)
 
 - [Firebase 클라우드 메시징](https://firebase.google.com/docs/cloud-messaging?hl=ko)
 - [특정 기기에 메시지 전송](https://firebase.google.com/docs/cloud-messaging/send-message?hl=ko#send-messages-to-specific-devices)

@@ -13,17 +13,24 @@ categories: ["Python", "Numpy"]
 ---
 
 
+---
 
 선형대수 기반의 python 라이브러리
 - 루프없이 배열 연산이 가능하여 연산속도가 빠름
 
 설치버전 : numpy 1.20.2
 
-## import 라이브러리
+
+---
+
+라이브러리 import
 
 ```python
 import numpy as np
 ```
+
+
+---
 
 ## 1. 생성
 
@@ -184,6 +191,9 @@ sigma, mu = 1.5, 2.0
 sigma * np.random.randn(5) + mu
 ```
 
+
+---
+
 ## 2. 차원 출력 및 변경
 
 - 행렬의 차원을 `shape`로 표현
@@ -247,6 +257,8 @@ exp_array.flatten()
 ```
 
 
+---
+
 ## 3. 올림, 내림, 반올림
 
 사용예제
@@ -306,6 +318,8 @@ np.fix(exp_array)
 # [-3. -2. -1. -0.  0.  1.  2.  3.]
 ```
 
+
+---
 
 ## 4. 조건 연산
 

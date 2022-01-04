@@ -13,6 +13,7 @@ categories: ["Python", "Guide"]
 ---
 
 
+---
 
 paramiko, scp 라이브러리 연계 사용한 ssh 파일 전송
 
@@ -28,7 +29,10 @@ paramiko, scp 라이브러리 연계 사용한 ssh 파일 전송
 
 사전에 ssh 접속가능한 linux를 구축한 후 실습 진행
 
-## 라이브러리 설치
+
+---
+
+## 1. 라이브러리 설치
 
 ```bash
 pip install paramiko
@@ -41,9 +45,12 @@ paramiko : SSH 접속 및 종료 기능
 scp : 파일 전송 및 다운로드 기능
 - Docs URL - https://pypi.org/project/scp/
 
-## 사용예제 코드
 
-### SSHManager
+---
+
+## 2. 사용예제 코드
+
+### 2.1. SSHManager
 
 SSHManager.py
 
@@ -105,7 +112,7 @@ class SSHManager:
             print(f"[send_command] Error : {ex} | cmd = {cmd}")
 ```
 
-### client
+### 2.2. client
 
 client.py
 
@@ -162,4 +169,9 @@ client = Client()
 client.run()
 ```
 
-참고 URL - [SSH & SCP in Python with Paramiko](https://hackersandslackers.com/automate-ssh-scp-python-paramiko/)
+
+---
+
+## 참고(Reference)
+
+- [SSH & SCP in Python with Paramiko](https://hackersandslackers.com/automate-ssh-scp-python-paramiko/)

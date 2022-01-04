@@ -7,18 +7,20 @@ categories: ["Python"]
 ---
 
 
+---
 
 python 날짜 및 시간 계산은 python 표준 라이브러리 `datetime`, 확장 라이브러리 `dateutil` 2개의 라이브러리가 있으며 단위의 차이가 있다.
 - datetime : 마이크로초, `밀리초`, 초, 분, 시, 일, 주 단위 사용
 - dateutil : 마이크로초, 초, 분, 시, 일, 주, `월`, `년` 단위 사용
 
 
+---
 
 ## 1. datetime 라이브러리
 
 날짜와 시간을 조작하는 클래스를 제공하는 python 표준 라이브러리
 
-### 사용예시
+### 1.1 사용예시
 
 - now : 현재 날짜 및 시간
 
@@ -118,13 +120,13 @@ python 날짜 및 시간 계산은 python 표준 라이브러리 `datetime`, 확
 
 datetime 보다 확장된 기능을 가진 라이브러리
 
-### 라이브러리 설치
+### 2.1. 라이브러리 설치
 
 ```bash
 > pip install dateutil
 ```
 
-### 사용예시
+### 2.2. 사용예시
 
 - now : 현재 날짜 및 시간
 
@@ -220,14 +222,16 @@ datetime 보다 확장된 기능을 가진 라이브러리
     > year next   = 2022-12-26 22:23:22.916446  
 
 
+---
 
-## 3. 예시코드 Git 주소
+## 3. 예시코드 Git
 
 [python-calculate-the-date-and-time](https://github.com/SangjunCha-dev/blog/tree/main/python/python-calculate-the-date-and-time)
 
 
+---
 
-## 참고 사이트
+## 참고(Reference)
 
 - [datetime.timedelta - 날짜의 차이](https://wikidocs.net/104836)
 - [Python 날짜 계산 방법](https://jsikim1.tistory.com/143)

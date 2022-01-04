@@ -13,18 +13,17 @@ categories: ["Python", "Guide", "Sniff"]
 ---
 
 
-
-Docs URL - https://scapy.readthedocs.io/en/latest/#
+---
 
 설치환경 : Windows 10
 
-## 설치
+## 1. 설치
 
 1. 와이어샤크 프로그램에 포함된 `npcap` 설치 필요
     - https://www.wireshark.org/download.html
 2. `pip install --pre scapy[basic]`
 
-## Client 예제
+## 2. Client 예제
 
 ```python
 from scapy.all import *
@@ -59,7 +58,7 @@ e_time = dt.datetime.now()
 print(f"실행시간 : {e_time - s_time}")
 ```
 
-## Server 예제
+## 3. Server 예제
 
 - 소량 데이터 스니핑에는 문제없으나 패킷 전송간격 1ms 이내의 스니핑은 TShark 이용하는 pyshark를 추천함
 
@@ -112,3 +111,10 @@ while 1:
 
     print(f"cnt = {cnt}")
 ```
+
+
+---
+
+## 참고(Reference)
+
+- [Scapy Docs](https://scapy.readthedocs.io/en/latest/#)

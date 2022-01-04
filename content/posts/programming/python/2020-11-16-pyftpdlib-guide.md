@@ -14,9 +14,9 @@ categories: ["Python", "Guide"]
 
 
 
-Docs URL - https://pyftpdlib.readthedocs.io/en/latest/
+---
 
-## FTP Server 라이브러리 설치
+## 1. 라이브러리 설치
 
 ```bash
 pip install pyftpdlib
@@ -24,9 +24,7 @@ pip install pyftpdlib
 
 실습 버전 : pyftpdlib 1.5.6
 
-## 사용예제 코드
-
-### FTP Server 예제
+## 2. Server
 
 ftp server 실행 후 client 테스트 가능
 
@@ -77,7 +75,9 @@ file_server.start()
 ```
 
 
-### FTP Client ftplib 예제
+## 3. Client 
+
+### 3.1. FTPClient
 
 FTPClient.py
 ```python
@@ -246,7 +246,7 @@ class FTPClient:
 
 ```
 
-### FTP Client 예제
+### 3.2. client
 
 client.py
 ```python
@@ -269,3 +269,9 @@ ftp_client.deleteDir(server_dir_path='/ftpserver/', dir_name='temp')
 # FTP 업로드
 self.ftpClient.upload(server_dir_path="/ftpserver/temp2/", client_dir_path=f'{client_path}/temp/', filename='test.txt')
 ```
+
+---
+
+## 참고(Reference)
+
+- [pyftpdlib Docs](https://pyftpdlib.readthedocs.io/en/latest/)

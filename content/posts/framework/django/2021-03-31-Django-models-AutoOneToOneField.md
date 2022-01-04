@@ -1,7 +1,7 @@
 ---
-title: "Django models.AutoOneToOneField 사용법"
+title: "Django models AutoOneToOneField 사용법"
 date: 2021-03-31T12:55:35+09:00
-description: Django models.AutoOneToOneField 사용법
+description: Django models AutoOneToOneField 사용법
 # menu:
 #   sidebar:
 #     name: Models AutoOneToOneField 사용법
@@ -13,16 +13,23 @@ categories: ["Django", "Models"]
 ---
 
 
+---
 
 model 상속할때 테이블 컬럼 데이터 자동 생성방법
 
-# 라이브러리 설치
+
+---
+
+## 라이브러리 설치
 
 ```bash
 pip install django-annoying
 ```
 
-# models 설정
+
+---
+
+## models 설정
 
 django의 `models.OneToOneField`는 데이터 변경없이(default 설정) 저장하면 해당 데이터(row)가 생성되지않음
 
@@ -48,7 +55,10 @@ class Profile(models.Model):
     icq = models.IntegerField(blank=True, null=True)
 ```
 
-# 참고사항
+
+---
+
+## 참고사항
 
 문제점 : `TypeError: __init__() missing 1 required positional argument: 'on_delete'` 에러 발생
 - Django model에서 `ForeignKey` 사용하는 경우 발생하는 에러로 Django 2.0이상 버전에서는 파라미터 2개를 입력받음

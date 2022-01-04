@@ -7,11 +7,15 @@ categories: ["Docker", "Go"]
 ---
 
 
+---
 
 간단한 golang 웹 프로그램을 Docker 이미지로 실행방법으로  
 golang 코드보다는 docker 설정 위주로 설명한다.
 
-## 예제 코드
+
+---
+
+## 1. 예제 코드
 
 사용예시는 아래의 주소를 git clone 받는다.
 
@@ -21,7 +25,10 @@ golang 코드보다는 docker 설정 위주로 설명한다.
 
 - [docker-gs-ping](https://github.com/olliefr/docker-gs-ping)
 
-## 예제 프로그램 실행
+
+---
+
+## 2. 예제 프로그램 실행
 
 git clone 받은 프로젝트 경로에서 터미널을 실행하고 진행한다.
 
@@ -36,7 +43,10 @@ git clone 받은 프로젝트 경로에서 터미널을 실행하고 진행한�
 Hello, Docker! <3
 ```
 
-## Dockerfile
+
+---
+
+## 3. Dockerfile
 
 dockerfile 명칭은 `Dockerfile.<something>` 또는 `<something>.Dockerfile` 형식으로 생성한다.
 
@@ -75,14 +85,11 @@ CMD ["/docker-gs-ping"]
 ```
 
 
-
-도커 이미지 빌드
+`docker build` : 도커 이미지 빌드
 
 ```bash
 > docker build --tag docker-gs-ping .
 ```
-
-
 
 `docker image ls` : 도커 로컬이미지 조회
 
@@ -92,10 +99,7 @@ REPOSITORY       TAG      IMAGE ID       CREATED          SIZE
 docker-gs-ping   latest   4f0670869ed5   12 seconds ago   540MB
 ```
 
-
-
 `docker image tag` : 도커 이미지 태그 지정
-
 
 ```bash
 # Usage:  docker image tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
@@ -109,7 +113,10 @@ docker-gs-ping   latest   4f0670869ed5   3 minutes ago   540MB
 docker-gs-ping   v1.0     4f0670869ed5   3 minutes ago   540MB
 ```
 
-## Multi-stage builds
+
+---
+
+## 4. Multi-stage builds
 
 도커 이미지 용량 줄이는 방법 중 하나로 프로그램 실행에 필요한 파일들만으로 이미지를 생성하는 방법이다.
 
@@ -167,7 +174,10 @@ docker-gs-ping   multistage   04b0984d8007   5 seconds ago    27.1MB
 docker-gs-ping   latest       4f0670869ed5   13 minutes ago   540MB
 ```
 
-## 도커 컨테이너 실행
+
+---
+
+## 5. 도커 컨테이너 실행
 
 - `--publish` or `-p`: 외부 접속포트와 컨테이너포트를 연동시키는 명령이다.
 	- -p [host_port]:[container_port]
@@ -196,6 +206,9 @@ CONTAINER ID   IMAGE            COMMAND             CREATED         STATUS      
 Hello, Docker! <3
 ```
 
-## 참조 URL
+
+---
+
+## 참고(Reference)
 
 - [Docker docs Build your Go image](https://docs.docker.com/language/golang/build-images/)

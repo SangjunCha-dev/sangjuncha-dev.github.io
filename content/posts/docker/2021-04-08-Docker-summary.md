@@ -13,8 +13,9 @@ categories: ["Docker"]
 ---
 
 
+---
 
-## 개요
+## 1. 개요
 
 {{< img src="../images/docker-summary_0-1.png" align="center" >}}
 
@@ -22,7 +23,10 @@ categories: ["Docker"]
 
 - **컨테이너** : 리눅스 커널 네임 스페이스, cgroup의 기능을 활용하여 호스트 시스템의 모든 프로세스와 격리된 시스템의 프로세스
 
-## 도커를 사용하는 이유
+
+---
+
+## 2. 도커를 사용하는 이유
 
 도커는 소프트웨어 버전관리, 애플리케이션 배포, 개발환경 구성등 사전에 생성하고 도커 이미지를 배포하고 배포한 이미지를 컨테이너에 담아서 사용된다.
 
@@ -32,7 +36,10 @@ categories: ["Docker"]
 
 `도커파일(Docker File)`을 만들어서 "특정 소프트웨어를 컨테이너에 담아서 구동시킬 것이다."를 명시해주고 `빌드(Build)`하면, 도커 이미지가 생성됩니다. 그리고 해당 도커 이미지를 `구동(run)`시키면 도커 컨테이너에서 실행됩니다.
 
-## VM(Virtual Machine)과 컨테이너(Container) 차이점
+
+---
+
+## 3. VM(Virtual Machine)과 컨테이너(Container) 차이점
 
 `가상 머신(Virtual Machine)` : 하드웨어의 가상화 기능으로 Guest OS를 통해 소프트웨어를 실행한다.
 - 예를들면 윈도우 운영체제를 사용하는 Host OS에서 리눅스라는 Guest OS를 실행한다.
@@ -54,7 +61,9 @@ categories: ["Docker"]
 |빠름|적음|적음(MB단위)|
 
 
-## 설치
+---
+
+## 4. 설치
 
 설치환경 : Windows 10
 docker version : 3.2.2
@@ -70,7 +79,9 @@ Download URL - https://www.docker.com/get-started
 ![](../images/docker-summary_1-1.png?raw=true)
 
 
-## 오류 해결방법
+---
+
+## 5. 오류 해결방법
 
 1. Hyper-V가 비활성화되었거나 설치되지 않은 경우
     - 관리자 권한으로 PowerShell 실행
@@ -100,11 +111,16 @@ Download URL - https://www.docker.com/get-started
         |AMD|SVM|
 
 
-## 참고사항
+---
+
+## 6. 참고사항
 
 다른 가상화 솔루션이 실행되고있는경우 실행되지 않을 수 있다.
 
-## WSL2 설치
+
+---
+
+## 7. WSL2 설치
 
 시스템 재시작 후 WSL2 설치 안내 메세지에서 [kernel update](https://aka.ms/wsl2kernel) 링크에서 `x64 머신용 최신 WSL2 Linux 커널 업데이트 패키지`를 다운받아 업데이트한다.
 - WSL : 윈도우에서 경량 가상화 기술을 사용하여 리눅스를 구동할 수 있도록 도와주는 기능  
@@ -112,10 +128,15 @@ Download URL - https://www.docker.com/get-started
 
 그 후 Restart 버튼 클릭하여 도커를 재실행한다.
 
-## Docker 대시보드
+
+---
+
+## 8. Docker 대시보드
 
 {{< img src="../images/docker-summary_1-5.png" align="center" >}}
 
 도커에서 docker tutorial 실행 후 아래의 튜토리얼 진행
 
-http://localhost/tutorial/ 
+```url
+http://localhost/tutorial/
+```

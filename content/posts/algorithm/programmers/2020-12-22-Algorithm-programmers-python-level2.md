@@ -13,6 +13,7 @@ categories: ["Algorithm", "Programmers"]
 ---
 
 
+---
 
 ## 프린터
 
@@ -52,6 +53,7 @@ def solution(priorities, location):
 > max TaseCase : 0.99ms, 10.1MB  
 
 
+---
 
 ## 기능개발
 
@@ -130,6 +132,7 @@ def solution(progresses, speeds):
 > max TaseCase : 0.03ms, 10.1MB  
 
 
+---
 
 ## 다리를 지나는 트럭
 
@@ -209,6 +212,7 @@ def solution(bridge_length, weight, truck_weights):
 > max TaseCase : 27.21ms, 10.3MB  
 
 
+---
 
 ## 멀쩡한 사각형
 
@@ -308,6 +312,7 @@ def solution(w,h):
 > max TaseCase : 0.01ms, 10.3MB  
 
 
+---
 
 ## 조이스틱
 
@@ -384,6 +389,7 @@ def solution(name):
 > max TaseCase : 0.03ms, 10.3MB  
 
 
+---
 
 ## 가장 큰 수
 
@@ -460,6 +466,7 @@ def solution(numbers):
 > max TaseCase : 55.10ms, 28.2MB  
 
 
+---
 
 ## 소수 찾기
 
@@ -517,6 +524,7 @@ def prime_number(n):
 > max TaseCase : 13.19ms, 10.6MB  
 
 
+---
 
 ## 큰 수 만들기
 
@@ -554,6 +562,7 @@ def solution(number, k):
 > max TaseCase : 207.73ms, 11.6MB  
 
 
+---
 
 ## H-Index
 
@@ -618,6 +627,7 @@ def solution(citations):
 > max TaseCase : 0.18ms, 10.2MB  
 
 
+---
 
 ## 위장
 
@@ -656,6 +666,7 @@ def solution(clothes):
 > max TaseCase : 0.02ms, 10.2MB  
 
 
+---
 
 ## 카펫
 
@@ -686,6 +697,7 @@ def solution(brown, yellow):
 > max TaseCase : 0.06ms, 10.3MB  
 
 
+---
 
 ## 타겟 넘버
 
@@ -739,6 +751,7 @@ def solution(numbers, target):
 > max TaseCase : 372.97ms, 10.2MB  
 
 
+---
 
 ## 이진 변환 반복하기
 
@@ -763,6 +776,7 @@ def solution(s):
 > max TaseCase : 0.64ms, 10.3MB  
 
 
+---
 
 ## 최댓값과 최솟값
 
@@ -782,6 +796,7 @@ def solution(s):
 > max TaseCase : 0.05ms, 10.3MB  
 
 
+---
 
 ## 피보나치 수
 
@@ -820,6 +835,7 @@ def solution(num):
 > max TaseCase : 147.18ms, 10.1MB  
 
 
+---
 
 ## 행렬의 곱셈
 
@@ -883,6 +899,8 @@ def solution(arr1, arr2):
 > max TaseCase : 78.02ms, 11.2MB  
 
 
+---
+
 ## JadenCase 문자열 만들기
 
 분류 : 연습문제
@@ -922,6 +940,7 @@ def solution(s):
 > max TaseCase : 0.01ms, 10.2MB  
 
 
+---
 
 ## N개의 최소공배수
 
@@ -987,6 +1006,7 @@ def gcd(m, n):
 > max TaseCase : 0.01ms, 10.3MB  
 
 
+---
 
 ## 소수 만들기
 
@@ -1062,6 +1082,7 @@ def prime(n):
 > max TaseCase : 12.11ms, 10.3MB  
 
 
+---
 
 ## 예상 대진표
 
@@ -1089,6 +1110,7 @@ def solution(n, a, b):
 > max TaseCase : 0.01ms, 10.2MB  
 
 
+---
 
 ## 124 나라의 숫자
 
@@ -1155,6 +1177,7 @@ def solution(n):
 > max TaseCase : 0.01ms, 10.3MB  
 
 
+---
 
 ## 스킬트리
 
@@ -1235,6 +1258,7 @@ def solution(skill,skill_tree):
 > max TaseCase : 0.02ms, 10.2MB  
 
 
+---
 
 ## 주식가격
 
@@ -1265,6 +1289,7 @@ def solution(prices):
 > max TaseCase : 105.50ms, 20MB  
 
 
+---
 
 ## 삼각 달팽이
 
@@ -1308,6 +1333,7 @@ def solution(n):
 > max TaseCase : 92.56ms, 56.9MB  
 
 
+---
 
 ## 문자열 압축
 
@@ -1343,6 +1369,7 @@ def solution(s):
 > max TaseCase : 3.03ms, 10.2MB  
 
 
+---
 
 ## 메뉴 리뉴얼
 
@@ -1418,6 +1445,7 @@ def solution(orders, course):
 > max TaseCase : 2.11ms, 10.4MB  
 
 
+---
 
 ## 더 맵게
 
@@ -1489,6 +1517,7 @@ deque : 스택과 큐를 일반화 한 것
     - 왼쪽에서 요소를 제거하고 반환
 
 
+---
 
 ## 순위 검색
 
@@ -1718,6 +1747,7 @@ def solution(info, query):
 > max TaseCase : 1198.31ms, 35.9MB  
 
 
+---
 
 ## 행렬 테두리 회전하기
 
@@ -1819,6 +1849,7 @@ def solution(rows, columns, queries):
 > min TaseCase : 0.03ms, 10.3MB  
 > max TaseCase : 134.78ms, 12MB  
 
+---
 
 
 <!-- 

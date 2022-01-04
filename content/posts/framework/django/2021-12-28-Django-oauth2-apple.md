@@ -7,10 +7,11 @@ categories: ["Django", "oauth", "apple"]
 ---
 
 
+---
 
 django restframework 기반의 애플 인증 로그인 백엔드서버 구현 설명이다.  
 
-## 라이브러리 설치
+## 1. 라이브러리 설치
 
 ```bash
 $ pip install django
@@ -24,8 +25,9 @@ $ pip install pyjwt[crypto]
 ```
 
 
+---
 
-## Apple 로그인 변수 설정
+## 2. Apple 로그인 변수 설정
 
 ```python
 import os
@@ -51,8 +53,9 @@ apple_token_url = f"{apple_base_url}/auth/token"
 APPLE_CLIENT_ID는 모바일 로그인시 Bundle ID, 웹 로그인시 Service ID를 사용한다.
 
 
+---
 
-## Apple 로그인 페이지
+## 3. Apple 로그인 페이지
 
 ```python
 class AppleLoginView(APIView):
@@ -99,8 +102,9 @@ Content-Type 설명
 - 415 Unsupported Media Type 에러가 발생한 경우 위와 같이 Content-type이 일치하지 않을때 발생한다.
 
 
+---
 
-## Apple Callback 함수
+## 4. Apple Callback 함수
 
 ```python
 class AppleCallbackView(APIView):
@@ -223,7 +227,7 @@ class AppleEndpoint(APIView):
 
 
 
-## 참고 사이트
+## 참고(Reference)
 
 - [What the Heck is Sign In with Apple?](https://developer.okta.com/blog/2019/06/04/what-the-heck-is-sign-in-with-apple)
 - [configuring_your_webpage_for_sign_in_with_apple](https://developer.apple.com/documentation/sign_in_with_apple/sign_in_with_apple_js/configuring_your_webpage_for_sign_in_with_apple)

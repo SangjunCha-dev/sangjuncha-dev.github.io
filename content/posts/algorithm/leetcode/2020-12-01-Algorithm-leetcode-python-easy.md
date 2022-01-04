@@ -13,8 +13,12 @@ categories: ["Algorithm", "LeetCode"]
 ---
 
 
+---
 
-## [1. Two Sum](https://leetcode.com/problems/two-sum/)
+## 1. Two Sum
+
+[문제 링크](https://leetcode.com/problems/two-sum/)
+
 
 1. `nums` 리스트 속성값 중 `두개의 값`이 `target` 값과 동일할때 해당 `속성 값`의 `index` 반환
 
@@ -34,8 +38,11 @@ class Solution:
 > Memory Usage: `14.5 MB`, less than `89.48%` of Python3 online submisstions for Two Sum. <br>
 
 
+---
 
-## [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/)
+## 7. Reverse Integer
+
+[문제링크](https://leetcode.com/problems/reverse-integer/)
 
 1. `x`값을 list형으로 변환하여 `testCase` 변수에 저장
 2. `testCase[0]`값에 `-`부호가 있다면 `sign` 변수에 저장하고 `testCase[0]`에서 부호 삭제
@@ -73,8 +80,11 @@ class Solution:
 > Memory Usage: `14.2 MB`, less than `41.05%` of Python3 online submisstions for Reverse Integer. <br>
 
 
+---
 
-## [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/)
+## 9. Palindrome Number
+
+[문제링크](https://leetcode.com/problems/palindrome-number/)
 
 1. `x`값을 `num`변수에 대입
 2. `res`변수에 나머지연산으로 `num` 1의 자리값을 더하고 `num` 나누기 연산하여 1의 자리 삭제
@@ -103,8 +113,11 @@ class Solution:
 > Memory Usage: `14.1 MB`, less than `59.38%` of Python3 online submissions for Palindrome Number. <br>
 
 
+---
 
-## [14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)
+## 14. Longest Common Prefix
+
+[문제링크](https://leetcode.com/problems/longest-common-prefix/)
 
 1. 문자열 길이로 정렬된 `strs` 리스트에서 가장 짧은 `strs[0]`문자열로 각 문자열의 `i`번째 값과 비교
 2. 모든 문자열에서 동일한 문자가 있다면 `compareText`변수에 추가하고 마지막에 `compareText` 반환
@@ -131,8 +144,11 @@ class Solution:
 > Memory Usage: `14.3 MB`, less than `47.57%` of Python3 online submisstions for Longest Common Prefix. <br>
 
 
+---
 
-## [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+## 20. Valid Parentheses
+
+[문제링크](https://leetcode.com/problems/valid-parentheses/)
 
 1. 열린 괄호 `(`, `{`, `[` 는 list자료형에 `스택에 쌓고` 
 2. 닫는 괄호 `)`, `}`, `]` 는 스택의 마지막값과 비교해서 동일한 종류면 `스택에서 값 제거`
@@ -173,8 +189,11 @@ class Solution:
 > Memory Usage: `14.3 MB`, less than `24.08%` of Python3 online submisstions for Valid Parentheses. <br>
 
 
+---
 
-## [35. Search Insert Position](https://leetcode.com/problems/search-insert-position/)
+## 35. Search Insert Position
+
+[문제링크](https://leetcode.com/problems/search-insert-position/)
 
 1. `nums` 리스트 첫 번째 index를 `low`변수에 저장
 2. `nums` 리스트 마지막 index를 `high`변수에 저장
@@ -209,8 +228,11 @@ class Solution:
 > Memory Usage: `15.1 MB`, less than `9.31%` of Python3 online submisstions for Search Insert Position. <br>
 
 
+---
 
-## [38. Count and Say](https://leetcode.com/problems/count-and-say/)
+## 38. Count and Say
+
+[문제링크](https://leetcode.com/problems/count-and-say/)
 
 1. 비교 문자열 `1` 선언
 2. 아래의 알고리즘을 입력 받은 `n`번 반복 실행
@@ -243,8 +265,11 @@ class Solution:
 > Memory Usage: `14.3 MB`, less than `48.22%` of Python3 online submisstions for Count and Say. <br>
 
 
+---
 
-## [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
+## 53. Maximum Subarray
+
+[문제링크](https://leetcode.com/problems/maximum-subarray/)
 
 1. 동적 계획법(Dynamic Programming, DP) 사용할 것
 2. 아래는 잘못푼 문제
@@ -280,8 +305,11 @@ class Solution:
 > Memory Usage: `15.2 MB`, less than `5.01%` of Python3 online submisstions for Maximum Subarray. <br>
 
 
+---
 
-## [58. Length of Last Word](https://leetcode.com/problems/length-of-last-word/)
+## 58. Length of Last Word
+
+[문제링크](https://leetcode.com/problems/length-of-last-word/)
 
 1. 문자열 `앞뒤 공백 제거`
 2. 공백` `으로 `분할`하고 리스트 `마지막 문자열` 반환
@@ -299,8 +327,11 @@ class Solution:
 > Memory Usage: `14.2 MB`, less than `38.86%` of Python3 online submissions for Length of Last Word. <br>
 
 
+---
 
-## [66. Plus One](https://leetcode.com/problems/plus-one/)
+## 66. Plus One
+
+[문제링크](https://leetcode.com/problems/plus-one/)
 
 1. `digits` 리스트 마지막 값 `1증가`
 2. 반복문을 통해 리스트 `역순`으로 값 `한자릿수` 검증
@@ -329,8 +360,11 @@ class Solution:
 > Memory Usage: `14.2 MB`, less than `38.47%` of Python3 online submisstions for Plus One. <br>
 
 
+---
 
-## [136. Single Number](https://leetcode.com/problems/single-number/)
+## 136. Single Number
+
+[문제링크](https://leetcode.com/problems/single-number/)
 
 1. nums 리스트 정렬
 2. index(0,2,4,...) 2씩 증가하는 for문 실행
@@ -358,8 +392,11 @@ class Solution:
 > Memory Usage: `16.6 MB`, less than `60.41%` of Python3 online submisstions for Single Number. <br>
 
 
+---
 
-## [167. Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
+## 167. Two Sum II - Input array is sorted
+
+[문제링크](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
 
 1. 리스트 첫번째 인덱스 = `low`, 마지막 인덱스 = `high` 선언
 2. `while`문 `low`값이 `high`값보다 작을때 반복실행
@@ -391,8 +428,11 @@ class Solution:
 > Memory Usage: `14.8 MB`, less than `11.31%` of Python3 online submissions for Two Sum II - Input array is sorted. <br>
 
 
+---
 
-## [169. Majority Element](https://leetcode.com/problems/majority-element/)
+## 169. Majority Element
+
+[문제링크](https://leetcode.com/problems/majority-element/)
 
 ### 방법1
 
@@ -440,8 +480,11 @@ class Solution:
 > Memory Usage: `15.4 MB`, less than `35.47%` of Python3 online submissions for Majority Element. <br>
 
 
+---
 
-## [204. Count Primes](https://leetcode.com/problems/count-primes/)
+## 204. Count Primes
+
+[문제링크](https://leetcode.com/problems/count-primes/)
 
 1. `아리스토텔레스의 체` 이용하여 소수가 아닌값을 거르는 알고리즘
 
@@ -466,8 +509,11 @@ class Solution:
 > Memory Usage: `25.7 MB`, less than `55.70%` of Python3 online submissions for Count Primes. <br>
 
 
+---
 
-## [217. Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
+## 217. Contains Duplicate
+
+[문제링크](https://leetcode.com/problems/contains-duplicate/)
 
 1. `nums`리스트 중복제거한 길이와 `nums` 리스트 길이와 비교
 2. 길이가 같다면 `False` 길이가 다르면 중복제거하여 `True` 반환
@@ -508,8 +554,11 @@ class Solution:
 > Memory Usage: `21.5 MB`, less than `8.09%` of Python3 online submissions for Contains Duplicate. <br>
 
 
+---
 
-## [231. Power of Two](https://leetcode.com/problems/power-of-two/)
+## 231. Power of Two
+
+[문제링크](https://leetcode.com/problems/power-of-two/)
 
 ### 방법1
 
@@ -554,8 +603,11 @@ class Solution:
 > Memory Usage: `14.1 MB`, less than `80.64%` of Python3 online submissions for Power of Two. <br>
 
 
+---
 
-## [242. Valid Anagram](https://leetcode.com/problems/valid-anagram/)
+## 242. Valid Anagram
+
+[문제링크](https://leetcode.com/problems/valid-anagram/)
 
 1. `s`, `t` 문자열을 `sorted`함수로 정렬된 리스트 반환받아 비교하여 결과값 반환
     - True : 입력받은 두 문자열이 동일할 경우
@@ -573,8 +625,11 @@ class Solution:
 > Memory Usage: `15 MB`, less than `6.58%` of Python3 online submissions for Valid Anagram. <br>
 
 
+---
 
-## [258. Add Digits](https://leetcode.com/problems/add-digits)
+## 258. Add Digits
+
+[문제링크](https://leetcode.com/problems/add-digits)
 
 ### 방법1
 
@@ -616,8 +671,11 @@ class Solution:
 > Memory Usage: `14.3 MB`, less than `20.30%` of Python3 online submissions for Add Digits. <br>
 
 
+---
 
-## [263. Ugly Number](https://leetcode.com/problems/ugly-number/)
+## 263. Ugly Number
+
+[문제링크](https://leetcode.com/problems/ugly-number/)
 
 1. while 반복문으로 `num`값이 `5`로 나눈 `나머지`가 `0`일때 `몫`을 `num`값에 저장
 2. 동일한 방식으로 `3`, `2`로 나눈다.
@@ -644,8 +702,11 @@ class Solution:
 > Memory Usage: `14.3 MB`, less than `19.35%` of Python3 online submissions for Ugly Number. <br>
 
 
+---
 
-## [268. Missing Number](https://leetcode.com/problems/missing-number/)
+## 268. Missing Number
+
+[문제링크](https://leetcode.com/problems/missing-number/)
 
 ### 방법1
 
@@ -699,8 +760,11 @@ class Solution:
 > Memory Usage: `15.4 MB`, less than `38.54%` of Python3 online submissions for Missing Number. <br>
 
 
+---
 
-## [278. First Bad Version](https://leetcode.com/problems/first-bad-version)
+## 278. First Bad Version
+
+[문제링크](https://leetcode.com/problems/first-bad-version)
 
 1. 이진탐색으로 풀이
 2. `low`변수에 0, `high`변수에 `n` 대입
@@ -739,8 +803,11 @@ class Solution:
 > Memory Usage: `14.1 MB`, less than `45.50%` of Python3 online submissions for First Bad Version. <br>
 
 
+---
 
-## [283. Move Zeroes](https://leetcode.com/problems/move-zeroes/)
+## 283. Move Zeroes
+
+[문제링크](https://leetcode.com/problems/move-zeroes/)
 
 1. `nums`리스트 요소값이 `0`이 아닐때 index인 `i`값 1증가시키고
 2. `nums`리스트 요소값이 `0`일때 해당 요소삭제 및 리스트 마지막에 `[0]`추가
@@ -768,8 +835,11 @@ class Solution:
 > Memory Usage: `15.2 MB`, less than `63.17%` of Python3 online submissions for Move Zeroes. <br>
 
 
+---
 
-## [292. Nim Game](https://leetcode.com/problems/nim-game/)
+## 292. Nim Game
+
+[문제링크](https://leetcode.com/problems/nim-game/)
 
 1. `n`값을 4로 나누었을때 0일경우만 `False`, 그외에 `True`
 
@@ -788,8 +858,11 @@ class Solution:
 > Memory Usage: `14.2 MB`, less than `38.05%` of Python3 online submissions for Nim Game. <br>
 
 
+---
 
-## [342. Power of Four](https://leetcode.com/problems/power-of-four/)
+## 342. Power of Four
+
+[문제링크](https://leetcode.com/problems/power-of-four/)
 
 ### 방법1
 
@@ -854,8 +927,11 @@ class Solution:
 > Memory Usage: `14 MB`, less than `82.10%` of Python3 online submissions for Power of Four. <br>
 
 
+---
 
-## [1678. Goal Parser Interpretation](https://leetcode.com/problems/goal-parser-interpretation/)
+## 1678. Goal Parser Interpretation
+
+[문제링크](https://leetcode.com/problems/goal-parser-interpretation/)
 
 1. `command`문자열에서 `()` -> `o`, `(al)` -> `al` 문자열 변환하여 반환
 

@@ -13,20 +13,21 @@ categories: ["Go", "Learning", "Scraper"]
 ---
 
 
+---
 
-# 0. 소개
+## 0. 소개
 
 설치 환경 : Windows 10
 IDE : vscode
 
-## 0.1. 설치
+### 0.1. 설치
 
 해당 URL에서 golang 설치파일을 다운받아 실행  
 
 - https://golang.org/dl/
 - 설치파일에서 안내한 경로인 `C:\Program Files\Go` 폴더에 Go 설치 되었는지 확인
 
-## 0.2. 설정
+### 0.2. 설정
 
 1. Go Path 환경변수 확인
 
@@ -50,9 +51,12 @@ IDE : vscode
 - vscode 우측 하단에 표시된 go 관련 Extensions 업데이트 모두 설치
 - vscode 재실행
 
-# 1. 이론
 
-## 1.0. Main Package
+---
+
+## 1. 이론
+
+### 1.0. Main Package
 
 컴파일 되기 위해서는 main.go 파일에 코드 작성해야함
 
@@ -74,7 +78,7 @@ go 파일 실행 명령어
 go run main.go
 ```
 
-## 1.1. Packages and Imports
+### 1.1. Packages and Imports
 
 터미널에서 문자열 출력
 
@@ -95,7 +99,7 @@ vscode에서는 import 없이 함수를 사용해도  `ctrl+s`  저장하면 자
  - 다른 package function을 export 하고 싶으면 대문자로 시작되는 function을 호출
  - 소문자로 시작하는 함수는 private 함수로 외부에서 호출할 수 없음
 
-## 1.2. 변수와 상수(Variables and Constants)
+### 1.2. 변수와 상수(Variables and Constants)
 
 const : 상수  
 let : 변수  
@@ -122,7 +126,7 @@ func main() {
 }
 ```
 
-## 1.3. 함수(Functions)
+### 1.3. 함수(Functions)
 
 Go 언어에서 사용가능한 Type 목록
 - https://go101.org/article/type-system-overview.html
@@ -232,7 +236,7 @@ func main() {
 
 ```
 
-## 1.4. for, range, args
+### 1.4. for, range, args
 
 `for` : loop는 for함수로만 가능  
 `range` : array에 loop 적용 가능  
@@ -293,7 +297,7 @@ func main() {
 }
 ```
 
-## 1.5. If with a Twist
+### 1.5. If with a Twist
 
 if 조건문 사용형식
 
@@ -329,7 +333,7 @@ func canIDrink(age int) bool {
 }
 ```
 
-## 1.6. Switch
+### 1.6. Switch
 
 ```go
 package main
@@ -383,7 +387,7 @@ func canIDrink(age int) bool {
 }
 ```
 
-## 1.7 Pointers
+### 1.7. Pointers
 
 복사는 기본적으로 값 복사를 실행
 
@@ -420,7 +424,7 @@ func main() {
 }
 ```
 
-## 1.8 Arrays and Slices
+### 1.8. Arrays and Slices
 
 `array` : 크기를 정해서 사용하는 배열 (크기 수정 불가)
 
@@ -458,7 +462,7 @@ func main() {
 }
 ```
 
-## 1.9 Maps
+### 1.9. Maps
 
 map : key, value 로 이루어진 자료형
 
@@ -499,7 +503,7 @@ func main() {
 }
 ```
 
-## 1.10 Structs
+### 1.10. Structs
 
 map 자료형보다 유연함
 
@@ -536,15 +540,18 @@ func main() {
 
 ```
 
-# 2. BANK & DICTIONARY PROJECTS
 
-## 2.0 Account + NewAccount
+---
+
+## 2. BANK & DICTIONARY PROJECTS
+
+### 2.0. Account + NewAccount
 
 변수명 첫글자가 `대문자`이면 public  
 변수명 첫글자가 `소문자`이면 private  
 - private은 외부 패키지에서 접근할 수 없음
 
-### 2.0.1 pubilc
+#### 2.0.1. pubilc
 
 main.go
 
@@ -586,7 +593,7 @@ go mod init
 go build
 ```
 
-### 2.0.2 private
+#### 2.0.2. private
 
 외부 패키지에서 account 정보 수정하지 못하도록 private 방식으로 코드 수정
 
@@ -630,9 +637,9 @@ func NewAccount(owner string) *Account {
 }
 ```
 
-## 2.1 Methods
+### 2.1. Methods
 
-### 2.1.1 receiver(method 설정)
+#### 2.1.1. receiver(method 설정)
 
 `a Account` : receiver에서 접근할 struct의 첫 글자를 따서 변수명을 소문자로 지어야함  
 - 해당 Account 정보는 복사한 정보
@@ -660,7 +667,7 @@ func (a Account) Deposit(amount int) {
 }
 ```
 
-### 2.1.2 Pointer receiver
+#### 2.1.2. Pointer receiver
 
 Deposit method 호출한 account 주소 사용
 
@@ -676,7 +683,7 @@ func NewAccount(owner string) *Account {
 }
 ```
 
-### 2.1.3 error handling
+#### 2.1.3. error handling
 
 error 반환 유형 2가지
 - `return errors.New()`
@@ -743,7 +750,7 @@ func (a *Account) Withdraw(amount int) error {
 }
 ```
 
-## 2.2 Finishing Up
+### 2.2. Finishing Up
 
 Go에서 struct 사용시 내부적으로 호출해주는 method
 - `String` : struct 출력시 실행되는 method
@@ -792,7 +799,7 @@ func (a Account) String() string {
 }
 ```
 
-## 2.3 Dictionary
+### 2.3. Dictionary
 
 type Dictionary는 `map[string]string`자료형의 별명(alias)이다.
 
@@ -823,7 +830,7 @@ func main() {
 }
 ```
 
-### 2.3.1 Search
+#### 2.3.1. Search
 
 dictionary 와 method 사용
 
@@ -874,7 +881,7 @@ func main() {
 }
 ```
 
-### 2.3.2 Add
+#### 2.3.2. Add
 
 Add method 추가
 
@@ -942,7 +949,7 @@ func main() {
 }
 ```
 
-### 2.3.3 Update Delete
+#### 2.3.3. Update Delete
 
 Update method 추가
 
@@ -1033,9 +1040,12 @@ func (d Dictionary) Delete(word string) {
 }
 ```
 
-# 3. URL CHECKER & GO ROUTINES
 
-## 3.0 hitURL
+---
+
+## 3. URL CHECKER & GO ROUTINES
+
+### 3.0. hitURL
 
 hit : 인터넷 웹 서버의 파일 1개에 접속하는것을 뜻함
 
@@ -1085,7 +1095,7 @@ func hitURL(url string) error {
 }
 ```
 
-## 3.1 Slow URLChecker
+### 3.1. Slow URLChecker
 
 panic : 컴파일러가 못찾은 에러
 
@@ -1165,7 +1175,7 @@ status code
  - 401 : Unauthorized
  - 429 : Too Many Requests
 
-## 3.2 Goroutines
+### 3.2. Goroutines
 
 Top-down 방식의 프로그래밍
 
@@ -1218,7 +1228,7 @@ func myCount(person string) {
 }
 ```
 
-## 3.3 Channels
+### 3.3. Channels
 
 `Channel`
 - `goroutine`과 `main`함수 사이에 정보를 전달하기 위한 방법
@@ -1250,7 +1260,7 @@ func isMy(person string, c chan bool) {
 }
 ```
 
-## 3.4 Channels Recap
+### 3.4. Channels Recap
 
 blocking operation : 해당 작업이 끝날때까지 멈춤
 - `<-c` : 채널로부터 메세지를 얻음
@@ -1286,7 +1296,7 @@ func isMy(person string, c chan string) {
 1. 채널의 메세지를 받는것 == blocking operation
 2. 채널을 통해서 보내는 부분과 받는 부분 모두 타입 지정해야함  
 
-## 3.5 URLChecker + Go Routines
+### 3.5. URLChecker + Go Routines
 
 `c chan<-` : Send Only(보내기만 가능)
 
@@ -1341,9 +1351,12 @@ func hitURL(url string, c chan<- requestResult) {
 }
 ```
 
-# 4. JOB SCRAPPER
 
-## 4.0 getPages
+---
+
+## 4. JOB SCRAPPER
+
+### 4.0. getPages
 
 라이브러리 설치
 
@@ -1417,7 +1430,7 @@ func checkCode(res *http.Response) {
 }
 ```
 
-## 4.1 extractJob
+### 4.1. extractJob
 
 strings.TrimSpace(str) : 문자열 양쪽 끝 공백 제거
 
@@ -1537,7 +1550,7 @@ func checkCode(res *http.Response) {
 }
 ```
 
-## 4.2 Writing Jobs
+### 4.2. Writing Jobs
 
 encoding/csv : csv 관련 패키지
 
@@ -1677,7 +1690,7 @@ func checkCode(res *http.Response) {
 }
 ```
 
-## 4.3 Channels Time
+### 4.3. Channels Time
 
 ```go
 package main
@@ -1819,9 +1832,12 @@ func checkCode(res *http.Response) {
 }
 ```
 
-# 5. WEB SERVER WITH ECHO
 
-## 5.0 Setup
+---
+
+## 5. WEB SERVER WITH ECHO
+
+### 5.0. Setup
 
 go echo 서버 만들기
 
@@ -1857,7 +1873,7 @@ func main() {
 
 웹 브라우저에서 `localhost:1323` 접속시 접속되는 것을 확인
 
-## 5.1 scrapper 서버 생성
+### 5.1. scrapper 서버 생성
 
 `scrapper` 폴더 생성후 해당 폴더로 `main.go` 파일 이동후 아래와 같이 수정
 - 파일명 `main.go` -> `scrapper.go`
@@ -2056,7 +2072,7 @@ home.html 파일 생성
 </html>
 ```
 
-## 5.2 File Download
+### 5.2. File Download
 
 return c.Attachment(filename1, filename2) : filename1 파일 찾아서 filename2 이름으로 다운로드
 
@@ -2095,8 +2111,11 @@ func main() {
 ```
 
 
-[buffalo](https://gobuffalo.io/en/) - django의 go버전 프레임워크
+---
 
-db, template, api, server, logger, orm 등 모든 것이 있는 풀스택 프레임워크
+## 참고(Reference)
 
-라우팅, hot code reload, 프론트엔드 파이프라인, 모델, 테스트 등 기능 지원
+[buffalo](https://gobuffalo.io/en/)
+- django의 go버전 프레임워크
+- db, template, api, server, logger, orm 등 모든 것이 있는 풀스택 프레임워크
+- 라우팅, hot code reload, 프론트엔드 파이프라인, 모델, 테스트 등 기능 지원

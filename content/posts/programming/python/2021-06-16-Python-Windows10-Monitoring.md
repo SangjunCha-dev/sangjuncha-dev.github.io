@@ -13,17 +13,17 @@ categories: ["Python", "Windows"]
 ---
 
 
+---
 
 운영체제 : windows 10  
 설치환경 : python 3.8.8, powershell 7.1  
 
-## powershell 명령어 사용법
 
-- [WMI 개체 가져오기(Get-CimInstance)](https://docs.microsoft.com/ko-kr/powershell/scripting/samples/getting-wmi-objects--get-ciminstance-?view=powershell-7.1)
+---
 
-## python에서 powershell 명령 실행 방법
+## 1. python에서 powershell 명령 실행 방법
 
-#### 1. 콘솔 명령 실행
+### 1.1 콘솔 명령 실행
 
 ```python
 import subprocess
@@ -32,7 +32,7 @@ cmd = "Get-CimInstance -Class Win32_OperatingSystem"
 subprocess.Popen(f'powershell.exe {cmd}')
 ```
 
-#### 2. 실행결과 반환
+### 1.2. 실행결과 반환
 
 디코딩을 하지 않으면 바이트 문자열로 나열되서 반환된다.
 
@@ -55,7 +55,7 @@ b'\r\nSystemDirectory     Organization BuildNumber RegisteredUser SerialNumber  
 \r\nC:\\Windows\\system32              19000       UserName         00000-00000 10.0\r\n\r\n\r\n'
 ```
 
-#### 3.실행결과 디코딩
+### 1.3.실행결과 디코딩
 
 ```python
 cmd = "Get-CimInstance -Class Win32_OperatingSystem"
@@ -73,7 +73,7 @@ SystemDirectory     Organization BuildNumber RegisteredUser SerialNumber Version
 C:\Windows\system32              19000       UserName       00000-00000  10.0
 ```
 
-#### 4. json 형식의 문자열 형태로 반환
+### 1.4. json 형식의 문자열 형태로 반환
 
 ```python
 cmd = "Get-CimInstance -Class Win32_OperatingSystem | Select-Object -Property Caption, OSArchitecture, Version"
@@ -95,7 +95,7 @@ print(type(result))
 <class 'str'>
 ```
 
-#### 5. dict 형태로 반환
+### 1.5. dict 형태로 반환
 
 ```python
 cmd = "Get-CimInstance -Class Win32_OperatingSystem | Select-Object -Property Caption, OSArchitecture, Version"
@@ -113,7 +113,7 @@ print(type(result))
 <class 'dict'>
 ```
 
-#### 6. int형으로 반환
+### 1.6. int형으로 반환
 ```python
 cmd = "(Get-CimInstance -ClassName Win32_Processor).LoadPercentage"
 result = subprocess.Popen(f'powershell.exe {cmd}', stdout=subprocess.PIPE)
@@ -138,27 +138,29 @@ print(type(result))
 ```
 
 
-## power shell 명령어 예시
+---
 
-#### 1. 운영체제 및 메모리 사용량 정보 조회
+## 2. power shell 명령어 예시
+
+### 2.1. 운영체제 및 메모리 사용량 정보 조회
 
 ```
 Get-CimInstance -Class Win32_OperatingSystem | Select-Object -Property Caption, OSArchitecture, Version, TotalVisibleMemorySize, FreePhysicalMemory
 ```
 
-#### 2. CPU 정보 및 사용량 조회
+### 2.2. CPU 정보 및 사용량 조회
 
 ```
 Get-CimInstance -ClassName Win32_Processor | Select-Object -Property Name, MaxClockSpeed, LoadPercentage
 ```
 
-#### 2-1. CPU 사용량 조회
+### 2.2.1. CPU 사용량 조회
 
 ```
 (Get-CimInstance -ClassName Win32_Processor).LoadPercentage
 ```
 
-#### 3. GPU 정보 조회
+### 2.3. GPU 정보 조회
 
 - AdapterRAM 필드의 자료형이 dword(uint32)형으로 최대 4GB 까지 표현한다.
 
@@ -172,28 +174,36 @@ Get-CimInstance -ClassName  Win32_VideoController | Select-Object -Property Name
 (Get-ItemProperty -Path "HKLM:\SYSTEM\ControlSet001\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0*" -Name HardwareInformation.qwMemorySize -ErrorAction SilentlyContinue)."HardwareInformation.qwMemorySize"
 ```
 
-#### 3-1. GPU 메모리 사용량 조회
+### 2.3.1. GPU 메모리 사용량 조회
 
 ```
 (((Get-Counter '\GPU Process Memory(*)\Local Usage').CounterSamples | where CookedValue).CookedValue | measure -sum).sum
 ```
 
-#### 4. 메모리 정보 조회
+### 2.4. 메모리 정보 조회
 
 ```
 Get-CimInstance -ClassName Win32_PhysicalMemory | Select-Object -Property Manufacturer, PartNumber, Speed, Capacity
 ```
 
-#### 5. 디스크 정보 조회
+### 2.5. 디스크 정보 조회
 
 ```
 Get-CimInstance -ClassName Win32_DiskDrive | Select-Object -Property Index, Model, Size
 ```
 
-#### 6. 볼륨 정보 조회
+### 2.6. 볼륨 정보 조회
 
 - DriveType 3 (WMI에서 고정 하드 디스크에 사용하는 값)
 
 ```
 Get-CimInstance -ClassName Win32_LogicalDisk -Filter 'DriveType=3' | Select-Object -Property Name, FileSystem, Size, FreeSpace
 ```
+
+
+---
+
+## 참고(Reference)
+
+- [WMI 개체 가져오기(Get-CimInstance)](https://docs.microsoft.com/ko-kr/powershell/scripting/samples/getting-wmi-objects--get-ciminstance-?view=powershell-7.1)
+    - powershell 명령어 사용법

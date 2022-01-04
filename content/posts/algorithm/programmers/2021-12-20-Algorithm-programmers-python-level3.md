@@ -7,6 +7,7 @@ categories: ["Algorithm", "Programmers"]
 ---
 
 
+---
 
 ## 다단계 칫솔 판매
 
@@ -85,6 +86,7 @@ def solution(enroll, referral, seller, amount):
 > min TaseCase : 0.01ms, 10.3MB  
 > max TaseCase : 92.37ms, 21.2MB  
 
+---
 
 
 <!--

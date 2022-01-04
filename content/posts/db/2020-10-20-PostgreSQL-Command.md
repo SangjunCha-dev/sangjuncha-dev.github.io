@@ -1,6 +1,6 @@
 ---
 title: "PostgreDB SQL 명령어 (PostgreDB SQL Command)"
-date: 2020-10-20T15:27:3309:00
+date: 2020-10-20T15:27:33+09:00
 description: MariaDB SQL 명령어 예시
 # menu:
 #   sidebar:
@@ -13,18 +13,20 @@ categories: ["DB", "PostgreDB"]
 ---
 
 
+---
 
-# 1. DATABASE 생성
+## 1. DATABASE 생성
 
 - DATABASE 생성
-- PostgreDB의 경우 대문자인식은 ""으로만 가능
+- PostgreDB의 경우 대문자인식은 ""으로 감싸야 사용가능하다.
 
     ```sql
     CREATE DATABASE "{database_name}";
     ```
 
+---
 
-# 2. USER 생성
+## 2. USER 생성
 
 - USER 생성
 
@@ -32,7 +34,7 @@ categories: ["DB", "PostgreDB"]
     CREATE USER {user_name} WITH PASSWORD '{user_password}'
     ```
 
-- 개발용 계정으로 사용할 예정이기 때문에 SUPERUSER 권한부여
+- SUPERUSER 권한부여(개발용 계정으로 사용 예정)
 
     ```sql
     ALTER USER {user_name} WITH SUPERUSER;
@@ -64,9 +66,11 @@ categories: ["DB", "PostgreDB"]
     DROP ROLE {user_name};
     ```
 
-# 3. DB insert
+---
 
-## 3.1 기본 insert
+## 3. DB insert
+
+### 3.1. 기본 insert
 
 ```sql
 INSERT INTO Table_Name
@@ -78,7 +82,7 @@ INSERT INTO PLAYER
 VALUES ('1', 'player_name', 'code1', 1, 21);
 ```
 
-## 3.2 리스트/배열 데이터 insert
+### 3.2. 리스트/배열 데이터 insert
 
 ```sql
 INSERT INTO Table_Name
@@ -90,7 +94,7 @@ INSERT INTO "WeightsFile"
 VALUES (1, 'test_Weights.npz', '{test_catagory1, test_catagory2}', 1, 'color')
 ```
 
-## 3.3 2차원 리스트 저장방법
+### 3.3. 2차원 리스트 저장방법
 
 사용환경 : django, postgreDB
 
@@ -121,13 +125,15 @@ for i in range(len(exportList)):
 ```
 
 
-# 4. 기본키 초기화
+---
+
+## 4. 기본키 초기화
 
 ```sql
 ALTER SEQUENCE "TableName_id_seq" RESTART WITH 1;
 ```
 
-## 4.1 delete 테이블 데이터 삭제 및 ID값 초기화 예제
+### 4.1. 테이블 데이터 삭제 및 ID값 초기화 예제
 
 ```sql
 delete from "DatasheetUpload" where id > 0;

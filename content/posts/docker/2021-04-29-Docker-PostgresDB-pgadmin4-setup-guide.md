@@ -13,12 +13,13 @@ categories: ["Docker", "PostgreDB"]
 ---
 
 
+---
 
-## Postgres Docker 이미지 설치
+## 1. Postgres Docker 이미지 설치
 
 Postgres Version : 13.2
 
-### 다운로드 및 설정
+### 1.1. 다운로드 및 설정
 
 아래 명령어를 실행한다.
 
@@ -57,7 +58,7 @@ Status: Downloaded newer image for postgres:latest
 47d090f5c4a593b833c237cef181f960571e71004ace5ebc804907f4feae1433
 ```
 
-### 도커 이미지 확인
+### 1.2. 도커 이미지 확인
 
 도커에서 실행중인 이미지 정보확인
 
@@ -67,7 +68,7 @@ CONTAINER ID   IMAGE               COMMAND                  CREATED          STA
 47d090f5c4a5   postgres            "docker-entrypoint.s…"   16 seconds ago   Up 14 seconds             0.0.0.0:15432->5432/tcp   postgres
 ```
 
-### 도커 이미지 접속
+### 1.3. 도커 이미지 접속
 
 postgres 이미지 bash쉘 접속
 
@@ -77,7 +78,7 @@ $ docker exec -it postgres /bin/bash
 
 - `-it` : 컨테이너를 종료하지 않고, 터미널의 입력을 컨테이너로 전달하기 위해서 사용
 
-### Postgres DB 및 User 생성
+### 1.4. Postgres DB 및 User 생성
 
 1. 데이터베이스 접속
 
@@ -115,7 +116,7 @@ $ docker exec -it postgres /bin/bash
     \du
     ```
 
-### 도커 컨테이너 삭제
+### 1.5. 도커 컨테이너 삭제
 
 도커 이미지가 실행중일 경우 두 가지 방법으로 삭제할 수 있다.
 
@@ -132,14 +133,14 @@ $ docker exec -it postgres /bin/bash
     $ docker rm -f {CONTAINER ID}
     ```
 
-### 모든 컨테이너 종료 및 삭제
+### 1.6. 모든 컨테이너 종료 및 삭제
 
 ```bash
 $ docker stop $(docker ps -a -q)
 $ docker rm $(docker ps -a -q)
 ```
 
-### 볼륨 컨테이너
+### 1.7. 볼륨 컨테이너
 
 컨테이너를 삭제하면 데이터도 같이 삭제되므로 데이터 저장용으로 사용하는 `볼륨 컨테이너`를 같이 사용한다.
 
@@ -186,11 +187,13 @@ $ docker rm $(docker ps -a -q)
     ]
     ```
 
-## pgadmin4 이미지 설치
+---
+
+## 2. pgadmin4 이미지 설치
 
 pgadmin4 Version : 13.2
 
-### 설치
+### 2.1. 설치
 
 이미지를 다운받는다.
 
@@ -198,7 +201,7 @@ pgadmin4 Version : 13.2
 docker pull dpage/pgadmin4
 ```
 
-### 도커 이미지 실행
+### 2.2. 도커 이미지 실행
 
 아래의 설정으로 다운받은 이미지 사용하여 도커컨테이너를 실행한다.
 
@@ -215,7 +218,7 @@ docker run -p 80:80 --name pgadmin4 -e PGADMIN_DEFAULT_EMAIL="account@site.com" 
 - `-d` : 백그라운드에서 컨테이너 실행
 - `dpage/pgadmin4` : 사용할 이미지 이름
 
-### 실행
+### 2.3. 실행
 
 웹 브라우저에서 `localhost:80` 주소로 접속하여 설정한 계정과 비밀번호로 접속하면된다.
 

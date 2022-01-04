@@ -13,26 +13,34 @@ categories: ["Python", "Guide"]
 ---
 
 
+---
 
 [미디어 타입(media type), MIME 타입(MIME type)](https://ko.wikipedia.org/wiki/%EB%AF%B8%EB%94%94%EC%96%B4_%ED%83%80%EC%9E%85)
 
-실행환경 : windows 10
+## 1. 라이브러리 설치
 
-## 라이브러리 설치
+실행환경 : windows 10
 
 ```bash
 pip install libmagic
 pip install python-magic-bin
 ```
 
-libmagic : 파일타입을 MIME 타입으로 확인해주는 라이브러리
-- magic은 리눅스 환경에서 실행되는 프로그램
-- 윈도우즈 환경에서는 윈도우용 magic 설치가 필요함  
+실행환경 : linux
 
-python-magic-bin : 윈도우용 magic 라이브러리
+```bash
+pip install libmagic
+pip install python-magic
+```
+
+- libmagic : 파일타입을 MIME 타입으로 확인해주는 라이브러리
+- python-magic-bin : 윈도우용 magic 라이브러리
+- python-magic : 리눅스용 magic 라이브러리
 
 
-## 예제 코드
+---
+
+## 2. 예제 코드
 
 ```python
 import magic
@@ -49,8 +57,11 @@ r4 = magic.from_buffer(file_data, mime=True)
 print(f"filetype = {r3}, \nmime = {r4}")
 ```
 
-UnicodeDecodeError 에러 발생시  
-`UnicodeDecodeError: 'cp949' codec can't decode byte 0xd3 in position 23: illegal multibyte sequence`
+### UnicodeDecodeError 에러 발생시
+
+```
+UnicodeDecodeError: 'cp949' codec can't decode byte 0xd3 in position 23: illegal multibyte sequence
+```
 
 file open encoding 지정하여 디코딩 가능하도록 코드 수정
 

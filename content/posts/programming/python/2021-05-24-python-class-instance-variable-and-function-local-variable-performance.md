@@ -13,12 +13,13 @@ categories: ["Python"]
 ---
 
 
+---
 
 설치버전 : python 3.8.8
 
-## 클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이
+## 1. 클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이
 
-### 예제 코드 1
+### 1.1. 예제 코드
 
 ```python
 import timeit
@@ -58,7 +59,7 @@ checkTime = CheckTime()
 checkTime.get_time()
 ```
 
-### 결과
+### 1.2. 결과
 
 ```bash
 Self value process = [0.1872074, 0.1858419, 0.1853262, 0.1846126, 0.1845041] sec
@@ -74,9 +75,9 @@ Argument value process = [0.147073, 0.1466343, 0.1458009, 0.1452553, 0.1468781] 
 
 
 
-## 클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도 차이
+## 2. 클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도 차이
 
-### 예제 코드
+### 2.1. 예제 코드
 
 ```python
 import timeit
@@ -112,7 +113,7 @@ checkTime = CheckTime()
 checkTime.get_time()
 ```
 
-### 결과
+### 2.2. 결과
 
 ```bash
 Self value process = [0.0758095, 0.0757394, 0.0756023, 0.0746107, 0.0749142] sec
@@ -124,5 +125,6 @@ Argument value process = [0.0332198, 0.0332008, 0.0332592, 0.0331674, 0.0332719]
 이유 : 클래스 인스턴스 변수에는 할당과 액세스 모두에 대한 사전 검색이 필요하다. 
 
 
-## 참고 사이트
+## 참고(Reference)
+
 - [python - 인스턴스 변수 및 함수 인수의 처리 속도](https://www.python2.net/questions-819739.htm)

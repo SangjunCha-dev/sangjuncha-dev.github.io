@@ -13,8 +13,12 @@ categories: ["Python", "Learning"]
 ---
 
 
+---
 
 # Part 1 헬로, 자료구조!
+
+
+---
 
 ## Chapter 01 숫자
 
@@ -576,6 +580,7 @@ $ generate_prime.py 3
 ```
 
 
+---
 
 ## Chapter 02 내장 시퀀스 타입
 

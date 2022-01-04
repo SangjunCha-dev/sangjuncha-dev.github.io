@@ -13,23 +13,26 @@ categories: ["Django"]
 ---
 
 
+---
 
-# 라이브러리 설치
+## 1. 라이브러리 설치
 
-## server 라이브러리 설치
+### 1.1. server 라이브러리 설치
 ```shell
 pip install python-socketio
 ```
 
-## client 라이브러리 설치
+### 1.2. client 라이브러리 설치
 ```shell
 pip install "python-socketio[client]"
 ```
 
-# Server django settings
 
-django server  
-wsgi.py  
+---
+
+## 2. Server django settings
+
+projectname/wsgi.py  
 ```python
 ...
 
@@ -43,7 +46,7 @@ django_app = get_wsgi_application()
 application = socketio.WSGIApp(sio, django_app)
 ```
 
-appname.views.py  
+appname/views.py  
 ```python
 import socketio
 
@@ -70,7 +73,10 @@ class TransferNamespace(socketio.Namespace):
         print(f"on_client_response sid = {sid}")
 ```
 
-# Client settings
+
+---
+
+## 3. Client settings
 
 client.py
 ```python

@@ -7,16 +7,23 @@ categories: ["Python"]
 ---
 
 
+---
 
 python 언어에서 대용량 json 읽기/쓰기 성능은 사용방법과 라이브러리에 따라서 성능 차이가 있다.  
 테스트 기준은 동일한 json 파일을 100번씩 반복 실행하였다.  
 json 라이브러리의 파일 읽기/쓰기 모두 byte 모드가 상대적으로 빠르다.  
 
-## 라이브러리 버전
+
+---
+
+라이브러리 버전
 
 - python : 3.8.10
 - ujson : 5.1.0
 - orjson : 3.6.5
+
+
+---
 
 ## 1. json
 
@@ -30,14 +37,14 @@ json_rb       = 0.034 sec
 json_wb_dumps = 0.055 sec
 ```
 
-### 1-1. read
+### 1.1. read
 
 ```python
 with open('github.json', "r") as json_file:
     data = json.load(json_file)
 ```
 
-### 1-2. write_dump
+### 1.2. write_dump
 
 `json.dump` 함수는 ASCII 모드에서만 동작한다.
 
@@ -46,7 +53,7 @@ with open('github_w_dump.json', "w") as json_file:
     json.dump(data, json_file)
 ```
 
-### 1-3. write_dumps
+### 1.3. write_dumps
 
 ```python
 with open('github_w_dumps.json', "w") as json_file:
@@ -54,14 +61,14 @@ with open('github_w_dumps.json', "w") as json_file:
     json_file.write(data)
 ```
 
-### 1-4. read byte
+### 1.4. read byte
 
 ```python
 with open('github.json', "rb") as json_file:
     data = json.load(json_file)
 ```
 
-### 1-5. write byte dumps
+### 1.5. write byte dumps
 
 ```python
 with open('github_wb_dumps.json', "wb") as json_file:
@@ -70,6 +77,7 @@ with open('github_wb_dumps.json', "wb") as json_file:
 ```
 
 
+---
 
 ## 2. ujson
 
@@ -84,14 +92,14 @@ ujson_rb       = 0.037 sec
 ujson_wb_dumps = 0.049 sec
 ```
 
-### 2-1. read
+### 2.1. read
 
 ```python
 with open('github.json', "r") as json_file:
     data = ujson.loads(json_file.read())
 ```
 
-### 2-2. write dumps
+### 2.2. write dumps
 
 ```python
 with open('github_w_dumps.json', "w") as json_file:
@@ -99,14 +107,14 @@ with open('github_w_dumps.json', "w") as json_file:
     json_file.write(data)
 ```
 
-### 2-3. read byte
+### 2.3. read byte
 
 ```python
 with open('github.json', "rb") as json_file:
     data = ujson.load(json_file)
 ```
 
-### 2-4. write byte dumps
+### 2.4. write byte dumps
 
 ```python
 with open('github_wb_dumps.json', "wb") as json_file:
@@ -115,6 +123,7 @@ with open('github_wb_dumps.json', "wb") as json_file:
 ```
 
 
+---
 
 ## 3. orjson
 
@@ -129,14 +138,14 @@ orjson_rb       = 0.024 sec
 orjson_wb_dumps = 0.035 sec
 ```
 
-### 3-1. read
+### 3.1. read
 
 ```python
 with open('github.json', "r") as json_file:
     data = orjson.loads(json_file.read())
 ```
 
-### 3-2. write dumps
+### 3.2. write dumps
 
 ```python
 with open('github_w_dumps.json', "w") as json_file:
@@ -144,14 +153,14 @@ with open('github_w_dumps.json', "w") as json_file:
     json_file.write(data)
 ```
 
-### 3-3. read byte
+### 3.3. read byte
 
 ```python
 with open('github.json', "rb") as json_file:
     data = orjson.loads(json_file.read())
 ```
 
-### 3-4. write byte dumps
+### 3.4. write byte dumps
 
 ```python
 with open('github_wb_dumps.json', "wb") as json_file:
@@ -160,6 +169,7 @@ with open('github_wb_dumps.json', "wb") as json_file:
 ```
 
 
+---
 
 ## 4. banchmark
 
@@ -186,14 +196,16 @@ This measures serializing the github.json fixture as compact (52KiB) or pretty (
 | json       |           0.36 | 1.19          | 17.2         |
 
 
+---
 
-## 5. 예시코드 Git 주소
+## 5. 예시코드 Git
 
 [python-json-read-write-performance](https://github.com/SangjunCha-dev/blog/tree/main/python/python-json-read-write-performance)
 
 
+---
 
-## 참고 사이트
+## 참고(Reference)
 
 - [Benchmark of Python JSON libraries](https://artem.krylysov.com/blog/2015/09/29/benchmark-python-json-libraries/)
 - [orjson](https://github.com/ijl/orjson)
