@@ -86,6 +86,28 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>golang learn-go-with-tests GitBook 정리</h5>
+<p class="card-text post-summary">사이트 주소 원본 링크
+한글 번역 링크
+5. struct, method & interface struct 구조체의 변수 첫글자는 대문자여야한다. (외부에서 사용 가능하도록)
+type Rectangle struct { Width float64 Height float64 } 구조체 필드이름을 선택적으로 지정할 수 있다.
+{shape: Rectangle{Width: 12, Height: 6}, want: 72.0}, {shape: Circle{Radius: 10}, want: 314.1592653589793}, methods func (receiverName ReceiverType) MethodName(args) r Rectangle 수신자 변수를 유형의 첫 번째 문자로 지정하는 것이 Go의 관례이다.
+func (r Rectangle) Area() float64 { return 0 } interface Go에서 인터페이스 자료형은 암시적 이다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>August 2, 2021</span>
+<a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/golang/2021-07-29-golang-gopacket/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -295,29 +317,6 @@ $ docker run -p 15432:5432 --name postgres -e POSTGRES_PASSWORD=password1! -d po
 </div>
 </a>
 </div>
-<div class=post-card>
-<a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Django json 데이터 반환하기</h5>
-<p class="card-text post-summary">api 서버 등 json 데이터로 통신하는 서버에서 사용할 수 있는 예제이다.
-사전 설정 프로젝트 생성 후 user 앱의 User 모델을 생성한다.
-임의의 user 데이터를 2개 등록한다.
-models.py
-class User(models.Model): id = models.AutoField(primary_key=True) name = models.CharField(max_length=20, unique=True) 사용 예시 QuerySet(Model Instance)을 json형태로 변환할 경우 .all() serializers.serialize(&lsquo;json&rsquo;, value_name) 함수를 사용하여 json 형태로 변환시킨다.
-views.py
-from django.core import serializers res_data = User.objects.all() # &lt;QuerySet [&lt;User: User object (1)>, &lt;User: User object (2)>]> res_data = serializers.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>April 20, 2021</span>
-<a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
 </div>
 <div class=paginator>
 <ul class="pagination pagination-default">
@@ -386,7 +385,7 @@ from django.core import serializers res_data = User.objects.all() # &lt;QuerySet
 Toha
 </a>
 </div>
-<div class="col-md-4 text-center">© 2020 Copyright.</div>
+<div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div>
 <div class="col-md-4 text-right">
 <a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
 <img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>

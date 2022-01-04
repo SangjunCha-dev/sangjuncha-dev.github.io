@@ -86,6 +86,29 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django json 데이터 반환하기</h5>
+<p class="card-text post-summary">api 서버 등 json 데이터로 통신하는 서버에서 사용할 수 있는 예제이다.
+사전 설정 프로젝트 생성 후 user 앱의 User 모델을 생성한다.
+임의의 user 데이터를 2개 등록한다.
+models.py
+class User(models.Model): id = models.AutoField(primary_key=True) name = models.CharField(max_length=20, unique=True) 사용 예시 QuerySet(Model Instance)을 json형태로 변환할 경우 .all() serializers.serialize(&lsquo;json&rsquo;, value_name) 함수를 사용하여 json 형태로 변환시킨다.
+views.py
+from django.core import serializers res_data = User.objects.all() # &lt;QuerySet [&lt;User: User object (1)>, &lt;User: User object (2)>]> res_data = serializers.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>April 20, 2021</span>
+<a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/docker/2021-04-08-docker-summary/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -311,28 +334,6 @@ Docs URL - http://docs.paramiko.org/en/stable/ scp : 파일 전송 및 다운로
 </div>
 </a>
 </div>
-<div class=post-card>
-<a href=/posts/os/linux/2021-01-06-linux-nfs-setting/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>리눅스 NFS 설정 (Linux NFS Setting)</h5>
-<p class="card-text post-summary">설치환경 : 레드햇8 (RHEL8)
-1. NFS 서버 설정 (Server Setting) 1.1 NFS 패키지 설치 yum패키지 설치 도구로 nfs-utils 패키지 설치
-yum install nfs-utils 1.2 NFS서버 서비스 실행 및 OS재부팅시 활성화 nfs서버 데몬 실행하고, OS 재부팅시 자동실행되도록 활성화
-systemctl start nfs-server systemctl enable nfs-server 1.3 외부에서 접근할 디렉토리 설정 공유할 디렉토리 생성
-mkdir /NFSVOL01 외부에서 접근할 디렉토리, 외부 접근IP, 접근권한을 exports 파일로 설정
-vi /etc/exports /NFSVOL01 192.168.0.0/255.255.255.0(rw) /NFSVOL01 : 공유할 디렉토리</p>
-</div>
-<div class=card-footer>
-<span class=float-left>January 6, 2021</span>
-<a href=/posts/os/linux/2021-01-06-linux-nfs-setting/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
 </div>
 <div class=paginator>
 <ul class="pagination pagination-default">
@@ -401,7 +402,7 @@ vi /etc/exports /NFSVOL01 192.168.0.0/255.255.255.0(rw) /NFSVOL01 : 공유할 
 Toha
 </a>
 </div>
-<div class="col-md-4 text-center">© 2020 Copyright.</div>
+<div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div>
 <div class="col-md-4 text-right">
 <a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
 <img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>

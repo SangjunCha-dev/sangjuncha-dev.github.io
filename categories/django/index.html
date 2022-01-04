@@ -74,6 +74,7 @@ Sangjun 개발 블로그</a>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/scraper/ data-taxonomy-term=scraper><span class=taxonomy-label>Scraper</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/sniff/ data-taxonomy-term=sniff><span class=taxonomy-label>Sniff</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/sqlcmd/ data-taxonomy-term=sqlcmd><span class=taxonomy-label>sqlcmd</span></a></li>
+<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/swagger/ data-taxonomy-term=swagger><span class=taxonomy-label>Swagger</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/windows/ data-taxonomy-term=windows><span class=taxonomy-label>Windows</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/windows10/ data-taxonomy-term=windows10><span class=taxonomy-label>Windows10</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/wsl/ data-taxonomy-term=wsl><span class=taxonomy-label>WSL</span></a></li>
@@ -121,6 +122,28 @@ INSTALLED_APPS = [ 'django_crontab', ... ] CRONJOBS 변수 선언</p>
 <div class=card-footer>
 <span class=float-left>December 9, 2021</span>
 <a href=/posts/framework/django/2021-12-09-django-corntab-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/framework/django/2021-09-24-django-swagger/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django drf_yasg Swagger 기본 사용법</h5>
+<p class="card-text post-summary">drf_yasg REST 프레임워크용 swagger/openAPI 자동 문서화 라이브러리로 게시글 작성 기준 최신 Django 버전을 지원한다.
+swagger : 개발자가 REST 웹 서비스를 설계, 빌드, 문서화, 테스트를 도와주는 오픈소스 소프트웨어 프레임워크
+drf_yasg : 1.20.0 호환버전
+Django Rest Framework : 3.10, 3.11, 3.12 Django : 2.2, 3.0, 3.1 Python : 3.6, 3.7, 3.8, 3.9 라이브러리 설치
+pip install -U drf-yasg 1. 프로젝트 생성 환경 : windwos 10
+# 가상환경 생성 및 접속 > python -m venv venv > venv\Scripts\activate # 라이브러리 설치 (venv)> pip install django (venv)> pip install djangorestframework (venv)> pip install drf-yasg # 프로젝트 및 앱 생성 (venv)> django-admin startproject config .</p>
+</div>
+<div class=card-footer>
+<span class=float-left>September 24, 2021</span>
+<a href=/posts/framework/django/2021-09-24-django-swagger/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
@@ -311,7 +334,7 @@ from annoying.fields import AutoOneToOneField # User모델 Save에서 제어 cla
 Toha
 </a>
 </div>
-<div class="col-md-4 text-center">© 2020 Copyright.</div>
+<div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div>
 <div class="col-md-4 text-right">
 <a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
 <img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
