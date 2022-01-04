@@ -101,11 +101,13 @@ Sangjun 개발 블로그</a>
 <h1>golang learn-go-with-tests GitBook 정리</h1>
 </div>
 <div class=post-content id=post-content>
-<h1 id=사이트-주소>사이트 주소</h1>
+<hr>
+<h2 id=사이트-주소>사이트 주소</h2>
 <p><a href=https://github.com/quii/learn-go-with-tests>원본 링크</a><br>
 <a href=https://github.com/MiryangJung/learn-go-with-tests-ko>한글 번역 링크</a></p>
-<h1 id=5-struct-method--interface>5. struct, method & interface</h1>
-<h2 id=struct>struct</h2>
+<hr>
+<h2 id=5-struct-method--interface>5. struct, method & interface</h2>
+<h3 id=struct>struct</h3>
 <p>구조체의 변수 첫글자는 대문자여야한다. (외부에서 사용 가능하도록)</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Rectangle</span> <span style=color:#66d9ef>struct</span> {
 	<span style=color:#a6e22e>Width</span>  <span style=color:#66d9ef>float64</span>
@@ -114,18 +116,18 @@ Sangjun 개발 블로그</a>
 </code></pre></div><p>구조체 필드이름을 선택적으로 지정할 수 있다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>{<span style=color:#a6e22e>shape</span>: <span style=color:#a6e22e>Rectangle</span>{<span style=color:#a6e22e>Width</span>: <span style=color:#ae81ff>12</span>, <span style=color:#a6e22e>Height</span>: <span style=color:#ae81ff>6</span>}, <span style=color:#a6e22e>want</span>: <span style=color:#ae81ff>72.0</span>},
 {<span style=color:#a6e22e>shape</span>: <span style=color:#a6e22e>Circle</span>{<span style=color:#a6e22e>Radius</span>: <span style=color:#ae81ff>10</span>}, <span style=color:#a6e22e>want</span>: <span style=color:#ae81ff>314.1592653589793</span>},
-</code></pre></div><h2 id=methods>methods</h2>
+</code></pre></div><h3 id=methods>methods</h3>
 <p>func (receiverName ReceiverType) MethodName(args)
 <code>r Rectangle</code> 수신자 변수를 유형의 첫 번째 문자로 지정하는 것이 Go의 관례이다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>r</span> <span style=color:#a6e22e>Rectangle</span>) <span style=color:#a6e22e>Area</span>() <span style=color:#66d9ef>float64</span> {
 	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>
 }
-</code></pre></div><h2 id=interface>interface</h2>
+</code></pre></div><h3 id=interface>interface</h3>
 <p>Go에서 인터페이스 자료형은 암시적 이다. 전달하는 유형이 인터페이스가 요청하는 유형과 일치하면 컴파일 된다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Shape</span> <span style=color:#66d9ef>interface</span> {
 	<span style=color:#a6e22e>Area</span>() <span style=color:#66d9ef>float64</span>
 }
-</code></pre></div><h2 id=익명구조>익명구조</h2>
+</code></pre></div><h3 id=익명구조>익명구조</h3>
 <p>익명구조 예시로 shape와 want라는 두 개의 필드가 있는 []struct를 사용하여 구조체를 선언한다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>areaTests</span> <span style=color:#f92672>:=</span> []<span style=color:#66d9ef>struct</span> {
 	<span style=color:#a6e22e>shape</span> <span style=color:#a6e22e>Shape</span>
@@ -134,7 +136,7 @@ Sangjun 개발 블로그</a>
 	{<span style=color:#a6e22e>Rectangle</span>{<span style=color:#ae81ff>12</span>, <span style=color:#ae81ff>6</span>}, <span style=color:#ae81ff>72.0</span>},
 	{<span style=color:#a6e22e>Circle</span>{<span style=color:#ae81ff>10</span>}, <span style=color:#ae81ff>314.1592653589793</span>},
 }
-</code></pre></div><h2 id=예제-코드>예제 코드</h2>
+</code></pre></div><h3 id=예제-코드>예제 코드</h3>
 <p>struct_method_interface_test.go</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 
@@ -191,14 +193,15 @@ Sangjun 개발 블로그</a>
 		}
 	}
 }
-</code></pre></div><h1 id=6-pointer--error>6. pointer & error</h1>
-<h2 id=pointer>Pointer</h2>
+</code></pre></div><hr>
+<h2 id=6-pointer--error>6. pointer & error</h2>
+<h3 id=pointer>Pointer</h3>
 <p>구조체에 대한 포인터는 구조체 포인터 라고 불리고 특별한 역참조에 대한 명시 없이도 <code>자동 역참조</code>가 된다. <code>(*w).balance</code> 와 <code>w.balance</code> 는 같은 의미로 사용된다.</p>
-<h2 id=error>Error</h2>
+<h3 id=error>Error</h3>
 <p>반환되는 에러를 확인하지 않은 코드라인을 확인할 수 있는 라이브러리 설치
 <code>go get -u github.com/kisielk/errcheck</code>
 실행 명령 : <code>errcheck .</code></p>
-<h2 id=예제-코드-1>예제 코드</h2>
+<h3 id=예제-코드-1>예제 코드</h3>
 <p>pointer_error_test.go</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 
@@ -293,24 +296,25 @@ Sangjun 개발 블로그</a>
 		<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#e6db74>&#34;got %q, want %q&#34;</span>, <span style=color:#a6e22e>got</span>, <span style=color:#a6e22e>want</span>)
 	}
 }
-</code></pre></div><h1 id=7-map>7. map</h1>
-<h2 id=map>map</h2>
+</code></pre></div><hr>
+<h2 id=7-map>7. map</h2>
+<h3 id=map>map</h3>
 <p>맵을 선언하려면 map이라는 키워드로 시작하고 두 개의 타입이 있어야한다.<br>
 첫번째 타입 : key 타입으로 비교 가능한 타입만 사용 가능하다.<br>
 두번째 타입 : value 타입으로 어떤타입이든 사용 가능하다.</p>
 <p>map은 두 개의 값을 반환하며 두번째 값은 키를 찾는데 성공 여부를 boolean으로 반환한다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>definition</span>, <span style=color:#a6e22e>ok</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>d</span>[<span style=color:#a6e22e>word</span>]
-</code></pre></div><h2 id=error-1>error</h2>
+</code></pre></div><h3 id=error-1>error</h3>
 <p>Error는 .Error() 메소드를 통해 문자열로 변환될 수 있다.</p>
-<h2 id=pointer-1>pointer</h2>
+<h3 id=pointer-1>pointer</h3>
 <p>map의 주소를 전달(&myMap)하지 않고서도 수정할 수 있다</p>
-<h2 id=map-초기화-방법>map 초기화 방법</h2>
+<h3 id=map-초기화-방법>map 초기화 방법</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>dictionary</span> = <span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>string</span>{}
 
 <span style=color:#75715e>// OR
 </span><span style=color:#75715e></span>
 <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>dictionary</span> = make(<span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>string</span>)
-</code></pre></div><h2 id=예제-코드-2>예제 코드</h2>
+</code></pre></div><h3 id=예제-코드-2>예제 코드</h3>
 <p>dictionary_test.go</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>
 <span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
@@ -479,17 +483,18 @@ Sangjun 개발 블로그</a>
 		<span style=color:#a6e22e>t</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#e6db74>&#34;got %q want %q&#34;</span>, <span style=color:#a6e22e>got</span>, <span style=color:#a6e22e>definition</span>)
 	}
 }
-</code></pre></div><h1 id=8-dependency-injection>8. dependency injection</h1>
+</code></pre></div><hr>
+<h2 id=8-dependency-injection>8. dependency injection</h2>
 <p><code>fmt.Printf</code> : 기본적으로 stdout을 사용한다.<br>
 <code>fmt.Fprintf</code> : fmt.Printf와 비슷하지만, 문자열을 보낼 곳 Writer를 가진다.</p>
-<h2 id=특징>특징</h2>
+<h3 id=특징>특징</h3>
 <ul>
 <li>프레임워크가 필요하지 않다.</li>
 <li>디자인을 지나치게 복잡하게 하지 않는다.</li>
 <li>테스트를 용이하게 한다.</li>
 <li>범용 함수를 작성할 수 있다.</li>
 </ul>
-<h2 id=예제코드>예제코드</h2>
+<h3 id=예제코드>예제코드</h3>
 <p>di_test.go</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 
@@ -524,9 +529,9 @@ Sangjun 개발 블로그</a>
 <span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
 	<span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>ListenAndServe</span>(<span style=color:#e6db74>&#34;:5000&#34;</span>, <span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>HandlerFunc</span>(<span style=color:#a6e22e>MyGreeterHandler</span>))
 }
-</code></pre></div><h1 id=9-mocking>9. mocking</h1>
+</code></pre></div><h2 id=9-mocking>9. mocking</h2>
 <p>유닛 테스트 용도로 사용한다.</p>
-<h2 id=예제-코드-3>예제 코드</h2>
+<h3 id=예제-코드-3>예제 코드</h3>
 <p>countdown_test.go</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 
@@ -679,17 +684,24 @@ Sangjun 개발 블로그</a>
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
+<li><a href=#사이트-주소>사이트 주소</a></li>
+<li><a href=#5-struct-method--interface>5. struct, method & interface</a>
+<ul>
 <li><a href=#struct>struct</a></li>
 <li><a href=#methods>methods</a></li>
 <li><a href=#interface>interface</a></li>
 <li><a href=#익명구조>익명구조</a></li>
 <li><a href=#예제-코드>예제 코드</a></li>
 </ul>
+</li>
+<li><a href=#6-pointer--error>6. pointer & error</a>
 <ul>
 <li><a href=#pointer>Pointer</a></li>
 <li><a href=#error>Error</a></li>
 <li><a href=#예제-코드-1>예제 코드</a></li>
 </ul>
+</li>
+<li><a href=#7-map>7. map</a>
 <ul>
 <li><a href=#map>map</a></li>
 <li><a href=#error-1>error</a></li>
@@ -697,12 +709,18 @@ Sangjun 개발 블로그</a>
 <li><a href=#map-초기화-방법>map 초기화 방법</a></li>
 <li><a href=#예제-코드-2>예제 코드</a></li>
 </ul>
+</li>
+<li><a href=#8-dependency-injection>8. dependency injection</a>
 <ul>
 <li><a href=#특징>특징</a></li>
 <li><a href=#예제코드>예제코드</a></li>
 </ul>
+</li>
+<li><a href=#9-mocking>9. mocking</a>
 <ul>
 <li><a href=#예제-코드-3>예제 코드</a></li>
+</ul>
+</li>
 </ul>
 </nav>
 </div>

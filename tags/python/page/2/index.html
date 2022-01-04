@@ -134,8 +134,9 @@ Sangjun 개발 블로그</a>
 </div>
 <div class=card-body>
 <h5 class=card-title>LeetCode Python (Easy)</h5>
-<p class="card-text post-summary">1. Two Sum nums 리스트 속성값 중 두개의 값이 target 값과 동일할때 해당 속성 값의 index 반환 class Solution: def twoSum(self, nums: List[int], target: int) -> List[int]: for i, num in enumerate(nums): for j, num2 in enumerate(nums[i+1:]): if i != j+i+1: if target == num+num2: return [i, j+i+1] 2020-11-27
-Runtime: 40 ms, faster than 97.02% of Python3 online submissions for Two Sum. Memory Usage: 14.5 MB, less than 89.</p>
+<p class="card-text post-summary">1. Two Sum 문제 링크
+nums 리스트 속성값 중 두개의 값이 target 값과 동일할때 해당 속성 값의 index 반환 class Solution: def twoSum(self, nums: List[int], target: int) -> List[int]: for i, num in enumerate(nums): for j, num2 in enumerate(nums[i+1:]): if i != j+i+1: if target == num+num2: return [i, j+i+1] 2020-11-27
+Runtime: 40 ms, faster than 97.02% of Python3 online submissions for Two Sum. Memory Usage: 14.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>December 1, 2020</span>
@@ -152,10 +153,9 @@ Runtime: 40 ms, faster than 97.02% of Python3 online submissions for Two Sum. Me
 </div>
 <div class=card-body>
 <h5 class=card-title>pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)</h5>
-<p class="card-text post-summary">Docs URL - https://pyftpdlib.readthedocs.io/en/latest/
-FTP Server 라이브러리 설치 pip install pyftpdlib 실습 버전 : pyftpdlib 1.5.6
-사용예제 코드 FTP Server 예제 ftp server 실행 후 client 테스트 가능
-from pyftpdlib.authorizers import DummyAuthorizer # 사용자 인증을 생성하는 모듈 from pyftpdlib.handlers import FTPHandler # 사용자 인증, 파일 전송, 로깅 등 FTP서버를 조작하는 모듈 # from pyftpdlib.handlers import TLS_FTPHandler from pyftpdlib.servers import FTPServer # FTP서버를 실행하는 모듈 # from pyftpdlib.servers import ThreadedFTPServer import os class FileServer: def __init__(self): self.</p>
+<p class="card-text post-summary">1. 라이브러리 설치 pip install pyftpdlib 실습 버전 : pyftpdlib 1.5.6
+2. Server ftp server 실행 후 client 테스트 가능
+from pyftpdlib.authorizers import DummyAuthorizer # 사용자 인증을 생성하는 모듈 from pyftpdlib.handlers import FTPHandler # 사용자 인증, 파일 전송, 로깅 등 FTP서버를 조작하는 모듈 # from pyftpdlib.handlers import TLS_FTPHandler from pyftpdlib.servers import FTPServer # FTP서버를 실행하는 모듈 # from pyftpdlib.servers import ThreadedFTPServer import os class FileServer: def __init__(self): self.ftpServerIP = "127.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>November 16, 2020</span>
@@ -173,10 +173,9 @@ from pyftpdlib.authorizers import DummyAuthorizer # 사용자 인증을 생성�
 <div class=card-body>
 <h5 class=card-title>libmagic 라이브러리 사용법 (libmagic Library Guide)</h5>
 <p class="card-text post-summary">미디어 타입(media type), MIME 타입(MIME type)
-실행환경 : windows 10
-라이브러리 설치 pip install libmagic pip install python-magic-bin libmagic : 파일타입을 MIME 타입으로 확인해주는 라이브러리
-magic은 리눅스 환경에서 실행되는 프로그램 윈도우즈 환경에서는 윈도우용 magic 설치가 필요함 python-magic-bin : 윈도우용 magic 라이브러리
-예제 코드 import magic r1 = magic.from_file("test1.txt") r2 = magic.from_file("test1.txt", mime=True) print(f"filetype = {r1}, \nmime = {r2}") # filetype = UTF-8 Unicode text, with CRLF line terminators, # mime = text/plain file_data = open('test1.</p>
+1. 라이브러리 설치 실행환경 : windows 10
+pip install libmagic pip install python-magic-bin 실행환경 : linux
+pip install libmagic pip install python-magic libmagic : 파일타입을 MIME 타입으로 확인해주는 라이브러리 python-magic-bin : 윈도우용 magic 라이브러리 python-magic : 리눅스용 magic 라이브러리 2. 예제 코드 import magic r1 = magic.from_file("test1.txt") r2 = magic.from_file("test1.txt", mime=True) print(f"filetype = {r1}, \nmime = {r2}") # filetype = UTF-8 Unicode text, with CRLF line terminators, # mime = text/plain file_data = open('test1.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>November 5, 2020</span>

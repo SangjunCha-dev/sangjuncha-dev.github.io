@@ -101,15 +101,16 @@ Sangjun 개발 블로그</a>
 <h1>PostgreDB 설치 (PostgreDB Setup)</h1>
 </div>
 <div class=post-content id=post-content>
+<hr>
 <p>설치환경 : Windows 10</p>
 <h1 id=1-postgredb-설치>1. PostgreDB 설치</h1>
-<h2 id=11-설치파일-다운로드>1.1 설치파일 다운로드</h2>
+<h2 id=11-설치파일-다운로드>1.1. 설치파일 다운로드</h2>
 <p>윈도우즈용 설치 파일은 현재 EnterpriseDB사가 배포</p>
 <blockquote>
 <p>Download URL<br>
 <a href=https://www.enterprisedb.com/downloads/postgres-postgresql-downloads>https://www.enterprisedb.com/downloads/postgres-postgresql-downloads</a></p>
 </blockquote>
-<h2 id=12-postgresql-설치>1.2 PostgreSQL 설치</h2>
+<h2 id=12-postgresql-설치>1.2. PostgreSQL 설치</h2>
 <ul>
 <li>postgresql-[버전]-windows-x64.exe 파일을 실행</li>
 <li>Next 클릭</li>
@@ -123,17 +124,18 @@ Sangjun 개발 블로그</a>
 <li>기본 데이터베이스 관리자 postgres계정 <code>비밀번호</code> 지정</li>
 <li>포트 지정 > <code>15432</code>(기본포트가 아닌 다른포트번호) 으로 수정후 [Next] 클릭</li>
 </ul>
+<hr>
 <h1 id=2-postgredb-서버-사용하기>2. PostgreDB 서버 사용하기</h1>
-<h2 id=21-pgadmin-설치파일-다운로드>2.1 PGADMIN 설치파일 다운로드</h2>
+<h2 id=21-pgadmin-설치파일-다운로드>2.1. PGADMIN 설치파일 다운로드</h2>
 <p>클라이언트 - 데이터베이스 조작 GUI 도구</p>
 <blockquote>
 <p>Download URL<br>
 <a href=https://www.pgadmin.org/download/>https://www.pgadmin.org/download/</a></p>
 </blockquote>
-<h2 id=22-pgadmin-설치>2.2 PGADMIN 설치</h2>
+<h2 id=22-pgadmin-설치>2.2. PGADMIN 설치</h2>
 <p>pgadmin4-[버전]-x64.exe 실행</p>
 <p>기본 설정대로 [Next] 클릭하여 설치</p>
-<h2 id=23-pgadmin-실행>2.3 PGADMIN 실행</h2>
+<h2 id=23-pgadmin-실행>2.3. PGADMIN 실행</h2>
 <p>특징</p>
 <ul>
 <li>자체 웹서버 실행</li>
@@ -142,7 +144,7 @@ Sangjun 개발 블로그</a>
 <li>첫 접속시 최상위 관리용 비밀번호 지정</li>
 <li>왼쪽에 있는 Servers 글자 클릭시 <code>기본 PostgreSQL 서버</code> 접속됨</li>
 </ul>
-<h2 id=24-pgadmin-사용>2.4 PGADMIN 사용</h2>
+<h2 id=24-pgadmin-사용>2.4. PGADMIN 사용</h2>
 <ul>
 <li>
 <p>화면 왼쪽 서버 트리 영역(객체 트리 영역)에서 데이터베이스 - 스키마까지 선택</p>
@@ -152,7 +154,7 @@ Sangjun 개발 블로그</a>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>select</span> <span style=color:#66d9ef>version</span>()
 </code></pre></div></li>
 </ul>
-<h2 id=25-windows-postgresql-외부접속-허용설정>2.5 Windows PostgreSQL 외부접속 허용설정</h2>
+<h2 id=25-windows-postgresql-외부접속-허용설정>2.5. Windows PostgreSQL 외부접속 허용설정</h2>
 <ul>
 <li>
 <p><code>pg_hba.conf</code> 접속 허용 IP 설정</p>
@@ -195,15 +197,15 @@ host 	all				all				192.168.0.X/24		scram-sha-256
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#11-설치파일-다운로드>1.1 설치파일 다운로드</a></li>
-<li><a href=#12-postgresql-설치>1.2 PostgreSQL 설치</a></li>
+<li><a href=#11-설치파일-다운로드>1.1. 설치파일 다운로드</a></li>
+<li><a href=#12-postgresql-설치>1.2. PostgreSQL 설치</a></li>
 </ul>
 <ul>
-<li><a href=#21-pgadmin-설치파일-다운로드>2.1 PGADMIN 설치파일 다운로드</a></li>
-<li><a href=#22-pgadmin-설치>2.2 PGADMIN 설치</a></li>
-<li><a href=#23-pgadmin-실행>2.3 PGADMIN 실행</a></li>
-<li><a href=#24-pgadmin-사용>2.4 PGADMIN 사용</a></li>
-<li><a href=#25-windows-postgresql-외부접속-허용설정>2.5 Windows PostgreSQL 외부접속 허용설정</a></li>
+<li><a href=#21-pgadmin-설치파일-다운로드>2.1. PGADMIN 설치파일 다운로드</a></li>
+<li><a href=#22-pgadmin-설치>2.2. PGADMIN 설치</a></li>
+<li><a href=#23-pgadmin-실행>2.3. PGADMIN 실행</a></li>
+<li><a href=#24-pgadmin-사용>2.4. PGADMIN 사용</a></li>
+<li><a href=#25-windows-postgresql-외부접속-허용설정>2.5. Windows PostgreSQL 외부접속 허용설정</a></li>
 </ul>
 </nav>
 </div>

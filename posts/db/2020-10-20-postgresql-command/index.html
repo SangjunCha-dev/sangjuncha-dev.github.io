@@ -15,6 +15,8 @@
 <meta property="og:description" content="MariaDB SQL 명령어 예시">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://sangjuncha-dev.github.io/posts/db/2020-10-20-postgresql-command/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2020-10-20T15:27:33+09:00">
+<meta property="article:modified_time" content="2020-10-20T15:27:33+09:00">
 <meta name=description content="MariaDB SQL 명령어 예시">
 <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
 <link rel=stylesheet href=/css/layouts/single.css>
@@ -93,30 +95,32 @@ Sangjun 개발 블로그</a>
 <div class="author-profile ml-auto align-self-lg-center">
 <img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image">
 <h5 class=author-name>Sangjun</h5>
-<p>January 1, 0001</p>
+<p>October 20, 2020</p>
 </div>
 <div class=title>
 <h1>PostgreDB SQL 명령어 (PostgreDB SQL Command)</h1>
 </div>
 <div class=post-content id=post-content>
-<h1 id=1-database-생성>1. DATABASE 생성</h1>
+<hr>
+<h2 id=1-database-생성>1. DATABASE 생성</h2>
 <ul>
 <li>
 <p>DATABASE 생성</p>
 </li>
 <li>
-<p>PostgreDB의 경우 대문자인식은 &ldquo;&ldquo;으로만 가능</p>
+<p>PostgreDB의 경우 대문자인식은 &ldquo;&ldquo;으로 감싸야 사용가능하다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>DATABASE</span> <span style=color:#e6db74>&#34;{database_name}&#34;</span>;
 </code></pre></div></li>
 </ul>
-<h1 id=2-user-생성>2. USER 생성</h1>
+<hr>
+<h2 id=2-user-생성>2. USER 생성</h2>
 <ul>
 <li>
 <p>USER 생성</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>USER</span> <span style=color:#960050;background-color:#1e0010>{</span>user_name<span style=color:#960050;background-color:#1e0010>}</span> <span style=color:#66d9ef>WITH</span> PASSWORD <span style=color:#e6db74>&#39;{user_password}&#39;</span>
 </code></pre></div></li>
 <li>
-<p>개발용 계정으로 사용할 예정이기 때문에 SUPERUSER 권한부여</p>
+<p>SUPERUSER 권한부여(개발용 계정으로 사용 예정)</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>USER</span> <span style=color:#960050;background-color:#1e0010>{</span>user_name<span style=color:#960050;background-color:#1e0010>}</span> <span style=color:#66d9ef>WITH</span> SUPERUSER;
 </code></pre></div></li>
 <li>
@@ -139,18 +143,19 @@ Sangjun 개발 블로그</a>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>ROLE</span> <span style=color:#960050;background-color:#1e0010>{</span>user_name<span style=color:#960050;background-color:#1e0010>}</span>;
 </code></pre></div></li>
 </ul>
-<h1 id=3-db-insert>3. DB insert</h1>
-<h2 id=31-기본-insert>3.1 기본 insert</h2>
+<hr>
+<h2 id=3-db-insert>3. DB insert</h2>
+<h3 id=31-기본-insert>3.1. 기본 insert</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> <span style=color:#66d9ef>Table_Name</span>
 <span style=color:#66d9ef>VALUES</span> (VALUE_LIST1, VALUE_LIST2, ...);
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> PLAYER
 <span style=color:#66d9ef>VALUES</span> (<span style=color:#e6db74>&#39;1&#39;</span>, <span style=color:#e6db74>&#39;player_name&#39;</span>, <span style=color:#e6db74>&#39;code1&#39;</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>21</span>);
-</code></pre></div><h2 id=32-리스트배열-데이터-insert>3.2 리스트/배열 데이터 insert</h2>
+</code></pre></div><h3 id=32-리스트배열-데이터-insert>3.2. 리스트/배열 데이터 insert</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> <span style=color:#66d9ef>Table_Name</span>
 <span style=color:#66d9ef>VALUES</span> (<span style=color:#e6db74>&#39;{LIST_VALUE}&#39;</span>);
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> <span style=color:#e6db74>&#34;WeightsFile&#34;</span> 
 <span style=color:#66d9ef>VALUES</span> (<span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#39;test_Weights.npz&#39;</span>, <span style=color:#e6db74>&#39;{test_catagory1, test_catagory2}&#39;</span>, <span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#39;color&#39;</span>)
-</code></pre></div><h2 id=33-2차원-리스트-저장방법>3.3 2차원 리스트 저장방법</h2>
+</code></pre></div><h3 id=33-2차원-리스트-저장방법>3.3. 2차원 리스트 저장방법</h3>
 <p>사용환경 : django, postgreDB</p>
 <p>키를 index로 값을 data로 변환</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># models.py</span>
@@ -174,9 +179,10 @@ exportList <span style=color:#f92672>=</span> list(modelName<span style=color:#f
 
 <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(exportList)):
     exportList[i][<span style=color:#e6db74>&#39;data&#39;</span>] <span style=color:#f92672>=</span> list(exportList[i][<span style=color:#e6db74>&#39;data&#39;</span>]<span style=color:#f92672>.</span>values())
-</code></pre></div><h1 id=4-기본키-초기화>4. 기본키 초기화</h1>
+</code></pre></div><hr>
+<h2 id=4-기본키-초기화>4. 기본키 초기화</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span> SEQUENCE <span style=color:#e6db74>&#34;TableName_id_seq&#34;</span> <span style=color:#66d9ef>RESTART</span> <span style=color:#66d9ef>WITH</span> <span style=color:#ae81ff>1</span>;
-</code></pre></div><h2 id=41-delete-테이블-데이터-삭제-및-id값-초기화-예제>4.1 delete 테이블 데이터 삭제 및 ID값 초기화 예제</h2>
+</code></pre></div><h3 id=41-테이블-데이터-삭제-및-id값-초기화-예제>4.1. 테이블 데이터 삭제 및 ID값 초기화 예제</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>delete</span> <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;DatasheetUpload&#34;</span> <span style=color:#66d9ef>where</span> id <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>;
 <span style=color:#66d9ef>ALTER</span> SEQUENCE <span style=color:#e6db74>&#34;DatasheetUpload_id_seq&#34;</span> <span style=color:#66d9ef>RESTART</span> <span style=color:#66d9ef>WITH</span> <span style=color:#ae81ff>1</span>;
 
@@ -216,12 +222,20 @@ exportList <span style=color:#f92672>=</span> list(modelName<span style=color:#f
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#31-기본-insert>3.1 기본 insert</a></li>
-<li><a href=#32-리스트배열-데이터-insert>3.2 리스트/배열 데이터 insert</a></li>
-<li><a href=#33-2차원-리스트-저장방법>3.3 2차원 리스트 저장방법</a></li>
-</ul>
+<li><a href=#1-database-생성>1. DATABASE 생성</a></li>
+<li><a href=#2-user-생성>2. USER 생성</a></li>
+<li><a href=#3-db-insert>3. DB insert</a>
 <ul>
-<li><a href=#41-delete-테이블-데이터-삭제-및-id값-초기화-예제>4.1 delete 테이블 데이터 삭제 및 ID값 초기화 예제</a></li>
+<li><a href=#31-기본-insert>3.1. 기본 insert</a></li>
+<li><a href=#32-리스트배열-데이터-insert>3.2. 리스트/배열 데이터 insert</a></li>
+<li><a href=#33-2차원-리스트-저장방법>3.3. 2차원 리스트 저장방법</a></li>
+</ul>
+</li>
+<li><a href=#4-기본키-초기화>4. 기본키 초기화</a>
+<ul>
+<li><a href=#41-테이블-데이터-삭제-및-id값-초기화-예제>4.1. 테이블 데이터 삭제 및 ID값 초기화 예제</a></li>
+</ul>
+</li>
 </ul>
 </nav>
 </div>

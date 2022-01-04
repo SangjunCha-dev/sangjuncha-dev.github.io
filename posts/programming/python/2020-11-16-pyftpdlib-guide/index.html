@@ -101,12 +101,11 @@ Sangjun 개발 블로그</a>
 <h1>pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)</h1>
 </div>
 <div class=post-content id=post-content>
-<p>Docs URL - <a href=https://pyftpdlib.readthedocs.io/en/latest/>https://pyftpdlib.readthedocs.io/en/latest/</a></p>
-<h2 id=ftp-server-라이브러리-설치>FTP Server 라이브러리 설치</h2>
+<hr>
+<h2 id=1-라이브러리-설치>1. 라이브러리 설치</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pip install pyftpdlib
 </code></pre></div><p>실습 버전 : pyftpdlib 1.5.6</p>
-<h2 id=사용예제-코드>사용예제 코드</h2>
-<h3 id=ftp-server-예제>FTP Server 예제</h3>
+<h2 id=2-server>2. Server</h2>
 <p>ftp server 실행 후 client 테스트 가능</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> pyftpdlib.authorizers <span style=color:#f92672>import</span> DummyAuthorizer  <span style=color:#75715e># 사용자 인증을 생성하는 모듈</span>
 <span style=color:#f92672>from</span> pyftpdlib.handlers <span style=color:#f92672>import</span> FTPHandler  <span style=color:#75715e># 사용자 인증, 파일 전송, 로깅 등 FTP서버를 조작하는 모듈</span>
@@ -151,7 +150,8 @@ Sangjun 개발 블로그</a>
 
 file_server <span style=color:#f92672>=</span> FileServer()
 file_server<span style=color:#f92672>.</span>start()
-</code></pre></div><h3 id=ftp-client-ftplib-예제>FTP Client ftplib 예제</h3>
+</code></pre></div><h2 id=3-client>3. Client</h2>
+<h3 id=31-ftpclient>3.1. FTPClient</h3>
 <p>FTPClient.py</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> ftplib
 <span style=color:#f92672>import</span> os
@@ -316,7 +316,7 @@ file_server<span style=color:#f92672>.</span>start()
     <span style=color:#75715e>#         print(f&#34;[send_cmd] FTP Error = {ex}&#34;)</span>
 
 
-</code></pre></div><h3 id=ftp-client-예제>FTP Client 예제</h3>
+</code></pre></div><h3 id=32-client>3.2. client</h3>
 <p>client.py</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> FTPClient <span style=color:#f92672>import</span> FTPClient 
 
@@ -336,7 +336,11 @@ ftp_client<span style=color:#f92672>.</span>deleteDir(server_dir_path<span style
 
 <span style=color:#75715e># FTP 업로드</span>
 self<span style=color:#f92672>.</span>ftpClient<span style=color:#f92672>.</span>upload(server_dir_path<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/ftpserver/temp2/&#34;</span>, client_dir_path<span style=color:#f92672>=</span><span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{</span>client_path<span style=color:#e6db74>}</span><span style=color:#e6db74>/temp/&#39;</span>, filename<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;test.txt&#39;</span>)
-</code></pre></div>
+</code></pre></div><hr>
+<h2 id=참고reference>참고(Reference)</h2>
+<ul>
+<li><a href=https://pyftpdlib.readthedocs.io/en/latest/>pyftpdlib Docs</a></li>
+</ul>
 </div>
 <div class="row pl-3 pr-3">
 <div class="col-md-6 share-buttons">
@@ -364,14 +368,15 @@ self<span style=color:#f92672>.</span>ftpClient<span style=color:#f92672>.</span
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#ftp-server-라이브러리-설치>FTP Server 라이브러리 설치</a></li>
-<li><a href=#사용예제-코드>사용예제 코드</a>
+<li><a href=#1-라이브러리-설치>1. 라이브러리 설치</a></li>
+<li><a href=#2-server>2. Server</a></li>
+<li><a href=#3-client>3. Client</a>
 <ul>
-<li><a href=#ftp-server-예제>FTP Server 예제</a></li>
-<li><a href=#ftp-client-ftplib-예제>FTP Client ftplib 예제</a></li>
-<li><a href=#ftp-client-예제>FTP Client 예제</a></li>
+<li><a href=#31-ftpclient>3.1. FTPClient</a></li>
+<li><a href=#32-client>3.2. client</a></li>
 </ul>
 </li>
+<li><a href=#참고reference>참고(Reference)</a></li>
 </ul>
 </nav>
 </div>

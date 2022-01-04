@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>fcm on Sangjun 개발 블로그</title><link>https://sangjuncha-dev.github.io/tags/fcm/</link><description>Recent content in fcm on Sangjun 개발 블로그</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><lastBuildDate>Sat, 18 Dec 2021 17:49:21 +0900</lastBuildDate><atom:link href="https://sangjuncha-dev.github.io/tags/fcm/index.xml" rel="self" type="application/rss+xml"/><item><title>golang fcm(firebase cloud messaging) push 메세지 사용법</title><link>https://sangjuncha-dev.github.io/posts/programming/golang/2021-12-18-golang-fcm-backend/</link><pubDate>Sat, 18 Dec 2021 17:49:21 +0900</pubDate><guid>https://sangjuncha-dev.github.io/posts/programming/golang/2021-12-18-golang-fcm-backend/</guid><description>Firebase Cloud Messaging(FCM)은 firebase에서 무료로 메시지 전송할 수 있는 교차 플랫폼 메시징 솔루션이다.
 최대 4,000바이트의 페이로드를 클라이언트 앱에 전송할 수 있다.
 아래의 예제는 Go언어 기반의 백엔드 서버 예시이며 fcm token이 이미 발급받았다는 가정하에 진행된다.
-라이브러리 설치 &amp;gt; go get firebase.google.com/go/v4 &amp;gt; go get google.golang.org/api Firebase APP 초기화 사용자 인증 정보 제공의 안내에 따라 서비스 계정의 비공개 키 파일을 다운받는다.
-해당 파일에는 다음과 같은 정보가 있다.
-파일명은 serviceAccountKey.json라고 가정한다.
-{ &amp;#34;type&amp;#34;: &amp;#34;service_account&amp;#34;, &amp;#34;project_id&amp;#34;: &amp;#34;[project_id]&amp;#34;, &amp;#34;private_key_id&amp;#34;: &amp;#34;[private_key_id]&amp;#34;, &amp;#34;private_key&amp;#34;: &amp;#34;[private_key]&amp;#34;, &amp;#34;client_email&amp;#34;: &amp;#34;[client_email]&amp;#34;, &amp;#34;client_id&amp;#34;: &amp;#34;[client_id]&amp;#34;, &amp;#34;auth_uri&amp;#34;: &amp;#34;https://accounts.</description></item></channel></rss>
+1. 라이브러리 설치 &amp;gt; go get firebase.google.com/go/v4 &amp;gt; go get google.golang.org/api 2. Firebase APP 초기화 사용자 인증 정보 제공의 안내에 따라 서비스 계정의 비공개 키 파일을 다운받는다.
+해당 파일에는 다음과 같은 정보가 있다.</description></item></channel></rss>

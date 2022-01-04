@@ -101,9 +101,10 @@ Sangjun 개발 블로그</a>
 <h1>클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이</h1>
 </div>
 <div class=post-content id=post-content>
+<hr>
 <p>설치버전 : python 3.8.8</p>
-<h2 id=클래스-인스턴스-변수self와-함수-매개변수-처리속도-차이>클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이</h2>
-<h3 id=예제-코드-1>예제 코드 1</h3>
+<h2 id=1-클래스-인스턴스-변수self와-함수-매개변수-처리속도-차이>1. 클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이</h2>
+<h3 id=11-예제-코드>1.1. 예제 코드</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> timeit
 
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CheckTime</span>:
@@ -139,7 +140,7 @@ Sangjun 개발 블로그</a>
 
 checkTime <span style=color:#f92672>=</span> CheckTime()
 checkTime<span style=color:#f92672>.</span>get_time()
-</code></pre></div><h3 id=결과>결과</h3>
+</code></pre></div><h3 id=12-결과>1.2. 결과</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>Self value process <span style=color:#f92672>=</span> <span style=color:#f92672>[</span>0.1872074, 0.1858419, 0.1853262, 0.1846126, 0.1845041<span style=color:#f92672>]</span> sec
 Argument value process <span style=color:#f92672>=</span> <span style=color:#f92672>[</span>0.147073, 0.1466343, 0.1458009, 0.1452553, 0.1468781<span style=color:#f92672>]</span> sec
 </code></pre></div><p>결론 : 함수 매개변수는 클래스 인스턴스 변수를 사용하는 것보다 약 35 % 빠름</p>
@@ -149,8 +150,8 @@ Argument value process <span style=color:#f92672>=</span> <span style=color:#f92
 <li>클래스 인스턴스 변수에는 할당과 액세스 모두에 대한 사전 검색이 필요하다.</li>
 <li>함수 매개변수는 이름으로 색인이 지정된 사전이 아니라 배열에 저장되고 색인으로 액세스된다.</li>
 </ul>
-<h2 id=클래스-인스턴스-변수self와-함수-로컬변수-처리속도-차이>클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도 차이</h2>
-<h3 id=예제-코드>예제 코드</h3>
+<h2 id=2-클래스-인스턴스-변수self와-함수-로컬변수-처리속도-차이>2. 클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도 차이</h2>
+<h3 id=21-예제-코드>2.1. 예제 코드</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> timeit
 
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CheckTime</span>:
@@ -182,12 +183,12 @@ Argument value process <span style=color:#f92672>=</span> <span style=color:#f92
 
 checkTime <span style=color:#f92672>=</span> CheckTime()
 checkTime<span style=color:#f92672>.</span>get_time()
-</code></pre></div><h3 id=결과-1>결과</h3>
+</code></pre></div><h3 id=22-결과>2.2. 결과</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>Self value process <span style=color:#f92672>=</span> <span style=color:#f92672>[</span>0.0758095, 0.0757394, 0.0756023, 0.0746107, 0.0749142<span style=color:#f92672>]</span> sec
 Argument value process <span style=color:#f92672>=</span> <span style=color:#f92672>[</span>0.0332198, 0.0332008, 0.0332592, 0.0331674, 0.0332719<span style=color:#f92672>]</span> sec
 </code></pre></div><p>결론 : 함수 로컬변수는 클래스 인스턴스 변수를 사용하는 것보다 약 120 % 빠름</p>
 <p>이유 : 클래스 인스턴스 변수에는 할당과 액세스 모두에 대한 사전 검색이 필요하다.</p>
-<h2 id=참고-사이트>참고 사이트</h2>
+<h2 id=참고reference>참고(Reference)</h2>
 <ul>
 <li><a href=https://www.python2.net/questions-819739.htm>python - 인스턴스 변수 및 함수 인수의 처리 속도</a></li>
 </ul>
@@ -218,19 +219,19 @@ Argument value process <span style=color:#f92672>=</span> <span style=color:#f92
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#클래스-인스턴스-변수self와-함수-매개변수-처리속도-차이>클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이</a>
+<li><a href=#1-클래스-인스턴스-변수self와-함수-매개변수-처리속도-차이>1. 클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이</a>
 <ul>
-<li><a href=#예제-코드-1>예제 코드 1</a></li>
-<li><a href=#결과>결과</a></li>
+<li><a href=#11-예제-코드>1.1. 예제 코드</a></li>
+<li><a href=#12-결과>1.2. 결과</a></li>
 </ul>
 </li>
-<li><a href=#클래스-인스턴스-변수self와-함수-로컬변수-처리속도-차이>클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도 차이</a>
+<li><a href=#2-클래스-인스턴스-변수self와-함수-로컬변수-처리속도-차이>2. 클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도 차이</a>
 <ul>
-<li><a href=#예제-코드>예제 코드</a></li>
-<li><a href=#결과-1>결과</a></li>
+<li><a href=#21-예제-코드>2.1. 예제 코드</a></li>
+<li><a href=#22-결과>2.2. 결과</a></li>
 </ul>
 </li>
-<li><a href=#참고-사이트>참고 사이트</a></li>
+<li><a href=#참고reference>참고(Reference)</a></li>
 </ul>
 </nav>
 </div>

@@ -101,11 +101,11 @@ Sangjun 개발 블로그</a>
 <h1>Django QuerySet 객체 접근방식 및 조회</h1>
 </div>
 <div class=post-content id=post-content>
-<h1 id=queryset-단일객체와-다중객체-접근방법>queryset 단일객체와 다중객체 접근방법</h1>
-<h2 id=queryset-이란>QuerySet 이란?</h2>
-<p>Database에서 응답받은 결과 목록(list)</p>
-<p>Python 코드가 SQL 구문으로 맵핑(mapping)되고 DB로 전달하여 받은 응답값을 QuerySet 자료형으로 반환한다.</p>
-<h1 id=사전설정>사전설정</h1>
+<hr>
+<h2 id=1-queryset-이란>1. QuerySet 이란?</h2>
+<p>Database에서 응답받은 결과 목록(list)으로 Python 코드가 SQL 구문으로 맵핑(mapping)되고 DB로 전달하여 받은 응답값을 QuerySet 자료형으로 반환한다.</p>
+<hr>
+<h2 id=2-사전설정>2. 사전설정</h2>
 <p>django version : 3.2</p>
 <p>models.py</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> django.db <span style=color:#f92672>import</span> models
@@ -119,7 +119,8 @@ Sangjun 개발 블로그</a>
 &gt;&gt;&gt; user1.save<span style=color:#f92672>()</span> <span style=color:#75715e># 데이터 저장</span>
 &gt;&gt;&gt; user2 <span style=color:#f92672>=</span> User<span style=color:#f92672>(</span>name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;Bar&#39;</span>, age<span style=color:#f92672>=</span>20<span style=color:#f92672>)</span> <span style=color:#75715e># 데이터추가</span>
 &gt;&gt;&gt; user2.save<span style=color:#f92672>()</span> <span style=color:#75715e># 데이터 저장</span>
-</code></pre></div><h1 id=객체별-접근방식>객체별 접근방식</h1>
+</code></pre></div><hr>
+<h2 id=3-객체별-접근방식>3. 객체별 접근방식</h2>
 <p>Database Table구조는 column(세로)과 row(가로)로 구분된다.</p>
 <table>
 <thead>
@@ -146,9 +147,9 @@ Sangjun 개발 블로그</a>
 <li>column : 모델(model)클래스에서 지정한 속성</li>
 <li>row : 각 속성에 부여된 값</li>
 </ul>
-<h2 id=단일-객체>단일 객체</h2>
-<p>&lt;모델클래스>.objects.get(id=1) or &lt;모델클래스>.objects.latest(&lsquo;id&rsquo;)</p>
-<ul>
+<h3 id=31-단일-객체>3.1. 단일 객체</h3>
+<pre tabindex=0><code>&lt;모델클래스&gt;.objects.get(id=1) or &lt;모델클래스&gt;.objects.latest('id')
+</code></pre><ul>
 <li>DB테이블 데이터의 행 하나를 dictionary 자료형으로 반환한다.</li>
 <li>해당 조건의 요소가 존재하지 않을때는 <code>DoesNotExist</code> 에러가 발생한다.</li>
 <li><code>.get()</code> 조건으로 여러개 존재할때는 <code>MultipleObjectsReturned</code> 에러가 발생한다.</li>
@@ -157,21 +158,21 @@ Sangjun 개발 블로그</a>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> user <span style=color:#f92672>=</span> User<span style=color:#f92672>.</span>objects<span style=color:#f92672>.</span>get(id<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>)
 <span style=color:#f92672>&gt;&gt;&gt;</span> user<span style=color:#f92672>.</span>name
 <span style=color:#e6db74>&#39;Foo&#39;</span>
-</code></pre></div><h2 id=다중-객체>다중 객체</h2>
-<h3 id=all>all</h3>
-<p>&lt;모델클래스>.objects.all()</p>
-<ul>
+</code></pre></div><h3 id=32-다중-객체>3.2. 다중 객체</h3>
+<h4 id=all>all</h4>
+<pre tabindex=0><code>&lt;모델클래스&gt;.objects.all()
+</code></pre><ul>
 <li><code>all()</code>은 QuerySet안의 모든 객체를 list 자료형으로 반환한다.</li>
-<li>따라서, <code>\&lt;variable name\>[index]</code> 형식으로 접근할 수 있다.</li>
+<li>따라서, <code>&lt;variable name>[index]</code> 형식으로 접근할 수 있다.</li>
 </ul>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> user <span style=color:#f92672>=</span> User<span style=color:#f92672>.</span>objects<span style=color:#f92672>.</span>all()
 <span style=color:#f92672>&gt;&gt;&gt;</span> user
 <span style=color:#f92672>&lt;</span>QuerySet [<span style=color:#f92672>&lt;</span>User: User object (<span style=color:#ae81ff>1</span>)<span style=color:#f92672>&gt;</span>, <span style=color:#f92672>&lt;</span>User: User object (<span style=color:#ae81ff>2</span>)<span style=color:#f92672>&gt;</span>]<span style=color:#f92672>&gt;</span>
 <span style=color:#f92672>&gt;&gt;&gt;</span> user[<span style=color:#ae81ff>1</span>]
 <span style=color:#f92672>&lt;</span>User: User object (<span style=color:#ae81ff>2</span>)<span style=color:#f92672>&gt;</span>
-</code></pre></div><h3 id=filter>filter</h3>
-<p>&lt;모델클래스>.objects.filter()</p>
-<ul>
+</code></pre></div><h4 id=filter>filter</h4>
+<pre tabindex=0><code>&lt;모델클래스&gt;.objects.filter()
+</code></pre><ul>
 <li><code>filter()</code>는 조건식에 따라 필터링하여 query의 결과를 list 자료형으로 반환한다.</li>
 <li><code>QuerySet()</code>은 list 형태이고, list 요소는 dictionary 자료형이다.</li>
 <li><code>&lt;variable name>[index][key]</code> 형식이로 key를 통해 value에 접근할 수 있다.</li>
@@ -181,16 +182,16 @@ Sangjun 개발 블로그</a>
 <span style=color:#f92672>&lt;</span>QuerySet [<span style=color:#f92672>&lt;</span>User: User object (<span style=color:#ae81ff>1</span>)<span style=color:#f92672>&gt;</span>]<span style=color:#f92672>&gt;</span>
 <span style=color:#f92672>&gt;&gt;&gt;</span> user[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>.</span>name
 <span style=color:#e6db74>&#39;Foo&#39;</span>
-</code></pre></div><h2 id=결과-조회>결과 조회</h2>
+</code></pre></div><h3 id=33-결과-조회>3.3. 결과 조회</h3>
 <p>입력한 컬럼에 대한 값만 조회한다.</p>
-<h3 id=values>values</h3>
-<p>&lt;모델클래스>.objects.values()</p>
-<p>객체정보가 아닌 dictionary와 list의 자료형의 값으로 반환한다.</p>
+<h4 id=values>values</h4>
+<pre tabindex=0><code>&lt;모델클래스&gt;.objects.values()
+</code></pre><p>객체정보가 아닌 dictionary와 list의 자료형의 값으로 반환한다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> User<span style=color:#f92672>.</span>objects<span style=color:#f92672>.</span>values(<span style=color:#e6db74>&#39;name&#39;</span>, <span style=color:#e6db74>&#39;age&#39;</span>)
 <span style=color:#f92672>&lt;</span>QuerySet [{<span style=color:#e6db74>&#39;name&#39;</span>: <span style=color:#e6db74>&#39;Foo&#39;</span>, <span style=color:#e6db74>&#39;age&#39;</span>: <span style=color:#ae81ff>15</span>}, {<span style=color:#e6db74>&#39;name&#39;</span>: <span style=color:#e6db74>&#39;Bar&#39;</span>, <span style=color:#e6db74>&#39;age&#39;</span>: <span style=color:#ae81ff>20</span>}]<span style=color:#f92672>&gt;</span>
-</code></pre></div><h3 id=valies_list>valies_list</h3>
-<p>&lt;모델클래스>.objects.values_list()</p>
-<ul>
+</code></pre></div><h4 id=valies_list>valies_list</h4>
+<pre tabindex=0><code>&lt;모델클래스&gt;.objects.values_list()
+</code></pre><ul>
 <li>각 ID값이 분리된 2차원 list 자료형으로 반환한다.</li>
 </ul>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> User<span style=color:#f92672>.</span>objects<span style=color:#f92672>.</span>values_list(<span style=color:#e6db74>&#39;name&#39;</span>, <span style=color:#e6db74>&#39;age&#39;</span>)
@@ -201,9 +202,9 @@ Sangjun 개발 블로그</a>
 </ul>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> User<span style=color:#f92672>.</span>objects<span style=color:#f92672>.</span>values_list(<span style=color:#e6db74>&#39;name&#39;</span>, flat<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
 <span style=color:#f92672>&lt;</span>QuerySet [<span style=color:#e6db74>&#39;Foo&#39;</span>, <span style=color:#e6db74>&#39;Bar&#39;</span>]<span style=color:#f92672>&gt;</span>
-</code></pre></div><h3 id=order_by>order_by</h3>
-<p>&lt;모델클래스>.objects.values().order_by()</p>
-<p>조회된 결과값을 특정 필드명을 기준으로 정렬하여 반환한다.</p>
+</code></pre></div><h4 id=order_by>order_by</h4>
+<pre tabindex=0><code>&lt;모델클래스&gt;.objects.values().order_by()
+</code></pre><p>조회된 결과값을 특정 필드명을 기준으로 정렬하여 반환한다.</p>
 <ul>
 <li>order_by 에서 지정한 필드명 앞에 <code>-</code>붙이면 <code>내림차순 정렬</code>된다.</li>
 </ul>
@@ -212,9 +213,9 @@ Sangjun 개발 블로그</a>
 
 <span style=color:#f92672>&gt;&gt;&gt;</span> User<span style=color:#f92672>.</span>objects<span style=color:#f92672>.</span>values(<span style=color:#e6db74>&#39;id&#39;</span>, <span style=color:#e6db74>&#39;name&#39;</span>)<span style=color:#f92672>.</span>order_by(<span style=color:#e6db74>&#39;-id&#39;</span>)
 <span style=color:#f92672>&lt;</span>QuerySet [{<span style=color:#e6db74>&#39;id&#39;</span>: <span style=color:#ae81ff>2</span>, <span style=color:#e6db74>&#39;name&#39;</span>: <span style=color:#e6db74>&#39;Bar&#39;</span>}, {<span style=color:#e6db74>&#39;id&#39;</span>: <span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#39;name&#39;</span>: <span style=color:#e6db74>&#39;Foo&#39;</span>}]<span style=color:#f92672>&gt;</span>
-</code></pre></div><h3 id=특정-갯수-조회>특정 갯수 조회</h3>
-<p>&lt;모델클래스>.objects.values()[검색시작 index : 검색종료 index]</p>
-<p>검색 쿼리의 범위 지정할 수 있다.</p>
+</code></pre></div><h4 id=특정-갯수-조회>특정 갯수 조회</h4>
+<pre tabindex=0><code>&lt;모델클래스&gt;.objects.values()[검색시작 index : 검색종료 index]
+</code></pre><p>검색 쿼리의 범위 지정할 수 있다.</p>
 <ul>
 <li>list index 형식과 동일하다.</li>
 <li>queryset 구문을 sql 질의문으로 변환 <code>str(queryset.query)</code> 하여 확인하면 SQL 쿼리문 끝에 limit 사용한 것을 볼 수 있다.</li>
@@ -255,22 +256,25 @@ Sangjun 개발 블로그</a>
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#queryset-이란>QuerySet 이란?</a></li>
-</ul>
+<li><a href=#1-queryset-이란>1. QuerySet 이란?</a></li>
+<li><a href=#2-사전설정>2. 사전설정</a></li>
+<li><a href=#3-객체별-접근방식>3. 객체별 접근방식</a>
 <ul>
-<li><a href=#단일-객체>단일 객체</a></li>
-<li><a href=#다중-객체>다중 객체</a>
+<li><a href=#31-단일-객체>3.1. 단일 객체</a></li>
+<li><a href=#32-다중-객체>3.2. 다중 객체</a>
 <ul>
 <li><a href=#all>all</a></li>
 <li><a href=#filter>filter</a></li>
 </ul>
 </li>
-<li><a href=#결과-조회>결과 조회</a>
+<li><a href=#33-결과-조회>3.3. 결과 조회</a>
 <ul>
 <li><a href=#values>values</a></li>
 <li><a href=#valies_list>valies_list</a></li>
 <li><a href=#order_by>order_by</a></li>
 <li><a href=#특정-갯수-조회>특정 갯수 조회</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

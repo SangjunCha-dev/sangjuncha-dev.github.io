@@ -101,12 +101,14 @@ Sangjun 개발 블로그</a>
 <h1>도커 경량화 이미지 만들기</h1>
 </div>
 <div class=post-content id=post-content>
-<h2 id=docker-image-경량화의-장점>Docker Image 경량화의 장점</h2>
+<hr>
+<p>Docker Image 경량화의 장점</p>
 <ul>
 <li>저장공간 절약</li>
 <li>이미지 빌드 및 배포시간 단축</li>
 <li>클라우드 서비스를 이용한 배포의 경우 비용 절약</li>
 </ul>
+<hr>
 <h2 id=1-가벼운-base-image-사용>1. 가벼운 Base image 사용</h2>
 <p>Base image에는 사용하지 않은 기능들이 포함되어 있기때문에 Debian계열과 Alpine 계열등 다양한 Base image를 사용하여 용량을 줄일 수 있다.</p>
 <ul>
@@ -129,6 +131,7 @@ image-test2    latest    004c04ba9ac3   2 months ago    114MB
 <pre tabindex=0><code>RUN apt-get update &amp;&amp; apt-get install -y --no-install-recommends libmagic1 &amp;&amp; rm -rf /var/lib/apt/lists/*
 </code></pre></li>
 </ul>
+<hr>
 <h2 id=2-dockerfile-명령어-체인방식-사용>2. Dockerfile 명령어 체인방식 사용</h2>
 <p>Dockerfile에서 RUN명령을 개별로 실행시 실행이 끝날때마다 중간 이미지가 생성된다.<br>
 체인 명령으로 실행하면 중간이미지가 적게 만들어지기 때문에 크기와 실행시간을 줄일 수 있다.</p>
@@ -143,7 +146,8 @@ RNU mkdir $APP_HOME/media
 </code></pre><p>Dockerfile 체인 실행 명령</p>
 <pre tabindex=0><code>ENV APP_HOME=/app
 RUN mkdir $APP_HOME &amp;&amp; mkdir $APP_HOME/.static_root &amp;&amp; mkdir $APP_HOME/media
-</code></pre><h2 id=3-패키지-관리>3. 패키지 관리</h2>
+</code></pre><hr>
+<h2 id=3-패키지-관리>3. 패키지 관리</h2>
 <p>Package 매니저로 패키지를 설치할 경우 보통 사용하지않은 패키지가 함께 설치된다.</p>
 <p>apt-get 사용하여 패키지 설치시 용량을 최소화 하는 방법</p>
 <ul>
@@ -160,6 +164,7 @@ RUN mkdir $APP_HOME &amp;&amp; mkdir $APP_HOME/.static_root &amp;&amp; mkdir $AP
 <pre tabindex=0><code>rm -rf /var/lib/apt/lists/*
 </code></pre></li>
 </ul>
+<hr>
 <h2 id=4-docker-layer-관리>4. Docker Layer 관리</h2>
 <p>Docker Image에는 Layer라는 Stack구조가 있다. 도커 이미지를 효과적으로 관리하기 위해 Stack형태로 이미지가 누적되며, 동일한 Stack이 동일한 Repository에 존재하면 해당 Layer를 사용하도록 구현되어 있다.
 Docker Image는 Container 용량을 결정하고, 관리측면에서 Local Repository나 Docker Registry의 용량에 영향을 준다.</p>
@@ -181,7 +186,7 @@ image-test2   latest    297340498b12   1 minutes ago      213MB
 </code></pre><p>동일한 명령을 수행하여도 차이가 나는 이유는 <code>Layer별 참조 관계</code> 때문이다.
 따라서 사용하지 않고 삭제가 필요한 경우에는 반드시 같은 Layer에서 처리해야 한다.</p>
 <p>Docker Layer는 Union Mount라는 Linux Mount 기술을 활용하여 여러 Layer를 통합하여 하나의 이미지로 관리한다.</p>
-<h4 id=docker-layer-별-용량-확인>Docker Layer 별 용량 확인</h4>
+<h3 id=docker-layer-별-용량-확인>Docker Layer 별 용량 확인</h3>
 <p><code>docker history [IMAGE]</code> : 해당 Docker 이미지의 각 layer마다 사용된 용량을 확인할 수 있다.</p>
 <pre tabindex=0><code># docker history [IMAGE]
 ...
@@ -196,8 +201,10 @@ IMAGE          CREATED          CREATED BY                                      
 ...
 </code></pre><p><code>--no-trunc</code>옵션 : CREATED BY 설명의 생략된 부분까지 확인 할 수 있다.</p>
 <pre tabindex=0><code># docker history --no-trunc [IMAGE]
-</code></pre><h2 id=5-배포-시-불필요한-빌드-도구를-설치하지-않기>5. 배포 시 불필요한 빌드 도구를 설치하지 않기</h2>
+</code></pre><hr>
+<h2 id=5-배포-시-불필요한-빌드-도구를-설치하지-않기>5. 배포 시 불필요한 빌드 도구를 설치하지 않기</h2>
 <p>소스코드를 빌드해서 이미지에 포함시키면, 불필요한 빌드 도구가 차지하는 공간을 줄일 수 있다.</p>
+<hr>
 <h2 id=6-dockerignore-활용하기>6. .dockerignore 활용하기</h2>
 <p>Docker build 시 명령어 COPY 등을 통해서 프로젝트 파일을 컨테이너로 복사할 때 지정한 디렉터리, 파일을 자동으로 제외된다.</p>
 <ul>
@@ -205,6 +212,7 @@ IMAGE          CREATED          CREATED BY                                      
 <li>임시파일, Git, Docker 관련, 비공개 정보 파일 등 예외 처리한다.</li>
 <li>docker volumes 참조와 겹치지 않도록 한다.(volumes 우선적용)</li>
 </ul>
+<hr>
 <h2 id=7-multi-stage-빌드>7. multi-stage 빌드</h2>
 <p>multi-stage 빌드는 Dockerfile 1개에 FROM 구문을 여러 개 두는 방식이다.<br>
 각 FROM 명령문 기준으로 스테이지를 구분하여 특정 스테이지 빌드 과정에서 생성된 것 중 사용되지 않거나 불필요한 것을 무시하고, 필요한 부분만 가져와서 새로운 베이스 이미지에서 빌드할 수 있다.</p>
@@ -229,7 +237,8 @@ image-test2    latest    004c04ba9ac3   1 minutes ago   151MB
 <li>사용하는 라이브러리에 따라 용량 차이가 더 많이 나올 수 있다.</li>
 <li>외부 설정이 까다로운 경우에는 multi-stage를 사용하지 않을 수 있다.</li>
 </ul>
-<h2 id=참조-url>참조 URL</h2>
+<hr>
+<h2 id=참고reference>참고(Reference)</h2>
 <ul>
 <li><a href=https://waspro.tistory.com/692>컨테이너 이미지 생성시 고려사항</a></li>
 <li><a href=https://velog.io/@idnnbi/Docker-image-%ED%81%AC%EA%B8%B0-%EC%A4%84%EC%9D%B4%EA%B8%B0>Docker - image 크기 줄이기</a></li>
@@ -263,23 +272,18 @@ image-test2    latest    004c04ba9ac3   1 minutes ago   151MB
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#docker-image-경량화의-장점>Docker Image 경량화의 장점</a></li>
 <li><a href=#1-가벼운-base-image-사용>1. 가벼운 Base image 사용</a></li>
 <li><a href=#2-dockerfile-명령어-체인방식-사용>2. Dockerfile 명령어 체인방식 사용</a></li>
 <li><a href=#3-패키지-관리>3. 패키지 관리</a></li>
 <li><a href=#4-docker-layer-관리>4. Docker Layer 관리</a>
 <ul>
-<li>
-<ul>
 <li><a href=#docker-layer-별-용량-확인>Docker Layer 별 용량 확인</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li><a href=#5-배포-시-불필요한-빌드-도구를-설치하지-않기>5. 배포 시 불필요한 빌드 도구를 설치하지 않기</a></li>
 <li><a href=#6-dockerignore-활용하기>6. .dockerignore 활용하기</a></li>
 <li><a href=#7-multi-stage-빌드>7. multi-stage 빌드</a></li>
-<li><a href=#참조-url>참조 URL</a></li>
+<li><a href=#참고reference>참고(Reference)</a></li>
 </ul>
 </nav>
 </div>

@@ -101,18 +101,20 @@ Sangjun 개발 블로그</a>
 <h1>python opencv 사용법</h1>
 </div>
 <div class=post-content id=post-content>
+<hr>
 <p>설치버전 : opencv-python 4.5.1.48</p>
 <ul>
 <li><a href=https://docs.opencv.org/4.5.1/d4/da8/group__imgcodecs.html>docs url</a></li>
 </ul>
-<p>import 라이브러리</p>
+<p>라이브러리 import</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> cv2 <span style=color:#66d9ef>as</span> cv
-</code></pre></div><h2 id=cvimread>cv.imread</h2>
+</code></pre></div><hr>
+<h2 id=이미지-파일-읽기>이미지 파일 읽기</h2>
 <ul>
-<li>이미지 파일 읽기</li>
 <li><code>cv.imread</code>(filename[, flags]) -> retval</li>
 </ul>
-<table>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>img <span style=color:#f92672>=</span> cv<span style=color:#f92672>.</span>imread(image_full_path)
+</code></pre></div><table>
 <thead>
 <tr>
 <th>매개변수 이름</th>
@@ -130,20 +132,21 @@ Sangjun 개발 블로그</a>
 </tr>
 </tbody>
 </table>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>img <span style=color:#f92672>=</span> cv<span style=color:#f92672>.</span>imread(image_full_path)
-</code></pre></div><h2 id=cvimwrite>cv.imwrite</h2>
+<hr>
+<h2 id=이미지-파일-저장>이미지 파일 저장</h2>
 <ul>
-<li>이미지 파일 저장</li>
 <li><code>cv.imwrite</code>(filename, img[, params]) -> retval</li>
 <li>이미지 형식은 파일 이름 확장자에 따라 선택됨</li>
 </ul>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>cv<span style=color:#f92672>.</span>imwrite(image_full_path, img)
-</code></pre></div><h2 id=cvimencode>cv.imencode</h2>
+</code></pre></div><hr>
+<h2 id=메모리-버퍼로-인코딩>메모리 버퍼로 인코딩</h2>
 <ul>
 <li>이미지를 ext형식으로 변환하여 메모리 버퍼로 인코딩</li>
 <li><code>cv.imencode</code>(ext, img[, params]) -> refval, buf</li>
 </ul>
-<table>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>retval, buffer <span style=color:#f92672>=</span> cv<span style=color:#f92672>.</span>imencode(<span style=color:#e6db74>&#39;.png&#39;</span>, img)
+</code></pre></div><table>
 <thead>
 <tr>
 <th>매개변수 이름</th>
@@ -169,8 +172,8 @@ Sangjun 개발 블로그</a>
 </tr>
 </tbody>
 </table>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>retval, buffer <span style=color:#f92672>=</span> cv<span style=color:#f92672>.</span>imencode(<span style=color:#e6db74>&#39;.png&#39;</span>, img)
-</code></pre></div><h2 id=cvimshow>cv.imshow</h2>
+<hr>
+<h2 id=이미지-보기>이미지 보기</h2>
 <ul>
 <li>변수에 담겨있는 이미지 보기</li>
 <li><code>cv.imshow</code>(winname, mat)</li>
@@ -206,10 +209,10 @@ cv<span style=color:#f92672>.</span>destroyAllWindows()  <span style=color:#7571
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#cvimread>cv.imread</a></li>
-<li><a href=#cvimwrite>cv.imwrite</a></li>
-<li><a href=#cvimencode>cv.imencode</a></li>
-<li><a href=#cvimshow>cv.imshow</a></li>
+<li><a href=#이미지-파일-읽기>이미지 파일 읽기</a></li>
+<li><a href=#이미지-파일-저장>이미지 파일 저장</a></li>
+<li><a href=#메모리-버퍼로-인코딩>메모리 버퍼로 인코딩</a></li>
+<li><a href=#이미지-보기>이미지 보기</a></li>
 </ul>
 </nav>
 </div>

@@ -101,13 +101,16 @@ Sangjun 개발 블로그</a>
 <h1>golang fcm(firebase cloud messaging) push 메세지 사용법</h1>
 </div>
 <div class=post-content id=post-content>
+<hr>
 <p>Firebase Cloud Messaging(FCM)은 firebase에서 무료로 메시지 전송할 수 있는 교차 플랫폼 메시징 솔루션이다.<br>
 최대 4,000바이트의 페이로드를 클라이언트 앱에 전송할 수 있다.</p>
 <p>아래의 예제는 <code>Go언어 기반의 백엔드 서버</code> 예시이며 fcm token이 이미 발급받았다는 가정하에 진행된다.</p>
-<h2 id=라이브러리-설치>라이브러리 설치</h2>
+<hr>
+<h2 id=1-라이브러리-설치>1. 라이브러리 설치</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&gt; go get firebase.google.com/go/v4
 &gt; go get google.golang.org/api
-</code></pre></div><h2 id=firebase-app-초기화>Firebase APP 초기화</h2>
+</code></pre></div><hr>
+<h2 id=2-firebase-app-초기화>2. Firebase APP 초기화</h2>
 <p><a href="https://firebase.google.com/docs/cloud-messaging/auth-server?hl=ko#provide-credentials-manually">사용자 인증 정보 제공</a>의 안내에 따라 서비스 계정의 비공개 키 파일을 다운받는다.</p>
 <p>해당 파일에는 다음과 같은 정보가 있다.</p>
 <p>파일명은 <code>serviceAccountKey.json</code>라고 가정한다.</p>
@@ -162,7 +165,8 @@ Sangjun 개발 블로그</a>
 		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatalln</span>(<span style=color:#e6db74>&#34;[initApp] getting Messaging client error :&#34;</span>, <span style=color:#a6e22e>err</span>)
 	}
 }
-</code></pre></div><h2 id=특정-기기에-메시지-전송>특정 기기에 메시지 전송</h2>
+</code></pre></div><hr>
+<h2 id=3-특정-기기에-메시지-전송>3. 특정 기기에 메시지 전송</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>sendNotification</span>(<span style=color:#a6e22e>title</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>body</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>fcmToken</span> <span style=color:#66d9ef>string</span>) {
 
 	<span style=color:#75715e>// This registration token comes from the client FCM SDKs.
@@ -189,7 +193,8 @@ Sangjun 개발 블로그</a>
 	}
 	<span style=color:#a6e22e>_</span> = <span style=color:#a6e22e>response</span>
 }
-</code></pre></div><h2 id=여러-기기에-메시지-전송>여러 기기에 메시지 전송</h2>
+</code></pre></div><hr>
+<h2 id=4-여러-기기에-메시지-전송>4. 여러 기기에 메시지 전송</h2>
 <p>호출당 최대 500개의 기기 등록 토큰을 지정할 수 있다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>sendNotifications</span>(<span style=color:#a6e22e>title</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>body</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>fcmTokens</span> []<span style=color:#66d9ef>string</span>) {
 	<span style=color:#75715e>// fcm tokens
@@ -229,9 +234,11 @@ Sangjun 개발 블로그</a>
 	}
 }
 </code></pre></div><p>firebase 서버 상황에 따라 Push 알림 수신까지 수초~수분 걸릴 수 있다.</p>
-<h2 id=예시코드-git-주소>예시코드 Git 주소</h2>
+<hr>
+<h2 id=5-예시코드-git>5. 예시코드 Git</h2>
 <p><a href=https://github.com/SangjunCha-dev/blog/tree/main/golang/golang-fcm-push>golang-fcm-push</a></p>
-<h2 id=참조-docs-url>참조 Docs URL</h2>
+<hr>
+<h2 id=참고reference>참고(Reference)</h2>
 <ul>
 <li><a href="https://firebase.google.com/docs/cloud-messaging?hl=ko">Firebase 클라우드 메시징</a></li>
 <li><a href="https://firebase.google.com/docs/cloud-messaging/send-message?hl=ko#send-messages-to-specific-devices">특정 기기에 메시지 전송</a></li>
@@ -264,12 +271,12 @@ Sangjun 개발 블로그</a>
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#라이브러리-설치>라이브러리 설치</a></li>
-<li><a href=#firebase-app-초기화>Firebase APP 초기화</a></li>
-<li><a href=#특정-기기에-메시지-전송>특정 기기에 메시지 전송</a></li>
-<li><a href=#여러-기기에-메시지-전송>여러 기기에 메시지 전송</a></li>
-<li><a href=#예시코드-git-주소>예시코드 Git 주소</a></li>
-<li><a href=#참조-docs-url>참조 Docs URL</a></li>
+<li><a href=#1-라이브러리-설치>1. 라이브러리 설치</a></li>
+<li><a href=#2-firebase-app-초기화>2. Firebase APP 초기화</a></li>
+<li><a href=#3-특정-기기에-메시지-전송>3. 특정 기기에 메시지 전송</a></li>
+<li><a href=#4-여러-기기에-메시지-전송>4. 여러 기기에 메시지 전송</a></li>
+<li><a href=#5-예시코드-git>5. 예시코드 Git</a></li>
+<li><a href=#참고reference>참고(Reference)</a></li>
 </ul>
 </nav>
 </div>

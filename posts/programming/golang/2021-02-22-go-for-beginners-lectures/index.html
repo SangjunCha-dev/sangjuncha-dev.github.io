@@ -101,16 +101,17 @@ Sangjun 개발 블로그</a>
 <h1>노마드코더 쉽고 빠른 Go 시작하기(nomadcoders Go-for-beginners lectures)</h1>
 </div>
 <div class=post-content id=post-content>
-<h1 id=0-소개>0. 소개</h1>
+<hr>
+<h2 id=0-소개>0. 소개</h2>
 <p>설치 환경 : Windows 10
 IDE : vscode</p>
-<h2 id=01-설치>0.1. 설치</h2>
+<h3 id=01-설치>0.1. 설치</h3>
 <p>해당 URL에서 golang 설치파일을 다운받아 실행</p>
 <ul>
 <li><a href=https://golang.org/dl/>https://golang.org/dl/</a></li>
 <li>설치파일에서 안내한 경로인 <code>C:\Program Files\Go</code> 폴더에 Go 설치 되었는지 확인</li>
 </ul>
-<h2 id=02-설정>0.2. 설정</h2>
+<h3 id=02-설정>0.2. 설정</h3>
 <ol>
 <li>Go Path 환경변수 확인</li>
 </ol>
@@ -142,8 +143,9 @@ IDE : vscode</p>
 <li>vscode 우측 하단에 표시된 go 관련 Extensions 업데이트 모두 설치</li>
 <li>vscode 재실행</li>
 </ul>
-<h1 id=1-이론>1. 이론</h1>
-<h2 id=10-main-package>1.0. Main Package</h2>
+<hr>
+<h2 id=1-이론>1. 이론</h2>
+<h3 id=10-main-package>1.0. Main Package</h3>
 <p>컴파일 되기 위해서는 main.go 파일에 코드 작성해야함</p>
 <p>또한 main pkackage 와 main function 을 꼭 호출해야함</p>
 <ul>
@@ -156,7 +158,7 @@ func main() {
 }
 </code></pre></div><p>go 파일 실행 명령어</p>
 <pre tabindex=0><code>go run main.go
-</code></pre><h2 id=11-packages-and-imports>1.1. Packages and Imports</h2>
+</code></pre><h3 id=11-packages-and-imports>1.1. Packages and Imports</h3>
 <p>터미널에서 문자열 출력</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 
@@ -172,7 +174,7 @@ func main() {
 <li>다른 package function을 export 하고 싶으면 대문자로 시작되는 function을 호출</li>
 <li>소문자로 시작하는 함수는 private 함수로 외부에서 호출할 수 없음</li>
 </ul>
-<h2 id=12-변수와-상수variables-and-constants>1.2. 변수와 상수(Variables and Constants)</h2>
+<h3 id=12-변수와-상수variables-and-constants>1.2. 변수와 상수(Variables and Constants)</h3>
 <p>const : 상수<br>
 let : 변수</p>
 <ul>
@@ -195,7 +197,7 @@ let : 변수</p>
 	<span style=color:#a6e22e>name3</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;third&#34;</span>
 	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>name3</span>)
 }
-</code></pre></div><h2 id=13-함수functions>1.3. 함수(Functions)</h2>
+</code></pre></div><h3 id=13-함수functions>1.3. 함수(Functions)</h3>
 <p>Go 언어에서 사용가능한 Type 목록</p>
 <ul>
 <li><a href=https://go101.org/article/type-system-overview.html>https://go101.org/article/type-system-overview.html</a></li>
@@ -287,7 +289,7 @@ return 변수를 명시하지 않아도 됨</p>
 	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>totalLenght</span>, <span style=color:#a6e22e>up</span>)
 }
 
-</code></pre></div><h2 id=14-for-range-args>1.4. for, range, args</h2>
+</code></pre></div><h3 id=14-for-range-args>1.4. for, range, args</h3>
 <p><code>for</code> : loop는 for함수로만 가능<br>
 <code>range</code> : array에 loop 적용 가능<br>
 - range는 index를 같이 넘겨줌</p>
@@ -334,7 +336,7 @@ return 변수를 명시하지 않아도 됨</p>
 	<span style=color:#a6e22e>result</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>superAdd</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>6</span>)
 	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>result</span>)
 }
-</code></pre></div><h2 id=15-if-with-a-twist>1.5. If with a Twist</h2>
+</code></pre></div><h3 id=15-if-with-a-twist>1.5. If with a Twist</h3>
 <p>if 조건문 사용형식</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 
@@ -363,7 +365,7 @@ return 변수를 명시하지 않아도 됨</p>
 	}
 	<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>
 }
-</code></pre></div><h2 id=16-switch>1.6. Switch</h2>
+</code></pre></div><h3 id=16-switch>1.6. Switch</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 
 <span style=color:#f92672>import</span> (
@@ -405,7 +407,7 @@ return 변수를 명시하지 않아도 됨</p>
 	}
 	<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>
 }
-</code></pre></div><h2 id=17-pointers>1.7 Pointers</h2>
+</code></pre></div><h3 id=17-pointers>1.7. Pointers</h3>
 <p>복사는 기본적으로 값 복사를 실행</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 
@@ -430,7 +432,7 @@ return 변수를 명시하지 않아도 됨</p>
 	<span style=color:#a6e22e>b</span> <span style=color:#f92672>:=</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>a</span>
 	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>a</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>b</span>)
 }
-</code></pre></div><h2 id=18-arrays-and-slices>1.8 Arrays and Slices</h2>
+</code></pre></div><h3 id=18-arrays-and-slices>1.8. Arrays and Slices</h3>
 <p><code>array</code> : 크기를 정해서 사용하는 배열 (크기 수정 불가)</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 
@@ -455,7 +457,7 @@ return 변수를 명시하지 않아도 됨</p>
 	<span style=color:#a6e22e>names</span> = append(<span style=color:#a6e22e>names</span>, <span style=color:#e6db74>&#34;d&#34;</span>)
 	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>names</span>)
 }
-</code></pre></div><h2 id=19-maps>1.9 Maps</h2>
+</code></pre></div><h3 id=19-maps>1.9. Maps</h3>
 <p>map : key, value 로 이루어진 자료형</p>
 <p><code>map[string]string</code></p>
 <ul>
@@ -485,7 +487,7 @@ return 변수를 명시하지 않아도 됨</p>
 		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>value</span>)
 	}
 }
-</code></pre></div><h2 id=110-structs>1.10 Structs</h2>
+</code></pre></div><h3 id=110-structs>1.10. Structs</h3>
 <p>map 자료형보다 유연함</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 
@@ -513,14 +515,15 @@ return 변수를 명시하지 않아도 됨</p>
 	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;favFood&#34;</span>, <span style=color:#a6e22e>test</span>.<span style=color:#a6e22e>favFood</span>)
 }
 
-</code></pre></div><h1 id=2-bank--dictionary-projects>2. BANK & DICTIONARY PROJECTS</h1>
-<h2 id=20-account--newaccount>2.0 Account + NewAccount</h2>
+</code></pre></div><hr>
+<h2 id=2-bank--dictionary-projects>2. BANK & DICTIONARY PROJECTS</h2>
+<h3 id=20-account--newaccount>2.0. Account + NewAccount</h3>
 <p>변수명 첫글자가 <code>대문자</code>이면 public<br>
 변수명 첫글자가 <code>소문자</code>이면 private</p>
 <ul>
 <li>private은 외부 패키지에서 접근할 수 없음</li>
 </ul>
-<h3 id=201-pubilc>2.0.1 pubilc</h3>
+<h4 id=201-pubilc>2.0.1. pubilc</h4>
 <p>main.go</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 
@@ -550,7 +553,7 @@ return 변수를 명시하지 않아도 됨</p>
 </ul>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>go mod init
 go build
-</code></pre></div><h3 id=202-private>2.0.2 private</h3>
+</code></pre></div><h4 id=202-private>2.0.2. private</h4>
 <p>외부 패키지에서 account 정보 수정하지 못하도록 private 방식으로 코드 수정</p>
 <p>main.go</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
@@ -584,8 +587,8 @@ go build
 	<span style=color:#a6e22e>account</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>Account</span>{<span style=color:#a6e22e>owner</span>: <span style=color:#a6e22e>owner</span>, <span style=color:#a6e22e>balance</span>: <span style=color:#ae81ff>0</span>}
 	<span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>account</span>
 }
-</code></pre></div><h2 id=21-methods>2.1 Methods</h2>
-<h3 id=211-receivermethod-설정>2.1.1 receiver(method 설정)</h3>
+</code></pre></div><h3 id=21-methods>2.1. Methods</h3>
+<h4 id=211-receivermethod-설정>2.1.1. receiver(method 설정)</h4>
 <p><code>a Account</code> : receiver에서 접근할 struct의 첫 글자를 따서 변수명을 소문자로 지어야함</p>
 <ul>
 <li>해당 Account 정보는 복사한 정보</li>
@@ -609,7 +612,7 @@ go build
 </span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>a</span> <span style=color:#a6e22e>Account</span>) <span style=color:#a6e22e>Deposit</span>(<span style=color:#a6e22e>amount</span> <span style=color:#66d9ef>int</span>) {
 	<span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>balance</span> <span style=color:#f92672>+=</span> <span style=color:#a6e22e>amount</span>
 }
-</code></pre></div><h3 id=212-pointer-receiver>2.1.2 Pointer receiver</h3>
+</code></pre></div><h4 id=212-pointer-receiver>2.1.2. Pointer receiver</h4>
 <p>Deposit method 호출한 account 주소 사용</p>
 <p>accounts/accounts.go</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>...</span>
@@ -619,7 +622,7 @@ go build
 	<span style=color:#a6e22e>account</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>Account</span>{<span style=color:#a6e22e>owner</span>: <span style=color:#a6e22e>owner</span>, <span style=color:#a6e22e>balance</span>: <span style=color:#ae81ff>0</span>}
 	<span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>account</span>
 }
-</code></pre></div><h3 id=213-error-handling>2.1.3 error handling</h3>
+</code></pre></div><h4 id=213-error-handling>2.1.3. error handling</h4>
 <p>error 반환 유형 2가지</p>
 <ul>
 <li><code>return errors.New()</code></li>
@@ -678,7 +681,7 @@ go build
 	<span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>balance</span> <span style=color:#f92672>-=</span> <span style=color:#a6e22e>amount</span>
 	<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>
 }
-</code></pre></div><h2 id=22-finishing-up>2.2 Finishing Up</h2>
+</code></pre></div><h3 id=22-finishing-up>2.2. Finishing Up</h3>
 <p>Go에서 struct 사용시 내부적으로 호출해주는 method</p>
 <ul>
 <li><code>String</code> : struct 출력시 실행되는 method</li>
@@ -718,7 +721,7 @@ go build
 <span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>a</span> <span style=color:#a6e22e>Account</span>) <span style=color:#a6e22e>String</span>() <span style=color:#66d9ef>string</span> {
 	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprint</span>(<span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>Owner</span>(), <span style=color:#e6db74>&#34;&#39;s account.\nHas: &#34;</span>, <span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>Balance</span>())
 }
-</code></pre></div><h2 id=23-dictionary>2.3 Dictionary</h2>
+</code></pre></div><h3 id=23-dictionary>2.3. Dictionary</h3>
 <p>type Dictionary는 <code>map[string]string</code>자료형의 별명(alias)이다.</p>
 <p>mydict/mydict.go</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>mydict</span>
@@ -739,7 +742,7 @@ go build
 	<span style=color:#a6e22e>dictionary</span>[<span style=color:#e6db74>&#34;hello&#34;</span>] = <span style=color:#e6db74>&#34;foo&#34;</span>
 	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>dictionary</span>)
 }
-</code></pre></div><h3 id=231-search>2.3.1 Search</h3>
+</code></pre></div><h4 id=231-search>2.3.1. Search</h4>
 <p>dictionary 와 method 사용</p>
 <p>Search method 추가</p>
 <p>mydict/mydict.go</p>
@@ -778,7 +781,7 @@ go build
 		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>definition</span>)
 	}
 }
-</code></pre></div><h3 id=232-add>2.3.2 Add</h3>
+</code></pre></div><h4 id=232-add>2.3.2. Add</h4>
 <p>Add method 추가</p>
 <p>mydict/mydict.go</p>
 <p>if문 형식</p>
@@ -831,7 +834,7 @@ go build
 		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>err2</span>)
 	}
 }
-</code></pre></div><h3 id=233-update-delete>2.3.3 Update Delete</h3>
+</code></pre></div><h4 id=233-update-delete>2.3.3. Update Delete</h4>
 <p>Update method 추가</p>
 <p>main.go</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
@@ -903,8 +906,9 @@ go build
 </span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>d</span> <span style=color:#a6e22e>Dictionary</span>) <span style=color:#a6e22e>Delete</span>(<span style=color:#a6e22e>word</span> <span style=color:#66d9ef>string</span>) {
 	delete(<span style=color:#a6e22e>d</span>, <span style=color:#a6e22e>word</span>)
 }
-</code></pre></div><h1 id=3-url-checker--go-routines>3. URL CHECKER & GO ROUTINES</h1>
-<h2 id=30-hiturl>3.0 hitURL</h2>
+</code></pre></div><hr>
+<h2 id=3-url-checker--go-routines>3. URL CHECKER & GO ROUTINES</h2>
+<h3 id=30-hiturl>3.0. hitURL</h3>
 <p>hit : 인터넷 웹 서버의 파일 1개에 접속하는것을 뜻함</p>
 <p>request 사용을 위해 내장 library <code>http</code> 사용</p>
 <p>main.go</p>
@@ -947,7 +951,7 @@ go build
 	}
 	<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>
 }
-</code></pre></div><h2 id=31-slow-urlchecker>3.1 Slow URLChecker</h2>
+</code></pre></div><h3 id=31-slow-urlchecker>3.1. Slow URLChecker</h3>
 <p>panic : 컴파일러가 못찾은 에러</p>
 <p>map 자료형은 초기화 안 하면 값을 넣을 수 없음</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>results</span> <span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>string</span>
@@ -1010,7 +1014,7 @@ go build
 <li>401 : Unauthorized</li>
 <li>429 : Too Many Requests</li>
 </ul>
-<h2 id=32-goroutines>3.2 Goroutines</h2>
+<h3 id=32-goroutines>3.2. Goroutines</h3>
 <p>Top-down 방식의 프로그래밍</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 
@@ -1054,7 +1058,7 @@ go build
 		<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Sleep</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Second</span>)
 	}
 }
-</code></pre></div><h2 id=33-channels>3.3 Channels</h2>
+</code></pre></div><h3 id=33-channels>3.3. Channels</h3>
 <p><code>Channel</code></p>
 <ul>
 <li><code>goroutine</code>과 <code>main</code>함수 사이에 정보를 전달하기 위한 방법</li>
@@ -1083,7 +1087,7 @@ go build
 	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>person</span>)
 	<span style=color:#a6e22e>c</span> <span style=color:#f92672>&lt;-</span> <span style=color:#66d9ef>true</span>
 }
-</code></pre></div><h2 id=34-channels-recap>3.4 Channels Recap</h2>
+</code></pre></div><h3 id=34-channels-recap>3.4. Channels Recap</h3>
 <p>blocking operation : 해당 작업이 끝날때까지 멈춤</p>
 <ul>
 <li><code>&lt;-c</code> : 채널로부터 메세지를 얻음</li>
@@ -1117,7 +1121,7 @@ go build
 <li>채널의 메세지를 받는것 == blocking operation</li>
 <li>채널을 통해서 보내는 부분과 받는 부분 모두 타입 지정해야함</li>
 </ol>
-<h2 id=35-urlchecker--go-routines>3.5 URLChecker + Go Routines</h2>
+<h3 id=35-urlchecker--go-routines>3.5. URLChecker + Go Routines</h3>
 <p><code>c chan&lt;-</code> : Send Only(보내기만 가능)</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 
@@ -1167,8 +1171,9 @@ go build
 	}
 	<span style=color:#a6e22e>c</span> <span style=color:#f92672>&lt;-</span> <span style=color:#a6e22e>requestResult</span>{<span style=color:#a6e22e>url</span>: <span style=color:#a6e22e>url</span>, <span style=color:#a6e22e>status</span>: <span style=color:#a6e22e>status</span>}
 }
-</code></pre></div><h1 id=4-job-scrapper>4. JOB SCRAPPER</h1>
-<h2 id=40-getpages>4.0 getPages</h2>
+</code></pre></div><hr>
+<h2 id=4-job-scrapper>4. JOB SCRAPPER</h2>
+<h3 id=40-getpages>4.0. getPages</h3>
 <p>라이브러리 설치</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>go get github.com/PuerkitoBio/goquery
 </code></pre></div><p>goquery Doc URL</p>
@@ -1234,7 +1239,7 @@ go build
 		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatalln</span>(<span style=color:#e6db74>&#34;Request failed with Status :&#34;</span>, <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>StatusCode</span>)
 	}
 }
-</code></pre></div><h2 id=41-extractjob>4.1 extractJob</h2>
+</code></pre></div><h3 id=41-extractjob>4.1. extractJob</h3>
 <p>strings.TrimSpace(str) : 문자열 양쪽 끝 공백 제거</p>
 <p>strings.Fields(str) : 문자열 배열형태로 반환</p>
 <p>strings.Join([]string, " &ldquo;) : 문자열 배열을 " &ldquo;으로 합쳐서 문자열 변환</p>
@@ -1345,7 +1350,7 @@ go build
 		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatalln</span>(<span style=color:#e6db74>&#34;Request failed with Status :&#34;</span>, <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>StatusCode</span>)
 	}
 }
-</code></pre></div><h2 id=42-writing-jobs>4.2 Writing Jobs</h2>
+</code></pre></div><h3 id=42-writing-jobs>4.2. Writing Jobs</h3>
 <p>encoding/csv : csv 관련 패키지</p>
 <p>w.Write([]string) : 파일 버퍼에 기록</p>
 <p>defer w.Flush() : 함수가 끝나는 시점에 파일에 데이터를 작성하는 함수</p>
@@ -1478,7 +1483,7 @@ go build
 		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatalln</span>(<span style=color:#e6db74>&#34;Request failed with Status :&#34;</span>, <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>StatusCode</span>)
 	}
 }
-</code></pre></div><h2 id=43-channels-time>4.3 Channels Time</h2>
+</code></pre></div><h3 id=43-channels-time>4.3. Channels Time</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 
 <span style=color:#f92672>import</span> (
@@ -1616,8 +1621,9 @@ go build
 		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatalln</span>(<span style=color:#e6db74>&#34;Request failed with Status :&#34;</span>, <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>StatusCode</span>)
 	}
 }
-</code></pre></div><h1 id=5-web-server-with-echo>5. WEB SERVER WITH ECHO</h1>
-<h2 id=50-setup>5.0 Setup</h2>
+</code></pre></div><hr>
+<h2 id=5-web-server-with-echo>5. WEB SERVER WITH ECHO</h2>
+<h3 id=50-setup>5.0. Setup</h3>
 <p>go echo 서버 만들기</p>
 <p>라이브러리 설치</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>go get github.com/labstack/echo
@@ -1641,7 +1647,7 @@ go build
 }
 </code></pre></div><p><code>go run main.go</code> 실행 후</p>
 <p>웹 브라우저에서 <code>localhost:1323</code> 접속시 접속되는 것을 확인</p>
-<h2 id=51-scrapper-서버-생성>5.1 scrapper 서버 생성</h2>
+<h3 id=51-scrapper-서버-생성>5.1. scrapper 서버 생성</h3>
 <p><code>scrapper</code> 폴더 생성후 해당 폴더로 <code>main.go</code> 파일 이동후 아래와 같이 수정</p>
 <ul>
 <li>파일명 <code>main.go</code> -> <code>scrapper.go</code></li>
@@ -1828,7 +1834,7 @@ go build
         &lt;<span style=color:#f92672>button</span>&gt;Search&lt;/<span style=color:#f92672>button</span>&gt;
     &lt;/<span style=color:#f92672>form</span>&gt;
 &lt;/<span style=color:#f92672>html</span>&gt;
-</code></pre></div><h2 id=52-file-download>5.2 File Download</h2>
+</code></pre></div><h3 id=52-file-download>5.2. File Download</h3>
 <p>return c.Attachment(filename1, filename2) : filename1 파일 찾아서 filename2 이름으로 다운로드</p>
 <p>main.go</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
@@ -1860,9 +1866,14 @@ go build
 	<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>POST</span>(<span style=color:#e6db74>&#34;/scrape&#34;</span>, <span style=color:#a6e22e>handleScrape</span>)
 	<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>Logger</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>Start</span>(<span style=color:#e6db74>&#34;:1323&#34;</span>))
 }
-</code></pre></div><p><a href=https://gobuffalo.io/en/>buffalo</a> - django의 go버전 프레임워크</p>
-<p>db, template, api, server, logger, orm 등 모든 것이 있는 풀스택 프레임워크</p>
-<p>라우팅, hot code reload, 프론트엔드 파이프라인, 모델, 테스트 등 기능 지원</p>
+</code></pre></div><hr>
+<h2 id=참고reference>참고(Reference)</h2>
+<p><a href=https://gobuffalo.io/en/>buffalo</a></p>
+<ul>
+<li>django의 go버전 프레임워크</li>
+<li>db, template, api, server, logger, orm 등 모든 것이 있는 풀스택 프레임워크</li>
+<li>라우팅, hot code reload, 프론트엔드 파이프라인, 모델, 테스트 등 기능 지원</li>
+</ul>
 </div>
 <div class="row pl-3 pr-3">
 <div class="col-md-6 share-buttons">
@@ -1890,9 +1901,13 @@ go build
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
+<li><a href=#0-소개>0. 소개</a>
+<ul>
 <li><a href=#01-설치>0.1. 설치</a></li>
 <li><a href=#02-설정>0.2. 설정</a></li>
 </ul>
+</li>
+<li><a href=#1-이론>1. 이론</a>
 <ul>
 <li><a href=#10-main-package>1.0. Main Package</a></li>
 <li><a href=#11-packages-and-imports>1.1. Packages and Imports</a></li>
@@ -1901,52 +1916,63 @@ go build
 <li><a href=#14-for-range-args>1.4. for, range, args</a></li>
 <li><a href=#15-if-with-a-twist>1.5. If with a Twist</a></li>
 <li><a href=#16-switch>1.6. Switch</a></li>
-<li><a href=#17-pointers>1.7 Pointers</a></li>
-<li><a href=#18-arrays-and-slices>1.8 Arrays and Slices</a></li>
-<li><a href=#19-maps>1.9 Maps</a></li>
-<li><a href=#110-structs>1.10 Structs</a></li>
-</ul>
-<ul>
-<li><a href=#20-account--newaccount>2.0 Account + NewAccount</a>
-<ul>
-<li><a href=#201-pubilc>2.0.1 pubilc</a></li>
-<li><a href=#202-private>2.0.2 private</a></li>
+<li><a href=#17-pointers>1.7. Pointers</a></li>
+<li><a href=#18-arrays-and-slices>1.8. Arrays and Slices</a></li>
+<li><a href=#19-maps>1.9. Maps</a></li>
+<li><a href=#110-structs>1.10. Structs</a></li>
 </ul>
 </li>
-<li><a href=#21-methods>2.1 Methods</a>
+<li><a href=#2-bank--dictionary-projects>2. BANK & DICTIONARY PROJECTS</a>
 <ul>
-<li><a href=#211-receivermethod-설정>2.1.1 receiver(method 설정)</a></li>
-<li><a href=#212-pointer-receiver>2.1.2 Pointer receiver</a></li>
-<li><a href=#213-error-handling>2.1.3 error handling</a></li>
+<li><a href=#20-account--newaccount>2.0. Account + NewAccount</a>
+<ul>
+<li><a href=#201-pubilc>2.0.1. pubilc</a></li>
+<li><a href=#202-private>2.0.2. private</a></li>
 </ul>
 </li>
-<li><a href=#22-finishing-up>2.2 Finishing Up</a></li>
-<li><a href=#23-dictionary>2.3 Dictionary</a>
+<li><a href=#21-methods>2.1. Methods</a>
 <ul>
-<li><a href=#231-search>2.3.1 Search</a></li>
-<li><a href=#232-add>2.3.2 Add</a></li>
-<li><a href=#233-update-delete>2.3.3 Update Delete</a></li>
+<li><a href=#211-receivermethod-설정>2.1.1. receiver(method 설정)</a></li>
+<li><a href=#212-pointer-receiver>2.1.2. Pointer receiver</a></li>
+<li><a href=#213-error-handling>2.1.3. error handling</a></li>
+</ul>
+</li>
+<li><a href=#22-finishing-up>2.2. Finishing Up</a></li>
+<li><a href=#23-dictionary>2.3. Dictionary</a>
+<ul>
+<li><a href=#231-search>2.3.1. Search</a></li>
+<li><a href=#232-add>2.3.2. Add</a></li>
+<li><a href=#233-update-delete>2.3.3. Update Delete</a></li>
 </ul>
 </li>
 </ul>
+</li>
+<li><a href=#3-url-checker--go-routines>3. URL CHECKER & GO ROUTINES</a>
 <ul>
-<li><a href=#30-hiturl>3.0 hitURL</a></li>
-<li><a href=#31-slow-urlchecker>3.1 Slow URLChecker</a></li>
-<li><a href=#32-goroutines>3.2 Goroutines</a></li>
-<li><a href=#33-channels>3.3 Channels</a></li>
-<li><a href=#34-channels-recap>3.4 Channels Recap</a></li>
-<li><a href=#35-urlchecker--go-routines>3.5 URLChecker + Go Routines</a></li>
+<li><a href=#30-hiturl>3.0. hitURL</a></li>
+<li><a href=#31-slow-urlchecker>3.1. Slow URLChecker</a></li>
+<li><a href=#32-goroutines>3.2. Goroutines</a></li>
+<li><a href=#33-channels>3.3. Channels</a></li>
+<li><a href=#34-channels-recap>3.4. Channels Recap</a></li>
+<li><a href=#35-urlchecker--go-routines>3.5. URLChecker + Go Routines</a></li>
 </ul>
+</li>
+<li><a href=#4-job-scrapper>4. JOB SCRAPPER</a>
 <ul>
-<li><a href=#40-getpages>4.0 getPages</a></li>
-<li><a href=#41-extractjob>4.1 extractJob</a></li>
-<li><a href=#42-writing-jobs>4.2 Writing Jobs</a></li>
-<li><a href=#43-channels-time>4.3 Channels Time</a></li>
+<li><a href=#40-getpages>4.0. getPages</a></li>
+<li><a href=#41-extractjob>4.1. extractJob</a></li>
+<li><a href=#42-writing-jobs>4.2. Writing Jobs</a></li>
+<li><a href=#43-channels-time>4.3. Channels Time</a></li>
 </ul>
+</li>
+<li><a href=#5-web-server-with-echo>5. WEB SERVER WITH ECHO</a>
 <ul>
-<li><a href=#50-setup>5.0 Setup</a></li>
-<li><a href=#51-scrapper-서버-생성>5.1 scrapper 서버 생성</a></li>
-<li><a href=#52-file-download>5.2 File Download</a></li>
+<li><a href=#50-setup>5.0. Setup</a></li>
+<li><a href=#51-scrapper-서버-생성>5.1. scrapper 서버 생성</a></li>
+<li><a href=#52-file-download>5.2. File Download</a></li>
+</ul>
+</li>
+<li><a href=#참고reference>참고(Reference)</a></li>
 </ul>
 </nav>
 </div>

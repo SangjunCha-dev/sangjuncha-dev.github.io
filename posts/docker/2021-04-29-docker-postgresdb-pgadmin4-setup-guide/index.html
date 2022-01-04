@@ -101,9 +101,10 @@ Sangjun 개발 블로그</a>
 <h1>PostgreDB, pgadmin4 도커 설치 방법</h1>
 </div>
 <div class=post-content id=post-content>
-<h2 id=postgres-docker-이미지-설치>Postgres Docker 이미지 설치</h2>
+<hr>
+<h2 id=1-postgres-docker-이미지-설치>1. Postgres Docker 이미지 설치</h2>
 <p>Postgres Version : 13.2</p>
-<h3 id=다운로드-및-설정>다운로드 및 설정</h3>
+<h3 id=11-다운로드-및-설정>1.1. 다운로드 및 설정</h3>
 <p>아래 명령어를 실행한다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker run -p 15432:5432 --name postgres -e POSTGRES_PASSWORD<span style=color:#f92672>=</span>password1! -d postgres
 </code></pre></div><ul>
@@ -140,18 +141,18 @@ e0fcc114ae29: Pull complete
 Digest: sha256:b25265ac1dfa19224fd47dd9f5744aa177248fd64e89f407446559cc7dbc7a23
 Status: Downloaded newer image <span style=color:#66d9ef>for</span> postgres:latest
 47d090f5c4a593b833c237cef181f960571e71004ace5ebc804907f4feae1433
-</code></pre></div><h3 id=도커-이미지-확인>도커 이미지 확인</h3>
+</code></pre></div><h3 id=12-도커-이미지-확인>1.2. 도커 이미지 확인</h3>
 <p>도커에서 실행중인 이미지 정보확인</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker ps -a
 CONTAINER ID   IMAGE               COMMAND                  CREATED          STATUS                    PORTS                     NAMES
 47d090f5c4a5   postgres            <span style=color:#e6db74>&#34;docker-entrypoint.s…&#34;</span>   <span style=color:#ae81ff>16</span> seconds ago   Up <span style=color:#ae81ff>14</span> seconds             0.0.0.0:15432-&gt;5432/tcp   postgres
-</code></pre></div><h3 id=도커-이미지-접속>도커 이미지 접속</h3>
+</code></pre></div><h3 id=13-도커-이미지-접속>1.3. 도커 이미지 접속</h3>
 <p>postgres 이미지 bash쉘 접속</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker exec -it postgres /bin/bash
 </code></pre></div><ul>
 <li><code>-it</code> : 컨테이너를 종료하지 않고, 터미널의 입력을 컨테이너로 전달하기 위해서 사용</li>
 </ul>
-<h3 id=postgres-db-및-user-생성>Postgres DB 및 User 생성</h3>
+<h3 id=14-postgres-db-및-user-생성>1.4. Postgres DB 및 User 생성</h3>
 <ol>
 <li>
 <p>데이터베이스 접속</p>
@@ -178,7 +179,7 @@ CONTAINER ID   IMAGE               COMMAND                  CREATED          STA
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#960050;background-color:#1e0010>\</span>du
 </code></pre></div></li>
 </ol>
-<h3 id=도커-컨테이너-삭제>도커 컨테이너 삭제</h3>
+<h3 id=15-도커-컨테이너-삭제>1.5. 도커 컨테이너 삭제</h3>
 <p>도커 이미지가 실행중일 경우 두 가지 방법으로 삭제할 수 있다.</p>
 <ul>
 <li>
@@ -191,10 +192,10 @@ $ docker rm <span style=color:#f92672>{</span>CONTAINER ID<span style=color:#f92
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker rm -f <span style=color:#f92672>{</span>CONTAINER ID<span style=color:#f92672>}</span>
 </code></pre></div></li>
 </ul>
-<h3 id=모든-컨테이너-종료-및-삭제>모든 컨테이너 종료 및 삭제</h3>
+<h3 id=16-모든-컨테이너-종료-및-삭제>1.6. 모든 컨테이너 종료 및 삭제</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker stop <span style=color:#66d9ef>$(</span>docker ps -a -q<span style=color:#66d9ef>)</span>
 $ docker rm <span style=color:#66d9ef>$(</span>docker ps -a -q<span style=color:#66d9ef>)</span>
-</code></pre></div><h3 id=볼륨-컨테이너>볼륨 컨테이너</h3>
+</code></pre></div><h3 id=17-볼륨-컨테이너>1.7. 볼륨 컨테이너</h3>
 <p>컨테이너를 삭제하면 데이터도 같이 삭제되므로 데이터 저장용으로 사용하는 <code>볼륨 컨테이너</code>를 같이 사용한다.</p>
 <ol>
 <li>
@@ -234,12 +235,13 @@ local     pgdata
 <span style=color:#f92672>]</span>
 </code></pre></div></li>
 </ol>
-<h2 id=pgadmin4-이미지-설치>pgadmin4 이미지 설치</h2>
+<hr>
+<h2 id=2-pgadmin4-이미지-설치>2. pgadmin4 이미지 설치</h2>
 <p>pgadmin4 Version : 13.2</p>
-<h3 id=설치>설치</h3>
+<h3 id=21-설치>2.1. 설치</h3>
 <p>이미지를 다운받는다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker pull dpage/pgadmin4
-</code></pre></div><h3 id=도커-이미지-실행>도커 이미지 실행</h3>
+</code></pre></div><h3 id=22-도커-이미지-실행>2.2. 도커 이미지 실행</h3>
 <p>아래의 설정으로 다운받은 이미지 사용하여 도커컨테이너를 실행한다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker run -p 80:80 --name pgadmin4 -e PGADMIN_DEFAULT_EMAIL<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;account@site.com&#34;</span> -e PGADMIN_DEFAULT_PASSWORD<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;password1!&#34;</span> -d dpage/pgadmin4
 </code></pre></div><ul>
@@ -258,7 +260,7 @@ local     pgdata
 <li><code>-d</code> : 백그라운드에서 컨테이너 실행</li>
 <li><code>dpage/pgadmin4</code> : 사용할 이미지 이름</li>
 </ul>
-<h3 id=실행>실행</h3>
+<h3 id=23-실행>2.3. 실행</h3>
 <p>웹 브라우저에서 <code>localhost:80</code> 주소로 접속하여 설정한 계정과 비밀번호로 접속하면된다.</p>
 <p><img src="../images/docker-postgresdb-pgadmin4-setup-guide_1-1.png?raw=true" alt></p>
 </div>
@@ -288,22 +290,22 @@ local     pgdata
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#postgres-docker-이미지-설치>Postgres Docker 이미지 설치</a>
+<li><a href=#1-postgres-docker-이미지-설치>1. Postgres Docker 이미지 설치</a>
 <ul>
-<li><a href=#다운로드-및-설정>다운로드 및 설정</a></li>
-<li><a href=#도커-이미지-확인>도커 이미지 확인</a></li>
-<li><a href=#도커-이미지-접속>도커 이미지 접속</a></li>
-<li><a href=#postgres-db-및-user-생성>Postgres DB 및 User 생성</a></li>
-<li><a href=#도커-컨테이너-삭제>도커 컨테이너 삭제</a></li>
-<li><a href=#모든-컨테이너-종료-및-삭제>모든 컨테이너 종료 및 삭제</a></li>
-<li><a href=#볼륨-컨테이너>볼륨 컨테이너</a></li>
+<li><a href=#11-다운로드-및-설정>1.1. 다운로드 및 설정</a></li>
+<li><a href=#12-도커-이미지-확인>1.2. 도커 이미지 확인</a></li>
+<li><a href=#13-도커-이미지-접속>1.3. 도커 이미지 접속</a></li>
+<li><a href=#14-postgres-db-및-user-생성>1.4. Postgres DB 및 User 생성</a></li>
+<li><a href=#15-도커-컨테이너-삭제>1.5. 도커 컨테이너 삭제</a></li>
+<li><a href=#16-모든-컨테이너-종료-및-삭제>1.6. 모든 컨테이너 종료 및 삭제</a></li>
+<li><a href=#17-볼륨-컨테이너>1.7. 볼륨 컨테이너</a></li>
 </ul>
 </li>
-<li><a href=#pgadmin4-이미지-설치>pgadmin4 이미지 설치</a>
+<li><a href=#2-pgadmin4-이미지-설치>2. pgadmin4 이미지 설치</a>
 <ul>
-<li><a href=#설치>설치</a></li>
-<li><a href=#도커-이미지-실행>도커 이미지 실행</a></li>
-<li><a href=#실행>실행</a></li>
+<li><a href=#21-설치>2.1. 설치</a></li>
+<li><a href=#22-도커-이미지-실행>2.2. 도커 이미지 실행</a></li>
+<li><a href=#23-실행>2.3. 실행</a></li>
 </ul>
 </li>
 </ul>

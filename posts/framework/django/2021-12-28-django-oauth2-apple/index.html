@@ -101,8 +101,9 @@ Sangjun 개발 블로그</a>
 <h1>Django oauth apple login</h1>
 </div>
 <div class=post-content id=post-content>
+<hr>
 <p>django restframework 기반의 애플 인증 로그인 백엔드서버 구현 설명이다.</p>
-<h2 id=라이브러리-설치>라이브러리 설치</h2>
+<h2 id=1-라이브러리-설치>1. 라이브러리 설치</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ pip install django
 
 <span style=color:#75715e># restframework</span>
@@ -111,7 +112,8 @@ $ pip install djangorestframework-simplejwt
 
 <span style=color:#75715e># pyjwt[crypto]</span>
 $ pip install pyjwt<span style=color:#f92672>[</span>crypto<span style=color:#f92672>]</span>
-</code></pre></div><h2 id=apple-로그인-변수-설정>Apple 로그인 변수 설정</h2>
+</code></pre></div><hr>
+<h2 id=2-apple-로그인-변수-설정>2. Apple 로그인 변수 설정</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> os
 
 APPLE_CONFIG <span style=color:#f92672>=</span> {
@@ -131,7 +133,8 @@ apple_base_url <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34
 apple_auth_url <span style=color:#f92672>=</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{</span>apple_base_url<span style=color:#e6db74>}</span><span style=color:#e6db74>/auth/authorize&#34;</span>
 apple_token_url <span style=color:#f92672>=</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{</span>apple_base_url<span style=color:#e6db74>}</span><span style=color:#e6db74>/auth/token&#34;</span>
 </code></pre></div><p>APPLE_CLIENT_ID는 모바일 로그인시 Bundle ID, 웹 로그인시 Service ID를 사용한다.</p>
-<h2 id=apple-로그인-페이지>Apple 로그인 페이지</h2>
+<hr>
+<h2 id=3-apple-로그인-페이지>3. Apple 로그인 페이지</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>AppleLoginView</span>(APIView):
     permission_classes <span style=color:#f92672>=</span> (AllowAny,)
     authentication_classes <span style=color:#f92672>=</span> ()
@@ -187,7 +190,8 @@ apple_token_url <span style=color:#f92672>=</span> <span style=color:#e6db74>f</
 <li>RestAPI의 경우 보통 JSON(<code>application/json</code>)타입으로 요청 처리한다.</li>
 <li>415 Unsupported Media Type 에러가 발생한 경우 위와 같이 Content-type이 일치하지 않을때 발생한다.</li>
 </ul>
-<h2 id=apple-callback-함수>Apple Callback 함수</h2>
+<hr>
+<h2 id=4-apple-callback-함수>4. Apple Callback 함수</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>AppleCallbackView</span>(APIView):
     <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_key_and_secret</span>(self):
         <span style=color:#e6db74>&#39;&#39;&#39;
@@ -285,7 +289,7 @@ apple_token_url <span style=color:#f92672>=</span> <span style=color:#e6db74>f</
 <li>email_verified : 이메일 인증여부</li>
 <li>auth_time</li>
 </ul>
-<h2 id=참고-사이트>참고 사이트</h2>
+<h2 id=참고reference>참고(Reference)</h2>
 <ul>
 <li><a href=https://developer.okta.com/blog/2019/06/04/what-the-heck-is-sign-in-with-apple>What the Heck is Sign In with Apple?</a></li>
 <li><a href=https://developer.apple.com/documentation/sign_in_with_apple/sign_in_with_apple_js/configuring_your_webpage_for_sign_in_with_apple>configuring_your_webpage_for_sign_in_with_apple</a>
@@ -327,11 +331,11 @@ apple_token_url <span style=color:#f92672>=</span> <span style=color:#e6db74>f</
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#라이브러리-설치>라이브러리 설치</a></li>
-<li><a href=#apple-로그인-변수-설정>Apple 로그인 변수 설정</a></li>
-<li><a href=#apple-로그인-페이지>Apple 로그인 페이지</a></li>
-<li><a href=#apple-callback-함수>Apple Callback 함수</a></li>
-<li><a href=#참고-사이트>참고 사이트</a></li>
+<li><a href=#1-라이브러리-설치>1. 라이브러리 설치</a></li>
+<li><a href=#2-apple-로그인-변수-설정>2. Apple 로그인 변수 설정</a></li>
+<li><a href=#3-apple-로그인-페이지>3. Apple 로그인 페이지</a></li>
+<li><a href=#4-apple-callback-함수>4. Apple Callback 함수</a></li>
+<li><a href=#참고reference>참고(Reference)</a></li>
 </ul>
 </nav>
 </div>

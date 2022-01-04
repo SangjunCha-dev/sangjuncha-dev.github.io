@@ -101,17 +101,19 @@ Sangjun 개발 블로그</a>
 <h1>Django json 데이터 반환하기</h1>
 </div>
 <div class=post-content id=post-content>
+<hr>
 <p>api 서버 등 json 데이터로 통신하는 서버에서 사용할 수 있는 예제이다.</p>
-<h1 id=사전-설정>사전 설정</h1>
+<h2 id=1-사전-설정>1. 사전 설정</h2>
 <p>프로젝트 생성 후 user 앱의 User 모델을 생성한다.<br>
 임의의 user 데이터를 2개 등록한다.</p>
 <p>models.py</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>User</span>(models<span style=color:#f92672>.</span>Model):
     id <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>AutoField(primary_key<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
     name <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>CharField(max_length<span style=color:#f92672>=</span><span style=color:#ae81ff>20</span>, unique<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
-</code></pre></div><h1 id=사용-예시>사용 예시</h1>
-<h2 id=querysetmodel-instance을-json형태로-변환할-경우-all>QuerySet(Model Instance)을 json형태로 변환할 경우 <code>.all()</code></h2>
-<p>serializers.serialize(&lsquo;json&rsquo;, value_name) 함수를 사용하여 json 형태로 변환시킨다.</p>
+</code></pre></div><hr>
+<h2 id=2-사용-예시>2. 사용 예시</h2>
+<h3 id=21-querysetmodel-instance을-json형태로-변환할-경우-all>2.1. QuerySet(Model Instance)을 json형태로 변환할 경우 <code>.all()</code></h3>
+<p><code>serializers.serialize('json', value_name)</code> 함수를 사용하여 json 형태로 변환시킨다.</p>
 <p>views.py</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> django.core <span style=color:#f92672>import</span> serializers
 
@@ -120,7 +122,7 @@ res_data <span style=color:#f92672>=</span> User<span style=color:#f92672>.</spa
 
 res_data <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>serialize(<span style=color:#e6db74>&#39;json&#39;</span>, res_data)
 <span style=color:#66d9ef>return</span> HttpResponse(res_data, content_type<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/json-comment-filtered&#34;</span>)
-</code></pre></div><p><code>출력결과</code></p>
+</code></pre></div><p>출력결과</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>[
     {
         &#34;model&#34;: &#34;user.user&#34;,
@@ -137,9 +139,8 @@ res_data <span style=color:#f92672>=</span> serializers<span style=color:#f92672
         }
     }
 ]
-</code></pre></div><h2 id=querysetdict을--json형태로-변환할-경우-values>QuerySet(dict)을 json형태로 변환할 경우 <code>.values()</code></h2>
-<p>QuerySet 자료형은 json 내장함수를 사용할 수 없어 QuerySet를 list형으로 변환시킨후</p>
-<p>json.dumps() 함수를 통해 json형태로 변환시킨다.</p>
+</code></pre></div><h3 id=22-querysetdict을--json형태로-변환할-경우-values>2.2. QuerySet(dict)을 json형태로 변환할 경우 <code>.values()</code></h3>
+<p>QuerySet 자료형은 json 내장함수를 사용할 수 없어 QuerySet를 list형으로 변환시킨후 <code>json.dumps()</code> 함수를 통해 json형태로 변환시킨다.</p>
 <p>views.py</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> json
 
@@ -148,7 +149,7 @@ res_data <span style=color:#f92672>=</span> Template<span style=color:#f92672>.<
 
 res_data <span style=color:#f92672>=</span> json<span style=color:#f92672>.</span>dumps(list(res_data))
 <span style=color:#66d9ef>return</span> HttpResponse(res_data, content_type<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/json-comment-filtered&#34;</span>)
-</code></pre></div><p><code>출력결과</code></p>
+</code></pre></div><p>출력결과</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>[
     {
         &#34;name&#34;: &#34;KimTester&#34;
@@ -185,8 +186,13 @@ res_data <span style=color:#f92672>=</span> json<span style=color:#f92672>.</spa
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#querysetmodel-instance을-json형태로-변환할-경우-all>QuerySet(Model Instance)을 json형태로 변환할 경우 <code>.all()</code></a></li>
-<li><a href=#querysetdict을--json형태로-변환할-경우-values>QuerySet(dict)을 json형태로 변환할 경우 <code>.values()</code></a></li>
+<li><a href=#1-사전-설정>1. 사전 설정</a></li>
+<li><a href=#2-사용-예시>2. 사용 예시</a>
+<ul>
+<li><a href=#21-querysetmodel-instance을-json형태로-변환할-경우-all>2.1. QuerySet(Model Instance)을 json형태로 변환할 경우 <code>.all()</code></a></li>
+<li><a href=#22-querysetdict을--json형태로-변환할-경우-values>2.2. QuerySet(dict)을 json형태로 변환할 경우 <code>.values()</code></a></li>
+</ul>
+</li>
 </ul>
 </nav>
 </div>

@@ -94,9 +94,9 @@ Sangjun 개발 블로그</a>
 <div class=card-body>
 <h5 class=card-title>리눅스 NFS 설정 (Linux NFS Setting)</h5>
 <p class="card-text post-summary">설치환경 : 레드햇8 (RHEL8)
-1. NFS 서버 설정 (Server Setting) 1.1 NFS 패키지 설치 yum패키지 설치 도구로 nfs-utils 패키지 설치
-yum install nfs-utils 1.2 NFS서버 서비스 실행 및 OS재부팅시 활성화 nfs서버 데몬 실행하고, OS 재부팅시 자동실행되도록 활성화
-systemctl start nfs-server systemctl enable nfs-server 1.3 외부에서 접근할 디렉토리 설정 공유할 디렉토리 생성
+1. NFS 서버 설정 (Server Setting) 1.1. NFS 패키지 설치 yum패키지 설치 도구로 nfs-utils 패키지 설치
+yum install nfs-utils 1.2. NFS서버 서비스 실행 및 OS재부팅시 활성화 nfs서버 데몬 실행하고, OS 재부팅시 자동실행되도록 활성화
+systemctl start nfs-server systemctl enable nfs-server 1.3. 외부에서 접근할 디렉토리 설정 공유할 디렉토리 생성
 mkdir /NFSVOL01 외부에서 접근할 디렉토리, 외부 접근IP, 접근권한을 exports 파일로 설정
 vi /etc/exports /NFSVOL01 192.168.0.0/255.255.255.0(rw) /NFSVOL01 : 공유할 디렉토리</p>
 </div>
@@ -153,8 +153,9 @@ vi /etc/exports /NFSVOL01 192.168.0.0/255.255.255.0(rw) /NFSVOL01 : 공유할 
 </div>
 <div class=card-body>
 <h5 class=card-title>LeetCode Python (Easy)</h5>
-<p class="card-text post-summary">1. Two Sum nums 리스트 속성값 중 두개의 값이 target 값과 동일할때 해당 속성 값의 index 반환 class Solution: def twoSum(self, nums: List[int], target: int) -> List[int]: for i, num in enumerate(nums): for j, num2 in enumerate(nums[i+1:]): if i != j+i+1: if target == num+num2: return [i, j+i+1] 2020-11-27
-Runtime: 40 ms, faster than 97.02% of Python3 online submissions for Two Sum. Memory Usage: 14.5 MB, less than 89.</p>
+<p class="card-text post-summary">1. Two Sum 문제 링크
+nums 리스트 속성값 중 두개의 값이 target 값과 동일할때 해당 속성 값의 index 반환 class Solution: def twoSum(self, nums: List[int], target: int) -> List[int]: for i, num in enumerate(nums): for j, num2 in enumerate(nums[i+1:]): if i != j+i+1: if target == num+num2: return [i, j+i+1] 2020-11-27
+Runtime: 40 ms, faster than 97.02% of Python3 online submissions for Two Sum. Memory Usage: 14.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>December 1, 2020</span>
@@ -171,10 +172,9 @@ Runtime: 40 ms, faster than 97.02% of Python3 online submissions for Two Sum. Me
 </div>
 <div class=card-body>
 <h5 class=card-title>pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)</h5>
-<p class="card-text post-summary">Docs URL - https://pyftpdlib.readthedocs.io/en/latest/
-FTP Server 라이브러리 설치 pip install pyftpdlib 실습 버전 : pyftpdlib 1.5.6
-사용예제 코드 FTP Server 예제 ftp server 실행 후 client 테스트 가능
-from pyftpdlib.authorizers import DummyAuthorizer # 사용자 인증을 생성하는 모듈 from pyftpdlib.handlers import FTPHandler # 사용자 인증, 파일 전송, 로깅 등 FTP서버를 조작하는 모듈 # from pyftpdlib.handlers import TLS_FTPHandler from pyftpdlib.servers import FTPServer # FTP서버를 실행하는 모듈 # from pyftpdlib.servers import ThreadedFTPServer import os class FileServer: def __init__(self): self.</p>
+<p class="card-text post-summary">1. 라이브러리 설치 pip install pyftpdlib 실습 버전 : pyftpdlib 1.5.6
+2. Server ftp server 실행 후 client 테스트 가능
+from pyftpdlib.authorizers import DummyAuthorizer # 사용자 인증을 생성하는 모듈 from pyftpdlib.handlers import FTPHandler # 사용자 인증, 파일 전송, 로깅 등 FTP서버를 조작하는 모듈 # from pyftpdlib.handlers import TLS_FTPHandler from pyftpdlib.servers import FTPServer # FTP서버를 실행하는 모듈 # from pyftpdlib.servers import ThreadedFTPServer import os class FileServer: def __init__(self): self.ftpServerIP = "127.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>November 16, 2020</span>
@@ -192,14 +192,37 @@ from pyftpdlib.authorizers import DummyAuthorizer # 사용자 인증을 생성�
 <div class=card-body>
 <h5 class=card-title>libmagic 라이브러리 사용법 (libmagic Library Guide)</h5>
 <p class="card-text post-summary">미디어 타입(media type), MIME 타입(MIME type)
-실행환경 : windows 10
-라이브러리 설치 pip install libmagic pip install python-magic-bin libmagic : 파일타입을 MIME 타입으로 확인해주는 라이브러리
-magic은 리눅스 환경에서 실행되는 프로그램 윈도우즈 환경에서는 윈도우용 magic 설치가 필요함 python-magic-bin : 윈도우용 magic 라이브러리
-예제 코드 import magic r1 = magic.from_file("test1.txt") r2 = magic.from_file("test1.txt", mime=True) print(f"filetype = {r1}, \nmime = {r2}") # filetype = UTF-8 Unicode text, with CRLF line terminators, # mime = text/plain file_data = open('test1.</p>
+1. 라이브러리 설치 실행환경 : windows 10
+pip install libmagic pip install python-magic-bin 실행환경 : linux
+pip install libmagic pip install python-magic libmagic : 파일타입을 MIME 타입으로 확인해주는 라이브러리 python-magic-bin : 윈도우용 magic 라이브러리 python-magic : 리눅스용 magic 라이브러리 2. 예제 코드 import magic r1 = magic.from_file("test1.txt") r2 = magic.from_file("test1.txt", mime=True) print(f"filetype = {r1}, \nmime = {r2}") # filetype = UTF-8 Unicode text, with CRLF line terminators, # mime = text/plain file_data = open('test1.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>November 5, 2020</span>
 <a href=/posts/programming/python/2020-11-05-python-magic-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
+<a href=/posts/db/2020-10-20-postgresql-command/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>PostgreDB SQL 명령어 (PostgreDB SQL Command)</h5>
+<p class="card-text post-summary">1. DATABASE 생성 DATABASE 생성
+PostgreDB의 경우 대문자인식은 &ldquo;&ldquo;으로 감싸야 사용가능하다.
+CREATE DATABASE "{database_name}"; 2. USER 생성 USER 생성
+CREATE USER {user_name} WITH PASSWORD '{user_password}' SUPERUSER 권한부여(개발용 계정으로 사용 예정)
+ALTER USER {user_name} WITH SUPERUSER; 유저에게 특정 권한 부여
+GRANT {permissions} ON DATABASE {db_name} TO {user_name}; 참고 URL : https://www.postgresql.org/docs/current/sql-grant.html
+예시
+GRANT ALL ON DATABASE "ABCD_DB" TO abcd_user; 계정 부여권한 해제</p>
+</div>
+<div class=card-footer>
+<span class=float-left>October 20, 2020</span>
+<a href=/posts/db/2020-10-20-postgresql-command/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
@@ -212,28 +235,12 @@ magic은 리눅스 환경에서 실행되는 프로그램 윈도우즈 환경에
 </div>
 <div class=card-body>
 <h5 class=card-title>MSSQL SQL 명령어 (MSSQL SQL Command)</h5>
-<p class="card-text post-summary">1. 테이블 생성 (Create Table) 1.1 테이블 생성 문법 구조 ```sql CREATE TABLE 테이블명( 컬럼명 타입(크기) NOT NULL, --NULL 값이 들어갈 수 없음 컬럼명 타입 NULL DEFAULT(값), --초기값 지정 CONSTRAIN PK이름 PRIMARY KEY(컬럼명) --PK설정 ) ``` 1.2 테이블 생성 (예제) 컬럼 타입 : INT / NVARCHAR / VARCHAR / DATETIME ```sql CREATE TABLE MY_TABLE( NO_EMP NVARCHAR(10)NOT NULL, -- NULL 값이 들어갈 수 없음 NM_KOR NVARCHAR(40)NOT NULL, -- NULL 값이 들어갈 수 없음 AGE INT NULL DEFAULT (0), --초기값 = 0 TODAY DATETIME DEFAULT(GETDATE()), --초기값 현재날짜 ) --CONSTRAINT PK_MY_TABLE PRIMARY KEY(NO_EMP)--PK : NO_EMP ) ``` ```sql CREATE TABLE TB_AIX_AI001I( ID int PRIMARY KEY, AI_JSON nvarchar NULL, BL nvarchar(11) NOT NULL, IMGE_PATH nvarchar(300) NOT NULL, IMGE_NAME nvarchar(100) NOT NULL, DRCT_VH nvarchar(2) NOT NULL, IN_DT datetime default(GETDATE()) NOT NULL ) ``` 2.</p>
+<p class="card-text post-summary">1. 테이블 생성 (Create Table) CREATE TABLE 테이블명( 컬럼명 타입(크기) NOT NULL, --NULL 값이 들어갈 수 없음 컬럼명 타입 NULL DEFAULT(값), --초기값 지정 CONSTRAIN PK이름 PRIMARY KEY(컬럼명) --PK설정 ) 컬럼 타입 : INT / NVARCHAR / VARCHAR / DATETIME
+CREATE TABLE MY_TABLE( NO_EMP NVARCHAR(10)NOT NULL, -- NULL 값이 들어갈 수 없음 NM_KOR NVARCHAR(40)NOT NULL, -- NULL 값이 들어갈 수 없음 AGE INT NULL DEFAULT (0), --초기값 = 0 TODAY DATETIME DEFAULT(GETDATE()), --초기값 현재날짜 ) --CONSTRAINT PK_MY_TABLE PRIMARY KEY(NO_EMP)--PK : NO_EMP ) CREATE TABLE MY_TABLE2( ID int PRIMARY KEY, DATA_JSON nvarchar NULL, CODE nvarchar(20) NOT NULL, IMAGE_PATH nvarchar(300) NOT NULL, IMAGE_NAME nvarchar(100) NOT NULL, IMAGE_TYPE nvarchar(5) NOT NULL, IN_DATE datetime default(GETDATE()) NOT NULL ) 2.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>October 13, 2020</span>
 <a href=/posts/db/2020-10-13-mssql-command/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/db/2020-09-28-mariadb-command/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>MariaDB SQL 명령어 (MariaDB SQL Command)</h5>
-<p class="card-text post-summary">명령어 1. database 확인 ```sql SHOW DATABASES; ``` 2. database 생성 ```sql CREATE DATABASE database_name; ``` 3. 특정 database 접속 ```sql USE database_name; ``` 3-1. mysql database 접속 ```sql USE mysql; ``` 4. 사용자 확인 - (MariaDB[mysql]) ```sql SELECT HOST, USER, PASSWORD FROM USER; ``` 5. 사용자 계정 생성 - 'id'@'localhost' 이면 로컬에서만 접속 가능 ```sql CREATE USER 'user_id'@'%' IDENTIFIED BY 'user_password'; ``` ```sql CREATE USER 'user_id' IDENTIFIED BY 'user_password'; ``` 6.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>September 30, 2020</span>
-<a href=/posts/db/2020-09-28-mariadb-command/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
@@ -246,17 +253,14 @@ magic은 리눅스 환경에서 실행되는 프로그램 윈도우즈 환경에
 </div>
 <div class=card-body>
 <h5 class=card-title>sqlcmd 사용법 (sqlcmd-guide)</h5>
-<p class="card-text post-summary">sqlcmd 사용목적 : 대용량 sql 파일실행은 sqlcmd만 실행가능
-sqlcmd 사용 예시 sqlcmd \ -S 127.0.0.1,1433 \ -i input_file[ , input_file2...] \ -o output_file \ -U login_id \ -P password \ -d db_name -S : 접속할 IP,접속포트
+<p class="card-text post-summary">sqlcmd 대용량 sql 파일실행은 sqlcmd로만 실행가능하다.
+다른 sql 실행방법은 메모리에 해당 sql 파일을 로딩한 상태로 실행하여 크기제한이 있지만 sqlcmd는 해당 sql문 하나하나 별도로 실행하기 때문이다.
+사용 예시 sqlcmd \ -S 127.0.0.1,1433 \ -i input_file[ , input_file2...] \ -o output_file \ -U login_id \ -P password \ -d db_name -S : 접속할 IP,접속포트
 -i : 실행할 sql 파일 지정
 -i C:&lt;filename>
 -i \&lt;Share$>&lt;filename>
 -i &ldquo;C:\Some Folder&lt;file name>&rdquo;
--o : 실행결과 저장할 파일 지정
--U : 계정
--P : 패스워드
--d : Database 이름
-windows 환경</p>
+-o : 실행결과 저장할 파일 지정</p>
 </div>
 <div class=card-footer>
 <span class=float-left>September 30, 2020</span>
@@ -274,10 +278,10 @@ windows 환경</p>
 <div class=card-body>
 <h5 class=card-title>PostgreDB 설치 (PostgreDB Setup)</h5>
 <p class="card-text post-summary">설치환경 : Windows 10
-1. PostgreDB 설치 1.1 설치파일 다운로드 윈도우즈용 설치 파일은 현재 EnterpriseDB사가 배포
+1. PostgreDB 설치 1.1. 설치파일 다운로드 윈도우즈용 설치 파일은 현재 EnterpriseDB사가 배포
 Download URL
 https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
-1.2 PostgreSQL 설치 postgresql-[버전]-windows-x64.exe 파일을 실행 Next 클릭 설치할 소프트웨어를 선택하는 대화창(Select Components)에서 아래 2개만 설치 [ ] PostgreSQL Server
+1.2. PostgreSQL 설치 postgresql-[버전]-windows-x64.exe 파일을 실행 Next 클릭 설치할 소프트웨어를 선택하는 대화창(Select Components)에서 아래 2개만 설치 [ ] PostgreSQL Server
 [ ] Command Line Tools
 Next 클릭 후, PostgreSQL 서버를 사용하면서 자료저장 위치 지정(default) 기본 데이터베이스 관리자 postgres계정 비밀번호 지정 포트 지정 > 15432(기본포트가 아닌 다른포트번호) 으로 수정후 [Next] 클릭 2.</p>
 </div>
@@ -289,25 +293,18 @@ Next 클릭 후, PostgreSQL 서버를 사용하면서 자료저장 위치 지정
 </a>
 </div>
 <div class=post-card>
-<a href=/posts/db/2020-10-20-postgresql-command/ class=post-card-link>
+<a href=/posts/db/2020-09-28-mariadb-command/ class=post-card-link>
 <div class=card>
 <div class=card-head>
 <img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
 </div>
 <div class=card-body>
-<h5 class=card-title>PostgreDB SQL 명령어 (PostgreDB SQL Command)</h5>
-<p class="card-text post-summary">1. DATABASE 생성 DATABASE 생성
-PostgreDB의 경우 대문자인식은 &ldquo;&ldquo;으로만 가능
-CREATE DATABASE "{database_name}"; 2. USER 생성 USER 생성
-CREATE USER {user_name} WITH PASSWORD '{user_password}' 개발용 계정으로 사용할 예정이기 때문에 SUPERUSER 권한부여
-ALTER USER {user_name} WITH SUPERUSER; 유저에게 특정 권한 부여
-GRANT {permissions} ON DATABASE {db_name} TO {user_name}; 참고 URL : https://www.postgresql.org/docs/current/sql-grant.html
-예시
-GRANT ALL ON DATABASE "ABCD_DB" TO abcd_user; 계정 부여권한 해제</p>
+<h5 class=card-title>MariaDB SQL 명령어 (MariaDB SQL Command)</h5>
+<p class="card-text post-summary">1. database 확인 SHOW DATABASES; 2. database 생성 CREATE DATABASE database_name; 3. 특정 database 접속 USE database_name; 3-1. mysql database 접속 USE mysql; 4. 사용자 확인 MariaDB[mysql] SELECT HOST, USER, PASSWORD FROM USER; 5. 사용자 계정 생성 &lsquo;id&rsquo;@&lsquo;localhost&rsquo; 이면 로컬에서만 접속 가능 CREATE USER 'user_id'@'%' IDENTIFIED BY 'user_password'; CREATE USER 'user_id' IDENTIFIED BY 'user_password'; 6. 사용자 권한 부여 GRANT ALL PRIVILEGES ON database_name.* TO 'user_id'@'%'; GRANT ALL PRIVILEGES ON database_name.</p>
 </div>
 <div class=card-footer>
-<span class=float-left>January 1, 0001</span>
-<a href=/posts/db/2020-10-20-postgresql-command/ class="float-right btn btn-outline-info btn-sm">Read</a>
+<span class=float-left>September 28, 2020</span>
+<a href=/posts/db/2020-09-28-mariadb-command/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

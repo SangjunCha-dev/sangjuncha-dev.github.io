@@ -102,9 +102,8 @@ Sangjun 개발 블로그</a>
 </div>
 <div class=post-content id=post-content>
 <hr>
-<h2 id=drf_yasg>drf_yasg</h2>
-<p>REST 프레임워크용 swagger/openAPI 자동 문서화 라이브러리로 게시글 작성 기준 최신 Django 버전을 지원한다.</p>
-<p><code>swagger</code> : 개발자가 REST 웹 서비스를 설계, 빌드, 문서화, 테스트를 도와주는 오픈소스 소프트웨어 프레임워크</p>
+<p><code>drf_yasg</code> : REST 프레임워크용 swagger/openAPI 문서 자동화 라이브러리
+<code>swagger</code> : 개발자가 REST 웹 서비스를 설계, 빌드, 문서화, 테스트를 도와주는 오픈소스 소프트웨어 프레임워크</p>
 <p>drf_yasg : 1.20.0 호환버전</p>
 <ul>
 <li>Django Rest Framework : 3.10, 3.11, 3.12</li>
@@ -171,7 +170,7 @@ schema_view <span style=color:#f92672>=</span> get_schema_view(
 
 </code></pre></div><hr>
 <h2 id=3-예시코드>3. 예시코드</h2>
-<h3 id=3-1-models>3-1. models</h3>
+<h3 id=31-models>3.1. models</h3>
 <p><code>api/models.py</code></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> django.db <span style=color:#f92672>import</span> models
 
@@ -220,7 +219,7 @@ schema_view <span style=color:#f92672>=</span> get_schema_view(
 <p><code>db.sqlite3</code></p>
 <p><img src="../images/django-swagger/django-swagger-1.png?raw=true" alt></p>
 <p>musics 테이블 생성된 것을 확인할 수 있다.</p>
-<h3 id=3-2-seializers>3-2. seializers</h3>
+<h3 id=32-seializers>3.2. seializers</h3>
 <p><code>api/serializers.py</code></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> rest_framework <span style=color:#f92672>import</span> serializers
 
@@ -248,7 +247,7 @@ schema_view <span style=color:#f92672>=</span> get_schema_view(
     singer <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>CharField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;가수명으로 검색&#34;</span>, required<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
     category <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>ChoiceField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;카테고리로 검색&#34;</span>, choices<span style=color:#f92672>=</span>(<span style=color:#e6db74>&#39;KPOP&#39;</span>, <span style=color:#e6db74>&#39;POP&#39;</span>, <span style=color:#e6db74>&#39;CLASSIC&#39;</span>, <span style=color:#e6db74>&#39;ETC&#39;</span>), required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
     created_at <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>DateTimeField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;입력한 날짜를 기준으로 그 이전에 추가된 곡들을 검색&#34;</span>, required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
-</code></pre></div><h3 id=3-3-class-views>3-3. class views</h3>
+</code></pre></div><h3 id=33-class-views>3.3. class views</h3>
 <p><code>api/views.py</code></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> django.shortcuts <span style=color:#f92672>import</span> get_object_or_404
 
@@ -351,7 +350,7 @@ schema_view <span style=color:#f92672>=</span> get_schema_view(
 
         response <span style=color:#f92672>=</span> Response(status<span style=color:#f92672>=</span>status<span style=color:#f92672>.</span>HTTP_204_NO_CONTENT)
         <span style=color:#66d9ef>return</span> response
-</code></pre></div><h3 id=3-4-urls>3-4. urls</h3>
+</code></pre></div><h3 id=34-urls>3.4. urls</h3>
 <p>관리의 편의성을 위해 각 앱별로 urls.py 설정한다.
 앱 내부에서 urls 설정한 경우 프로젝트 urls 설정도 같이 해줘야 한다.</p>
 <p><code>api/urls.py</code></p>
@@ -377,11 +376,12 @@ urlpatterns <span style=color:#f92672>=</span> [
 <hr>
 <h2 id=4-swagger-api-입력값-지정>4. Swagger API 입력값 지정</h2>
 <p>swagger api 메소드에서 특정 입력값을 받기 위해서는 <code>@swagger_auto_schema</code> 데코레이터를 지정해야한다.</p>
-<h3 id=4-1-query_serializer>4-1. query_serializer</h3>
+<h3 id=41-query_serializer>4.1. query_serializer</h3>
 <ul>
 <li>query string 지정</li>
 <li>GET, DELETE Method 용도</li>
 <li>메소드 입력값을 <code>request.query_params</code>, <code>request.GET</code>로 받는다.</li>
+<li>request 데이터를 변경하거나 추가할 경우 <code>copy()</code> 함수로 복사해서 사용해야 한다.</li>
 </ul>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># api/views.py 코드</span>
 <span style=color:#a6e22e>@swagger_auto_schema</span>(query_serializer<span style=color:#f92672>=</span>MusicQuerySerializer)
@@ -399,9 +399,11 @@ urlpatterns <span style=color:#f92672>=</span> [
     singer <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>CharField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;가수명으로 검색&#34;</span>, required<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
     category <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>ChoiceField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;카테고리로 검색&#34;</span>, choices<span style=color:#f92672>=</span>(<span style=color:#e6db74>&#39;KPOP&#39;</span>, <span style=color:#e6db74>&#39;POP&#39;</span>, <span style=color:#e6db74>&#39;CLASSIC&#39;</span>, <span style=color:#e6db74>&#39;ETC&#39;</span>), required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
     created_at <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>DateTimeField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;입력한 날짜를 기준으로 그 이전에 추가된 곡들을 검색&#34;</span>, required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
-</code></pre></div><p>swagger GET 메소드 예시</p>
+</code></pre></div><ul>
+<li>swagger GET 메소드 예시</li>
+</ul>
 <p><img src="../images/django-swagger/django-swagger-3.png?raw=true" alt></p>
-<h3 id=4-2-request_body>4-2. request_body</h3>
+<h3 id=42-request_body>4.2. request_body</h3>
 <ul>
 <li>body 지정</li>
 <li>POST, PUT Method 용도</li>
@@ -431,12 +433,11 @@ urlpatterns <span style=color:#f92672>=</span> [
     <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Meta</span>:
         model <span style=color:#f92672>=</span> Musics
         fields <span style=color:#f92672>=</span> (<span style=color:#e6db74>&#39;id&#39;</span>, <span style=color:#e6db74>&#39;created_at&#39;</span>, <span style=color:#e6db74>&#39;title&#39;</span>, <span style=color:#e6db74>&#39;category&#39;</span>, <span style=color:#e6db74>&#39;star_rating&#39;</span>,)  <span style=color:#75715e># 응답 필드 지정</span>
-</code></pre></div><p>swagger POST 메소드 예시</p>
+</code></pre></div><ul>
+<li>swagger POST 메소드 예시</li>
+</ul>
 <p><img src="../images/django-swagger/django-swagger-4.png?raw=true" alt></p>
-<blockquote>
-<p>request 데이터를 변경하거나 추가할 경우 <code>copy()</code> 함수로 복사해서 사용해야 한다.</p>
-</blockquote>
-<h3 id=4-3-path-value>4-3. path value</h3>
+<h3 id=43-path-value>4.3. path value</h3>
 <ul>
 <li>path value 지정</li>
 <li>모든 메소드에서 사용가능하다.</li>
@@ -450,7 +451,9 @@ urlpatterns <span style=color:#f92672>=</span> [
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicView</span>(APIView): 
     <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>delete</span>(self, request, pk):
         <span style=color:#f92672>...</span>
-</code></pre></div><p>swagger DELETE 메소드 예시</p>
+</code></pre></div><ul>
+<li>swagger DELETE 메소드 예시</li>
+</ul>
 <p><img src="../images/django-swagger/django-swagger-5.png?raw=true" alt></p>
 <hr>
 <h2 id=5-예시-코드-git>5. 예시 코드 Git</h2>
@@ -491,22 +494,21 @@ urlpatterns <span style=color:#f92672>=</span> [
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#drf_yasg>drf_yasg</a></li>
 <li><a href=#1-프로젝트-생성>1. 프로젝트 생성</a></li>
 <li><a href=#2-django-설정>2. django 설정</a></li>
 <li><a href=#3-예시코드>3. 예시코드</a>
 <ul>
-<li><a href=#3-1-models>3-1. models</a></li>
-<li><a href=#3-2-seializers>3-2. seializers</a></li>
-<li><a href=#3-3-class-views>3-3. class views</a></li>
-<li><a href=#3-4-urls>3-4. urls</a></li>
+<li><a href=#31-models>3.1. models</a></li>
+<li><a href=#32-seializers>3.2. seializers</a></li>
+<li><a href=#33-class-views>3.3. class views</a></li>
+<li><a href=#34-urls>3.4. urls</a></li>
 </ul>
 </li>
 <li><a href=#4-swagger-api-입력값-지정>4. Swagger API 입력값 지정</a>
 <ul>
-<li><a href=#4-1-query_serializer>4-1. query_serializer</a></li>
-<li><a href=#4-2-request_body>4-2. request_body</a></li>
-<li><a href=#4-3-path-value>4-3. path value</a></li>
+<li><a href=#41-query_serializer>4.1. query_serializer</a></li>
+<li><a href=#42-request_body>4.2. request_body</a></li>
+<li><a href=#43-path-value>4.3. path value</a></li>
 </ul>
 </li>
 <li><a href=#5-예시-코드-git>5. 예시 코드 Git</a></li>

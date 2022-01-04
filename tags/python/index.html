@@ -98,8 +98,8 @@ Sangjun 개발 블로그</a>
 <h5 class=card-title>python 날짜와 시간 계산</h5>
 <p class="card-text post-summary">python 날짜 및 시간 계산은 python 표준 라이브러리 datetime, 확장 라이브러리 dateutil 2개의 라이브러리가 있으며 단위의 차이가 있다.
 datetime : 마이크로초, 밀리초, 초, 분, 시, 일, 주 단위 사용 dateutil : 마이크로초, 초, 분, 시, 일, 주, 월, 년 단위 사용 1. datetime 라이브러리 날짜와 시간을 조작하는 클래스를 제공하는 python 표준 라이브러리
-사용예시 now : 현재 날짜 및 시간
-import datetime as dt now = dt.datetime.now() print(f"now = {now}") now = 2021-12-27 11:24:27.</p>
+1.1 사용예시 now : 현재 날짜 및 시간
+import datetime as dt now = dt.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>December 26, 2021</span>
@@ -138,7 +138,8 @@ import datetime as dt now = dt.datetime.now() print(f"now = {now}") now = 2021-1
 <p class="card-text post-summary">python 언어에서 대용량 json 읽기/쓰기 성능은 사용방법과 라이브러리에 따라서 성능 차이가 있다.
 테스트 기준은 동일한 json 파일을 100번씩 반복 실행하였다.
 json 라이브러리의 파일 읽기/쓰기 모두 byte 모드가 상대적으로 빠르다.
-라이브러리 버전 python : 3.8.10 ujson : 5.1.0 orjson : 3.6.5 1. json ========================= json_r = 0.045 sec json_w_dump = 0.186 sec json_w_dumps = 0.065 sec ========================= json_rb = 0.034 sec json_wb_dumps = 0.055 sec 1-1. read with open('github.json', "r") as json_file: data = json.</p>
+라이브러리 버전
+python : 3.8.10 ujson : 5.1.0 orjson : 3.6.5 1. json ========================= json_r = 0.045 sec json_w_dump = 0.186 sec json_w_dumps = 0.065 sec ========================= json_rb = 0.034 sec json_wb_dumps = 0.055 sec 1.1. read with open('github.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>December 6, 2021</span>
@@ -157,7 +158,7 @@ json 라이브러리의 파일 읽기/쓰기 모두 byte 모드가 상대적으�
 <h5 class=card-title>python을 이용한 windows10 시스템 정보 및 사용량 모니터링</h5>
 <p class="card-text post-summary">운영체제 : windows 10
 설치환경 : python 3.8.8, powershell 7.1
-powershell 명령어 사용법 WMI 개체 가져오기(Get-CimInstance) python에서 powershell 명령 실행 방법 1. 콘솔 명령 실행 import subprocess import json cmd = "Get-CimInstance -Class Win32_OperatingSystem" subprocess.Popen(f'powershell.exe {cmd}') 2. 실행결과 반환 디코딩을 하지 않으면 바이트 문자열로 나열되서 반환된다.
+1. python에서 powershell 명령 실행 방법 1.1 콘솔 명령 실행 import subprocess import json cmd = "Get-CimInstance -Class Win32_OperatingSystem" subprocess.Popen(f'powershell.exe {cmd}') 1.2. 실행결과 반환 디코딩을 하지 않으면 바이트 문자열로 나열되서 반환된다.
 cmd = "Get-CimInstance -Class Win32_OperatingSystem" result = subprocess.Popen(f'powershell.exe {cmd}', stdout=subprocess.PIPE) print(result) result = result.stdout.read() print(result) 결과
 &lt;subprocess.Popen object at 0x0000025175617B50> b'\r\nSystemDirectory Organization BuildNumber RegisteredUser SerialNumber Version \r\n--------------- ------------ ----------- -------------- ------------ ------- \r\nC:\\Windows\\system32 19000 UserName 00000-00000 10.</p>
 </div>
@@ -177,7 +178,7 @@ cmd = "Get-CimInstance -Class Win32_OperatingSystem" result = subprocess.Popen(f
 <div class=card-body>
 <h5 class=card-title>클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이</h5>
 <p class="card-text post-summary">설치버전 : python 3.8.8
-클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이 예제 코드 1 import timeit class CheckTime: def __init__(self): self.a = 0 self.b = 0 self.c = 0 def process_self(self): self.a + self.b + self.c def process_argument(self, a, b, c): a + b + c def get_time(self): self.a = 1 self.b = 2 self.c = 3 def test1(): self.process_self() process_self_time = timeit.Timer(stmt=test1).repeat(number=1000000) a = self.a b = self.b c = self.</p>
+1. 클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이 1.1. 예제 코드 import timeit class CheckTime: def __init__(self): self.a = 0 self.b = 0 self.c = 0 def process_self(self): self.a + self.b + self.c def process_argument(self, a, b, c): a + b + c def get_time(self): self.a = 1 self.b = 2 self.c = 3 def test1(): self.process_self() process_self_time = timeit.Timer(stmt=test1).repeat(number=1000000) a = self.a b = self.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>May 24, 2021</span>
@@ -195,8 +196,8 @@ cmd = "Get-CimInstance -Class Win32_OperatingSystem" result = subprocess.Popen(f
 <div class=card-body>
 <h5 class=card-title>python opencv 사용법</h5>
 <p class="card-text post-summary">설치버전 : opencv-python 4.5.1.48
-docs url import 라이브러리
-import cv2 as cv cv.imread 이미지 파일 읽기 cv.imread(filename[, flags]) -> retval 매개변수 이름 설명 filename 로드할 파일 이름 flags cv 값을 사용할 수 있는 플래그 img = cv.imread(image_full_path) cv.imwrite 이미지 파일 저장 cv.imwrite(filename, img[, params]) -> retval 이미지 형식은 파일 이름 확장자에 따라 선택됨 cv.</p>
+docs url 라이브러리 import
+import cv2 as cv 이미지 파일 읽기 cv.imread(filename[, flags]) -> retval img = cv.imread(image_full_path) 매개변수 이름 설명 filename 로드할 파일 이름 flags cv 값을 사용할 수 있는 플래그 이미지 파일 저장 cv.imwrite(filename, img[, params]) -> retval 이미지 형식은 파일 이름 확장자에 따라 선택됨 cv.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>May 21, 2021</span>
@@ -215,7 +216,8 @@ import cv2 as cv cv.imread 이미지 파일 읽기 cv.imread(filename[, flags]) 
 <h5 class=card-title>python numpy 사용법</h5>
 <p class="card-text post-summary">선형대수 기반의 python 라이브러리
 루프없이 배열 연산이 가능하여 연산속도가 빠름 설치버전 : numpy 1.20.2
-import 라이브러리 import numpy as np 1. 생성 arange np.arange([start,] stop, [step,] dtype) 지정한 숫자 범위의 array 생성함수 np.arange(10) # [0 1 2 3 4 5 6 7 8 9] np.arange(0, 5, 0.5) # [0. 0.5 1. 1.5 2. 2.5 3. 3.5 4. 4.5] zeros np.zeros(shape, dtype) 0으로 선언된 array 생성 np.</p>
+라이브러리 import
+import numpy as np 1. 생성 arange np.arange([start,] stop, [step,] dtype) 지정한 숫자 범위의 array 생성함수 np.arange(10) # [0 1 2 3 4 5 6 7 8 9] np.arange(0, 5, 0.5) # [0. 0.5 1. 1.5 2. 2.5 3. 3.5 4. 4.5] zeros np.zeros(shape, dtype) 0으로 선언된 array 생성 np.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>May 21, 2021</span>
@@ -255,9 +257,8 @@ int(문자열, 밑(n진법))
 <div class=card-body>
 <h5 class=card-title>pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)</h5>
 <p class="card-text post-summary">python 파일을 윈도우에서 python 이나 가상환경 설정없이 실행이 가능한 .exe 으로 변환해주는 라이브러리
-Docs URL - https://pyinstaller.readthedocs.io/en/stable/usage.html
-설치환경 : Windows 10
-1. 설치 python 실행이 가능한 가상환경 터미널에서 아래의 명령어 실행
+1. 설치 설치환경 : Windows 10
+python 실행이 가능한 가상환경 터미널에서 아래의 명령어 실행
 pip install pyinstaller 2. 간단한 사용예제 pyinstaller --clean --distpath . -F -n [프로그램이름] [변환시킬 파일].py 3. 옵션 옵션 설명 &ndash;clean 빌드하기 전에 PyInstaller 캐시를 정리하고 임시파일 제거 -F, &ndash;onefile 단일 실행파일로 생성(실행시 사용한 라이브러리 임시파일 생성됨) -D, &ndash;onedir 실행 파일을 포함하는 단일 폴더로 생성 &ndash;distpath DIR 실행파일 생성 경로(default: .</p>
 </div>
 <div class=card-footer>
@@ -275,8 +276,7 @@ pip install pyinstaller 2. 간단한 사용예제 pyinstaller --clean --distpath
 </div>
 <div class=card-body>
 <h5 class=card-title>pyshark 라이브러리 사용법 (pyshark Library Guide)</h5>
-<p class="card-text post-summary">Docs URL - https://github.com/KimiNewt/pyshark/
-설치환경 : Windows 10, python 3.7
+<p class="card-text post-summary">설치환경 : Windows 10, python 3.7
 1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install pyshark 2. 사용법 캡쳐파일 읽기
 capture = pyshark.FileCapture('./test.pcapng') 실시간 패킷캡처 interface
 capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 11:22:33:44:55:66', use_json=True, include_raw=True) 패킷 캡처
@@ -297,9 +297,8 @@ capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 
 </div>
 <div class=card-body>
 <h5 class=card-title>scapy 라이브러리 사용법 (Scapy Library Guide)</h5>
-<p class="card-text post-summary">Docs URL - https://scapy.readthedocs.io/en/latest/#
-설치환경 : Windows 10
-설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install --pre scapy[basic] Client 예제 from scapy.all import * from scapy.utils import rdpcap import datetime as dt # PCAP 파일 읽기 # could be used like this rdpcap("filename",500) fetches first 500 pkts pkts = rdpcap("./pcap/test.pcapng", -1) pkts = pkts[21:100] cnt = 0 repeat = 10 s_time = dt.datetime.now() for _ in range(repeat): for pkt in pkts: # print(f"hexdump(pkt) = {hexdump(pkt)}") # Send one or more packets at 2 layer sendp(pkt, inter=0, loop=0, count=1, iface=None) # Send one or more packets at 3 layer # send(pkt, inter=0, loop=0, count=1, iface=None) cnt += 1 print(cnt) sendp(b'', inter=0, loop=0, count=1, iface=None) time.</p>
+<p class="card-text post-summary">설치환경 : Windows 10
+1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install --pre scapy[basic] 2. Client 예제 from scapy.all import * from scapy.utils import rdpcap import datetime as dt # PCAP 파일 읽기 # could be used like this rdpcap("filename",500) fetches first 500 pkts pkts = rdpcap("./pcap/test.pcapng", -1) pkts = pkts[21:100] cnt = 0 repeat = 10 s_time = dt.datetime.now() for _ in range(repeat): for pkt in pkts: # print(f"hexdump(pkt) = {hexdump(pkt)}") # Send one or more packets at 2 layer sendp(pkt, inter=0, loop=0, count=1, iface=None) # Send one or more packets at 3 layer # send(pkt, inter=0, loop=0, count=1, iface=None) cnt += 1 print(cnt) sendp(b'', inter=0, loop=0, count=1, iface=None) time.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>February 9, 2021</span>
@@ -319,8 +318,8 @@ capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 
 <p class="card-text post-summary">paramiko, scp 라이브러리 연계 사용한 ssh 파일 전송
 라이브러리 암호화 여부 속도 paramiko 로그인:암호화 / 파일전송:암호화 느림 paramiko+scp 로그인:암호화 / 파일전송:평문 보통 실습환경 : windows10, 원격서버환경 : linux(RHEL8)
 사전에 ssh 접속가능한 linux를 구축한 후 실습 진행
-라이브러리 설치 pip install paramiko pip install scp paramiko : SSH 접속 및 종료 기능
-Docs URL - http://docs.paramiko.org/en/stable/ scp : 파일 전송 및 다운로드 기능</p>
+1. 라이브러리 설치 pip install paramiko pip install scp paramiko : SSH 접속 및 종료 기능
+Docs URL - http://docs.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>January 6, 2021</span>

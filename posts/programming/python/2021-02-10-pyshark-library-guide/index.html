@@ -101,7 +101,7 @@ Sangjun 개발 블로그</a>
 <h1>pyshark 라이브러리 사용법 (pyshark Library Guide)</h1>
 </div>
 <div class=post-content id=post-content>
-<p>Docs URL - <a href=https://github.com/KimiNewt/pyshark/>https://github.com/KimiNewt/pyshark/</a></p>
+<hr>
 <p>설치환경 : Windows 10, python 3.7</p>
 <h2 id=1-설치>1. 설치</h2>
 <ol>
@@ -112,6 +112,7 @@ Sangjun 개발 블로그</a>
 </li>
 <li><code>pip install pyshark</code></li>
 </ol>
+<hr>
 <h2 id=2-사용법>2. 사용법</h2>
 <ol>
 <li>
@@ -144,6 +145,7 @@ Sangjun 개발 블로그</a>
 print(capture<span style=color:#f92672>.</span>apply_on_packets(print_callback(pkt)))
 </code></pre></div></li>
 </ol>
+<hr>
 <h2 id=3-bpf_filter>3. bpf_filter</h2>
 <p>패킷 캡쳐 조건 지정</p>
 <ol>
@@ -163,6 +165,7 @@ print(capture<span style=color:#f92672>.</span>apply_on_packets(print_callback(p
 </ul>
 </li>
 </ol>
+<hr>
 <h2 id=4-display_filterwireshark-필터>4. display_filter(wireshark) 필터</h2>
 <ol>
 <li>
@@ -178,7 +181,8 @@ print(capture<span style=color:#f92672>.</span>apply_on_packets(print_callback(p
 </ul>
 </li>
 </ol>
-<h2 id=5-예제>5. 예제</h2>
+<hr>
+<h2 id=5-예제코드>5. 예제코드</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> pyshark
 <span style=color:#f92672>import</span> struct
 
@@ -212,7 +216,11 @@ print(capture<span style=color:#f92672>.</span>apply_on_packets(print_callback(p
             
 sniffPacket <span style=color:#f92672>=</span> SniffPacket()
 sniffPacket<span style=color:#f92672>.</span>run()
-</code></pre></div>
+</code></pre></div><hr>
+<h2 id=참고reference>참고(Reference)</h2>
+<ul>
+<li><a href=https://github.com/KimiNewt/pyshark/>pyshark Docs</a></li>
+</ul>
 </div>
 <div class="row pl-3 pr-3">
 <div class="col-md-6 share-buttons">
@@ -244,7 +252,8 @@ sniffPacket<span style=color:#f92672>.</span>run()
 <li><a href=#2-사용법>2. 사용법</a></li>
 <li><a href=#3-bpf_filter>3. bpf_filter</a></li>
 <li><a href=#4-display_filterwireshark-필터>4. display_filter(wireshark) 필터</a></li>
-<li><a href=#5-예제>5. 예제</a></li>
+<li><a href=#5-예제코드>5. 예제코드</a></li>
+<li><a href=#참고reference>참고(Reference)</a></li>
 </ul>
 </nav>
 </div>

@@ -96,7 +96,7 @@ Sangjun 개발 블로그</a>
 <div class=card-body>
 <h5 class=card-title>Django oauth apple login</h5>
 <p class="card-text post-summary">django restframework 기반의 애플 인증 로그인 백엔드서버 구현 설명이다.
-라이브러리 설치 $ pip install django # restframework $ pip install djangorestframework $ pip install djangorestframework-simplejwt # pyjwt[crypto] $ pip install pyjwt[crypto] Apple 로그인 변수 설정 import os APPLE_CONFIG = { "APPLE_TEAM_ID": TEAM_ID, "APPLE_CLIENT_ID": 모바일 로그인시 Bundle ID or 웹 로그인시 Service ID, "APPLE_REDIRECT_URI": "https://domain/REDIRECT_URI", "APPLE_KEY_ID": KEY_ID, "APPLE_KEY_PATH": "./AuthKey_KEY_ID.p8", "APPLE_PRIVATE_KEY": "", } apple_key_path = os.path.join(CONFIG_BASE_DIR, f"./{APPLE_CONFIG['APPLE_KEY_PATH']}") with open(apple_key_path, 'r') as apple_key_file: APPLE_CONFIG['APPLE_PRIVATE_KEY'] = apple_key_file.</p>
+1. 라이브러리 설치 $ pip install django # restframework $ pip install djangorestframework $ pip install djangorestframework-simplejwt # pyjwt[crypto] $ pip install pyjwt[crypto] 2. Apple 로그인 변수 설정 import os APPLE_CONFIG = { "APPLE_TEAM_ID": TEAM_ID, "APPLE_CLIENT_ID": 모바일 로그인시 Bundle ID or 웹 로그인시 Service ID, "APPLE_REDIRECT_URI": "https://domain/REDIRECT_URI", "APPLE_KEY_ID": KEY_ID, "APPLE_KEY_PATH": "./AuthKey_KEY_ID.p8", "APPLE_PRIVATE_KEY": "", } apple_key_path = os.path.join(CONFIG_BASE_DIR, f"./{APPLE_CONFIG['APPLE_KEY_PATH']}") with open(apple_key_path, 'r') as apple_key_file: APPLE_CONFIG['APPLE_PRIVATE_KEY'] = apple_key_file.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>December 28, 2021</span>

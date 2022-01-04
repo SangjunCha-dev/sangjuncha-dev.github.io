@@ -93,8 +93,8 @@ Sangjun 개발 블로그</a>
 </div>
 <div class=card-body>
 <h5 class=card-title>Windows10 WSL2(Windows Subsystem for Linux) 사용법</h5>
-<p class="card-text post-summary">WSL(Windows Subsystem for Linux)2 리눅스용 윈도우 하위 시스템(Windows Subsystem for Linux)은 Windows 10에서 네이티브로 리눅스 실행 파일을 실행하기 위한 호환성 계층 프로그램이다.
-사전 설정 microsoft store에서 Windows Terminal 설치한다. Windows Terminal 프로그램을 관리자 권한으로 실행한다. WSL2 활성화를 위한 DISM 명령어 실행후 재부팅 > dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart > dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart Windows Store 에서 설치하는 모든 Linux 배포판 포맷을 WSL 2로 설정 > wsl --set-default-version 2 실습 및 팁 기존에 설치한 WSL 배포 목록확인 microsoft store에서 Ubuntu 18.</p>
+<p class="card-text post-summary">1. WSL(Windows Subsystem for Linux)2 리눅스용 윈도우 하위 시스템(Windows Subsystem for Linux)은 Windows 10에서 네이티브로 리눅스 실행 파일을 실행하기 위한 호환성 계층 프로그램이다.
+2. 사전 설정 microsoft store에서 Windows Terminal 설치한다. Windows Terminal 프로그램을 관리자 권한으로 실행한다. 2.1. WSL2 활성화를 위한 DISM 명령어 실행후 재부팅 > dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart > dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart 2.2. Windows Store 에서 설치하는 모든 Linux 배포판 포맷을 WSL 2로 설정 > wsl --set-default-version 2 3.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>May 7, 2021</span>
@@ -112,9 +112,9 @@ Sangjun 개발 블로그</a>
 <div class=card-body>
 <h5 class=card-title>리눅스 NFS 설정 (Linux NFS Setting)</h5>
 <p class="card-text post-summary">설치환경 : 레드햇8 (RHEL8)
-1. NFS 서버 설정 (Server Setting) 1.1 NFS 패키지 설치 yum패키지 설치 도구로 nfs-utils 패키지 설치
-yum install nfs-utils 1.2 NFS서버 서비스 실행 및 OS재부팅시 활성화 nfs서버 데몬 실행하고, OS 재부팅시 자동실행되도록 활성화
-systemctl start nfs-server systemctl enable nfs-server 1.3 외부에서 접근할 디렉토리 설정 공유할 디렉토리 생성
+1. NFS 서버 설정 (Server Setting) 1.1. NFS 패키지 설치 yum패키지 설치 도구로 nfs-utils 패키지 설치
+yum install nfs-utils 1.2. NFS서버 서비스 실행 및 OS재부팅시 활성화 nfs서버 데몬 실행하고, OS 재부팅시 자동실행되도록 활성화
+systemctl start nfs-server systemctl enable nfs-server 1.3. 외부에서 접근할 디렉토리 설정 공유할 디렉토리 생성
 mkdir /NFSVOL01 외부에서 접근할 디렉토리, 외부 접근IP, 접근권한을 exports 파일로 설정
 vi /etc/exports /NFSVOL01 192.168.0.0/255.255.255.0(rw) /NFSVOL01 : 공유할 디렉토리</p>
 </div>

@@ -101,9 +101,11 @@ Sangjun 개발 블로그</a>
 <h1>sqlcmd 사용법 (sqlcmd-guide)</h1>
 </div>
 <div class=post-content id=post-content>
-<h1 id=sqlcmd>sqlcmd</h1>
-<p>사용목적 : 대용량 sql 파일실행은 <code>sqlcmd</code>만 실행가능</p>
-<h3 id=sqlcmd-사용-예시>sqlcmd 사용 예시</h3>
+<hr>
+<h2 id=sqlcmd>sqlcmd</h2>
+<p>대용량 sql 파일실행은 <code>sqlcmd</code>로만 실행가능하다.<br>
+다른 sql 실행방법은 메모리에 해당 sql 파일을 로딩한 상태로 실행하여 크기제한이 있지만 sqlcmd는 해당 sql문 하나하나 별도로 실행하기 때문이다.</p>
+<h2 id=사용-예시>사용 예시</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sqlcmd <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>-S 127.0.0.1,1433 <span style=color:#ae81ff>\
 </span><span style=color:#ae81ff></span>-i input_file<span style=color:#f92672>[</span> , input_file2...<span style=color:#f92672>]</span> <span style=color:#ae81ff>\
@@ -130,7 +132,7 @@ Sangjun 개발 블로그</a>
 <ul>
 <li>split -l 10000 &ldquo;aaa.sql&rdquo; &ldquo;aaa.sql.&rdquo;</li>
 </ul>
-<h3 id=sqlcmd-옵션>sqlcmd 옵션</h3>
+<h2 id=sqlcmd-옵션>sqlcmd 옵션</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sqlcmd
    -a packet_size
    -A <span style=color:#f92672>(</span>dedicated administrator connection<span style=color:#f92672>)</span>
@@ -206,12 +208,9 @@ Sangjun 개발 블로그</a>
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li>
-<ul>
-<li><a href=#sqlcmd-사용-예시>sqlcmd 사용 예시</a></li>
+<li><a href=#sqlcmd>sqlcmd</a></li>
+<li><a href=#사용-예시>사용 예시</a></li>
 <li><a href=#sqlcmd-옵션>sqlcmd 옵션</a></li>
-</ul>
-</li>
 </ul>
 </nav>
 </div>

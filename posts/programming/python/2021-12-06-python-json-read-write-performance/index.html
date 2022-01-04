@@ -101,15 +101,18 @@ Sangjun 개발 블로그</a>
 <h1>python json 파일 읽기/쓰기 성능</h1>
 </div>
 <div class=post-content id=post-content>
+<hr>
 <p>python 언어에서 대용량 json 읽기/쓰기 성능은 사용방법과 라이브러리에 따라서 성능 차이가 있다.<br>
 테스트 기준은 동일한 json 파일을 100번씩 반복 실행하였다.<br>
 json 라이브러리의 파일 읽기/쓰기 모두 byte 모드가 상대적으로 빠르다.</p>
-<h2 id=라이브러리-버전>라이브러리 버전</h2>
+<hr>
+<p>라이브러리 버전</p>
 <ul>
 <li>python : 3.8.10</li>
 <li>ujson : 5.1.0</li>
 <li>orjson : 3.6.5</li>
 </ul>
+<hr>
 <h2 id=1-json>1. json</h2>
 <pre tabindex=0><code>=========================
 json_r        = 0.045 sec
@@ -118,25 +121,26 @@ json_w_dumps  = 0.065 sec
 =========================
 json_rb       = 0.034 sec
 json_wb_dumps = 0.055 sec
-</code></pre><h3 id=1-1-read>1-1. read</h3>
+</code></pre><h3 id=11-read>1.1. read</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>&#39;github.json&#39;</span>, <span style=color:#e6db74>&#34;r&#34;</span>) <span style=color:#66d9ef>as</span> json_file:
     data <span style=color:#f92672>=</span> json<span style=color:#f92672>.</span>load(json_file)
-</code></pre></div><h3 id=1-2-write_dump>1-2. write_dump</h3>
+</code></pre></div><h3 id=12-write_dump>1.2. write_dump</h3>
 <p><code>json.dump</code> 함수는 ASCII 모드에서만 동작한다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>&#39;github_w_dump.json&#39;</span>, <span style=color:#e6db74>&#34;w&#34;</span>) <span style=color:#66d9ef>as</span> json_file:
     json<span style=color:#f92672>.</span>dump(data, json_file)
-</code></pre></div><h3 id=1-3-write_dumps>1-3. write_dumps</h3>
+</code></pre></div><h3 id=13-write_dumps>1.3. write_dumps</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>&#39;github_w_dumps.json&#39;</span>, <span style=color:#e6db74>&#34;w&#34;</span>) <span style=color:#66d9ef>as</span> json_file:
     data <span style=color:#f92672>=</span> json<span style=color:#f92672>.</span>dumps(data)
     json_file<span style=color:#f92672>.</span>write(data)
-</code></pre></div><h3 id=1-4-read-byte>1-4. read byte</h3>
+</code></pre></div><h3 id=14-read-byte>1.4. read byte</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>&#39;github.json&#39;</span>, <span style=color:#e6db74>&#34;rb&#34;</span>) <span style=color:#66d9ef>as</span> json_file:
     data <span style=color:#f92672>=</span> json<span style=color:#f92672>.</span>load(json_file)
-</code></pre></div><h3 id=1-5-write-byte-dumps>1-5. write byte dumps</h3>
+</code></pre></div><h3 id=15-write-byte-dumps>1.5. write byte dumps</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>&#39;github_wb_dumps.json&#39;</span>, <span style=color:#e6db74>&#34;wb&#34;</span>) <span style=color:#66d9ef>as</span> json_file:
     data <span style=color:#f92672>=</span> json<span style=color:#f92672>.</span>dumps(data)<span style=color:#f92672>.</span>encode(<span style=color:#e6db74>&#39;utf-8&#39;</span>)
     json_file<span style=color:#f92672>.</span>write(data)
-</code></pre></div><h2 id=2-ujson>2. ujson</h2>
+</code></pre></div><hr>
+<h2 id=2-ujson>2. ujson</h2>
 <p>UltraJSON은 파이썬 3.7버전이상을 지원하는 순수 C언어로 작성된 고속 JSON 인코더 및 디코더이다.</p>
 <pre tabindex=0><code>==========================
 ujson_r        = 0.052 sec
@@ -144,21 +148,22 @@ ujson_w_dumps  = 0.060 sec
 ==========================
 ujson_rb       = 0.037 sec
 ujson_wb_dumps = 0.049 sec
-</code></pre><h3 id=2-1-read>2-1. read</h3>
+</code></pre><h3 id=21-read>2.1. read</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>&#39;github.json&#39;</span>, <span style=color:#e6db74>&#34;r&#34;</span>) <span style=color:#66d9ef>as</span> json_file:
     data <span style=color:#f92672>=</span> ujson<span style=color:#f92672>.</span>loads(json_file<span style=color:#f92672>.</span>read())
-</code></pre></div><h3 id=2-2-write-dumps>2-2. write dumps</h3>
+</code></pre></div><h3 id=22-write-dumps>2.2. write dumps</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>&#39;github_w_dumps.json&#39;</span>, <span style=color:#e6db74>&#34;w&#34;</span>) <span style=color:#66d9ef>as</span> json_file:
     data <span style=color:#f92672>=</span> ujson<span style=color:#f92672>.</span>dumps(data)
     json_file<span style=color:#f92672>.</span>write(data)
-</code></pre></div><h3 id=2-3-read-byte>2-3. read byte</h3>
+</code></pre></div><h3 id=23-read-byte>2.3. read byte</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>&#39;github.json&#39;</span>, <span style=color:#e6db74>&#34;rb&#34;</span>) <span style=color:#66d9ef>as</span> json_file:
     data <span style=color:#f92672>=</span> ujson<span style=color:#f92672>.</span>load(json_file)
-</code></pre></div><h3 id=2-4-write-byte-dumps>2-4. write byte dumps</h3>
+</code></pre></div><h3 id=24-write-byte-dumps>2.4. write byte dumps</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>&#39;github_wb_dumps.json&#39;</span>, <span style=color:#e6db74>&#34;wb&#34;</span>) <span style=color:#66d9ef>as</span> json_file:
     data <span style=color:#f92672>=</span> ujson<span style=color:#f92672>.</span>dumps(data)<span style=color:#f92672>.</span>encode(<span style=color:#e6db74>&#39;utf-8&#39;</span>)
     json_file<span style=color:#f92672>.</span>write(data)
-</code></pre></div><h2 id=3-orjson>3. orjson</h2>
+</code></pre></div><hr>
+<h2 id=3-orjson>3. orjson</h2>
 <p>orjson은 파이썬 3.7버전이상을 지원하는 가장 빠르고 정확한 파이썬 JSON 라이브러리이다.</p>
 <pre tabindex=0><code>===========================
 orjson_r        = 0.038 sec
@@ -166,21 +171,22 @@ orjson_w_dumps  = 0.049 sec
 ===========================
 orjson_rb       = 0.024 sec
 orjson_wb_dumps = 0.035 sec
-</code></pre><h3 id=3-1-read>3-1. read</h3>
+</code></pre><h3 id=31-read>3.1. read</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>&#39;github.json&#39;</span>, <span style=color:#e6db74>&#34;r&#34;</span>) <span style=color:#66d9ef>as</span> json_file:
     data <span style=color:#f92672>=</span> orjson<span style=color:#f92672>.</span>loads(json_file<span style=color:#f92672>.</span>read())
-</code></pre></div><h3 id=3-2-write-dumps>3-2. write dumps</h3>
+</code></pre></div><h3 id=32-write-dumps>3.2. write dumps</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>&#39;github_w_dumps.json&#39;</span>, <span style=color:#e6db74>&#34;w&#34;</span>) <span style=color:#66d9ef>as</span> json_file:
     data <span style=color:#f92672>=</span> orjson<span style=color:#f92672>.</span>dumps(data)<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#39;utf-8&#39;</span>)
     json_file<span style=color:#f92672>.</span>write(data)
-</code></pre></div><h3 id=3-3-read-byte>3-3. read byte</h3>
+</code></pre></div><h3 id=33-read-byte>3.3. read byte</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>&#39;github.json&#39;</span>, <span style=color:#e6db74>&#34;rb&#34;</span>) <span style=color:#66d9ef>as</span> json_file:
     data <span style=color:#f92672>=</span> orjson<span style=color:#f92672>.</span>loads(json_file<span style=color:#f92672>.</span>read())
-</code></pre></div><h3 id=3-4-write-byte-dumps>3-4. write byte dumps</h3>
+</code></pre></div><h3 id=34-write-byte-dumps>3.4. write byte dumps</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>&#39;github_wb_dumps.json&#39;</span>, <span style=color:#e6db74>&#34;wb&#34;</span>) <span style=color:#66d9ef>as</span> json_file:
     data <span style=color:#f92672>=</span> orjson<span style=color:#f92672>.</span>dumps(data)
     json_file<span style=color:#f92672>.</span>write(data)
-</code></pre></div><h2 id=4-banchmark>4. banchmark</h2>
+</code></pre></div><hr>
+<h2 id=4-banchmark>4. banchmark</h2>
 <p>성능은 <code>orjson > ujson > json</code> 순으로 빠르다.</p>
 <table>
 <thead>
@@ -257,9 +263,11 @@ orjson_wb_dumps = 0.035 sec
 </tr>
 </tbody>
 </table>
-<h2 id=5-예시코드-git-주소>5. 예시코드 Git 주소</h2>
+<hr>
+<h2 id=5-예시코드-git>5. 예시코드 Git</h2>
 <p><a href=https://github.com/SangjunCha-dev/blog/tree/main/python/python-json-read-write-performance>python-json-read-write-performance</a></p>
-<h2 id=참고-사이트>참고 사이트</h2>
+<hr>
+<h2 id=참고reference>참고(Reference)</h2>
 <ul>
 <li><a href=https://artem.krylysov.com/blog/2015/09/29/benchmark-python-json-libraries/>Benchmark of Python JSON libraries</a></li>
 <li><a href=https://github.com/ijl/orjson>orjson</a></li>
@@ -291,35 +299,34 @@ orjson_wb_dumps = 0.035 sec
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#라이브러리-버전>라이브러리 버전</a></li>
 <li><a href=#1-json>1. json</a>
 <ul>
-<li><a href=#1-1-read>1-1. read</a></li>
-<li><a href=#1-2-write_dump>1-2. write_dump</a></li>
-<li><a href=#1-3-write_dumps>1-3. write_dumps</a></li>
-<li><a href=#1-4-read-byte>1-4. read byte</a></li>
-<li><a href=#1-5-write-byte-dumps>1-5. write byte dumps</a></li>
+<li><a href=#11-read>1.1. read</a></li>
+<li><a href=#12-write_dump>1.2. write_dump</a></li>
+<li><a href=#13-write_dumps>1.3. write_dumps</a></li>
+<li><a href=#14-read-byte>1.4. read byte</a></li>
+<li><a href=#15-write-byte-dumps>1.5. write byte dumps</a></li>
 </ul>
 </li>
 <li><a href=#2-ujson>2. ujson</a>
 <ul>
-<li><a href=#2-1-read>2-1. read</a></li>
-<li><a href=#2-2-write-dumps>2-2. write dumps</a></li>
-<li><a href=#2-3-read-byte>2-3. read byte</a></li>
-<li><a href=#2-4-write-byte-dumps>2-4. write byte dumps</a></li>
+<li><a href=#21-read>2.1. read</a></li>
+<li><a href=#22-write-dumps>2.2. write dumps</a></li>
+<li><a href=#23-read-byte>2.3. read byte</a></li>
+<li><a href=#24-write-byte-dumps>2.4. write byte dumps</a></li>
 </ul>
 </li>
 <li><a href=#3-orjson>3. orjson</a>
 <ul>
-<li><a href=#3-1-read>3-1. read</a></li>
-<li><a href=#3-2-write-dumps>3-2. write dumps</a></li>
-<li><a href=#3-3-read-byte>3-3. read byte</a></li>
-<li><a href=#3-4-write-byte-dumps>3-4. write byte dumps</a></li>
+<li><a href=#31-read>3.1. read</a></li>
+<li><a href=#32-write-dumps>3.2. write dumps</a></li>
+<li><a href=#33-read-byte>3.3. read byte</a></li>
+<li><a href=#34-write-byte-dumps>3.4. write byte dumps</a></li>
 </ul>
 </li>
 <li><a href=#4-banchmark>4. banchmark</a></li>
-<li><a href=#5-예시코드-git-주소>5. 예시코드 Git 주소</a></li>
-<li><a href=#참고-사이트>참고 사이트</a></li>
+<li><a href=#5-예시코드-git>5. 예시코드 Git</a></li>
+<li><a href=#참고reference>참고(Reference)</a></li>
 </ul>
 </nav>
 </div>

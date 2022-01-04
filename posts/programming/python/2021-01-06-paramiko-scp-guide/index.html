@@ -101,6 +101,7 @@ Sangjun 개발 블로그</a>
 <h1>paramiko-scp 라이브러리 사용법 (paramiko-scp Library Guide)</h1>
 </div>
 <div class=post-content id=post-content>
+<hr>
 <p>paramiko, scp 라이브러리 연계 사용한 ssh 파일 전송</p>
 <table>
 <thead>
@@ -126,7 +127,8 @@ Sangjun 개발 블로그</a>
 <p>실습환경 : windows10,
 원격서버환경 : linux(RHEL8)</p>
 <p>사전에 ssh 접속가능한 linux를 구축한 후 실습 진행</p>
-<h2 id=라이브러리-설치>라이브러리 설치</h2>
+<hr>
+<h2 id=1-라이브러리-설치>1. 라이브러리 설치</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pip install paramiko
 pip install scp
 </code></pre></div><p>paramiko : SSH 접속 및 종료 기능</p>
@@ -137,8 +139,9 @@ pip install scp
 <ul>
 <li>Docs URL - <a href=https://pypi.org/project/scp/>https://pypi.org/project/scp/</a></li>
 </ul>
-<h2 id=사용예제-코드>사용예제 코드</h2>
-<h3 id=sshmanager>SSHManager</h3>
+<hr>
+<h2 id=2-사용예제-코드>2. 사용예제 코드</h2>
+<h3 id=21-sshmanager>2.1. SSHManager</h3>
 <p>SSHManager.py</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> paramiko
 <span style=color:#f92672>from</span> scp <span style=color:#f92672>import</span> SCPClient, SCPException
@@ -195,7 +198,7 @@ pip install scp
             <span style=color:#66d9ef>return</span> stdout<span style=color:#f92672>.</span>readlines()
         <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> ex:
             print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[send_command] Error : </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74> | cmd = </span><span style=color:#e6db74>{</span>cmd<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-</code></pre></div><h3 id=client>client</h3>
+</code></pre></div><h3 id=22-client>2.2. client</h3>
 <p>client.py</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> SSHManager <span style=color:#f92672>import</span> SSHManager
 
@@ -247,7 +250,11 @@ pip install scp
 
 client <span style=color:#f92672>=</span> Client()
 client<span style=color:#f92672>.</span>run()
-</code></pre></div><p>참고 URL - <a href=https://hackersandslackers.com/automate-ssh-scp-python-paramiko/>SSH & SCP in Python with Paramiko</a></p>
+</code></pre></div><hr>
+<h2 id=참고reference>참고(Reference)</h2>
+<ul>
+<li><a href=https://hackersandslackers.com/automate-ssh-scp-python-paramiko/>SSH & SCP in Python with Paramiko</a></li>
+</ul>
 </div>
 <div class="row pl-3 pr-3">
 <div class="col-md-6 share-buttons">
@@ -275,13 +282,14 @@ client<span style=color:#f92672>.</span>run()
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#라이브러리-설치>라이브러리 설치</a></li>
-<li><a href=#사용예제-코드>사용예제 코드</a>
+<li><a href=#1-라이브러리-설치>1. 라이브러리 설치</a></li>
+<li><a href=#2-사용예제-코드>2. 사용예제 코드</a>
 <ul>
-<li><a href=#sshmanager>SSHManager</a></li>
-<li><a href=#client>client</a></li>
+<li><a href=#21-sshmanager>2.1. SSHManager</a></li>
+<li><a href=#22-client>2.2. client</a></li>
 </ul>
 </li>
+<li><a href=#참고reference>참고(Reference)</a></li>
 </ul>
 </nav>
 </div>

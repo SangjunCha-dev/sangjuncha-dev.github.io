@@ -96,17 +96,14 @@ Sangjun 개발 블로그</a>
 </div>
 <div class=card-body>
 <h5 class=card-title>sqlcmd 사용법 (sqlcmd-guide)</h5>
-<p class="card-text post-summary">sqlcmd 사용목적 : 대용량 sql 파일실행은 sqlcmd만 실행가능
-sqlcmd 사용 예시 sqlcmd \ -S 127.0.0.1,1433 \ -i input_file[ , input_file2...] \ -o output_file \ -U login_id \ -P password \ -d db_name -S : 접속할 IP,접속포트
+<p class="card-text post-summary">sqlcmd 대용량 sql 파일실행은 sqlcmd로만 실행가능하다.
+다른 sql 실행방법은 메모리에 해당 sql 파일을 로딩한 상태로 실행하여 크기제한이 있지만 sqlcmd는 해당 sql문 하나하나 별도로 실행하기 때문이다.
+사용 예시 sqlcmd \ -S 127.0.0.1,1433 \ -i input_file[ , input_file2...] \ -o output_file \ -U login_id \ -P password \ -d db_name -S : 접속할 IP,접속포트
 -i : 실행할 sql 파일 지정
 -i C:&lt;filename>
 -i \&lt;Share$>&lt;filename>
 -i &ldquo;C:\Some Folder&lt;file name>&rdquo;
--o : 실행결과 저장할 파일 지정
--U : 계정
--P : 패스워드
--d : Database 이름
-windows 환경</p>
+-o : 실행결과 저장할 파일 지정</p>
 </div>
 <div class=card-footer>
 <span class=float-left>September 30, 2020</span>

@@ -101,14 +101,15 @@ Sangjun 개발 블로그</a>
 <h1>Django socketio 라이브러리 활용한 통신</h1>
 </div>
 <div class=post-content id=post-content>
-<h1 id=라이브러리-설치>라이브러리 설치</h1>
-<h2 id=server-라이브러리-설치>server 라이브러리 설치</h2>
+<hr>
+<h2 id=1-라이브러리-설치>1. 라이브러리 설치</h2>
+<h3 id=11-server-라이브러리-설치>1.1. server 라이브러리 설치</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>pip install python-socketio
-</code></pre></div><h2 id=client-라이브러리-설치>client 라이브러리 설치</h2>
+</code></pre></div><h3 id=12-client-라이브러리-설치>1.2. client 라이브러리 설치</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>pip install <span style=color:#e6db74>&#34;python-socketio[client]&#34;</span>
-</code></pre></div><h1 id=server-django-settings>Server django settings</h1>
-<p>django server<br>
-wsgi.py</p>
+</code></pre></div><hr>
+<h2 id=2-server-django-settings>2. Server django settings</h2>
+<p>projectname/wsgi.py</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>...</span>
 
 <span style=color:#f92672>import</span> socketio
@@ -119,7 +120,7 @@ wsgi.py</p>
 sio<span style=color:#f92672>.</span>register_namespace(TransferNamespace(<span style=color:#e6db74>&#39;/transfer&#39;</span>))
 django_app <span style=color:#f92672>=</span> get_wsgi_application()
 application <span style=color:#f92672>=</span> socketio<span style=color:#f92672>.</span>WSGIApp(sio, django_app)
-</code></pre></div><p>appname.views.py</p>
+</code></pre></div><p>appname/views.py</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> socketio
 
 sio <span style=color:#f92672>=</span> socketio<span style=color:#f92672>.</span>Server(async_mode<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;threading&#39;</span>, async_handlers<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, ping_interval<span style=color:#f92672>=</span><span style=color:#ae81ff>60</span>)
@@ -143,7 +144,8 @@ sio <span style=color:#f92672>=</span> socketio<span style=color:#f92672>.</span
 </span><span style=color:#e6db74>        클라이언트에서 전송한 이벤트
 </span><span style=color:#e6db74>        &#39;&#39;&#39;</span>
         print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;on_client_response sid = </span><span style=color:#e6db74>{</span>sid<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-</code></pre></div><h1 id=client-settings>Client settings</h1>
+</code></pre></div><hr>
+<h2 id=3-client-settings>3. Client settings</h2>
 <p>client.py</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> socketio
 
@@ -204,8 +206,14 @@ sio <span style=color:#f92672>=</span> socketio<span style=color:#f92672>.</span
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#server-라이브러리-설치>server 라이브러리 설치</a></li>
-<li><a href=#client-라이브러리-설치>client 라이브러리 설치</a></li>
+<li><a href=#1-라이브러리-설치>1. 라이브러리 설치</a>
+<ul>
+<li><a href=#11-server-라이브러리-설치>1.1. server 라이브러리 설치</a></li>
+<li><a href=#12-client-라이브러리-설치>1.2. client 라이브러리 설치</a></li>
+</ul>
+</li>
+<li><a href=#2-server-django-settings>2. Server django settings</a></li>
+<li><a href=#3-client-settings>3. Client settings</a></li>
 </ul>
 </nav>
 </div>

@@ -101,12 +101,14 @@ Sangjun 개발 블로그</a>
 <h1>Django 동적 모델 및 테이블 생성</h1>
 </div>
 <div class=post-content id=post-content>
-<h1 id=django-동적-모델-및-테이블-생성>Django 동적 모델 및 테이블 생성</h1>
+<hr>
+<h2 id=1-django-동적-모델-및-테이블-생성>1. Django 동적 모델 및 테이블 생성</h2>
 <p>django는 makemigrations, migrate 명령어를 통하여 테이블 생성한다.<br>
 이때 웹서버는 실행중일 경우 중단하고 다시 재시작한다.</p>
 <p>운영환경에 따라서 웹서버가 중단되지 않고 운영이 필요한경우에는 위의 방법이 아닌 동적 모델 및 테이블 생성방법이 필요하다.</p>
-<h1 id=사용-방법>사용 방법</h1>
-<h2 id=상속받을-추상모델-작성>상속받을 추상모델 작성</h2>
+<hr>
+<h2 id=2-예시코드>2. 예시코드</h2>
+<h3 id=21-상속받을-추상모델-작성>2.1. 상속받을 추상모델 작성</h3>
 <p>models.py</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> django.db <span style=color:#f92672>import</span> models
 
@@ -116,7 +118,7 @@ Sangjun 개발 블로그</a>
 	
     <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Meta</span>:
         abstract <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
-</code></pre></div><h2 id=동적-모델-생성-및-삭제>동적 모델 생성 및 삭제</h2>
+</code></pre></div><h3 id=22-동적-모델-생성-및-삭제>2.2. 동적 모델 생성 및 삭제</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> .models <span style=color:#f92672>import</span> Board
 
 TABLE_MAP <span style=color:#f92672>=</span> {}
@@ -142,7 +144,7 @@ TABLE_MAP <span style=color:#f92672>=</span> {}
 </span><span style=color:#e6db74>	동적 모델 삭제
 </span><span style=color:#e6db74>	&#39;&#39;&#39;</span>
 	<span style=color:#66d9ef>del</span> TABLE_MAP[name]
-</code></pre></div><h2 id=동적-테이블-생성-및-삭제>동적 테이블 생성 및 삭제</h2>
+</code></pre></div><h3 id=23-동적-테이블-생성-및-삭제>2.3. 동적 테이블 생성 및 삭제</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> django.db <span style=color:#f92672>import</span> connection
 
 <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>create_table</span>(name: str):
@@ -158,24 +160,29 @@ TABLE_MAP <span style=color:#f92672>=</span> {}
 </span><span style=color:#e6db74>	&#39;&#39;&#39;</span>
 	<span style=color:#66d9ef>with</span> connection<span style=color:#f92672>.</span>schema_editor() <span style=color:#66d9ef>as</span> schema_editor:
 		schema_editor<span style=color:#f92672>.</span>delete_model(TABLE_MAP[name])
-</code></pre></div><h1 id=참고사이트>참고사이트</h1>
-<p>추상클래스</p>
+</code></pre></div><hr>
+<h2 id=참고reference>참고(Reference)</h2>
+<ul>
+<li><a href="https://dojang.io/mod/page/view.php?id=2389">추상클래스</a>
 <ul>
 <li>모델 생성시 사용</li>
-<li><a href="https://dojang.io/mod/page/view.php?id=2389">https://dojang.io/mod/page/view.php?id=2389</a></li>
 </ul>
-<p>closure 사용하기</p>
+</li>
+<li><a href="https://dojang.io/mod/page/view.php?id=2366">closure 사용하기</a>
 <ul>
 <li>모델 생성시 <code>type()</code> 동작 원리</li>
-<li><a href="https://dojang.io/mod/page/view.php?id=2366">https://dojang.io/mod/page/view.php?id=2366</a></li>
 </ul>
-<p>django 동적 모델 생성 (type 활용)</p>
+</li>
+<li><a href=https://stackoverflow.com/questions/7320705/python-missing-class-attribute-module-when-using-type/7320926>django 동적 모델 생성</a>
 <ul>
-<li><a href=https://stackoverflow.com/questions/7320705/python-missing-class-attribute-module-when-using-type/7320926>https://stackoverflow.com/questions/7320705/python-missing-class-attribute-module-when-using-type/7320926</a></li>
+<li>type 활용</li>
 </ul>
-<p>django 동적 테이블 생성 (connection.schema_editor)</p>
+</li>
+<li><a href=https://docs.djangoproject.com/en/3.1/ref/schema-editor/#create-model>django 동적 테이블 생성</a>
 <ul>
-<li><a href=https://docs.djangoproject.com/en/3.1/ref/schema-editor/#create-model>https://docs.djangoproject.com/en/3.1/ref/schema-editor/#create-model</a></li>
+<li>connection.schema_editor</li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="row pl-3 pr-3">
@@ -204,9 +211,15 @@ TABLE_MAP <span style=color:#f92672>=</span> {}
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#상속받을-추상모델-작성>상속받을 추상모델 작성</a></li>
-<li><a href=#동적-모델-생성-및-삭제>동적 모델 생성 및 삭제</a></li>
-<li><a href=#동적-테이블-생성-및-삭제>동적 테이블 생성 및 삭제</a></li>
+<li><a href=#1-django-동적-모델-및-테이블-생성>1. Django 동적 모델 및 테이블 생성</a></li>
+<li><a href=#2-예시코드>2. 예시코드</a>
+<ul>
+<li><a href=#21-상속받을-추상모델-작성>2.1. 상속받을 추상모델 작성</a></li>
+<li><a href=#22-동적-모델-생성-및-삭제>2.2. 동적 모델 생성 및 삭제</a></li>
+<li><a href=#23-동적-테이블-생성-및-삭제>2.3. 동적 테이블 생성 및 삭제</a></li>
+</ul>
+</li>
+<li><a href=#참고reference>참고(Reference)</a></li>
 </ul>
 </nav>
 </div>

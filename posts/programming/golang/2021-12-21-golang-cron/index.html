@@ -101,16 +101,19 @@ Sangjun 개발 블로그</a>
 <h1>golang cron 스케줄링 라이브러리 사용법</h1>
 </div>
 <div class=post-content id=post-content>
+<hr>
 <p>go언어에서 cron 처럼 동작하는 스케줄링 외부 라이브러리 사용법</p>
 <ul>
 <li>cron 함수는 지정한 주기마다 동작시키는 기능으로 별도의 비동기함수로 실행된다.</li>
 <li>main 함수가 종료되면 go 프로세스가 종료되어 비동기 함수도 종료된다.</li>
 <li>cron 기능을 사용할려면 main 함수가 종료되지 않도록 적절한 조치를 해야한다.</li>
 </ul>
-<h2 id=라이브러리-설치>라이브러리 설치</h2>
+<hr>
+<h2 id=1-라이브러리-설치>1. 라이브러리 설치</h2>
 <p>go version : 1.17</p>
 <pre tabindex=0><code>&gt; go get github.com/robfig/cron/v3@v3.0.0
-</code></pre><h2 id=예제코드>예제코드</h2>
+</code></pre><hr>
+<h2 id=2-예제코드>2. 예제코드</h2>
 <ul>
 <li><code>select</code> : 복수 채널이 대기하면서 준비된 (데이터를 전송받은) 채널을 실행하는 기능이다. case 채널들이 준비되지 않으면 계속 대기하게 되고, 가장 먼저 도착한 채널의 case를 실행한다.</li>
 <li><code>select {}</code> : 채널을 지정하지 않아 main 함수 종료 방지용으로 사용한다.</li>
@@ -134,14 +137,16 @@ Sangjun 개발 블로그</a>
 	<span style=color:#75715e>// main 함수 종료 방지
 </span><span style=color:#75715e></span>	<span style=color:#66d9ef>select</span> {}
 }
-</code></pre></div><h2 id=addfunc-다양한-사용법>AddFunc 다양한 사용법</h2>
+</code></pre></div><hr>
+<h2 id=3-addfunc-다양한-사용법>3. AddFunc 다양한 사용법</h2>
 <p>AddFunc에서 지정한 스케줄링은 기본 linux 시스템의 cron문법과 유사하다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>AddFunc</span>(<span style=color:#e6db74>&#34;* * * * *&#34;</span>,    <span style=color:#66d9ef>func</span>() { <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Every hour on the half hour&#34;</span>) })  <span style=color:#75715e>// 매분마다
 </span><span style=color:#75715e></span><span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>AddFunc</span>(<span style=color:#e6db74>&#34;30 * * * *&#34;</span>,   <span style=color:#66d9ef>func</span>() { <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Every hour on the half hour&#34;</span>) })  <span style=color:#75715e>// 매시간 30분마다
 </span><span style=color:#75715e></span><span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>AddFunc</span>(<span style=color:#e6db74>&#34;@hourly&#34;</span>,      <span style=color:#66d9ef>func</span>() { <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Every hour&#34;</span>) }) <span style=color:#75715e>// 매시간마다
 </span><span style=color:#75715e></span><span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>AddFunc</span>(<span style=color:#e6db74>&#34;@daily&#34;</span>,       <span style=color:#66d9ef>func</span>() { <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Every day&#34;</span>) })  <span style=color:#75715e>// 매일마다
 </span><span style=color:#75715e></span><span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>AddFunc</span>(<span style=color:#e6db74>&#34;@every 1h30m&#34;</span>, <span style=color:#66d9ef>func</span>() { <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Every hour thirty&#34;</span>) }) <span style=color:#75715e>// 1시간 30분 경과할때마다
-</span></code></pre></div><h2 id=docs-url>Docs URL</h2>
+</span></code></pre></div><hr>
+<h2 id=참고reference>참고(Reference)</h2>
 <ul>
 <li><a href=https://pkg.go.dev/github.com/robfig/cron>cron package</a></li>
 </ul>
@@ -172,10 +177,10 @@ Sangjun 개발 블로그</a>
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#라이브러리-설치>라이브러리 설치</a></li>
-<li><a href=#예제코드>예제코드</a></li>
-<li><a href=#addfunc-다양한-사용법>AddFunc 다양한 사용법</a></li>
-<li><a href=#docs-url>Docs URL</a></li>
+<li><a href=#1-라이브러리-설치>1. 라이브러리 설치</a></li>
+<li><a href=#2-예제코드>2. 예제코드</a></li>
+<li><a href=#3-addfunc-다양한-사용법>3. AddFunc 다양한 사용법</a></li>
+<li><a href=#참고reference>참고(Reference)</a></li>
 </ul>
 </nav>
 </div>

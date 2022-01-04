@@ -101,18 +101,22 @@ Sangjun 개발 블로그</a>
 <h1>libmagic 라이브러리 사용법 (libmagic Library Guide)</h1>
 </div>
 <div class=post-content id=post-content>
+<hr>
 <p><a href=https://ko.wikipedia.org/wiki/%EB%AF%B8%EB%94%94%EC%96%B4_%ED%83%80%EC%9E%85>미디어 타입(media type), MIME 타입(MIME type)</a></p>
+<h2 id=1-라이브러리-설치>1. 라이브러리 설치</h2>
 <p>실행환경 : windows 10</p>
-<h2 id=라이브러리-설치>라이브러리 설치</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pip install libmagic
 pip install python-magic-bin
-</code></pre></div><p>libmagic : 파일타입을 MIME 타입으로 확인해주는 라이브러리</p>
-<ul>
-<li>magic은 리눅스 환경에서 실행되는 프로그램</li>
-<li>윈도우즈 환경에서는 윈도우용 magic 설치가 필요함</li>
+</code></pre></div><p>실행환경 : linux</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pip install libmagic
+pip install python-magic
+</code></pre></div><ul>
+<li>libmagic : 파일타입을 MIME 타입으로 확인해주는 라이브러리</li>
+<li>python-magic-bin : 윈도우용 magic 라이브러리</li>
+<li>python-magic : 리눅스용 magic 라이브러리</li>
 </ul>
-<p>python-magic-bin : 윈도우용 magic 라이브러리</p>
-<h2 id=예제-코드>예제 코드</h2>
+<hr>
+<h2 id=2-예제-코드>2. 예제 코드</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> magic
 
 r1 <span style=color:#f92672>=</span> magic<span style=color:#f92672>.</span>from_file(<span style=color:#e6db74>&#34;test1.txt&#34;</span>)
@@ -125,9 +129,9 @@ file_data <span style=color:#f92672>=</span> open(<span style=color:#e6db74>&#39
 r3 <span style=color:#f92672>=</span> magic<span style=color:#f92672>.</span>from_buffer(file_data)
 r4 <span style=color:#f92672>=</span> magic<span style=color:#f92672>.</span>from_buffer(file_data, mime<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
 print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;filetype = </span><span style=color:#e6db74>{</span>r3<span style=color:#e6db74>}</span><span style=color:#e6db74>, </span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>mime = </span><span style=color:#e6db74>{</span>r4<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-</code></pre></div><p>UnicodeDecodeError 에러 발생시<br>
-<code>UnicodeDecodeError: 'cp949' codec can't decode byte 0xd3 in position 23: illegal multibyte sequence</code></p>
-<p>file open encoding 지정하여 디코딩 가능하도록 코드 수정</p>
+</code></pre></div><h3 id=unicodedecodeerror-에러-발생시>UnicodeDecodeError 에러 발생시</h3>
+<pre tabindex=0><code>UnicodeDecodeError: 'cp949' codec can't decode byte 0xd3 in position 23: illegal multibyte sequence
+</code></pre><p>file open encoding 지정하여 디코딩 가능하도록 코드 수정</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>file_data <span style=color:#f92672>=</span> open(<span style=color:#e6db74>&#39;test1.txt&#39;</span>, <span style=color:#e6db74>&#39;r&#39;</span>, encoding<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;UTF-8&#39;</span>)<span style=color:#f92672>.</span>read(<span style=color:#ae81ff>1024</span>)
 r3 <span style=color:#f92672>=</span> magic<span style=color:#f92672>.</span>from_buffer(file_data)
 r4 <span style=color:#f92672>=</span> magic<span style=color:#f92672>.</span>from_buffer(file_data, mime<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
@@ -162,8 +166,12 @@ print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;filetype 
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#라이브러리-설치>라이브러리 설치</a></li>
-<li><a href=#예제-코드>예제 코드</a></li>
+<li><a href=#1-라이브러리-설치>1. 라이브러리 설치</a></li>
+<li><a href=#2-예제-코드>2. 예제 코드</a>
+<ul>
+<li><a href=#unicodedecodeerror-에러-발생시>UnicodeDecodeError 에러 발생시</a></li>
+</ul>
+</li>
 </ul>
 </nav>
 </div>

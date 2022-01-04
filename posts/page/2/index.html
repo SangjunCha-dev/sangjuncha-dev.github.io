@@ -115,8 +115,8 @@ func (r Rectangle) Area() float64 { return 0 } interface Go에서 인터페이�
 </div>
 <div class=card-body>
 <h5 class=card-title>golang gopacket 라이브러리를 이용한 통신</h5>
-<p class="card-text post-summary">설명 ethernet 통신
-이더넷 어댑터 설명(dev.Description)을 기준으로 통신하는 코드이다. 예제 코드 package main import ( "fmt" "log" "net" "strings" "time" "github.com/google/gopacket" "github.com/google/gopacket/layers" "github.com/google/gopacket/pcap" ) var ( device string = "Realtek PCIe GbE Family Controller" eth_name string currentIP string snapshot_len int32 = 1522 promiscuous bool = false err error timeout time.Duration = 30 * time.Second handle *pcap.Handle buffer gopacket.SerializeBuffer options gopacket.SerializeOptions ) func main() { devices, err := pcap.FindAllDevs() if err !</p>
+<p class="card-text post-summary">gopacket : 이더넷 어댑터 설명(dev.Description)명칭으로 ethernet 통신하는 라이브러리이다.
+예제 코드 package main import ( "fmt" "log" "net" "strings" "time" "github.com/google/gopacket" "github.com/google/gopacket/layers" "github.com/google/gopacket/pcap" ) var ( device string = "Realtek PCIe GbE Family Controller" eth_name string currentIP string snapshot_len int32 = 1522 promiscuous bool = false err error timeout time.Duration = 30 * time.Second handle *pcap.Handle buffer gopacket.SerializeBuffer options gopacket.SerializeOptions ) func main() { devices, err := pcap.FindAllDevs() if err !</p>
 </div>
 <div class=card-footer>
 <span class=float-left>July 29, 2021</span>
@@ -135,7 +135,7 @@ func (r Rectangle) Area() float64 { return 0 } interface Go에서 인터페이�
 <h5 class=card-title>python을 이용한 windows10 시스템 정보 및 사용량 모니터링</h5>
 <p class="card-text post-summary">운영체제 : windows 10
 설치환경 : python 3.8.8, powershell 7.1
-powershell 명령어 사용법 WMI 개체 가져오기(Get-CimInstance) python에서 powershell 명령 실행 방법 1. 콘솔 명령 실행 import subprocess import json cmd = "Get-CimInstance -Class Win32_OperatingSystem" subprocess.Popen(f'powershell.exe {cmd}') 2. 실행결과 반환 디코딩을 하지 않으면 바이트 문자열로 나열되서 반환된다.
+1. python에서 powershell 명령 실행 방법 1.1 콘솔 명령 실행 import subprocess import json cmd = "Get-CimInstance -Class Win32_OperatingSystem" subprocess.Popen(f'powershell.exe {cmd}') 1.2. 실행결과 반환 디코딩을 하지 않으면 바이트 문자열로 나열되서 반환된다.
 cmd = "Get-CimInstance -Class Win32_OperatingSystem" result = subprocess.Popen(f'powershell.exe {cmd}', stdout=subprocess.PIPE) print(result) result = result.stdout.read() print(result) 결과
 &lt;subprocess.Popen object at 0x0000025175617B50> b'\r\nSystemDirectory Organization BuildNumber RegisteredUser SerialNumber Version \r\n--------------- ------------ ----------- -------------- ------------ ------- \r\nC:\\Windows\\system32 19000 UserName 00000-00000 10.</p>
 </div>
@@ -154,9 +154,8 @@ cmd = "Get-CimInstance -Class Win32_OperatingSystem" result = subprocess.Popen(f
 </div>
 <div class=card-body>
 <h5 class=card-title>Django socketio 라이브러리 활용한 통신</h5>
-<p class="card-text post-summary">라이브러리 설치 server 라이브러리 설치 pip install python-socketio client 라이브러리 설치 pip install "python-socketio[client]" Server django settings django server
-wsgi.py
-... import socketio from appname.views import sio # sio code path ... # application = get_wsgi_application() sio.register_namespace(TransferNamespace('/transfer')) django_app = get_wsgi_application() application = socketio.WSGIApp(sio, django_app) appname.views.py
+<p class="card-text post-summary">1. 라이브러리 설치 1.1. server 라이브러리 설치 pip install python-socketio 1.2. client 라이브러리 설치 pip install "python-socketio[client]" 2. Server django settings projectname/wsgi.py
+... import socketio from appname.views import sio # sio code path ... # application = get_wsgi_application() sio.register_namespace(TransferNamespace('/transfer')) django_app = get_wsgi_application() application = socketio.WSGIApp(sio, django_app) appname/views.py
 import socketio sio = socketio.Server(async_mode='threading', async_handlers=True, ping_interval=60) class TransferNamespace(socketio.Namespace): def on_connect(self, sid: str, environ: dict): ''' 클라이언트 접속 ''' print(f"connect address = {environ['REMOTE_ADDR']}, sid = {sid}") def on_disconnect(self, sid: str): ''' 클라이언트 접속 종료 ''' print(f"disconnect Client disconnected = {sid}") def send_event(self, sid: str): ''' 특정 sid 클라이언트에 이벤트 전송 ''' print("send_event") self.</p>
 </div>
 <div class=card-footer>
@@ -175,7 +174,7 @@ import socketio sio = socketio.Server(async_mode='threading', async_handlers=Tru
 <div class=card-body>
 <h5 class=card-title>클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이</h5>
 <p class="card-text post-summary">설치버전 : python 3.8.8
-클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이 예제 코드 1 import timeit class CheckTime: def __init__(self): self.a = 0 self.b = 0 self.c = 0 def process_self(self): self.a + self.b + self.c def process_argument(self, a, b, c): a + b + c def get_time(self): self.a = 1 self.b = 2 self.c = 3 def test1(): self.process_self() process_self_time = timeit.Timer(stmt=test1).repeat(number=1000000) a = self.a b = self.b c = self.</p>
+1. 클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이 1.1. 예제 코드 import timeit class CheckTime: def __init__(self): self.a = 0 self.b = 0 self.c = 0 def process_self(self): self.a + self.b + self.c def process_argument(self, a, b, c): a + b + c def get_time(self): self.a = 1 self.b = 2 self.c = 3 def test1(): self.process_self() process_self_time = timeit.Timer(stmt=test1).repeat(number=1000000) a = self.a b = self.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>May 24, 2021</span>
@@ -193,8 +192,8 @@ import socketio sio = socketio.Server(async_mode='threading', async_handlers=Tru
 <div class=card-body>
 <h5 class=card-title>python opencv 사용법</h5>
 <p class="card-text post-summary">설치버전 : opencv-python 4.5.1.48
-docs url import 라이브러리
-import cv2 as cv cv.imread 이미지 파일 읽기 cv.imread(filename[, flags]) -> retval 매개변수 이름 설명 filename 로드할 파일 이름 flags cv 값을 사용할 수 있는 플래그 img = cv.imread(image_full_path) cv.imwrite 이미지 파일 저장 cv.imwrite(filename, img[, params]) -> retval 이미지 형식은 파일 이름 확장자에 따라 선택됨 cv.</p>
+docs url 라이브러리 import
+import cv2 as cv 이미지 파일 읽기 cv.imread(filename[, flags]) -> retval img = cv.imread(image_full_path) 매개변수 이름 설명 filename 로드할 파일 이름 flags cv 값을 사용할 수 있는 플래그 이미지 파일 저장 cv.imwrite(filename, img[, params]) -> retval 이미지 형식은 파일 이름 확장자에 따라 선택됨 cv.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>May 21, 2021</span>
@@ -213,7 +212,8 @@ import cv2 as cv cv.imread 이미지 파일 읽기 cv.imread(filename[, flags]) 
 <h5 class=card-title>python numpy 사용법</h5>
 <p class="card-text post-summary">선형대수 기반의 python 라이브러리
 루프없이 배열 연산이 가능하여 연산속도가 빠름 설치버전 : numpy 1.20.2
-import 라이브러리 import numpy as np 1. 생성 arange np.arange([start,] stop, [step,] dtype) 지정한 숫자 범위의 array 생성함수 np.arange(10) # [0 1 2 3 4 5 6 7 8 9] np.arange(0, 5, 0.5) # [0. 0.5 1. 1.5 2. 2.5 3. 3.5 4. 4.5] zeros np.zeros(shape, dtype) 0으로 선언된 array 생성 np.</p>
+라이브러리 import
+import numpy as np 1. 생성 arange np.arange([start,] stop, [step,] dtype) 지정한 숫자 범위의 array 생성함수 np.arange(10) # [0 1 2 3 4 5 6 7 8 9] np.arange(0, 5, 0.5) # [0. 0.5 1. 1.5 2. 2.5 3. 3.5 4. 4.5] zeros np.zeros(shape, dtype) 0으로 선언된 array 생성 np.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>May 21, 2021</span>
@@ -252,8 +252,8 @@ int(문자열, 밑(n진법))
 </div>
 <div class=card-body>
 <h5 class=card-title>Windows10 WSL2(Windows Subsystem for Linux) 사용법</h5>
-<p class="card-text post-summary">WSL(Windows Subsystem for Linux)2 리눅스용 윈도우 하위 시스템(Windows Subsystem for Linux)은 Windows 10에서 네이티브로 리눅스 실행 파일을 실행하기 위한 호환성 계층 프로그램이다.
-사전 설정 microsoft store에서 Windows Terminal 설치한다. Windows Terminal 프로그램을 관리자 권한으로 실행한다. WSL2 활성화를 위한 DISM 명령어 실행후 재부팅 > dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart > dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart Windows Store 에서 설치하는 모든 Linux 배포판 포맷을 WSL 2로 설정 > wsl --set-default-version 2 실습 및 팁 기존에 설치한 WSL 배포 목록확인 microsoft store에서 Ubuntu 18.</p>
+<p class="card-text post-summary">1. WSL(Windows Subsystem for Linux)2 리눅스용 윈도우 하위 시스템(Windows Subsystem for Linux)은 Windows 10에서 네이티브로 리눅스 실행 파일을 실행하기 위한 호환성 계층 프로그램이다.
+2. 사전 설정 microsoft store에서 Windows Terminal 설치한다. Windows Terminal 프로그램을 관리자 권한으로 실행한다. 2.1. WSL2 활성화를 위한 DISM 명령어 실행후 재부팅 > dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart > dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart 2.2. Windows Store 에서 설치하는 모든 Linux 배포판 포맷을 WSL 2로 설정 > wsl --set-default-version 2 3.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>May 7, 2021</span>
@@ -270,8 +270,7 @@ int(문자열, 밑(n진법))
 </div>
 <div class=card-body>
 <h5 class=card-title>mssql 2017 도커 이미지 설치 및 컨테이너 실행방법</h5>
-<p class="card-text post-summary">mssql docker 도커 설치 방법 도커 허브에서 이미지 검색 docker search &lt;검색할 이미지 이름> pull - 도커 이미지 다운받기 docker pull mcr.microsoft.com/mssql/server:2017-latest docs 예시 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=&lt;YourStrong@Passw0rd>" -p 1433:1433 --name mssql2017 -h mssql2017 -v &lt;host directory>/data:/var/opt/mssql/data -v &lt;host directory>/log:/var/opt/mssql/log -v &lt;host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/mssql/server:2017-latest Docker on Windows 의 호스트 볼륨 매핑은 현재 /var/opt/mssql 디렉토리가 아닌 /var/opt/mssql/data 등의 하위 디렉터리를 호스트 머신에 매핑할 수 있다.
-사용 명령어 예시 docker volume create mssqldata docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Airiss123!</p>
+<p class="card-text post-summary">1. mssql docker 도커 설치 방법 1.1. 도커 허브에서 이미지 검색 docker search &lt;검색할 이미지 이름> 1.2. pull - 도커 이미지 다운받기 docker pull mcr.microsoft.com/mssql/server:2017-latest 1.3. docs 예시 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=&lt;YourStrong@Passw0rd>" -p 1433:1433 --name mssql2017 -h mssql2017 -v &lt;host directory>/data:/var/opt/mssql/data -v &lt;host directory>/log:/var/opt/mssql/log -v &lt;host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/mssql/server:2017-latest Docker on Windows 의 호스트 볼륨 매핑은 현재 /var/opt/mssql 디렉토리가 아닌 /var/opt/mssql/data 등의 하위 디렉터리를 호스트 머신에 매핑할 수 있다.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>May 6, 2021</span>
@@ -288,8 +287,8 @@ int(문자열, 밑(n진법))
 </div>
 <div class=card-body>
 <h5 class=card-title>PostgreDB, pgadmin4 도커 설치 방법</h5>
-<p class="card-text post-summary">Postgres Docker 이미지 설치 Postgres Version : 13.2
-다운로드 및 설정 아래 명령어를 실행한다.
+<p class="card-text post-summary">1. Postgres Docker 이미지 설치 Postgres Version : 13.2
+1.1. 다운로드 및 설정 아래 명령어를 실행한다.
 $ docker run -p 15432:5432 --name postgres -e POSTGRES_PASSWORD=password1! -d postgres -d : 백그라운드에서 컨테이너 실행 -p 15432:5432 : 호스트와 컨테이너 간의 배포(publish)포트/바인드(bind)포트 호스트 15432번 포트를 컨테이너 5432번 포트에 매핑 --name : 생성할 컨테이너 이름 -e : 도커 컨테이너의 환경변수 설정 POSTGRES_PASSWORD : PostgresDB 관리자 비밀번호 실행 결과</p>
 </div>
 <div class=card-footer>
@@ -307,8 +306,7 @@ $ docker run -p 15432:5432 --name postgres -e POSTGRES_PASSWORD=password1! -d po
 </div>
 <div class=card-body>
 <h5 class=card-title>Django 파일 업로드</h5>
-<p class="card-text post-summary">django 파일 업로드
-청크단위 파일 업로드 대용량 업로드 가능 실시간 업로드 프로그래스바에 응용가능 from django.conf import settings def upload(request): if request.method == 'POST': path = settings.MEDIA_ROOT files = request.FILES['file'] for file in files: file_path = f'{path}/{file.name}' with open(file_path,'wb+') as dst_file: for chunk in file.chunks(): dst_file.write(chunk) </p>
+<p class="card-text post-summary"> 청크단위 파일 업로드 용량제한 없이 대용량파일 업로드 가능 실시간 업로드 상황을 프로그래스바에 응용가능 from django.conf import settings def upload(request): if request.method == 'POST': path = settings.MEDIA_ROOT files = request.FILES['file'] for file in files: file_path = f'{path}/{file.name}' with open(file_path,'wb+') as dst_file: for chunk in file.chunks(): dst_file.write(chunk) </p>
 </div>
 <div class=card-footer>
 <span class=float-left>April 22, 2021</span>

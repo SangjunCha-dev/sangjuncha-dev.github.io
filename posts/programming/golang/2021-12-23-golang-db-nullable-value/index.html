@@ -101,6 +101,7 @@ Sangjun 개발 블로그</a>
 <h1>golang db nullable 데이터 처리</h1>
 </div>
 <div class=post-content id=post-content>
+<hr>
 <p>golang에서는 타입별로 정해진 <code>zero value</code>가 있는데, DB colume 타입의 <code>zero value</code>와 맞지 않을 때 다음과 에러가 발생한다.</p>
 <pre tabindex=0><code>panic: sql: Scan error on column index : converting NULL to string is unsupported
 </code></pre><p>각 타입별 zero value</p>
@@ -110,10 +111,12 @@ Sangjun 개발 블로그</a>
 <li>정수형, Float등 숫자형 타입 : 0</li>
 <li>기타 타입 : nil</li>
 </ul>
-<h2 id=사전환경>사전환경</h2>
+<hr>
+<h2 id=1-사전환경>1. 사전환경</h2>
 <p>아래의 글을 진행했다는 가정에서 설명한다.</p>
 <p><a href=https://sangjuncha-dev.github.io/posts/programming/golang/2021-12-16-golang-postgredb-crud/>golang postgreDB CURD</a></p>
-<h2 id=에러가-발생한-코드>에러가 발생한 코드</h2>
+<hr>
+<h2 id=2-에러가-발생한-코드>2. 에러가 발생한 코드</h2>
 <p>기존에 작성한 코드에서 Update 함수의 <code>name</code> 부분을 <code>nil</code> 값으로 수정하여 실행한다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>Read</span>(<span style=color:#a6e22e>userId</span> <span style=color:#66d9ef>int</span>) {
 	<span style=color:#a6e22e>sqlStatement</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>`SELECT &#34;id&#34;, &#34;name&#34;, &#34;age&#34; FROM &#34;user_test&#34; WHERE $1 = &#34;id&#34;`</span>
@@ -166,7 +169,8 @@ Sangjun 개발 블로그</a>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&gt; go run main.go
 <span style=color:#f92672>[</span>Update<span style=color:#f92672>]</span> Total rows/record affected <span style=color:#ae81ff>1</span>
 panic: sql: Scan error on column index 1, name <span style=color:#e6db74>&#34;name&#34;</span>: converting NULL to string is unsupported
-</code></pre></div><h2 id=문제-해결한-코드>문제 해결한 코드</h2>
+</code></pre></div><hr>
+<h2 id=3-문제-해결한-코드>3. 문제 해결한 코드</h2>
 <p><code>database/sql</code> 패키지의 Null*자료형을 사용한다.<br>
 <code>Null* 자료형</code>은 zerovalue가 <code>null</code>값이 아닌 기본 자료형을 지원한다.</p>
 <ul>
@@ -211,7 +215,8 @@ panic: sql: Scan error on column index 1, name <span style=color:#e6db74>&#34;na
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&gt; go run main.go
 <span style=color:#f92672>[</span>Read<span style=color:#f92672>]</span> id: 1, name: <span style=color:#f92672>{</span> false<span style=color:#f92672>}</span>, age: <span style=color:#ae81ff>20</span>
 <span style=color:#f92672>[</span>Read<span style=color:#f92672>]</span> id: 2, name: bar, age: <span style=color:#ae81ff>20</span>
-</code></pre></div><h2 id=예시코드-git-주소>예시코드 Git 주소</h2>
+</code></pre></div><hr>
+<h2 id=4-예시코드-git>4. 예시코드 Git</h2>
 <p><a href=https://github.com/SangjunCha-dev/blog/tree/main/golang/golang-db-nullable-value>golang-db-nullable-value</a></p>
 </div>
 <div class="row pl-3 pr-3">
@@ -240,10 +245,10 @@ panic: sql: Scan error on column index 1, name <span style=color:#e6db74>&#34;na
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#사전환경>사전환경</a></li>
-<li><a href=#에러가-발생한-코드>에러가 발생한 코드</a></li>
-<li><a href=#문제-해결한-코드>문제 해결한 코드</a></li>
-<li><a href=#예시코드-git-주소>예시코드 Git 주소</a></li>
+<li><a href=#1-사전환경>1. 사전환경</a></li>
+<li><a href=#2-에러가-발생한-코드>2. 에러가 발생한 코드</a></li>
+<li><a href=#3-문제-해결한-코드>3. 문제 해결한 코드</a></li>
+<li><a href=#4-예시코드-git>4. 예시코드 Git</a></li>
 </ul>
 </nav>
 </div>

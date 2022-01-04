@@ -96,9 +96,8 @@ Sangjun 개발 블로그</a>
 <div class=card-body>
 <h5 class=card-title>pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)</h5>
 <p class="card-text post-summary">python 파일을 윈도우에서 python 이나 가상환경 설정없이 실행이 가능한 .exe 으로 변환해주는 라이브러리
-Docs URL - https://pyinstaller.readthedocs.io/en/stable/usage.html
-설치환경 : Windows 10
-1. 설치 python 실행이 가능한 가상환경 터미널에서 아래의 명령어 실행
+1. 설치 설치환경 : Windows 10
+python 실행이 가능한 가상환경 터미널에서 아래의 명령어 실행
 pip install pyinstaller 2. 간단한 사용예제 pyinstaller --clean --distpath . -F -n [프로그램이름] [변환시킬 파일].py 3. 옵션 옵션 설명 &ndash;clean 빌드하기 전에 PyInstaller 캐시를 정리하고 임시파일 제거 -F, &ndash;onefile 단일 실행파일로 생성(실행시 사용한 라이브러리 임시파일 생성됨) -D, &ndash;onedir 실행 파일을 포함하는 단일 폴더로 생성 &ndash;distpath DIR 실행파일 생성 경로(default: .</p>
 </div>
 <div class=card-footer>
@@ -116,8 +115,7 @@ pip install pyinstaller 2. 간단한 사용예제 pyinstaller --clean --distpath
 </div>
 <div class=card-body>
 <h5 class=card-title>pyshark 라이브러리 사용법 (pyshark Library Guide)</h5>
-<p class="card-text post-summary">Docs URL - https://github.com/KimiNewt/pyshark/
-설치환경 : Windows 10, python 3.7
+<p class="card-text post-summary">설치환경 : Windows 10, python 3.7
 1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install pyshark 2. 사용법 캡쳐파일 읽기
 capture = pyshark.FileCapture('./test.pcapng') 실시간 패킷캡처 interface
 capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 11:22:33:44:55:66', use_json=True, include_raw=True) 패킷 캡처
@@ -138,9 +136,8 @@ capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 
 </div>
 <div class=card-body>
 <h5 class=card-title>scapy 라이브러리 사용법 (Scapy Library Guide)</h5>
-<p class="card-text post-summary">Docs URL - https://scapy.readthedocs.io/en/latest/#
-설치환경 : Windows 10
-설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install --pre scapy[basic] Client 예제 from scapy.all import * from scapy.utils import rdpcap import datetime as dt # PCAP 파일 읽기 # could be used like this rdpcap("filename",500) fetches first 500 pkts pkts = rdpcap("./pcap/test.pcapng", -1) pkts = pkts[21:100] cnt = 0 repeat = 10 s_time = dt.datetime.now() for _ in range(repeat): for pkt in pkts: # print(f"hexdump(pkt) = {hexdump(pkt)}") # Send one or more packets at 2 layer sendp(pkt, inter=0, loop=0, count=1, iface=None) # Send one or more packets at 3 layer # send(pkt, inter=0, loop=0, count=1, iface=None) cnt += 1 print(cnt) sendp(b'', inter=0, loop=0, count=1, iface=None) time.</p>
+<p class="card-text post-summary">설치환경 : Windows 10
+1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install --pre scapy[basic] 2. Client 예제 from scapy.all import * from scapy.utils import rdpcap import datetime as dt # PCAP 파일 읽기 # could be used like this rdpcap("filename",500) fetches first 500 pkts pkts = rdpcap("./pcap/test.pcapng", -1) pkts = pkts[21:100] cnt = 0 repeat = 10 s_time = dt.datetime.now() for _ in range(repeat): for pkt in pkts: # print(f"hexdump(pkt) = {hexdump(pkt)}") # Send one or more packets at 2 layer sendp(pkt, inter=0, loop=0, count=1, iface=None) # Send one or more packets at 3 layer # send(pkt, inter=0, loop=0, count=1, iface=None) cnt += 1 print(cnt) sendp(b'', inter=0, loop=0, count=1, iface=None) time.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>February 9, 2021</span>
@@ -160,8 +157,8 @@ capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 
 <p class="card-text post-summary">paramiko, scp 라이브러리 연계 사용한 ssh 파일 전송
 라이브러리 암호화 여부 속도 paramiko 로그인:암호화 / 파일전송:암호화 느림 paramiko+scp 로그인:암호화 / 파일전송:평문 보통 실습환경 : windows10, 원격서버환경 : linux(RHEL8)
 사전에 ssh 접속가능한 linux를 구축한 후 실습 진행
-라이브러리 설치 pip install paramiko pip install scp paramiko : SSH 접속 및 종료 기능
-Docs URL - http://docs.paramiko.org/en/stable/ scp : 파일 전송 및 다운로드 기능</p>
+1. 라이브러리 설치 pip install paramiko pip install scp paramiko : SSH 접속 및 종료 기능
+Docs URL - http://docs.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>January 6, 2021</span>
@@ -178,10 +175,9 @@ Docs URL - http://docs.paramiko.org/en/stable/ scp : 파일 전송 및 다운로
 </div>
 <div class=card-body>
 <h5 class=card-title>pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)</h5>
-<p class="card-text post-summary">Docs URL - https://pyftpdlib.readthedocs.io/en/latest/
-FTP Server 라이브러리 설치 pip install pyftpdlib 실습 버전 : pyftpdlib 1.5.6
-사용예제 코드 FTP Server 예제 ftp server 실행 후 client 테스트 가능
-from pyftpdlib.authorizers import DummyAuthorizer # 사용자 인증을 생성하는 모듈 from pyftpdlib.handlers import FTPHandler # 사용자 인증, 파일 전송, 로깅 등 FTP서버를 조작하는 모듈 # from pyftpdlib.handlers import TLS_FTPHandler from pyftpdlib.servers import FTPServer # FTP서버를 실행하는 모듈 # from pyftpdlib.servers import ThreadedFTPServer import os class FileServer: def __init__(self): self.</p>
+<p class="card-text post-summary">1. 라이브러리 설치 pip install pyftpdlib 실습 버전 : pyftpdlib 1.5.6
+2. Server ftp server 실행 후 client 테스트 가능
+from pyftpdlib.authorizers import DummyAuthorizer # 사용자 인증을 생성하는 모듈 from pyftpdlib.handlers import FTPHandler # 사용자 인증, 파일 전송, 로깅 등 FTP서버를 조작하는 모듈 # from pyftpdlib.handlers import TLS_FTPHandler from pyftpdlib.servers import FTPServer # FTP서버를 실행하는 모듈 # from pyftpdlib.servers import ThreadedFTPServer import os class FileServer: def __init__(self): self.ftpServerIP = "127.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>November 16, 2020</span>
@@ -199,10 +195,9 @@ from pyftpdlib.authorizers import DummyAuthorizer # 사용자 인증을 생성�
 <div class=card-body>
 <h5 class=card-title>libmagic 라이브러리 사용법 (libmagic Library Guide)</h5>
 <p class="card-text post-summary">미디어 타입(media type), MIME 타입(MIME type)
-실행환경 : windows 10
-라이브러리 설치 pip install libmagic pip install python-magic-bin libmagic : 파일타입을 MIME 타입으로 확인해주는 라이브러리
-magic은 리눅스 환경에서 실행되는 프로그램 윈도우즈 환경에서는 윈도우용 magic 설치가 필요함 python-magic-bin : 윈도우용 magic 라이브러리
-예제 코드 import magic r1 = magic.from_file("test1.txt") r2 = magic.from_file("test1.txt", mime=True) print(f"filetype = {r1}, \nmime = {r2}") # filetype = UTF-8 Unicode text, with CRLF line terminators, # mime = text/plain file_data = open('test1.</p>
+1. 라이브러리 설치 실행환경 : windows 10
+pip install libmagic pip install python-magic-bin 실행환경 : linux
+pip install libmagic pip install python-magic libmagic : 파일타입을 MIME 타입으로 확인해주는 라이브러리 python-magic-bin : 윈도우용 magic 라이브러리 python-magic : 리눅스용 magic 라이브러리 2. 예제 코드 import magic r1 = magic.from_file("test1.txt") r2 = magic.from_file("test1.txt", mime=True) print(f"filetype = {r1}, \nmime = {r2}") # filetype = UTF-8 Unicode text, with CRLF line terminators, # mime = text/plain file_data = open('test1.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>November 5, 2020</span>

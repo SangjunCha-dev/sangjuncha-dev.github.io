@@ -15,8 +15,8 @@
 <meta property="og:description" content="Go 언어 문법 (Golang grammar)">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://sangjuncha-dev.github.io/posts/programming/golang/2021-03-02-golang-grammar/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-02-10T11:13:23+09:00">
-<meta property="article:modified_time" content="2021-02-10T11:13:23+09:00">
+<meta property="article:published_time" content="2021-03-02T16:35:21+09:00">
+<meta property="article:modified_time" content="2021-03-02T16:35:21+09:00">
 <meta name=description content="Go 언어 문법 (Golang grammar)">
 <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
 <link rel=stylesheet href=/css/layouts/single.css>
@@ -95,34 +95,35 @@ Sangjun 개발 블로그</a>
 <div class="author-profile ml-auto align-self-lg-center">
 <img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image">
 <h5 class=author-name>Sangjun</h5>
-<p>February 10, 2021</p>
+<p>March 2, 2021</p>
 </div>
 <div class=title>
 <h1>Go 언어 문법 (Golang grammar)</h1>
 </div>
 <div class=post-content id=post-content>
-<h2 id=디렉토리-관련-함수>디렉토리 관련 함수</h2>
+<hr>
+<h2 id=1-디렉토리-관련-함수>1. 디렉토리 관련 함수</h2>
 <p>2021년 3월 3일 수요일 오전 8:55:31</p>
-<h3 id=단일-디렉토리-생성>단일 디렉토리 생성</h3>
+<h3 id=11-단일-디렉토리-생성>1.1. 단일 디렉토리 생성</h3>
 <p><code>os.Mkdir(path, permission)</code></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Mkdir</span>(<span style=color:#e6db74>&#34;tmp&#34;</span>, <span style=color:#ae81ff>0755</span>)
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
     <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#a6e22e>err</span>)
 }
-</code></pre></div><h3 id=다중-디렉토리-생성>다중 디렉토리 생성</h3>
+</code></pre></div><h3 id=12-다중-디렉토리-생성>1.2. 다중 디렉토리 생성</h3>
 <p><code>os.MkdirAll(path, permission)</code> :</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>MkdirAll</span>(<span style=color:#e6db74>&#34;tmp/new&#34;</span>, <span style=color:#ae81ff>0755</span>)
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
     <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#a6e22e>err</span>)
 }
-</code></pre></div><h3 id=현재-작업-디렉토리-얻기>현재 작업 디렉토리 얻기</h3>
+</code></pre></div><h3 id=13-현재-작업-디렉토리-얻기>1.3. 현재 작업 디렉토리 얻기</h3>
 <p><code>os.Getwd()</code></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>path</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Getwd</span>()
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> { 
     <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>err</span>) 
 } 
 <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>path</span>)
-</code></pre></div><h3 id=디렉토리-존재유무-확인>디렉토리 존재유무 확인</h3>
+</code></pre></div><h3 id=14-디렉토리-존재유무-확인>1.4. 디렉토리 존재유무 확인</h3>
 <p><code>os.Stat(paht)</code></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>if</span> <span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Stat</span>(<span style=color:#e6db74>&#34;/dirname&#34;</span>); <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>IsNotExist</span>(<span style=color:#a6e22e>err</span>) {
 	<span style=color:#75715e>// does not exist
@@ -131,13 +132,14 @@ Sangjun 개발 블로그</a>
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Stat</span>(<span style=color:#e6db74>&#34;/dirname&#34;</span>); !<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>IsNotExist</span>(<span style=color:#a6e22e>err</span>) {
 	<span style=color:#75715e>// exist
 </span><span style=color:#75715e></span>}
-</code></pre></div><h3 id=디렉토리-이름-바꾸기>디렉토리 이름 바꾸기</h3>
+</code></pre></div><h3 id=15-디렉토리-이름-바꾸기>1.5. 디렉토리 이름 바꾸기</h3>
 <p><code>os.Rename(oldpath, newpath)</code></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Rename</span>(<span style=color:#e6db74>&#34;tmp&#34;</span>, <span style=color:#e6db74>&#34;tmp2&#34;</span>) 
 <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> { 
     <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#a6e22e>err</span>) 
 }
-</code></pre></div><h2 id=struct-구조체-기본값-지정>struct 구조체 기본값 지정</h2>
+</code></pre></div><hr>
+<h2 id=2-struct-구조체-기본값-지정>2. struct 구조체 기본값 지정</h2>
 <p>2021년 3월 3일 수요일 오후 5:43:23</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
     <span style=color:#f92672>&#34;index&#34;</span>:<span style=color:#ae81ff>0</span>,
@@ -169,7 +171,8 @@ Sangjun 개발 블로그</a>
 	}
     <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>data</span>)
 }
-</code></pre></div><h2 id=time-변수-문자열-변환-convert-timetime-to-string>Time 변수 문자열 변환 (convert time.Time to string)</h2>
+</code></pre></div><hr>
+<h2 id=3-time-변수-문자열-변환-convert-timetime-to-string>3. Time 변수 문자열 변환 (convert time.Time to string)</h2>
 <p>2021년 3월 4일 목요일 오후 2:54:09</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// caution : format string is `2006-01-02 15:04:05.000000000`
 </span><span style=color:#75715e></span><span style=color:#a6e22e>nowTime</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Now</span>()
@@ -197,7 +200,8 @@ Sangjun 개발 블로그</a>
 <span style=color:#75715e>// Stamp Nano second
 </span><span style=color:#75715e></span><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;yyyy-mm-dd HH:mm:ss :&#34;</span>, <span style=color:#a6e22e>nowTime</span>.<span style=color:#a6e22e>Format</span>(<span style=color:#e6db74>&#34;2006-01-02 15:04:05.000000000&#34;</span>))
 <span style=color:#75715e>// yyyy-mm-dd HH:mm:ss : 2021-03-03 15:26:37.123456789
-</span></code></pre></div><h2 id=디렉토리-내-파일목록-읽기>디렉토리 내 파일목록 읽기</h2>
+</span></code></pre></div><hr>
+<h2 id=4-디렉토리-내-파일목록-읽기>4. 디렉토리 내 파일목록 읽기</h2>
 <p>2021년 3월 4일 목요일 오후 5:45:44</p>
 <p><code>ioutil.ReadDir(path)</code></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>files</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>ioutil</span>.<span style=color:#a6e22e>ReadDir</span>(<span style=color:#e6db74>&#34;tmp&#34;</span>) 
@@ -209,7 +213,8 @@ Sangjun 개발 블로그</a>
 }
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#ae81ff>0</span> test1.txt
 <span style=color:#ae81ff>1</span> test2.txt
-</code></pre></div><h2 id=문자열-분할>문자열 분할</h2>
+</code></pre></div><hr>
+<h2 id=5-문자열-분할>5. 문자열 분할</h2>
 <p>2021년 3월 8일 월요일 오전 1:21:36</p>
 <p>Split (s, sep string ) [] string</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>tmp</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;one_two_three&#34;</span>
@@ -234,7 +239,8 @@ Sangjun 개발 블로그</a>
 </code></pre></div><p>아래의 함수는 split 횟수를 n번으로 제한하는 함수</p>
 <p>SplitN(s, sep string, n int) []string<br>
 SplitAfterN(s, sep string, n int) []string</p>
-<h2 id=타입-확인>타입 확인</h2>
+<hr>
+<h2 id=6-타입-확인>6. 타입 확인</h2>
 <p>2021년 3월 8일 월요일 오전 9:26:56</p>
 <p>reflect.TypeOf(i interface{}) reflect.Type</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>y</span>, <span style=color:#a6e22e>z</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>1</span>, <span style=color:#e6db74>&#34;2&#34;</span>, <span style=color:#ae81ff>3.14</span>
@@ -245,9 +251,10 @@ SplitAfterN(s, sep string, n int) []string</p>
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>x type : int
 y type : string
 z type : float64
-</code></pre></div><h2 id=타입-변경>타입 변경</h2>
+</code></pre></div><hr>
+<h2 id=7-타입-변경>7. 타입 변경</h2>
 <p>strconv</p>
-<h3 id=숫자-변환>숫자 변환</h3>
+<h3 id=71-숫자-변환>7.1. 숫자 변환</h3>
 <p>Atoi : 문자열에서 int로<br>
 Itoa : int에서 문자열로</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>i</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>Atoi</span>(<span style=color:#e6db74>&#34;-42&#34;</span>)
@@ -270,14 +277,15 @@ Itoa : int에서 문자열로</p>
 <span style=color:#a6e22e>s</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>FormatFloat</span>(<span style=color:#ae81ff>3.1415</span>, <span style=color:#e6db74>&#39;E&#39;</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>64</span>)
 <span style=color:#a6e22e>s</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>FormatInt</span>(<span style=color:#f92672>-</span><span style=color:#ae81ff>42</span>, <span style=color:#ae81ff>16</span>)
 <span style=color:#a6e22e>s</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>FormatUint</span>(<span style=color:#ae81ff>42</span>, <span style=color:#ae81ff>16</span>)
-</code></pre></div><h3 id=문자열-변환>문자열 변환</h3>
+</code></pre></div><h3 id=72-문자열-변환>7.2. 문자열 변환</h3>
 <p>2021년 3월 8일 월요일 오전 10:14:38</p>
 <p>문자열을 인용 된 Go 문자열 리터럴로 변환</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>q</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>Quote</span>(<span style=color:#e6db74>&#34;Hello, World&#34;</span>)
 <span style=color:#a6e22e>q</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>QuoteToASCII</span>(<span style=color:#e6db74>&#34;Hello, World&#34;</span>)
-</code></pre></div><h2 id=에러-핸들링>에러 핸들링</h2>
+</code></pre></div><hr>
+<h2 id=8-에러-핸들링>8. 에러 핸들링</h2>
 <p>2021년 3월 8일 월요일 오전 10:52:04</p>
-<h3 id=복합한-에러-핸들링>복합한 에러 핸들링</h3>
+<h3 id=81-복합한-에러-핸들링>8.1. 복합한 에러 핸들링</h3>
 <p>빈 디렉토리 tmp 생성후 해당 코드 실행시<br>
 <code>*fs.PathError</code> 에러가 발생하는데 아래의 switch case <code>err.(*fs.PathError)</code> 구문으로 별도의 에러 핸들링이 가능해진다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>dirPath</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;tmp&#34;</span>
@@ -290,7 +298,8 @@ Itoa : int에서 문자열로</p>
 <span style=color:#66d9ef>default</span>:
     <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;[findKey] Error :&#34;</span>, <span style=color:#a6e22e>err</span>)
 }
-</code></pre></div><h2 id=특정-날짜시간-동작>특정 날짜/시간 동작</h2>
+</code></pre></div><hr>
+<h2 id=9-특정-날짜시간-동작>9. 특정 날짜/시간 동작</h2>
 <p>2021년 3월 8일 월요일 오후 1:29:32</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>go get github.com/robfig/cron
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>c</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>cron</span>.<span style=color:#a6e22e>New</span>()
@@ -304,7 +313,8 @@ Itoa : int에서 문자열로</p>
     <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Print</span>(<span style=color:#e6db74>&#34;time :&#34;</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Now</span>())
 })
 <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Start</span>()
-</code></pre></div><h2 id=로그파일-작성>로그파일 작성</h2>
+</code></pre></div><hr>
+<h2 id=10-로그파일-작성>10. 로그파일 작성</h2>
 <p>2021년 3월 8일 월요일 오후 1:29:32</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>rl</span>, <span style=color:#a6e22e>_</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>rotatelogs</span>.<span style=color:#a6e22e>New</span>(
 <span style=color:#e6db74>&#34;D:/tmp/Logfile.%Y-%m-%d.log&#34;</span>,
@@ -317,7 +327,8 @@ Itoa : int에서 문자열로</p>
 <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>SetOutput</span>(<span style=color:#a6e22e>rl</span>)
 
 <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;log write&#34;</span>)
-</code></pre></div><h2 id=프로젝트내-다른-로컬패키지-호출>프로젝트내 다른 로컬패키지 호출</h2>
+</code></pre></div><hr>
+<h2 id=11-프로젝트내-다른-로컬패키지-호출>11. 프로젝트내 다른 로컬패키지 호출</h2>
 <p>2021년 3월 11일 목요일 오후 6:02:36</p>
 <p>go언어는 패키지를 GOPATH 기준으로 검색하기때문에<br>
 GOPATH가 아닌 다른경로에서 프로젝트를 개발할 경우<br>
@@ -328,23 +339,25 @@ GOPATH가 아닌 다른경로에서 프로젝트를 개발할 경우<br>
 |   └── package1.go
 └── package2/
     └── package2.go
-</code></pre><h3 id=로컬패키지-호출-예시>로컬패키지 호출 예시</h3>
+</code></pre><h3 id=111-로컬패키지-호출-예시>11.1. 로컬패키지 호출 예시</h3>
 <p>package1.go파일에서 로컬패키지 package2 호출</p>
 <p>./package1.go</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>import</span> (
     <span style=color:#e6db74>&#34;project1/package2&#34;</span>
 )
-</code></pre></div><h3 id=잘못-사용한-예시>잘못 사용한 예시</h3>
+</code></pre></div><h3 id=112-잘못-사용한-예시>11.2. 잘못 사용한 예시</h3>
 <p>go언어에서는 import 구문으로 상대경로를 사용하지 않음</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>import</span> (
     <span style=color:#e6db74>&#34;../package2&#34;</span>
 )
-</code></pre></div><h2 id=uint16형-데이터-2byte형태로-변환>uint16형 데이터 2Byte형태로 변환</h2>
+</code></pre></div><hr>
+<h2 id=12-uint16형-데이터-2byte형태로-변환>12. uint16형 데이터 2Byte형태로 변환</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>b</span> <span style=color:#f92672>:=</span> make([]<span style=color:#66d9ef>byte</span>, <span style=color:#ae81ff>2</span>)
 <span style=color:#a6e22e>binary</span>.<span style=color:#a6e22e>BigEndian</span>.<span style=color:#a6e22e>PutUint16</span>(<span style=color:#a6e22e>b</span>, uint16(<span style=color:#ae81ff>258</span>))
 
 <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(string(<span style=color:#a6e22e>b</span>))
-</code></pre></div><h2 id=서로-다른-byte-데이터-비교>서로 다른 byte 데이터 비교</h2>
+</code></pre></div><hr>
+<h2 id=13-서로-다른-byte-데이터-비교>13. 서로 다른 byte 데이터 비교</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>b</span> <span style=color:#f92672>:=</span> make([]<span style=color:#66d9ef>byte</span>, <span style=color:#ae81ff>2</span>)
 <span style=color:#a6e22e>binary</span>.<span style=color:#a6e22e>BigEndian</span>.<span style=color:#a6e22e>PutUint16</span>(<span style=color:#a6e22e>b</span>, uint16(<span style=color:#ae81ff>258</span>))
 
@@ -379,41 +392,41 @@ GOPATH가 아닌 다른경로에서 프로젝트를 개발할 경우<br>
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#디렉토리-관련-함수>디렉토리 관련 함수</a>
+<li><a href=#1-디렉토리-관련-함수>1. 디렉토리 관련 함수</a>
 <ul>
-<li><a href=#단일-디렉토리-생성>단일 디렉토리 생성</a></li>
-<li><a href=#다중-디렉토리-생성>다중 디렉토리 생성</a></li>
-<li><a href=#현재-작업-디렉토리-얻기>현재 작업 디렉토리 얻기</a></li>
-<li><a href=#디렉토리-존재유무-확인>디렉토리 존재유무 확인</a></li>
-<li><a href=#디렉토리-이름-바꾸기>디렉토리 이름 바꾸기</a></li>
+<li><a href=#11-단일-디렉토리-생성>1.1. 단일 디렉토리 생성</a></li>
+<li><a href=#12-다중-디렉토리-생성>1.2. 다중 디렉토리 생성</a></li>
+<li><a href=#13-현재-작업-디렉토리-얻기>1.3. 현재 작업 디렉토리 얻기</a></li>
+<li><a href=#14-디렉토리-존재유무-확인>1.4. 디렉토리 존재유무 확인</a></li>
+<li><a href=#15-디렉토리-이름-바꾸기>1.5. 디렉토리 이름 바꾸기</a></li>
 </ul>
 </li>
-<li><a href=#struct-구조체-기본값-지정>struct 구조체 기본값 지정</a></li>
-<li><a href=#time-변수-문자열-변환-convert-timetime-to-string>Time 변수 문자열 변환 (convert time.Time to string)</a></li>
-<li><a href=#디렉토리-내-파일목록-읽기>디렉토리 내 파일목록 읽기</a></li>
-<li><a href=#문자열-분할>문자열 분할</a></li>
-<li><a href=#타입-확인>타입 확인</a></li>
-<li><a href=#타입-변경>타입 변경</a>
+<li><a href=#2-struct-구조체-기본값-지정>2. struct 구조체 기본값 지정</a></li>
+<li><a href=#3-time-변수-문자열-변환-convert-timetime-to-string>3. Time 변수 문자열 변환 (convert time.Time to string)</a></li>
+<li><a href=#4-디렉토리-내-파일목록-읽기>4. 디렉토리 내 파일목록 읽기</a></li>
+<li><a href=#5-문자열-분할>5. 문자열 분할</a></li>
+<li><a href=#6-타입-확인>6. 타입 확인</a></li>
+<li><a href=#7-타입-변경>7. 타입 변경</a>
 <ul>
-<li><a href=#숫자-변환>숫자 변환</a></li>
-<li><a href=#문자열-변환>문자열 변환</a></li>
+<li><a href=#71-숫자-변환>7.1. 숫자 변환</a></li>
+<li><a href=#72-문자열-변환>7.2. 문자열 변환</a></li>
 </ul>
 </li>
-<li><a href=#에러-핸들링>에러 핸들링</a>
+<li><a href=#8-에러-핸들링>8. 에러 핸들링</a>
 <ul>
-<li><a href=#복합한-에러-핸들링>복합한 에러 핸들링</a></li>
+<li><a href=#81-복합한-에러-핸들링>8.1. 복합한 에러 핸들링</a></li>
 </ul>
 </li>
-<li><a href=#특정-날짜시간-동작>특정 날짜/시간 동작</a></li>
-<li><a href=#로그파일-작성>로그파일 작성</a></li>
-<li><a href=#프로젝트내-다른-로컬패키지-호출>프로젝트내 다른 로컬패키지 호출</a>
+<li><a href=#9-특정-날짜시간-동작>9. 특정 날짜/시간 동작</a></li>
+<li><a href=#10-로그파일-작성>10. 로그파일 작성</a></li>
+<li><a href=#11-프로젝트내-다른-로컬패키지-호출>11. 프로젝트내 다른 로컬패키지 호출</a>
 <ul>
-<li><a href=#로컬패키지-호출-예시>로컬패키지 호출 예시</a></li>
-<li><a href=#잘못-사용한-예시>잘못 사용한 예시</a></li>
+<li><a href=#111-로컬패키지-호출-예시>11.1. 로컬패키지 호출 예시</a></li>
+<li><a href=#112-잘못-사용한-예시>11.2. 잘못 사용한 예시</a></li>
 </ul>
 </li>
-<li><a href=#uint16형-데이터-2byte형태로-변환>uint16형 데이터 2Byte형태로 변환</a></li>
-<li><a href=#서로-다른-byte-데이터-비교>서로 다른 byte 데이터 비교</a></li>
+<li><a href=#12-uint16형-데이터-2byte형태로-변환>12. uint16형 데이터 2Byte형태로 변환</a></li>
+<li><a href=#13-서로-다른-byte-데이터-비교>13. 서로 다른 byte 데이터 비교</a></li>
 </ul>
 </nav>
 </div>

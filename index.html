@@ -180,7 +180,7 @@ I am a passionate software backend developer with 2 years of working experience.
 <div class=card-body>
 <h5 class=card-title>Django oauth apple login</h5>
 <p class="card-text post-summary"> django restframework 기반의 애플 인증 로그인 백엔드서버 구현 설명이다.
-라이브러리 설치 $ pip install django # restframework $ pip install djangorestframework $ pip install djangorestframework-simplejwt # pyjwt[crypto] $ pip install pyjwt[crypto] Apple 로그인 변수 설정 import os APPLE_CONFIG = { "APPLE_TEAM_ID": TEAM_ID, "APPLE_CLIENT_ID": 모바일 로그인시 Bundle ID or 웹 로그인시 Service ID, "APPLE_REDIRECT_URI": "https://domain/REDIRECT_URI", "APPLE_KEY_ID": KEY_ID, "APPLE_KEY_PATH": "./AuthKey_KEY_ID.p8", "APPLE_PRIVATE_KEY": "", } apple_key_path = os.path.join(CONFIG_BASE_DIR, f"./{APPLE_CONFIG['APPLE_KEY_PATH']}") with open(apple_key_path, 'r') as apple_key_file: APPLE_CONFIG['APPLE_PRIVATE_KEY'] = apple_key_file.</p>
+1. 라이브러리 설치 $ pip install django # restframework $ pip install djangorestframework $ pip install djangorestframework-simplejwt # pyjwt[crypto] $ pip install pyjwt[crypto] 2. Apple 로그인 변수 설정 import os APPLE_CONFIG = { "APPLE_TEAM_ID": TEAM_ID, "APPLE_CLIENT_ID": 모바일 로그인시 Bundle ID or 웹 로그인시 Service ID, "APPLE_REDIRECT_URI": "https://domain/REDIRECT_URI", "APPLE_KEY_ID": KEY_ID, "APPLE_KEY_PATH": "./AuthKey_KEY_ID.p8", "APPLE_PRIVATE_KEY": "", } apple_key_path = os.path.join(CONFIG_BASE_DIR, f"./{APPLE_CONFIG['APPLE_KEY_PATH']}") with open(apple_key_path, 'r') as apple_key_file: APPLE_CONFIG['APPLE_PRIVATE_KEY'] = apple_key_file.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>December 28, 2021</span>
@@ -199,8 +199,8 @@ I am a passionate software backend developer with 2 years of working experience.
 <h5 class=card-title>python 날짜와 시간 계산</h5>
 <p class="card-text post-summary"> python 날짜 및 시간 계산은 python 표준 라이브러리 datetime, 확장 라이브러리 dateutil 2개의 라이브러리가 있으며 단위의 차이가 있다.
 datetime : 마이크로초, 밀리초, 초, 분, 시, 일, 주 단위 사용 dateutil : 마이크로초, 초, 분, 시, 일, 주, 월, 년 단위 사용 1. datetime 라이브러리 날짜와 시간을 조작하는 클래스를 제공하는 python 표준 라이브러리
-사용예시 now : 현재 날짜 및 시간
-import datetime as dt now = dt.datetime.now() print(f"now = {now}") now = 2021-12-27 11:24:27.</p>
+1.1 사용예시 now : 현재 날짜 및 시간
+import datetime as dt now = dt.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>December 26, 2021</span>
@@ -219,9 +219,9 @@ import datetime as dt now = dt.datetime.now() print(f"now = {now}") now = 2021-1
 <h5 class=card-title>golang db nullable 데이터 처리</h5>
 <p class="card-text post-summary"> golang에서는 타입별로 정해진 zero value가 있는데, DB colume 타입의 zero value와 맞지 않을 때 다음과 에러가 발생한다.
 panic: sql: Scan error on column index : converting NULL to string is unsupported 각 타입별 zero value
-문자열 타입 string : "" 부울린 타입 boolean : false 정수형, Float등 숫자형 타입 : 0 기타 타입 : nil 사전환경 아래의 글을 진행했다는 가정에서 설명한다.
+문자열 타입 string : "" 부울린 타입 boolean : false 정수형, Float등 숫자형 타입 : 0 기타 타입 : nil 1. 사전환경 아래의 글을 진행했다는 가정에서 설명한다.
 golang postgreDB CURD
-에러가 발생한 코드 기존에 작성한 코드에서 Update 함수의 name 부분을 nil 값으로 수정하여 실행한다.</p>
+2.</p>
 </div>
 <div class=card-footer>
 <span class=float-left>December 23, 2021</span>

@@ -101,13 +101,16 @@ Sangjun 개발 블로그</a>
 <h1>Django crontab 라이브러리 사용법</h1>
 </div>
 <div class=post-content id=post-content>
+<hr>
 <p>django-crontab 라이브러리는 OS의 cron/crontab 서비스를 사용하는것으로 해당 서비스 설치가 되지 않았다면 별도로 설치를 해야함.</p>
 <ul>
 <li>windows 환경에서는 docker를 설치하여 진행</li>
 </ul>
+<hr>
 <h2 id=1-라이브러리-설치>1. 라이브러리 설치</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ pip install django-crontab
-</code></pre></div><h2 id=2-django-설정>2. django 설정</h2>
+</code></pre></div><hr>
+<h2 id=2-django-설정>2. django 설정</h2>
 <ol>
 <li>
 <p>임의의 app 디렉터리내 cron.py 생성
@@ -122,29 +125,13 @@ Sangjun 개발 블로그</a>
 <li>
 <p>settings.py</p>
 <ul>
-<li>
-<p><code>django_crontab</code> 앱 추가</p>
+<li><code>django_crontab</code> 앱 추가
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>INSTALLED_APPS <span style=color:#f92672>=</span> [
     <span style=color:#e6db74>&#39;django_crontab&#39;</span>,
     <span style=color:#f92672>...</span>
 ]
 </code></pre></div></li>
-<li>
-<p><code>CRONJOBS</code> 변수 선언</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>...</span>
-CRONJOBS <span style=color:#f92672>=</span> [
-    (<span style=color:#e6db74>&#39;* * * * *&#39;</span>, <span style=color:#e6db74>&#39;app.cron.hello_every_minute&#39;</span>, <span style=color:#e6db74>&#39;&gt;&gt; /app/log/cron.log&#39;</span>),
-]
-</code></pre></div></li>
-<li>
-<p>crontab 프로젝트의 settings 파일 경로 지정</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>...</span>
-CRONTAB_DJANGO_SETTINGS_MODULE <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;project.settings&#39;</span>
-</code></pre></div></li>
-</ul>
-</li>
-</ol>
-<p>CRONJOBS 매개변수</p>
+<li><code>CRONJOBS</code> 변수 선언
 <ul>
 <li>첫번째 매개변수 : 실행주기 설정으로 기존 cron 사용법(분,시,일,월,요일)과 동일하다.
 <ul>
@@ -157,6 +144,19 @@ CRONTAB_DJANGO_SETTINGS_MODULE <span style=color:#f92672>=</span> <span style=co
 <li>두번째 매개변수 : 반복 실행할 함수</li>
 <li>세번째 매개변수 : cron 실행로그 저장 경로 (선택사항)</li>
 </ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>...</span>
+CRONJOBS <span style=color:#f92672>=</span> [
+    (<span style=color:#e6db74>&#39;* * * * *&#39;</span>, <span style=color:#e6db74>&#39;app.cron.hello_every_minute&#39;</span>, <span style=color:#e6db74>&#39;&gt;&gt; /app/log/cron.log&#39;</span>),
+]
+</code></pre></div></li>
+<li>crontab 프로젝트의 settings 파일 경로 지정
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>...</span>
+CRONTAB_DJANGO_SETTINGS_MODULE <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;project.settings&#39;</span>
+</code></pre></div></li>
+</ul>
+</li>
+</ol>
+<hr>
 <h2 id=3-crontab-명령어>3. crontab 명령어</h2>
 <ul>
 <li>
@@ -183,6 +183,7 @@ adding cronjob: (2d7f1e3059afc75b51927955cb7ccb92) -> ('* * * * *', &lsquo;app.c
 </blockquote>
 </li>
 </ul>
+<hr>
 <h2 id=4-실행-결과>4. 실행 결과</h2>
 <ul>
 <li>
@@ -193,6 +194,7 @@ adding cronjob: (2d7f1e3059afc75b51927955cb7ccb92) -> ('* * * * *', &lsquo;app.c
 </blockquote>
 </li>
 </ul>
+<hr>
 <h2 id=5-docker-compose-사용시-설정>5. Docker-compose 사용시 설정</h2>
 <ul>
 <li>
@@ -211,6 +213,7 @@ RUN apt-get update &amp;&amp; apt-get -y install --no-install-recommends cron
         python3 manage.py crontab add&quot;
 </code></pre></li>
 </ul>
+<hr>
 <h2 id=6-docker-compose-실행>6. Docker-compose 실행</h2>
 <ul>
 <li>
@@ -218,9 +221,10 @@ RUN apt-get update &amp;&amp; apt-get -y install --no-install-recommends cron
 <pre tabindex=0><code>$ docker-compose -f docker-compose.yml up -d --build
 </code></pre></li>
 </ul>
-<h2 id=7-예시코드-git-주소>7. 예시코드 Git 주소</h2>
+<hr>
+<h2 id=7-예시코드-git>7. 예시코드 Git</h2>
 <p><a href=https://github.com/SangjunCha-dev/blog/tree/main/django/django-crontab>django-crontab</a></p>
-<h2 id=참고-사이트>참고 사이트</h2>
+<h2 id=참고reference>참고(Reference)</h2>
 <ul>
 <li><a href=https://github.com/kraiz/django-crontab>Docs</a></li>
 <li><a href=https://systemtrade.tistory.com/477>Django-Crontab 활용방법</a></li>
@@ -258,8 +262,8 @@ RUN apt-get update &amp;&amp; apt-get -y install --no-install-recommends cron
 <li><a href=#4-실행-결과>4. 실행 결과</a></li>
 <li><a href=#5-docker-compose-사용시-설정>5. Docker-compose 사용시 설정</a></li>
 <li><a href=#6-docker-compose-실행>6. Docker-compose 실행</a></li>
-<li><a href=#7-예시코드-git-주소>7. 예시코드 Git 주소</a></li>
-<li><a href=#참고-사이트>참고 사이트</a></li>
+<li><a href=#7-예시코드-git>7. 예시코드 Git</a></li>
+<li><a href=#참고reference>참고(Reference)</a></li>
 </ul>
 </nav>
 </div>
