@@ -4,5 +4,5 @@ menu:
   sidebar:
     name: docker
     identifier: docker
-    weight: 10
+    weight: 20
 ---
