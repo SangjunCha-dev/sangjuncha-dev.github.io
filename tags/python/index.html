@@ -49,6 +49,8 @@ Sangjun 개발 블로그</a>
 <div class="subtree taxonomy-terms">
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/algorithm/ data-taxonomy-term=algorithm><span class=taxonomy-label>algorithm</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/apple/ data-taxonomy-term=apple><span class=taxonomy-label>apple</span></a></li>
+<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/aws/ data-taxonomy-term=aws><span class=taxonomy-label>aws</span></a></li>
+<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/boto3/ data-taxonomy-term=boto3><span class=taxonomy-label>boto3</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/cron/ data-taxonomy-term=cron><span class=taxonomy-label>cron</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/crontab/ data-taxonomy-term=crontab><span class=taxonomy-label>crontab</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/db/ data-taxonomy-term=db><span class=taxonomy-label>db</span></a></li>
@@ -88,6 +90,28 @@ Sangjun 개발 블로그</a>
 <section class=content-section id=content-section>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
+<div class=post-card>
+<a href=/posts/programming/python/2022-01-10-python-boto3-aws-s3-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>python boto3라이브러리 이용한 AWS s3 사용법</h5>
+<p class="card-text post-summary">1. 개요 및 설정 Boto3는 python 애플리케이션과 AWS 서비스를 연결시키기 위해 사용하는 python 라이브러리이다.
+boto3 라이브러리 설치
+pip install boto3 라이브러리 import 및 AWS key 설정
+conf.py
+import os AWS_ACCESS_KEY_ID = "ACCESS_KEY_ID" AWS_SECRET_ACCESS_KEY = "SECRET_ACCESS_KEY" AWS_REGION = "REGION" AWS_BUCKET_NAME = "BUCKET_NAME" 2. boto3 기본 사용법 2.1. client client
+Low-level 인터페이스 service description에 의해 만들어짐 botocore 수준제어 (botocore는 AWS CLI와 boto3의 기초가 되는 라이브러리) AWS API와 1:1 매핑 메소드가 스네이크 케이스로 정의되어 있음 import boto3 from conf import * client = boto3.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>January 10, 2022</span>
+<a href=/posts/programming/python/2022-01-10-python-boto3-aws-s3-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
 <div class=post-card>
 <a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ class=post-card-link>
 <div class=card>
@@ -303,27 +327,6 @@ capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 
 <div class=card-footer>
 <span class=float-left>February 9, 2021</span>
 <a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>paramiko-scp 라이브러리 사용법 (paramiko-scp Library Guide)</h5>
-<p class="card-text post-summary">paramiko, scp 라이브러리 연계 사용한 ssh 파일 전송
-라이브러리 암호화 여부 속도 paramiko 로그인:암호화 / 파일전송:암호화 느림 paramiko+scp 로그인:암호화 / 파일전송:평문 보통 실습환경 : windows10, 원격서버환경 : linux(RHEL8)
-사전에 ssh 접속가능한 linux를 구축한 후 실습 진행
-1. 라이브러리 설치 pip install paramiko pip install scp paramiko : SSH 접속 및 종료 기능
-Docs URL - http://docs.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>January 6, 2021</span>
-<a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

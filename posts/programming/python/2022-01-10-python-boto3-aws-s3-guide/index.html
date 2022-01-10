@@ -1,0 +1,572 @@
+<!doctype html><html>
+<head>
+<title>python boto3라이브러리 이용한 AWS s3 사용법</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<meta property="og:title" content="python boto3라이브러리 이용한 AWS s3 사용법">
+<meta property="og:description" content="python boto3라이브러리 이용한 AWS s3 사용법">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sangjuncha-dev.github.io/posts/programming/python/2022-01-10-python-boto3-aws-s3-guide/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-01-10T09:36:00+09:00">
+<meta property="article:modified_time" content="2022-01-10T09:36:00+09:00">
+<meta name=description content="python boto3라이브러리 이용한 AWS s3 사용법">
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
+<link rel=stylesheet href=/css/layouts/single.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+Sangjun 개발 블로그</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
+<div class=subtree>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
+<ul>
+<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
+<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
+</ul>
+</li>
+<li><a href=/posts/db/ title=db>db</a></li>
+<li><a href=/posts/docker/ title=docker>docker</a></li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
+<ul>
+<li><a href=/posts/framework/django/ title=django>django</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
+<ul>
+<li><a href=/posts/os/linux/ title=linux>linux</a></li>
+<li><a href=/posts/os/windows/ title=windows>windows</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a>
+<ul class=active>
+<li><a href=/posts/programming/golang/ title=golang>golang</a></li>
+<li><a class=active href=/posts/programming/python/ title=python>python</a></li>
+</ul>
+</li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class=content>
+<div class="container p-0 read-area">
+<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)>
+</div>
+<div class=page-content>
+<div class="author-profile ml-auto align-self-lg-center">
+<img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image">
+<h5 class=author-name>Sangjun</h5>
+<p>January 10, 2022</p>
+</div>
+<div class=title>
+<h1>python boto3라이브러리 이용한 AWS s3 사용법</h1>
+</div>
+<div class=post-content id=post-content>
+<hr>
+<h2 id=1-개요-및-설정>1. 개요 및 설정</h2>
+<p>Boto3는 python 애플리케이션과 AWS 서비스를 연결시키기 위해 사용하는 python 라이브러리이다.</p>
+<p>boto3 라이브러리 설치</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pip install boto3
+</code></pre></div><p>라이브러리 import 및 AWS key 설정</p>
+<p><code>conf.py</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> os
+
+AWS_ACCESS_KEY_ID <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;ACCESS_KEY_ID&#34;</span>
+AWS_SECRET_ACCESS_KEY <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;SECRET_ACCESS_KEY&#34;</span>
+AWS_REGION <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;REGION&#34;</span>
+AWS_BUCKET_NAME <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;BUCKET_NAME&#34;</span>
+</code></pre></div><hr>
+<h2 id=2-boto3-기본-사용법>2. boto3 기본 사용법</h2>
+<h3 id=21-client>2.1. client</h3>
+<p><a href=https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.list_buckets>client</a></p>
+<ul>
+<li>Low-level 인터페이스</li>
+<li>service description에 의해 만들어짐</li>
+<li>botocore 수준제어 (botocore는 AWS CLI와 boto3의 기초가 되는 라이브러리)</li>
+<li>AWS API와 1:1 매핑</li>
+<li>메소드가 스네이크 케이스로 정의되어 있음</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> boto3
+<span style=color:#f92672>from</span> conf <span style=color:#f92672>import</span> <span style=color:#f92672>*</span>
+
+client <span style=color:#f92672>=</span> boto3<span style=color:#f92672>.</span>client(
+    <span style=color:#e6db74>&#39;s3&#39;</span>,
+    aws_access_key_id<span style=color:#f92672>=</span>AWS_ACCESS_KEY_ID,
+    aws_secret_access_key<span style=color:#f92672>=</span>AWS_SECRET_ACCESS_KEY,
+    region_name<span style=color:#f92672>=</span>AWS_REGION
+)
+
+<span style=color:#75715e># bucket 목록</span>
+response <span style=color:#f92672>=</span> client<span style=color:#f92672>.</span>list_buckets()
+print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;list_buckets = </span><span style=color:#e6db74>{</span>response<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+
+<span style=color:#75715e># bucket 모든 파일 정보 조회</span>
+response <span style=color:#f92672>=</span> client<span style=color:#f92672>.</span>list_objects(Bucket<span style=color:#f92672>=</span>AWS_STORAGE_BUCKET_NAME)
+<span style=color:#66d9ef>for</span> content <span style=color:#f92672>in</span> response[<span style=color:#e6db74>&#39;Contents&#39;</span>]:
+    obj_dict <span style=color:#f92672>=</span> client<span style=color:#f92672>.</span>get_object(Bucket<span style=color:#f92672>=</span>AWS_STORAGE_BUCKET_NAME, Key<span style=color:#f92672>=</span>content[<span style=color:#e6db74>&#39;Key&#39;</span>])
+    print(content[<span style=color:#e6db74>&#39;Key&#39;</span>], obj_dict[<span style=color:#e6db74>&#39;LastModified&#39;</span>])
+
+</code></pre></div><p>Response Syntax</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#f92672>{</span>
+    <span style=color:#e6db74>&#39;ResponseMetadata&#39;</span><span style=color:#e6db74>&#34; {
+</span><span style=color:#e6db74>        &#39;RequestId&#39;: &#39;RequestId&#39;,
+</span><span style=color:#e6db74>		&#39;HostId&#39;: &#39;HostId&#39;, 
+</span><span style=color:#e6db74>		&#39;HTTPStatusCode&#39;: 200, 
+</span><span style=color:#e6db74>		&#39;HTTPHeaders&#39;: {
+</span><span style=color:#e6db74>			&#39;x-amz-id-2&#39;: &#39;HostId&#39;,
+</span><span style=color:#e6db74>			&#39;x-amz-request-id&#39;: &#39;RequestId&#39;,
+</span><span style=color:#e6db74>			&#39;date&#39;: &#39;Mon, 10 Jan 2022 00:45:42 GMT&#39;,
+</span><span style=color:#e6db74>			&#39;content-type&#39;: &#39;application/xml&#39;,
+</span><span style=color:#e6db74>			&#39;transfer-encoding&#39;: &#39;chunked&#39;, 
+</span><span style=color:#e6db74>			&#39;server&#39;: &#39;AmazonS3&#39;
+</span><span style=color:#e6db74>		},
+</span><span style=color:#e6db74>		&#39;RetryAttempts&#39;: 0
+</span><span style=color:#e6db74>    }
+</span><span style=color:#e6db74>    &#39;Buckets&#39;: [
+</span><span style=color:#e6db74>        {
+</span><span style=color:#e6db74>            &#39;Name&#39;: &#39;string&#39;,
+</span><span style=color:#e6db74>            &#39;CreationDate&#39;: datetime(2022, 1, 10)
+</span><span style=color:#e6db74>        },
+</span><span style=color:#e6db74>    ],
+</span><span style=color:#e6db74>    &#39;Owner&#39;: {
+</span><span style=color:#e6db74>        &#39;DisplayName&#39;: &#39;string&#39;,
+</span><span style=color:#e6db74>        &#39;ID&#39;: &#39;string&#39;
+</span><span style=color:#e6db74>    }
+</span><span style=color:#e6db74>}
+</span></code></pre></div><p>S3 IAM에 적절한 권한이 없을 경우 아래와 같은 에러가 발생한다.</p>
+<pre tabindex=0><code>operation: Access Denied
+</code></pre><hr>
+<h3 id=22-session과-resource>2.2. Session과 resource</h3>
+<p><a href=https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html#module-boto3.session>Session</a></p>
+<ul>
+<li>AWS 설정상태를 저장</li>
+<li>client & resource 서비스를 생성하기 위한 권한부여</li>
+</ul>
+<p><a href=https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/resources.html>resource</a></p>
+<ul>
+<li>high-level, 객체지향적 인터페이스</li>
+<li>resource description에 의해 만들어짐</li>
+<li>식별자(identifier)와 속성(attribute)을 사용</li>
+<li>s3, object 같은 자원에 대한 조작 위주</li>
+</ul>
+<p>Bucket</p>
+<ul>
+<li>특정 S3 bucket 사용</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> boto3
+<span style=color:#f92672>from</span> conf <span style=color:#f92672>import</span> <span style=color:#f92672>*</span>
+
+session <span style=color:#f92672>=</span> boto3<span style=color:#f92672>.</span>Session(
+    aws_access_key_id<span style=color:#f92672>=</span>AWS_ACCESS_KEY_ID,
+    aws_secret_access_key<span style=color:#f92672>=</span>AWS_SECRET_ACCESS_KEY,
+    region_name<span style=color:#f92672>=</span>AWS_REGION
+)
+
+<span style=color:#75715e># s3에 대한 권한 및 상태를 s3변수에 저장</span>
+s3 <span style=color:#f92672>=</span> session<span style=color:#f92672>.</span>resource(<span style=color:#e6db74>&#39;s3&#39;</span>)
+
+<span style=color:#75715e># bucket 목록조회</span>
+<span style=color:#66d9ef>for</span> bucket <span style=color:#f92672>in</span> s3<span style=color:#f92672>.</span>buckets<span style=color:#f92672>.</span>all():
+    print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;bucket.name = </span><span style=color:#e6db74>{</span>bucket<span style=color:#f92672>.</span>name<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+
+print(<span style=color:#e6db74>&#34;------------------------------&#34;</span>)
+
+<span style=color:#75715e># bucket 모든 파일 이름 및 수정시간 조회</span>
+bucket <span style=color:#f92672>=</span> s3<span style=color:#f92672>.</span>Bucket(AWS_BUCKET_NAME)
+<span style=color:#66d9ef>for</span> obj <span style=color:#f92672>in</span> bucket<span style=color:#f92672>.</span>objects<span style=color:#f92672>.</span>all():
+    print(obj<span style=color:#f92672>.</span>key, obj<span style=color:#f92672>.</span>last_modified)
+</code></pre></div><p>output</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>bucket<span style=color:#f92672>.</span>name <span style=color:#f92672>=</span> BUCKET_NAME
+<span style=color:#f92672>------------------------------</span>
+media<span style=color:#f92672>/</span> <span style=color:#ae81ff>2022</span><span style=color:#f92672>-</span><span style=color:#ae81ff>01</span><span style=color:#f92672>-</span><span style=color:#ae81ff>10</span> <span style=color:#ae81ff>09</span>:<span style=color:#ae81ff>35</span>:<span style=color:#ae81ff>38</span><span style=color:#f92672>+</span><span style=color:#ae81ff>00</span>:<span style=color:#ae81ff>00</span>
+media<span style=color:#f92672>/</span><span style=color:#ae81ff>6514</span>A2A9<span style=color:#f92672>-</span><span style=color:#ae81ff>8</span>CC9<span style=color:#f92672>-</span><span style=color:#ae81ff>493</span>C<span style=color:#f92672>-</span><span style=color:#ae81ff>4009</span><span style=color:#f92672>-</span><span style=color:#ae81ff>0</span>F313BA8724A<span style=color:#f92672>.</span>jpeg <span style=color:#ae81ff>2022</span><span style=color:#f92672>-</span><span style=color:#ae81ff>01</span><span style=color:#f92672>-</span><span style=color:#ae81ff>10</span> <span style=color:#ae81ff>09</span>:<span style=color:#ae81ff>50</span>:<span style=color:#ae81ff>48</span><span style=color:#f92672>+</span><span style=color:#ae81ff>00</span>:<span style=color:#ae81ff>00</span>
+</code></pre></div><hr>
+<h3 id=23-object>2.3. Object</h3>
+<p><a href=https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#object>Object</a></p>
+<ul>
+<li>bucket에 저장된 객체(파일)에 접근</li>
+</ul>
+<p><a href=https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#id242>ObjectSummary</a></p>
+<p><a href=https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#id241>ObjectAcl</a></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> boto3
+<span style=color:#f92672>from</span> conf <span style=color:#f92672>import</span> <span style=color:#f92672>*</span>
+
+session <span style=color:#f92672>=</span> boto3<span style=color:#f92672>.</span>Session(
+    aws_access_key_id<span style=color:#f92672>=</span>AWS_ACCESS_KEY_ID,
+    aws_secret_access_key<span style=color:#f92672>=</span>AWS_SECRET_ACCESS_KEY,
+    region_name<span style=color:#f92672>=</span>AWS_REGION
+)
+
+<span style=color:#75715e># s3에 대한 권한 및 상태를 s3변수에 저장</span>
+s3 <span style=color:#f92672>=</span> session<span style=color:#f92672>.</span>resource(<span style=color:#e6db74>&#39;s3&#39;</span>)
+
+object_key <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;media/6514A2A9-8CC9-493C-4009-0F313BA8724A.jpeg&#34;</span>
+
+object_ <span style=color:#f92672>=</span> s3<span style=color:#f92672>.</span>Object(AWS_BUCKET_NAME, object_key)
+print(object_)
+
+print(<span style=color:#e6db74>&#34;------------------------------&#34;</span>)
+
+object_ <span style=color:#f92672>=</span> s3<span style=color:#f92672>.</span>ObjectSummary(AWS_BUCKET_NAME, object_key)
+print(object_)
+print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;object_.size = </span><span style=color:#e6db74>{</span>object_<span style=color:#f92672>.</span>size<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;object_.last_modified = </span><span style=color:#e6db74>{</span>object_<span style=color:#f92672>.</span>last_modified<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;object_.Acl() = </span><span style=color:#e6db74>{</span>object_<span style=color:#f92672>.</span>Acl()<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+
+print(<span style=color:#e6db74>&#34;------------------------------&#34;</span>)
+
+object_acl <span style=color:#f92672>=</span> s3<span style=color:#f92672>.</span>ObjectAcl(AWS_BUCKET_NAME, object_key)
+print(object_acl)
+print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;object_acl.owner = </span><span style=color:#e6db74>{</span>object_acl<span style=color:#f92672>.</span>owner<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;object_acl.grants = </span><span style=color:#e6db74>{</span>object_acl<span style=color:#f92672>.</span>grants<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+
+</code></pre></div><p>ouput</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>s3<span style=color:#f92672>.</span>Object(bucket_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;BUCKET_NAME&#39;</span>, key<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;media/6514A2A9-8CC9-493C-4009-0F313BA8724A.jpeg&#39;</span>)
+<span style=color:#f92672>------------------------------</span>
+s3<span style=color:#f92672>.</span>ObjectSummary(bucket_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;BUCKET_NAME&#39;</span>, key<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;media/6514A2A9-8CC9-493C-4009-0F313BA8724A.jpeg&#39;</span>)
+object_<span style=color:#f92672>.</span>size <span style=color:#f92672>=</span> <span style=color:#ae81ff>64738</span>
+object_<span style=color:#f92672>.</span>last_modified <span style=color:#f92672>=</span> <span style=color:#ae81ff>2022</span><span style=color:#f92672>-</span><span style=color:#ae81ff>01</span><span style=color:#f92672>-</span><span style=color:#ae81ff>10</span> <span style=color:#ae81ff>09</span>:<span style=color:#ae81ff>50</span>:<span style=color:#ae81ff>48</span><span style=color:#f92672>+</span><span style=color:#ae81ff>00</span>:<span style=color:#ae81ff>00</span>
+object_<span style=color:#f92672>.</span>Acl() <span style=color:#f92672>=</span> s3<span style=color:#f92672>.</span>ObjectAcl(bucket_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;BUCKET_NAME&#39;</span>, object_key<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;media/6514A2A9-8CC9-493C-4009-0F313BA8724A.jpeg&#39;</span>)
+<span style=color:#f92672>------------------------------</span>
+s3<span style=color:#f92672>.</span>ObjectAcl(bucket_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;BUCKET_NAME&#39;</span>, object_key<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;media/6514A2A9-8CC9-493C-4009-0F313BA8724A.jpeg&#39;</span>)
+object_acl<span style=color:#f92672>.</span>owner <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#39;ID&#39;</span>: <span style=color:#e6db74>&#39;owner_id&#39;</span>}
+object_acl<span style=color:#f92672>.</span>grants <span style=color:#f92672>=</span> [{<span style=color:#e6db74>&#39;Grantee&#39;</span>: {<span style=color:#e6db74>&#39;ID&#39;</span>: <span style=color:#e6db74>&#39;owner_id&#39;</span>, <span style=color:#e6db74>&#39;Type&#39;</span>: <span style=color:#e6db74>&#39;CanonicalUser&#39;</span>}, <span style=color:#e6db74>&#39;Permission&#39;</span>: <span style=color:#e6db74>&#39;FULL_CONTROL&#39;</span>}]
+</code></pre></div><hr>
+<h3 id=24-delete>2.4. delete</h3>
+<p>버킷에 저장된 객체 삭제</p>
+<p><a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html?highlight=delete#S3.Object.delete">Object.delete()</a></p>
+<p>example 1</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> boto3
+<span style=color:#f92672>from</span> conf <span style=color:#f92672>import</span> <span style=color:#f92672>*</span>
+
+key_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;copy_cat.jpg&#34;</span>
+
+session <span style=color:#f92672>=</span> boto3<span style=color:#f92672>.</span>Session(
+    aws_access_key_id<span style=color:#f92672>=</span>AWS_ACCESS_KEY_ID,
+    aws_secret_access_key<span style=color:#f92672>=</span>AWS_SECRET_ACCESS_KEY,
+    region_name<span style=color:#f92672>=</span>AWS_REGION
+)
+
+s3 <span style=color:#f92672>=</span> boto3<span style=color:#f92672>.</span>resource(<span style=color:#e6db74>&#39;s3&#39;</span>)
+buckets <span style=color:#f92672>=</span> s3<span style=color:#f92672>.</span>Bucket(name<span style=color:#f92672>=</span>AWS_BUCKET_NAME)
+s3<span style=color:#f92672>.</span>Object(AWS_BUCKET_NAME, key_name)<span style=color:#f92672>.</span>delete()
+</code></pre></div><p>example 2</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> boto3
+<span style=color:#f92672>from</span> conf <span style=color:#f92672>import</span> <span style=color:#f92672>*</span>
+
+key_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;copy_cat.jpg&#34;</span>
+
+client <span style=color:#f92672>=</span> boto3<span style=color:#f92672>.</span>client(
+    <span style=color:#e6db74>&#39;s3&#39;</span>,
+    aws_access_key_id<span style=color:#f92672>=</span>AWS_ACCESS_KEY_ID,
+    aws_secret_access_key<span style=color:#f92672>=</span>AWS_SECRET_ACCESS_KEY,
+    region_name<span style=color:#f92672>=</span>AWS_REGION
+)
+
+client <span style=color:#f92672>=</span> boto3<span style=color:#f92672>.</span>client(<span style=color:#e6db74>&#39;s3&#39;</span>)
+client<span style=color:#f92672>.</span>delete_object(Bucket<span style=color:#f92672>=</span>AWS_BUCKET_NAME, Key<span style=color:#f92672>=</span>key_name)
+</code></pre></div><p>output</p>
+<p>aws configure 설정되지 않을 경우 error가 발생한다.</p>
+<pre tabindex=0><code class=language-bahs data-lang=bahs>botocore.exceptions.NoCredentialsError: Unable to locate credentials
+</code></pre><h3 id=25-aws-configure-로컬-설정>2.5. aws configure 로컬 설정</h3>
+<h4 id=방법1>방법1</h4>
+<p>awscli 라이브러리 설치</p>
+<pre tabindex=0><code>pip install awscli
+</code></pre><p>&lsquo;aws configure&rsquo; 명령어를 이용하여 계정정보 등록</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>AWS Access Key ID <span style=color:#f92672>[</span>None<span style=color:#f92672>]</span>: Access Key ID
+AWS Secret Access Key <span style=color:#f92672>[</span>None<span style=color:#f92672>]</span>: Secret Access Key
+Default region name <span style=color:#f92672>[</span>None<span style=color:#f92672>]</span>: region name
+Default output format <span style=color:#f92672>[</span>None<span style=color:#f92672>]</span>:
+</code></pre></div><h4 id=방법2>방법2</h4>
+<p>awscli를 설치하지 않고 별도로 credentials를 지정할 수 있다.</p>
+<p>AWS에서는 해당 credentials을 바라보는 경로로 <code>~/.aws/</code> 디렉토리가 있습니다.</p>
+<p><code>credentials</code></p>
+<pre tabindex=0><code>[default]
+aws_access_key_id = Access Key ID
+aws_secret_access_key = Secret Access Key
+</code></pre><p><code>config</code></p>
+<p>output 설정은 지정하지 않아도 된다.</p>
+<pre tabindex=0><code>[default]
+region = region name
+output = json
+</code></pre><p>aws configure 설정 후 다시 delete 테스트하면 실행된다.</p>
+<hr>
+<h2 id=3-업로드-및-다운로드>3. 업로드 및 다운로드</h2>
+<h3 id=31-upload_file>3.1. upload_file</h3>
+<p><a href=https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.upload_file>upload_file</a></p>
+<ul>
+<li>버킷에 파일 업로드</li>
+<li>S3Transfer의 upload_file() 메서드와 비슷하게 동작</li>
+</ul>
+<p>docs example</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> boto3
+s3 <span style=color:#f92672>=</span> boto3<span style=color:#f92672>.</span>resource(<span style=color:#e6db74>&#39;s3&#39;</span>)
+s3<span style=color:#f92672>.</span>meta<span style=color:#f92672>.</span>client<span style=color:#f92672>.</span>upload_file(<span style=color:#e6db74>&#39;/tmp/hello.txt&#39;</span>, <span style=color:#e6db74>&#39;mybucket&#39;</span>, <span style=color:#e6db74>&#39;hello.txt&#39;</span>)
+</code></pre></div><p>example</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> boto3
+<span style=color:#f92672>from</span> conf <span style=color:#f92672>import</span> <span style=color:#f92672>*</span>
+
+session <span style=color:#f92672>=</span> boto3<span style=color:#f92672>.</span>Session(
+    aws_access_key_id<span style=color:#f92672>=</span>AWS_ACCESS_KEY_ID,
+    aws_secret_access_key<span style=color:#f92672>=</span>AWS_SECRET_ACCESS_KEY,
+    region_name<span style=color:#f92672>=</span>AWS_REGION
+)
+
+<span style=color:#75715e># s3에 대한 권한 및 상태를 s3변수에 저장</span>
+s3 <span style=color:#f92672>=</span> session<span style=color:#f92672>.</span>resource(<span style=color:#e6db74>&#39;s3&#39;</span>)
+buckets <span style=color:#f92672>=</span> s3<span style=color:#f92672>.</span>Bucket(name<span style=color:#f92672>=</span>AWS_BUCKET_NAME)
+
+file_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;cat.jpg&#39;</span>
+file_path <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>join(IMAGE_DIR, file_name)
+key_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;copy_cat.jpg&#34;</span>
+
+<span style=color:#75715e># 방법1</span>
+<span style=color:#75715e># upload_file(local_filepath, bucket_filepath)</span>
+<span style=color:#66d9ef>if</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>exists(file_path):
+    buckets<span style=color:#f92672>.</span>upload_file(file_path, key_name)
+
+<span style=color:#75715e># 방법2</span>
+<span style=color:#75715e># with open(file_path, &#39;rb&#39;) as data:</span>
+<span style=color:#75715e>#     buckets.upload_file(data.name, key_name)</span>
+</code></pre></div><hr>
+<h3 id=32-download_file>3.2. download_file</h3>
+<p><a href=https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.download_file>download_file</a></p>
+<ul>
+<li>버킷에 저장된 파일 다운로드</li>
+</ul>
+<p>docs example</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> boto3
+s3 <span style=color:#f92672>=</span> boto3<span style=color:#f92672>.</span>resource(<span style=color:#e6db74>&#39;s3&#39;</span>)
+s3<span style=color:#f92672>.</span>meta<span style=color:#f92672>.</span>client<span style=color:#f92672>.</span>download_file(<span style=color:#e6db74>&#39;mybucket&#39;</span>, <span style=color:#e6db74>&#39;hello.txt&#39;</span>, <span style=color:#e6db74>&#39;/tmp/hello.txt&#39;</span>)
+</code></pre></div><p>example</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> boto3
+<span style=color:#f92672>from</span> conf <span style=color:#f92672>import</span> <span style=color:#f92672>*</span>
+
+session <span style=color:#f92672>=</span> boto3<span style=color:#f92672>.</span>Session(
+    aws_access_key_id<span style=color:#f92672>=</span>AWS_ACCESS_KEY_ID,
+    aws_secret_access_key<span style=color:#f92672>=</span>AWS_SECRET_ACCESS_KEY,
+    region_name<span style=color:#f92672>=</span>AWS_REGION
+)
+
+<span style=color:#75715e># s3에 대한 권한 및 상태를 s3변수에 저장</span>
+s3 <span style=color:#f92672>=</span> session<span style=color:#f92672>.</span>resource(<span style=color:#e6db74>&#39;s3&#39;</span>)
+
+buckets <span style=color:#f92672>=</span> s3<span style=color:#f92672>.</span>Bucket(name<span style=color:#f92672>=</span>AWS_BUCKET_NAME)
+
+file_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;cat2.jpg&#39;</span>
+file_path <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>join(IMAGE_DIR, file_name)
+key_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;copy_cat.jpg&#34;</span>
+
+<span style=color:#75715e># buckets.download_file(bucket_filepath, local_filepath)</span>
+buckets<span style=color:#f92672>.</span>download_file(key_name, file_path)
+</code></pre></div><hr>
+<h3 id=33-generate_presigned_url>3.3. generate_presigned_url</h3>
+<p><a href=https://boto3.amazonaws.com/v1/documentation/api/latest/guide/s3-presigned-urls.html>generate_presigned_url</a></p>
+<ul>
+<li>다운로드 할 수 있는 URL 생성</li>
+</ul>
+<p>IAM 설정은 AmazonS3FullAccess 설정이 되있다는 가정하에 진행한다.<br>
+IAM : AWS 리소스에 대한 접근권한 제어할 수 있는 웹 서비스</p>
+<p>익명 접근가능한 버킷 정책<br>
+설정 경로 (AWS - S3 - AWS_BUCKET_NAME - 버킷 정책)</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+    <span style=color:#f92672>&#34;Version&#34;</span>: <span style=color:#e6db74>&#34;2012-10-17&#34;</span>,
+    <span style=color:#f92672>&#34;Statement&#34;</span>: [
+        {
+            <span style=color:#f92672>&#34;Sid&#34;</span>: <span style=color:#e6db74>&#34;PublicRead&#34;</span>,
+            <span style=color:#f92672>&#34;Effect&#34;</span>: <span style=color:#e6db74>&#34;Allow&#34;</span>,
+            <span style=color:#f92672>&#34;Principal&#34;</span>: <span style=color:#e6db74>&#34;*&#34;</span>,
+            <span style=color:#f92672>&#34;Action&#34;</span>: [
+                <span style=color:#e6db74>&#34;s3:GetObject&#34;</span>,
+                <span style=color:#e6db74>&#34;s3:GetObjectVersion&#34;</span>
+            ],
+            <span style=color:#f92672>&#34;Resource&#34;</span>: <span style=color:#e6db74>&#34;arn:aws:s3:::AWS_BUCKET_NAME/*&#34;</span>
+        }
+    ]
+}
+</code></pre></div><p>example</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> boto3
+<span style=color:#f92672>from</span> conf <span style=color:#f92672>import</span> <span style=color:#f92672>*</span>
+
+s3_client  <span style=color:#f92672>=</span> boto3<span style=color:#f92672>.</span>client(
+    <span style=color:#e6db74>&#39;s3&#39;</span>,
+    aws_access_key_id<span style=color:#f92672>=</span>AWS_ACCESS_KEY_ID,
+    aws_secret_access_key<span style=color:#f92672>=</span>AWS_SECRET_ACCESS_KEY,
+    region_name<span style=color:#f92672>=</span>AWS_REGION
+)
+
+key_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;copy_cat.jpg&#34;</span>
+
+url <span style=color:#f92672>=</span> s3_client<span style=color:#f92672>.</span>generate_presigned_url(
+    ClientMethod<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;get_object&#39;</span>,
+    Params<span style=color:#f92672>=</span>{
+        <span style=color:#e6db74>&#39;Bucket&#39;</span>: AWS_BUCKET_NAME,
+        <span style=color:#e6db74>&#39;Key&#39;</span>: key_name,
+    },
+    <span style=color:#75715e># url 유효기간 (단위:second)</span>
+    ExpiresIn<span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>
+)
+
+print(url)
+</code></pre></div><hr>
+<h2 id=4-예시코드-git>4. 예시코드 Git</h2>
+<p><a href=https://github.com/SangjunCha-dev/blog/tree/main/python/python-boto3-aws-s3>python-boto3-aws-s3</a></p>
+<hr>
+<h2 id=참고reference>참고(Reference)</h2>
+<ul>
+<li><a href="https://dev-navill.tistory.com/12?category=786913">Boto3 기본 설정 및 사용법</a></li>
+<li><a href="https://dev-navill.tistory.com/14?category=786913">Boto3 파일 업로드 & 다운로드- upload and download</a></li>
+<li><a href="https://blog.naver.com/PostView.nhn?blogId=ksh60706&logNo=222143303320&parentCategoryNo=22&categoryNo=32&viewDate=&isShowPopularPosts=false&from=postView">[AWS] 파이썬 - ec2 연동 에러 (botocore.exceptions.NoCredentialsError: Unable to locate credentials)</a></li>
+</ul>
+</div>
+<div class="row pl-3 pr-3">
+<div class="col-md-6 share-buttons">
+</div>
+<div class="col-md-6 btn-improve-page">
+<a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/programming/python/2022-01-10-python-boto3-aws-s3-guide.md title="이 페이지를 개선" target=_blank rel=noopener>
+<i class="fas fa-code-branch"></i>
+이 페이지를 개선
+</a>
+</div>
+</div>
+<hr>
+<div class="row next-prev-navigator">
+</div>
+<hr>
+</div>
+</div>
+</div>
+<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
+</section>
+<section class=toc-section id=toc-section>
+<div class=toc-holder>
+<h5 class="text-center pl-3">목차</h5>
+<hr>
+<div class=toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#1-개요-및-설정>1. 개요 및 설정</a></li>
+<li><a href=#2-boto3-기본-사용법>2. boto3 기본 사용법</a>
+<ul>
+<li><a href=#21-client>2.1. client</a></li>
+<li><a href=#22-session과-resource>2.2. Session과 resource</a></li>
+<li><a href=#23-object>2.3. Object</a></li>
+<li><a href=#24-delete>2.4. delete</a></li>
+<li><a href=#25-aws-configure-로컬-설정>2.5. aws configure 로컬 설정</a>
+<ul>
+<li><a href=#방법1>방법1</a></li>
+<li><a href=#방법2>방법2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=#3-업로드-및-다운로드>3. 업로드 및 다운로드</a>
+<ul>
+<li><a href=#31-upload_file>3.1. upload_file</a></li>
+<li><a href=#32-download_file>3.2. download_file</a></li>
+<li><a href=#33-generate_presigned_url>3.3. generate_presigned_url</a></li>
+</ul>
+</li>
+<li><a href=#4-예시코드-git>4. 예시코드 Git</a></li>
+<li><a href=#참고reference>참고(Reference)</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>바로가기</h5>
+<ul>
+<li class=nav-item>
+<a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a>
+</li>
+</ul>
+</div>
+<div class="col-md-4 col-sm-12">
+<h5>Contact me:</h5>
+<ul>
+<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
+<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<div class=container>
+<div class="row text-left">
+<div class=col-md-4>
+<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
+<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha
+</a>
+</div>
+<div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div>
+<div class="col-md-4 text-right">
+<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
+<script src=/js/single.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

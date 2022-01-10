@@ -86,6 +86,27 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/framework/django/2021-09-24-django-swagger/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django drf_yasg Swagger 기본 사용법</h5>
+<p class="card-text post-summary">drf_yasg : REST 프레임워크용 swagger/openAPI 문서 자동화 라이브러리 swagger : 개발자가 REST 웹 서비스를 설계, 빌드, 문서화, 테스트를 도와주는 오픈소스 소프트웨어 프레임워크
+drf_yasg : 1.20.0 호환버전
+Django Rest Framework : 3.10, 3.11, 3.12 Django : 2.2, 3.0, 3.1 Python : 3.6, 3.7, 3.8, 3.9 라이브러리 설치
+pip install -U drf-yasg 1. 프로젝트 생성 환경 : windwos 10
+# 가상환경 생성 및 접속 > python -m venv venv > venv\Scripts\activate # 라이브러리 설치 (venv)> pip install django (venv)> pip install djangorestframework (venv)> pip install drf-yasg # 프로젝트 및 앱 생성 (venv)> django-admin startproject config .</p>
+</div>
+<div class=card-footer>
+<span class=float-left>September 24, 2021</span>
+<a href=/posts/framework/django/2021-09-24-django-swagger/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -294,23 +315,6 @@ $ docker run -p 15432:5432 --name postgres -e POSTGRES_PASSWORD=password1! -d po
 <div class=card-footer>
 <span class=float-left>April 29, 2021</span>
 <a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/framework/django/2021-04-22-django-file-upload/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Django 파일 업로드</h5>
-<p class="card-text post-summary"> 청크단위 파일 업로드 용량제한 없이 대용량파일 업로드 가능 실시간 업로드 상황을 프로그래스바에 응용가능 from django.conf import settings def upload(request): if request.method == 'POST': path = settings.MEDIA_ROOT files = request.FILES['file'] for file in files: file_path = f'{path}/{file.name}' with open(file_path,'wb+') as dst_file: for chunk in file.chunks(): dst_file.write(chunk) </p>
-</div>
-<div class=card-footer>
-<span class=float-left>April 22, 2021</span>
-<a href=/posts/framework/django/2021-04-22-django-file-upload/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

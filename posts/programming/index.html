@@ -86,6 +86,28 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/programming/python/2022-01-10-python-boto3-aws-s3-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>python boto3라이브러리 이용한 AWS s3 사용법</h5>
+<p class="card-text post-summary">1. 개요 및 설정 Boto3는 python 애플리케이션과 AWS 서비스를 연결시키기 위해 사용하는 python 라이브러리이다.
+boto3 라이브러리 설치
+pip install boto3 라이브러리 import 및 AWS key 설정
+conf.py
+import os AWS_ACCESS_KEY_ID = "ACCESS_KEY_ID" AWS_SECRET_ACCESS_KEY = "SECRET_ACCESS_KEY" AWS_REGION = "REGION" AWS_BUCKET_NAME = "BUCKET_NAME" 2. boto3 기본 사용법 2.1. client client
+Low-level 인터페이스 service description에 의해 만들어짐 botocore 수준제어 (botocore는 AWS CLI와 boto3의 기초가 되는 라이브러리) AWS API와 1:1 매핑 메소드가 스네이크 케이스로 정의되어 있음 import boto3 from conf import * client = boto3.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>January 10, 2022</span>
+<a href=/posts/programming/python/2022-01-10-python-boto3-aws-s3-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -302,26 +324,6 @@ import cv2 as cv 이미지 파일 읽기 cv.imread(filename[, flags]) -> retval 
 <div class=card-footer>
 <span class=float-left>May 21, 2021</span>
 <a href=/posts/programming/python/2021-05-21-python-opencv-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-05-21-python-numpy-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>python numpy 사용법</h5>
-<p class="card-text post-summary">선형대수 기반의 python 라이브러리
-루프없이 배열 연산이 가능하여 연산속도가 빠름 설치버전 : numpy 1.20.2
-라이브러리 import
-import numpy as np 1. 생성 arange np.arange([start,] stop, [step,] dtype) 지정한 숫자 범위의 array 생성함수 np.arange(10) # [0 1 2 3 4 5 6 7 8 9] np.arange(0, 5, 0.5) # [0. 0.5 1. 1.5 2. 2.5 3. 3.5 4. 4.5] zeros np.zeros(shape, dtype) 0으로 선언된 array 생성 np.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>May 21, 2021</span>
-<a href=/posts/programming/python/2021-05-21-python-numpy-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

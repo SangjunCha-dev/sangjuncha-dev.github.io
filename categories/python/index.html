@@ -49,6 +49,8 @@ Sangjun 개발 블로그</a>
 <div class="subtree taxonomy-terms">
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/algorithm/ data-taxonomy-term=algorithm><span class=taxonomy-label>Algorithm</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/apple/ data-taxonomy-term=apple><span class=taxonomy-label>apple</span></a></li>
+<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/aws/ data-taxonomy-term=aws><span class=taxonomy-label>AWS</span></a></li>
+<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/boto3/ data-taxonomy-term=boto3><span class=taxonomy-label>boto3</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/cron/ data-taxonomy-term=cron><span class=taxonomy-label>cron</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/crontab/ data-taxonomy-term=crontab><span class=taxonomy-label>crontab</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/db/ data-taxonomy-term=db><span class=taxonomy-label>DB</span></a></li>
@@ -87,6 +89,28 @@ Sangjun 개발 블로그</a>
 <section class=content-section id=content-section>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
+<div class=post-card>
+<a href=/posts/programming/python/2022-01-10-python-boto3-aws-s3-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>python boto3라이브러리 이용한 AWS s3 사용법</h5>
+<p class="card-text post-summary">1. 개요 및 설정 Boto3는 python 애플리케이션과 AWS 서비스를 연결시키기 위해 사용하는 python 라이브러리이다.
+boto3 라이브러리 설치
+pip install boto3 라이브러리 import 및 AWS key 설정
+conf.py
+import os AWS_ACCESS_KEY_ID = "ACCESS_KEY_ID" AWS_SECRET_ACCESS_KEY = "SECRET_ACCESS_KEY" AWS_REGION = "REGION" AWS_BUCKET_NAME = "BUCKET_NAME" 2. boto3 기본 사용법 2.1. client client
+Low-level 인터페이스 service description에 의해 만들어짐 botocore 수준제어 (botocore는 AWS CLI와 boto3의 기초가 되는 라이브러리) AWS API와 1:1 매핑 메소드가 스네이크 케이스로 정의되어 있음 import boto3 from conf import * client = boto3.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>January 10, 2022</span>
+<a href=/posts/programming/python/2022-01-10-python-boto3-aws-s3-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
 <div class=post-card>
 <a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ class=post-card-link>
 <div class=card>
@@ -304,25 +328,6 @@ Docs URL - http://docs.</p>
 <div class=card-footer>
 <span class=float-left>January 6, 2021</span>
 <a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2020-11-16-pyftpdlib-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)</h5>
-<p class="card-text post-summary">1. 라이브러리 설치 pip install pyftpdlib 실습 버전 : pyftpdlib 1.5.6
-2. Server ftp server 실행 후 client 테스트 가능
-from pyftpdlib.authorizers import DummyAuthorizer # 사용자 인증을 생성하는 모듈 from pyftpdlib.handlers import FTPHandler # 사용자 인증, 파일 전송, 로깅 등 FTP서버를 조작하는 모듈 # from pyftpdlib.handlers import TLS_FTPHandler from pyftpdlib.servers import FTPServer # FTP서버를 실행하는 모듈 # from pyftpdlib.servers import ThreadedFTPServer import os class FileServer: def __init__(self): self.ftpServerIP = "127.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>November 16, 2020</span>
-<a href=/posts/programming/python/2020-11-16-pyftpdlib-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

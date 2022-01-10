@@ -86,6 +86,23 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/framework/django/2021-04-22-django-file-upload/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django 파일 업로드</h5>
+<p class="card-text post-summary"> 청크단위 파일 업로드 용량제한 없이 대용량파일 업로드 가능 실시간 업로드 상황을 프로그래스바에 응용가능 from django.conf import settings def upload(request): if request.method == 'POST': path = settings.MEDIA_ROOT files = request.FILES['file'] for file in files: file_path = f'{path}/{file.name}' with open(file_path,'wb+') as dst_file: for chunk in file.chunks(): dst_file.write(chunk) </p>
+</div>
+<div class=card-footer>
+<span class=float-left>April 22, 2021</span>
+<a href=/posts/framework/django/2021-04-22-django-file-upload/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -305,27 +322,6 @@ capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 
 <div class=card-footer>
 <span class=float-left>February 9, 2021</span>
 <a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>paramiko-scp 라이브러리 사용법 (paramiko-scp Library Guide)</h5>
-<p class="card-text post-summary">paramiko, scp 라이브러리 연계 사용한 ssh 파일 전송
-라이브러리 암호화 여부 속도 paramiko 로그인:암호화 / 파일전송:암호화 느림 paramiko+scp 로그인:암호화 / 파일전송:평문 보통 실습환경 : windows10, 원격서버환경 : linux(RHEL8)
-사전에 ssh 접속가능한 linux를 구축한 후 실습 진행
-1. 라이브러리 설치 pip install paramiko pip install scp paramiko : SSH 접속 및 종료 기능
-Docs URL - http://docs.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>January 6, 2021</span>
-<a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

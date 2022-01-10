@@ -172,6 +172,28 @@ I am a passionate software backend developer with 2 years of working experience.
 <div class=container>
 <div class=row id=recent-post-cards>
 <div class="col-lg-4 col-md-6 pt-2 post-card">
+<a href=/posts/programming/python/2022-01-10-python-boto3-aws-s3-guide/ title="python boto3라이브러리 이용한 AWS s3 사용법" class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
+</div>
+<div class=card-body>
+<h5 class=card-title>python boto3라이브러리 이용한 AWS s3 사용법</h5>
+<p class="card-text post-summary"> 1. 개요 및 설정 Boto3는 python 애플리케이션과 AWS 서비스를 연결시키기 위해 사용하는 python 라이브러리이다.
+boto3 라이브러리 설치
+pip install boto3 라이브러리 import 및 AWS key 설정
+conf.py
+import os AWS_ACCESS_KEY_ID = "ACCESS_KEY_ID" AWS_SECRET_ACCESS_KEY = "SECRET_ACCESS_KEY" AWS_REGION = "REGION" AWS_BUCKET_NAME = "BUCKET_NAME" 2. boto3 기본 사용법 2.1. client client
+Low-level 인터페이스 service description에 의해 만들어짐 botocore 수준제어 (botocore는 AWS CLI와 boto3의 기초가 되는 라이브러리) AWS API와 1:1 매핑 메소드가 스네이크 케이스로 정의되어 있음 import boto3 from conf import * client = boto3.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>January 10, 2022</span>
+<a href=/posts/programming/python/2022-01-10-python-boto3-aws-s3-guide/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class="col-lg-4 col-md-6 pt-2 post-card">
 <a href=/posts/framework/django/2021-12-28-django-oauth2-apple/ title="Django oauth apple login" class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -205,27 +227,6 @@ import datetime as dt now = dt.</p>
 <div class=card-footer>
 <span class=float-left>December 26, 2021</span>
 <a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class="col-lg-4 col-md-6 pt-2 post-card">
-<a href=/posts/programming/golang/2021-12-23-golang-db-nullable-value/ title="golang db nullable 데이터 처리" class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
-</div>
-<div class=card-body>
-<h5 class=card-title>golang db nullable 데이터 처리</h5>
-<p class="card-text post-summary"> golang에서는 타입별로 정해진 zero value가 있는데, DB colume 타입의 zero value와 맞지 않을 때 다음과 에러가 발생한다.
-panic: sql: Scan error on column index : converting NULL to string is unsupported 각 타입별 zero value
-문자열 타입 string : "" 부울린 타입 boolean : false 정수형, Float등 숫자형 타입 : 0 기타 타입 : nil 1. 사전환경 아래의 글을 진행했다는 가정에서 설명한다.
-golang postgreDB CURD
-2.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 23, 2021</span>
-<a href=/posts/programming/golang/2021-12-23-golang-db-nullable-value/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
