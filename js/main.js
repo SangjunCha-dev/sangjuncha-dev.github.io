@@ -52,7 +52,7 @@ var isMobile = false, isTablet = false, isLaptop = false;
               }
               $('html, body').animate({
                 scrollTop: target.offset().top - offset
-              }, 1000, function () {
+              }, 0, function () {
                 // Callback after animation
                 // Must change focus!
                 var $target = $(target);

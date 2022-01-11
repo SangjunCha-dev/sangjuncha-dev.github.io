@@ -182,6 +182,8 @@ table {
   background: #e5e9f2;
   border: 1px solid #c0ccda;
   padding: 0.1rem;
+  margin: 5px;
+  margin-bottom: 10px;
 }
 
 table tr {

@@ -72,7 +72,7 @@ var isMobile = false, isTablet = false, isLaptop = false;
 
       btn.on('click', function (e) {
         e.preventDefault();
-        $('html, body').animate({ scrollTop: 0 }, '300');
+        $('html, body').animate({ scrollTop: 0 }, 0);
       });
     }
     scrollToTop();

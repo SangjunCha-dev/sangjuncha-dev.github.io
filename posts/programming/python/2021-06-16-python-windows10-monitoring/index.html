@@ -105,13 +105,57 @@ Sangjun 개발 블로그</a>
 <p>운영체제 : windows 10<br>
 설치환경 : python 3.8.8, powershell 7.1</p>
 <hr>
-<h2 id=1-python에서-powershell-명령-실행-방법>1. python에서 powershell 명령 실행 방법</h2>
-<h3 id=11-콘솔-명령-실행>1.1 콘솔 명령 실행</h3>
+<h2 id=1-wmi>1. WMI</h2>
+<p>WMI(Windows Management Instrumentation)는 Windows 시스템 관리를 위한 다양한 정보를 일관되게 표시하는 기술이다.
+WMI가 표시하는 정보의 양이 제한되어 있기 때문에 WMI 개체에 액세스하기 위한 PowerShell cmdlet인 <code>Get-CimInstance</code> 개체 가져오기 도구를 사용한다.</p>
+<p>해당 WMI 개체 정보 조회</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>Get-CimInstance -ClassName <span style=color:#f92672>(</span>WMI 개체이름<span style=color:#f92672>)</span> | <span style=color:#66d9ef>select</span> *
+</code></pre></div><table>
+<thead>
+<tr>
+<th>WMI 개체이름</th>
+<th>정보</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Win32_OperatingSystem</td>
+<td>운영체제 및 메모리 정보</td>
+</tr>
+<tr>
+<td>Win32_Processor</td>
+<td>CPU 정보</td>
+</tr>
+<tr>
+<td>Win32_PhysicalMemory</td>
+<td>물리 메모리 정보</td>
+</tr>
+<tr>
+<td>Win32_DiskDrive</td>
+<td>물리 디스크 정보</td>
+</tr>
+<tr>
+<td>Win32_LogicalDisk</td>
+<td>논리 디스크 정보</td>
+</tr>
+<tr>
+<td>Win32_VideoController</td>
+<td>그래픽카드 정보</td>
+</tr>
+</tbody>
+</table>
+<p>Get-CimInstance 옵션 매개변수로 <code>Select-Object</code>사용하면 WMI 클래스 인스턴스에서 반환되는 속성을 선택할 수 있다. Get-CimInstance의 <code>-Property</code> 매개 변수는 PowerShell로 반환되는 개체가 아니라 WMI 클래스 인스턴스에서 반환되는 속성을 제한하기 때문에 추가 데이터가 반환된다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>Get-CimInstance -ClassName Win32_OperatingSystem | Select-Object -Property Caption
+</code></pre></div><p>WMI 클래스 인스턴스에서 반환되는 모든 옵션 조회</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>Get-CimInstance -ClassName Win32_OperatingSystem | Select-Object -Property *
+</code></pre></div><hr>
+<h2 id=2-python에서-powershell-명령-실행-방법>2. python에서 powershell 명령 실행 방법</h2>
+<h3 id=21-콘솔-명령-실행>2.1 콘솔 명령 실행</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> subprocess
 <span style=color:#f92672>import</span> json
 cmd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Get-CimInstance -Class Win32_OperatingSystem&#34;</span>
 subprocess<span style=color:#f92672>.</span>Popen(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;powershell.exe </span><span style=color:#e6db74>{</span>cmd<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39;</span>)
-</code></pre></div><h3 id=12-실행결과-반환>1.2. 실행결과 반환</h3>
+</code></pre></div><h3 id=22-실행결과-반환>2.2. 실행결과 반환</h3>
 <p>디코딩을 하지 않으면 바이트 문자열로 나열되서 반환된다.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>cmd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Get-CimInstance -Class Win32_OperatingSystem&#34;</span>
 result <span style=color:#f92672>=</span> subprocess<span style=color:#f92672>.</span>Popen(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;powershell.exe </span><span style=color:#e6db74>{</span>cmd<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39;</span>, stdout<span style=color:#f92672>=</span>subprocess<span style=color:#f92672>.</span>PIPE)
@@ -125,7 +169,7 @@ print(result)
 
 b<span style=color:#e6db74>&#39;\r\nSystemDirectory     Organization BuildNumber RegisteredUser SerialNumber            Version   \r\n---------------     ------------ ----------- -------------- ------------            -------   
 </span><span style=color:#e6db74>\r\nC:\\Windows\\system32              19000       UserName         00000-00000 10.0\r\n\r\n\r\n&#39;</span>
-</code></pre></div><h3 id=13실행결과-디코딩>1.3.실행결과 디코딩</h3>
+</code></pre></div><h3 id=23실행결과-디코딩>2.3.실행결과 디코딩</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>cmd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Get-CimInstance -Class Win32_OperatingSystem&#34;</span>
 result <span style=color:#f92672>=</span> subprocess<span style=color:#f92672>.</span>Popen(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;powershell.exe </span><span style=color:#e6db74>{</span>cmd<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39;</span>, stdout<span style=color:#f92672>=</span>subprocess<span style=color:#f92672>.</span>PIPE)
 result <span style=color:#f92672>=</span> result<span style=color:#f92672>.</span>stdout<span style=color:#f92672>.</span>read()<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#39;cp949&#39;</span>)
@@ -135,7 +179,7 @@ print(result)
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>SystemDirectory     Organization BuildNumber RegisteredUser SerialNumber Version
 ---------------     ------------ ----------- -------------- ------------ -------
 C:<span style=color:#ae81ff>\W</span>indows<span style=color:#ae81ff>\s</span>ystem32              <span style=color:#ae81ff>19000</span>       UserName       00000-00000  10.0
-</code></pre></div><h3 id=14-json-형식의-문자열-형태로-반환>1.4. json 형식의 문자열 형태로 반환</h3>
+</code></pre></div><h3 id=24-json-형식의-문자열-형태로-반환>2.4. json 형식의 문자열 형태로 반환</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>cmd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Get-CimInstance -Class Win32_OperatingSystem | Select-Object -Property Caption, OSArchitecture, Version&#34;</span>
 result <span style=color:#f92672>=</span> subprocess<span style=color:#f92672>.</span>Popen(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;powershell.exe </span><span style=color:#e6db74>{</span>cmd<span style=color:#e6db74>}</span><span style=color:#e6db74> | ConvertTo-JSON&#39;</span>, stdout<span style=color:#f92672>=</span>subprocess<span style=color:#f92672>.</span>PIPE)
 result <span style=color:#f92672>=</span> result<span style=color:#f92672>.</span>stdout<span style=color:#f92672>.</span>read()<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#39;cp949&#39;</span>)
@@ -149,7 +193,7 @@ print(type(result))
     <span style=color:#e6db74>&#34;Version&#34;</span>:  <span style=color:#e6db74>&#34;10.0&#34;</span>
 <span style=color:#f92672>}</span>
 &lt;class <span style=color:#e6db74>&#39;str&#39;</span>&gt;
-</code></pre></div><h3 id=15-dict-형태로-반환>1.5. dict 형태로 반환</h3>
+</code></pre></div><h3 id=25-dict-형태로-반환>2.5. dict 형태로 반환</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>cmd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Get-CimInstance -Class Win32_OperatingSystem | Select-Object -Property Caption, OSArchitecture, Version&#34;</span>
 result <span style=color:#f92672>=</span> subprocess<span style=color:#f92672>.</span>Popen(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;powershell.exe </span><span style=color:#e6db74>{</span>cmd<span style=color:#e6db74>}</span><span style=color:#e6db74> | ConvertTo-JSON&#39;</span>, stdout<span style=color:#f92672>=</span>subprocess<span style=color:#f92672>.</span>PIPE)
 result <span style=color:#f92672>=</span> ast<span style=color:#f92672>.</span>literal_eval(result<span style=color:#f92672>.</span>stdout<span style=color:#f92672>.</span>read()<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#39;cp949&#39;</span>))
@@ -159,7 +203,7 @@ print(type(result))
 </code></pre></div><p>결과</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#f92672>{</span><span style=color:#e6db74>&#39;Caption&#39;</span>: <span style=color:#e6db74>&#39;Microsoft Windows 10 Pro&#39;</span>, <span style=color:#e6db74>&#39;OSArchitecture&#39;</span>: <span style=color:#e6db74>&#39;64비트&#39;</span>, <span style=color:#e6db74>&#39;Version&#39;</span>: <span style=color:#e6db74>&#39;10.0.19042&#39;</span><span style=color:#f92672>}</span>
 &lt;class <span style=color:#e6db74>&#39;dict&#39;</span>&gt;
-</code></pre></div><h3 id=16-int형으로-반환>1.6. int형으로 반환</h3>
+</code></pre></div><h3 id=26-int형으로-반환>2.6. int형으로 반환</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>cmd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;(Get-CimInstance -ClassName Win32_Processor).LoadPercentage&#34;</span>
 result <span style=color:#f92672>=</span> subprocess<span style=color:#f92672>.</span>Popen(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;powershell.exe </span><span style=color:#e6db74>{</span>cmd<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39;</span>, stdout<span style=color:#f92672>=</span>subprocess<span style=color:#f92672>.</span>PIPE)
 result <span style=color:#f92672>=</span> result<span style=color:#f92672>.</span>stdout<span style=color:#f92672>.</span>read()<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#39;cp949&#39;</span>)<span style=color:#f92672>.</span>strip()
@@ -177,14 +221,14 @@ print(type(result))
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#ae81ff>23</span>
 &lt;class <span style=color:#e6db74>&#39;int&#39;</span>&gt;
 </code></pre></div><hr>
-<h2 id=2-power-shell-명령어-예시>2. power shell 명령어 예시</h2>
-<h3 id=21-운영체제-및-메모리-사용량-정보-조회>2.1. 운영체제 및 메모리 사용량 정보 조회</h3>
+<h2 id=3-power-shell-명령어-예시>3. power shell 명령어 예시</h2>
+<h3 id=31-운영체제-및-메모리-사용량-정보-조회>3.1. 운영체제 및 메모리 사용량 정보 조회</h3>
 <pre tabindex=0><code>Get-CimInstance -Class Win32_OperatingSystem | Select-Object -Property Caption, OSArchitecture, Version, TotalVisibleMemorySize, FreePhysicalMemory
-</code></pre><h3 id=22-cpu-정보-및-사용량-조회>2.2. CPU 정보 및 사용량 조회</h3>
+</code></pre><h3 id=32-cpu-정보-및-사용량-조회>3.2. CPU 정보 및 사용량 조회</h3>
 <pre tabindex=0><code>Get-CimInstance -ClassName Win32_Processor | Select-Object -Property Name, MaxClockSpeed, LoadPercentage
-</code></pre><h3 id=221-cpu-사용량-조회>2.2.1. CPU 사용량 조회</h3>
+</code></pre><h3 id=321-cpu-사용량-조회>3.2.1. CPU 사용량 조회</h3>
 <pre tabindex=0><code>(Get-CimInstance -ClassName Win32_Processor).LoadPercentage
-</code></pre><h3 id=23-gpu-정보-조회>2.3. GPU 정보 조회</h3>
+</code></pre><h3 id=33-gpu-정보-조회>3.3. GPU 정보 조회</h3>
 <ul>
 <li>AdapterRAM 필드의 자료형이 dword(uint32)형으로 최대 4GB 까지 표현한다.</li>
 </ul>
@@ -193,25 +237,30 @@ print(type(result))
 <li>qwMemorySize 필드 자료형은 qword(uint64)형으로 최대 약 16 EB(엑사바이트) 까지 표현한다.</li>
 </ul>
 <pre tabindex=0><code>(Get-ItemProperty -Path &quot;HKLM:\SYSTEM\ControlSet001\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0*&quot; -Name HardwareInformation.qwMemorySize -ErrorAction SilentlyContinue).&quot;HardwareInformation.qwMemorySize&quot;
-</code></pre><h3 id=231-gpu-메모리-사용량-조회>2.3.1. GPU 메모리 사용량 조회</h3>
+</code></pre><h3 id=331-gpu-메모리-사용량-조회>3.3.1. GPU 메모리 사용량 조회</h3>
 <pre tabindex=0><code>(((Get-Counter '\GPU Process Memory(*)\Local Usage').CounterSamples | where CookedValue).CookedValue | measure -sum).sum
-</code></pre><h3 id=24-메모리-정보-조회>2.4. 메모리 정보 조회</h3>
+</code></pre><h3 id=34-메모리-정보-조회>3.4. 메모리 정보 조회</h3>
 <pre tabindex=0><code>Get-CimInstance -ClassName Win32_PhysicalMemory | Select-Object -Property Manufacturer, PartNumber, Speed, Capacity
-</code></pre><h3 id=25-디스크-정보-조회>2.5. 디스크 정보 조회</h3>
+</code></pre><h3 id=35-디스크-정보-조회>3.5. 디스크 정보 조회</h3>
 <pre tabindex=0><code>Get-CimInstance -ClassName Win32_DiskDrive | Select-Object -Property Index, Model, Size
-</code></pre><h3 id=26-볼륨-정보-조회>2.6. 볼륨 정보 조회</h3>
+</code></pre><h3 id=36-볼륨-정보-조회>3.6. 볼륨 정보 조회</h3>
 <ul>
 <li>DriveType 3 (WMI에서 고정 하드 디스크에 사용하는 값)</li>
 </ul>
 <pre tabindex=0><code>Get-CimInstance -ClassName Win32_LogicalDisk -Filter 'DriveType=3' | Select-Object -Property Name, FileSystem, Size, FreeSpace
 </code></pre><hr>
+<h2 id=4-예시코드-git>4. 예시코드 Git</h2>
+<p><a href=https://github.com/SangjunCha-dev/monitoring_windows>monitoring_windows</a></p>
+<hr>
 <h2 id=참고reference>참고(Reference)</h2>
 <ul>
+<li><a href="https://docs.microsoft.com/ko-kr/powershell/scripting/samples/collecting-information-about-computers?view=powershell-7.1">컴퓨터에 대한 정보 수집</a></li>
 <li><a href="https://docs.microsoft.com/ko-kr/powershell/scripting/samples/getting-wmi-objects--get-ciminstance-?view=powershell-7.1">WMI 개체 가져오기(Get-CimInstance)</a>
 <ul>
 <li>powershell 명령어 사용법</li>
 </ul>
 </li>
+<li><a href="https://docs.microsoft.com/ko-kr/powershell/scripting/samples/selecting-parts-of-objects--select-object-?view=powershell-7.1">개체의 일부 선택(Select-Object)</a></li>
 </ul>
 </div>
 <div class="row pl-3 pr-3">
@@ -240,28 +289,30 @@ print(type(result))
 <div class=toc>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#1-python에서-powershell-명령-실행-방법>1. python에서 powershell 명령 실행 방법</a>
+<li><a href=#1-wmi>1. WMI</a></li>
+<li><a href=#2-python에서-powershell-명령-실행-방법>2. python에서 powershell 명령 실행 방법</a>
 <ul>
-<li><a href=#11-콘솔-명령-실행>1.1 콘솔 명령 실행</a></li>
-<li><a href=#12-실행결과-반환>1.2. 실행결과 반환</a></li>
-<li><a href=#13실행결과-디코딩>1.3.실행결과 디코딩</a></li>
-<li><a href=#14-json-형식의-문자열-형태로-반환>1.4. json 형식의 문자열 형태로 반환</a></li>
-<li><a href=#15-dict-형태로-반환>1.5. dict 형태로 반환</a></li>
-<li><a href=#16-int형으로-반환>1.6. int형으로 반환</a></li>
+<li><a href=#21-콘솔-명령-실행>2.1 콘솔 명령 실행</a></li>
+<li><a href=#22-실행결과-반환>2.2. 실행결과 반환</a></li>
+<li><a href=#23실행결과-디코딩>2.3.실행결과 디코딩</a></li>
+<li><a href=#24-json-형식의-문자열-형태로-반환>2.4. json 형식의 문자열 형태로 반환</a></li>
+<li><a href=#25-dict-형태로-반환>2.5. dict 형태로 반환</a></li>
+<li><a href=#26-int형으로-반환>2.6. int형으로 반환</a></li>
 </ul>
 </li>
-<li><a href=#2-power-shell-명령어-예시>2. power shell 명령어 예시</a>
+<li><a href=#3-power-shell-명령어-예시>3. power shell 명령어 예시</a>
 <ul>
-<li><a href=#21-운영체제-및-메모리-사용량-정보-조회>2.1. 운영체제 및 메모리 사용량 정보 조회</a></li>
-<li><a href=#22-cpu-정보-및-사용량-조회>2.2. CPU 정보 및 사용량 조회</a></li>
-<li><a href=#221-cpu-사용량-조회>2.2.1. CPU 사용량 조회</a></li>
-<li><a href=#23-gpu-정보-조회>2.3. GPU 정보 조회</a></li>
-<li><a href=#231-gpu-메모리-사용량-조회>2.3.1. GPU 메모리 사용량 조회</a></li>
-<li><a href=#24-메모리-정보-조회>2.4. 메모리 정보 조회</a></li>
-<li><a href=#25-디스크-정보-조회>2.5. 디스크 정보 조회</a></li>
-<li><a href=#26-볼륨-정보-조회>2.6. 볼륨 정보 조회</a></li>
+<li><a href=#31-운영체제-및-메모리-사용량-정보-조회>3.1. 운영체제 및 메모리 사용량 정보 조회</a></li>
+<li><a href=#32-cpu-정보-및-사용량-조회>3.2. CPU 정보 및 사용량 조회</a></li>
+<li><a href=#321-cpu-사용량-조회>3.2.1. CPU 사용량 조회</a></li>
+<li><a href=#33-gpu-정보-조회>3.3. GPU 정보 조회</a></li>
+<li><a href=#331-gpu-메모리-사용량-조회>3.3.1. GPU 메모리 사용량 조회</a></li>
+<li><a href=#34-메모리-정보-조회>3.4. 메모리 정보 조회</a></li>
+<li><a href=#35-디스크-정보-조회>3.5. 디스크 정보 조회</a></li>
+<li><a href=#36-볼륨-정보-조회>3.6. 볼륨 정보 조회</a></li>
 </ul>
 </li>
+<li><a href=#4-예시코드-git>4. 예시코드 Git</a></li>
 <li><a href=#참고reference>참고(Reference)</a></li>
 </ul>
 </nav>
