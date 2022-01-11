@@ -275,7 +275,7 @@ output
 
 aws configure 설정되지 않을 경우 error가 발생한다.
 
-```bahs
+```bash
 botocore.exceptions.NoCredentialsError: Unable to locate credentials
 ```
 
