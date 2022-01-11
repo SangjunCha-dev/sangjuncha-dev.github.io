@@ -74,20 +74,20 @@ body {
 }
 
 .toc .nav-link {
-  padding: 0;
+  padding: 0.2rem 0;
   padding-left: 0.5rem;
-  transition: all ease-out 0.3s;
+  /* transition: all ease-out 0.3s; */
   color: #1c2d41;
 }
 
 .toc .nav-link:hover,
 .toc .nav-link:focus,
 .toc .nav-link.active {
-  padding-left: 1rem;
-  padding-right: 0.5rem;
+  /* padding-left: 1rem; */
+  /* padding-right: 0.5rem; */
   background-color: #248aaa;
   color: #f9f9f9;
-  transition: all ease-out 0.3s;
+  /* transition: all ease-out 0.3s; */
 }
 
 .hero-area {
