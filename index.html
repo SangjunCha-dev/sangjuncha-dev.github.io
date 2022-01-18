@@ -1,6 +1,6 @@
 <!doctype html><html lang=ko>
 <head>
-<meta name=generator content="Hugo 0.91.2">
+<meta name=generator content="Hugo 0.92.0">
 <title>Sangjun 개발 블로그</title>
 <meta name=description content="Portfolio and personal blog of Sangjun.">
 <meta charset=utf-8>
@@ -194,6 +194,26 @@ Low-level 인터페이스 service description에 의해 만들어짐 botocore �
 </a>
 </div>
 <div class="col-lg-4 col-md-6 pt-2 post-card">
+<a href=/posts/programming/golang/2022-01-07-golang-socket-logging/ title="golang Socket, TimeRotateFile logging" class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
+</div>
+<div class=card-body>
+<h5 class=card-title>golang Socket, TimeRotateFile logging</h5>
+<p class="card-text post-summary"> 1. 개요 golang 기본 로깅에서는 지원하지 않는 TimeRotate 로깅은 별도의 외부 라이브러리를 사용한다.
+go get github.com/lestrrat-go/file-rotatelogs 이후에 소켓 통신을 같이 사용한 logging 프로그램까지 구현한다.
+2. TimeRotateFile logging 해당 file-rotatelogs 라이브러리는 단일 파일 작성만 지원한다. 멀티 파일 작성은 다른 라이브러리를 사용해야 한다.
+2.1. OPTIONS Patterm 로그저장 경로 및 파일이름 패턴지정(required) 예시: rotatelogs.New("log/%Y-%m-%d.log") Clock (default: rotatelogs.Local) 시간대 시스템 로컬 시간으로 설정 예시: rotatelogs.WithClock(rotatelogs.Local) RotationTime (default: 86400 sec) 로테이션 반복 주기 지정한 시간간격으로 파일 로테이션 동일파일 존재시 로그 추가작성으로 동작 time.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>January 7, 2022</span>
+<a href=/posts/programming/golang/2022-01-07-golang-socket-logging/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class="col-lg-4 col-md-6 pt-2 post-card">
 <a href=/posts/framework/django/2021-12-28-django-oauth2-apple/ title="Django oauth apple login" class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -207,26 +227,6 @@ Low-level 인터페이스 service description에 의해 만들어짐 botocore �
 <div class=card-footer>
 <span class=float-left>December 28, 2021</span>
 <a href=/posts/framework/django/2021-12-28-django-oauth2-apple/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class="col-lg-4 col-md-6 pt-2 post-card">
-<a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ title="python 날짜와 시간 계산" class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
-</div>
-<div class=card-body>
-<h5 class=card-title>python 날짜와 시간 계산</h5>
-<p class="card-text post-summary"> python 날짜 및 시간 계산은 python 표준 라이브러리 datetime, 확장 라이브러리 dateutil 2개의 라이브러리가 있으며 단위의 차이가 있다.
-datetime : 마이크로초, 밀리초, 초, 분, 시, 일, 주 단위 사용 dateutil : 마이크로초, 초, 분, 시, 일, 주, 월, 년 단위 사용 1. datetime 라이브러리 날짜와 시간을 조작하는 클래스를 제공하는 python 표준 라이브러리
-1.1 사용예시 now : 현재 날짜 및 시간
-import datetime as dt now = dt.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 26, 2021</span>
-<a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

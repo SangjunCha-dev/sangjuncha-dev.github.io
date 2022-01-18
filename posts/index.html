@@ -108,6 +108,26 @@ Low-level 인터페이스 service description에 의해 만들어짐 botocore �
 </a>
 </div>
 <div class=post-card>
+<a href=/posts/programming/golang/2022-01-07-golang-socket-logging/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>golang Socket, TimeRotateFile logging</h5>
+<p class="card-text post-summary">1. 개요 golang 기본 로깅에서는 지원하지 않는 TimeRotate 로깅은 별도의 외부 라이브러리를 사용한다.
+go get github.com/lestrrat-go/file-rotatelogs 이후에 소켓 통신을 같이 사용한 logging 프로그램까지 구현한다.
+2. TimeRotateFile logging 해당 file-rotatelogs 라이브러리는 단일 파일 작성만 지원한다. 멀티 파일 작성은 다른 라이브러리를 사용해야 한다.
+2.1. OPTIONS Patterm 로그저장 경로 및 파일이름 패턴지정(required) 예시: rotatelogs.New("log/%Y-%m-%d.log") Clock (default: rotatelogs.Local) 시간대 시스템 로컬 시간으로 설정 예시: rotatelogs.WithClock(rotatelogs.Local) RotationTime (default: 86400 sec) 로테이션 반복 주기 지정한 시간간격으로 파일 로테이션 동일파일 존재시 로그 추가작성으로 동작 time.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>January 7, 2022</span>
+<a href=/posts/programming/golang/2022-01-07-golang-socket-logging/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/framework/django/2021-12-28-django-oauth2-apple/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -310,27 +330,6 @@ django_crontab 앱 추가 INSTALLED_APPS = [ 'django_crontab', ... ] CRONJOBS �
 </div>
 </a>
 </div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-12-06-python-json-read-write-performance/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>python json 파일 읽기/쓰기 성능</h5>
-<p class="card-text post-summary">python 언어에서 대용량 json 읽기/쓰기 성능은 사용방법과 라이브러리에 따라서 성능 차이가 있다.
-테스트 기준은 동일한 json 파일을 100번씩 반복 실행하였다.
-json 라이브러리의 파일 읽기/쓰기 모두 byte 모드가 상대적으로 빠르다.
-라이브러리 버전
-python : 3.8.10 ujson : 5.1.0 orjson : 3.6.5 1. json ========================= json_r = 0.045 sec json_w_dump = 0.186 sec json_w_dumps = 0.065 sec ========================= json_rb = 0.034 sec json_wb_dumps = 0.055 sec 1.1. read with open('github.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 6, 2021</span>
-<a href=/posts/programming/python/2021-12-06-python-json-read-write-performance/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
 </div>
 <div class=paginator>
 <ul class="pagination pagination-default">
@@ -353,10 +352,13 @@ python : 3.8.10 ujson : 5.1.0 orjson : 3.6.5 1. json ========================= j
 <a href=/posts/page/4/ aria-label="Page 4" class=page-link role=button>4</a>
 </li>
 <li class=page-item>
+<a href=/posts/page/5/ aria-label="Page 5" class=page-link role=button>5</a>
+</li>
+<li class=page-item>
 <a href=/posts/page/2/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
 </li>
 <li class=page-item>
-<a href=/posts/page/4/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
+<a href=/posts/page/5/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
 </li>
 </ul>
 </div>

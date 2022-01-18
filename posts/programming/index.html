@@ -108,6 +108,26 @@ Low-level 인터페이스 service description에 의해 만들어짐 botocore �
 </a>
 </div>
 <div class=post-card>
+<a href=/posts/programming/golang/2022-01-07-golang-socket-logging/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>golang Socket, TimeRotateFile logging</h5>
+<p class="card-text post-summary">1. 개요 golang 기본 로깅에서는 지원하지 않는 TimeRotate 로깅은 별도의 외부 라이브러리를 사용한다.
+go get github.com/lestrrat-go/file-rotatelogs 이후에 소켓 통신을 같이 사용한 logging 프로그램까지 구현한다.
+2. TimeRotateFile logging 해당 file-rotatelogs 라이브러리는 단일 파일 작성만 지원한다. 멀티 파일 작성은 다른 라이브러리를 사용해야 한다.
+2.1. OPTIONS Patterm 로그저장 경로 및 파일이름 패턴지정(required) 예시: rotatelogs.New("log/%Y-%m-%d.log") Clock (default: rotatelogs.Local) 시간대 시스템 로컬 시간으로 설정 예시: rotatelogs.WithClock(rotatelogs.Local) RotationTime (default: 86400 sec) 로테이션 반복 주기 지정한 시간간격으로 파일 로테이션 동일파일 존재시 로그 추가작성으로 동작 time.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>January 7, 2022</span>
+<a href=/posts/programming/golang/2022-01-07-golang-socket-logging/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -305,25 +325,6 @@ Get-CimInstance -ClassName (WMI 개체이름) | select * WMI 개체이름 정보
 <div class=card-footer>
 <span class=float-left>May 24, 2021</span>
 <a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-performance/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-05-21-python-opencv-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>python opencv 사용법</h5>
-<p class="card-text post-summary">설치버전 : opencv-python 4.5.1.48
-docs url 라이브러리 import
-import cv2 as cv 이미지 파일 읽기 cv.imread(filename[, flags]) -> retval img = cv.imread(image_full_path) 매개변수 이름 설명 filename 로드할 파일 이름 flags cv 값을 사용할 수 있는 플래그 이미지 파일 저장 cv.imwrite(filename, img[, params]) -> retval 이미지 형식은 파일 이름 확장자에 따라 선택됨 cv.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>May 21, 2021</span>
-<a href=/posts/programming/python/2021-05-21-python-opencv-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

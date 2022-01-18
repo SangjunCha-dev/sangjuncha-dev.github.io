@@ -1,0 +1,420 @@
+<!doctype html><html>
+<head>
+<title>golang Socket, TimeRotateFile logging</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/layouts/main.css>
+<link rel=stylesheet href=/css/navigators/navbar.css>
+<link rel=stylesheet href=/css/plyr.css>
+<link rel=stylesheet href=/css/flag-icon.min.css>
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
+<meta property="og:title" content="golang Socket, TimeRotateFile logging">
+<meta property="og:description" content="golang Socket, TimeRotateFile logging">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sangjuncha-dev.github.io/posts/programming/golang/2022-01-07-golang-socket-logging/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-01-07T13:24:20+09:00">
+<meta property="article:modified_time" content="2022-01-07T13:24:20+09:00">
+<meta name=description content="golang Socket, TimeRotateFile logging">
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
+<link rel=stylesheet href=/css/layouts/single.css>
+<link rel=stylesheet href=/css/navigators/sidebar.css>
+<link rel=stylesheet href=/css/style.css>
+</head>
+<body data-spy=scroll data-target=#TableOfContents data-offset=80>
+<div class="container-fluid bg-dimmed wrapper">
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+<div class=container>
+<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span>
+</button>
+<a class=navbar-brand href=/>
+Sangjun 개발 블로그</a>
+<button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
+<ul class="navbar-nav ml-auto">
+</ul>
+</div>
+</div>
+</nav>
+<section class=sidebar-section id=sidebar-section>
+<div class=sidebar-holder>
+<div class=sidebar id=sidebar>
+<form class=mx-auto method=get action=/search>
+<input type=text name=keyword placeholder=Search data-search id=search-box>
+</form>
+<div class=sidebar-tree>
+<ul class=tree id=tree>
+<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
+<div class=subtree>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
+<ul>
+<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
+<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
+</ul>
+</li>
+<li><a href=/posts/db/ title=db>db</a></li>
+<li><a href=/posts/docker/ title=docker>docker</a></li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
+<ul>
+<li><a href=/posts/framework/django/ title=django>django</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
+<ul>
+<li><a href=/posts/os/linux/ title=linux>linux</a></li>
+<li><a href=/posts/os/windows/ title=windows>windows</a></li>
+</ul>
+</li>
+<li>
+<i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a>
+<ul class=active>
+<li><a class=active href=/posts/programming/golang/ title=golang>golang</a></li>
+<li><a href=/posts/programming/python/ title=python>python</a></li>
+</ul>
+</li>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class=content-section id=content-section>
+<div class=content>
+<div class="container p-0 read-area">
+<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)>
+</div>
+<div class=page-content>
+<div class="author-profile ml-auto align-self-lg-center">
+<img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image">
+<h5 class=author-name>Sangjun</h5>
+<p>January 7, 2022</p>
+</div>
+<div class=title>
+<h1>golang Socket, TimeRotateFile logging</h1>
+</div>
+<div class=post-content id=post-content>
+<hr>
+<h2 id=1-개요>1. 개요</h2>
+<p>golang 기본 로깅에서는 지원하지 않는 TimeRotate 로깅은 별도의 외부 라이브러리를 사용한다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>go get github.com/lestrrat-go/file-rotatelogs
+</code></pre></div><p>이후에 소켓 통신을 같이 사용한 logging 프로그램까지 구현한다.</p>
+<hr>
+<h2 id=2-timerotatefile-logging>2. TimeRotateFile logging</h2>
+<p>해당 file-rotatelogs 라이브러리는 단일 파일 작성만 지원한다. 멀티 파일 작성은 다른 라이브러리를 사용해야 한다.</p>
+<h3 id=21-options>2.1. OPTIONS</h3>
+<ol>
+<li><strong>Patterm</strong></li>
+</ol>
+<ul>
+<li>로그저장 경로 및 파일이름 패턴지정(required)</li>
+<li>예시: <code>rotatelogs.New("log/%Y-%m-%d.log")</code></li>
+</ul>
+<ol start=2>
+<li><strong>Clock</strong> (default: rotatelogs.Local)</li>
+</ol>
+<ul>
+<li>시간대 시스템 로컬 시간으로 설정</li>
+<li>예시: <code>rotatelogs.WithClock(rotatelogs.Local)</code></li>
+</ul>
+<ol start=3>
+<li><strong>RotationTime</strong> (default: 86400 sec)</li>
+</ol>
+<ul>
+<li>로테이션 반복 주기</li>
+<li>지정한 시간간격으로 파일 로테이션</li>
+<li>동일파일 존재시 로그 추가작성으로 동작</li>
+<li>time.Duration 타입 사용</li>
+<li>예시: <code>rotatelogs.WithRotationTime(time.Hour)</code></li>
+</ul>
+<ol start=4>
+<li><strong>MaxAge</strong> (default: 7 days)</li>
+</ol>
+<ul>
+<li>지정한 기간을 지난 파일 삭제</li>
+<li>-1 : 옵션 비활성화</li>
+<li>예시: <code>rotatelogs.WithMaxAge(-1)</code></li>
+</ul>
+<ol start=5>
+<li><strong>RotationCount</strong> (default: -1)</li>
+</ol>
+<ul>
+<li>유지되는 로그파일 개수</li>
+<li>지정한 개수보다 많아지면 오래된 로그파일 삭제</li>
+<li>-1 : 옵션 비활성화</li>
+<li>예시: <code>rotatelogs.WithRotationCount(90)</code></li>
+</ul>
+<h3 id=22-예시코드>2.2. 예시코드</h3>
+<p><code>SetFlags</code> 옵션은 golang 기본 log 출력형식 옵션이다.</p>
+<ul>
+<li>log.Ldate: 날짜 지정 (2022/01/07)</li>
+<li>log.Ltime: 시간 지정 (16:16:45)</li>
+<li>log.Lmicroseconds: 마이크로초 지정 (573193)</li>
+</ul>
+<p><code>SetFlags(0)</code> 옵션은 기본 출력 형식 없이 로그메시지만 출력할 때 사용한다.</p>
+<ul>
+<li>외부로부터 로그를 전송받아 작성하는 경우 시간 값도 전송받기 때문에 메시지만 작성한다.</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>import</span> (
+	<span style=color:#e6db74>&#34;log&#34;</span>
+	<span style=color:#e6db74>&#34;time&#34;</span>
+
+	<span style=color:#a6e22e>rotatelogs</span> <span style=color:#e6db74>&#34;github.com/lestrrat-go/file-rotatelogs&#34;</span>
+)
+
+<span style=color:#75715e>// 로그 설정
+</span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>setLog</span>() {
+	<span style=color:#a6e22e>rl</span>, <span style=color:#a6e22e>_</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>rotatelogs</span>.<span style=color:#a6e22e>New</span>(
+		<span style=color:#e6db74>&#34;log/%Y-%m-%d.log&#34;</span>,
+		<span style=color:#a6e22e>rotatelogs</span>.<span style=color:#a6e22e>WithMaxAge</span>(<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>),
+		<span style=color:#a6e22e>rotatelogs</span>.<span style=color:#a6e22e>WithRotationTime</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Hour</span>),
+		<span style=color:#a6e22e>rotatelogs</span>.<span style=color:#a6e22e>WithClock</span>(<span style=color:#a6e22e>rotatelogs</span>.<span style=color:#a6e22e>Local</span>),
+		<span style=color:#a6e22e>rotatelogs</span>.<span style=color:#a6e22e>WithRotationCount</span>(<span style=color:#ae81ff>90</span>),
+	)
+	<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>SetFlags</span>(<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Ldate</span> | <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Ltime</span> | <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Lmicroseconds</span>)
+	<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>SetOutput</span>(<span style=color:#a6e22e>rl</span>)
+}
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#a6e22e>setLog</span>()
+
+    <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;로그 테스트&#34;</span>)
+}
+</code></pre></div><p>로그 출력 예시</p>
+<pre tabindex=0><code>2022/01/07 16:16:45.573193 로그 테스트
+</code></pre><hr>
+<h2 id=3-socket-logging>3. socket logging</h2>
+<h3 id=31-server>3.1. Server</h3>
+<p>내장 라이브러리만 사용한 TCP소켓서버로 byte array 형태로 수신받는다.</p>
+<p>log 설정은 TimeRotateFile logging 예시를 사용한다.</p>
+<p>수신받은 데이터를 문자열 형태로 저장하는 예시이다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>loggingServer</span>() {
+	<span style=color:#a6e22e>listen</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>net</span>.<span style=color:#a6e22e>Listen</span>(<span style=color:#e6db74>&#34;tcp&#34;</span>, <span style=color:#e6db74>&#34;:8010&#34;</span>)
+	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>err</span>)
+	}
+	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>listen</span>.<span style=color:#a6e22e>Close</span>()
+
+	<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Logging Server Start Port :&#34;</span>, <span style=color:#ae81ff>8010</span>)
+
+	<span style=color:#66d9ef>for</span> {
+		<span style=color:#a6e22e>conn</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>listen</span>.<span style=color:#a6e22e>Accept</span>()
+		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+			<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>err</span>)
+			<span style=color:#66d9ef>continue</span>
+		}
+		<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>conn</span>.<span style=color:#a6e22e>Close</span>()
+		<span style=color:#66d9ef>go</span> <span style=color:#a6e22e>ConnHandler</span>(<span style=color:#a6e22e>conn</span>)
+	}
+}
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>ConnHandler</span>(<span style=color:#a6e22e>conn</span> <span style=color:#a6e22e>net</span>.<span style=color:#a6e22e>Conn</span>) {
+	<span style=color:#a6e22e>recvBuffer</span> <span style=color:#f92672>:=</span> make([]<span style=color:#66d9ef>byte</span>, <span style=color:#ae81ff>4096</span>)
+	<span style=color:#66d9ef>for</span> {
+		<span style=color:#a6e22e>n</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>conn</span>.<span style=color:#a6e22e>Read</span>(<span style=color:#a6e22e>recvBuffer</span>)
+		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+			<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#a6e22e>io</span>.<span style=color:#a6e22e>EOF</span> {
+				<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>err</span>)
+			}
+			<span style=color:#66d9ef>return</span>
+		}
+
+		<span style=color:#66d9ef>if</span> <span style=color:#ae81ff>0</span> &lt; <span style=color:#a6e22e>n</span> {
+			<span style=color:#a6e22e>data</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>recvBuffer</span>[:<span style=color:#a6e22e>n</span>]
+			<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(string(<span style=color:#a6e22e>data</span>))
+		}
+	}
+}
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#a6e22e>setLog</span>()
+	<span style=color:#a6e22e>loggingServer</span>()
+}
+</code></pre></div><h3 id=32-client>3.2. Client</h3>
+<p>1초마다 메시지를 전송하는 예시용 프로그램이다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>import</span> (
+	<span style=color:#e6db74>&#34;fmt&#34;</span>
+	<span style=color:#e6db74>&#34;net&#34;</span>
+	<span style=color:#e6db74>&#34;strconv&#34;</span>
+	<span style=color:#e6db74>&#34;time&#34;</span>
+)
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#a6e22e>conn</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>net</span>.<span style=color:#a6e22e>Dial</span>(<span style=color:#e6db74>&#34;tcp&#34;</span>, <span style=color:#e6db74>&#34;:8010&#34;</span>)
+	<span style=color:#66d9ef>if</span> <span style=color:#66d9ef>nil</span> <span style=color:#f92672>!=</span> <span style=color:#a6e22e>err</span> {
+		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>err</span>)
+	}
+
+	<span style=color:#a6e22e>cnt</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>1</span>
+	<span style=color:#66d9ef>for</span> {
+		<span style=color:#a6e22e>msg</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;hello world &#34;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>strconv</span>.<span style=color:#a6e22e>Itoa</span>(<span style=color:#a6e22e>cnt</span>)
+		<span style=color:#a6e22e>conn</span>.<span style=color:#a6e22e>Write</span>([]byte(<span style=color:#a6e22e>msg</span>))
+		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>msg</span>)
+		<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Sleep</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Duration</span>(<span style=color:#ae81ff>1</span>) <span style=color:#f92672>*</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Second</span>)
+		<span style=color:#a6e22e>cnt</span> <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+	}
+}
+</code></pre></div><p>log 출력</p>
+<pre tabindex=0><code>2022/01/07 17:24:27.901790 Logging Server Start Port : 8010
+2022/01/07 17:24:39.485043 hello world 1
+2022/01/07 17:24:40.487938 hello world 2
+</code></pre><h3 id=33-json-log-format>3.3. Json Log Format</h3>
+<p>json형태 로그를 수신받을 경우 구조체로 변환하여 특정 형식으로 작성하도록 활용할 수 있다.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>...</span>
+<span style=color:#66d9ef>type</span> <span style=color:#a6e22e>LogData</span> <span style=color:#66d9ef>struct</span> {
+	<span style=color:#a6e22e>ActionTime</span> <span style=color:#66d9ef>string</span>
+	<span style=color:#a6e22e>Level</span>      <span style=color:#66d9ef>string</span>
+	<span style=color:#a6e22e>Message</span>    <span style=color:#66d9ef>string</span>
+}
+
+<span style=color:#f92672>...</span>
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>setLog</span>() {
+	<span style=color:#f92672>...</span>
+	<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>SetFlags</span>(<span style=color:#ae81ff>0</span>)
+	<span style=color:#f92672>...</span>
+}
+
+<span style=color:#f92672>...</span>
+
+<span style=color:#a6e22e>data</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>recvBuf</span>[:<span style=color:#a6e22e>n</span>]
+<span style=color:#a6e22e>dataStr</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strings</span>.<span style=color:#a6e22e>ReplaceAll</span>(string(<span style=color:#a6e22e>data</span>), <span style=color:#e6db74>&#34;}{&#34;</span>, <span style=color:#e6db74>&#34;}\n{&#34;</span>)
+<span style=color:#a6e22e>objects</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strings</span>.<span style=color:#a6e22e>Split</span>(<span style=color:#a6e22e>dataStr</span>, <span style=color:#e6db74>&#34;\n&#34;</span>)
+<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>object</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>range</span> <span style=color:#a6e22e>objects</span> {
+	<span style=color:#a6e22e>logData</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>LogData</span>{}
+	<span style=color:#a6e22e>json</span>.<span style=color:#a6e22e>Unmarshal</span>([]byte(<span style=color:#a6e22e>object</span>), <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>logData</span>)
+	<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;%s [%8s] %s\n&#34;</span>, <span style=color:#a6e22e>logData</span>.<span style=color:#a6e22e>ActionTime</span>, <span style=color:#a6e22e>logData</span>.<span style=color:#a6e22e>Level</span>, <span style=color:#a6e22e>logData</span>.<span style=color:#a6e22e>Message</span>)
+}
+<span style=color:#f92672>...</span>
+</code></pre></div><p>client → Server 전송데이터 예시</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+	<span style=color:#f92672>&#34;ActionTime&#34;</span>: <span style=color:#e6db74>&#34;2022-01-07 17:58:23,999&#34;</span>,
+	<span style=color:#f92672>&#34;Level&#34;</span>: <span style=color:#e6db74>&#34;INFO&#34;</span>,
+	<span style=color:#f92672>&#34;Message&#34;</span>: <span style=color:#e6db74>&#34;info 테스트&#34;</span>
+}
+</code></pre></div><p>log 출력</p>
+<pre tabindex=0><code>2022-01-07 17:58:23,999 [INFO    ] info 테스트
+2022-01-07 17:58:24,000 [WARNING ] warning 테스트
+2022-01-07 17:58:24,000 [ERROR   ] error 테스트
+</code></pre><hr>
+<h2 id=4-예시코드-git>4. 예시코드 Git</h2>
+<ul>
+<li><a href=https://github.com/SangjunCha-dev/blog/tree/main/golang/golang-socket-logging>golang-socket-logging</a></li>
+</ul>
+<hr>
+<h2 id=참고reference>참고(Reference)</h2>
+<ul>
+<li><a href=https://github.com/lestrrat-go/file-rotatelogs>file-rotatelogs docs</a></li>
+<li><a href=https://zetcode.com/golang/socket/>Go socket</a></li>
+</ul>
+</div>
+<div class="row pl-3 pr-3">
+<div class="col-md-6 share-buttons">
+</div>
+<div class="col-md-6 btn-improve-page">
+<a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/programming/golang/2022-01-07-golang-socket-logging.md title="이 페이지를 개선" target=_blank rel=noopener>
+<i class="fas fa-code-branch"></i>
+이 페이지를 개선
+</a>
+</div>
+</div>
+<hr>
+<div class="row next-prev-navigator">
+</div>
+<hr>
+</div>
+</div>
+</div>
+<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
+</section>
+<section class=toc-section id=toc-section>
+<div class=toc-holder>
+<h5 class="text-center pl-3">목차</h5>
+<hr>
+<div class=toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#1-개요>1. 개요</a></li>
+<li><a href=#2-timerotatefile-logging>2. TimeRotateFile logging</a>
+<ul>
+<li><a href=#21-options>2.1. OPTIONS</a></li>
+<li><a href=#22-예시코드>2.2. 예시코드</a></li>
+</ul>
+</li>
+<li><a href=#3-socket-logging>3. socket logging</a>
+<ul>
+<li><a href=#31-server>3.1. Server</a></li>
+<li><a href=#32-client>3.2. Client</a></li>
+<li><a href=#33-json-log-format>3.3. Json Log Format</a></li>
+</ul>
+</li>
+<li><a href=#4-예시코드-git>4. 예시코드 Git</a></li>
+<li><a href=#참고reference>참고(Reference)</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</section>
+</div>
+<footer class="container-fluid text-center align-content-center footer pb-2">
+<div class="container pt-5">
+<div class="row text-left">
+<div class="col-md-4 col-sm-12">
+<h5>바로가기</h5>
+<ul>
+<li class=nav-item>
+<a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a>
+</li>
+<li class=nav-item>
+<a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a>
+</li>
+</ul>
+</div>
+<div class="col-md-4 col-sm-12">
+<h5>Contact me:</h5>
+<ul>
+<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
+<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<div class=container>
+<div class="row text-left">
+<div class=col-md-4>
+<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
+<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha
+</a>
+</div>
+<div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div>
+<div class="col-md-4 text-right">
+<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<script type=text/javascript src=/js/popper.min.js></script>
+<script type=text/javascript src=/js/bootstrap.min.js></script>
+<script type=text/javascript src=/js/navbar.js></script>
+<script type=text/javascript src=/js/plyr.js></script>
+<script type=text/javascript src=/js/main.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
+<script src=/js/single.js></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

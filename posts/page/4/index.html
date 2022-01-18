@@ -86,6 +86,24 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>scapy 라이브러리 사용법 (Scapy Library Guide)</h5>
+<p class="card-text post-summary">설치환경 : Windows 10
+1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install --pre scapy[basic] 2. Client 예제 from scapy.all import * from scapy.utils import rdpcap import datetime as dt # PCAP 파일 읽기 # could be used like this rdpcap("filename",500) fetches first 500 pkts pkts = rdpcap("./pcap/test.pcapng", -1) pkts = pkts[21:100] cnt = 0 repeat = 10 s_time = dt.datetime.now() for _ in range(repeat): for pkt in pkts: # print(f"hexdump(pkt) = {hexdump(pkt)}") # Send one or more packets at 2 layer sendp(pkt, inter=0, loop=0, count=1, iface=None) # Send one or more packets at 3 layer # send(pkt, inter=0, loop=0, count=1, iface=None) cnt += 1 print(cnt) sendp(b'', inter=0, loop=0, count=1, iface=None) time.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>February 9, 2021</span>
+<a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -313,23 +331,6 @@ Next 클릭 후, PostgreSQL 서버를 사용하면서 자료저장 위치 지정
 </div>
 </a>
 </div>
-<div class=post-card>
-<a href=/posts/db/2020-09-28-mariadb-command/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>MariaDB SQL 명령어 (MariaDB SQL Command)</h5>
-<p class="card-text post-summary">1. database 확인 SHOW DATABASES; 2. database 생성 CREATE DATABASE database_name; 3. 특정 database 접속 USE database_name; 3-1. mysql database 접속 USE mysql; 4. 사용자 확인 MariaDB[mysql] SELECT HOST, USER, PASSWORD FROM USER; 5. 사용자 계정 생성 &lsquo;id&rsquo;@&lsquo;localhost&rsquo; 이면 로컬에서만 접속 가능 CREATE USER 'user_id'@'%' IDENTIFIED BY 'user_password'; CREATE USER 'user_id' IDENTIFIED BY 'user_password'; 6. 사용자 권한 부여 GRANT ALL PRIVILEGES ON database_name.* TO 'user_id'@'%'; GRANT ALL PRIVILEGES ON database_name.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>September 28, 2020</span>
-<a href=/posts/db/2020-09-28-mariadb-command/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
 </div>
 <div class=paginator>
 <ul class="pagination pagination-default">
@@ -351,11 +352,14 @@ Next 클릭 후, PostgreSQL 서버를 사용하면서 자료저장 위치 지정
 <li class="page-item active">
 <a aria-current=page aria-label="Page 4" class=page-link role=button>4</a>
 </li>
-<li class="page-item disabled">
-<a aria-disabled=true aria-label=Next class=page-link role=button tabindex=-1><span aria-hidden=true>&#187;</span></a>
+<li class=page-item>
+<a href=/posts/page/5/ aria-label="Page 5" class=page-link role=button>5</a>
 </li>
-<li class="page-item disabled">
-<a aria-disabled=true aria-label=Last class=page-link role=button tabindex=-1><span aria-hidden=true>&#187;&#187;</span></a>
+<li class=page-item>
+<a href=/posts/page/5/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
+</li>
+<li class=page-item>
+<a href=/posts/page/5/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
 </li>
 </ul>
 </div>

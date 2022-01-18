@@ -86,6 +86,27 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/programming/python/2021-12-06-python-json-read-write-performance/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>python json 파일 읽기/쓰기 성능</h5>
+<p class="card-text post-summary">python 언어에서 대용량 json 읽기/쓰기 성능은 사용방법과 라이브러리에 따라서 성능 차이가 있다.
+테스트 기준은 동일한 json 파일을 100번씩 반복 실행하였다.
+json 라이브러리의 파일 읽기/쓰기 모두 byte 모드가 상대적으로 빠르다.
+라이브러리 버전
+python : 3.8.10 ujson : 5.1.0 orjson : 3.6.5 1. json ========================= json_r = 0.045 sec json_w_dump = 0.186 sec json_w_dumps = 0.065 sec ========================= json_rb = 0.034 sec json_wb_dumps = 0.055 sec 1.1. read with open('github.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 6, 2021</span>
+<a href=/posts/programming/python/2021-12-06-python-json-read-write-performance/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/framework/django/2021-09-24-django-swagger/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -300,25 +321,6 @@ int(문자열, 밑(n진법))
 </div>
 </a>
 </div>
-<div class=post-card>
-<a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>PostgreDB, pgadmin4 도커 설치 방법</h5>
-<p class="card-text post-summary">1. Postgres Docker 이미지 설치 Postgres Version : 13.2
-1.1. 다운로드 및 설정 아래 명령어를 실행한다.
-$ docker run -p 15432:5432 --name postgres -e POSTGRES_PASSWORD=password1! -d postgres -d : 백그라운드에서 컨테이너 실행 -p 15432:5432 : 호스트와 컨테이너 간의 배포(publish)포트/바인드(bind)포트 호스트 15432번 포트를 컨테이너 5432번 포트에 매핑 --name : 생성할 컨테이너 이름 -e : 도커 컨테이너의 환경변수 설정 POSTGRES_PASSWORD : PostgresDB 관리자 비밀번호 실행 결과</p>
-</div>
-<div class=card-footer>
-<span class=float-left>April 29, 2021</span>
-<a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
 </div>
 <div class=paginator>
 <ul class="pagination pagination-default">
@@ -341,10 +343,13 @@ $ docker run -p 15432:5432 --name postgres -e POSTGRES_PASSWORD=password1! -d po
 <a href=/posts/page/4/ aria-label="Page 4" class=page-link role=button>4</a>
 </li>
 <li class=page-item>
+<a href=/posts/page/5/ aria-label="Page 5" class=page-link role=button>5</a>
+</li>
+<li class=page-item>
 <a href=/posts/page/3/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
 </li>
 <li class=page-item>
-<a href=/posts/page/4/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
+<a href=/posts/page/5/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
 </li>
 </ul>
 </div>
