@@ -106,14 +106,16 @@ Sangjun 개발 블로그</a>
 <ul>
 <li><a href=https://docs.opencv.org/4.5.1/d4/da8/group__imgcodecs.html>docs url</a></li>
 </ul>
-<p>라이브러리 import</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> cv2 <span style=color:#66d9ef>as</span> cv
+<p>라이브러리 설치</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>pip install opencv<span style=color:#f92672>-</span>python
+</code></pre></div><p>라이브러리 import</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> cv2
 </code></pre></div><hr>
 <h2 id=이미지-파일-읽기>이미지 파일 읽기</h2>
 <ul>
-<li><code>cv.imread</code>(filename[, flags]) -> retval</li>
+<li><code>cv2.imread</code>(filename[, flags]) -> retval</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>img <span style=color:#f92672>=</span> cv<span style=color:#f92672>.</span>imread(image_full_path)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>img <span style=color:#f92672>=</span> cv2<span style=color:#f92672>.</span>imread(image_full_path)
 </code></pre></div><table>
 <thead>
 <tr>
@@ -128,24 +130,24 @@ Sangjun 개발 블로그</a>
 </tr>
 <tr>
 <td>flags</td>
-<td>cv 값을 사용할 수 있는 플래그</td>
+<td>cv2 값을 사용할 수 있는 플래그</td>
 </tr>
 </tbody>
 </table>
 <hr>
 <h2 id=이미지-파일-저장>이미지 파일 저장</h2>
 <ul>
-<li><code>cv.imwrite</code>(filename, img[, params]) -> retval</li>
+<li><code>cv2.imwrite</code>(filename, img[, params]) -> retval</li>
 <li>이미지 형식은 파일 이름 확장자에 따라 선택됨</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>cv<span style=color:#f92672>.</span>imwrite(image_full_path, img)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>cv2<span style=color:#f92672>.</span>imwrite(image_full_path, img)
 </code></pre></div><hr>
 <h2 id=메모리-버퍼로-인코딩>메모리 버퍼로 인코딩</h2>
 <ul>
 <li>이미지를 ext형식으로 변환하여 메모리 버퍼로 인코딩</li>
-<li><code>cv.imencode</code>(ext, img[, params]) -> refval, buf</li>
+<li><code>cv2.imencode</code>(ext, img[, params]) -> refval, buf</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>retval, buffer <span style=color:#f92672>=</span> cv<span style=color:#f92672>.</span>imencode(<span style=color:#e6db74>&#39;.png&#39;</span>, img)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>retval, buffer <span style=color:#f92672>=</span> cv2<span style=color:#f92672>.</span>imencode(<span style=color:#e6db74>&#39;.png&#39;</span>, img)
 </code></pre></div><table>
 <thead>
 <tr>
@@ -176,11 +178,20 @@ Sangjun 개발 블로그</a>
 <h2 id=이미지-보기>이미지 보기</h2>
 <ul>
 <li>변수에 담겨있는 이미지 보기</li>
-<li><code>cv.imshow</code>(winname, mat)</li>
+<li><code>cv2.imshow</code>(winname, mat)</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>cv<span style=color:#f92672>.</span>imshow(<span style=color:#e6db74>&#39;Window Name&#39;</span>, img)
-cv<span style=color:#f92672>.</span>waitKey()  <span style=color:#75715e># 키입력까지 대기</span>
-cv<span style=color:#f92672>.</span>destroyAllWindows()  <span style=color:#75715e># 윈도우창 닫기</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>cv2<span style=color:#f92672>.</span>imshow(<span style=color:#e6db74>&#39;Window Name&#39;</span>, img)
+cv2<span style=color:#f92672>.</span>waitKey()  <span style=color:#75715e># 키입력까지 대기</span>
+cv2<span style=color:#f92672>.</span>destroyAllWindows()  <span style=color:#75715e># 윈도우창 닫기</span>
+</code></pre></div><hr>
+<h2 id=이미지-정보-조회>이미지 정보 조회</h2>
+<ul>
+<li>이미지 파일 세로,가로,채널 조회</li>
+<li><code>img.shape</code></li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>img <span style=color:#f92672>=</span> cv2<span style=color:#f92672>.</span>imread(image_full_path)
+h, w, c <span style=color:#f92672>=</span> img<span style=color:#f92672>.</span>shape
+print(<span style=color:#e6db74>&#39;height: </span><span style=color:#e6db74>{}</span><span style=color:#e6db74>, width: </span><span style=color:#e6db74>{}</span><span style=color:#e6db74>, channel: </span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#39;</span><span style=color:#f92672>.</span>format(h, w, c))
 </code></pre></div>
 </div>
 <div class="row pl-3 pr-3">
@@ -213,6 +224,7 @@ cv<span style=color:#f92672>.</span>destroyAllWindows()  <span style=color:#7571
 <li><a href=#이미지-파일-저장>이미지 파일 저장</a></li>
 <li><a href=#메모리-버퍼로-인코딩>메모리 버퍼로 인코딩</a></li>
 <li><a href=#이미지-보기>이미지 보기</a></li>
+<li><a href=#이미지-정보-조회>이미지 정보 조회</a></li>
 </ul>
 </nav>
 </div>
