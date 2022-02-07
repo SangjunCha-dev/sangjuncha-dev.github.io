@@ -86,6 +86,23 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/docker/2021-05-06-docker-mssql2017-setup/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>mssql 2017 도커 이미지 설치 및 컨테이너 실행방법</h5>
+<p class="card-text post-summary">1. mssql docker 도커 설치 방법 1.1. 도커 허브에서 이미지 검색 docker search &lt;검색할 이미지 이름> 1.2. pull - 도커 이미지 다운받기 docker pull mcr.microsoft.com/mssql/server:2017-latest 1.3. docs 예시 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=&lt;YourStrong@Passw0rd>" -p 1433:1433 --name mssql2017 -h mssql2017 -v &lt;host directory>/data:/var/opt/mssql/data -v &lt;host directory>/log:/var/opt/mssql/log -v &lt;host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/mssql/server:2017-latest Docker on Windows 의 호스트 볼륨 매핑은 현재 /var/opt/mssql 디렉토리가 아닌 /var/opt/mssql/data 등의 하위 디렉터리를 호스트 머신에 매핑할 수 있다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>May 6, 2021</span>
+<a href=/posts/docker/2021-05-06-docker-mssql2017-setup/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -302,27 +319,6 @@ https://golang.org/dl/ 설치파일에서 안내한 경로인 C:\Program Files\G
 <div class=card-footer>
 <span class=float-left>February 22, 2021</span>
 <a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>pyshark 라이브러리 사용법 (pyshark Library Guide)</h5>
-<p class="card-text post-summary">설치환경 : Windows 10, python 3.7
-1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install pyshark 2. 사용법 캡쳐파일 읽기
-capture = pyshark.FileCapture('./test.pcapng') 실시간 패킷캡처 interface
-capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 11:22:33:44:55:66', use_json=True, include_raw=True) 패킷 캡처
-패킷 1개 캡처하거나 10ms 경과하면 캡처 결과 반환 capture.sniff(packet_count=1, timeout=10) 패킷 10개 캡처하거나 10ms 경과하면 캡처 결과 반환 capture.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>February 10, 2021</span>
-<a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

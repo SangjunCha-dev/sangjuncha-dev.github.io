@@ -86,6 +86,26 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/framework/django/2022-02-05-django-file-download/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django 파일 다운로드</h5>
+<p class="card-text post-summary">django에서 구현가능한 파일 다운로드 방법 예시
+로컬파일 다운로드 - Blob 장점
+브라우저에서 파일다운로드 완료시점을 알 수 있음 임시로 생성된 파일을 다운받을 경우 완료시점에 따른 파일 삭제가 가능함 단점
+파일 용량만큼 브라우저 메모리 사용 대용량 파일다운로드에 부적합 from django.http import FileResponse from rest_framework.views import APIView import os class DownloadView(APIView): def get(self, request): ... file_handle = open(filepath, 'rb') response = FileResponse(file_handle, content_type='application/zip') response['Content-Length'] = os.path.getsize(filepath) response['Content-Disposition'] = 'attachment; filename="%s"' % os.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>February 5, 2022</span>
+<a href=/posts/framework/django/2022-02-05-django-file-download/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/python/2022-01-10-python-boto3-aws-s3-guide/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -306,26 +326,6 @@ CREATE TABLE user ( id SERIAL PRIMARY KEY, name VARCHAR(20), age INT ); 3.</p>
 <div class=card-footer>
 <span class=float-left>December 16, 2021</span>
 <a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/framework/django/2021-12-09-django-corntab-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Django crontab 라이브러리 사용법</h5>
-<p class="card-text post-summary">django-crontab 라이브러리는 OS의 cron/crontab 서비스를 사용하는것으로 해당 서비스 설치가 되지 않았다면 별도로 설치를 해야함.
-windows 환경에서는 docker를 설치하여 진행 1. 라이브러리 설치 $ pip install django-crontab 2. django 설정 임의의 app 디렉터리내 cron.py 생성 아래의 함수를 작성한다.
-반복 실행할 임의의 함수 선언 def hello_every_minute(): print("hello world") settings.py
-django_crontab 앱 추가 INSTALLED_APPS = [ 'django_crontab', ... ] CRONJOBS 변수 선언 첫번째 매개변수 : 실행주기 설정으로 기존 cron 사용법(분,시,일,월,요일)과 동일하다.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 9, 2021</span>
-<a href=/posts/framework/django/2021-12-09-django-corntab-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

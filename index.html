@@ -1,6 +1,6 @@
 <!doctype html><html lang=ko>
 <head>
-<meta name=generator content="Hugo 0.92.0">
+<meta name=generator content="Hugo 0.92.1">
 <title>Sangjun 개발 블로그</title>
 <meta name=description content="Portfolio and personal blog of Sangjun.">
 <meta charset=utf-8>
@@ -172,6 +172,26 @@ I am a passionate software backend developer with 2 years of working experience.
 <div class=container>
 <div class=row id=recent-post-cards>
 <div class="col-lg-4 col-md-6 pt-2 post-card">
+<a href=/posts/framework/django/2022-02-05-django-file-download/ title="Django 파일 다운로드" class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
+</div>
+<div class=card-body>
+<h5 class=card-title>Django 파일 다운로드</h5>
+<p class="card-text post-summary"> django에서 구현가능한 파일 다운로드 방법 예시
+로컬파일 다운로드 - Blob 장점
+브라우저에서 파일다운로드 완료시점을 알 수 있음 임시로 생성된 파일을 다운받을 경우 완료시점에 따른 파일 삭제가 가능함 단점
+파일 용량만큼 브라우저 메모리 사용 대용량 파일다운로드에 부적합 from django.http import FileResponse from rest_framework.views import APIView import os class DownloadView(APIView): def get(self, request): ... file_handle = open(filepath, 'rb') response = FileResponse(file_handle, content_type='application/zip') response['Content-Length'] = os.path.getsize(filepath) response['Content-Disposition'] = 'attachment; filename="%s"' % os.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>February 5, 2022</span>
+<a href=/posts/framework/django/2022-02-05-django-file-download/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class="col-lg-4 col-md-6 pt-2 post-card">
 <a href=/posts/programming/python/2022-01-10-python-boto3-aws-s3-guide/ title="python boto3라이브러리 이용한 AWS s3 사용법" class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -209,24 +229,6 @@ go get github.com/lestrrat-go/file-rotatelogs 이후에 소켓 통신을 같이 
 <div class=card-footer>
 <span class=float-left>January 7, 2022</span>
 <a href=/posts/programming/golang/2022-01-07-golang-socket-logging/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class="col-lg-4 col-md-6 pt-2 post-card">
-<a href=/posts/framework/django/2021-12-28-django-oauth2-apple/ title="Django oauth apple login" class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
-</div>
-<div class=card-body>
-<h5 class=card-title>Django oauth apple login</h5>
-<p class="card-text post-summary"> django restframework 기반의 애플 인증 로그인 백엔드서버 구현 설명이다.
-1. 라이브러리 설치 $ pip install django # restframework $ pip install djangorestframework $ pip install djangorestframework-simplejwt # pyjwt[crypto] $ pip install pyjwt[crypto] 2. Apple 로그인 변수 설정 import os APPLE_CONFIG = { "APPLE_TEAM_ID": TEAM_ID, "APPLE_CLIENT_ID": 모바일 로그인시 Bundle ID or 웹 로그인시 Service ID, "APPLE_REDIRECT_URI": "https://domain/REDIRECT_URI", "APPLE_KEY_ID": KEY_ID, "APPLE_KEY_PATH": "./AuthKey_KEY_ID.p8", "APPLE_PRIVATE_KEY": "", } apple_key_path = os.path.join(CONFIG_BASE_DIR, f"./{APPLE_CONFIG['APPLE_KEY_PATH']}") with open(apple_key_path, 'r') as apple_key_file: APPLE_CONFIG['APPLE_PRIVATE_KEY'] = apple_key_file.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 28, 2021</span>
-<a href=/posts/framework/django/2021-12-28-django-oauth2-apple/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
