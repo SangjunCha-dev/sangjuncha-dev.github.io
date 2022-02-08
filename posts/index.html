@@ -86,6 +86,27 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/programming/python/2022-02-08-python-pytest-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>[python] 테스트 프레임워크 pytest 사용법</h5>
+<p class="card-text post-summary">1. 개요 및 설정 pytest는 에러 없는 좋은 코드를 개발만들기 위한 목적으로 개발된 Python 테스트 프레임워크이다.
+pytest 특징
+다른 testing 라이브러리에 비해 사용법이 간단하다. 테스트를 병렬로 실행할 수 있다. 특정 테스트를 스킵할 수 있다. 다양한 서드 파트 라이브러리들이 있다. 설치
+pip install -U pytest 2. 기본 사용법 2.1. 기본 테스트 test_sample.py
+# 테스트 대상 기능 def inc(x): return x + 1 # 테스트 실행 함수 def test_answer1(): assert inc(3) == 5 def test_answer2(): assert inc(3) == 4 pytest 실행 결과</p>
+</div>
+<div class=card-footer>
+<span class=float-left>February 8, 2022</span>
+<a href=/posts/programming/python/2022-02-08-python-pytest-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/framework/django/2022-02-05-django-file-download/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -305,27 +326,6 @@ cron 함수는 지정한 주기마다 동작시키는 기능으로 별도의 비
 <div class=card-footer>
 <span class=float-left>December 18, 2021</span>
 <a href=/posts/programming/golang/2021-12-18-golang-fcm-backend/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>golang postgreDB CURD</h5>
-<p class="card-text post-summary">golang에서 postgre데이터 베이스의 SQL 생성, 수정, 읽기, 삭제 기능의 간단한 사용법이다.
-postgreDB가 이미 설치되어 있다는 전제하에 진행한다.
-로컬 설정 : PostgreDB 설치 도커 이미지 : PostgreDB, pgadmin4 도커 설치 방법 1. 라이브러리 설치 go version : 1.17
-> go get github.com/lib/pq 2. 테이블 구조 postgreDB에 아래와 같은 구조의 User 테이블이 선언된 상태로 진행한다.
-CREATE TABLE user ( id SERIAL PRIMARY KEY, name VARCHAR(20), age INT ); 3.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 16, 2021</span>
-<a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

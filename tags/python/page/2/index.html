@@ -73,6 +73,7 @@ Sangjun 개발 블로그</a>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/opencv/ data-taxonomy-term=opencv><span class=taxonomy-label>opencv</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/postgredb/ data-taxonomy-term=postgredb><span class=taxonomy-label>postgredb</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/programmers/ data-taxonomy-term=programmers><span class=taxonomy-label>programmers</span></a></li>
+<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/pytest/ data-taxonomy-term=pytest><span class=taxonomy-label>pytest</span></a></li>
 <li><a class="taxonomy-term active" href=https://sangjuncha-dev.github.io/tags/python/ data-taxonomy-term=python><span class=taxonomy-label>python</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/scraper/ data-taxonomy-term=scraper><span class=taxonomy-label>scraper</span></a></li>
 <li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/tags/sniff/ data-taxonomy-term=sniff><span class=taxonomy-label>sniff</span></a></li>
@@ -91,6 +92,24 @@ Sangjun 개발 블로그</a>
 <section class=content-section id=content-section>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
+<div class=post-card>
+<a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>scapy 라이브러리 사용법 (Scapy Library Guide)</h5>
+<p class="card-text post-summary">설치환경 : Windows 10
+1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install --pre scapy[basic] 2. Client 예제 from scapy.all import * from scapy.utils import rdpcap import datetime as dt # PCAP 파일 읽기 # could be used like this rdpcap("filename",500) fetches first 500 pkts pkts = rdpcap("./pcap/test.pcapng", -1) pkts = pkts[21:100] cnt = 0 repeat = 10 s_time = dt.datetime.now() for _ in range(repeat): for pkt in pkts: # print(f"hexdump(pkt) = {hexdump(pkt)}") # Send one or more packets at 2 layer sendp(pkt, inter=0, loop=0, count=1, iface=None) # Send one or more packets at 3 layer # send(pkt, inter=0, loop=0, count=1, iface=None) cnt += 1 print(cnt) sendp(b'', inter=0, loop=0, count=1, iface=None) time.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>February 9, 2021</span>
+<a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
 <div class=post-card>
 <a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ class=post-card-link>
 <div class=card>

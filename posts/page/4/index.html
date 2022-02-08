@@ -86,6 +86,25 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>노마드코더 쉽고 빠른 Go 시작하기(nomadcoders Go-for-beginners lectures)</h5>
+<p class="card-text post-summary">0. 소개 설치 환경 : Windows 10 IDE : vscode
+0.1. 설치 해당 URL에서 golang 설치파일을 다운받아 실행
+https://golang.org/dl/ 설치파일에서 안내한 경로인 C:\Program Files\Go 폴더에 Go 설치 되었는지 확인 0.2. 설정 Go Path 환경변수 확인 Go는 지정된 Go Path 디렉토리에만 저장되어야함 시스템 환경변수에 등록된 GOPATH 값 확인 %USERPROFILE%\go -> C:\Users\[Profle_Name]\go 해당 경로가 Go Path 환경변수로 사용되는 경로 기본 설정 go 디렉토리로 이동하여 bin, pkg, src 디렉토리 생성 src 디렉토리안에 지정된 도메인 디렉토리 추가 go에서 다운받은 코드를 지정된 도메인 별로 분류하여 저장 src 디렉토리안에 github.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>February 22, 2021</span>
+<a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -301,30 +320,6 @@ CREATE TABLE MY_TABLE( NO_EMP NVARCHAR(10)NOT NULL, -- NULL 값이 들어갈 수
 <div class=card-footer>
 <span class=float-left>October 13, 2020</span>
 <a href=/posts/db/2020-10-13-mssql-command/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/db/2020-09-30-sqlcmd-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>sqlcmd 사용법 (sqlcmd-guide)</h5>
-<p class="card-text post-summary">sqlcmd 대용량 sql 파일실행은 sqlcmd로만 실행가능하다.
-다른 sql 실행방법은 메모리에 해당 sql 파일을 로딩한 상태로 실행하여 크기제한이 있지만 sqlcmd는 해당 sql문 하나하나 별도로 실행하기 때문이다.
-사용 예시 sqlcmd \ -S 127.0.0.1,1433 \ -i input_file[ , input_file2...] \ -o output_file \ -U login_id \ -P password \ -d db_name -S : 접속할 IP,접속포트
--i : 실행할 sql 파일 지정
--i C:&lt;filename>
--i \&lt;Share$>&lt;filename>
--i &ldquo;C:\Some Folder&lt;file name>&rdquo;
--o : 실행결과 저장할 파일 지정</p>
-</div>
-<div class=card-footer>
-<span class=float-left>September 30, 2020</span>
-<a href=/posts/db/2020-09-30-sqlcmd-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

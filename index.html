@@ -172,6 +172,27 @@ I am a passionate software backend developer with 2 years of working experience.
 <div class=container>
 <div class=row id=recent-post-cards>
 <div class="col-lg-4 col-md-6 pt-2 post-card">
+<a href=/posts/programming/python/2022-02-08-python-pytest-guide/ title="[python] 테스트 프레임워크 pytest 사용법" class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
+</div>
+<div class=card-body>
+<h5 class=card-title>[python] 테스트 프레임워크 pytest 사용법</h5>
+<p class="card-text post-summary"> 1. 개요 및 설정 pytest는 에러 없는 좋은 코드를 개발만들기 위한 목적으로 개발된 Python 테스트 프레임워크이다.
+pytest 특징
+다른 testing 라이브러리에 비해 사용법이 간단하다. 테스트를 병렬로 실행할 수 있다. 특정 테스트를 스킵할 수 있다. 다양한 서드 파트 라이브러리들이 있다. 설치
+pip install -U pytest 2. 기본 사용법 2.1. 기본 테스트 test_sample.py
+# 테스트 대상 기능 def inc(x): return x + 1 # 테스트 실행 함수 def test_answer1(): assert inc(3) == 5 def test_answer2(): assert inc(3) == 4 pytest 실행 결과</p>
+</div>
+<div class=card-footer>
+<span class=float-left>February 8, 2022</span>
+<a href=/posts/programming/python/2022-02-08-python-pytest-guide/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class="col-lg-4 col-md-6 pt-2 post-card">
 <a href=/posts/framework/django/2022-02-05-django-file-download/ title="Django 파일 다운로드" class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -209,26 +230,6 @@ Low-level 인터페이스 service description에 의해 만들어짐 botocore �
 <div class=card-footer>
 <span class=float-left>January 10, 2022</span>
 <a href=/posts/programming/python/2022-01-10-python-boto3-aws-s3-guide/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class="col-lg-4 col-md-6 pt-2 post-card">
-<a href=/posts/programming/golang/2022-01-07-golang-socket-logging/ title="golang Socket, TimeRotateFile logging" class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Card image cap">
-</div>
-<div class=card-body>
-<h5 class=card-title>golang Socket, TimeRotateFile logging</h5>
-<p class="card-text post-summary"> 1. 개요 golang 기본 로깅에서는 지원하지 않는 TimeRotate 로깅은 별도의 외부 라이브러리를 사용한다.
-go get github.com/lestrrat-go/file-rotatelogs 이후에 소켓 통신을 같이 사용한 logging 프로그램까지 구현한다.
-2. TimeRotateFile logging 해당 file-rotatelogs 라이브러리는 단일 파일 작성만 지원한다. 멀티 파일 작성은 다른 라이브러리를 사용해야 한다.
-2.1. OPTIONS Patterm 로그저장 경로 및 파일이름 패턴지정(required) 예시: rotatelogs.New("log/%Y-%m-%d.log") Clock (default: rotatelogs.Local) 시간대 시스템 로컬 시간으로 설정 예시: rotatelogs.WithClock(rotatelogs.Local) RotationTime (default: 86400 sec) 로테이션 반복 주기 지정한 시간간격으로 파일 로테이션 동일파일 존재시 로그 추가작성으로 동작 time.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>January 7, 2022</span>
-<a href=/posts/programming/golang/2022-01-07-golang-socket-logging/ title=Read class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

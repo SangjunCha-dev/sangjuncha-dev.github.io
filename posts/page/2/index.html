@@ -86,6 +86,27 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>golang postgreDB CURD</h5>
+<p class="card-text post-summary">golang에서 postgre데이터 베이스의 SQL 생성, 수정, 읽기, 삭제 기능의 간단한 사용법이다.
+postgreDB가 이미 설치되어 있다는 전제하에 진행한다.
+로컬 설정 : PostgreDB 설치 도커 이미지 : PostgreDB, pgadmin4 도커 설치 방법 1. 라이브러리 설치 go version : 1.17
+> go get github.com/lib/pq 2. 테이블 구조 postgreDB에 아래와 같은 구조의 User 테이블이 선언된 상태로 진행한다.
+CREATE TABLE user ( id SERIAL PRIMARY KEY, name VARCHAR(20), age INT ); 3.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>December 16, 2021</span>
+<a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/framework/django/2021-12-09-django-corntab-guide/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -303,24 +324,6 @@ int(문자열, 밑(n진법))
 <div class=card-footer>
 <span class=float-left>May 17, 2021</span>
 <a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/os/windows/2021-05-07-windows10-wsl2-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Windows10 WSL2(Windows Subsystem for Linux) 사용법</h5>
-<p class="card-text post-summary">1. WSL(Windows Subsystem for Linux)2 리눅스용 윈도우 하위 시스템(Windows Subsystem for Linux)은 Windows 10에서 네이티브로 리눅스 실행 파일을 실행하기 위한 호환성 계층 프로그램이다.
-2. 사전 설정 microsoft store에서 Windows Terminal 설치한다. Windows Terminal 프로그램을 관리자 권한으로 실행한다. 2.1. WSL2 활성화를 위한 DISM 명령어 실행후 재부팅 > dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart > dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart 2.2. Windows Store 에서 설치하는 모든 Linux 배포판 포맷을 WSL 2로 설정 > wsl --set-default-version 2 3.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>May 7, 2021</span>
-<a href=/posts/os/windows/2021-05-07-windows10-wsl2-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>

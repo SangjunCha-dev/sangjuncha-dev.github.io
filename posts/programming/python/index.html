@@ -86,6 +86,27 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/programming/python/2022-02-08-python-pytest-guide/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>[python] 테스트 프레임워크 pytest 사용법</h5>
+<p class="card-text post-summary">1. 개요 및 설정 pytest는 에러 없는 좋은 코드를 개발만들기 위한 목적으로 개발된 Python 테스트 프레임워크이다.
+pytest 특징
+다른 testing 라이브러리에 비해 사용법이 간단하다. 테스트를 병렬로 실행할 수 있다. 특정 테스트를 스킵할 수 있다. 다양한 서드 파트 라이브러리들이 있다. 설치
+pip install -U pytest 2. 기본 사용법 2.1. 기본 테스트 test_sample.py
+# 테스트 대상 기능 def inc(x): return x + 1 # 테스트 실행 함수 def test_answer1(): assert inc(3) == 5 def test_answer2(): assert inc(3) == 4 pytest 실행 결과</p>
+</div>
+<div class=card-footer>
+<span class=float-left>February 8, 2022</span>
+<a href=/posts/programming/python/2022-02-08-python-pytest-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/python/2022-01-10-python-boto3-aws-s3-guide/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -304,27 +325,6 @@ capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 
 <div class=card-footer>
 <span class=float-left>February 9, 2021</span>
 <a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>paramiko-scp 라이브러리 사용법 (paramiko-scp Library Guide)</h5>
-<p class="card-text post-summary">paramiko, scp 라이브러리 연계 사용한 ssh 파일 전송
-라이브러리 암호화 여부 속도 paramiko 로그인:암호화 / 파일전송:암호화 느림 paramiko+scp 로그인:암호화 / 파일전송:평문 보통 실습환경 : windows10, 원격서버환경 : linux(RHEL8)
-사전에 ssh 접속가능한 linux를 구축한 후 실습 진행
-1. 라이브러리 설치 pip install paramiko pip install scp paramiko : SSH 접속 및 종료 기능
-Docs URL - http://docs.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>January 6, 2021</span>
-<a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
 </div>
 </div>
 </a>
