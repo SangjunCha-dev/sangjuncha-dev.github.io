@@ -267,7 +267,6 @@ client = boto3.client(
     region_name=AWS_REGION
 )
 
-client = boto3.client('s3')
 client.delete_object(Bucket=AWS_BUCKET_NAME, Key=key_name)
 ```
 
@@ -302,7 +301,7 @@ Default output format [None]:
 
 awscli를 설치하지 않고 별도로 credentials를 지정할 수 있다. 
 
-AWS에서는 해당 credentials을 바라보는 경로로 `~/.aws/` 디렉토리가 있습니다.
+AWS 에서 해당 credentials을 `~/.aws/` 디렉토리에 저장한다.
 
 `credentials`
 
