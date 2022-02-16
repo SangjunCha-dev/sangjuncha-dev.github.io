@@ -302,7 +302,6 @@ client <span style=color:#f92672>=</span> boto3<span style=color:#f92672>.</span
     region_name<span style=color:#f92672>=</span>AWS_REGION
 )
 
-client <span style=color:#f92672>=</span> boto3<span style=color:#f92672>.</span>client(<span style=color:#e6db74>&#39;s3&#39;</span>)
 client<span style=color:#f92672>.</span>delete_object(Bucket<span style=color:#f92672>=</span>AWS_BUCKET_NAME, Key<span style=color:#f92672>=</span>key_name)
 </code></pre></div><p>output</p>
 <p>aws configure 설정되지 않을 경우 error가 발생한다.</p>
@@ -318,7 +317,7 @@ Default region name <span style=color:#f92672>[</span>None<span style=color:#f92
 Default output format <span style=color:#f92672>[</span>None<span style=color:#f92672>]</span>:
 </code></pre></div><h4 id=방법2>방법2</h4>
 <p>awscli를 설치하지 않고 별도로 credentials를 지정할 수 있다.</p>
-<p>AWS에서는 해당 credentials을 바라보는 경로로 <code>~/.aws/</code> 디렉토리가 있습니다.</p>
+<p>AWS 에서 해당 credentials을 <code>~/.aws/</code> 디렉토리에 저장한다.</p>
 <p><code>credentials</code></p>
 <pre tabindex=0><code>[default]
 aws_access_key_id = Access Key ID
