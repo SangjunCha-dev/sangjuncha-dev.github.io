@@ -346,12 +346,12 @@ swagger 실행후 웹브라우저에서 `localhost:8000/swagger/` 주소로 접�
 
 ![](../images/django-swagger/django-swagger-2.png?raw=true)
 
-각 url class view에서 지정한 메소드들이 표시된다.
+각 url class view에서 지정한 메서드들이 표시된다.
 
 ---
 
 
-## 4. Swagger API 입력값 지정
+## 4. Swagger API request 지정
 
 swagger api 메소드에서 특정 입력값을 받기 위해서는 `@swagger_auto_schema` 데코레이터를 지정해야한다.
 
@@ -456,7 +456,48 @@ class MusicView(APIView):
 ---
 
 
-## 5. 예시 코드 Git 
+## 5. Swagger API response 지정
+
+swagger api 메소드에서 특정 입력값 및 반환형식 지정은 `@swagger_auto_schema` 데코레이터를 사용한다.
+
+### 5.1. responses
+
+- `swagger` 에서 자동으로 HTTP 응답코드에 따른 response 형식을 생성한다.
+- 하지만 상황에 따라 데이터 처리에 사용한 시리얼라이저와 반환값의 형식이 맞지 않는 경우가 생긴다. 
+- 이럴때 해당 클래스 메서드에 `responses` 를 지정하여 HTTP 응답코드에 따른 response 형식을 직접 지정 할 수 있다.
+
+```
+from drf_yasg import openapi
+...
+
+music_list_response = openapi.Response('', MusicSerializer(many=True))
+
+class MusicListView(APIView):
+    @swagger_auto_schema(responses={200: music_list_response})
+    def get(self, request):
+        serializer = MusicSerializer(Musics.objects.all(), many=True)
+
+        response = Response(data=serializer.data)
+        return response
+    ...
+```
+
+responses 적용 전
+
+![](../images/django-swagger/django-swagger-6.png?raw=true)
+
+responses 적용 후
+
+![](../images/django-swagger/django-swagger-7.png?raw=true)
+
+지정한 MusicSerializer 형식의 list 형태로 `Swagger Response` 형식이 지정된다.
+
+TIP
+
+> `Swagger Serializer`와 `데이터 처리 Serializer`를 구분하여 작성하는것이 나중에 유지관리를 위해서 편리하다.  
+
+
+## 6. 예시 코드 Git 
 
 - [django-swagger](https://github.com/SangjunCha-dev/django_swagger)
 
