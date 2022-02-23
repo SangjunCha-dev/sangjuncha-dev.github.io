@@ -86,6 +86,27 @@ Sangjun 개발 블로그</a>
 <div class="content container-fluid" id=content>
 <div class="container-fluid post-card-holder" id=post-card-holder>
 <div class=post-card>
+<a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ class=post-card-link>
+<div class=card>
+<div class=card-head>
+<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
+</div>
+<div class=card-body>
+<h5 class=card-title>python을 이용한 windows10 시스템 정보 및 사용량 모니터링</h5>
+<p class="card-text post-summary">운영체제 : windows 10
+설치환경 : python 3.8.8, powershell 7.1
+1. WMI WMI(Windows Management Instrumentation)는 Windows 시스템 관리를 위한 다양한 정보를 일관되게 표시하는 기술이다. WMI가 표시하는 정보의 양이 제한되어 있기 때문에 WMI 개체에 액세스하기 위한 PowerShell cmdlet인 Get-CimInstance 개체 가져오기 도구를 사용한다.
+해당 WMI 개체 정보 조회
+Get-CimInstance -ClassName (WMI 개체이름) | select * WMI 개체이름 정보 Win32_OperatingSystem 운영체제 및 메모리 정보 Win32_Processor CPU 정보 Win32_PhysicalMemory 물리 메모리 정보 Win32_DiskDrive 물리 디스크 정보 Win32_LogicalDisk 논리 디스크 정보 Win32_VideoController 그래픽카드 정보 Get-CimInstance 옵션 매개변수로 Select-Object사용하면 WMI 클래스 인스턴스에서 반환되는 속성을 선택할 수 있다.</p>
+</div>
+<div class=card-footer>
+<span class=float-left>June 16, 2021</span>
+<a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ class="float-right btn btn-outline-info btn-sm">Read</a>
+</div>
+</div>
+</a>
+</div>
+<div class=post-card>
 <a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-performance/ class=post-card-link>
 <div class=card>
 <div class=card-head>
@@ -305,26 +326,6 @@ from pyftpdlib.authorizers import DummyAuthorizer # 사용자 인증을 생성�
 </div>
 </a>
 </div>
-<div class=post-card>
-<a href=/posts/programming/python/2020-11-05-python-magic-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>libmagic 라이브러리 사용법 (libmagic Library Guide)</h5>
-<p class="card-text post-summary">미디어 타입(media type), MIME 타입(MIME type)
-1. 라이브러리 설치 실행환경 : windows 10
-pip install libmagic pip install python-magic-bin 실행환경 : linux
-pip install libmagic pip install python-magic libmagic : 파일타입을 MIME 타입으로 확인해주는 라이브러리 python-magic-bin : 윈도우용 magic 라이브러리 python-magic : 리눅스용 magic 라이브러리 2. 예제 코드 import magic r1 = magic.from_file("test1.txt") r2 = magic.from_file("test1.txt", mime=True) print(f"filetype = {r1}, \nmime = {r2}") # filetype = UTF-8 Unicode text, with CRLF line terminators, # mime = text/plain file_data = open('test1.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>November 5, 2020</span>
-<a href=/posts/programming/python/2020-11-05-python-magic-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
 </div>
 <div class=paginator>
 <ul class="pagination pagination-default">
@@ -340,11 +341,14 @@ pip install libmagic pip install python-magic libmagic : 파일타입을 MIME �
 <li class="page-item active">
 <a aria-current=page aria-label="Page 2" class=page-link role=button>2</a>
 </li>
-<li class="page-item disabled">
-<a aria-disabled=true aria-label=Next class=page-link role=button tabindex=-1><span aria-hidden=true>&#187;</span></a>
+<li class=page-item>
+<a href=/posts/programming/page/3/ aria-label="Page 3" class=page-link role=button>3</a>
 </li>
-<li class="page-item disabled">
-<a aria-disabled=true aria-label=Last class=page-link role=button tabindex=-1><span aria-hidden=true>&#187;&#187;</span></a>
+<li class=page-item>
+<a href=/posts/programming/page/3/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
+</li>
+<li class=page-item>
+<a href=/posts/programming/page/3/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
 </li>
 </ul>
 </div>
