@@ -8,17 +8,23 @@ section:
   template: sections/about.html
 
 # your designation
-designation: Software Backend Developer
+designation: Backend Engineer
 # your company information
 # company:
 #   name: Example Co.
 #   url: "https://www.example.com"
 
 # your resume. this file path should be relative to you "static" directory
-# resume: "files/resume.pdf"
+# resume: ""
 
 # a summary about you
-summary: 'I am a passionate software backend developer with 2 years of working experience.'
+summary: "필요에 따라 언어를 배워가고 있는 백앤드 주니어 개발자입니다.\n
+
+개발 코드 중에 개선될 점이 있다면 효율성과 가독성이 좋은 코드로 고치는 일을 좋아해 성능 개선에 관심이 있고, 배우는 것을 좋아합니다.\n
+
+IT 보안 전공에 보안업계에서 일하다가 개발자를 하게 되어 보안적 관점도 고려하면서 개발합니다.\n
+
+현재 python, golang 다음으로 java spring boot 를 배우고 있습니다."
 
 # your social links
 # give as many as you want. use font-awesome for the icons.
@@ -26,6 +32,9 @@ socialLinks:
 - name: Github
   icon: "fab fa-github"
   url: "https://www.github.com/sangjuncha-dev"
+- name: resume(이력서)
+  icon: "fas fa-envelope-open-text"
+  url: "https://principled-shoemaker-900.notion.site/Cha-Sangjun-2e5582b1988d49af9117101bc1abf0c5"
 
 # your soft skills
 # give the percentage between 50 to 100 with 5 intervals.
