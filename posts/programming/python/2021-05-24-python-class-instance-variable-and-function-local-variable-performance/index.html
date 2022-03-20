@@ -1,289 +1,81 @@
-<!doctype html><html>
-<head>
-<title>클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="ie=edge">
-<link rel=stylesheet href=/css/bootstrap.min.css>
-<link rel=stylesheet href=/css/layouts/main.css>
-<link rel=stylesheet href=/css/navigators/navbar.css>
-<link rel=stylesheet href=/css/plyr.css>
-<link rel=stylesheet href=/css/flag-icon.min.css>
-<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
-<meta property="og:title" content="클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이">
-<meta property="og:description" content="클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://sangjuncha-dev.github.io/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-performance/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-05-24T10:34:10+09:00">
-<meta property="article:modified_time" content="2021-05-24T10:34:10+09:00">
-<meta name=description content="클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이">
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
-<link rel=stylesheet href=/css/layouts/single.css>
-<link rel=stylesheet href=/css/navigators/sidebar.css>
-<link rel=stylesheet href=/css/style.css>
-</head>
-<body data-spy=scroll data-target=#TableOfContents data-offset=80>
-<div class="container-fluid bg-dimmed wrapper">
-<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
-<div class=container>
-<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
-<span class=navbar-toggler-icon></span>
-</button>
-<a class=navbar-brand href=/>
-Sangjun 개발 블로그</a>
+<!doctype html><html><head><title>클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/layouts/main.css><link rel=stylesheet href=/css/navigators/navbar.css><link rel=stylesheet href=/css/plyr.css><link rel=stylesheet href=/css/flag-icon.min.css><link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css><meta property="og:title" content="클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이"><meta property="og:description" content="클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이"><meta property="og:type" content="article"><meta property="og:url" content="https://sangjuncha-dev.github.io/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-performance/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-05-24T10:34:10+09:00"><meta property="article:modified_time" content="2021-05-24T10:34:10+09:00"><meta name=description content="클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css><link rel=stylesheet href=/css/layouts/single.css><link rel=stylesheet href=/css/navigators/sidebar.css><link rel=stylesheet href=/css/style.css></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span></button>
+<a class=navbar-brand href=/>Sangjun 개발 블로그</a>
 <button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
-<ul class="navbar-nav ml-auto">
-</ul>
-</div>
-</div>
-</nav>
-<section class=sidebar-section id=sidebar-section>
-<div class=sidebar-holder>
-<div class=sidebar id=sidebar>
-<form class=mx-auto method=get action=/search>
-<input type=text name=keyword placeholder=Search data-search id=search-box>
-</form>
-<div class=sidebar-tree>
-<ul class=tree id=tree>
-<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
-<div class=subtree>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
-<ul>
-<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
-<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
-</ul>
-</li>
-<li><a href=/posts/db/ title=db>db</a></li>
-<li><a href=/posts/docker/ title=docker>docker</a></li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
-<ul>
-<li><a href=/posts/framework/django/ title=django>django</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
-<ul>
-<li><a href=/posts/os/linux/ title=linux>linux</a></li>
-<li><a href=/posts/os/windows/ title=windows>windows</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a>
-<ul class=active>
-<li><a href=/posts/programming/golang/ title=golang>golang</a></li>
-<li><a class=active href=/posts/programming/python/ title=python>python</a></li>
-</ul>
-</li>
-</div>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class=content-section id=content-section>
-<div class=content>
-<div class="container p-0 read-area">
-<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)>
-</div>
-<div class=page-content>
-<div class="author-profile ml-auto align-self-lg-center">
-<img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image">
-<h5 class=author-name>Sangjun</h5>
-<p>May 24, 2021</p>
-</div>
-<div class=title>
-<h1>클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이</h1>
-</div>
-<div class=post-content id=post-content>
-<hr>
-<p>설치버전 : python 3.8.8</p>
-<h2 id=1-클래스-인스턴스-변수self와-함수-매개변수-처리속도-차이>1. 클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이</h2>
-<h3 id=11-예제-코드>1.1. 예제 코드</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> timeit
-
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CheckTime</span>:
-    <span style=color:#66d9ef>def</span> __init__(self):
-        self<span style=color:#f92672>.</span>a <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
-        self<span style=color:#f92672>.</span>b <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
-        self<span style=color:#f92672>.</span>c <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
-
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>process_self</span>(self):
-        self<span style=color:#f92672>.</span>a <span style=color:#f92672>+</span> self<span style=color:#f92672>.</span>b <span style=color:#f92672>+</span> self<span style=color:#f92672>.</span>c
-
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>process_argument</span>(self, a, b, c):
-        a <span style=color:#f92672>+</span> b <span style=color:#f92672>+</span> c
-
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_time</span>(self):
-        self<span style=color:#f92672>.</span>a <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
-        self<span style=color:#f92672>.</span>b <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>
-        self<span style=color:#f92672>.</span>c <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>
-
-        <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test1</span>():
-            self<span style=color:#f92672>.</span>process_self()
-        process_self_time <span style=color:#f92672>=</span> timeit<span style=color:#f92672>.</span>Timer(stmt<span style=color:#f92672>=</span>test1)<span style=color:#f92672>.</span>repeat(number<span style=color:#f92672>=</span><span style=color:#ae81ff>1000000</span>)
-
-        a <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>a
-        b <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>b
-        c <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>c
-        <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test2</span>():
-            self<span style=color:#f92672>.</span>process_argument(a, b, c)
-        process_argument_time <span style=color:#f92672>=</span> timeit<span style=color:#f92672>.</span>Timer(stmt<span style=color:#f92672>=</span>test2)<span style=color:#f92672>.</span>repeat(number<span style=color:#f92672>=</span><span style=color:#ae81ff>1000000</span>)
-
-        print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;Self value process = </span><span style=color:#e6db74>{</span>process_self_time<span style=color:#e6db74>}</span><span style=color:#e6db74> sec&#34;</span>)
-        print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;Argument value process = </span><span style=color:#e6db74>{</span>process_argument_time<span style=color:#e6db74>}</span><span style=color:#e6db74> sec&#34;</span>)
-
-checkTime <span style=color:#f92672>=</span> CheckTime()
-checkTime<span style=color:#f92672>.</span>get_time()
-</code></pre></div><h3 id=12-결과>1.2. 결과</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>Self value process <span style=color:#f92672>=</span> <span style=color:#f92672>[</span>0.1872074, 0.1858419, 0.1853262, 0.1846126, 0.1845041<span style=color:#f92672>]</span> sec
-Argument value process <span style=color:#f92672>=</span> <span style=color:#f92672>[</span>0.147073, 0.1466343, 0.1458009, 0.1452553, 0.1468781<span style=color:#f92672>]</span> sec
-</code></pre></div><p>결론 : 함수 매개변수는 클래스 인스턴스 변수를 사용하는 것보다 약 35 % 빠름</p>
-<p>이유</p>
-<ul>
-<li>사전 조회없이 위치 인수를 전달하고 액세스 할 수 있기 때문이다.</li>
-<li>클래스 인스턴스 변수에는 할당과 액세스 모두에 대한 사전 검색이 필요하다.</li>
-<li>함수 매개변수는 이름으로 색인이 지정된 사전이 아니라 배열에 저장되고 색인으로 액세스된다.</li>
-</ul>
-<h2 id=2-클래스-인스턴스-변수self와-함수-로컬변수-처리속도-차이>2. 클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도 차이</h2>
-<h3 id=21-예제-코드>2.1. 예제 코드</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> timeit
-
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CheckTime</span>:
-    <span style=color:#66d9ef>def</span> __init__(self):
-        self<span style=color:#f92672>.</span>a <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
-        self<span style=color:#f92672>.</span>b <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
-        self<span style=color:#f92672>.</span>c <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
-
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_time</span>(self):
-        self<span style=color:#f92672>.</span>a <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
-        self<span style=color:#f92672>.</span>b <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>
-        self<span style=color:#f92672>.</span>c <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>
-
-        <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test1</span>():
-            <span style=color:#66d9ef>for</span> _ <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1000000</span>):
-                self<span style=color:#f92672>.</span>a <span style=color:#f92672>+</span> self<span style=color:#f92672>.</span>b <span style=color:#f92672>+</span> self<span style=color:#f92672>.</span>c
-        process_self_time <span style=color:#f92672>=</span> timeit<span style=color:#f92672>.</span>Timer(stmt<span style=color:#f92672>=</span>test1)<span style=color:#f92672>.</span>repeat(number<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>)
-
-        a <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>a
-        b <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>b
-        c <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>c
-        <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test2</span>():
-            <span style=color:#66d9ef>for</span> _ <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1000000</span>):
-                a <span style=color:#f92672>+</span> b <span style=color:#f92672>+</span> c
-        process_argument_time <span style=color:#f92672>=</span> timeit<span style=color:#f92672>.</span>Timer(stmt<span style=color:#f92672>=</span>test2)<span style=color:#f92672>.</span>repeat(number<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>)
-
-        print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;Self value process = </span><span style=color:#e6db74>{</span>process_self_time<span style=color:#e6db74>}</span><span style=color:#e6db74> sec&#34;</span>)
-        print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;Argument value process = </span><span style=color:#e6db74>{</span>process_argument_time<span style=color:#e6db74>}</span><span style=color:#e6db74> sec&#34;</span>)
-
-checkTime <span style=color:#f92672>=</span> CheckTime()
-checkTime<span style=color:#f92672>.</span>get_time()
-</code></pre></div><h3 id=22-결과>2.2. 결과</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>Self value process <span style=color:#f92672>=</span> <span style=color:#f92672>[</span>0.0758095, 0.0757394, 0.0756023, 0.0746107, 0.0749142<span style=color:#f92672>]</span> sec
-Argument value process <span style=color:#f92672>=</span> <span style=color:#f92672>[</span>0.0332198, 0.0332008, 0.0332592, 0.0331674, 0.0332719<span style=color:#f92672>]</span> sec
-</code></pre></div><p>결론 : 함수 로컬변수는 클래스 인스턴스 변수를 사용하는 것보다 약 120 % 빠름</p>
-<p>이유 : 클래스 인스턴스 변수에는 할당과 액세스 모두에 대한 사전 검색이 필요하다.</p>
-<h2 id=참고reference>참고(Reference)</h2>
-<ul>
-<li><a href=https://www.python2.net/questions-819739.htm>python - 인스턴스 변수 및 함수 인수의 처리 속도</a></li>
-</ul>
-</div>
-<div class="row pl-3 pr-3">
-<div class="col-md-6 share-buttons">
-</div>
-<div class="col-md-6 btn-improve-page">
-<a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-performance.md title="이 페이지를 개선" target=_blank rel=noopener>
-<i class="fas fa-code-branch"></i>
-이 페이지를 개선
-</a>
-</div>
-</div>
-<hr>
-<div class="row next-prev-navigator">
-</div>
-<hr>
-</div>
-</div>
-</div>
-<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
-</section>
-<section class=toc-section id=toc-section>
-<div class=toc-holder>
-<h5 class="text-center pl-3">목차</h5>
-<hr>
-<div class=toc>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#1-클래스-인스턴스-변수self와-함수-매개변수-처리속도-차이>1. 클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이</a>
-<ul>
-<li><a href=#11-예제-코드>1.1. 예제 코드</a></li>
-<li><a href=#12-결과>1.2. 결과</a></li>
-</ul>
-</li>
-<li><a href=#2-클래스-인스턴스-변수self와-함수-로컬변수-처리속도-차이>2. 클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도 차이</a>
-<ul>
-<li><a href=#21-예제-코드>2.1. 예제 코드</a></li>
-<li><a href=#22-결과>2.2. 결과</a></li>
-</ul>
-</li>
-<li><a href=#참고reference>참고(Reference)</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</section>
-</div>
-<footer class="container-fluid text-center align-content-center footer pb-2">
-<div class="container pt-5">
-<div class="row text-left">
-<div class="col-md-4 col-sm-12">
-<h5>바로가기</h5>
-<ul>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a>
-</li>
-</ul>
-</div>
-<div class="col-md-4 col-sm-12">
-<h5>Contact me:</h5>
-<ul>
-<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
-<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
-</a></li>
-</ul>
-</div>
-</div>
-</div>
-<hr>
-<div class=container>
-<div class="row text-left">
-<div class=col-md-4>
-<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
-<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
-Toha
-</a>
-</div>
-<div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div>
-<div class="col-md-4 text-right">
-<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
-<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
-</a>
-</div>
-</div>
-</div>
-</footer>
-<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse lang-selector" id=top-nav-items><ul class="navbar-nav ml-auto"></ul></div></div></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=Search data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/posts data-filter=all>게시글</a></li><div class=subtree><li><i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a><ul><li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li><li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li></ul></li><li><a href=/posts/db/ title=db>db</a></li><li><a href=/posts/docker/ title=docker>docker</a></li><li><i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a><ul><li><a href=/posts/framework/django/ title=django>django</a></li></ul></li><li><i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a><ul><li><a href=/posts/os/linux/ title=linux>linux</a></li><li><a href=/posts/os/windows/ title=windows>windows</a></li></ul></li><li><i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a><ul class=active><li><a href=/posts/programming/golang/ title=golang>golang</a></li><li><a class=active href=/posts/programming/python/ title=python>python</a></li></ul></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class=content><div class="container p-0 read-area"><div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)></div><div class=page-content><div class="author-profile ml-auto align-self-lg-center"><img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image"><h5 class=author-name>Sangjun</h5><p>May 24, 2021</p></div><div class=title><h1>클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이</h1></div><div class=post-content id=post-content><hr><p>설치버전 : python 3.8.8</p><h2 id=1-클래스-인스턴스-변수self와-함수-매개변수-처리속도-차이>1. 클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이</h2><h3 id=11-예제-코드>1.1. 예제 코드</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> timeit
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CheckTime</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> __init__(self):
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>a <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>b <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>c <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>process_self</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>a <span style=color:#f92672>+</span> self<span style=color:#f92672>.</span>b <span style=color:#f92672>+</span> self<span style=color:#f92672>.</span>c
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>process_argument</span>(self, a, b, c):
+</span></span><span style=display:flex><span>        a <span style=color:#f92672>+</span> b <span style=color:#f92672>+</span> c
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_time</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>a <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>b <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>c <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test1</span>():
+</span></span><span style=display:flex><span>            self<span style=color:#f92672>.</span>process_self()
+</span></span><span style=display:flex><span>        process_self_time <span style=color:#f92672>=</span> timeit<span style=color:#f92672>.</span>Timer(stmt<span style=color:#f92672>=</span>test1)<span style=color:#f92672>.</span>repeat(number<span style=color:#f92672>=</span><span style=color:#ae81ff>1000000</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        a <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>a
+</span></span><span style=display:flex><span>        b <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>b
+</span></span><span style=display:flex><span>        c <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>c
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test2</span>():
+</span></span><span style=display:flex><span>            self<span style=color:#f92672>.</span>process_argument(a, b, c)
+</span></span><span style=display:flex><span>        process_argument_time <span style=color:#f92672>=</span> timeit<span style=color:#f92672>.</span>Timer(stmt<span style=color:#f92672>=</span>test2)<span style=color:#f92672>.</span>repeat(number<span style=color:#f92672>=</span><span style=color:#ae81ff>1000000</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;Self value process = </span><span style=color:#e6db74>{</span>process_self_time<span style=color:#e6db74>}</span><span style=color:#e6db74> sec&#34;</span>)
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;Argument value process = </span><span style=color:#e6db74>{</span>process_argument_time<span style=color:#e6db74>}</span><span style=color:#e6db74> sec&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>checkTime <span style=color:#f92672>=</span> CheckTime()
+</span></span><span style=display:flex><span>checkTime<span style=color:#f92672>.</span>get_time()
+</span></span></code></pre></div><h3 id=12-결과>1.2. 결과</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>Self value process <span style=color:#f92672>=</span> <span style=color:#f92672>[</span>0.1872074, 0.1858419, 0.1853262, 0.1846126, 0.1845041<span style=color:#f92672>]</span> sec
+</span></span><span style=display:flex><span>Argument value process <span style=color:#f92672>=</span> <span style=color:#f92672>[</span>0.147073, 0.1466343, 0.1458009, 0.1452553, 0.1468781<span style=color:#f92672>]</span> sec
+</span></span></code></pre></div><p>결론 : 함수 매개변수는 클래스 인스턴스 변수를 사용하는 것보다 약 35 % 빠름</p><p>이유</p><ul><li>사전 조회없이 위치 인수를 전달하고 액세스 할 수 있기 때문이다.</li><li>클래스 인스턴스 변수에는 할당과 액세스 모두에 대한 사전 검색이 필요하다.</li><li>함수 매개변수는 이름으로 색인이 지정된 사전이 아니라 배열에 저장되고 색인으로 액세스된다.</li></ul><h2 id=2-클래스-인스턴스-변수self와-함수-로컬변수-처리속도-차이>2. 클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도 차이</h2><h3 id=21-예제-코드>2.1. 예제 코드</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> timeit
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CheckTime</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> __init__(self):
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>a <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>b <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>c <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_time</span>(self):
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>a <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>b <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>c <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test1</span>():
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> _ <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1000000</span>):
+</span></span><span style=display:flex><span>                self<span style=color:#f92672>.</span>a <span style=color:#f92672>+</span> self<span style=color:#f92672>.</span>b <span style=color:#f92672>+</span> self<span style=color:#f92672>.</span>c
+</span></span><span style=display:flex><span>        process_self_time <span style=color:#f92672>=</span> timeit<span style=color:#f92672>.</span>Timer(stmt<span style=color:#f92672>=</span>test1)<span style=color:#f92672>.</span>repeat(number<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        a <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>a
+</span></span><span style=display:flex><span>        b <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>b
+</span></span><span style=display:flex><span>        c <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>c
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test2</span>():
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> _ <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1000000</span>):
+</span></span><span style=display:flex><span>                a <span style=color:#f92672>+</span> b <span style=color:#f92672>+</span> c
+</span></span><span style=display:flex><span>        process_argument_time <span style=color:#f92672>=</span> timeit<span style=color:#f92672>.</span>Timer(stmt<span style=color:#f92672>=</span>test2)<span style=color:#f92672>.</span>repeat(number<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;Self value process = </span><span style=color:#e6db74>{</span>process_self_time<span style=color:#e6db74>}</span><span style=color:#e6db74> sec&#34;</span>)
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;Argument value process = </span><span style=color:#e6db74>{</span>process_argument_time<span style=color:#e6db74>}</span><span style=color:#e6db74> sec&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>checkTime <span style=color:#f92672>=</span> CheckTime()
+</span></span><span style=display:flex><span>checkTime<span style=color:#f92672>.</span>get_time()
+</span></span></code></pre></div><h3 id=22-결과>2.2. 결과</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>Self value process <span style=color:#f92672>=</span> <span style=color:#f92672>[</span>0.0758095, 0.0757394, 0.0756023, 0.0746107, 0.0749142<span style=color:#f92672>]</span> sec
+</span></span><span style=display:flex><span>Argument value process <span style=color:#f92672>=</span> <span style=color:#f92672>[</span>0.0332198, 0.0332008, 0.0332592, 0.0331674, 0.0332719<span style=color:#f92672>]</span> sec
+</span></span></code></pre></div><p>결론 : 함수 로컬변수는 클래스 인스턴스 변수를 사용하는 것보다 약 120 % 빠름</p><p>이유 : 클래스 인스턴스 변수에는 할당과 액세스 모두에 대한 사전 검색이 필요하다.</p><h2 id=참고reference>참고(Reference)</h2><ul><li><a href=https://www.python2.net/questions-819739.htm>python - 인스턴스 변수 및 함수 인수의 처리 속도</a></li></ul></div><div class="row pl-3 pr-3"><div class="col-md-6 share-buttons"></div><div class="col-md-6 btn-improve-page"><a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-performance.md title="이 페이지를 개선" target=_blank rel=noopener><i class="fas fa-code-branch"></i>
+이 페이지를 개선</a></div></div><hr><div class="row next-prev-navigator"></div><hr></div></div></div><a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a></section><section class=toc-section id=toc-section><div class=toc-holder><h5 class="text-center pl-3">목차</h5><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#1-클래스-인스턴스-변수self와-함수-매개변수-처리속도-차이>1. 클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이</a><ul><li><a href=#11-예제-코드>1.1. 예제 코드</a></li><li><a href=#12-결과>1.2. 결과</a></li></ul></li><li><a href=#2-클래스-인스턴스-변수self와-함수-로컬변수-처리속도-차이>2. 클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도 차이</a><ul><li><a href=#21-예제-코드>2.1. 예제 코드</a></li><li><a href=#22-결과>2.2. 결과</a></li></ul></li><li><a href=#참고reference>참고(Reference)</a></li></ul></nav></div></div></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>바로가기</h5><ul><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>Contact me:</h5><ul><li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-left"><div class=col-md-4><a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener><img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha</a></div><div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div><div class="col-md-4 text-right"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
 <script type=text/javascript src=/js/popper.min.js></script>
 <script type=text/javascript src=/js/bootstrap.min.js></script>
 <script type=text/javascript src=/js/navbar.js></script>
@@ -291,6 +83,4 @@ Toha
 <script type=text/javascript src=/js/main.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
 <script src=/js/single.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script></body></html>

@@ -1,306 +1,97 @@
-<!doctype html><html>
-<head>
-<title>golang db nullable 데이터 처리</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="ie=edge">
-<link rel=stylesheet href=/css/bootstrap.min.css>
-<link rel=stylesheet href=/css/layouts/main.css>
-<link rel=stylesheet href=/css/navigators/navbar.css>
-<link rel=stylesheet href=/css/plyr.css>
-<link rel=stylesheet href=/css/flag-icon.min.css>
-<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
-<meta property="og:title" content="golang db nullable 데이터 처리">
-<meta property="og:description" content="golang db nullable 데이터 처리">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://sangjuncha-dev.github.io/posts/programming/golang/2021-12-23-golang-db-nullable-value/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-12-23T16:39:22+09:00">
-<meta property="article:modified_time" content="2021-12-23T16:39:22+09:00">
-<meta name=description content="golang db nullable 데이터 처리">
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
-<link rel=stylesheet href=/css/layouts/single.css>
-<link rel=stylesheet href=/css/navigators/sidebar.css>
-<link rel=stylesheet href=/css/style.css>
-</head>
-<body data-spy=scroll data-target=#TableOfContents data-offset=80>
-<div class="container-fluid bg-dimmed wrapper">
-<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
-<div class=container>
-<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
-<span class=navbar-toggler-icon></span>
-</button>
-<a class=navbar-brand href=/>
-Sangjun 개발 블로그</a>
+<!doctype html><html><head><title>golang db nullable 데이터 처리</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/layouts/main.css><link rel=stylesheet href=/css/navigators/navbar.css><link rel=stylesheet href=/css/plyr.css><link rel=stylesheet href=/css/flag-icon.min.css><link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css><meta property="og:title" content="golang db nullable 데이터 처리"><meta property="og:description" content="golang db nullable 데이터 처리"><meta property="og:type" content="article"><meta property="og:url" content="https://sangjuncha-dev.github.io/posts/programming/golang/2021-12-23-golang-db-nullable-value/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-12-23T16:39:22+09:00"><meta property="article:modified_time" content="2021-12-23T16:39:22+09:00"><meta name=description content="golang db nullable 데이터 처리"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css><link rel=stylesheet href=/css/layouts/single.css><link rel=stylesheet href=/css/navigators/sidebar.css><link rel=stylesheet href=/css/style.css></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span></button>
+<a class=navbar-brand href=/>Sangjun 개발 블로그</a>
 <button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
-<ul class="navbar-nav ml-auto">
-</ul>
-</div>
-</div>
-</nav>
-<section class=sidebar-section id=sidebar-section>
-<div class=sidebar-holder>
-<div class=sidebar id=sidebar>
-<form class=mx-auto method=get action=/search>
-<input type=text name=keyword placeholder=Search data-search id=search-box>
-</form>
-<div class=sidebar-tree>
-<ul class=tree id=tree>
-<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
-<div class=subtree>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
-<ul>
-<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
-<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
-</ul>
-</li>
-<li><a href=/posts/db/ title=db>db</a></li>
-<li><a href=/posts/docker/ title=docker>docker</a></li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
-<ul>
-<li><a href=/posts/framework/django/ title=django>django</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
-<ul>
-<li><a href=/posts/os/linux/ title=linux>linux</a></li>
-<li><a href=/posts/os/windows/ title=windows>windows</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a>
-<ul class=active>
-<li><a class=active href=/posts/programming/golang/ title=golang>golang</a></li>
-<li><a href=/posts/programming/python/ title=python>python</a></li>
-</ul>
-</li>
-</div>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class=content-section id=content-section>
-<div class=content>
-<div class="container p-0 read-area">
-<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)>
-</div>
-<div class=page-content>
-<div class="author-profile ml-auto align-self-lg-center">
-<img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image">
-<h5 class=author-name>Sangjun</h5>
-<p>December 23, 2021</p>
-</div>
-<div class=title>
-<h1>golang db nullable 데이터 처리</h1>
-</div>
-<div class=post-content id=post-content>
-<hr>
-<p>golang에서는 타입별로 정해진 <code>zero value</code>가 있는데, DB colume 타입의 <code>zero value</code>와 맞지 않을 때 다음과 에러가 발생한다.</p>
-<pre tabindex=0><code>panic: sql: Scan error on column index : converting NULL to string is unsupported
-</code></pre><p>각 타입별 zero value</p>
-<ul>
-<li>문자열 타입 string : ""</li>
-<li>부울린 타입 boolean : false</li>
-<li>정수형, Float등 숫자형 타입 : 0</li>
-<li>기타 타입 : nil</li>
-</ul>
-<hr>
-<h2 id=1-사전환경>1. 사전환경</h2>
-<p>아래의 글을 진행했다는 가정에서 설명한다.</p>
-<p><a href=https://sangjuncha-dev.github.io/posts/programming/golang/2021-12-16-golang-postgredb-crud/>golang postgreDB CURD</a></p>
-<hr>
-<h2 id=2-에러가-발생한-코드>2. 에러가 발생한 코드</h2>
-<p>기존에 작성한 코드에서 Update 함수의 <code>name</code> 부분을 <code>nil</code> 값으로 수정하여 실행한다.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>Read</span>(<span style=color:#a6e22e>userId</span> <span style=color:#66d9ef>int</span>) {
-	<span style=color:#a6e22e>sqlStatement</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>`SELECT &#34;id&#34;, &#34;name&#34;, &#34;age&#34; FROM &#34;user_test&#34; WHERE $1 = &#34;id&#34;`</span>
-	<span style=color:#a6e22e>rows</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Query</span>(<span style=color:#a6e22e>sqlStatement</span>, <span style=color:#a6e22e>userId</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		panic(<span style=color:#a6e22e>err</span>)
-	}
-	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>Close</span>()
-
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>id</span> <span style=color:#66d9ef>int</span>
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>name</span> <span style=color:#66d9ef>string</span>
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>age</span> <span style=color:#66d9ef>int</span>
-	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>Next</span>() {
-		<span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>Scan</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>id</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>name</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>age</span>)  <span style=color:#75715e>// name 타입 에러 발생
-</span><span style=color:#75715e></span>		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-			panic(<span style=color:#a6e22e>err</span>)
-		}
-
-		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;[Read] id: %d, name: %v, age: %d\n&#34;</span>, <span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>name</span>, <span style=color:#a6e22e>age</span>)
-	}
-}
-
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>Update</span>(<span style=color:#a6e22e>id</span> <span style=color:#66d9ef>int64</span>, <span style=color:#a6e22e>user</span> <span style=color:#a6e22e>User</span>) {
-	<span style=color:#a6e22e>sqlStatement</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>`UPDATE user_test SET name=$2, age=$3 WHERE id=$1`</span>
-
-	<span style=color:#a6e22e>res</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Exec</span>(<span style=color:#a6e22e>sqlStatement</span>, <span style=color:#a6e22e>id</span>, <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>Age</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		panic(<span style=color:#a6e22e>err</span>)
-	}
-
-	<span style=color:#a6e22e>rowsAffected</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>RowsAffected</span>()
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		panic(<span style=color:#a6e22e>err</span>)
-	}
-
-	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;[Update] Total rows/record affected %v\n&#34;</span>, <span style=color:#a6e22e>rowsAffected</span>)
-}
-
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-	<span style=color:#a6e22e>InitDB</span>()
-
-    <span style=color:#a6e22e>Create</span>(<span style=color:#e6db74>&#34;foo&#34;</span>, <span style=color:#ae81ff>10</span>)
-    <span style=color:#a6e22e>Update</span>(<span style=color:#ae81ff>1</span>, <span style=color:#a6e22e>User</span>{<span style=color:#a6e22e>Age</span>: <span style=color:#ae81ff>20</span>})
-	<span style=color:#a6e22e>Read</span>(<span style=color:#ae81ff>1</span>)
-
-	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Close</span>()
-}
-</code></pre></div><p>데이터 수정후 해당 데이터를 조회하면 아래와 같은 에러가 발생한다.</p>
-<p>golang에서는 타입별로 정해진 <code>zero value</code>와, DB colume 타입의 <code>zero value</code>와 맞지 않아서 발생한 에러이다.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&gt; go run main.go
-<span style=color:#f92672>[</span>Update<span style=color:#f92672>]</span> Total rows/record affected <span style=color:#ae81ff>1</span>
-panic: sql: Scan error on column index 1, name <span style=color:#e6db74>&#34;name&#34;</span>: converting NULL to string is unsupported
-</code></pre></div><hr>
-<h2 id=3-문제-해결한-코드>3. 문제 해결한 코드</h2>
-<p><code>database/sql</code> 패키지의 Null*자료형을 사용한다.<br>
-<code>Null* 자료형</code>은 zerovalue가 <code>null</code>값이 아닌 기본 자료형을 지원한다.</p>
-<ul>
-<li><code>sql.NullString</code> : null 유무가 포함된 문자열 타입</li>
-<li><code>sql.NullString.Valid</code>: null값이면 false, 아니면 true 값을 가진다.</li>
-<li><code>sql.NullString.String</code>: 해당 변수의 문자열 값이다.</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>Read</span>(<span style=color:#a6e22e>userId</span> <span style=color:#66d9ef>int</span>) {
-	<span style=color:#a6e22e>sqlStatement</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>`SELECT &#34;id&#34;, &#34;name&#34;, &#34;age&#34; FROM &#34;user_test&#34; WHERE $1 = &#34;id&#34;`</span>
-	<span style=color:#a6e22e>rows</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Query</span>(<span style=color:#a6e22e>sqlStatement</span>, <span style=color:#a6e22e>userId</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		panic(<span style=color:#a6e22e>err</span>)
-	}
-	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>Close</span>()
-
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>id</span> <span style=color:#66d9ef>int</span>
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>name</span> <span style=color:#a6e22e>sql</span>.<span style=color:#a6e22e>NullString</span>
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>age</span> <span style=color:#66d9ef>int</span>
-	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>Next</span>() {
-		<span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>Scan</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>id</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>name</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>age</span>)
-		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-			panic(<span style=color:#a6e22e>err</span>)
-		}
-
-		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>name</span>.<span style=color:#a6e22e>Valid</span> {
-			<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;[Read] id: %d, name: %v, age: %d\n&#34;</span>, <span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>name</span>.<span style=color:#a6e22e>String</span>, <span style=color:#a6e22e>age</span>)
-		} <span style=color:#66d9ef>else</span> {
-			<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;[Read] id: %d, name: %v, age: %d\n&#34;</span>, <span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>name</span>, <span style=color:#a6e22e>age</span>)
-		}
-	}
-}
-
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-	<span style=color:#a6e22e>InitDB</span>()
-
-	<span style=color:#a6e22e>Read</span>(<span style=color:#ae81ff>1</span>)
-	<span style=color:#a6e22e>Read</span>(<span style=color:#ae81ff>2</span>)
-
-	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Close</span>()
-}
-</code></pre></div><p><code>.Valid</code> 조건문을 통해 <code>nil</code>값에 대한 필터링을 하거나 별도로 처리할 수 있다.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&gt; go run main.go
-<span style=color:#f92672>[</span>Read<span style=color:#f92672>]</span> id: 1, name: <span style=color:#f92672>{</span> false<span style=color:#f92672>}</span>, age: <span style=color:#ae81ff>20</span>
-<span style=color:#f92672>[</span>Read<span style=color:#f92672>]</span> id: 2, name: bar, age: <span style=color:#ae81ff>20</span>
-</code></pre></div><hr>
-<h2 id=4-예시코드-git>4. 예시코드 Git</h2>
-<p><a href=https://github.com/SangjunCha-dev/blog/tree/main/golang/golang-db-nullable-value>golang-db-nullable-value</a></p>
-</div>
-<div class="row pl-3 pr-3">
-<div class="col-md-6 share-buttons">
-</div>
-<div class="col-md-6 btn-improve-page">
-<a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/programming/golang/2021-12-23-Golang-db-nullable-value.md title="이 페이지를 개선" target=_blank rel=noopener>
-<i class="fas fa-code-branch"></i>
-이 페이지를 개선
-</a>
-</div>
-</div>
-<hr>
-<div class="row next-prev-navigator">
-</div>
-<hr>
-</div>
-</div>
-</div>
-<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
-</section>
-<section class=toc-section id=toc-section>
-<div class=toc-holder>
-<h5 class="text-center pl-3">목차</h5>
-<hr>
-<div class=toc>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#1-사전환경>1. 사전환경</a></li>
-<li><a href=#2-에러가-발생한-코드>2. 에러가 발생한 코드</a></li>
-<li><a href=#3-문제-해결한-코드>3. 문제 해결한 코드</a></li>
-<li><a href=#4-예시코드-git>4. 예시코드 Git</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</section>
-</div>
-<footer class="container-fluid text-center align-content-center footer pb-2">
-<div class="container pt-5">
-<div class="row text-left">
-<div class="col-md-4 col-sm-12">
-<h5>바로가기</h5>
-<ul>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a>
-</li>
-</ul>
-</div>
-<div class="col-md-4 col-sm-12">
-<h5>Contact me:</h5>
-<ul>
-<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
-<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
-</a></li>
-</ul>
-</div>
-</div>
-</div>
-<hr>
-<div class=container>
-<div class="row text-left">
-<div class=col-md-4>
-<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
-<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
-Toha
-</a>
-</div>
-<div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div>
-<div class="col-md-4 text-right">
-<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
-<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
-</a>
-</div>
-</div>
-</div>
-</footer>
-<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse lang-selector" id=top-nav-items><ul class="navbar-nav ml-auto"></ul></div></div></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=Search data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/posts data-filter=all>게시글</a></li><div class=subtree><li><i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a><ul><li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li><li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li></ul></li><li><a href=/posts/db/ title=db>db</a></li><li><a href=/posts/docker/ title=docker>docker</a></li><li><i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a><ul><li><a href=/posts/framework/django/ title=django>django</a></li></ul></li><li><i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a><ul><li><a href=/posts/os/linux/ title=linux>linux</a></li><li><a href=/posts/os/windows/ title=windows>windows</a></li></ul></li><li><i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a><ul class=active><li><a class=active href=/posts/programming/golang/ title=golang>golang</a></li><li><a href=/posts/programming/python/ title=python>python</a></li></ul></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class=content><div class="container p-0 read-area"><div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)></div><div class=page-content><div class="author-profile ml-auto align-self-lg-center"><img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image"><h5 class=author-name>Sangjun</h5><p>December 23, 2021</p></div><div class=title><h1>golang db nullable 데이터 처리</h1></div><div class=post-content id=post-content><hr><p>golang에서는 타입별로 정해진 <code>zero value</code>가 있는데, DB colume 타입의 <code>zero value</code>와 맞지 않을 때 다음과 에러가 발생한다.</p><pre tabindex=0><code>panic: sql: Scan error on column index : converting NULL to string is unsupported
+</code></pre><p>각 타입별 zero value</p><ul><li>문자열 타입 string : ""</li><li>부울린 타입 boolean : false</li><li>정수형, Float등 숫자형 타입 : 0</li><li>기타 타입 : nil</li></ul><hr><h2 id=1-사전환경>1. 사전환경</h2><p>아래의 글을 진행했다는 가정에서 설명한다.</p><p><a href=https://sangjuncha-dev.github.io/posts/programming/golang/2021-12-16-golang-postgredb-crud/>golang postgreDB CURD</a></p><hr><h2 id=2-에러가-발생한-코드>2. 에러가 발생한 코드</h2><p>기존에 작성한 코드에서 Update 함수의 <code>name</code> 부분을 <code>nil</code> 값으로 수정하여 실행한다.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>Read</span>(<span style=color:#a6e22e>userId</span> <span style=color:#66d9ef>int</span>) {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>sqlStatement</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>`SELECT &#34;id&#34;, &#34;name&#34;, &#34;age&#34; FROM &#34;user_test&#34; WHERE $1 = &#34;id&#34;`</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>rows</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Query</span>(<span style=color:#a6e22e>sqlStatement</span>, <span style=color:#a6e22e>userId</span>)
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>		panic(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>Close</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>id</span> <span style=color:#66d9ef>int</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>name</span> <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>age</span> <span style=color:#66d9ef>int</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>Next</span>() {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>Scan</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>id</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>name</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>age</span>)  <span style=color:#75715e>// name 타입 에러 발생
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>			panic(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;[Read] id: %d, name: %v, age: %d\n&#34;</span>, <span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>name</span>, <span style=color:#a6e22e>age</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>Update</span>(<span style=color:#a6e22e>id</span> <span style=color:#66d9ef>int64</span>, <span style=color:#a6e22e>user</span> <span style=color:#a6e22e>User</span>) {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>sqlStatement</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>`UPDATE user_test SET name=$2, age=$3 WHERE id=$1`</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>res</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Exec</span>(<span style=color:#a6e22e>sqlStatement</span>, <span style=color:#a6e22e>id</span>, <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>Age</span>)
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>		panic(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>rowsAffected</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>RowsAffected</span>()
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>		panic(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;[Update] Total rows/record affected %v\n&#34;</span>, <span style=color:#a6e22e>rowsAffected</span>)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>InitDB</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>Create</span>(<span style=color:#e6db74>&#34;foo&#34;</span>, <span style=color:#ae81ff>10</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>Update</span>(<span style=color:#ae81ff>1</span>, <span style=color:#a6e22e>User</span>{<span style=color:#a6e22e>Age</span>: <span style=color:#ae81ff>20</span>})
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Read</span>(<span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Close</span>()
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>데이터 수정후 해당 데이터를 조회하면 아래와 같은 에러가 발생한다.</p><p>golang에서는 타입별로 정해진 <code>zero value</code>와, DB colume 타입의 <code>zero value</code>와 맞지 않아서 발생한 에러이다.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>&gt; go run main.go
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Update<span style=color:#f92672>]</span> Total rows/record affected <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>panic: sql: Scan error on column index 1, name <span style=color:#e6db74>&#34;name&#34;</span>: converting NULL to string is unsupported
+</span></span></code></pre></div><hr><h2 id=3-문제-해결한-코드>3. 문제 해결한 코드</h2><p><code>database/sql</code> 패키지의 Null*자료형을 사용한다.<br><code>Null* 자료형</code>은 zerovalue가 <code>null</code>값이 아닌 기본 자료형을 지원한다.</p><ul><li><code>sql.NullString</code> : null 유무가 포함된 문자열 타입</li><li><code>sql.NullString.Valid</code>: null값이면 false, 아니면 true 값을 가진다.</li><li><code>sql.NullString.String</code>: 해당 변수의 문자열 값이다.</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>Read</span>(<span style=color:#a6e22e>userId</span> <span style=color:#66d9ef>int</span>) {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>sqlStatement</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>`SELECT &#34;id&#34;, &#34;name&#34;, &#34;age&#34; FROM &#34;user_test&#34; WHERE $1 = &#34;id&#34;`</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>rows</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Query</span>(<span style=color:#a6e22e>sqlStatement</span>, <span style=color:#a6e22e>userId</span>)
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>		panic(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>Close</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>id</span> <span style=color:#66d9ef>int</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>name</span> <span style=color:#a6e22e>sql</span>.<span style=color:#a6e22e>NullString</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>age</span> <span style=color:#66d9ef>int</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>Next</span>() {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>Scan</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>id</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>name</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>age</span>)
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>			panic(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>name</span>.<span style=color:#a6e22e>Valid</span> {
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;[Read] id: %d, name: %v, age: %d\n&#34;</span>, <span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>name</span>.<span style=color:#a6e22e>String</span>, <span style=color:#a6e22e>age</span>)
+</span></span><span style=display:flex><span>		} <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;[Read] id: %d, name: %v, age: %d\n&#34;</span>, <span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>name</span>, <span style=color:#a6e22e>age</span>)
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>InitDB</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Read</span>(<span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Read</span>(<span style=color:#ae81ff>2</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Close</span>()
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><code>.Valid</code> 조건문을 통해 <code>nil</code>값에 대한 필터링을 하거나 별도로 처리할 수 있다.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>&gt; go run main.go
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Read<span style=color:#f92672>]</span> id: 1, name: <span style=color:#f92672>{</span> false<span style=color:#f92672>}</span>, age: <span style=color:#ae81ff>20</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Read<span style=color:#f92672>]</span> id: 2, name: bar, age: <span style=color:#ae81ff>20</span>
+</span></span></code></pre></div><hr><h2 id=4-예시코드-git>4. 예시코드 Git</h2><p><a href=https://github.com/SangjunCha-dev/blog/tree/main/golang/golang-db-nullable-value>golang-db-nullable-value</a></p></div><div class="row pl-3 pr-3"><div class="col-md-6 share-buttons"></div><div class="col-md-6 btn-improve-page"><a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/programming/golang/2021-12-23-Golang-db-nullable-value.md title="이 페이지를 개선" target=_blank rel=noopener><i class="fas fa-code-branch"></i>
+이 페이지를 개선</a></div></div><hr><div class="row next-prev-navigator"></div><hr></div></div></div><a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a></section><section class=toc-section id=toc-section><div class=toc-holder><h5 class="text-center pl-3">목차</h5><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#1-사전환경>1. 사전환경</a></li><li><a href=#2-에러가-발생한-코드>2. 에러가 발생한 코드</a></li><li><a href=#3-문제-해결한-코드>3. 문제 해결한 코드</a></li><li><a href=#4-예시코드-git>4. 예시코드 Git</a></li></ul></nav></div></div></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>바로가기</h5><ul><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>Contact me:</h5><ul><li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-left"><div class=col-md-4><a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener><img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha</a></div><div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div><div class="col-md-4 text-right"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
 <script type=text/javascript src=/js/popper.min.js></script>
 <script type=text/javascript src=/js/bootstrap.min.js></script>
 <script type=text/javascript src=/js/navbar.js></script>
@@ -308,6 +99,4 @@ Toha
 <script type=text/javascript src=/js/main.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
 <script src=/js/single.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script></body></html>

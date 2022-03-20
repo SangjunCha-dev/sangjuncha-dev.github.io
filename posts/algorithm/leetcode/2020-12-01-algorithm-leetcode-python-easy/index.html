@@ -1,1063 +1,337 @@
-<!doctype html><html>
-<head>
-<title>LeetCode Python (Easy)</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="ie=edge">
-<link rel=stylesheet href=/css/bootstrap.min.css>
-<link rel=stylesheet href=/css/layouts/main.css>
-<link rel=stylesheet href=/css/navigators/navbar.css>
-<link rel=stylesheet href=/css/plyr.css>
-<link rel=stylesheet href=/css/flag-icon.min.css>
-<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
-<meta property="og:title" content="LeetCode Python (Easy)">
-<meta property="og:description" content="LeetCode Python(Easy) 문제풀이">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://sangjuncha-dev.github.io/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2020-12-01T17:30:00+09:00">
-<meta property="article:modified_time" content="2020-12-01T17:30:00+09:00">
-<meta name=description content="LeetCode Python(Easy) 문제풀이">
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
-<link rel=stylesheet href=/css/layouts/single.css>
-<link rel=stylesheet href=/css/navigators/sidebar.css>
-<link rel=stylesheet href=/css/style.css>
-</head>
-<body data-spy=scroll data-target=#TableOfContents data-offset=80>
-<div class="container-fluid bg-dimmed wrapper">
-<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
-<div class=container>
-<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
-<span class=navbar-toggler-icon></span>
-</button>
-<a class=navbar-brand href=/>
-Sangjun 개발 블로그</a>
+<!doctype html><html><head><title>LeetCode Python (Easy)</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/layouts/main.css><link rel=stylesheet href=/css/navigators/navbar.css><link rel=stylesheet href=/css/plyr.css><link rel=stylesheet href=/css/flag-icon.min.css><link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css><meta property="og:title" content="LeetCode Python (Easy)"><meta property="og:description" content="LeetCode Python(Easy) 문제풀이"><meta property="og:type" content="article"><meta property="og:url" content="https://sangjuncha-dev.github.io/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-12-01T17:30:00+09:00"><meta property="article:modified_time" content="2020-12-01T17:30:00+09:00"><meta name=description content="LeetCode Python(Easy) 문제풀이"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css><link rel=stylesheet href=/css/layouts/single.css><link rel=stylesheet href=/css/navigators/sidebar.css><link rel=stylesheet href=/css/style.css></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span></button>
+<a class=navbar-brand href=/>Sangjun 개발 블로그</a>
 <button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
-<ul class="navbar-nav ml-auto">
-</ul>
-</div>
-</div>
-</nav>
-<section class=sidebar-section id=sidebar-section>
-<div class=sidebar-holder>
-<div class=sidebar id=sidebar>
-<form class=mx-auto method=get action=/search>
-<input type=text name=keyword placeholder=Search data-search id=search-box>
-</form>
-<div class=sidebar-tree>
-<ul class=tree id=tree>
-<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
-<div class=subtree>
-<li>
-<i class="fas fa-minus-circle"></i><a class=active href=/posts/algorithm/>algorithm</a>
-<ul class=active>
-<li><a class=active href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
-<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
-</ul>
-</li>
-<li><a href=/posts/db/ title=db>db</a></li>
-<li><a href=/posts/docker/ title=docker>docker</a></li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
-<ul>
-<li><a href=/posts/framework/django/ title=django>django</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
-<ul>
-<li><a href=/posts/os/linux/ title=linux>linux</a></li>
-<li><a href=/posts/os/windows/ title=windows>windows</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/programming/>programming</a>
-<ul>
-<li><a href=/posts/programming/golang/ title=golang>golang</a></li>
-<li><a href=/posts/programming/python/ title=python>python</a></li>
-</ul>
-</li>
-</div>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class=content-section id=content-section>
-<div class=content>
-<div class="container p-0 read-area">
-<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)>
-</div>
-<div class=page-content>
-<div class="author-profile ml-auto align-self-lg-center">
-<img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image">
-<h5 class=author-name>Sangjun</h5>
-<p>December 1, 2020</p>
-</div>
-<div class=title>
-<h1>LeetCode Python (Easy)</h1>
-</div>
-<div class=post-content id=post-content>
-<hr>
-<h2 id=1-two-sum>1. Two Sum</h2>
-<p><a href=https://leetcode.com/problems/two-sum/>문제 링크</a></p>
-<ol>
-<li><code>nums</code> 리스트 속성값 중 <code>두개의 값</code>이 <code>target</code> 값과 동일할때 해당 <code>속성 값</code>의 <code>index</code> 반환</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>twoSum</span>(self, nums: List[int], target: int) <span style=color:#f92672>-&gt;</span> List[int]:
-        <span style=color:#66d9ef>for</span> i, num <span style=color:#f92672>in</span> enumerate(nums):
-            <span style=color:#66d9ef>for</span> j, num2 <span style=color:#f92672>in</span> enumerate(nums[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>:]):
-                <span style=color:#66d9ef>if</span> i <span style=color:#f92672>!=</span> j<span style=color:#f92672>+</span>i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>:
-                    <span style=color:#66d9ef>if</span> target <span style=color:#f92672>==</span> num<span style=color:#f92672>+</span>num2:
-                        <span style=color:#66d9ef>return</span> [i, j<span style=color:#f92672>+</span>i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]
-</code></pre></div><p><strong>2020-11-27</strong></p>
-<blockquote>
-<p>Runtime: <code>40 ms</code>, faster than <code>97.02%</code> of Python3 online submissions for Two Sum.
-Memory Usage: <code>14.5 MB</code>, less than <code>89.48%</code> of Python3 online submisstions for Two Sum. </p>
-</blockquote>
-<hr>
-<h2 id=7-reverse-integer>7. Reverse Integer</h2>
-<p><a href=https://leetcode.com/problems/reverse-integer/>문제링크</a></p>
-<ol>
-<li><code>x</code>값을 list형으로 변환하여 <code>testCase</code> 변수에 저장</li>
-<li><code>testCase[0]</code>값에 <code>-</code>부호가 있다면 <code>sign</code> 변수에 저장하고 <code>testCase[0]</code>에서 부호 삭제</li>
-<li>for문을 사용하여 <code>testCase</code> 역순으로 <code>result</code> 변수에 저장</li>
-<li><code>sign</code>변수에 값이 있다면 <code>sign + result</code>값을 <code>result</code>에 저장</li>
-<li>결과값이 int 32비트범위를 넘지 않으면 <code>result</code>을, 넘으면 <code>0</code> 반환
-<ul>
-<li>return : <code>x</code> 숫자를 역순으로 나열하여 반환</li>
-</ul>
-</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>reverse</span>(self, x: int) <span style=color:#f92672>-&gt;</span> int:
-        testCase <span style=color:#f92672>=</span> list(str(x))
-        sign <span style=color:#f92672>=</span> <span style=color:#66d9ef>None</span>
-        result <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>
-        
-        <span style=color:#66d9ef>if</span> testCase[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;-&#39;</span>:
-            sign <span style=color:#f92672>=</span> testCase<span style=color:#f92672>.</span>pop(<span style=color:#ae81ff>0</span>)
-            
-        testCaseLen <span style=color:#f92672>=</span> len(testCase)
-        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(testCaseLen):
-            result <span style=color:#f92672>+=</span> testCase[testCaseLen<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span><span style=color:#f92672>-</span>i]
-        
-        <span style=color:#66d9ef>if</span> sign:
-            result <span style=color:#f92672>=</span> sign <span style=color:#f92672>+</span> result
-        
-        <span style=color:#66d9ef>if</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>2147483648</span> <span style=color:#f92672>&lt;=</span> int(result) <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>2147483647</span>:
-            <span style=color:#66d9ef>return</span> int(result)
-        <span style=color:#66d9ef>else</span>:
-            <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>
-</code></pre></div><p><strong>2020-11-27</strong></p>
-<blockquote>
-<p>Runtime: <code>28 ms</code>, faster than <code>83.14%</code> of Python3 online submissions for Reverse Integer.
-Memory Usage: <code>14.2 MB</code>, less than <code>41.05%</code> of Python3 online submisstions for Reverse Integer. </p>
-</blockquote>
-<hr>
-<h2 id=9-palindrome-number>9. Palindrome Number</h2>
-<p><a href=https://leetcode.com/problems/palindrome-number/>문제링크</a></p>
-<ol>
-<li><code>x</code>값을 <code>num</code>변수에 대입</li>
-<li><code>res</code>변수에 나머지연산으로 <code>num</code> 1의 자리값을 더하고 <code>num</code> 나누기 연산하여 1의 자리 삭제</li>
-<li><code>res</code>변수를 10곱하여 자릿수 증가</li>
-<li>위의 과정을 <code>num</code>변수가 0이 될때까지 반복</li>
-<li>초기 <code>x</code>값과 <code>res</code>변수를 비교한 결과 반환</li>
-</ol>
-<p>시간복잡성 : O(n)
-공간복잡성 : O(1)</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>isPalindrome</span>(self, x: int) <span style=color:#f92672>-&gt;</span> bool:
-        <span style=color:#66d9ef>if</span> x <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0</span>: <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
-
-        num, res <span style=color:#f92672>=</span> x, <span style=color:#ae81ff>0</span>
-        <span style=color:#66d9ef>while</span> num <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span>:
-            res <span style=color:#f92672>=</span> res<span style=color:#f92672>*</span><span style=color:#ae81ff>10</span> <span style=color:#f92672>+</span> num<span style=color:#f92672>%</span><span style=color:#ae81ff>10</span>
-            num <span style=color:#f92672>//=</span> <span style=color:#ae81ff>10</span>
-        <span style=color:#66d9ef>return</span> x<span style=color:#f92672>==</span>res
-</code></pre></div><p><strong>2020-12-15</strong></p>
-<blockquote>
-<p>Runtime: <code>52 ms</code>, faster than <code>88.59%</code> of Python3 online submissions for Palindrome Number.
-Memory Usage: <code>14.1 MB</code>, less than <code>59.38%</code> of Python3 online submissions for Palindrome Number. </p>
-</blockquote>
-<hr>
-<h2 id=14longest-common-prefix>14. Longest Common Prefix</h2>
-<p><a href=https://leetcode.com/problems/longest-common-prefix/>문제링크</a></p>
-<ol>
-<li>문자열 길이로 정렬된 <code>strs</code> 리스트에서 가장 짧은 <code>strs[0]</code>문자열로 각 문자열의 <code>i</code>번째 값과 비교</li>
-<li>모든 문자열에서 동일한 문자가 있다면 <code>compareText</code>변수에 추가하고 마지막에 <code>compareText</code> 반환
-<ul>
-<li>return : <code>strs</code> 리스트의 모든 문자열에서 공통된 문자열 반환</li>
-</ul>
-</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>longestCommonPrefix</span>(self, strs: List[str]) <span style=color:#f92672>-&gt;</span> str:
-        <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> strs:
-            <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#39;&#39;</span>    
-        strs<span style=color:#f92672>.</span>sort(key<span style=color:#f92672>=</span>len)
-        compareText <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>
-        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(strs[<span style=color:#ae81ff>0</span>])):
-            <span style=color:#66d9ef>for</span> text <span style=color:#f92672>in</span> strs[<span style=color:#ae81ff>1</span>:]:
-                <span style=color:#66d9ef>if</span> text[i] <span style=color:#f92672>!=</span> strs[<span style=color:#ae81ff>0</span>][i]:
-                    <span style=color:#66d9ef>return</span> compareText
-            compareText <span style=color:#f92672>+=</span> strs[<span style=color:#ae81ff>0</span>][i]
-        <span style=color:#66d9ef>return</span> compareText
-</code></pre></div><p><strong>2020-12-01</strong></p>
-<blockquote>
-<p>Runtime: <code>28 ms</code>, faster than <code>90.77%</code> of Python3 online submissions for Longest Common Prefix.
-Memory Usage: <code>14.3 MB</code>, less than <code>47.57%</code> of Python3 online submisstions for Longest Common Prefix. </p>
-</blockquote>
-<hr>
-<h2 id=20-valid-parentheses>20. Valid Parentheses</h2>
-<p><a href=https://leetcode.com/problems/valid-parentheses/>문제링크</a></p>
-<ol>
-<li>열린 괄호 <code>(</code>, <code>{</code>, <code>[</code> 는 list자료형에 <code>스택에 쌓고</code></li>
-<li>닫는 괄호 <code>)</code>, <code>}</code>, <code>]</code> 는 스택의 마지막값과 비교해서 동일한 종류면 <code>스택에서 값 제거</code></li>
-<li>최종적으로 list 길이가 0일때 <code>True</code> 반환 아니면 <code>False</code> 반환</li>
-</ol>
-<ul>
-<li>True : 모든 괄호가 쌍일 경우</li>
-<li>False : 쌍을 이루지 못한 괄호가 있을 경우</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>isValid</span>(self, s: str) <span style=color:#f92672>-&gt;</span> bool:
-        textLen <span style=color:#f92672>=</span> len(s)
-        <span style=color:#66d9ef>if</span> (<span style=color:#f92672>not</span> str) <span style=color:#f92672>or</span> ((textLen<span style=color:#f92672>%</span><span style=color:#ae81ff>2</span>) <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>):
-            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
-        stackList <span style=color:#f92672>=</span> []
-        
-        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(textLen):
-            <span style=color:#66d9ef>if</span> s[i] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;(&#39;</span> <span style=color:#f92672>or</span> s[i] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;{&#39;</span> <span style=color:#f92672>or</span> s[i] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;[&#39;</span>:
-                stackList<span style=color:#f92672>.</span>append(s[i])
-            <span style=color:#66d9ef>elif</span> <span style=color:#f92672>not</span> stackList:
-                <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
-            <span style=color:#66d9ef>elif</span> s[i] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;)&#39;</span> <span style=color:#f92672>and</span> stackList[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;(&#39;</span>:
-                stackList<span style=color:#f92672>.</span>pop()
-            <span style=color:#66d9ef>elif</span> s[i] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;}&#39;</span> <span style=color:#f92672>and</span> stackList[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;{&#39;</span>:
-                stackList<span style=color:#f92672>.</span>pop()
-            <span style=color:#66d9ef>elif</span> s[i] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;]&#39;</span> <span style=color:#f92672>and</span> stackList[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;[&#39;</span>:
-                stackList<span style=color:#f92672>.</span>pop()
-            <span style=color:#66d9ef>else</span>:
-                <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
-        <span style=color:#66d9ef>if</span> stackList:
-            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
-        <span style=color:#66d9ef>else</span>:
-            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
-</code></pre></div><p><strong>2020-12-03</strong></p>
-<blockquote>
-<p>Runtime: <code>16 ms</code>, faster than <code>99.83%</code> of Python3 online submissions for Valid Parentheses.
-Memory Usage: <code>14.3 MB</code>, less than <code>24.08%</code> of Python3 online submisstions for Valid Parentheses. </p>
-</blockquote>
-<hr>
-<h2 id=35-search-insert-position>35. Search Insert Position</h2>
-<p><a href=https://leetcode.com/problems/search-insert-position/>문제링크</a></p>
-<ol>
-<li><code>nums</code> 리스트 첫 번째 index를 <code>low</code>변수에 저장</li>
-<li><code>nums</code> 리스트 마지막 index를 <code>high</code>변수에 저장</li>
-<li>while문을 통해 low 값이 high 값보다 작을 때 실행
-<ul>
-<li><code>nums</code> 리스트의 중간위치인 (low+high)//2 값을 <code>index</code> 변수에 저장</li>
-<li><code>nums[index]</code>값이 <code>target</code>보다 클 때 <code>index+1</code>값을 <code>low</code>변수에 저장</li>
-<li>그 외에는 <code>index</code>값을 <code>high</code>변수에 저장</li>
-</ul>
-</li>
-<li>while문 종료 후 <code>low</code> 변수 반환
-<ul>
-<li>return : <code>target</code>값이 들어갈 index 반환</li>
-</ul>
-</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>searchInsert</span>(self, nums: List[int], target: int) <span style=color:#f92672>-&gt;</span> int:
-        <span style=color:#66d9ef>if</span> target <span style=color:#f92672>&lt;=</span> nums[<span style=color:#ae81ff>0</span>]:
-            <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>
-        
-        low, high <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, len(nums)
-
-        <span style=color:#66d9ef>while</span> low <span style=color:#f92672>&lt;</span> high:
-            index <span style=color:#f92672>=</span> (low<span style=color:#f92672>+</span>high)<span style=color:#f92672>//</span><span style=color:#ae81ff>2</span>
-
-            <span style=color:#66d9ef>if</span> (nums[index] <span style=color:#f92672>&lt;</span> target):
-                low <span style=color:#f92672>=</span> index<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>
-            <span style=color:#66d9ef>else</span>:
-                high <span style=color:#f92672>=</span> index
-        <span style=color:#66d9ef>return</span> low
-</code></pre></div><p><strong>2020-12-02</strong></p>
-<blockquote>
-<p>Runtime: <code>40 ms</code>, faster than <code>96.18%</code> of Python3 online submissions for Search Insert Position.
-Memory Usage: <code>15.1 MB</code>, less than <code>9.31%</code> of Python3 online submisstions for Search Insert Position. </p>
-</blockquote>
-<hr>
-<h2 id=38-count-and-say>38. Count and Say</h2>
-<p><a href=https://leetcode.com/problems/count-and-say/>문제링크</a></p>
-<ol>
-<li>비교 문자열 <code>1</code> 선언</li>
-<li>아래의 알고리즘을 입력 받은 <code>n</code>번 반복 실행
-<ul>
-<li>문자 하나씩 비교하여 같으면 <code>count</code> 1증가</li>
-<li>문자가 다르면 <code>resultText</code> 문자열에 <code>count</code>값과 리스트 <code>[i-1]</code>번째 문자를 저장</li>
-</ul>
-</li>
-<li>안쪽 for문 종료 후 <code>numText</code> 마지막 [-1]문자열 값 대입하여 반환
-<ul>
-<li>return : 입력받은 각 숫자의 갯수와 숫자를 반환</li>
-</ul>
-</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>countAndSay</span>(self, n: int) <span style=color:#f92672>-&gt;</span> str:
-        numText <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;1&#39;</span>
-        <span style=color:#66d9ef>for</span> _ <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1</span>, n):
-            count <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
-            resultText <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>
-            <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1</span>,len(numText)):
-                <span style=color:#66d9ef>if</span> numText[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>!=</span> numText[i]:
-                    resultText <span style=color:#f92672>+=</span> (str(count) <span style=color:#f92672>+</span> numText[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>])
-                    count <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
-                <span style=color:#66d9ef>else</span>:
-                    count <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
-            numText <span style=color:#f92672>=</span> resultText <span style=color:#f92672>+</span> str(count) <span style=color:#f92672>+</span> numText[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]
-
-        <span style=color:#66d9ef>return</span> numText
-</code></pre></div><p><strong>2020-12-07</strong></p>
-<blockquote>
-<p>Runtime: <code>40 ms</code>, faster than <code>70.73%</code> of Python3 online submissions for Count and Say.
-Memory Usage: <code>14.3 MB</code>, less than <code>48.22%</code> of Python3 online submisstions for Count and Say. </p>
-</blockquote>
-<hr>
-<h2 id=53-maximum-subarray>53. Maximum Subarray</h2>
-<p><a href=https://leetcode.com/problems/maximum-subarray/>문제링크</a></p>
-<ol>
-<li>동적 계획법(Dynamic Programming, DP) 사용할 것</li>
-<li>아래는 잘못푼 문제</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>maxSubArray</span>(self, nums: List[int]) <span style=color:#f92672>-&gt;</span> int:
-        <span style=color:#66d9ef>if</span> len(nums) <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>:
-            <span style=color:#66d9ef>return</span> nums[<span style=color:#ae81ff>0</span>]
-        
-        numMax <span style=color:#f92672>=</span> max(nums)
-        <span style=color:#66d9ef>if</span> numMax <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>1</span>:
-            <span style=color:#66d9ef>return</span> numMax
-        
-        start, end <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>
-        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(nums)<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>):
-            <span style=color:#66d9ef>if</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>&lt;</span> nums[start]:
-                end <span style=color:#f92672>=</span> i<span style=color:#f92672>+</span><span style=color:#ae81ff>2</span>
-                numSum <span style=color:#f92672>=</span> sum(nums[start:end])
-                <span style=color:#66d9ef>if</span> numSum <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0</span>:
-                    start <span style=color:#f92672>=</span> end
-                <span style=color:#66d9ef>elif</span> numMax <span style=color:#f92672>&lt;=</span> numSum:
-                    numMax <span style=color:#f92672>=</span> numSum
-            <span style=color:#66d9ef>else</span>:
-                start <span style=color:#f92672>=</span> i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>
-            
-        <span style=color:#66d9ef>return</span> numMax
-</code></pre></div><p><strong>2020-12-08</strong></p>
-<blockquote>
-<p>Runtime: <code>1580 ms,</code>, faster than <code>5.26%</code> of Python3 online submissions for Maximum Subarray.
-Memory Usage: <code>15.2 MB</code>, less than <code>5.01%</code> of Python3 online submisstions for Maximum Subarray. </p>
-</blockquote>
-<hr>
-<h2 id=58-length-of-last-word>58. Length of Last Word</h2>
-<p><a href=https://leetcode.com/problems/length-of-last-word/>문제링크</a></p>
-<ol>
-<li>문자열 <code>앞뒤 공백 제거</code></li>
-<li>공백<code> </code>으로 <code>분할</code>하고 리스트 <code>마지막 문자열</code> 반환
-<ul>
-<li>return : 마지막 문자열 반환</li>
-</ul>
-</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>lengthOfLastWord</span>(self, s: str) <span style=color:#f92672>-&gt;</span> int:
-        <span style=color:#66d9ef>return</span> len(s<span style=color:#f92672>.</span>strip()<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#39; &#39;</span>)[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>])
-</code></pre></div><p><strong>2020-12-09</strong></p>
-<blockquote>
-<p>Runtime: <code>16 ms</code>, faster than <code>99.80%</code> of Python3 online submissions for Length of Last Word.
-Memory Usage: <code>14.2 MB</code>, less than <code>38.86%</code> of Python3 online submissions for Length of Last Word. </p>
-</blockquote>
-<hr>
-<h2 id=66-plus-one>66. Plus One</h2>
-<p><a href=https://leetcode.com/problems/plus-one/>문제링크</a></p>
-<ol>
-<li><code>digits</code> 리스트 마지막 값 <code>1증가</code></li>
-<li>반복문을 통해 리스트 <code>역순</code>으로 값 <code>한자릿수</code> 검증</li>
-<li>모든요소가 단일숫자 구성시 <code>digits</code> 반환</li>
-<li><code>digits[0]</code> 값이 <code>10</code>으로 나눠질경우 digits[0]위치에 <code>[1]값 속성 추가</code>하여 반환
-<ul>
-<li>return : <code>digits</code> 리스트 반환</li>
-</ul>
-</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>plusOne</span>(self, digits: List[int]) <span style=color:#f92672>-&gt;</span> List[int]:
-        digits[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
-        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(digits)<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>):
-            <span style=color:#66d9ef>if</span> digits[i]<span style=color:#f92672>%</span><span style=color:#ae81ff>10</span> <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span>:
-                <span style=color:#66d9ef>return</span> digits
-            <span style=color:#66d9ef>elif</span> i <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span>:
-                digits[i] <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
-                digits[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
-            <span style=color:#66d9ef>else</span>:
-                digits[i] <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
-                <span style=color:#66d9ef>return</span> [<span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> digits
-</code></pre></div><p><strong>2020-12-04</strong></p>
-<blockquote>
-<p>Runtime: <code>24 ms</code>, faster than <code>95.84%</code> of Python3 online submissions for Plus One.
-Memory Usage: <code>14.2 MB</code>, less than <code>38.47%</code> of Python3 online submisstions for Plus One. </p>
-</blockquote>
-<hr>
-<h2 id=136-single-number>136. Single Number</h2>
-<p><a href=https://leetcode.com/problems/single-number/>문제링크</a></p>
-<ol>
-<li>nums 리스트 정렬</li>
-<li>index(0,2,4,&mldr;) 2씩 증가하는 for문 실행</li>
-<li>nums 리스트 <code>index의 값</code>과 <code>index+1의 값</code>을 <code>비교</code>하여 다를경우 list <code>index</code> 값 반환</li>
-<li>리스트 마지막까지 도달할경우 <code>nums[-1]</code> 반환
-<ul>
-<li>return : nums 리스트에서 같은 수가 없는 값 반환</li>
-</ul>
-</li>
-</ol>
-<p>시간복잡성 O(n)</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>singleNumber</span>(self, nums: List[int]) <span style=color:#f92672>-&gt;</span> int:
-        nums<span style=color:#f92672>.</span>sort()
-        numsLen <span style=color:#f92672>=</span> len(nums)
-        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>0</span>, len(nums), <span style=color:#ae81ff>2</span>):
-            <span style=color:#66d9ef>if</span> numsLen <span style=color:#f92672>&lt;=</span> i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>:
-                <span style=color:#66d9ef>return</span> nums[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]
-            <span style=color:#66d9ef>elif</span> nums[i] <span style=color:#f92672>!=</span> nums[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]:
-                <span style=color:#66d9ef>return</span> nums[i]
-</code></pre></div><p><strong>2020-12-04</strong></p>
-<blockquote>
-<p>Runtime: <code>124 ms</code>, faster than <code>85.60%</code> of Python3 online submissions for Single Number.
-Memory Usage: <code>16.6 MB</code>, less than <code>60.41%</code> of Python3 online submisstions for Single Number. </p>
-</blockquote>
-<hr>
-<h2 id=167-two-sum-ii---input-array-is-sorted>167. Two Sum II - Input array is sorted</h2>
-<p><a href=https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/>문제링크</a></p>
-<ol>
-<li>리스트 첫번째 인덱스 = <code>low</code>, 마지막 인덱스 = <code>high</code> 선언</li>
-<li><code>while</code>문 <code>low</code>값이 <code>high</code>값보다 작을때 반복실행
-<ul>
-<li><code>리스트[low]</code> + <code>리스트[high]</code> 값이 <code>target</code>보다 작으면 <code>low</code> 1 증가</li>
-<li><code>리스트[low]</code> + <code>리스트[high]</code> 값이 <code>target</code>보다 크면 <code>high</code> 1 감소</li>
-<li><code>리스트[low]</code> + <code>리스트[high]</code> 값이 <code>target</code> 같은 값이면 <code>low</code>, <code>high</code> return</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>return : <code>numbers</code>리스트 두수의 합이 <code>target</code>값과 같을 때 두수의 <code>index</code>값 반환</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>twoSum</span>(self, numbers: List[int], target: int) <span style=color:#f92672>-&gt;</span> List[int]:
-        low, high <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, len(numbers)<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
-        
-        <span style=color:#66d9ef>while</span> low <span style=color:#f92672>&lt;</span> high:
-            val <span style=color:#f92672>=</span> numbers[high] <span style=color:#f92672>+</span> numbers[low]
-            
-            <span style=color:#66d9ef>if</span> target <span style=color:#f92672>&lt;</span> val:
-                high <span style=color:#f92672>-=</span> <span style=color:#ae81ff>1</span>
-            <span style=color:#66d9ef>elif</span> val <span style=color:#f92672>&lt;</span> target:
-                low <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
-            <span style=color:#66d9ef>else</span>:
-                <span style=color:#66d9ef>return</span> [low<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>, high<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]
-</code></pre></div><p><strong>2020-12-11</strong></p>
-<blockquote>
-<p>Runtime: <code>56 ms</code>, faster than <code>92.55%</code> of Python3 online submissions for Two Sum II - Input array is sorted.
-Memory Usage: <code>14.8 MB</code>, less than <code>11.31%</code> of Python3 online submissions for Two Sum II - Input array is sorted. </p>
-</blockquote>
-<hr>
-<h2 id=169-majority-element>169. Majority Element</h2>
-<p><a href=https://leetcode.com/problems/majority-element/>문제링크</a></p>
-<h3 id=방법1>방법1</h3>
-<ol>
-<li><code>nums</code>리스트에서 <code>중복제거</code></li>
-<li><code>nums</code>리스트 for문을 통해 반복
-<ul>
-<li>해당 속성 값의 <code>cnt</code> 값이 <code>max</code>값보다 클때</li>
-<li><code>max</code>변수에 <code>cnt</code>값 저장</li>
-<li><code>textMax</code>변수에 해당 속성값 저장</li>
-</ul>
-</li>
-<li>for문이 끝난 마지막에 <code>textMax</code> 반환
-<ul>
-<li>return : 입력받은 <code>nums</code>리스트의 문자 중 갯수가 많은 문자 반환</li>
-</ul>
-</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>majorityElement</span>(self, nums: List[int]) <span style=color:#f92672>-&gt;</span> int:
-        max, textMax <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, <span style=color:#66d9ef>None</span>
-        <span style=color:#66d9ef>for</span> num <span style=color:#f92672>in</span> list(set(nums)):
-            cnt <span style=color:#f92672>=</span> nums<span style=color:#f92672>.</span>count(num)
-            <span style=color:#66d9ef>if</span> max <span style=color:#f92672>&lt;</span> cnt:
-                max <span style=color:#f92672>=</span> cnt
-                textMax <span style=color:#f92672>=</span> num
-        <span style=color:#66d9ef>return</span> textMax
-</code></pre></div><p><strong>2020-12-09</strong></p>
-<blockquote>
-<p>Runtime: <code>136 ms</code>, faster than <code>99.99%</code> of Python3 online submissions for Majority Element.
-Memory Usage: <code>15.4 MB</code>, less than <code>35.47%</code> of Python3 online submissions for Majority Element. </p>
-</blockquote>
-<h3 id=방법2>방법2</h3>
-<ol>
-<li><code>nums</code>리스트 정렬하여 <code>중간 위치값</code> 반환
-<ul>
-<li>입력받는 문자는 두 종류</li>
-</ul>
-</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>majorityElement</span>(self, nums: List[int]) <span style=color:#f92672>-&gt;</span> int:
-        nums<span style=color:#f92672>.</span>sort()
-        <span style=color:#66d9ef>return</span> nums[len(nums)<span style=color:#f92672>//</span><span style=color:#ae81ff>2</span>]
-</code></pre></div><p><strong>2020-12-09</strong></p>
-<blockquote>
-<p>Runtime: <code>148 ms</code>, faster than <code>98.15%</code> of Python3 online submissions for Majority Element.
-Memory Usage: <code>15.4 MB</code>, less than <code>35.47%</code> of Python3 online submissions for Majority Element. </p>
-</blockquote>
-<hr>
-<h2 id=204-count-primes>204. Count Primes</h2>
-<p><a href=https://leetcode.com/problems/count-primes/>문제링크</a></p>
-<ol>
-<li><code>아리스토텔레스의 체</code> 이용하여 소수가 아닌값을 거르는 알고리즘</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>countPrimes</span>(self, n: int) <span style=color:#f92672>-&gt;</span> int:
-        <span style=color:#66d9ef>if</span> n <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>3</span>: <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>
-
-        numList <span style=color:#f92672>=</span> [<span style=color:#66d9ef>True</span>] <span style=color:#f92672>*</span> n
-        sqrt <span style=color:#f92672>=</span> int(n<span style=color:#f92672>**</span><span style=color:#ae81ff>0.5</span>)<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>
-            
-        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>2</span>, sqrt):
-            <span style=color:#66d9ef>if</span> numList[i]:
-                <span style=color:#66d9ef>for</span> j <span style=color:#f92672>in</span> range(i<span style=color:#f92672>+</span>i, n, i):
-                    numList[j] <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>
-        <span style=color:#66d9ef>return</span> numList<span style=color:#f92672>.</span>count(<span style=color:#66d9ef>True</span>)<span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>
-</code></pre></div><p><strong>2020-12-09</strong></p>
-<blockquote>
-<p>Runtime: <code>392 ms</code>, faster than <code>80.27%</code> of Python3 online submissions for Count Primes.
-Memory Usage: <code>25.7 MB</code>, less than <code>55.70%</code> of Python3 online submissions for Count Primes. </p>
-</blockquote>
-<hr>
-<h2 id=217-contains-duplicate>217. Contains Duplicate</h2>
-<p><a href=https://leetcode.com/problems/contains-duplicate/>문제링크</a></p>
-<ol>
-<li><code>nums</code>리스트 중복제거한 길이와 <code>nums</code> 리스트 길이와 비교</li>
-<li>길이가 같다면 <code>False</code> 길이가 다르면 중복제거하여 <code>True</code> 반환
-<ul>
-<li>True : nums 리스트에 중복값이 포함</li>
-<li>False : nums 리스트에 중복값이 없음</li>
-</ul>
-</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>containsDuplicate</span>(self, nums: List[int]) <span style=color:#f92672>-&gt;</span> bool:
-        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span> <span style=color:#66d9ef>if</span> len(nums) <span style=color:#f92672>!=</span> len(set(nums)) <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>False</span>
-</code></pre></div><p><strong>2020-12-11</strong></p>
-<blockquote>
-<p>Runtime: <code>108 ms</code>, faster than <code>93.87%</code> of Python3 online submissions for Count Primes.
-Memory Usage: <code>20.2 MB</code>, less than <code>44.91%</code> of Python3 online submissions for Count Primes. </p>
-</blockquote>
-<ol>
-<li>리스트 값을 dict 키값으로 저장</li>
-<li>리스트 반복문 실행 중에 해당 키값이 있다면 <code>True</code> 반환</li>
-<li>모든 리스트가 if 조건에 걸리지 않으면 <code>False</code> 반환
-<ul>
-<li>True : 중복된 값이 존재할 경우</li>
-<li>False : 중복된 값이 없을 경우</li>
-</ul>
-</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>containsDuplicate</span>(self, nums: List[int]) <span style=color:#f92672>-&gt;</span> bool:
-        dict <span style=color:#f92672>=</span> {}
-        <span style=color:#66d9ef>for</span> num <span style=color:#f92672>in</span> nums:
-            <span style=color:#66d9ef>if</span> dict<span style=color:#f92672>.</span>get(num):
-                <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
-            dict[num] <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
-        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
-</code></pre></div><p><strong>2020-12-11</strong></p>
-<blockquote>
-<p>Runtime: <code>116 ms</code>, faster than <code>65.53%</code> of Python3 online submissions for Contains Duplicate.
-Memory Usage: <code>21.5 MB</code>, less than <code>8.09%</code> of Python3 online submissions for Contains Duplicate. </p>
-</blockquote>
-<hr>
-<h2 id=231-power-of-two>231. Power of Two</h2>
-<p><a href=https://leetcode.com/problems/power-of-two/>문제링크</a></p>
-<h3 id=방법1-1>방법1</h3>
-<ol>
-<li><code>n</code>이 양수일때 이진수로 변환</li>
-<li>이진수 리스트에서 앞의 두자리를 제외한 리스트를 저장 (<code>b0~</code>형식)</li>
-<li><code>0번째</code> 값을 제외하고 for 반복문 실행</li>
-<li>리스트 <code>0번째</code> 값과 비교하여 같은 1이 나오면 <code>False</code> 반환</li>
-<li>반복문 종료까지 if 조건문 안걸리면 <code>True</code> 반환
-<ul>
-<li>True : 입력받은 값이 2의 제곱수일 경우</li>
-<li>False : 입력받은 값이 2의 제곱수가 아닐 경우</li>
-</ul>
-</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>isPowerOfTwo</span>(self, n: int) <span style=color:#f92672>-&gt;</span> bool:
-        <span style=color:#66d9ef>if</span> n <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>1</span>: <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
-        nums <span style=color:#f92672>=</span> list(bin(n))[<span style=color:#ae81ff>2</span>:]
-        <span style=color:#66d9ef>for</span> num <span style=color:#f92672>in</span> nums[<span style=color:#ae81ff>1</span>:]:
-            <span style=color:#66d9ef>if</span> nums[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> num: <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
-        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
-</code></pre></div><p><strong>2020-12-11</strong></p>
-<blockquote>
-<p>Runtime: <code>24 ms</code>, faster than <code>94.77%</code> of Python3 online submissions for Power of Two.
-Memory Usage: <code>14.3 MB</code>, less than <code>15.35%</code> of Python3 online submissions for Power of Two. </p>
-</blockquote>
-<h3 id=방법2-1>방법2</h3>
-<ol>
-<li>입력값 <code>n</code>이 양수이고</li>
-<li>2의 거듭제곱수 판별은 <code>n</code>값과 <code>n-1</code>값을 비트 <code>AND</code>연산하면 <code>0</code>으로 나옴</li>
-<li>위의 2가지 조건이 만족하면 <code>True</code> 만족하지 않는다면 <code>False</code> 반환</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>isPowerOfTwo</span>(self, n: int) <span style=color:#f92672>-&gt;</span> bool:
-        <span style=color:#66d9ef>return</span> (<span style=color:#ae81ff>0</span><span style=color:#f92672>&lt;</span>n) <span style=color:#f92672>and</span> ((n<span style=color:#f92672>&amp;</span>(n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)) <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>)
-</code></pre></div><p><strong>2020-12-11</strong></p>
-<blockquote>
-<p>Runtime: <code>24 ms</code>, faster than <code>94.77%</code> of Python3 online submissions for Power of Two.
-Memory Usage: <code>14.1 MB</code>, less than <code>80.64%</code> of Python3 online submissions for Power of Two. </p>
-</blockquote>
-<hr>
-<h2 id=242-valid-anagram>242. Valid Anagram</h2>
-<p><a href=https://leetcode.com/problems/valid-anagram/>문제링크</a></p>
-<ol>
-<li><code>s</code>, <code>t</code> 문자열을 <code>sorted</code>함수로 정렬된 리스트 반환받아 비교하여 결과값 반환
-<ul>
-<li>True : 입력받은 두 문자열이 동일할 경우</li>
-<li>False : 입력받은 두 문자열이 다를 경우</li>
-</ul>
-</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>isAnagram</span>(self, s: str, t: str) <span style=color:#f92672>-&gt;</span> bool:
-        <span style=color:#66d9ef>return</span> sorted(s) <span style=color:#f92672>==</span> sorted(t)
-</code></pre></div><p><strong>2020-12-11</strong></p>
-<blockquote>
-<p>Runtime: <code>40 ms</code>, faster than <code>84.57%</code> of Python3 online submissions for Valid Anagram.
-Memory Usage: <code>15 MB</code>, less than <code>6.58%</code> of Python3 online submissions for Valid Anagram. </p>
-</blockquote>
-<hr>
-<h2 id=258-add-digits>258. Add Digits</h2>
-<p><a href=https://leetcode.com/problems/add-digits>문제링크</a></p>
-<h3 id=방법1-2>방법1</h3>
-<ol>
-<li><code>num</code> 값을 <code>10</code>으로 나눈 <code>몫</code>과 <code>나머지</code>를 <code>합산</code>하고</li>
-<li><code>num</code> 값이 <code>10 이하</code> 일때 반환
-<ul>
-<li>return : 자릿수근 반환</li>
-</ul>
-</li>
-</ol>
-<p>시간복잡성 : O(n)</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>addDigits</span>(self, num: int) <span style=color:#f92672>-&gt;</span> int:
-        <span style=color:#66d9ef>while</span> <span style=color:#ae81ff>9</span> <span style=color:#f92672>&lt;</span> num:
-            num <span style=color:#f92672>=</span> num<span style=color:#f92672>//</span><span style=color:#ae81ff>10</span> <span style=color:#f92672>+</span> num<span style=color:#f92672>%</span><span style=color:#ae81ff>10</span>
-        <span style=color:#66d9ef>return</span> num
-</code></pre></div><p><strong>2020-12-14</strong></p>
-<blockquote>
-<p>Runtime: <code>20 ms</code>, faster than <code>98.98%</code> of Python3 online submissions for Add Digits.
-Memory Usage: <code>14.3 MB</code>, less than <code>20.30%</code> of Python3 online submissions for Add Digits. </p>
-</blockquote>
-<h3 id=방법2-2>방법2</h3>
-<ol>
-<li><code>num</code> 값을 <code>(num-1) % 9 + 1</code>자릿수근(digital root) 공식을 이용하여 결과값 반환
-<ul>
-<li>return : 자릿수근 반환</li>
-</ul>
-</li>
-</ol>
-<p>시간복잡성 : O(1)</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>addDigits</span>(self, num: int) <span style=color:#f92672>-&gt;</span> int:
-        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span> <span style=color:#66d9ef>if</span> num <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span> <span style=color:#66d9ef>else</span> (num<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>%</span><span style=color:#ae81ff>9</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
-</code></pre></div><p><strong>2020-12-14</strong></p>
-<blockquote>
-<p>Runtime: <code>24 ms</code>, faster than <code>95.45%</code> of Python3 online submissions for Add Digits.
-Memory Usage: <code>14.3 MB</code>, less than <code>20.30%</code> of Python3 online submissions for Add Digits. </p>
-</blockquote>
-<hr>
-<h2 id=263-ugly-number>263. Ugly Number</h2>
-<p><a href=https://leetcode.com/problems/ugly-number/>문제링크</a></p>
-<ol>
-<li>while 반복문으로 <code>num</code>값이 <code>5</code>로 나눈 <code>나머지</code>가 <code>0</code>일때 <code>몫</code>을 <code>num</code>값에 저장</li>
-<li>동일한 방식으로 <code>3</code>, <code>2</code>로 나눈다.</li>
-<li>결과값이 <code>1</code>일때만 <code>True</code>, 그외의 결과는 <code>False</code> 반환
-<ul>
-<li>True : 입력받은 값이 <code>2</code>, <code>3</code>, <code>5</code>로 나누어질 경우</li>
-<li>False : 그외의 경우</li>
-</ul>
-</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>isUgly</span>(self, num: int) <span style=color:#f92672>-&gt;</span> bool:
-        <span style=color:#66d9ef>if</span> num <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>: <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
-        <span style=color:#66d9ef>while</span> num <span style=color:#f92672>%</span> <span style=color:#ae81ff>5</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
-            num <span style=color:#f92672>//=</span>  <span style=color:#ae81ff>5</span>
-        <span style=color:#66d9ef>while</span> num <span style=color:#f92672>%</span> <span style=color:#ae81ff>3</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
-            num <span style=color:#f92672>//=</span> <span style=color:#ae81ff>3</span>
-        <span style=color:#66d9ef>while</span> num <span style=color:#f92672>%</span> <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
-            num <span style=color:#f92672>//=</span> <span style=color:#ae81ff>2</span>
-        <span style=color:#66d9ef>return</span> num <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>
-</code></pre></div><p><strong>2020-12-14</strong></p>
-<blockquote>
-<p>Runtime: <code>28 ms</code>, faster than <code>82.19%</code> of Python3 online submissions for Ugly Number.
-Memory Usage: <code>14.3 MB</code>, less than <code>19.35%</code> of Python3 online submissions for Ugly Number. </p>
-</blockquote>
-<hr>
-<h2 id=268-missing-number>268. Missing Number</h2>
-<p><a href=https://leetcode.com/problems/missing-number/>문제링크</a></p>
-<h3 id=방법1-3>방법1</h3>
-<ol>
-<li><code>nums</code>리스트 정렬</li>
-<li><code>nums</code>리스트 길이만큼 for문 실행</li>
-<li>index 위치값에 해당되는 값이 없으면 index 반환</li>
-<li>for문 마지막까지 if문 해당되지 않을경우 <code>nums</code>리스트 길이 반환
-<ul>
-<li>return : <code>nums</code>리스트에 없는 값 반환</li>
-</ul>
-</li>
-</ol>
-<p>공간복잡성 : O(1)<br>
-시간복잡성 : O(n)</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>missingNumber</span>(self, nums: List[int]) <span style=color:#f92672>-&gt;</span> int:
-        nums<span style=color:#f92672>.</span>sort()
-        numsLen <span style=color:#f92672>=</span> len(nums)
-        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(numsLen):
-            <span style=color:#66d9ef>if</span> nums[i] <span style=color:#f92672>!=</span> i: 
-                <span style=color:#66d9ef>return</span> i
-        <span style=color:#66d9ef>return</span> numsLen
-</code></pre></div><p><strong>2020-12-14</strong></p>
-<blockquote>
-<p>Runtime: <code>136 ms</code>, faster than <code>38.61%</code> of Python3 online submissions for Missing Number.
-Memory Usage: <code>15.5 MB</code>, less than <code>27.11%</code> of Python3 online submissions for Missing Number. </p>
-</blockquote>
-<h3 id=방법2-3>방법2</h3>
-<ol>
-<li><code>nums</code>리스트의 길이를 <code>n</code>변수에 대입</li>
-<li>1부터 n까지 수의 합(가우스 공식)을 계산하여 <code>total</code>변수에 대입
-<ul>
-<li>가우스 공식 : n*(n-1)/2 + n</li>
-</ul>
-</li>
-<li><code>total</code> - (<code>nums</code>리스트 합)을 값을 반환
-<ul>
-<li>return : <code>nums</code>리스트에 없는 값 반환</li>
-</ul>
-</li>
-</ol>
-<p>공간복잡성 : O(1)<br>
-시간복잡성 : O(n)</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>missingNumber</span>(self, nums: List[int]) <span style=color:#f92672>-&gt;</span> int:
-        n <span style=color:#f92672>=</span> len(nums)
-        total <span style=color:#f92672>=</span> int(n<span style=color:#f92672>*</span>(n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>)<span style=color:#f92672>+</span>n
-        <span style=color:#66d9ef>return</span> total <span style=color:#f92672>-</span> sum(nums)
-</code></pre></div><p><strong>2020-12-14</strong></p>
-<blockquote>
-<p>Runtime: <code>120 ms</code>, faster than <code>93.14%</code> of Python3 online submissions for Missing Number.
-Memory Usage: <code>15.4 MB</code>, less than <code>38.54%</code> of Python3 online submissions for Missing Number. </p>
-</blockquote>
-<hr>
-<h2 id=278-first-bad-version>278. First Bad Version</h2>
-<p><a href=https://leetcode.com/problems/first-bad-version>문제링크</a></p>
-<ol>
-<li>이진탐색으로 풀이</li>
-<li><code>low</code>변수에 0, <code>high</code>변수에 <code>n</code> 대입</li>
-<li>while문으로 low변수가 high보다 작을때 반복실행
-<ul>
-<li><code>low</code>와 <code>high</code>의 중간값을 <code>middle</code>변수에 저장</li>
-<li>isBadVersion(middle)의 반환값이 <code>True</code>이면 <code>high</code>변수에 <code>middle</code> 대입</li>
-<li>isBadVersion(middle)의 반환값이 <code>False</code>이면 <code>low</code>변수에 <code>middle + 1</code> 대입</li>
-</ul>
-</li>
-<li><code>low</code>변수 반환</li>
-</ol>
-<ul>
-<li>return : isBadVersion(n) 반환값중 <code>False</code>결과가 나오는 가장 큰 <code>n+1</code> 반환</li>
-</ul>
-<p>시간복잡성 : O(log n)</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>firstBadVersion</span>(self, n):
-        <span style=color:#e6db74>&#34;&#34;&#34;
-</span><span style=color:#e6db74>        :type n: int
-</span><span style=color:#e6db74>        :rtype: int
-</span><span style=color:#e6db74>        &#34;&#34;&#34;</span>
-        low, middle, high <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>, n
-        
-        <span style=color:#66d9ef>while</span> low <span style=color:#f92672>&lt;</span> high:
-            middle <span style=color:#f92672>=</span> (low<span style=color:#f92672>+</span>high)<span style=color:#f92672>//</span><span style=color:#ae81ff>2</span>
-            
-            <span style=color:#66d9ef>if</span> isBadVersion(middle):
-                high <span style=color:#f92672>=</span> middle
-            <span style=color:#66d9ef>else</span>:
-                low <span style=color:#f92672>=</span> middle <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
-        <span style=color:#66d9ef>return</span> low
-</code></pre></div><p><strong>2020-12-14</strong></p>
-<blockquote>
-<p>Runtime: <code>24 ms</code>, faster than <code>90.25%</code> of Python3 online submissions for First Bad Version.
-Memory Usage: <code>14.1 MB</code>, less than <code>45.50%</code> of Python3 online submissions for First Bad Version. </p>
-</blockquote>
-<hr>
-<h2 id=283-move-zeroes>283. Move Zeroes</h2>
-<p><a href=https://leetcode.com/problems/move-zeroes/>문제링크</a></p>
-<ol>
-<li><code>nums</code>리스트 요소값이 <code>0</code>이 아닐때 index인 <code>i</code>값 1증가시키고</li>
-<li><code>nums</code>리스트 요소값이 <code>0</code>일때 해당 요소삭제 및 리스트 마지막에 <code>[0]</code>추가</li>
-<li>위의 과정들을 for문으로 <code>nums</code>리스트의 길이만큼 반복 실행</li>
-</ol>
-<ul>
-<li>return : 앞에는 0을 제외한 <code>nums</code>리스트, 뒤에는 제외된 <code>[0]</code>이 리스트에 붙어서 반환</li>
-</ul>
-<p>시간복잡성 : O(log n)<br>
-공간복잡성 : O(1)</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>moveZeroes</span>(self, nums: List[int]) <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>None</span>:
-        zero_cnt <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
-        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(nums)<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>):
-            <span style=color:#66d9ef>if</span> nums[i] <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
-                <span style=color:#66d9ef>del</span> nums[i]
-                zero_cnt <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
-        nums <span style=color:#f92672>+=</span> ([<span style=color:#ae81ff>0</span>] <span style=color:#f92672>*</span> zero_cnt)
-</code></pre></div><p><strong>2020-12-15</strong></p>
-<blockquote>
-<p>Runtime: <code>44 ms</code>, faster than <code>88.45%</code> of Python3 online submissions for Move Zeroes.
-Memory Usage: <code>15.2 MB</code>, less than <code>63.17%</code> of Python3 online submissions for Move Zeroes. </p>
-</blockquote>
-<hr>
-<h2 id=292-nim-game>292. Nim Game</h2>
-<p><a href=https://leetcode.com/problems/nim-game/>문제링크</a></p>
-<ol>
-<li><code>n</code>값을 4로 나누었을때 0일경우만 <code>False</code>, 그외에 <code>True</code></li>
-</ol>
-<p>시간복잡성 : O(1)<br>
-공간복잡성 : O(1)</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>canWinNim</span>(self, n: int) <span style=color:#f92672>-&gt;</span> bool:
-        <span style=color:#66d9ef>return</span> n<span style=color:#f92672>%</span><span style=color:#ae81ff>4</span>
-</code></pre></div><p><strong>2020-12-15</strong></p>
-<blockquote>
-<p>Runtime: <code>28 ms</code>, faster than <code>68.93%</code> of Python3 online submissions for Nim Game.
-Memory Usage: <code>14.2 MB</code>, less than <code>38.05%</code> of Python3 online submissions for Nim Game. </p>
-</blockquote>
-<hr>
-<h2 id=342-power-of-four>342. Power of Four</h2>
-<p><a href=https://leetcode.com/problems/power-of-four/>문제링크</a></p>
-<h3 id=방법1-4>방법1</h3>
-<ol>
-<li>양수인 <code>n</code>을 이진수로 변환</li>
-<li>각 이진수를 int형변환하고 <code>num</code>리스트에 저장</li>
-<li>이진수가 짝수개이면 4의 제곱이 아니므로 return</li>
-<li><code>num</code>리스트에서 0번째를 제외한 모든 값을 or연산
-<ul>
-<li>모든값이 0 일때만 4의 제곱수</li>
-</ul>
-</li>
-<li>연산한 결과 <code>result</code> not 연산하여 반환</li>
-</ol>
-<p>시간복잡성 : O(log n)<br>
-공간복잡성 : O(1)</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>isPowerOfFour</span>(self, n: int) <span style=color:#f92672>-&gt;</span> bool:
-        <span style=color:#66d9ef>if</span> n <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>1</span>: <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
-        
-        nums <span style=color:#f92672>=</span> list(map(int, bin(n)[<span style=color:#ae81ff>2</span>:]))
-        <span style=color:#66d9ef>if</span> len(nums)<span style=color:#f92672>%</span><span style=color:#ae81ff>2</span><span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>: <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
-        
-        result <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>
-        <span style=color:#66d9ef>for</span> num <span style=color:#f92672>in</span> nums[<span style=color:#ae81ff>1</span>:]:
-            result <span style=color:#f92672>|=</span> num
-        <span style=color:#66d9ef>return</span> <span style=color:#f92672>not</span> result
-</code></pre></div><p><strong>2020-12-15</strong></p>
-<blockquote>
-<p>Runtime: <code>16 ms</code>, faster than <code>99.80%</code> of Python3 online submissions for Power of Four.
-Memory Usage: <code>14.3 MB</code>, less than <code>17.90%</code> of Python3 online submissions for Power of Four. </p>
-</blockquote>
-<h3 id=방법2-4>방법2</h3>
-<ol>
-<li>양수인 <code>n</code>을 2비트 우쉬프트 연산결과 곱하기 4일때 <code>n</code>과 동일하면서 <code>n</code>비트 갯수가 홀수 일때 <code>res</code>변수에 <code>True</code> 대입</li>
-<li>그 외 경우 <code>res</code> 반환</li>
-<li><code>n</code>을 2비트 우쉬프트 연산</li>
-<li>위의 과정을 <code>n</code> 1 이하일때 까지 반복하고 <code>res</code> 반환</li>
-</ol>
-<p>시간복잡성 : O(log n)<br>
-공간복잡성 : O(1)</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>isPowerOfFour</span>(self, n: int) <span style=color:#f92672>-&gt;</span> bool:
-        <span style=color:#66d9ef>if</span> n <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>: <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
-        res <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>
-        <span style=color:#66d9ef>while</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>&lt;</span> n:
-            res <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>
-            <span style=color:#66d9ef>if</span> (n<span style=color:#f92672>&gt;&gt;</span><span style=color:#ae81ff>2</span>)<span style=color:#f92672>*</span><span style=color:#ae81ff>4</span> <span style=color:#f92672>==</span> n <span style=color:#f92672>and</span> len(bin(n))<span style=color:#f92672>%</span><span style=color:#ae81ff>2</span><span style=color:#f92672>==</span><span style=color:#ae81ff>1</span>:
-                res <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
-            <span style=color:#66d9ef>else</span>:
-                <span style=color:#66d9ef>return</span> res
-            n <span style=color:#f92672>&gt;&gt;=</span> <span style=color:#ae81ff>2</span>
-        <span style=color:#66d9ef>return</span> res
-</code></pre></div><p><strong>2020-12-15</strong></p>
-<blockquote>
-<p>Runtime: <code>28 ms</code>, faster than <code>82.04%</code> of Python3 online submissions for Power of Four.
-Memory Usage: <code>14 MB</code>, less than <code>82.10%</code> of Python3 online submissions for Power of Four. </p>
-</blockquote>
-<hr>
-<h2 id=1678-goal-parser-interpretation>1678. Goal Parser Interpretation</h2>
-<p><a href=https://leetcode.com/problems/goal-parser-interpretation/>문제링크</a></p>
-<ol>
-<li><code>command</code>문자열에서 <code>()</code> -> <code>o</code>, <code>(al)</code> -> <code>al</code> 문자열 변환하여 반환</li>
-</ol>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>interpret</span>(self, command: str) <span style=color:#f92672>-&gt;</span> str:
-        <span style=color:#66d9ef>return</span> command<span style=color:#f92672>.</span>replace(<span style=color:#e6db74>&#39;()&#39;</span>, <span style=color:#e6db74>&#39;o&#39;</span>)<span style=color:#f92672>.</span>replace(<span style=color:#e6db74>&#39;(al)&#39;</span>, <span style=color:#e6db74>&#39;al&#39;</span>)
-</code></pre></div><p><strong>2020-12-11</strong></p>
-<blockquote>
-<p>Runtime: <code>28 ms</code>, faster than <code>89.89%</code> of Python3 online submissions for Goal Parser Interpretation.
-Memory Usage: <code>13.9 MB</code>, less than <code>100.00%</code> of Python3 online submissions for Goal Parser Interpretation. </p>
-</blockquote>
-</div>
-<div class="row pl-3 pr-3">
-<div class="col-md-6 share-buttons">
-</div>
-<div class="col-md-6 btn-improve-page">
-<a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/algorithm/leetcode/2020-12-01-Algorithm-leetcode-python-easy.md title="이 페이지를 개선" target=_blank rel=noopener>
-<i class="fas fa-code-branch"></i>
-이 페이지를 개선
-</a>
-</div>
-</div>
-<hr>
-<div class="row next-prev-navigator">
-</div>
-<hr>
-</div>
-</div>
-</div>
-<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
-</section>
-<section class=toc-section id=toc-section>
-<div class=toc-holder>
-<h5 class="text-center pl-3">목차</h5>
-<hr>
-<div class=toc>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#1-two-sum>1. Two Sum</a></li>
-<li><a href=#7-reverse-integer>7. Reverse Integer</a></li>
-<li><a href=#9-palindrome-number>9. Palindrome Number</a></li>
-<li><a href=#14longest-common-prefix>14. Longest Common Prefix</a></li>
-<li><a href=#20-valid-parentheses>20. Valid Parentheses</a></li>
-<li><a href=#35-search-insert-position>35. Search Insert Position</a></li>
-<li><a href=#38-count-and-say>38. Count and Say</a></li>
-<li><a href=#53-maximum-subarray>53. Maximum Subarray</a></li>
-<li><a href=#58-length-of-last-word>58. Length of Last Word</a></li>
-<li><a href=#66-plus-one>66. Plus One</a></li>
-<li><a href=#136-single-number>136. Single Number</a></li>
-<li><a href=#167-two-sum-ii---input-array-is-sorted>167. Two Sum II - Input array is sorted</a></li>
-<li><a href=#169-majority-element>169. Majority Element</a>
-<ul>
-<li><a href=#방법1>방법1</a></li>
-<li><a href=#방법2>방법2</a></li>
-</ul>
-</li>
-<li><a href=#204-count-primes>204. Count Primes</a></li>
-<li><a href=#217-contains-duplicate>217. Contains Duplicate</a></li>
-<li><a href=#231-power-of-two>231. Power of Two</a>
-<ul>
-<li><a href=#방법1-1>방법1</a></li>
-<li><a href=#방법2-1>방법2</a></li>
-</ul>
-</li>
-<li><a href=#242-valid-anagram>242. Valid Anagram</a></li>
-<li><a href=#258-add-digits>258. Add Digits</a>
-<ul>
-<li><a href=#방법1-2>방법1</a></li>
-<li><a href=#방법2-2>방법2</a></li>
-</ul>
-</li>
-<li><a href=#263-ugly-number>263. Ugly Number</a></li>
-<li><a href=#268-missing-number>268. Missing Number</a>
-<ul>
-<li><a href=#방법1-3>방법1</a></li>
-<li><a href=#방법2-3>방법2</a></li>
-</ul>
-</li>
-<li><a href=#278-first-bad-version>278. First Bad Version</a></li>
-<li><a href=#283-move-zeroes>283. Move Zeroes</a></li>
-<li><a href=#292-nim-game>292. Nim Game</a></li>
-<li><a href=#342-power-of-four>342. Power of Four</a>
-<ul>
-<li><a href=#방법1-4>방법1</a></li>
-<li><a href=#방법2-4>방법2</a></li>
-</ul>
-</li>
-<li><a href=#1678-goal-parser-interpretation>1678. Goal Parser Interpretation</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</section>
-</div>
-<footer class="container-fluid text-center align-content-center footer pb-2">
-<div class="container pt-5">
-<div class="row text-left">
-<div class="col-md-4 col-sm-12">
-<h5>바로가기</h5>
-<ul>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a>
-</li>
-</ul>
-</div>
-<div class="col-md-4 col-sm-12">
-<h5>Contact me:</h5>
-<ul>
-<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
-<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
-</a></li>
-</ul>
-</div>
-</div>
-</div>
-<hr>
-<div class=container>
-<div class="row text-left">
-<div class=col-md-4>
-<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
-<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
-Toha
-</a>
-</div>
-<div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div>
-<div class="col-md-4 text-right">
-<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
-<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
-</a>
-</div>
-</div>
-</div>
-</footer>
-<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse lang-selector" id=top-nav-items><ul class="navbar-nav ml-auto"></ul></div></div></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=Search data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/posts data-filter=all>게시글</a></li><div class=subtree><li><i class="fas fa-minus-circle"></i><a class=active href=/posts/algorithm/>algorithm</a><ul class=active><li><a class=active href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li><li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li></ul></li><li><a href=/posts/db/ title=db>db</a></li><li><a href=/posts/docker/ title=docker>docker</a></li><li><i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a><ul><li><a href=/posts/framework/django/ title=django>django</a></li></ul></li><li><i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a><ul><li><a href=/posts/os/linux/ title=linux>linux</a></li><li><a href=/posts/os/windows/ title=windows>windows</a></li></ul></li><li><i class="fas fa-plus-circle"></i><a href=/posts/programming/>programming</a><ul><li><a href=/posts/programming/golang/ title=golang>golang</a></li><li><a href=/posts/programming/python/ title=python>python</a></li></ul></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class=content><div class="container p-0 read-area"><div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)></div><div class=page-content><div class="author-profile ml-auto align-self-lg-center"><img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image"><h5 class=author-name>Sangjun</h5><p>December 1, 2020</p></div><div class=title><h1>LeetCode Python (Easy)</h1></div><div class=post-content id=post-content><hr><h2 id=1-two-sum>1. Two Sum</h2><p><a href=https://leetcode.com/problems/two-sum/>문제 링크</a></p><ol><li><code>nums</code> 리스트 속성값 중 <code>두개의 값</code>이 <code>target</code> 값과 동일할때 해당 <code>속성 값</code>의 <code>index</code> 반환</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>twoSum</span>(self, nums: List[int], target: int) <span style=color:#f92672>-&gt;</span> List[int]:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i, num <span style=color:#f92672>in</span> enumerate(nums):
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> j, num2 <span style=color:#f92672>in</span> enumerate(nums[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>:]):
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> i <span style=color:#f92672>!=</span> j<span style=color:#f92672>+</span>i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>:
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>if</span> target <span style=color:#f92672>==</span> num<span style=color:#f92672>+</span>num2:
+</span></span><span style=display:flex><span>                        <span style=color:#66d9ef>return</span> [i, j<span style=color:#f92672>+</span>i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]
+</span></span></code></pre></div><p><strong>2020-11-27</strong></p><blockquote><p>Runtime: <code>40 ms</code>, faster than <code>97.02%</code> of Python3 online submissions for Two Sum.
+Memory Usage: <code>14.5 MB</code>, less than <code>89.48%</code> of Python3 online submisstions for Two Sum.</p></blockquote><hr><h2 id=7-reverse-integer>7. Reverse Integer</h2><p><a href=https://leetcode.com/problems/reverse-integer/>문제링크</a></p><ol><li><code>x</code>값을 list형으로 변환하여 <code>testCase</code> 변수에 저장</li><li><code>testCase[0]</code>값에 <code>-</code>부호가 있다면 <code>sign</code> 변수에 저장하고 <code>testCase[0]</code>에서 부호 삭제</li><li>for문을 사용하여 <code>testCase</code> 역순으로 <code>result</code> 변수에 저장</li><li><code>sign</code>변수에 값이 있다면 <code>sign + result</code>값을 <code>result</code>에 저장</li><li>결과값이 int 32비트범위를 넘지 않으면 <code>result</code>을, 넘으면 <code>0</code> 반환<ul><li>return : <code>x</code> 숫자를 역순으로 나열하여 반환</li></ul></li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>reverse</span>(self, x: int) <span style=color:#f92672>-&gt;</span> int:
+</span></span><span style=display:flex><span>        testCase <span style=color:#f92672>=</span> list(str(x))
+</span></span><span style=display:flex><span>        sign <span style=color:#f92672>=</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>        result <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> testCase[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;-&#39;</span>:
+</span></span><span style=display:flex><span>            sign <span style=color:#f92672>=</span> testCase<span style=color:#f92672>.</span>pop(<span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>        testCaseLen <span style=color:#f92672>=</span> len(testCase)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(testCaseLen):
+</span></span><span style=display:flex><span>            result <span style=color:#f92672>+=</span> testCase[testCaseLen<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span><span style=color:#f92672>-</span>i]
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> sign:
+</span></span><span style=display:flex><span>            result <span style=color:#f92672>=</span> sign <span style=color:#f92672>+</span> result
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>2147483648</span> <span style=color:#f92672>&lt;=</span> int(result) <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>2147483647</span>:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> int(result)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>
+</span></span></code></pre></div><p><strong>2020-11-27</strong></p><blockquote><p>Runtime: <code>28 ms</code>, faster than <code>83.14%</code> of Python3 online submissions for Reverse Integer.
+Memory Usage: <code>14.2 MB</code>, less than <code>41.05%</code> of Python3 online submisstions for Reverse Integer.</p></blockquote><hr><h2 id=9-palindrome-number>9. Palindrome Number</h2><p><a href=https://leetcode.com/problems/palindrome-number/>문제링크</a></p><ol><li><code>x</code>값을 <code>num</code>변수에 대입</li><li><code>res</code>변수에 나머지연산으로 <code>num</code> 1의 자리값을 더하고 <code>num</code> 나누기 연산하여 1의 자리 삭제</li><li><code>res</code>변수를 10곱하여 자릿수 증가</li><li>위의 과정을 <code>num</code>변수가 0이 될때까지 반복</li><li>초기 <code>x</code>값과 <code>res</code>변수를 비교한 결과 반환</li></ol><p>시간복잡성 : O(n)
+공간복잡성 : O(1)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>isPalindrome</span>(self, x: int) <span style=color:#f92672>-&gt;</span> bool:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> x <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0</span>: <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        num, res <span style=color:#f92672>=</span> x, <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> num <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>            res <span style=color:#f92672>=</span> res<span style=color:#f92672>*</span><span style=color:#ae81ff>10</span> <span style=color:#f92672>+</span> num<span style=color:#f92672>%</span><span style=color:#ae81ff>10</span>
+</span></span><span style=display:flex><span>            num <span style=color:#f92672>//=</span> <span style=color:#ae81ff>10</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> x<span style=color:#f92672>==</span>res
+</span></span></code></pre></div><p><strong>2020-12-15</strong></p><blockquote><p>Runtime: <code>52 ms</code>, faster than <code>88.59%</code> of Python3 online submissions for Palindrome Number.
+Memory Usage: <code>14.1 MB</code>, less than <code>59.38%</code> of Python3 online submissions for Palindrome Number.</p></blockquote><hr><h2 id=14longest-common-prefix>14. Longest Common Prefix</h2><p><a href=https://leetcode.com/problems/longest-common-prefix/>문제링크</a></p><ol><li>문자열 길이로 정렬된 <code>strs</code> 리스트에서 가장 짧은 <code>strs[0]</code>문자열로 각 문자열의 <code>i</code>번째 값과 비교</li><li>모든 문자열에서 동일한 문자가 있다면 <code>compareText</code>변수에 추가하고 마지막에 <code>compareText</code> 반환<ul><li>return : <code>strs</code> 리스트의 모든 문자열에서 공통된 문자열 반환</li></ul></li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>longestCommonPrefix</span>(self, strs: List[str]) <span style=color:#f92672>-&gt;</span> str:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> strs:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#39;&#39;</span>    
+</span></span><span style=display:flex><span>        strs<span style=color:#f92672>.</span>sort(key<span style=color:#f92672>=</span>len)
+</span></span><span style=display:flex><span>        compareText <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(strs[<span style=color:#ae81ff>0</span>])):
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> text <span style=color:#f92672>in</span> strs[<span style=color:#ae81ff>1</span>:]:
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> text[i] <span style=color:#f92672>!=</span> strs[<span style=color:#ae81ff>0</span>][i]:
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>return</span> compareText
+</span></span><span style=display:flex><span>            compareText <span style=color:#f92672>+=</span> strs[<span style=color:#ae81ff>0</span>][i]
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> compareText
+</span></span></code></pre></div><p><strong>2020-12-01</strong></p><blockquote><p>Runtime: <code>28 ms</code>, faster than <code>90.77%</code> of Python3 online submissions for Longest Common Prefix.
+Memory Usage: <code>14.3 MB</code>, less than <code>47.57%</code> of Python3 online submisstions for Longest Common Prefix.</p></blockquote><hr><h2 id=20-valid-parentheses>20. Valid Parentheses</h2><p><a href=https://leetcode.com/problems/valid-parentheses/>문제링크</a></p><ol><li>열린 괄호 <code>(</code>, <code>{</code>, <code>[</code> 는 list자료형에 <code>스택에 쌓고</code></li><li>닫는 괄호 <code>)</code>, <code>}</code>, <code>]</code> 는 스택의 마지막값과 비교해서 동일한 종류면 <code>스택에서 값 제거</code></li><li>최종적으로 list 길이가 0일때 <code>True</code> 반환 아니면 <code>False</code> 반환</li></ol><ul><li>True : 모든 괄호가 쌍일 경우</li><li>False : 쌍을 이루지 못한 괄호가 있을 경우</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>isValid</span>(self, s: str) <span style=color:#f92672>-&gt;</span> bool:
+</span></span><span style=display:flex><span>        textLen <span style=color:#f92672>=</span> len(s)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (<span style=color:#f92672>not</span> str) <span style=color:#f92672>or</span> ((textLen<span style=color:#f92672>%</span><span style=color:#ae81ff>2</span>) <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>):
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>        stackList <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(textLen):
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> s[i] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;(&#39;</span> <span style=color:#f92672>or</span> s[i] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;{&#39;</span> <span style=color:#f92672>or</span> s[i] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;[&#39;</span>:
+</span></span><span style=display:flex><span>                stackList<span style=color:#f92672>.</span>append(s[i])
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>elif</span> <span style=color:#f92672>not</span> stackList:
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>elif</span> s[i] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;)&#39;</span> <span style=color:#f92672>and</span> stackList[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;(&#39;</span>:
+</span></span><span style=display:flex><span>                stackList<span style=color:#f92672>.</span>pop()
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>elif</span> s[i] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;}&#39;</span> <span style=color:#f92672>and</span> stackList[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;{&#39;</span>:
+</span></span><span style=display:flex><span>                stackList<span style=color:#f92672>.</span>pop()
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>elif</span> s[i] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;]&#39;</span> <span style=color:#f92672>and</span> stackList[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;[&#39;</span>:
+</span></span><span style=display:flex><span>                stackList<span style=color:#f92672>.</span>pop()
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> stackList:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
+</span></span></code></pre></div><p><strong>2020-12-03</strong></p><blockquote><p>Runtime: <code>16 ms</code>, faster than <code>99.83%</code> of Python3 online submissions for Valid Parentheses.
+Memory Usage: <code>14.3 MB</code>, less than <code>24.08%</code> of Python3 online submisstions for Valid Parentheses.</p></blockquote><hr><h2 id=35-search-insert-position>35. Search Insert Position</h2><p><a href=https://leetcode.com/problems/search-insert-position/>문제링크</a></p><ol><li><code>nums</code> 리스트 첫 번째 index를 <code>low</code>변수에 저장</li><li><code>nums</code> 리스트 마지막 index를 <code>high</code>변수에 저장</li><li>while문을 통해 low 값이 high 값보다 작을 때 실행<ul><li><code>nums</code> 리스트의 중간위치인 (low+high)//2 값을 <code>index</code> 변수에 저장</li><li><code>nums[index]</code>값이 <code>target</code>보다 클 때 <code>index+1</code>값을 <code>low</code>변수에 저장</li><li>그 외에는 <code>index</code>값을 <code>high</code>변수에 저장</li></ul></li><li>while문 종료 후 <code>low</code> 변수 반환<ul><li>return : <code>target</code>값이 들어갈 index 반환</li></ul></li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>searchInsert</span>(self, nums: List[int], target: int) <span style=color:#f92672>-&gt;</span> int:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> target <span style=color:#f92672>&lt;=</span> nums[<span style=color:#ae81ff>0</span>]:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        low, high <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, len(nums)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> low <span style=color:#f92672>&lt;</span> high:
+</span></span><span style=display:flex><span>            index <span style=color:#f92672>=</span> (low<span style=color:#f92672>+</span>high)<span style=color:#f92672>//</span><span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (nums[index] <span style=color:#f92672>&lt;</span> target):
+</span></span><span style=display:flex><span>                low <span style=color:#f92672>=</span> index<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>                high <span style=color:#f92672>=</span> index
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> low
+</span></span></code></pre></div><p><strong>2020-12-02</strong></p><blockquote><p>Runtime: <code>40 ms</code>, faster than <code>96.18%</code> of Python3 online submissions for Search Insert Position.
+Memory Usage: <code>15.1 MB</code>, less than <code>9.31%</code> of Python3 online submisstions for Search Insert Position.</p></blockquote><hr><h2 id=38-count-and-say>38. Count and Say</h2><p><a href=https://leetcode.com/problems/count-and-say/>문제링크</a></p><ol><li>비교 문자열 <code>1</code> 선언</li><li>아래의 알고리즘을 입력 받은 <code>n</code>번 반복 실행<ul><li>문자 하나씩 비교하여 같으면 <code>count</code> 1증가</li><li>문자가 다르면 <code>resultText</code> 문자열에 <code>count</code>값과 리스트 <code>[i-1]</code>번째 문자를 저장</li></ul></li><li>안쪽 for문 종료 후 <code>numText</code> 마지막 [-1]문자열 값 대입하여 반환<ul><li>return : 입력받은 각 숫자의 갯수와 숫자를 반환</li></ul></li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>countAndSay</span>(self, n: int) <span style=color:#f92672>-&gt;</span> str:
+</span></span><span style=display:flex><span>        numText <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;1&#39;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> _ <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1</span>, n):
+</span></span><span style=display:flex><span>            count <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>            resultText <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1</span>,len(numText)):
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> numText[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>!=</span> numText[i]:
+</span></span><span style=display:flex><span>                    resultText <span style=color:#f92672>+=</span> (str(count) <span style=color:#f92672>+</span> numText[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>])
+</span></span><span style=display:flex><span>                    count <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>                    count <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>            numText <span style=color:#f92672>=</span> resultText <span style=color:#f92672>+</span> str(count) <span style=color:#f92672>+</span> numText[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> numText
+</span></span></code></pre></div><p><strong>2020-12-07</strong></p><blockquote><p>Runtime: <code>40 ms</code>, faster than <code>70.73%</code> of Python3 online submissions for Count and Say.
+Memory Usage: <code>14.3 MB</code>, less than <code>48.22%</code> of Python3 online submisstions for Count and Say.</p></blockquote><hr><h2 id=53-maximum-subarray>53. Maximum Subarray</h2><p><a href=https://leetcode.com/problems/maximum-subarray/>문제링크</a></p><ol><li>동적 계획법(Dynamic Programming, DP) 사용할 것</li><li>아래는 잘못푼 문제</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>maxSubArray</span>(self, nums: List[int]) <span style=color:#f92672>-&gt;</span> int:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> len(nums) <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> nums[<span style=color:#ae81ff>0</span>]
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        numMax <span style=color:#f92672>=</span> max(nums)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> numMax <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>1</span>:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> numMax
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        start, end <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(nums)<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>):
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>&lt;</span> nums[start]:
+</span></span><span style=display:flex><span>                end <span style=color:#f92672>=</span> i<span style=color:#f92672>+</span><span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>                numSum <span style=color:#f92672>=</span> sum(nums[start:end])
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> numSum <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>                    start <span style=color:#f92672>=</span> end
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>elif</span> numMax <span style=color:#f92672>&lt;=</span> numSum:
+</span></span><span style=display:flex><span>                    numMax <span style=color:#f92672>=</span> numSum
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>                start <span style=color:#f92672>=</span> i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> numMax
+</span></span></code></pre></div><p><strong>2020-12-08</strong></p><blockquote><p>Runtime: <code>1580 ms,</code>, faster than <code>5.26%</code> of Python3 online submissions for Maximum Subarray.
+Memory Usage: <code>15.2 MB</code>, less than <code>5.01%</code> of Python3 online submisstions for Maximum Subarray.</p></blockquote><hr><h2 id=58-length-of-last-word>58. Length of Last Word</h2><p><a href=https://leetcode.com/problems/length-of-last-word/>문제링크</a></p><ol><li>문자열 <code>앞뒤 공백 제거</code></li><li>공백<code> </code>으로 <code>분할</code>하고 리스트 <code>마지막 문자열</code> 반환<ul><li>return : 마지막 문자열 반환</li></ul></li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>lengthOfLastWord</span>(self, s: str) <span style=color:#f92672>-&gt;</span> int:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> len(s<span style=color:#f92672>.</span>strip()<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#39; &#39;</span>)[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>])
+</span></span></code></pre></div><p><strong>2020-12-09</strong></p><blockquote><p>Runtime: <code>16 ms</code>, faster than <code>99.80%</code> of Python3 online submissions for Length of Last Word.
+Memory Usage: <code>14.2 MB</code>, less than <code>38.86%</code> of Python3 online submissions for Length of Last Word.</p></blockquote><hr><h2 id=66-plus-one>66. Plus One</h2><p><a href=https://leetcode.com/problems/plus-one/>문제링크</a></p><ol><li><code>digits</code> 리스트 마지막 값 <code>1증가</code></li><li>반복문을 통해 리스트 <code>역순</code>으로 값 <code>한자릿수</code> 검증</li><li>모든요소가 단일숫자 구성시 <code>digits</code> 반환</li><li><code>digits[0]</code> 값이 <code>10</code>으로 나눠질경우 digits[0]위치에 <code>[1]값 속성 추가</code>하여 반환<ul><li>return : <code>digits</code> 리스트 반환</li></ul></li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>plusOne</span>(self, digits: List[int]) <span style=color:#f92672>-&gt;</span> List[int]:
+</span></span><span style=display:flex><span>        digits[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(digits)<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>):
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> digits[i]<span style=color:#f92672>%</span><span style=color:#ae81ff>10</span> <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> digits
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>elif</span> i <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>                digits[i] <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>                digits[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>                digits[i] <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> [<span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> digits
+</span></span></code></pre></div><p><strong>2020-12-04</strong></p><blockquote><p>Runtime: <code>24 ms</code>, faster than <code>95.84%</code> of Python3 online submissions for Plus One.
+Memory Usage: <code>14.2 MB</code>, less than <code>38.47%</code> of Python3 online submisstions for Plus One.</p></blockquote><hr><h2 id=136-single-number>136. Single Number</h2><p><a href=https://leetcode.com/problems/single-number/>문제링크</a></p><ol><li>nums 리스트 정렬</li><li>index(0,2,4,&mldr;) 2씩 증가하는 for문 실행</li><li>nums 리스트 <code>index의 값</code>과 <code>index+1의 값</code>을 <code>비교</code>하여 다를경우 list <code>index</code> 값 반환</li><li>리스트 마지막까지 도달할경우 <code>nums[-1]</code> 반환<ul><li>return : nums 리스트에서 같은 수가 없는 값 반환</li></ul></li></ol><p>시간복잡성 O(n)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>singleNumber</span>(self, nums: List[int]) <span style=color:#f92672>-&gt;</span> int:
+</span></span><span style=display:flex><span>        nums<span style=color:#f92672>.</span>sort()
+</span></span><span style=display:flex><span>        numsLen <span style=color:#f92672>=</span> len(nums)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>0</span>, len(nums), <span style=color:#ae81ff>2</span>):
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> numsLen <span style=color:#f92672>&lt;=</span> i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>:
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> nums[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>elif</span> nums[i] <span style=color:#f92672>!=</span> nums[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]:
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> nums[i]
+</span></span></code></pre></div><p><strong>2020-12-04</strong></p><blockquote><p>Runtime: <code>124 ms</code>, faster than <code>85.60%</code> of Python3 online submissions for Single Number.
+Memory Usage: <code>16.6 MB</code>, less than <code>60.41%</code> of Python3 online submisstions for Single Number.</p></blockquote><hr><h2 id=167-two-sum-ii---input-array-is-sorted>167. Two Sum II - Input array is sorted</h2><p><a href=https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/>문제링크</a></p><ol><li>리스트 첫번째 인덱스 = <code>low</code>, 마지막 인덱스 = <code>high</code> 선언</li><li><code>while</code>문 <code>low</code>값이 <code>high</code>값보다 작을때 반복실행<ul><li><code>리스트[low]</code> + <code>리스트[high]</code> 값이 <code>target</code>보다 작으면 <code>low</code> 1 증가</li><li><code>리스트[low]</code> + <code>리스트[high]</code> 값이 <code>target</code>보다 크면 <code>high</code> 1 감소</li><li><code>리스트[low]</code> + <code>리스트[high]</code> 값이 <code>target</code> 같은 값이면 <code>low</code>, <code>high</code> return</li></ul></li></ol><ul><li>return : <code>numbers</code>리스트 두수의 합이 <code>target</code>값과 같을 때 두수의 <code>index</code>값 반환</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>twoSum</span>(self, numbers: List[int], target: int) <span style=color:#f92672>-&gt;</span> List[int]:
+</span></span><span style=display:flex><span>        low, high <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, len(numbers)<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> low <span style=color:#f92672>&lt;</span> high:
+</span></span><span style=display:flex><span>            val <span style=color:#f92672>=</span> numbers[high] <span style=color:#f92672>+</span> numbers[low]
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> target <span style=color:#f92672>&lt;</span> val:
+</span></span><span style=display:flex><span>                high <span style=color:#f92672>-=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>elif</span> val <span style=color:#f92672>&lt;</span> target:
+</span></span><span style=display:flex><span>                low <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> [low<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>, high<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]
+</span></span></code></pre></div><p><strong>2020-12-11</strong></p><blockquote><p>Runtime: <code>56 ms</code>, faster than <code>92.55%</code> of Python3 online submissions for Two Sum II - Input array is sorted.
+Memory Usage: <code>14.8 MB</code>, less than <code>11.31%</code> of Python3 online submissions for Two Sum II - Input array is sorted.</p></blockquote><hr><h2 id=169-majority-element>169. Majority Element</h2><p><a href=https://leetcode.com/problems/majority-element/>문제링크</a></p><h3 id=방법1>방법1</h3><ol><li><code>nums</code>리스트에서 <code>중복제거</code></li><li><code>nums</code>리스트 for문을 통해 반복<ul><li>해당 속성 값의 <code>cnt</code> 값이 <code>max</code>값보다 클때</li><li><code>max</code>변수에 <code>cnt</code>값 저장</li><li><code>textMax</code>변수에 해당 속성값 저장</li></ul></li><li>for문이 끝난 마지막에 <code>textMax</code> 반환<ul><li>return : 입력받은 <code>nums</code>리스트의 문자 중 갯수가 많은 문자 반환</li></ul></li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>majorityElement</span>(self, nums: List[int]) <span style=color:#f92672>-&gt;</span> int:
+</span></span><span style=display:flex><span>        max, textMax <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> num <span style=color:#f92672>in</span> list(set(nums)):
+</span></span><span style=display:flex><span>            cnt <span style=color:#f92672>=</span> nums<span style=color:#f92672>.</span>count(num)
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> max <span style=color:#f92672>&lt;</span> cnt:
+</span></span><span style=display:flex><span>                max <span style=color:#f92672>=</span> cnt
+</span></span><span style=display:flex><span>                textMax <span style=color:#f92672>=</span> num
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> textMax
+</span></span></code></pre></div><p><strong>2020-12-09</strong></p><blockquote><p>Runtime: <code>136 ms</code>, faster than <code>99.99%</code> of Python3 online submissions for Majority Element.
+Memory Usage: <code>15.4 MB</code>, less than <code>35.47%</code> of Python3 online submissions for Majority Element.</p></blockquote><h3 id=방법2>방법2</h3><ol><li><code>nums</code>리스트 정렬하여 <code>중간 위치값</code> 반환<ul><li>입력받는 문자는 두 종류</li></ul></li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>majorityElement</span>(self, nums: List[int]) <span style=color:#f92672>-&gt;</span> int:
+</span></span><span style=display:flex><span>        nums<span style=color:#f92672>.</span>sort()
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> nums[len(nums)<span style=color:#f92672>//</span><span style=color:#ae81ff>2</span>]
+</span></span></code></pre></div><p><strong>2020-12-09</strong></p><blockquote><p>Runtime: <code>148 ms</code>, faster than <code>98.15%</code> of Python3 online submissions for Majority Element.
+Memory Usage: <code>15.4 MB</code>, less than <code>35.47%</code> of Python3 online submissions for Majority Element.</p></blockquote><hr><h2 id=204-count-primes>204. Count Primes</h2><p><a href=https://leetcode.com/problems/count-primes/>문제링크</a></p><ol><li><code>아리스토텔레스의 체</code> 이용하여 소수가 아닌값을 거르는 알고리즘</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>countPrimes</span>(self, n: int) <span style=color:#f92672>-&gt;</span> int:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> n <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>3</span>: <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        numList <span style=color:#f92672>=</span> [<span style=color:#66d9ef>True</span>] <span style=color:#f92672>*</span> n
+</span></span><span style=display:flex><span>        sqrt <span style=color:#f92672>=</span> int(n<span style=color:#f92672>**</span><span style=color:#ae81ff>0.5</span>)<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>2</span>, sqrt):
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> numList[i]:
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>for</span> j <span style=color:#f92672>in</span> range(i<span style=color:#f92672>+</span>i, n, i):
+</span></span><span style=display:flex><span>                    numList[j] <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> numList<span style=color:#f92672>.</span>count(<span style=color:#66d9ef>True</span>)<span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>
+</span></span></code></pre></div><p><strong>2020-12-09</strong></p><blockquote><p>Runtime: <code>392 ms</code>, faster than <code>80.27%</code> of Python3 online submissions for Count Primes.
+Memory Usage: <code>25.7 MB</code>, less than <code>55.70%</code> of Python3 online submissions for Count Primes.</p></blockquote><hr><h2 id=217-contains-duplicate>217. Contains Duplicate</h2><p><a href=https://leetcode.com/problems/contains-duplicate/>문제링크</a></p><ol><li><code>nums</code>리스트 중복제거한 길이와 <code>nums</code> 리스트 길이와 비교</li><li>길이가 같다면 <code>False</code> 길이가 다르면 중복제거하여 <code>True</code> 반환<ul><li>True : nums 리스트에 중복값이 포함</li><li>False : nums 리스트에 중복값이 없음</li></ul></li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>containsDuplicate</span>(self, nums: List[int]) <span style=color:#f92672>-&gt;</span> bool:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span> <span style=color:#66d9ef>if</span> len(nums) <span style=color:#f92672>!=</span> len(set(nums)) <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>False</span>
+</span></span></code></pre></div><p><strong>2020-12-11</strong></p><blockquote><p>Runtime: <code>108 ms</code>, faster than <code>93.87%</code> of Python3 online submissions for Count Primes.
+Memory Usage: <code>20.2 MB</code>, less than <code>44.91%</code> of Python3 online submissions for Count Primes.</p></blockquote><ol><li>리스트 값을 dict 키값으로 저장</li><li>리스트 반복문 실행 중에 해당 키값이 있다면 <code>True</code> 반환</li><li>모든 리스트가 if 조건에 걸리지 않으면 <code>False</code> 반환<ul><li>True : 중복된 값이 존재할 경우</li><li>False : 중복된 값이 없을 경우</li></ul></li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>containsDuplicate</span>(self, nums: List[int]) <span style=color:#f92672>-&gt;</span> bool:
+</span></span><span style=display:flex><span>        dict <span style=color:#f92672>=</span> {}
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> num <span style=color:#f92672>in</span> nums:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> dict<span style=color:#f92672>.</span>get(num):
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
+</span></span><span style=display:flex><span>            dict[num] <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+</span></span></code></pre></div><p><strong>2020-12-11</strong></p><blockquote><p>Runtime: <code>116 ms</code>, faster than <code>65.53%</code> of Python3 online submissions for Contains Duplicate.
+Memory Usage: <code>21.5 MB</code>, less than <code>8.09%</code> of Python3 online submissions for Contains Duplicate.</p></blockquote><hr><h2 id=231-power-of-two>231. Power of Two</h2><p><a href=https://leetcode.com/problems/power-of-two/>문제링크</a></p><h3 id=방법1-1>방법1</h3><ol><li><code>n</code>이 양수일때 이진수로 변환</li><li>이진수 리스트에서 앞의 두자리를 제외한 리스트를 저장 (<code>b0~</code>형식)</li><li><code>0번째</code> 값을 제외하고 for 반복문 실행</li><li>리스트 <code>0번째</code> 값과 비교하여 같은 1이 나오면 <code>False</code> 반환</li><li>반복문 종료까지 if 조건문 안걸리면 <code>True</code> 반환<ul><li>True : 입력받은 값이 2의 제곱수일 경우</li><li>False : 입력받은 값이 2의 제곱수가 아닐 경우</li></ul></li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>isPowerOfTwo</span>(self, n: int) <span style=color:#f92672>-&gt;</span> bool:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> n <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>1</span>: <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>        nums <span style=color:#f92672>=</span> list(bin(n))[<span style=color:#ae81ff>2</span>:]
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> num <span style=color:#f92672>in</span> nums[<span style=color:#ae81ff>1</span>:]:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> nums[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> num: <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
+</span></span></code></pre></div><p><strong>2020-12-11</strong></p><blockquote><p>Runtime: <code>24 ms</code>, faster than <code>94.77%</code> of Python3 online submissions for Power of Two.
+Memory Usage: <code>14.3 MB</code>, less than <code>15.35%</code> of Python3 online submissions for Power of Two.</p></blockquote><h3 id=방법2-1>방법2</h3><ol><li>입력값 <code>n</code>이 양수이고</li><li>2의 거듭제곱수 판별은 <code>n</code>값과 <code>n-1</code>값을 비트 <code>AND</code>연산하면 <code>0</code>으로 나옴</li><li>위의 2가지 조건이 만족하면 <code>True</code> 만족하지 않는다면 <code>False</code> 반환</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>isPowerOfTwo</span>(self, n: int) <span style=color:#f92672>-&gt;</span> bool:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> (<span style=color:#ae81ff>0</span><span style=color:#f92672>&lt;</span>n) <span style=color:#f92672>and</span> ((n<span style=color:#f92672>&amp;</span>(n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)) <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>)
+</span></span></code></pre></div><p><strong>2020-12-11</strong></p><blockquote><p>Runtime: <code>24 ms</code>, faster than <code>94.77%</code> of Python3 online submissions for Power of Two.
+Memory Usage: <code>14.1 MB</code>, less than <code>80.64%</code> of Python3 online submissions for Power of Two.</p></blockquote><hr><h2 id=242-valid-anagram>242. Valid Anagram</h2><p><a href=https://leetcode.com/problems/valid-anagram/>문제링크</a></p><ol><li><code>s</code>, <code>t</code> 문자열을 <code>sorted</code>함수로 정렬된 리스트 반환받아 비교하여 결과값 반환<ul><li>True : 입력받은 두 문자열이 동일할 경우</li><li>False : 입력받은 두 문자열이 다를 경우</li></ul></li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>isAnagram</span>(self, s: str, t: str) <span style=color:#f92672>-&gt;</span> bool:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> sorted(s) <span style=color:#f92672>==</span> sorted(t)
+</span></span></code></pre></div><p><strong>2020-12-11</strong></p><blockquote><p>Runtime: <code>40 ms</code>, faster than <code>84.57%</code> of Python3 online submissions for Valid Anagram.
+Memory Usage: <code>15 MB</code>, less than <code>6.58%</code> of Python3 online submissions for Valid Anagram.</p></blockquote><hr><h2 id=258-add-digits>258. Add Digits</h2><p><a href=https://leetcode.com/problems/add-digits>문제링크</a></p><h3 id=방법1-2>방법1</h3><ol><li><code>num</code> 값을 <code>10</code>으로 나눈 <code>몫</code>과 <code>나머지</code>를 <code>합산</code>하고</li><li><code>num</code> 값이 <code>10 이하</code> 일때 반환<ul><li>return : 자릿수근 반환</li></ul></li></ol><p>시간복잡성 : O(n)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>addDigits</span>(self, num: int) <span style=color:#f92672>-&gt;</span> int:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> <span style=color:#ae81ff>9</span> <span style=color:#f92672>&lt;</span> num:
+</span></span><span style=display:flex><span>            num <span style=color:#f92672>=</span> num<span style=color:#f92672>//</span><span style=color:#ae81ff>10</span> <span style=color:#f92672>+</span> num<span style=color:#f92672>%</span><span style=color:#ae81ff>10</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> num
+</span></span></code></pre></div><p><strong>2020-12-14</strong></p><blockquote><p>Runtime: <code>20 ms</code>, faster than <code>98.98%</code> of Python3 online submissions for Add Digits.
+Memory Usage: <code>14.3 MB</code>, less than <code>20.30%</code> of Python3 online submissions for Add Digits.</p></blockquote><h3 id=방법2-2>방법2</h3><ol><li><code>num</code> 값을 <code>(num-1) % 9 + 1</code>자릿수근(digital root) 공식을 이용하여 결과값 반환<ul><li>return : 자릿수근 반환</li></ul></li></ol><p>시간복잡성 : O(1)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>addDigits</span>(self, num: int) <span style=color:#f92672>-&gt;</span> int:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span> <span style=color:#66d9ef>if</span> num <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span> <span style=color:#66d9ef>else</span> (num<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>%</span><span style=color:#ae81ff>9</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+</span></span></code></pre></div><p><strong>2020-12-14</strong></p><blockquote><p>Runtime: <code>24 ms</code>, faster than <code>95.45%</code> of Python3 online submissions for Add Digits.
+Memory Usage: <code>14.3 MB</code>, less than <code>20.30%</code> of Python3 online submissions for Add Digits.</p></blockquote><hr><h2 id=263-ugly-number>263. Ugly Number</h2><p><a href=https://leetcode.com/problems/ugly-number/>문제링크</a></p><ol><li>while 반복문으로 <code>num</code>값이 <code>5</code>로 나눈 <code>나머지</code>가 <code>0</code>일때 <code>몫</code>을 <code>num</code>값에 저장</li><li>동일한 방식으로 <code>3</code>, <code>2</code>로 나눈다.</li><li>결과값이 <code>1</code>일때만 <code>True</code>, 그외의 결과는 <code>False</code> 반환<ul><li>True : 입력받은 값이 <code>2</code>, <code>3</code>, <code>5</code>로 나누어질 경우</li><li>False : 그외의 경우</li></ul></li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>isUgly</span>(self, num: int) <span style=color:#f92672>-&gt;</span> bool:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> num <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>: <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> num <span style=color:#f92672>%</span> <span style=color:#ae81ff>5</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>            num <span style=color:#f92672>//=</span>  <span style=color:#ae81ff>5</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> num <span style=color:#f92672>%</span> <span style=color:#ae81ff>3</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>            num <span style=color:#f92672>//=</span> <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> num <span style=color:#f92672>%</span> <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>            num <span style=color:#f92672>//=</span> <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> num <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>
+</span></span></code></pre></div><p><strong>2020-12-14</strong></p><blockquote><p>Runtime: <code>28 ms</code>, faster than <code>82.19%</code> of Python3 online submissions for Ugly Number.
+Memory Usage: <code>14.3 MB</code>, less than <code>19.35%</code> of Python3 online submissions for Ugly Number.</p></blockquote><hr><h2 id=268-missing-number>268. Missing Number</h2><p><a href=https://leetcode.com/problems/missing-number/>문제링크</a></p><h3 id=방법1-3>방법1</h3><ol><li><code>nums</code>리스트 정렬</li><li><code>nums</code>리스트 길이만큼 for문 실행</li><li>index 위치값에 해당되는 값이 없으면 index 반환</li><li>for문 마지막까지 if문 해당되지 않을경우 <code>nums</code>리스트 길이 반환<ul><li>return : <code>nums</code>리스트에 없는 값 반환</li></ul></li></ol><p>공간복잡성 : O(1)<br>시간복잡성 : O(n)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>missingNumber</span>(self, nums: List[int]) <span style=color:#f92672>-&gt;</span> int:
+</span></span><span style=display:flex><span>        nums<span style=color:#f92672>.</span>sort()
+</span></span><span style=display:flex><span>        numsLen <span style=color:#f92672>=</span> len(nums)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(numsLen):
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> nums[i] <span style=color:#f92672>!=</span> i: 
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> i
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> numsLen
+</span></span></code></pre></div><p><strong>2020-12-14</strong></p><blockquote><p>Runtime: <code>136 ms</code>, faster than <code>38.61%</code> of Python3 online submissions for Missing Number.
+Memory Usage: <code>15.5 MB</code>, less than <code>27.11%</code> of Python3 online submissions for Missing Number.</p></blockquote><h3 id=방법2-3>방법2</h3><ol><li><code>nums</code>리스트의 길이를 <code>n</code>변수에 대입</li><li>1부터 n까지 수의 합(가우스 공식)을 계산하여 <code>total</code>변수에 대입<ul><li>가우스 공식 : n*(n-1)/2 + n</li></ul></li><li><code>total</code> - (<code>nums</code>리스트 합)을 값을 반환<ul><li>return : <code>nums</code>리스트에 없는 값 반환</li></ul></li></ol><p>공간복잡성 : O(1)<br>시간복잡성 : O(n)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>missingNumber</span>(self, nums: List[int]) <span style=color:#f92672>-&gt;</span> int:
+</span></span><span style=display:flex><span>        n <span style=color:#f92672>=</span> len(nums)
+</span></span><span style=display:flex><span>        total <span style=color:#f92672>=</span> int(n<span style=color:#f92672>*</span>(n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>)<span style=color:#f92672>+</span>n
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> total <span style=color:#f92672>-</span> sum(nums)
+</span></span></code></pre></div><p><strong>2020-12-14</strong></p><blockquote><p>Runtime: <code>120 ms</code>, faster than <code>93.14%</code> of Python3 online submissions for Missing Number.
+Memory Usage: <code>15.4 MB</code>, less than <code>38.54%</code> of Python3 online submissions for Missing Number.</p></blockquote><hr><h2 id=278-first-bad-version>278. First Bad Version</h2><p><a href=https://leetcode.com/problems/first-bad-version>문제링크</a></p><ol><li>이진탐색으로 풀이</li><li><code>low</code>변수에 0, <code>high</code>변수에 <code>n</code> 대입</li><li>while문으로 low변수가 high보다 작을때 반복실행<ul><li><code>low</code>와 <code>high</code>의 중간값을 <code>middle</code>변수에 저장</li><li>isBadVersion(middle)의 반환값이 <code>True</code>이면 <code>high</code>변수에 <code>middle</code> 대입</li><li>isBadVersion(middle)의 반환값이 <code>False</code>이면 <code>low</code>변수에 <code>middle + 1</code> 대입</li></ul></li><li><code>low</code>변수 반환</li></ol><ul><li>return : isBadVersion(n) 반환값중 <code>False</code>결과가 나오는 가장 큰 <code>n+1</code> 반환</li></ul><p>시간복잡성 : O(log n)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>firstBadVersion</span>(self, n):
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        :type n: int
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        :rtype: int
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>        low, middle, high <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>, n
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> low <span style=color:#f92672>&lt;</span> high:
+</span></span><span style=display:flex><span>            middle <span style=color:#f92672>=</span> (low<span style=color:#f92672>+</span>high)<span style=color:#f92672>//</span><span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> isBadVersion(middle):
+</span></span><span style=display:flex><span>                high <span style=color:#f92672>=</span> middle
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>                low <span style=color:#f92672>=</span> middle <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> low
+</span></span></code></pre></div><p><strong>2020-12-14</strong></p><blockquote><p>Runtime: <code>24 ms</code>, faster than <code>90.25%</code> of Python3 online submissions for First Bad Version.
+Memory Usage: <code>14.1 MB</code>, less than <code>45.50%</code> of Python3 online submissions for First Bad Version.</p></blockquote><hr><h2 id=283-move-zeroes>283. Move Zeroes</h2><p><a href=https://leetcode.com/problems/move-zeroes/>문제링크</a></p><ol><li><code>nums</code>리스트 요소값이 <code>0</code>이 아닐때 index인 <code>i</code>값 1증가시키고</li><li><code>nums</code>리스트 요소값이 <code>0</code>일때 해당 요소삭제 및 리스트 마지막에 <code>[0]</code>추가</li><li>위의 과정들을 for문으로 <code>nums</code>리스트의 길이만큼 반복 실행</li></ol><ul><li>return : 앞에는 0을 제외한 <code>nums</code>리스트, 뒤에는 제외된 <code>[0]</code>이 리스트에 붙어서 반환</li></ul><p>시간복잡성 : O(log n)<br>공간복잡성 : O(1)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>moveZeroes</span>(self, nums: List[int]) <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>None</span>:
+</span></span><span style=display:flex><span>        zero_cnt <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(nums)<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>):
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> nums[i] <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>del</span> nums[i]
+</span></span><span style=display:flex><span>                zero_cnt <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        nums <span style=color:#f92672>+=</span> ([<span style=color:#ae81ff>0</span>] <span style=color:#f92672>*</span> zero_cnt)
+</span></span></code></pre></div><p><strong>2020-12-15</strong></p><blockquote><p>Runtime: <code>44 ms</code>, faster than <code>88.45%</code> of Python3 online submissions for Move Zeroes.
+Memory Usage: <code>15.2 MB</code>, less than <code>63.17%</code> of Python3 online submissions for Move Zeroes.</p></blockquote><hr><h2 id=292-nim-game>292. Nim Game</h2><p><a href=https://leetcode.com/problems/nim-game/>문제링크</a></p><ol><li><code>n</code>값을 4로 나누었을때 0일경우만 <code>False</code>, 그외에 <code>True</code></li></ol><p>시간복잡성 : O(1)<br>공간복잡성 : O(1)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>canWinNim</span>(self, n: int) <span style=color:#f92672>-&gt;</span> bool:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> n<span style=color:#f92672>%</span><span style=color:#ae81ff>4</span>
+</span></span></code></pre></div><p><strong>2020-12-15</strong></p><blockquote><p>Runtime: <code>28 ms</code>, faster than <code>68.93%</code> of Python3 online submissions for Nim Game.
+Memory Usage: <code>14.2 MB</code>, less than <code>38.05%</code> of Python3 online submissions for Nim Game.</p></blockquote><hr><h2 id=342-power-of-four>342. Power of Four</h2><p><a href=https://leetcode.com/problems/power-of-four/>문제링크</a></p><h3 id=방법1-4>방법1</h3><ol><li>양수인 <code>n</code>을 이진수로 변환</li><li>각 이진수를 int형변환하고 <code>num</code>리스트에 저장</li><li>이진수가 짝수개이면 4의 제곱이 아니므로 return</li><li><code>num</code>리스트에서 0번째를 제외한 모든 값을 or연산<ul><li>모든값이 0 일때만 4의 제곱수</li></ul></li><li>연산한 결과 <code>result</code> not 연산하여 반환</li></ol><p>시간복잡성 : O(log n)<br>공간복잡성 : O(1)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>isPowerOfFour</span>(self, n: int) <span style=color:#f92672>-&gt;</span> bool:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> n <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>1</span>: <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        nums <span style=color:#f92672>=</span> list(map(int, bin(n)[<span style=color:#ae81ff>2</span>:]))
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> len(nums)<span style=color:#f92672>%</span><span style=color:#ae81ff>2</span><span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>: <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        result <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> num <span style=color:#f92672>in</span> nums[<span style=color:#ae81ff>1</span>:]:
+</span></span><span style=display:flex><span>            result <span style=color:#f92672>|=</span> num
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#f92672>not</span> result
+</span></span></code></pre></div><p><strong>2020-12-15</strong></p><blockquote><p>Runtime: <code>16 ms</code>, faster than <code>99.80%</code> of Python3 online submissions for Power of Four.
+Memory Usage: <code>14.3 MB</code>, less than <code>17.90%</code> of Python3 online submissions for Power of Four.</p></blockquote><h3 id=방법2-4>방법2</h3><ol><li>양수인 <code>n</code>을 2비트 우쉬프트 연산결과 곱하기 4일때 <code>n</code>과 동일하면서 <code>n</code>비트 갯수가 홀수 일때 <code>res</code>변수에 <code>True</code> 대입</li><li>그 외 경우 <code>res</code> 반환</li><li><code>n</code>을 2비트 우쉬프트 연산</li><li>위의 과정을 <code>n</code> 1 이하일때 까지 반복하고 <code>res</code> 반환</li></ol><p>시간복잡성 : O(log n)<br>공간복잡성 : O(1)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>isPowerOfFour</span>(self, n: int) <span style=color:#f92672>-&gt;</span> bool:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> n <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>: <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
+</span></span><span style=display:flex><span>        res <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>&lt;</span> n:
+</span></span><span style=display:flex><span>            res <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (n<span style=color:#f92672>&gt;&gt;</span><span style=color:#ae81ff>2</span>)<span style=color:#f92672>*</span><span style=color:#ae81ff>4</span> <span style=color:#f92672>==</span> n <span style=color:#f92672>and</span> len(bin(n))<span style=color:#f92672>%</span><span style=color:#ae81ff>2</span><span style=color:#f92672>==</span><span style=color:#ae81ff>1</span>:
+</span></span><span style=display:flex><span>                res <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> res
+</span></span><span style=display:flex><span>            n <span style=color:#f92672>&gt;&gt;=</span> <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> res
+</span></span></code></pre></div><p><strong>2020-12-15</strong></p><blockquote><p>Runtime: <code>28 ms</code>, faster than <code>82.04%</code> of Python3 online submissions for Power of Four.
+Memory Usage: <code>14 MB</code>, less than <code>82.10%</code> of Python3 online submissions for Power of Four.</p></blockquote><hr><h2 id=1678-goal-parser-interpretation>1678. Goal Parser Interpretation</h2><p><a href=https://leetcode.com/problems/goal-parser-interpretation/>문제링크</a></p><ol><li><code>command</code>문자열에서 <code>()</code> -> <code>o</code>, <code>(al)</code> -> <code>al</code> 문자열 변환하여 반환</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Solution</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>interpret</span>(self, command: str) <span style=color:#f92672>-&gt;</span> str:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> command<span style=color:#f92672>.</span>replace(<span style=color:#e6db74>&#39;()&#39;</span>, <span style=color:#e6db74>&#39;o&#39;</span>)<span style=color:#f92672>.</span>replace(<span style=color:#e6db74>&#39;(al)&#39;</span>, <span style=color:#e6db74>&#39;al&#39;</span>)
+</span></span></code></pre></div><p><strong>2020-12-11</strong></p><blockquote><p>Runtime: <code>28 ms</code>, faster than <code>89.89%</code> of Python3 online submissions for Goal Parser Interpretation.
+Memory Usage: <code>13.9 MB</code>, less than <code>100.00%</code> of Python3 online submissions for Goal Parser Interpretation.</p></blockquote></div><div class="row pl-3 pr-3"><div class="col-md-6 share-buttons"></div><div class="col-md-6 btn-improve-page"><a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/algorithm/leetcode/2020-12-01-Algorithm-leetcode-python-easy.md title="이 페이지를 개선" target=_blank rel=noopener><i class="fas fa-code-branch"></i>
+이 페이지를 개선</a></div></div><hr><div class="row next-prev-navigator"></div><hr></div></div></div><a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a></section><section class=toc-section id=toc-section><div class=toc-holder><h5 class="text-center pl-3">목차</h5><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#1-two-sum>1. Two Sum</a></li><li><a href=#7-reverse-integer>7. Reverse Integer</a></li><li><a href=#9-palindrome-number>9. Palindrome Number</a></li><li><a href=#14longest-common-prefix>14. Longest Common Prefix</a></li><li><a href=#20-valid-parentheses>20. Valid Parentheses</a></li><li><a href=#35-search-insert-position>35. Search Insert Position</a></li><li><a href=#38-count-and-say>38. Count and Say</a></li><li><a href=#53-maximum-subarray>53. Maximum Subarray</a></li><li><a href=#58-length-of-last-word>58. Length of Last Word</a></li><li><a href=#66-plus-one>66. Plus One</a></li><li><a href=#136-single-number>136. Single Number</a></li><li><a href=#167-two-sum-ii---input-array-is-sorted>167. Two Sum II - Input array is sorted</a></li><li><a href=#169-majority-element>169. Majority Element</a><ul><li><a href=#방법1>방법1</a></li><li><a href=#방법2>방법2</a></li></ul></li><li><a href=#204-count-primes>204. Count Primes</a></li><li><a href=#217-contains-duplicate>217. Contains Duplicate</a></li><li><a href=#231-power-of-two>231. Power of Two</a><ul><li><a href=#방법1-1>방법1</a></li><li><a href=#방법2-1>방법2</a></li></ul></li><li><a href=#242-valid-anagram>242. Valid Anagram</a></li><li><a href=#258-add-digits>258. Add Digits</a><ul><li><a href=#방법1-2>방법1</a></li><li><a href=#방법2-2>방법2</a></li></ul></li><li><a href=#263-ugly-number>263. Ugly Number</a></li><li><a href=#268-missing-number>268. Missing Number</a><ul><li><a href=#방법1-3>방법1</a></li><li><a href=#방법2-3>방법2</a></li></ul></li><li><a href=#278-first-bad-version>278. First Bad Version</a></li><li><a href=#283-move-zeroes>283. Move Zeroes</a></li><li><a href=#292-nim-game>292. Nim Game</a></li><li><a href=#342-power-of-four>342. Power of Four</a><ul><li><a href=#방법1-4>방법1</a></li><li><a href=#방법2-4>방법2</a></li></ul></li><li><a href=#1678-goal-parser-interpretation>1678. Goal Parser Interpretation</a></li></ul></nav></div></div></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>바로가기</h5><ul><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>Contact me:</h5><ul><li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-left"><div class=col-md-4><a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener><img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha</a></div><div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div><div class="col-md-4 text-right"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
 <script type=text/javascript src=/js/popper.min.js></script>
 <script type=text/javascript src=/js/bootstrap.min.js></script>
 <script type=text/javascript src=/js/navbar.js></script>
@@ -1065,6 +339,4 @@ Toha
 <script type=text/javascript src=/js/main.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
 <script src=/js/single.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script></body></html>

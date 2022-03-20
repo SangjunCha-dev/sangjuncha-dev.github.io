@@ -1,374 +1,58 @@
-<!doctype html><html>
-<head>
-<title>Django</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="ie=edge">
-<link rel=stylesheet href=/css/bootstrap.min.css>
-<link rel=stylesheet href=/css/layouts/main.css>
-<link rel=stylesheet href=/css/navigators/navbar.css>
-<link rel=stylesheet href=/css/plyr.css>
-<link rel=stylesheet href=/css/flag-icon.min.css>
-<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
-<meta property="og:title" content="Django">
-<meta property="og:description" content>
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sangjuncha-dev.github.io/categories/django/">
-<link rel=stylesheet href=/css/layouts/list.css>
-<link rel=stylesheet href=/css/navigators/sidebar.css>
-<link rel=stylesheet href=/css/style.css>
-</head>
-<body data-spy=scroll data-target=#TableOfContents data-offset=80>
-<div class="container-fluid bg-dimmed wrapper">
-<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
-<div class=container>
-<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
-<span class=navbar-toggler-icon></span>
-</button>
-<a class=navbar-brand href=/>
-Sangjun 개발 블로그</a>
+<!doctype html><html><head><title>Django</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/layouts/main.css><link rel=stylesheet href=/css/navigators/navbar.css><link rel=stylesheet href=/css/plyr.css><link rel=stylesheet href=/css/flag-icon.min.css><link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css><meta property="og:title" content="Django"><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://sangjuncha-dev.github.io/categories/django/"><link rel=stylesheet href=/css/layouts/list.css><link rel=stylesheet href=/css/navigators/sidebar.css><link rel=stylesheet href=/css/style.css></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span></button>
+<a class=navbar-brand href=/>Sangjun 개발 블로그</a>
 <button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
-<ul class="navbar-nav ml-auto">
-</ul>
-</div>
-</div>
-</nav>
-<section class=sidebar-section id=sidebar-section>
-<div class=sidebar-holder>
-<div class=sidebar id=sidebar>
-<form class=mx-auto method=get action=/search>
-<input type=text name=keyword placeholder=Search data-search id=search-box>
-</form>
-<div class=sidebar-tree>
-<ul class=tree id=tree>
-<li id=list-heading><a href=/categories data-filter=all>카테고리</a></li>
-<div class="subtree taxonomy-terms">
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/algorithm/ data-taxonomy-term=algorithm><span class=taxonomy-label>Algorithm</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/apple/ data-taxonomy-term=apple><span class=taxonomy-label>apple</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/aws/ data-taxonomy-term=aws><span class=taxonomy-label>AWS</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/boto3/ data-taxonomy-term=boto3><span class=taxonomy-label>boto3</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/cron/ data-taxonomy-term=cron><span class=taxonomy-label>cron</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/crontab/ data-taxonomy-term=crontab><span class=taxonomy-label>crontab</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/db/ data-taxonomy-term=db><span class=taxonomy-label>DB</span></a></li>
-<li><a class="taxonomy-term active" href=https://sangjuncha-dev.github.io/categories/django/ data-taxonomy-term=django><span class=taxonomy-label>Django</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/docker/ data-taxonomy-term=docker><span class=taxonomy-label>Docker</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/fcm/ data-taxonomy-term=fcm><span class=taxonomy-label>fcm</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/go/ data-taxonomy-term=go><span class=taxonomy-label>Go</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/gopacket/ data-taxonomy-term=gopacket><span class=taxonomy-label>Gopacket</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/gui/ data-taxonomy-term=gui><span class=taxonomy-label>Gui</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/guide/ data-taxonomy-term=guide><span class=taxonomy-label>Guide</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/learning/ data-taxonomy-term=learning><span class=taxonomy-label>Learning</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/leetcode/ data-taxonomy-term=leetcode><span class=taxonomy-label>LeetCode</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/linux/ data-taxonomy-term=linux><span class=taxonomy-label>Linux</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/logging/ data-taxonomy-term=logging><span class=taxonomy-label>logging</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/mariadb/ data-taxonomy-term=mariadb><span class=taxonomy-label>mariaDB</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/models/ data-taxonomy-term=models><span class=taxonomy-label>Models</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/mssql/ data-taxonomy-term=mssql><span class=taxonomy-label>MSSQL</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/nfs/ data-taxonomy-term=nfs><span class=taxonomy-label>NFS</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/numpy/ data-taxonomy-term=numpy><span class=taxonomy-label>Numpy</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/oauth/ data-taxonomy-term=oauth><span class=taxonomy-label>oauth</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/opencv/ data-taxonomy-term=opencv><span class=taxonomy-label>Opencv</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/postgredb/ data-taxonomy-term=postgredb><span class=taxonomy-label>PostgreDB</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/programmers/ data-taxonomy-term=programmers><span class=taxonomy-label>Programmers</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/pytest/ data-taxonomy-term=pytest><span class=taxonomy-label>pytest</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/python/ data-taxonomy-term=python><span class=taxonomy-label>Python</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/scraper/ data-taxonomy-term=scraper><span class=taxonomy-label>Scraper</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/sniff/ data-taxonomy-term=sniff><span class=taxonomy-label>Sniff</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/sqlcmd/ data-taxonomy-term=sqlcmd><span class=taxonomy-label>sqlcmd</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/swagger/ data-taxonomy-term=swagger><span class=taxonomy-label>Swagger</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/windows/ data-taxonomy-term=windows><span class=taxonomy-label>Windows</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/windows10/ data-taxonomy-term=windows10><span class=taxonomy-label>Windows10</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/wsl/ data-taxonomy-term=wsl><span class=taxonomy-label>WSL</span></a></li>
-</div>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class=content-section id=content-section>
-<div class="content container-fluid" id=content>
-<div class="container-fluid post-card-holder" id=post-card-holder>
-<div class=post-card>
-<a href=/posts/framework/django/2022-02-05-django-file-download/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Django 파일 다운로드</h5>
-<p class="card-text post-summary">django에서 구현가능한 파일 다운로드 방법 예시
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse lang-selector" id=top-nav-items><ul class="navbar-nav ml-auto"></ul></div></div></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=Search data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/categories data-filter=all>카테고리</a></li><div class="subtree taxonomy-terms"><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/algorithm/ data-taxonomy-term=algorithm><span class=taxonomy-label>Algorithm</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/apple/ data-taxonomy-term=apple><span class=taxonomy-label>apple</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/aws/ data-taxonomy-term=aws><span class=taxonomy-label>AWS</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/boto3/ data-taxonomy-term=boto3><span class=taxonomy-label>boto3</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/cron/ data-taxonomy-term=cron><span class=taxonomy-label>cron</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/crontab/ data-taxonomy-term=crontab><span class=taxonomy-label>crontab</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/db/ data-taxonomy-term=db><span class=taxonomy-label>DB</span></a></li><li><a class="taxonomy-term active" href=https://sangjuncha-dev.github.io/categories/django/ data-taxonomy-term=django><span class=taxonomy-label>Django</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/docker/ data-taxonomy-term=docker><span class=taxonomy-label>Docker</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/fcm/ data-taxonomy-term=fcm><span class=taxonomy-label>fcm</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/go/ data-taxonomy-term=go><span class=taxonomy-label>Go</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/gopacket/ data-taxonomy-term=gopacket><span class=taxonomy-label>Gopacket</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/gui/ data-taxonomy-term=gui><span class=taxonomy-label>Gui</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/guide/ data-taxonomy-term=guide><span class=taxonomy-label>Guide</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/learning/ data-taxonomy-term=learning><span class=taxonomy-label>Learning</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/leetcode/ data-taxonomy-term=leetcode><span class=taxonomy-label>LeetCode</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/linux/ data-taxonomy-term=linux><span class=taxonomy-label>Linux</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/logging/ data-taxonomy-term=logging><span class=taxonomy-label>logging</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/mariadb/ data-taxonomy-term=mariadb><span class=taxonomy-label>mariaDB</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/models/ data-taxonomy-term=models><span class=taxonomy-label>Models</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/mssql/ data-taxonomy-term=mssql><span class=taxonomy-label>MSSQL</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/nfs/ data-taxonomy-term=nfs><span class=taxonomy-label>NFS</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/numpy/ data-taxonomy-term=numpy><span class=taxonomy-label>Numpy</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/oauth/ data-taxonomy-term=oauth><span class=taxonomy-label>oauth</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/opencv/ data-taxonomy-term=opencv><span class=taxonomy-label>Opencv</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/postgredb/ data-taxonomy-term=postgredb><span class=taxonomy-label>PostgreDB</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/programmers/ data-taxonomy-term=programmers><span class=taxonomy-label>Programmers</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/pytest/ data-taxonomy-term=pytest><span class=taxonomy-label>pytest</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/python/ data-taxonomy-term=python><span class=taxonomy-label>Python</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/scraper/ data-taxonomy-term=scraper><span class=taxonomy-label>Scraper</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/sniff/ data-taxonomy-term=sniff><span class=taxonomy-label>Sniff</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/sqlcmd/ data-taxonomy-term=sqlcmd><span class=taxonomy-label>sqlcmd</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/swagger/ data-taxonomy-term=swagger><span class=taxonomy-label>Swagger</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/windows/ data-taxonomy-term=windows><span class=taxonomy-label>Windows</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/windows10/ data-taxonomy-term=windows10><span class=taxonomy-label>Windows10</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/wsl/ data-taxonomy-term=wsl><span class=taxonomy-label>WSL</span></a></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class="content container-fluid" id=content><div class="container-fluid post-card-holder" id=post-card-holder><div class=post-card><a href=/posts/framework/django/2022-02-05-django-file-download/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>Django 파일 다운로드</h5><p class="card-text post-summary">django에서 구현가능한 파일 다운로드 방법 예시
 로컬파일 다운로드 - Blob 장점
 브라우저에서 파일다운로드 완료시점을 알 수 있음 임시로 생성된 파일을 다운받을 경우 완료시점에 따른 파일 삭제가 가능함 단점
-파일 용량만큼 브라우저 메모리 사용 대용량 파일다운로드에 부적합 from django.http import FileResponse from rest_framework.views import APIView import os class DownloadView(APIView): def get(self, request): ... file_handle = open(filepath, 'rb') response = FileResponse(file_handle, content_type='application/zip') response['Content-Length'] = os.path.getsize(filepath) response['Content-Disposition'] = 'attachment; filename="%s"' % os.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>February 5, 2022</span>
-<a href=/posts/framework/django/2022-02-05-django-file-download/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/framework/django/2021-12-28-django-oauth2-apple/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Django oauth apple login</h5>
-<p class="card-text post-summary">django restframework 기반의 애플 인증 로그인 백엔드서버 구현 설명이다.
-1. 라이브러리 설치 $ pip install django # restframework $ pip install djangorestframework $ pip install djangorestframework-simplejwt # pyjwt[crypto] $ pip install pyjwt[crypto] 2. Apple 로그인 변수 설정 import os APPLE_CONFIG = { "APPLE_TEAM_ID": TEAM_ID, "APPLE_CLIENT_ID": 모바일 로그인시 Bundle ID or 웹 로그인시 Service ID, "APPLE_REDIRECT_URI": "https://domain/REDIRECT_URI", "APPLE_KEY_ID": KEY_ID, "APPLE_KEY_PATH": "./AuthKey_KEY_ID.p8", "APPLE_PRIVATE_KEY": "", } apple_key_path = os.path.join(CONFIG_BASE_DIR, f"./{APPLE_CONFIG['APPLE_KEY_PATH']}") with open(apple_key_path, 'r') as apple_key_file: APPLE_CONFIG['APPLE_PRIVATE_KEY'] = apple_key_file.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 28, 2021</span>
-<a href=/posts/framework/django/2021-12-28-django-oauth2-apple/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/framework/django/2021-12-09-django-corntab-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Django crontab 라이브러리 사용법</h5>
-<p class="card-text post-summary">django-crontab 라이브러리는 OS의 cron/crontab 서비스를 사용하는것으로 해당 서비스 설치가 되지 않았다면 별도로 설치를 해야함.
+파일 용량만큼 브라우저 메모리 사용 대용량 파일다운로드에 부적합 from django.http import FileResponse from rest_framework.views import APIView import os class DownloadView(APIView): def get(self, request): ... file_handle = open(filepath, 'rb') response = FileResponse(file_handle, content_type='application/zip') response['Content-Length'] = os.</p></div><div class=card-footer><span class=float-left>February 5, 2022</span>
+<a href=/posts/framework/django/2022-02-05-django-file-download/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/framework/django/2021-12-28-django-oauth-apple/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>Django 소셜로그인(oauth) apple 연동</h5><p class="card-text post-summary">django restframework 기반의 애플(apple) 인증 로그인 백엔드서버로 별도의 auth관련 라이브러리는 설치하지 않고 구현한다.
+애플 개발자 사이트에서 사용하는 환경변수들이 등록되어있다는 가정하에 진행한다.
+1. 라이브러리 설치 $ pip install django # restframework $ pip install djangorestframework $ pip install djangorestframework-simplejwt # pyjwt[crypto] $ pip install pyjwt[crypto] 2. Apple 로그인 변수 설정 import os APPLE_CONFIG = { "APPLE_TEAM_ID": TEAM_ID, "APPLE_CLIENT_ID": 모바일 로그인시 Bundle ID or 웹 로그인시 Service ID, "APPLE_REDIRECT_URI": "https://domain/REDIRECT_URI", "APPLE_KEY_ID": KEY_ID, "APPLE_KEY_PATH": ".</p></div><div class=card-footer><span class=float-left>December 28, 2021</span>
+<a href=/posts/framework/django/2021-12-28-django-oauth-apple/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/framework/django/2021-12-09-django-corntab-guide/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>Django crontab 라이브러리 사용법</h5><p class="card-text post-summary">django-crontab 라이브러리는 OS의 cron/crontab 서비스를 사용하는것으로 해당 서비스 설치가 되지 않았다면 별도로 설치를 해야함.
 windows 환경에서는 docker를 설치하여 진행 1. 라이브러리 설치 $ pip install django-crontab 2. django 설정 임의의 app 디렉터리내 cron.py 생성 아래의 함수를 작성한다.
 반복 실행할 임의의 함수 선언 def hello_every_minute(): print("hello world") settings.py
-django_crontab 앱 추가 INSTALLED_APPS = [ 'django_crontab', ... ] CRONJOBS 변수 선언 첫번째 매개변수 : 실행주기 설정으로 기존 cron 사용법(분,시,일,월,요일)과 동일하다.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 9, 2021</span>
-<a href=/posts/framework/django/2021-12-09-django-corntab-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/framework/django/2021-09-24-django-swagger/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Django drf_yasg Swagger 기본 사용법</h5>
-<p class="card-text post-summary">drf_yasg : REST 프레임워크용 swagger/openAPI 문서 자동화 라이브러리 swagger : 개발자가 REST 웹 서비스를 설계, 빌드, 문서화, 테스트를 도와주는 오픈소스 소프트웨어 프레임워크
+django_crontab 앱 추가 INSTALLED_APPS = [ 'django_crontab', .</p></div><div class=card-footer><span class=float-left>December 9, 2021</span>
+<a href=/posts/framework/django/2021-12-09-django-corntab-guide/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/framework/django/2021-09-24-django-swagger/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>Django drf_yasg Swagger 기본 사용법</h5><p class="card-text post-summary">drf_yasg : REST 프레임워크용 swagger/openAPI 문서 자동화 라이브러리 swagger : 개발자가 REST 웹 서비스를 설계, 빌드, 문서화, 테스트를 도와주는 오픈소스 소프트웨어 프레임워크
 drf_yasg : 1.20.0 호환버전
 Django Rest Framework : 3.10, 3.11, 3.12 Django : 2.2, 3.0, 3.1 Python : 3.6, 3.7, 3.8, 3.9 라이브러리 설치
 pip install -U drf-yasg 1. 프로젝트 생성 환경 : windwos 10
-# 가상환경 생성 및 접속 > python -m venv venv > venv\Scripts\activate # 라이브러리 설치 (venv)> pip install django (venv)> pip install djangorestframework (venv)> pip install drf-yasg # 프로젝트 및 앱 생성 (venv)> django-admin startproject config .</p>
-</div>
-<div class=card-footer>
-<span class=float-left>September 24, 2021</span>
-<a href=/posts/framework/django/2021-09-24-django-swagger/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/framework/django/2021-06-11-django-websocket-using-channels-library-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Django socketio 라이브러리 활용한 통신</h5>
-<p class="card-text post-summary">1. 라이브러리 설치 1.1. server 라이브러리 설치 pip install python-socketio 1.2. client 라이브러리 설치 pip install "python-socketio[client]" 2. Server django settings projectname/wsgi.py
+# 가상환경 생성 및 접속 > python -m venv venv > venv\Scripts\activate # 라이브러리 설치 (venv)> pip install django (venv)> pip install djangorestframework (venv)> pip install drf-yasg # 프로젝트 및 앱 생성 (venv)> django-admin startproject config .</p></div><div class=card-footer><span class=float-left>September 24, 2021</span>
+<a href=/posts/framework/django/2021-09-24-django-swagger/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/framework/django/2021-06-11-django-websocket-using-channels-library-guide/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>Django socketio 라이브러리 활용한 통신</h5><p class="card-text post-summary">1. 라이브러리 설치 1.1. server 라이브러리 설치 pip install python-socketio 1.2. client 라이브러리 설치 pip install "python-socketio[client]" 2. Server django settings projectname/wsgi.py
 ... import socketio from appname.views import sio # sio code path ... # application = get_wsgi_application() sio.register_namespace(TransferNamespace('/transfer')) django_app = get_wsgi_application() application = socketio.WSGIApp(sio, django_app) appname/views.py
-import socketio sio = socketio.Server(async_mode='threading', async_handlers=True, ping_interval=60) class TransferNamespace(socketio.Namespace): def on_connect(self, sid: str, environ: dict): ''' 클라이언트 접속 ''' print(f"connect address = {environ['REMOTE_ADDR']}, sid = {sid}") def on_disconnect(self, sid: str): ''' 클라이언트 접속 종료 ''' print(f"disconnect Client disconnected = {sid}") def send_event(self, sid: str): ''' 특정 sid 클라이언트에 이벤트 전송 ''' print("send_event") self.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>June 11, 2021</span>
-<a href=/posts/framework/django/2021-06-11-django-websocket-using-channels-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/framework/django/2021-04-22-django-file-upload/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Django 파일 업로드</h5>
-<p class="card-text post-summary"> 청크단위 파일 업로드 용량제한 없이 대용량파일 업로드 가능 실시간 업로드 상황을 프로그래스바에 응용가능 from django.conf import settings def upload(request): if request.method == 'POST': path = settings.MEDIA_ROOT files = request.FILES['file'] for file in files: file_path = f'{path}/{file.name}' with open(file_path,'wb+') as dst_file: for chunk in file.chunks(): dst_file.write(chunk) </p>
-</div>
-<div class=card-footer>
-<span class=float-left>April 22, 2021</span>
-<a href=/posts/framework/django/2021-04-22-django-file-upload/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Django json 데이터 반환하기</h5>
-<p class="card-text post-summary">api 서버 등 json 데이터로 통신하는 서버에서 사용할 수 있는 예제이다.
+import socketio sio = socketio.Server(async_mode='threading', async_handlers=True, ping_interval=60) class TransferNamespace(socketio.Namespace): def on_connect(self, sid: str, environ: dict): ''' 클라이언트 접속 ''' print(f"connect address = {environ['REMOTE_ADDR']}, sid = {sid}") def on_disconnect(self, sid: str): ''' 클라이언트 접속 종료 ''' print(f"disconnect Client disconnected = {sid}") def send_event(self, sid: str): ''' 특정 sid 클라이언트에 이벤트 전송 ''' print("send_event") self.</p></div><div class=card-footer><span class=float-left>June 11, 2021</span>
+<a href=/posts/framework/django/2021-06-11-django-websocket-using-channels-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/framework/django/2021-04-22-django-file-upload/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>Django 파일 업로드</h5><p class="card-text post-summary">청크단위 파일 업로드 용량제한 없이 대용량파일 업로드 가능 실시간 업로드 상황을 프로그래스바에 응용가능 from django.conf import settings def upload(request): if request.method == 'POST': path = settings.MEDIA_ROOT files = request.FILES['file'] for file in files: file_path = f'{path}/{file.name}' with open(file_path,'wb+') as dst_file: for chunk in file.chunks(): dst_file.write(chunk)</p></div><div class=card-footer><span class=float-left>April 22, 2021</span>
+<a href=/posts/framework/django/2021-04-22-django-file-upload/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>Django json 데이터 반환하기</h5><p class="card-text post-summary">api 서버 등 json 데이터로 통신하는 서버에서 사용할 수 있는 예제이다.
 1. 사전 설정 프로젝트 생성 후 user 앱의 User 모델을 생성한다.
 임의의 user 데이터를 2개 등록한다.
 models.py
 class User(models.Model): id = models.AutoField(primary_key=True) name = models.CharField(max_length=20, unique=True) 2. 사용 예시 2.1. QuerySet(Model Instance)을 json형태로 변환할 경우 .all() serializers.serialize('json', value_name) 함수를 사용하여 json 형태로 변환시킨다.
 views.py
-from django.core import serializers res_data = User.objects.all() # &lt;QuerySet [&lt;User: User object (1)>, &lt;User: User object (2)>]> res_data = serializers.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>April 20, 2021</span>
-<a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/framework/django/2021-04-07-django-models-relations-object-call/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Django model 참조 객체 호출하기</h5>
-<p class="card-text post-summary">1. 정참조와 역참조 객체 호출 데이터베이스의 임의의 테이블로 User, Occupation 생성한다.
+from django.core import serializers res_data = User.objects.all() # &lt;QuerySet [&lt;User: User object (1)>, &lt;User: User object (2)>]> res_data = serializers.</p></div><div class=card-footer><span class=float-left>April 20, 2021</span>
+<a href=/posts/framework/django/2021-04-20-django-model-to-json-response/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/framework/django/2021-04-07-django-models-relations-object-call/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>Django model 참조 객체 호출하기</h5><p class="card-text post-summary">1. 정참조와 역참조 객체 호출 데이터베이스의 임의의 테이블로 User, Occupation 생성한다.
 두 테이블은 User 모델의 객체가 Occupation 모델의 객체를 N:1 참조관계를 가진다.
 models.py 설정
 class User(models.Model): name = models.CharField(max_length=50) age = models.IntegerField() job = models.ForeignKey('Occupation', on_delete=models.CASCADE) class Occupation(models.Model): name = models.CharField(max_length=50) 2. 정참조 객체 호출하기 user1 객체가 Occupation 모델을 참조키(ForeignKey)로 정참조하여, Occupation 모델의 속성을 사용할 수 있다.
-user1 = User.objects.get(id = 1) user1.job.name >>> 'Developer' 3. 역참조 객체 호출하기 역참조 관계에서는 정참조와 같이 바로 참조한 모델의 속성을 사용할 수 없다.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>April 7, 2021</span>
-<a href=/posts/framework/django/2021-04-07-django-models-relations-object-call/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/framework/django/2021-04-07-django-dynamic-model-and-table-create/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Django 동적 모델 및 테이블 생성</h5>
-<p class="card-text post-summary">1. Django 동적 모델 및 테이블 생성 django는 makemigrations, migrate 명령어를 통하여 테이블 생성한다.
+user1 = User.objects.get(id = 1) user1.job.name >>> 'Developer' 3.</p></div><div class=card-footer><span class=float-left>April 7, 2021</span>
+<a href=/posts/framework/django/2021-04-07-django-models-relations-object-call/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/framework/django/2021-04-07-django-dynamic-model-and-table-create/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>Django 동적 모델 및 테이블 생성</h5><p class="card-text post-summary">1. Django 동적 모델 및 테이블 생성 django는 makemigrations, migrate 명령어를 통하여 테이블 생성한다.
 이때 웹서버는 실행중일 경우 중단하고 다시 재시작한다.
 운영환경에 따라서 웹서버가 중단되지 않고 운영이 필요한경우에는 위의 방법이 아닌 동적 모델 및 테이블 생성방법이 필요하다.
 2. 예시코드 2.1. 상속받을 추상모델 작성 models.py
-from django.db import models class Board(models.Model): title = models.CharField(max_length=100) contents = models.CharField(max_length=500) class Meta: abstract = True 2.2. 동적 모델 생성 및 삭제 from .</p>
-</div>
-<div class=card-footer>
-<span class=float-left>April 7, 2021</span>
-<a href=/posts/framework/django/2021-04-07-django-dynamic-model-and-table-create/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/framework/django/2021-04-06-django-queryset-object-access/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Django QuerySet 객체 접근방식 및 조회</h5>
-<p class="card-text post-summary">1. QuerySet 이란? Database에서 응답받은 결과 목록(list)으로 Python 코드가 SQL 구문으로 맵핑(mapping)되고 DB로 전달하여 받은 응답값을 QuerySet 자료형으로 반환한다.
+from django.db import models class Board(models.Model): title = models.CharField(max_length=100) contents = models.CharField(max_length=500) class Meta: abstract = True 2.2. 동적 모델 생성 및 삭제 from .</p></div><div class=card-footer><span class=float-left>April 7, 2021</span>
+<a href=/posts/framework/django/2021-04-07-django-dynamic-model-and-table-create/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/framework/django/2021-04-06-django-queryset-object-access/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>Django QuerySet 객체 접근방식 및 조회</h5><p class="card-text post-summary">1. QuerySet 이란? Database에서 응답받은 결과 목록(list)으로 Python 코드가 SQL 구문으로 맵핑(mapping)되고 DB로 전달하여 받은 응답값을 QuerySet 자료형으로 반환한다.
 2. 사전설정 django version : 3.2
 models.py
-from django.db import models class User(): name = models.CharField(max_length=20) age = models.models.PositiveSmallIntegerField() >>> python manage.py shell #shell 실행 >>> from user.models import User #모델클래스 임포트 >>> user1 = User(name='Foo', age=15) # 데이터추가 >>> user1.save() # 데이터 저장 >>> user2 = User(name='Bar', age=20) # 데이터추가 >>> user2.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>April 6, 2021</span>
-<a href=/posts/framework/django/2021-04-06-django-queryset-object-access/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/framework/django/2021-03-31-django-models-autoonetoonefield/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Django models AutoOneToOneField 사용법</h5>
-<p class="card-text post-summary">model 상속할때 테이블 컬럼 데이터 자동 생성방법
+from django.db import models class User(): name = models.CharField(max_length=20) age = models.models.PositiveSmallIntegerField() >>> python manage.py shell #shell 실행 >>> from user.models import User #모델클래스 임포트 >>> user1 = User(name='Foo', age=15) # 데이터추가 >>> user1.save() # 데이터 저장 >>> user2 = User(name='Bar', age=20) # 데이터추가 >>> user2.</p></div><div class=card-footer><span class=float-left>April 6, 2021</span>
+<a href=/posts/framework/django/2021-04-06-django-queryset-object-access/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/framework/django/2021-03-31-django-models-autoonetoonefield/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>Django models AutoOneToOneField 사용법</h5><p class="card-text post-summary">model 상속할때 테이블 컬럼 데이터 자동 생성방법
 라이브러리 설치 pip install django-annoying models 설정 django의 models.OneToOneField는 데이터 변경없이(default 설정) 저장하면 해당 데이터(row)가 생성되지않음
 models.AutoOneToOneField는 데이터가 default값이어도 데이터(row) 생성됨
-from annoying.fields import AutoOneToOneField # User모델 Save에서 제어 class User(models.Model): name = models.CharField(max_length=30) def save(self): is_new = False if self.pk is None: is_new = True if is_new: Profile.objects.create(user=self) class Profile(models.Model): user = AutoOneToOneField(User, primary_key=True) home_page = models.URLField(max_length=255, blank=True) icq = models.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>March 31, 2021</span>
-<a href=/posts/framework/django/2021-03-31-django-models-autoonetoonefield/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class=paginator>
-</div>
-</div>
-</section>
-</div>
-<footer class="container-fluid text-center align-content-center footer pb-2">
-<div class="container pt-5">
-<div class="row text-left">
-<div class="col-md-4 col-sm-12">
-<h5>바로가기</h5>
-<ul>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a>
-</li>
-</ul>
-</div>
-<div class="col-md-4 col-sm-12">
-<h5>Contact me:</h5>
-<ul>
-<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
-<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
-</a></li>
-</ul>
-</div>
-</div>
-</div>
-<hr>
-<div class=container>
-<div class="row text-left">
-<div class=col-md-4>
-<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
-<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
-Toha
-</a>
-</div>
-<div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div>
-<div class="col-md-4 text-right">
-<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
-<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
-</a>
-</div>
-</div>
-</div>
-</footer>
-<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+from annoying.fields import AutoOneToOneField # User모델 Save에서 제어 class User(models.Model): name = models.CharField(max_length=30) def save(self): is_new = False if self.pk is None: is_new = True if is_new: Profile.objects.create(user=self) class Profile(models.</p></div><div class=card-footer><span class=float-left>March 31, 2021</span>
+<a href=/posts/framework/django/2021-03-31-django-models-autoonetoonefield/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div></div><div class=paginator></div></div></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>바로가기</h5><ul><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>Contact me:</h5><ul><li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-left"><div class=col-md-4><a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener><img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha</a></div><div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div><div class="col-md-4 text-right"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
 <script type=text/javascript src=/js/popper.min.js></script>
 <script type=text/javascript src=/js/bootstrap.min.js></script>
 <script type=text/javascript src=/js/navbar.js></script>
 <script type=text/javascript src=/js/plyr.js></script>
 <script type=text/javascript src=/js/main.js></script>
-<script src=/js/list.js></script>
-</body>
-</html>
+<script src=/js/list.js></script></body></html>

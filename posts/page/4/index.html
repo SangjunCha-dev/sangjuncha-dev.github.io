@@ -1,419 +1,63 @@
-<!doctype html><html>
-<head>
-<title>Posts</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="ie=edge">
-<link rel=stylesheet href=/css/bootstrap.min.css>
-<link rel=stylesheet href=/css/layouts/main.css>
-<link rel=stylesheet href=/css/navigators/navbar.css>
-<link rel=stylesheet href=/css/plyr.css>
-<link rel=stylesheet href=/css/flag-icon.min.css>
-<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
-<meta property="og:title" content="Posts">
-<meta property="og:description" content>
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sangjuncha-dev.github.io/posts/">
-<link rel=stylesheet href=/css/layouts/list.css>
-<link rel=stylesheet href=/css/navigators/sidebar.css>
-<link rel=stylesheet href=/css/style.css>
-</head>
-<body data-spy=scroll data-target=#TableOfContents data-offset=80>
-<div class="container-fluid bg-dimmed wrapper">
-<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
-<div class=container>
-<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
-<span class=navbar-toggler-icon></span>
-</button>
-<a class=navbar-brand href=/>
-Sangjun 개발 블로그</a>
+<!doctype html><html><head><title>Posts</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/layouts/main.css><link rel=stylesheet href=/css/navigators/navbar.css><link rel=stylesheet href=/css/plyr.css><link rel=stylesheet href=/css/flag-icon.min.css><link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css><meta property="og:title" content="Posts"><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://sangjuncha-dev.github.io/posts/"><link rel=stylesheet href=/css/layouts/list.css><link rel=stylesheet href=/css/navigators/sidebar.css><link rel=stylesheet href=/css/style.css></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span></button>
+<a class=navbar-brand href=/>Sangjun 개발 블로그</a>
 <button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
-<ul class="navbar-nav ml-auto">
-</ul>
-</div>
-</div>
-</nav>
-<section class=sidebar-section id=sidebar-section>
-<div class=sidebar-holder>
-<div class=sidebar id=sidebar>
-<form class=mx-auto method=get action=/search>
-<input type=text name=keyword placeholder=Search data-search id=search-box>
-</form>
-<div class=sidebar-tree>
-<ul class=tree id=tree>
-<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
-<div class=subtree>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
-<ul>
-<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
-<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
-</ul>
-</li>
-<li><a href=/posts/db/ title=db>db</a></li>
-<li><a href=/posts/docker/ title=docker>docker</a></li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
-<ul>
-<li><a href=/posts/framework/django/ title=django>django</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
-<ul>
-<li><a href=/posts/os/linux/ title=linux>linux</a></li>
-<li><a href=/posts/os/windows/ title=windows>windows</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/programming/>programming</a>
-<ul>
-<li><a href=/posts/programming/golang/ title=golang>golang</a></li>
-<li><a href=/posts/programming/python/ title=python>python</a></li>
-</ul>
-</li>
-</div>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class=content-section id=content-section>
-<div class="content container-fluid" id=content>
-<div class="container-fluid post-card-holder" id=post-card-holder>
-<div class=post-card>
-<a href=/posts/programming/golang/2021-03-02-golang-grammar/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Go 언어 문법 (Golang grammar)</h5>
-<p class="card-text post-summary">1. 디렉토리 관련 함수 2021년 3월 3일 수요일 오전 8:55:31
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse lang-selector" id=top-nav-items><ul class="navbar-nav ml-auto"></ul></div></div></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=Search data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/posts data-filter=all>게시글</a></li><div class=subtree><li><i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a><ul><li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li><li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li></ul></li><li><a href=/posts/db/ title=db>db</a></li><li><a href=/posts/docker/ title=docker>docker</a></li><li><i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a><ul><li><a href=/posts/framework/django/ title=django>django</a></li></ul></li><li><i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a><ul><li><a href=/posts/os/linux/ title=linux>linux</a></li><li><a href=/posts/os/windows/ title=windows>windows</a></li></ul></li><li><i class="fas fa-plus-circle"></i><a href=/posts/programming/>programming</a><ul><li><a href=/posts/programming/golang/ title=golang>golang</a></li><li><a href=/posts/programming/python/ title=python>python</a></li></ul></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class="content container-fluid" id=content><div class="container-fluid post-card-holder" id=post-card-holder><div class=post-card><a href=/posts/programming/golang/2021-03-02-golang-grammar/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>Go 언어 문법 (Golang grammar)</h5><p class="card-text post-summary">1. 디렉토리 관련 함수 2021년 3월 3일 수요일 오전 8:55:31
 1.1. 단일 디렉토리 생성 os.Mkdir(path, permission)
 err := os.Mkdir("tmp", 0755) if err != nil { log.Fatal(err) } 1.2. 다중 디렉토리 생성 os.MkdirAll(path, permission) :
 err := os.MkdirAll("tmp/new", 0755) if err != nil { log.Fatal(err) } 1.3. 현재 작업 디렉토리 얻기 os.Getwd()
-path, err := os.Getwd() if err != nil { log.Println(err) } fmt.Println(path) 1.4. 디렉토리 존재유무 확인 os.Stat(paht)
-if _, err := os.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>March 2, 2021</span>
-<a href=/posts/programming/golang/2021-03-02-golang-grammar/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>노마드코더 쉽고 빠른 Go 시작하기(nomadcoders Go-for-beginners lectures)</h5>
-<p class="card-text post-summary">0. 소개 설치 환경 : Windows 10 IDE : vscode
+path, err := os.Getwd() if err != nil { log.Println(err) } fmt.Println(path) 1.4. 디렉토리 존재유무 확인 os.</p></div><div class=card-footer><span class=float-left>March 2, 2021</span>
+<a href=/posts/programming/golang/2021-03-02-golang-grammar/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>노마드코더 쉽고 빠른 Go 시작하기(nomadcoders Go-for-beginners lectures)</h5><p class="card-text post-summary">0. 소개 설치 환경 : Windows 10 IDE : vscode
 0.1. 설치 해당 URL에서 golang 설치파일을 다운받아 실행
-https://golang.org/dl/ 설치파일에서 안내한 경로인 C:\Program Files\Go 폴더에 Go 설치 되었는지 확인 0.2. 설정 Go Path 환경변수 확인 Go는 지정된 Go Path 디렉토리에만 저장되어야함 시스템 환경변수에 등록된 GOPATH 값 확인 %USERPROFILE%\go -> C:\Users\[Profle_Name]\go 해당 경로가 Go Path 환경변수로 사용되는 경로 기본 설정 go 디렉토리로 이동하여 bin, pkg, src 디렉토리 생성 src 디렉토리안에 지정된 도메인 디렉토리 추가 go에서 다운받은 코드를 지정된 도메인 별로 분류하여 저장 src 디렉토리안에 github.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>February 22, 2021</span>
-<a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>pyshark 라이브러리 사용법 (pyshark Library Guide)</h5>
-<p class="card-text post-summary">설치환경 : Windows 10, python 3.7
+https://golang.org/dl/ 설치파일에서 안내한 경로인 C:\Program Files\Go 폴더에 Go 설치 되었는지 확인 0.2. 설정 Go Path 환경변수 확인 Go는 지정된 Go Path 디렉토리에만 저장되어야함 시스템 환경변수에 등록된 GOPATH 값 확인 %USERPROFILE%\go -> C:\Users\[Profle_Name]\go 해당 경로가 Go Path 환경변수로 사용되는 경로 기본 설정 go 디렉토리로 이동하여 bin, pkg, src 디렉토리 생성 src 디렉토리안에 지정된 도메인 디렉토리 추가 go에서 다운받은 코드를 지정된 도메인 별로 분류하여 저장 src 디렉토리안에 github.</p></div><div class=card-footer><span class=float-left>February 22, 2021</span>
+<a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>pyshark 라이브러리 사용법 (pyshark Library Guide)</h5><p class="card-text post-summary">설치환경 : Windows 10, python 3.7
 1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install pyshark 2. 사용법 캡쳐파일 읽기
 capture = pyshark.FileCapture('./test.pcapng') 실시간 패킷캡처 interface
 capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 11:22:33:44:55:66', use_json=True, include_raw=True) 패킷 캡처
-패킷 1개 캡처하거나 10ms 경과하면 캡처 결과 반환 capture.sniff(packet_count=1, timeout=10) 패킷 10개 캡처하거나 10ms 경과하면 캡처 결과 반환 capture.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>February 10, 2021</span>
-<a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>scapy 라이브러리 사용법 (Scapy Library Guide)</h5>
-<p class="card-text post-summary">설치환경 : Windows 10
-1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install --pre scapy[basic] 2. Client 예제 from scapy.all import * from scapy.utils import rdpcap import datetime as dt # PCAP 파일 읽기 # could be used like this rdpcap("filename",500) fetches first 500 pkts pkts = rdpcap("./pcap/test.pcapng", -1) pkts = pkts[21:100] cnt = 0 repeat = 10 s_time = dt.datetime.now() for _ in range(repeat): for pkt in pkts: # print(f"hexdump(pkt) = {hexdump(pkt)}") # Send one or more packets at 2 layer sendp(pkt, inter=0, loop=0, count=1, iface=None) # Send one or more packets at 3 layer # send(pkt, inter=0, loop=0, count=1, iface=None) cnt += 1 print(cnt) sendp(b'', inter=0, loop=0, count=1, iface=None) time.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>February 9, 2021</span>
-<a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>paramiko-scp 라이브러리 사용법 (paramiko-scp Library Guide)</h5>
-<p class="card-text post-summary">paramiko, scp 라이브러리 연계 사용한 ssh 파일 전송
+패킷 1개 캡처하거나 10ms 경과하면 캡처 결과 반환 capture.sniff(packet_count=1, timeout=10) 패킷 10개 캡처하거나 10ms 경과하면 캡처 결과 반환 capture.</p></div><div class=card-footer><span class=float-left>February 10, 2021</span>
+<a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>scapy 라이브러리 사용법 (Scapy Library Guide)</h5><p class="card-text post-summary">설치환경 : Windows 10
+1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install --pre scapy[basic] 2. Client 예제 from scapy.all import * from scapy.utils import rdpcap import datetime as dt # PCAP 파일 읽기 # could be used like this rdpcap("filename",500) fetches first 500 pkts pkts = rdpcap("./pcap/test.pcapng", -1) pkts = pkts[21:100] cnt = 0 repeat = 10 s_time = dt.</p></div><div class=card-footer><span class=float-left>February 9, 2021</span>
+<a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>paramiko-scp 라이브러리 사용법 (paramiko-scp Library Guide)</h5><p class="card-text post-summary">paramiko, scp 라이브러리 연계 사용한 ssh 파일 전송
 라이브러리 암호화 여부 속도 paramiko 로그인:암호화 / 파일전송:암호화 느림 paramiko+scp 로그인:암호화 / 파일전송:평문 보통 실습환경 : windows10, 원격서버환경 : linux(RHEL8)
 사전에 ssh 접속가능한 linux를 구축한 후 실습 진행
 1. 라이브러리 설치 pip install paramiko pip install scp paramiko : SSH 접속 및 종료 기능
-Docs URL - http://docs.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>January 6, 2021</span>
-<a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/os/linux/2021-01-06-linux-nfs-setting/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>리눅스 NFS 설정 (Linux NFS Setting)</h5>
-<p class="card-text post-summary">설치환경 : 레드햇8 (RHEL8)
+Docs URL - http://docs.</p></div><div class=card-footer><span class=float-left>January 6, 2021</span>
+<a href=/posts/programming/python/2021-01-06-paramiko-scp-guide/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/os/linux/2021-01-06-linux-nfs-setting/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>리눅스 NFS 설정 (Linux NFS Setting)</h5><p class="card-text post-summary">설치환경 : 레드햇8 (RHEL8)
 1. NFS 서버 설정 (Server Setting) 1.1. NFS 패키지 설치 yum패키지 설치 도구로 nfs-utils 패키지 설치
 yum install nfs-utils 1.2. NFS서버 서비스 실행 및 OS재부팅시 활성화 nfs서버 데몬 실행하고, OS 재부팅시 자동실행되도록 활성화
 systemctl start nfs-server systemctl enable nfs-server 1.3. 외부에서 접근할 디렉토리 설정 공유할 디렉토리 생성
 mkdir /NFSVOL01 외부에서 접근할 디렉토리, 외부 접근IP, 접근권한을 exports 파일로 설정
-vi /etc/exports /NFSVOL01 192.168.0.0/255.255.255.0(rw) /NFSVOL01 : 공유할 디렉토리</p>
-</div>
-<div class=card-footer>
-<span class=float-left>January 6, 2021</span>
-<a href=/posts/os/linux/2021-01-06-linux-nfs-setting/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/algorithm/programmers/2020-12-22-algorithm-programmers-python-level2/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Programmers Python (level 2)</h5>
-<p class="card-text post-summary">프린터 분류 : 스택/큐
+vi /etc/exports /NFSVOL01 192.168.0.0/255.255.255.0(rw) /NFSVOL01 : 공유할 디렉토리</p></div><div class=card-footer><span class=float-left>January 6, 2021</span>
+<a href=/posts/os/linux/2021-01-06-linux-nfs-setting/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/algorithm/programmers/2020-12-22-algorithm-programmers-python-level2/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>Programmers Python (level 2)</h5><p class="card-text post-summary">프린터 분류 : 스택/큐
 문제 링크
-우선순위 priorities 리스트의 최댓값을 num_max변수에 대입 cursor변수에 priorities[0]값 추출하여 대입 cursor 값이 최댓값 일때 cnt 1증가 이때 location값이 0이면 break cursor 값이 최댓값 아닐때 리스트 맨뒤에 cursor 값 추가 이때 location값이 0이면 location변수에 priorities길이값 대입 location 1 감소 위의 순서를 location 0 이상일때 while문 반복실행 def solution(priorities, location): cnt = 1 while True: num_max = max(priorities) cursor = priorities.pop(0) if cursor == num_max: if location == 0: return cnt cnt += 1 else: priorities.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 22, 2020</span>
-<a href=/posts/algorithm/programmers/2020-12-22-algorithm-programmers-python-level2/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/algorithm/programmers/2020-12-15-algorithm-programmers-python-level1/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Programmers Python (level 1)</h5>
-<p class="card-text post-summary">모의고사 분류 : 완전탐색
+우선순위 priorities 리스트의 최댓값을 num_max변수에 대입 cursor변수에 priorities[0]값 추출하여 대입 cursor 값이 최댓값 일때 cnt 1증가 이때 location값이 0이면 break cursor 값이 최댓값 아닐때 리스트 맨뒤에 cursor 값 추가 이때 location값이 0이면 location변수에 priorities길이값 대입 location 1 감소 위의 순서를 location 0 이상일때 while문 반복실행 def solution(priorities, location): cnt = 1 while True: num_max = max(priorities) cursor = priorities.</p></div><div class=card-footer><span class=float-left>December 22, 2020</span>
+<a href=/posts/algorithm/programmers/2020-12-22-algorithm-programmers-python-level2/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/algorithm/programmers/2020-12-15-algorithm-programmers-python-level1/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>Programmers Python (level 1)</h5><p class="card-text post-summary">모의고사 분류 : 완전탐색
 문제 링크
-입력받은 answers 리스트와 수포자들의 답 리스트와 비교하여 같다면 answer_cnt변수에 정답 개수 추가 answer_cnt 리스트의 최댓값과 각 answer_cnt 원소와 비교하여 같다면 index+1 값을 answer리스트에 추가 최대 정답자 answer 리스트 return def solution(answers): answer = [] answer_cnt = [0, 0, 0] answer_list = [ [1, 2, 3, 4, 5], [2, 1, 2, 3, 2, 4, 2, 5], [3, 3, 1, 1, 2, 2, 4, 4, 5, 5] ] # 정답 매칭 for i in range(len(answers)): ans = answers[i] if ans == answer_list[0][i%5]: answer_cnt[0] += 1 if ans == answer_list[1][i%8]: answer_cnt[1] += 1 if ans == answer_list[2][i%10]: answer_cnt[2] += 1 # 최다 정답자 추출 max_cnt = max(answer_cnt) for i, cnt in enumerate(answer_cnt): if max_cnt == cnt: answer.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 15, 2020</span>
-<a href=/posts/algorithm/programmers/2020-12-15-algorithm-programmers-python-level1/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>LeetCode Python (Easy)</h5>
-<p class="card-text post-summary">1. Two Sum 문제 링크
+입력받은 answers 리스트와 수포자들의 답 리스트와 비교하여 같다면 answer_cnt변수에 정답 개수 추가 answer_cnt 리스트의 최댓값과 각 answer_cnt 원소와 비교하여 같다면 index+1 값을 answer리스트에 추가 최대 정답자 answer 리스트 return def solution(answers): answer = [] answer_cnt = [0, 0, 0] answer_list = [ [1, 2, 3, 4, 5], [2, 1, 2, 3, 2, 4, 2, 5], [3, 3, 1, 1, 2, 2, 4, 4, 5, 5] ] # 정답 매칭 for i in range(len(answers)): ans = answers[i] if ans == answer_list[0][i%5]: answer_cnt[0] += 1 if ans == answer_list[1][i%8]: answer_cnt[1] += 1 if ans == answer_list[2][i%10]: answer_cnt[2] += 1 # 최다 정답자 추출 max_cnt = max(answer_cnt) for i, cnt in enumerate(answer_cnt): if max_cnt == cnt: answer.</p></div><div class=card-footer><span class=float-left>December 15, 2020</span>
+<a href=/posts/algorithm/programmers/2020-12-15-algorithm-programmers-python-level1/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>LeetCode Python (Easy)</h5><p class="card-text post-summary">1. Two Sum 문제 링크
 nums 리스트 속성값 중 두개의 값이 target 값과 동일할때 해당 속성 값의 index 반환 class Solution: def twoSum(self, nums: List[int], target: int) -> List[int]: for i, num in enumerate(nums): for j, num2 in enumerate(nums[i+1:]): if i != j+i+1: if target == num+num2: return [i, j+i+1] 2020-11-27
-Runtime: 40 ms, faster than 97.02% of Python3 online submissions for Two Sum. Memory Usage: 14.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 1, 2020</span>
-<a href=/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2020-11-16-pyftpdlib-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)</h5>
-<p class="card-text post-summary">1. 라이브러리 설치 pip install pyftpdlib 실습 버전 : pyftpdlib 1.5.6
+Runtime: 40 ms, faster than 97.02% of Python3 online submissions for Two Sum.</p></div><div class=card-footer><span class=float-left>December 1, 2020</span>
+<a href=/posts/algorithm/leetcode/2020-12-01-algorithm-leetcode-python-easy/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/python/2020-11-16-pyftpdlib-guide/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)</h5><p class="card-text post-summary">1. 라이브러리 설치 pip install pyftpdlib 실습 버전 : pyftpdlib 1.5.6
 2. Server ftp server 실행 후 client 테스트 가능
-from pyftpdlib.authorizers import DummyAuthorizer # 사용자 인증을 생성하는 모듈 from pyftpdlib.handlers import FTPHandler # 사용자 인증, 파일 전송, 로깅 등 FTP서버를 조작하는 모듈 # from pyftpdlib.handlers import TLS_FTPHandler from pyftpdlib.servers import FTPServer # FTP서버를 실행하는 모듈 # from pyftpdlib.servers import ThreadedFTPServer import os class FileServer: def __init__(self): self.ftpServerIP = "127.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>November 16, 2020</span>
-<a href=/posts/programming/python/2020-11-16-pyftpdlib-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2020-11-05-python-magic-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>libmagic 라이브러리 사용법 (libmagic Library Guide)</h5>
-<p class="card-text post-summary">미디어 타입(media type), MIME 타입(MIME type)
+from pyftpdlib.authorizers import DummyAuthorizer # 사용자 인증을 생성하는 모듈 from pyftpdlib.handlers import FTPHandler # 사용자 인증, 파일 전송, 로깅 등 FTP서버를 조작하는 모듈 # from pyftpdlib.handlers import TLS_FTPHandler from pyftpdlib.servers import FTPServer # FTP서버를 실행하는 모듈 # from pyftpdlib.servers import ThreadedFTPServer import os class FileServer: def __init__(self): self.</p></div><div class=card-footer><span class=float-left>November 16, 2020</span>
+<a href=/posts/programming/python/2020-11-16-pyftpdlib-guide/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/python/2020-11-05-python-magic-guide/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>libmagic 라이브러리 사용법 (libmagic Library Guide)</h5><p class="card-text post-summary">미디어 타입(media type), MIME 타입(MIME type)
 1. 라이브러리 설치 실행환경 : windows 10
 pip install libmagic pip install python-magic-bin 실행환경 : linux
-pip install libmagic pip install python-magic libmagic : 파일타입을 MIME 타입으로 확인해주는 라이브러리 python-magic-bin : 윈도우용 magic 라이브러리 python-magic : 리눅스용 magic 라이브러리 2. 예제 코드 import magic r1 = magic.from_file("test1.txt") r2 = magic.from_file("test1.txt", mime=True) print(f"filetype = {r1}, \nmime = {r2}") # filetype = UTF-8 Unicode text, with CRLF line terminators, # mime = text/plain file_data = open('test1.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>November 5, 2020</span>
-<a href=/posts/programming/python/2020-11-05-python-magic-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/db/2020-10-20-postgresql-command/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>PostgreDB SQL 명령어 (PostgreDB SQL Command)</h5>
-<p class="card-text post-summary">1. DATABASE 생성 DATABASE 생성
+pip install libmagic pip install python-magic libmagic : 파일타입을 MIME 타입으로 확인해주는 라이브러리 python-magic-bin : 윈도우용 magic 라이브러리 python-magic : 리눅스용 magic 라이브러리 2. 예제 코드 import magic r1 = magic.from_file("test1.txt") r2 = magic.from_file("test1.txt", mime=True) print(f"filetype = {r1}, \nmime = {r2}") # filetype = UTF-8 Unicode text, with CRLF line terminators, # mime = text/plain file_data = open('test1.</p></div><div class=card-footer><span class=float-left>November 5, 2020</span>
+<a href=/posts/programming/python/2020-11-05-python-magic-guide/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/db/2020-10-20-postgresql-command/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>PostgreDB SQL 명령어 (PostgreDB SQL Command)</h5><p class="card-text post-summary">1. DATABASE 생성 DATABASE 생성
 PostgreDB의 경우 대문자인식은 &ldquo;&ldquo;으로 감싸야 사용가능하다.
 CREATE DATABASE "{database_name}"; 2. USER 생성 USER 생성
 CREATE USER {user_name} WITH PASSWORD '{user_password}' SUPERUSER 권한부여(개발용 계정으로 사용 예정)
 ALTER USER {user_name} WITH SUPERUSER; 유저에게 특정 권한 부여
 GRANT {permissions} ON DATABASE {db_name} TO {user_name}; 참고 URL : https://www.postgresql.org/docs/current/sql-grant.html
 예시
-GRANT ALL ON DATABASE "ABCD_DB" TO abcd_user; 계정 부여권한 해제</p>
-</div>
-<div class=card-footer>
-<span class=float-left>October 20, 2020</span>
-<a href=/posts/db/2020-10-20-postgresql-command/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class=paginator>
-<ul class="pagination pagination-default">
-<li class=page-item>
-<a href=/posts/ aria-label=First class=page-link role=button><span aria-hidden=true>&#171;&#171;</span></a>
-</li>
-<li class=page-item>
-<a href=/posts/page/3/ aria-label=Previous class=page-link role=button><span aria-hidden=true>&#171;</span></a>
-</li>
-<li class=page-item>
-<a href=/posts/ aria-label="Page 1" class=page-link role=button>1</a>
-</li>
-<li class=page-item>
-<a href=/posts/page/2/ aria-label="Page 2" class=page-link role=button>2</a>
-</li>
-<li class=page-item>
-<a href=/posts/page/3/ aria-label="Page 3" class=page-link role=button>3</a>
-</li>
-<li class="page-item active">
-<a aria-current=page aria-label="Page 4" class=page-link role=button>4</a>
-</li>
-<li class=page-item>
-<a href=/posts/page/5/ aria-label="Page 5" class=page-link role=button>5</a>
-</li>
-<li class=page-item>
-<a href=/posts/page/5/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
-</li>
-<li class=page-item>
-<a href=/posts/page/5/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
-</li>
-</ul>
-</div>
-</div>
-</section>
-</div>
-<footer class="container-fluid text-center align-content-center footer pb-2">
-<div class="container pt-5">
-<div class="row text-left">
-<div class="col-md-4 col-sm-12">
-<h5>바로가기</h5>
-<ul>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a>
-</li>
-</ul>
-</div>
-<div class="col-md-4 col-sm-12">
-<h5>Contact me:</h5>
-<ul>
-<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
-<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
-</a></li>
-</ul>
-</div>
-</div>
-</div>
-<hr>
-<div class=container>
-<div class="row text-left">
-<div class=col-md-4>
-<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
-<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
-Toha
-</a>
-</div>
-<div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div>
-<div class="col-md-4 text-right">
-<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
-<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
-</a>
-</div>
-</div>
-</div>
-</footer>
-<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+GRANT ALL ON DATABASE "ABCD_DB" TO abcd_user; 계정 부여권한 해제</p></div><div class=card-footer><span class=float-left>October 20, 2020</span>
+<a href=/posts/db/2020-10-20-postgresql-command/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div></div><div class=paginator><ul class="pagination pagination-default"><li class=page-item><a href=/posts/ aria-label=First class=page-link role=button><span aria-hidden=true>&#171;&#171;</span></a></li><li class=page-item><a href=/posts/page/3/ aria-label=Previous class=page-link role=button><span aria-hidden=true>&#171;</span></a></li><li class=page-item><a href=/posts/ aria-label="Page 1" class=page-link role=button>1</a></li><li class=page-item><a href=/posts/page/2/ aria-label="Page 2" class=page-link role=button>2</a></li><li class=page-item><a href=/posts/page/3/ aria-label="Page 3" class=page-link role=button>3</a></li><li class="page-item active"><a aria-current=page aria-label="Page 4" class=page-link role=button>4</a></li><li class=page-item><a href=/posts/page/5/ aria-label="Page 5" class=page-link role=button>5</a></li><li class=page-item><a href=/posts/page/5/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a></li><li class=page-item><a href=/posts/page/5/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a></li></ul></div></div></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>바로가기</h5><ul><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>Contact me:</h5><ul><li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-left"><div class=col-md-4><a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener><img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha</a></div><div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div><div class="col-md-4 text-right"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
 <script type=text/javascript src=/js/popper.min.js></script>
 <script type=text/javascript src=/js/bootstrap.min.js></script>
 <script type=text/javascript src=/js/navbar.js></script>
 <script type=text/javascript src=/js/plyr.js></script>
 <script type=text/javascript src=/js/main.js></script>
-<script src=/js/list.js></script>
-</body>
-</html>
+<script src=/js/list.js></script></body></html>

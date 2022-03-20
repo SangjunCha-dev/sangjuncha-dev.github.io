@@ -1,398 +1,171 @@
-<!doctype html><html>
-<head>
-<title>golang postgreDB CURD</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="ie=edge">
-<link rel=stylesheet href=/css/bootstrap.min.css>
-<link rel=stylesheet href=/css/layouts/main.css>
-<link rel=stylesheet href=/css/navigators/navbar.css>
-<link rel=stylesheet href=/css/plyr.css>
-<link rel=stylesheet href=/css/flag-icon.min.css>
-<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
-<meta property="og:title" content="golang postgreDB CURD">
-<meta property="og:description" content="golang postgreDB CURD">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://sangjuncha-dev.github.io/posts/programming/golang/2021-12-16-golang-postgredb-crud/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-12-16T13:09:17+09:00">
-<meta property="article:modified_time" content="2021-12-16T13:09:17+09:00">
-<meta name=description content="golang postgreDB CURD">
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
-<link rel=stylesheet href=/css/layouts/single.css>
-<link rel=stylesheet href=/css/navigators/sidebar.css>
-<link rel=stylesheet href=/css/style.css>
-</head>
-<body data-spy=scroll data-target=#TableOfContents data-offset=80>
-<div class="container-fluid bg-dimmed wrapper">
-<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
-<div class=container>
-<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
-<span class=navbar-toggler-icon></span>
-</button>
-<a class=navbar-brand href=/>
-Sangjun 개발 블로그</a>
+<!doctype html><html><head><title>golang postgreDB CURD</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/layouts/main.css><link rel=stylesheet href=/css/navigators/navbar.css><link rel=stylesheet href=/css/plyr.css><link rel=stylesheet href=/css/flag-icon.min.css><link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css><meta property="og:title" content="golang postgreDB CURD"><meta property="og:description" content="golang postgreDB CURD"><meta property="og:type" content="article"><meta property="og:url" content="https://sangjuncha-dev.github.io/posts/programming/golang/2021-12-16-golang-postgredb-crud/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-12-16T13:09:17+09:00"><meta property="article:modified_time" content="2021-12-16T13:09:17+09:00"><meta name=description content="golang postgreDB CURD"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css><link rel=stylesheet href=/css/layouts/single.css><link rel=stylesheet href=/css/navigators/sidebar.css><link rel=stylesheet href=/css/style.css></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span></button>
+<a class=navbar-brand href=/>Sangjun 개발 블로그</a>
 <button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
-<ul class="navbar-nav ml-auto">
-</ul>
-</div>
-</div>
-</nav>
-<section class=sidebar-section id=sidebar-section>
-<div class=sidebar-holder>
-<div class=sidebar id=sidebar>
-<form class=mx-auto method=get action=/search>
-<input type=text name=keyword placeholder=Search data-search id=search-box>
-</form>
-<div class=sidebar-tree>
-<ul class=tree id=tree>
-<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
-<div class=subtree>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
-<ul>
-<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
-<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
-</ul>
-</li>
-<li><a href=/posts/db/ title=db>db</a></li>
-<li><a href=/posts/docker/ title=docker>docker</a></li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
-<ul>
-<li><a href=/posts/framework/django/ title=django>django</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
-<ul>
-<li><a href=/posts/os/linux/ title=linux>linux</a></li>
-<li><a href=/posts/os/windows/ title=windows>windows</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a>
-<ul class=active>
-<li><a class=active href=/posts/programming/golang/ title=golang>golang</a></li>
-<li><a href=/posts/programming/python/ title=python>python</a></li>
-</ul>
-</li>
-</div>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class=content-section id=content-section>
-<div class=content>
-<div class="container p-0 read-area">
-<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)>
-</div>
-<div class=page-content>
-<div class="author-profile ml-auto align-self-lg-center">
-<img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image">
-<h5 class=author-name>Sangjun</h5>
-<p>December 16, 2021</p>
-</div>
-<div class=title>
-<h1>golang postgreDB CURD</h1>
-</div>
-<div class=post-content id=post-content>
-<hr>
-<p>golang에서 postgre데이터 베이스의 SQL 생성, 수정, 읽기, 삭제 기능의 간단한 사용법이다.</p>
-<p>postgreDB가 이미 설치되어 있다는 전제하에 진행한다.</p>
-<ul>
-<li>로컬 설정 : <a href=https://sangjuncha-dev.github.io/posts/db/2020-09-29-postgredb-setup/>PostgreDB 설치</a></li>
-<li>도커 이미지 : <a href=https://sangjuncha-dev.github.io/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/>PostgreDB, pgadmin4 도커 설치 방법</a></li>
-</ul>
-<hr>
-<h2 id=1-라이브러리-설치>1. 라이브러리 설치</h2>
-<p>go version : 1.17</p>
-<pre tabindex=0><code>&gt; go get github.com/lib/pq
-</code></pre><hr>
-<h2 id=2-테이블-구조>2. 테이블 구조</h2>
-<p>postgreDB에 아래와 같은 구조의 User 테이블이 선언된 상태로 진행한다.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#66d9ef>user</span> (
-   id SERIAL <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,
-   name VARCHAR(<span style=color:#ae81ff>20</span>),
-   age INT
-);
-</code></pre></div><hr>
-<h2 id=3-db-설정-초기화>3. DB 설정 초기화</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
-
-<span style=color:#f92672>import</span> (
-	<span style=color:#e6db74>&#34;database/sql&#34;</span>
-	<span style=color:#e6db74>&#34;fmt&#34;</span>
-
-	<span style=color:#a6e22e>_</span> <span style=color:#e6db74>&#34;github.com/lib/pq&#34;</span>
-)
-
-<span style=color:#75715e>// User 스키마 또는 User 테이블구조
-</span><span style=color:#75715e></span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>User</span> <span style=color:#66d9ef>struct</span> {
-	<span style=color:#a6e22e>Id</span>   <span style=color:#66d9ef>int</span>
-	<span style=color:#a6e22e>Name</span> <span style=color:#66d9ef>string</span>
-	<span style=color:#a6e22e>Age</span>  <span style=color:#66d9ef>int</span>
-}
-
-<span style=color:#66d9ef>var</span> (
-	<span style=color:#a6e22e>db</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>sql</span>.<span style=color:#a6e22e>DB</span>
-)
-
-<span style=color:#75715e>// DB 설정
-</span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>InitDB</span>() {
-	<span style=color:#a6e22e>host</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;localhost&#34;</span>
-	<span style=color:#a6e22e>port</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>5432</span>
-	<span style=color:#a6e22e>name</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;TEST&#34;</span>
-	<span style=color:#a6e22e>user</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;test_onwer&#34;</span>
-	<span style=color:#a6e22e>password</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;1234&#34;</span>
-
-	<span style=color:#a6e22e>psqlconn</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprintf</span>(<span style=color:#e6db74>&#34;host=%s port=%d dbname=%s user=%s password=%s sslmode=disable&#34;</span>,
-		<span style=color:#a6e22e>host</span>, <span style=color:#a6e22e>port</span>, <span style=color:#a6e22e>name</span>, <span style=color:#a6e22e>user</span>, <span style=color:#a6e22e>password</span>)
-
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>err</span> <span style=color:#66d9ef>error</span>
-	<span style=color:#a6e22e>db</span>, <span style=color:#a6e22e>err</span> = <span style=color:#a6e22e>sql</span>.<span style=color:#a6e22e>Open</span>(<span style=color:#e6db74>&#34;postgres&#34;</span>, <span style=color:#a6e22e>psqlconn</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		panic(<span style=color:#a6e22e>err</span>)
-	}
-}
-
-<span style=color:#75715e>// DB 연결테스트
-</span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>ConnectTest</span>() {
-	<span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Ping</span>()
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		panic(<span style=color:#a6e22e>err</span>)
-	}
-}
-
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-	<span style=color:#a6e22e>InitDB</span>()
-
-	<span style=color:#a6e22e>ConnectTest</span>()
-
-	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Close</span>()
-}
-</code></pre></div><hr>
-<h2 id=4-create>4. create</h2>
-<p>데이터 생성</p>
-<ul>
-<li><code>Prepare</code> : 다중쿼리나 실행을 위한 구문을 생성</li>
-<li><code>QueryRow</code> : 준비된 쿼리 구문을 입력받은 인자로 실행</li>
-<li><code>Scan</code> : 데이터베이스로 반환받은 columns 읽기</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>Create</span>(<span style=color:#a6e22e>name</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>age</span> <span style=color:#66d9ef>int</span>) {
-	<span style=color:#a6e22e>sqlStatement</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>`INSERT INTO user_test (name, age) VALUES ($1, $2) returning id`</span>
-	<span style=color:#a6e22e>stmt</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Prepare</span>(<span style=color:#a6e22e>sqlStatement</span>)
-
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>id</span> <span style=color:#66d9ef>int64</span>
-	<span style=color:#a6e22e>err</span> = <span style=color:#a6e22e>stmt</span>.<span style=color:#a6e22e>QueryRow</span>(<span style=color:#a6e22e>name</span>, <span style=color:#a6e22e>age</span>).<span style=color:#a6e22e>Scan</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>id</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		panic(<span style=color:#a6e22e>err</span>)
-	}
-	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;create id :&#34;</span>, <span style=color:#a6e22e>id</span>)
-}
-
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-	<span style=color:#a6e22e>InitDB</span>()
-
-	<span style=color:#a6e22e>Create</span>(<span style=color:#e6db74>&#34;foo&#34;</span>, <span style=color:#ae81ff>10</span>)
-	<span style=color:#a6e22e>Create</span>(<span style=color:#e6db74>&#34;bar&#34;</span>, <span style=color:#ae81ff>20</span>)
-
-	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Close</span>()
-}
-</code></pre></div><p>create 결과</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>create id : <span style=color:#ae81ff>1</span>
-create id : <span style=color:#ae81ff>2</span>
-</code></pre></div><hr>
-<h2 id=5-read>5. read</h2>
-<p>데이터 조회</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>Read</span>(<span style=color:#a6e22e>userId</span> <span style=color:#66d9ef>int</span>) {
-	<span style=color:#a6e22e>sqlStatement</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>`SELECT &#34;id&#34;, &#34;name&#34;, &#34;age&#34; FROM &#34;user_test&#34; WHERE $1 = &#34;id&#34;`</span>
-	<span style=color:#a6e22e>rows</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Query</span>(<span style=color:#a6e22e>sqlStatement</span>, <span style=color:#a6e22e>userId</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		panic(<span style=color:#a6e22e>err</span>)
-	}
-	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>Close</span>()
-
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>id</span> <span style=color:#66d9ef>int</span>
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>name</span> <span style=color:#66d9ef>string</span>
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>age</span> <span style=color:#66d9ef>int</span>
-	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>Next</span>() {
-		<span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>Scan</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>id</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>name</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>age</span>)
-		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-			panic(<span style=color:#a6e22e>err</span>)
-		}
-
-		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;id: %d, name: %v, age: %d\n&#34;</span>, <span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>name</span>, <span style=color:#a6e22e>age</span>)
-	}
-}
-
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-	<span style=color:#a6e22e>InitDB</span>()
-
-	<span style=color:#a6e22e>Read</span>(<span style=color:#ae81ff>1</span>)
-
-	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Close</span>()
-}
-</code></pre></div><p>read 결과</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>id: 1, name: foo, age: <span style=color:#ae81ff>10</span>
-</code></pre></div><hr>
-<h2 id=6-update>6. update</h2>
-<p>데이터 수정</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>Update</span>(<span style=color:#a6e22e>id</span> <span style=color:#66d9ef>int64</span>, <span style=color:#a6e22e>user</span> <span style=color:#a6e22e>User</span>) {
-	<span style=color:#a6e22e>sqlStatement</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>`UPDATE user SET name=$2, age=$3 WHERE id=$1`</span>
-
-	<span style=color:#a6e22e>res</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Exec</span>(<span style=color:#a6e22e>sqlStatement</span>, <span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>Name</span>, <span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>Age</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		panic(<span style=color:#a6e22e>err</span>)
-	}
-
-	<span style=color:#a6e22e>rowsAffected</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>RowsAffected</span>()
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		panic(<span style=color:#a6e22e>err</span>)
-	}
-
-	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;Total rows/record affected %v\n&#34;</span>, <span style=color:#a6e22e>rowsAffected</span>)
-}
-
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-	<span style=color:#a6e22e>InitDB</span>()
-
-	<span style=color:#a6e22e>Update</span>(<span style=color:#ae81ff>1</span>, <span style=color:#a6e22e>User</span>{<span style=color:#a6e22e>Name</span>: <span style=color:#e6db74>&#34;foo1&#34;</span>, <span style=color:#a6e22e>Age</span>: <span style=color:#ae81ff>21</span>})
-	<span style=color:#a6e22e>Read</span>(<span style=color:#ae81ff>1</span>)
-
-	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Close</span>()
-}
-</code></pre></div><p>update 결과</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>Total rows/record affected <span style=color:#ae81ff>1</span>
-id: 1, name: foo1, age: <span style=color:#ae81ff>21</span>
-</code></pre></div><hr>
-<h2 id=7-delete>7. delete</h2>
-<p>데이터 삭제</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>Delete</span>(<span style=color:#a6e22e>id</span> <span style=color:#66d9ef>int64</span>) {
-	<span style=color:#a6e22e>sqlStatement</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>`DELETE FROM user WHERE id=$1`</span>
-
-	<span style=color:#a6e22e>res</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Exec</span>(<span style=color:#a6e22e>sqlStatement</span>, <span style=color:#a6e22e>id</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		panic(<span style=color:#a6e22e>err</span>)
-	}
-
-	<span style=color:#a6e22e>rowsAffected</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>RowsAffected</span>()
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Error while checking the affected rows.&#34;</span>, <span style=color:#a6e22e>err</span>)
-	} <span style=color:#66d9ef>else</span> {
-		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Total rows/record affected&#34;</span>, <span style=color:#a6e22e>rowsAffected</span>)
-	}
-}
-
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-	<span style=color:#a6e22e>InitDB</span>()
-
-	<span style=color:#a6e22e>Delete</span>(<span style=color:#ae81ff>2</span>)
-
-	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Close</span>()
-}
-</code></pre></div><p>delete 결과</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>Total rows/record affected <span style=color:#ae81ff>1</span>
-</code></pre></div><hr>
-<h2 id=8-예시코드-git>8. 예시코드 Git</h2>
-<p><a href=https://github.com/SangjunCha-dev/blog/tree/main/golang/golang-postgredb-crud>golang-postgredb-crud</a></p>
-<hr>
-<h2 id=참고reference>참고(Reference)</h2>
-<ul>
-<li><a href=https://golangdocs.com/golang-postgresql-example>GoLang PostgreSQL Example</a></li>
-</ul>
-</div>
-<div class="row pl-3 pr-3">
-<div class="col-md-6 share-buttons">
-</div>
-<div class="col-md-6 btn-improve-page">
-<a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/programming/golang/2021-12-16-Golang-postgredb-crud.md title="이 페이지를 개선" target=_blank rel=noopener>
-<i class="fas fa-code-branch"></i>
-이 페이지를 개선
-</a>
-</div>
-</div>
-<hr>
-<div class="row next-prev-navigator">
-</div>
-<hr>
-</div>
-</div>
-</div>
-<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
-</section>
-<section class=toc-section id=toc-section>
-<div class=toc-holder>
-<h5 class="text-center pl-3">목차</h5>
-<hr>
-<div class=toc>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#1-라이브러리-설치>1. 라이브러리 설치</a></li>
-<li><a href=#2-테이블-구조>2. 테이블 구조</a></li>
-<li><a href=#3-db-설정-초기화>3. DB 설정 초기화</a></li>
-<li><a href=#4-create>4. create</a></li>
-<li><a href=#5-read>5. read</a></li>
-<li><a href=#6-update>6. update</a></li>
-<li><a href=#7-delete>7. delete</a></li>
-<li><a href=#8-예시코드-git>8. 예시코드 Git</a></li>
-<li><a href=#참고reference>참고(Reference)</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</section>
-</div>
-<footer class="container-fluid text-center align-content-center footer pb-2">
-<div class="container pt-5">
-<div class="row text-left">
-<div class="col-md-4 col-sm-12">
-<h5>바로가기</h5>
-<ul>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a>
-</li>
-</ul>
-</div>
-<div class="col-md-4 col-sm-12">
-<h5>Contact me:</h5>
-<ul>
-<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
-<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
-</a></li>
-</ul>
-</div>
-</div>
-</div>
-<hr>
-<div class=container>
-<div class="row text-left">
-<div class=col-md-4>
-<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
-<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
-Toha
-</a>
-</div>
-<div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div>
-<div class="col-md-4 text-right">
-<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
-<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
-</a>
-</div>
-</div>
-</div>
-</footer>
-<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse lang-selector" id=top-nav-items><ul class="navbar-nav ml-auto"></ul></div></div></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=Search data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/posts data-filter=all>게시글</a></li><div class=subtree><li><i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a><ul><li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li><li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li></ul></li><li><a href=/posts/db/ title=db>db</a></li><li><a href=/posts/docker/ title=docker>docker</a></li><li><i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a><ul><li><a href=/posts/framework/django/ title=django>django</a></li></ul></li><li><i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a><ul><li><a href=/posts/os/linux/ title=linux>linux</a></li><li><a href=/posts/os/windows/ title=windows>windows</a></li></ul></li><li><i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a><ul class=active><li><a class=active href=/posts/programming/golang/ title=golang>golang</a></li><li><a href=/posts/programming/python/ title=python>python</a></li></ul></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class=content><div class="container p-0 read-area"><div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)></div><div class=page-content><div class="author-profile ml-auto align-self-lg-center"><img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image"><h5 class=author-name>Sangjun</h5><p>December 16, 2021</p></div><div class=title><h1>golang postgreDB CURD</h1></div><div class=post-content id=post-content><hr><p>golang에서 postgre데이터 베이스의 SQL 생성, 수정, 읽기, 삭제 기능의 간단한 사용법이다.</p><p>postgreDB가 이미 설치되어 있다는 전제하에 진행한다.</p><ul><li>로컬 설정 : <a href=https://sangjuncha-dev.github.io/posts/db/2020-09-29-postgredb-setup/>PostgreDB 설치</a></li><li>도커 이미지 : <a href=https://sangjuncha-dev.github.io/posts/docker/2021-04-29-docker-postgresdb-pgadmin4-setup-guide/>PostgreDB, pgadmin4 도커 설치 방법</a></li></ul><hr><h2 id=1-라이브러리-설치>1. 라이브러리 설치</h2><p>go version : 1.17</p><pre tabindex=0><code>&gt; go get github.com/lib/pq
+</code></pre><hr><h2 id=2-테이블-구조>2. 테이블 구조</h2><p>postgreDB에 아래와 같은 구조의 User 테이블이 선언된 상태로 진행한다.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#66d9ef>user</span> (
+</span></span><span style=display:flex><span>   id SERIAL <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,
+</span></span><span style=display:flex><span>   name VARCHAR(<span style=color:#ae81ff>20</span>),
+</span></span><span style=display:flex><span>   age INT
+</span></span><span style=display:flex><span>);
+</span></span></code></pre></div><hr><h2 id=3-db-설정-초기화>3. DB 설정 초기화</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;database/sql&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;fmt&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>_</span> <span style=color:#e6db74>&#34;github.com/lib/pq&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// User 스키마 또는 User 테이블구조
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>User</span> <span style=color:#66d9ef>struct</span> {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Id</span>   <span style=color:#66d9ef>int</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Name</span> <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Age</span>  <span style=color:#66d9ef>int</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> (
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>db</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>sql</span>.<span style=color:#a6e22e>DB</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// DB 설정
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>InitDB</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>host</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;localhost&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>port</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>5432</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>name</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;TEST&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>user</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;test_onwer&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>password</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;1234&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>psqlconn</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprintf</span>(<span style=color:#e6db74>&#34;host=%s port=%d dbname=%s user=%s password=%s sslmode=disable&#34;</span>,
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>host</span>, <span style=color:#a6e22e>port</span>, <span style=color:#a6e22e>name</span>, <span style=color:#a6e22e>user</span>, <span style=color:#a6e22e>password</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>err</span> <span style=color:#66d9ef>error</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>db</span>, <span style=color:#a6e22e>err</span> = <span style=color:#a6e22e>sql</span>.<span style=color:#a6e22e>Open</span>(<span style=color:#e6db74>&#34;postgres&#34;</span>, <span style=color:#a6e22e>psqlconn</span>)
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>		panic(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// DB 연결테스트
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>ConnectTest</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Ping</span>()
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>		panic(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>InitDB</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>ConnectTest</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Close</span>()
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><hr><h2 id=4-create>4. create</h2><p>데이터 생성</p><ul><li><code>Prepare</code> : 다중쿼리나 실행을 위한 구문을 생성</li><li><code>QueryRow</code> : 준비된 쿼리 구문을 입력받은 인자로 실행</li><li><code>Scan</code> : 데이터베이스로 반환받은 columns 읽기</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>Create</span>(<span style=color:#a6e22e>name</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>age</span> <span style=color:#66d9ef>int</span>) {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>sqlStatement</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>`INSERT INTO user_test (name, age) VALUES ($1, $2) returning id`</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>stmt</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Prepare</span>(<span style=color:#a6e22e>sqlStatement</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>id</span> <span style=color:#66d9ef>int64</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>err</span> = <span style=color:#a6e22e>stmt</span>.<span style=color:#a6e22e>QueryRow</span>(<span style=color:#a6e22e>name</span>, <span style=color:#a6e22e>age</span>).<span style=color:#a6e22e>Scan</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>id</span>)
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>		panic(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;create id :&#34;</span>, <span style=color:#a6e22e>id</span>)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>InitDB</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Create</span>(<span style=color:#e6db74>&#34;foo&#34;</span>, <span style=color:#ae81ff>10</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Create</span>(<span style=color:#e6db74>&#34;bar&#34;</span>, <span style=color:#ae81ff>20</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Close</span>()
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>create 결과</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>create id : <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>create id : <span style=color:#ae81ff>2</span>
+</span></span></code></pre></div><hr><h2 id=5-read>5. read</h2><p>데이터 조회</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>Read</span>(<span style=color:#a6e22e>userId</span> <span style=color:#66d9ef>int</span>) {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>sqlStatement</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>`SELECT &#34;id&#34;, &#34;name&#34;, &#34;age&#34; FROM &#34;user_test&#34; WHERE $1 = &#34;id&#34;`</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>rows</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Query</span>(<span style=color:#a6e22e>sqlStatement</span>, <span style=color:#a6e22e>userId</span>)
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>		panic(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>Close</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>id</span> <span style=color:#66d9ef>int</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>name</span> <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>age</span> <span style=color:#66d9ef>int</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>Next</span>() {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>rows</span>.<span style=color:#a6e22e>Scan</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>id</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>name</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>age</span>)
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>			panic(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;id: %d, name: %v, age: %d\n&#34;</span>, <span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>name</span>, <span style=color:#a6e22e>age</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>InitDB</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Read</span>(<span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Close</span>()
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>read 결과</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>id: 1, name: foo, age: <span style=color:#ae81ff>10</span>
+</span></span></code></pre></div><hr><h2 id=6-update>6. update</h2><p>데이터 수정</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>Update</span>(<span style=color:#a6e22e>id</span> <span style=color:#66d9ef>int64</span>, <span style=color:#a6e22e>user</span> <span style=color:#a6e22e>User</span>) {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>sqlStatement</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>`UPDATE user SET name=$2, age=$3 WHERE id=$1`</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>res</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Exec</span>(<span style=color:#a6e22e>sqlStatement</span>, <span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>Name</span>, <span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>Age</span>)
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>		panic(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>rowsAffected</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>RowsAffected</span>()
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>		panic(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;Total rows/record affected %v\n&#34;</span>, <span style=color:#a6e22e>rowsAffected</span>)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>InitDB</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Update</span>(<span style=color:#ae81ff>1</span>, <span style=color:#a6e22e>User</span>{<span style=color:#a6e22e>Name</span>: <span style=color:#e6db74>&#34;foo1&#34;</span>, <span style=color:#a6e22e>Age</span>: <span style=color:#ae81ff>21</span>})
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Read</span>(<span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Close</span>()
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>update 결과</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>Total rows/record affected <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>id: 1, name: foo1, age: <span style=color:#ae81ff>21</span>
+</span></span></code></pre></div><hr><h2 id=7-delete>7. delete</h2><p>데이터 삭제</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>Delete</span>(<span style=color:#a6e22e>id</span> <span style=color:#66d9ef>int64</span>) {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>sqlStatement</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>`DELETE FROM user WHERE id=$1`</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>res</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Exec</span>(<span style=color:#a6e22e>sqlStatement</span>, <span style=color:#a6e22e>id</span>)
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>		panic(<span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>rowsAffected</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>RowsAffected</span>()
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Error while checking the affected rows.&#34;</span>, <span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>	} <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Total rows/record affected&#34;</span>, <span style=color:#a6e22e>rowsAffected</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>InitDB</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Delete</span>(<span style=color:#ae81ff>2</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>db</span>.<span style=color:#a6e22e>Close</span>()
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>delete 결과</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>Total rows/record affected <span style=color:#ae81ff>1</span>
+</span></span></code></pre></div><hr><h2 id=8-예시코드-git>8. 예시코드 Git</h2><p><a href=https://github.com/SangjunCha-dev/blog/tree/main/golang/golang-postgredb-crud>golang-postgredb-crud</a></p><hr><h2 id=참고reference>참고(Reference)</h2><ul><li><a href=https://golangdocs.com/golang-postgresql-example>GoLang PostgreSQL Example</a></li></ul></div><div class="row pl-3 pr-3"><div class="col-md-6 share-buttons"></div><div class="col-md-6 btn-improve-page"><a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/programming/golang/2021-12-16-Golang-postgredb-crud.md title="이 페이지를 개선" target=_blank rel=noopener><i class="fas fa-code-branch"></i>
+이 페이지를 개선</a></div></div><hr><div class="row next-prev-navigator"></div><hr></div></div></div><a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a></section><section class=toc-section id=toc-section><div class=toc-holder><h5 class="text-center pl-3">목차</h5><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#1-라이브러리-설치>1. 라이브러리 설치</a></li><li><a href=#2-테이블-구조>2. 테이블 구조</a></li><li><a href=#3-db-설정-초기화>3. DB 설정 초기화</a></li><li><a href=#4-create>4. create</a></li><li><a href=#5-read>5. read</a></li><li><a href=#6-update>6. update</a></li><li><a href=#7-delete>7. delete</a></li><li><a href=#8-예시코드-git>8. 예시코드 Git</a></li><li><a href=#참고reference>참고(Reference)</a></li></ul></nav></div></div></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>바로가기</h5><ul><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>Contact me:</h5><ul><li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-left"><div class=col-md-4><a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener><img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha</a></div><div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div><div class="col-md-4 text-right"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
 <script type=text/javascript src=/js/popper.min.js></script>
 <script type=text/javascript src=/js/bootstrap.min.js></script>
 <script type=text/javascript src=/js/navbar.js></script>
@@ -400,6 +173,4 @@ Toha
 <script type=text/javascript src=/js/main.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
 <script src=/js/single.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script></body></html>

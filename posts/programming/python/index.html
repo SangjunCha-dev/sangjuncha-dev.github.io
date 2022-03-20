@@ -1,411 +1,65 @@
-<!doctype html><html>
-<head>
-<title>python</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="ie=edge">
-<link rel=stylesheet href=/css/bootstrap.min.css>
-<link rel=stylesheet href=/css/layouts/main.css>
-<link rel=stylesheet href=/css/navigators/navbar.css>
-<link rel=stylesheet href=/css/plyr.css>
-<link rel=stylesheet href=/css/flag-icon.min.css>
-<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
-<meta property="og:title" content="python">
-<meta property="og:description" content>
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sangjuncha-dev.github.io/posts/programming/python/">
-<link rel=stylesheet href=/css/layouts/list.css>
-<link rel=stylesheet href=/css/navigators/sidebar.css>
-<link rel=stylesheet href=/css/style.css>
-</head>
-<body data-spy=scroll data-target=#TableOfContents data-offset=80>
-<div class="container-fluid bg-dimmed wrapper">
-<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
-<div class=container>
-<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
-<span class=navbar-toggler-icon></span>
-</button>
-<a class=navbar-brand href=/>
-Sangjun 개발 블로그</a>
+<!doctype html><html><head><title>python</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/layouts/main.css><link rel=stylesheet href=/css/navigators/navbar.css><link rel=stylesheet href=/css/plyr.css><link rel=stylesheet href=/css/flag-icon.min.css><link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css><meta property="og:title" content="python"><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://sangjuncha-dev.github.io/posts/programming/python/"><link rel=stylesheet href=/css/layouts/list.css><link rel=stylesheet href=/css/navigators/sidebar.css><link rel=stylesheet href=/css/style.css></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span></button>
+<a class=navbar-brand href=/>Sangjun 개발 블로그</a>
 <button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
-<ul class="navbar-nav ml-auto">
-</ul>
-</div>
-</div>
-</nav>
-<section class=sidebar-section id=sidebar-section>
-<div class=sidebar-holder>
-<div class=sidebar id=sidebar>
-<form class=mx-auto method=get action=/search>
-<input type=text name=keyword placeholder=Search data-search id=search-box>
-</form>
-<div class=sidebar-tree>
-<ul class=tree id=tree>
-<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
-<div class=subtree>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
-<ul>
-<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
-<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
-</ul>
-</li>
-<li><a href=/posts/db/ title=db>db</a></li>
-<li><a href=/posts/docker/ title=docker>docker</a></li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
-<ul>
-<li><a href=/posts/framework/django/ title=django>django</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
-<ul>
-<li><a href=/posts/os/linux/ title=linux>linux</a></li>
-<li><a href=/posts/os/windows/ title=windows>windows</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a>
-<ul class=active>
-<li><a href=/posts/programming/golang/ title=golang>golang</a></li>
-<li><a class=active href=/posts/programming/python/ title=python>python</a></li>
-</ul>
-</li>
-</div>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class=content-section id=content-section>
-<div class="content container-fluid" id=content>
-<div class="container-fluid post-card-holder" id=post-card-holder>
-<div class=post-card>
-<a href=/posts/programming/python/2022-02-08-python-pytest-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>[python] 테스트 프레임워크 pytest 사용법</h5>
-<p class="card-text post-summary">1. 개요 및 설정 pytest는 에러 없는 좋은 코드를 개발만들기 위한 목적으로 개발된 Python 테스트 프레임워크이다.
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse lang-selector" id=top-nav-items><ul class="navbar-nav ml-auto"></ul></div></div></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=Search data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/posts data-filter=all>게시글</a></li><div class=subtree><li><i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a><ul><li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li><li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li></ul></li><li><a href=/posts/db/ title=db>db</a></li><li><a href=/posts/docker/ title=docker>docker</a></li><li><i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a><ul><li><a href=/posts/framework/django/ title=django>django</a></li></ul></li><li><i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a><ul><li><a href=/posts/os/linux/ title=linux>linux</a></li><li><a href=/posts/os/windows/ title=windows>windows</a></li></ul></li><li><i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a><ul class=active><li><a href=/posts/programming/golang/ title=golang>golang</a></li><li><a class=active href=/posts/programming/python/ title=python>python</a></li></ul></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class="content container-fluid" id=content><div class="container-fluid post-card-holder" id=post-card-holder><div class=post-card><a href=/posts/programming/python/2022-02-08-python-pytest-guide/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>[python] 테스트 프레임워크 pytest 사용법</h5><p class="card-text post-summary">1. 개요 및 설정 pytest는 에러 없는 좋은 코드를 개발만들기 위한 목적으로 개발된 Python 테스트 프레임워크이다.
 pytest 특징
 다른 testing 라이브러리에 비해 사용법이 간단하다. 테스트를 병렬로 실행할 수 있다. 특정 테스트를 스킵할 수 있다. 다양한 서드 파트 라이브러리들이 있다. 설치
 pip install -U pytest 2. 기본 사용법 2.1. 기본 테스트 test_sample.py
-# 테스트 대상 기능 def inc(x): return x + 1 # 테스트 실행 함수 def test_answer1(): assert inc(3) == 5 def test_answer2(): assert inc(3) == 4 pytest 실행 결과</p>
-</div>
-<div class=card-footer>
-<span class=float-left>February 8, 2022</span>
-<a href=/posts/programming/python/2022-02-08-python-pytest-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2022-01-10-python-boto3-aws-s3-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>python boto3라이브러리 이용한 AWS s3 사용법</h5>
-<p class="card-text post-summary">1. 개요 및 설정 Boto3는 python 애플리케이션과 AWS 서비스를 연결시키기 위해 사용하는 python 라이브러리이다.
+# 테스트 대상 기능 def inc(x): return x + 1 # 테스트 실행 함수 def test_answer1(): assert inc(3) == 5 def test_answer2(): assert inc(3) == 4 pytest 실행 결과</p></div><div class=card-footer><span class=float-left>February 8, 2022</span>
+<a href=/posts/programming/python/2022-02-08-python-pytest-guide/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/python/2022-01-10-python-boto3-aws-s3-guide/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>python boto3라이브러리 이용한 AWS s3 사용법</h5><p class="card-text post-summary">1. 개요 및 설정 Boto3는 python 애플리케이션과 AWS 서비스를 연결시키기 위해 사용하는 python 라이브러리이다.
 boto3 라이브러리 설치
 pip install boto3 라이브러리 import 및 AWS key 설정
 conf.py
 import os AWS_ACCESS_KEY_ID = "ACCESS_KEY_ID" AWS_SECRET_ACCESS_KEY = "SECRET_ACCESS_KEY" AWS_REGION = "REGION" AWS_BUCKET_NAME = "BUCKET_NAME" 2. boto3 기본 사용법 2.1. client client
-Low-level 인터페이스 service description에 의해 만들어짐 botocore 수준제어 (botocore는 AWS CLI와 boto3의 기초가 되는 라이브러리) AWS API와 1:1 매핑 메소드가 스네이크 케이스로 정의되어 있음 import boto3 from conf import * client = boto3.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>January 10, 2022</span>
-<a href=/posts/programming/python/2022-01-10-python-boto3-aws-s3-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>python 날짜와 시간 계산</h5>
-<p class="card-text post-summary">python 날짜 및 시간 계산은 python 표준 라이브러리 datetime, 확장 라이브러리 dateutil 2개의 라이브러리가 있으며 단위의 차이가 있다.
+Low-level 인터페이스 service description에 의해 만들어짐 botocore 수준제어 (botocore는 AWS CLI와 boto3의 기초가 되는 라이브러리) AWS API와 1:1 매핑 메소드가 스네이크 케이스로 정의되어 있음 import boto3 from conf import * client = boto3.</p></div><div class=card-footer><span class=float-left>January 10, 2022</span>
+<a href=/posts/programming/python/2022-01-10-python-boto3-aws-s3-guide/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>python 날짜와 시간 계산</h5><p class="card-text post-summary">python 날짜 및 시간 계산은 python 표준 라이브러리 datetime, 확장 라이브러리 dateutil 2개의 라이브러리가 있으며 단위의 차이가 있다.
 datetime : 마이크로초, 밀리초, 초, 분, 시, 일, 주 단위 사용 dateutil : 마이크로초, 초, 분, 시, 일, 주, 월, 년 단위 사용 1. datetime 라이브러리 날짜와 시간을 조작하는 클래스를 제공하는 python 표준 라이브러리
 1.1 사용예시 now : 현재 날짜 및 시간
-import datetime as dt now = dt.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 26, 2021</span>
-<a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-12-06-python-json-read-write-performance/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>python json 파일 읽기/쓰기 성능</h5>
-<p class="card-text post-summary">python 언어에서 대용량 json 읽기/쓰기 성능은 사용방법과 라이브러리에 따라서 성능 차이가 있다.
+import datetime as dt now = dt.</p></div><div class=card-footer><span class=float-left>December 26, 2021</span>
+<a href=/posts/programming/python/2021-12-26-python-calculate-the-date-and-time/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/python/2021-12-06-python-json-read-write-performance/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>python json 파일 읽기/쓰기 성능</h5><p class="card-text post-summary">python 언어에서 대용량 json 읽기/쓰기 성능은 사용방법과 라이브러리에 따라서 성능 차이가 있다.
 테스트 기준은 동일한 json 파일을 100번씩 반복 실행하였다.
 json 라이브러리의 파일 읽기/쓰기 모두 byte 모드가 상대적으로 빠르다.
 라이브러리 버전
-python : 3.8.10 ujson : 5.1.0 orjson : 3.6.5 1. json ========================= json_r = 0.045 sec json_w_dump = 0.186 sec json_w_dumps = 0.065 sec ========================= json_rb = 0.034 sec json_wb_dumps = 0.055 sec 1.1. read with open('github.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 6, 2021</span>
-<a href=/posts/programming/python/2021-12-06-python-json-read-write-performance/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>python을 이용한 windows10 시스템 정보 및 사용량 모니터링</h5>
-<p class="card-text post-summary">운영체제 : windows 10
+python : 3.8.10 ujson : 5.1.0 orjson : 3.6.5 1. json ========================= json_r = 0.045 sec json_w_dump = 0.186 sec json_w_dumps = 0.065 sec ========================= json_rb = 0.034 sec json_wb_dumps = 0.055 sec 1.1. read with open('github.</p></div><div class=card-footer><span class=float-left>December 6, 2021</span>
+<a href=/posts/programming/python/2021-12-06-python-json-read-write-performance/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>python을 이용한 windows10 시스템 정보 및 사용량 모니터링</h5><p class="card-text post-summary">운영체제 : windows 10
 설치환경 : python 3.8.8, powershell 7.1
 1. WMI WMI(Windows Management Instrumentation)는 Windows 시스템 관리를 위한 다양한 정보를 일관되게 표시하는 기술이다. WMI가 표시하는 정보의 양이 제한되어 있기 때문에 WMI 개체에 액세스하기 위한 PowerShell cmdlet인 Get-CimInstance 개체 가져오기 도구를 사용한다.
 해당 WMI 개체 정보 조회
-Get-CimInstance -ClassName (WMI 개체이름) | select * WMI 개체이름 정보 Win32_OperatingSystem 운영체제 및 메모리 정보 Win32_Processor CPU 정보 Win32_PhysicalMemory 물리 메모리 정보 Win32_DiskDrive 물리 디스크 정보 Win32_LogicalDisk 논리 디스크 정보 Win32_VideoController 그래픽카드 정보 Get-CimInstance 옵션 매개변수로 Select-Object사용하면 WMI 클래스 인스턴스에서 반환되는 속성을 선택할 수 있다.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>June 16, 2021</span>
-<a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-performance/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이</h5>
-<p class="card-text post-summary">설치버전 : python 3.8.8
-1. 클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이 1.1. 예제 코드 import timeit class CheckTime: def __init__(self): self.a = 0 self.b = 0 self.c = 0 def process_self(self): self.a + self.b + self.c def process_argument(self, a, b, c): a + b + c def get_time(self): self.a = 1 self.b = 2 self.c = 3 def test1(): self.process_self() process_self_time = timeit.Timer(stmt=test1).repeat(number=1000000) a = self.a b = self.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>May 24, 2021</span>
-<a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-performance/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-05-21-python-opencv-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>python opencv 사용법</h5>
-<p class="card-text post-summary">설치버전 : opencv-python 4.5.1.48
+Get-CimInstance -ClassName (WMI 개체이름) | select * WMI 개체이름 정보 Win32_OperatingSystem 운영체제 및 메모리 정보 Win32_Processor CPU 정보 Win32_PhysicalMemory 물리 메모리 정보 Win32_DiskDrive 물리 디스크 정보 Win32_LogicalDisk 논리 디스크 정보 Win32_VideoController 그래픽카드 정보 Get-CimInstance 옵션 매개변수로 Select-Object사용하면 WMI 클래스 인스턴스에서 반환되는 속성을 선택할 수 있다.</p></div><div class=card-footer><span class=float-left>June 16, 2021</span>
+<a href=/posts/programming/python/2021-06-16-python-windows10-monitoring/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-performance/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>클래스 인스턴스 변수(self)와 함수 로컬변수 처리속도차이</h5><p class="card-text post-summary">설치버전 : python 3.8.8
+1. 클래스 인스턴스 변수(self)와 함수 매개변수 처리속도 차이 1.1. 예제 코드 import timeit class CheckTime: def __init__(self): self.a = 0 self.b = 0 self.c = 0 def process_self(self): self.a + self.b + self.c def process_argument(self, a, b, c): a + b + c def get_time(self): self.a = 1 self.b = 2 self.</p></div><div class=card-footer><span class=float-left>May 24, 2021</span>
+<a href=/posts/programming/python/2021-05-24-python-class-instance-variable-and-function-local-variable-performance/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/python/2021-05-21-python-opencv-guide/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>python opencv 사용법</h5><p class="card-text post-summary">설치버전 : opencv-python 4.5.1.48
 docs url 라이브러리 설치
 pip install opencv-python 라이브러리 import
-import cv2 이미지 파일 읽기 cv2.imread(filename[, flags]) -> retval img = cv2.imread(image_full_path) 매개변수 이름 설명 filename 로드할 파일 이름 flags cv2 값을 사용할 수 있는 플래그 이미지 파일 저장 cv2.imwrite(filename, img[, params]) -> retval 이미지 형식은 파일 이름 확장자에 따라 선택됨 cv2.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>May 21, 2021</span>
-<a href=/posts/programming/python/2021-05-21-python-opencv-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-05-21-python-numpy-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>python numpy 사용법</h5>
-<p class="card-text post-summary">선형대수 기반의 python 라이브러리
+import cv2 이미지 파일 읽기 cv2.imread(filename[, flags]) -> retval img = cv2.imread(image_full_path) 매개변수 이름 설명 filename 로드할 파일 이름 flags cv2 값을 사용할 수 있는 플래그 이미지 파일 저장 cv2.imwrite(filename, img[, params]) -> retval 이미지 형식은 파일 이름 확장자에 따라 선택됨 cv2.</p></div><div class=card-footer><span class=float-left>May 21, 2021</span>
+<a href=/posts/programming/python/2021-05-21-python-opencv-guide/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/python/2021-05-21-python-numpy-guide/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>python numpy 사용법</h5><p class="card-text post-summary">선형대수 기반의 python 라이브러리
 루프없이 배열 연산이 가능하여 연산속도가 빠름 설치버전 : numpy 1.20.2
 라이브러리 import
-import numpy as np 1. 생성 arange np.arange([start,] stop, [step,] dtype) 지정한 숫자 범위의 array 생성함수 np.arange(10) # [0 1 2 3 4 5 6 7 8 9] np.arange(0, 5, 0.5) # [0. 0.5 1. 1.5 2. 2.5 3. 3.5 4. 4.5] zeros np.zeros(shape, dtype) 0으로 선언된 array 생성 np.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>May 21, 2021</span>
-<a href=/posts/programming/python/2021-05-21-python-numpy-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>python 자료구조와 알고리즘(by 미아 스타인) 책 정리</h5>
-<p class="card-text post-summary">Part 1 헬로, 자료구조! Chapter 01 숫자 1.1 정수 int() 불변형 객체로 문자열을 정수로 변환하거나 다른 진법의 문자열을 정수로 변환
+import numpy as np 1. 생성 arange np.arange([start,] stop, [step,] dtype) 지정한 숫자 범위의 array 생성함수 np.arange(10) # [0 1 2 3 4 5 6 7 8 9] np.arange(0, 5, 0.5) # [0. 0.5 1. 1.5 2. 2.5 3. 3.5 4. 4.5] zeros np.zeros(shape, dtype) 0으로 선언된 array 생성 np.</p></div><div class=card-footer><span class=float-left>May 21, 2021</span>
+<a href=/posts/programming/python/2021-05-21-python-numpy-guide/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>python 자료구조와 알고리즘(by 미아 스타인) 책 정리</h5><p class="card-text post-summary">Part 1 헬로, 자료구조! Chapter 01 숫자 1.1 정수 int() 불변형 객체로 문자열을 정수로 변환하거나 다른 진법의 문자열을 정수로 변환
 int(문자열, 밑(n진법))
 >>> s = '11' >>> b = int(s, 2) >>> print(b) 11 정수에 필요한 바이트 수(python 3.1이상)
 >>> (정수).bit_length() 10 발생가능한 Exception : ValueError
 1.2 부동 소수점 float() float 32bit
-1bit 부호, 8bit 지수, 23bit 유효 숫자 자릿수 1.2.1 부동소수점끼리 비교하기 이진수 분수로 표현으로 소수점의 정확한 비교는 어렵지만,</p>
-</div>
-<div class=card-footer>
-<span class=float-left>May 17, 2021</span>
-<a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)</h5>
-<p class="card-text post-summary">python 파일을 윈도우에서 python 이나 가상환경 설정없이 실행이 가능한 .exe 으로 변환해주는 라이브러리
+1bit 부호, 8bit 지수, 23bit 유효 숫자 자릿수 1.2.1 부동소수점끼리 비교하기 이진수 분수로 표현으로 소수점의 정확한 비교는 어렵지만,</p></div><div class=card-footer><span class=float-left>May 17, 2021</span>
+<a href=/posts/programming/python/2021-05-17-python-datastructures-and-algorithms/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)</h5><p class="card-text post-summary">python 파일을 윈도우에서 python 이나 가상환경 설정없이 실행이 가능한 .exe 으로 변환해주는 라이브러리
 1. 설치 설치환경 : Windows 10
 python 실행이 가능한 가상환경 터미널에서 아래의 명령어 실행
-pip install pyinstaller 2. 간단한 사용예제 pyinstaller --clean --distpath . -F -n [프로그램이름] [변환시킬 파일].py 3. 옵션 옵션 설명 &ndash;clean 빌드하기 전에 PyInstaller 캐시를 정리하고 임시파일 제거 -F, &ndash;onefile 단일 실행파일로 생성(실행시 사용한 라이브러리 임시파일 생성됨) -D, &ndash;onedir 실행 파일을 포함하는 단일 폴더로 생성 &ndash;distpath DIR 실행파일 생성 경로(default: .</p>
-</div>
-<div class=card-footer>
-<span class=float-left>March 10, 2021</span>
-<a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>pyshark 라이브러리 사용법 (pyshark Library Guide)</h5>
-<p class="card-text post-summary">설치환경 : Windows 10, python 3.7
+pip install pyinstaller 2. 간단한 사용예제 pyinstaller --clean --distpath . -F -n [프로그램이름] [변환시킬 파일].py 3. 옵션 옵션 설명 &ndash;clean 빌드하기 전에 PyInstaller 캐시를 정리하고 임시파일 제거 -F, &ndash;onefile 단일 실행파일로 생성(실행시 사용한 라이브러리 임시파일 생성됨) -D, &ndash;onedir 실행 파일을 포함하는 단일 폴더로 생성 &ndash;distpath DIR 실행파일 생성 경로(default: .</p></div><div class=card-footer><span class=float-left>March 10, 2021</span>
+<a href=/posts/programming/python/2021-03-10-pyinstaller-guide/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>pyshark 라이브러리 사용법 (pyshark Library Guide)</h5><p class="card-text post-summary">설치환경 : Windows 10, python 3.7
 1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install pyshark 2. 사용법 캡쳐파일 읽기
 capture = pyshark.FileCapture('./test.pcapng') 실시간 패킷캡처 interface
 capture = pyshark.LiveCapture(interface='이더넷', bpf_filter='ether src host 11:22:33:44:55:66', use_json=True, include_raw=True) 패킷 캡처
-패킷 1개 캡처하거나 10ms 경과하면 캡처 결과 반환 capture.sniff(packet_count=1, timeout=10) 패킷 10개 캡처하거나 10ms 경과하면 캡처 결과 반환 capture.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>February 10, 2021</span>
-<a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>scapy 라이브러리 사용법 (Scapy Library Guide)</h5>
-<p class="card-text post-summary">설치환경 : Windows 10
-1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install --pre scapy[basic] 2. Client 예제 from scapy.all import * from scapy.utils import rdpcap import datetime as dt # PCAP 파일 읽기 # could be used like this rdpcap("filename",500) fetches first 500 pkts pkts = rdpcap("./pcap/test.pcapng", -1) pkts = pkts[21:100] cnt = 0 repeat = 10 s_time = dt.datetime.now() for _ in range(repeat): for pkt in pkts: # print(f"hexdump(pkt) = {hexdump(pkt)}") # Send one or more packets at 2 layer sendp(pkt, inter=0, loop=0, count=1, iface=None) # Send one or more packets at 3 layer # send(pkt, inter=0, loop=0, count=1, iface=None) cnt += 1 print(cnt) sendp(b'', inter=0, loop=0, count=1, iface=None) time.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>February 9, 2021</span>
-<a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class=paginator>
-<ul class="pagination pagination-default">
-<li class="page-item disabled">
-<a aria-disabled=true aria-label=First class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;&#171;</span></a>
-</li>
-<li class="page-item disabled">
-<a aria-disabled=true aria-label=Previous class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;</span></a>
-</li>
-<li class="page-item active">
-<a aria-current=page aria-label="Page 1" class=page-link role=button>1</a>
-</li>
-<li class=page-item>
-<a href=/posts/programming/python/page/2/ aria-label="Page 2" class=page-link role=button>2</a>
-</li>
-<li class=page-item>
-<a href=/posts/programming/python/page/2/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
-</li>
-<li class=page-item>
-<a href=/posts/programming/python/page/2/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
-</li>
-</ul>
-</div>
-</div>
-</section>
-</div>
-<footer class="container-fluid text-center align-content-center footer pb-2">
-<div class="container pt-5">
-<div class="row text-left">
-<div class="col-md-4 col-sm-12">
-<h5>바로가기</h5>
-<ul>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a>
-</li>
-</ul>
-</div>
-<div class="col-md-4 col-sm-12">
-<h5>Contact me:</h5>
-<ul>
-<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
-<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
-</a></li>
-</ul>
-</div>
-</div>
-</div>
-<hr>
-<div class=container>
-<div class="row text-left">
-<div class=col-md-4>
-<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
-<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
-Toha
-</a>
-</div>
-<div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div>
-<div class="col-md-4 text-right">
-<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
-<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
-</a>
-</div>
-</div>
-</div>
-</footer>
-<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+패킷 1개 캡처하거나 10ms 경과하면 캡처 결과 반환 capture.sniff(packet_count=1, timeout=10) 패킷 10개 캡처하거나 10ms 경과하면 캡처 결과 반환 capture.</p></div><div class=card-footer><span class=float-left>February 10, 2021</span>
+<a href=/posts/programming/python/2021-02-10-pyshark-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>scapy 라이브러리 사용법 (Scapy Library Guide)</h5><p class="card-text post-summary">설치환경 : Windows 10
+1. 설치 와이어샤크 프로그램에 포함된 npcap 설치 필요 https://www.wireshark.org/download.html pip install --pre scapy[basic] 2. Client 예제 from scapy.all import * from scapy.utils import rdpcap import datetime as dt # PCAP 파일 읽기 # could be used like this rdpcap("filename",500) fetches first 500 pkts pkts = rdpcap("./pcap/test.pcapng", -1) pkts = pkts[21:100] cnt = 0 repeat = 10 s_time = dt.</p></div><div class=card-footer><span class=float-left>February 9, 2021</span>
+<a href=/posts/programming/python/2021-02-09-scapy-library-guide/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div></div><div class=paginator><ul class="pagination pagination-default"><li class="page-item disabled"><a aria-disabled=true aria-label=First class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;&#171;</span></a></li><li class="page-item disabled"><a aria-disabled=true aria-label=Previous class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;</span></a></li><li class="page-item active"><a aria-current=page aria-label="Page 1" class=page-link role=button>1</a></li><li class=page-item><a href=/posts/programming/python/page/2/ aria-label="Page 2" class=page-link role=button>2</a></li><li class=page-item><a href=/posts/programming/python/page/2/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a></li><li class=page-item><a href=/posts/programming/python/page/2/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a></li></ul></div></div></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>바로가기</h5><ul><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>Contact me:</h5><ul><li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-left"><div class=col-md-4><a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener><img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha</a></div><div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div><div class="col-md-4 text-right"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
 <script type=text/javascript src=/js/popper.min.js></script>
 <script type=text/javascript src=/js/bootstrap.min.js></script>
 <script type=text/javascript src=/js/navbar.js></script>
 <script type=text/javascript src=/js/plyr.js></script>
 <script type=text/javascript src=/js/main.js></script>
-<script src=/js/list.js></script>
-</body>
-</html>
+<script src=/js/list.js></script></body></html>

@@ -1,445 +1,88 @@
-<!doctype html><html>
-<head>
-<title>[golang] gui 라이브러리 fyne</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="ie=edge">
-<link rel=stylesheet href=/css/bootstrap.min.css>
-<link rel=stylesheet href=/css/layouts/main.css>
-<link rel=stylesheet href=/css/navigators/navbar.css>
-<link rel=stylesheet href=/css/plyr.css>
-<link rel=stylesheet href=/css/flag-icon.min.css>
-<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
-<meta property="og:title" content="[golang] gui 라이브러리 fyne">
-<meta property="og:description" content="golang gui 라이브러리 fyne">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://sangjuncha-dev.github.io/posts/programming/golang/2022-02-21-golang-fyne/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2022-02-21T10:50:16+09:00">
-<meta property="article:modified_time" content="2022-02-21T10:50:16+09:00">
-<meta name=description content="golang gui 라이브러리 fyne">
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
-<link rel=stylesheet href=/css/layouts/single.css>
-<link rel=stylesheet href=/css/navigators/sidebar.css>
-<link rel=stylesheet href=/css/style.css>
-</head>
-<body data-spy=scroll data-target=#TableOfContents data-offset=80>
-<div class="container-fluid bg-dimmed wrapper">
-<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
-<div class=container>
-<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
-<span class=navbar-toggler-icon></span>
-</button>
-<a class=navbar-brand href=/>
-Sangjun 개발 블로그</a>
+<!doctype html><html><head><title>[golang] gui 라이브러리 fyne</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/layouts/main.css><link rel=stylesheet href=/css/navigators/navbar.css><link rel=stylesheet href=/css/plyr.css><link rel=stylesheet href=/css/flag-icon.min.css><link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css><meta property="og:title" content="[golang] gui 라이브러리 fyne"><meta property="og:description" content="golang gui 라이브러리 fyne"><meta property="og:type" content="article"><meta property="og:url" content="https://sangjuncha-dev.github.io/posts/programming/golang/2022-02-21-golang-fyne/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-02-21T10:50:16+09:00"><meta property="article:modified_time" content="2022-02-21T10:50:16+09:00"><meta name=description content="golang gui 라이브러리 fyne"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css><link rel=stylesheet href=/css/layouts/single.css><link rel=stylesheet href=/css/navigators/sidebar.css><link rel=stylesheet href=/css/style.css></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span></button>
+<a class=navbar-brand href=/>Sangjun 개발 블로그</a>
 <button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
-<ul class="navbar-nav ml-auto">
-</ul>
-</div>
-</div>
-</nav>
-<section class=sidebar-section id=sidebar-section>
-<div class=sidebar-holder>
-<div class=sidebar id=sidebar>
-<form class=mx-auto method=get action=/search>
-<input type=text name=keyword placeholder=Search data-search id=search-box>
-</form>
-<div class=sidebar-tree>
-<ul class=tree id=tree>
-<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
-<div class=subtree>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
-<ul>
-<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
-<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
-</ul>
-</li>
-<li><a href=/posts/db/ title=db>db</a></li>
-<li><a href=/posts/docker/ title=docker>docker</a></li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
-<ul>
-<li><a href=/posts/framework/django/ title=django>django</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
-<ul>
-<li><a href=/posts/os/linux/ title=linux>linux</a></li>
-<li><a href=/posts/os/windows/ title=windows>windows</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a>
-<ul class=active>
-<li><a class=active href=/posts/programming/golang/ title=golang>golang</a></li>
-<li><a href=/posts/programming/python/ title=python>python</a></li>
-</ul>
-</li>
-</div>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class=content-section id=content-section>
-<div class=content>
-<div class="container p-0 read-area">
-<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)>
-</div>
-<div class=page-content>
-<div class="author-profile ml-auto align-self-lg-center">
-<img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image">
-<h5 class=author-name>Sangjun</h5>
-<p>February 21, 2022</p>
-</div>
-<div class=title>
-<h1>[golang] gui 라이브러리 fyne</h1>
-</div>
-<div class=post-content id=post-content>
-<hr>
-<h2 id=1-개요>1. 개요</h2>
-<p><code>Fyne</code>는 사용하기 쉬운 UI 툴킷과 Go로 작성된 앱 API로 데스크탑 및 모바일 환경을 지원합니다.</p>
-<ul>
-<li><a href=https://github.com/fyne-io/fyne>fyne git</a></li>
-</ul>
-<h3 id=11-사전-설정>1.1. 사전 설정</h3>
-<p>Fyne 사용시 필요한 개발환경</p>
-<ul>
-<li>Go 버전 1.14 이상</li>
-<li>C 컴파일러 및 시스템 개발 도구
-<ul>
-<li><a href=https://jmeubank.github.io/tdm-gcc/download/>tdm-gcc download</a></li>
-</ul>
-</li>
-</ul>
-<p>테스트 시스템 환경</p>
-<table>
-<thead>
-<tr>
-<th>분류</th>
-<th>버전</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>OS</td>
-<td>Windows 10</td>
-</tr>
-<tr>
-<td>go</td>
-<td>1.17</td>
-</tr>
-<tr>
-<td>fyne</td>
-<td>2.1.2</td>
-</tr>
-</tbody>
-</table>
-<h3 id=12-라이브러리-설치>1.2. 라이브러리 설치</h3>
-<pre tabindex=0><code>&gt; go get fyne.io/fyne/v2
-</code></pre><hr>
-<h2 id=2-간단한-사용법>2. 간단한 사용법</h2>
-<h3 id=21-예제-코드>2.1. 예제 코드</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
-
-<span style=color:#f92672>import</span> (
-	<span style=color:#e6db74>&#34;fyne.io/fyne/v2/app&#34;</span>
-	<span style=color:#e6db74>&#34;fyne.io/fyne/v2/container&#34;</span>
-	<span style=color:#e6db74>&#34;fyne.io/fyne/v2/widget&#34;</span>
-)
-
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-	<span style=color:#a6e22e>a</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>app</span>.<span style=color:#a6e22e>New</span>()
-	<span style=color:#a6e22e>w</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>NewWindow</span>(<span style=color:#e6db74>&#34;Hello&#34;</span>) <span style=color:#75715e>// 윈도우 명칭 지정
-</span><span style=color:#75715e></span>
-	<span style=color:#a6e22e>hello</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>widget</span>.<span style=color:#a6e22e>NewLabel</span>(<span style=color:#e6db74>&#34;Hello World!&#34;</span>)
-	<span style=color:#a6e22e>w</span>.<span style=color:#a6e22e>SetContent</span>(
-		<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>NewVBox</span>( <span style=color:#75715e>// 컨텐츠 수직 정렬
-</span><span style=color:#75715e></span>			<span style=color:#a6e22e>hello</span>,
-			<span style=color:#a6e22e>widget</span>.<span style=color:#a6e22e>NewButton</span>(
-				<span style=color:#e6db74>&#34;Hi!&#34;</span>,                                  <span style=color:#75715e>// 버튼 명칭
-</span><span style=color:#75715e></span>				<span style=color:#66d9ef>func</span>() { <span style=color:#a6e22e>hello</span>.<span style=color:#a6e22e>SetText</span>(<span style=color:#e6db74>&#34;Welcome :)&#34;</span>) }, <span style=color:#75715e>// 버튼 이벤트
-</span><span style=color:#75715e></span>			),
-		),
-	)
-
-	<span style=color:#a6e22e>w</span>.<span style=color:#a6e22e>ShowAndRun</span>() <span style=color:#75715e>// 윈도우 출력
-</span><span style=color:#75715e></span>}
-</code></pre></div><p>실행</p>
-<pre tabindex=0><code>&gt; go run main.go
-</code></pre><p></p>
-<table>
-<thead>
-<tr>
-<th style=text-align:center>버튼 클릭 전</th>
-<th style=text-align:center>버튼 클릭 후</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style=text-align:center><img src="../images/golang-fyne/golang-fyne-1.png?raw=true" alt></td>
-<td style=text-align:center><img src="../images/golang-fyne/golang-fyne-2.png?raw=true" alt></td>
-</tr>
-</tbody>
-</table>
-<h3 id=22-실행-파일-생성>2.2. 실행 파일 생성</h3>
-<p>윈도우에서 실행할 수 있는 <code>.exe</code> 파일을 생성한다.</p>
-<p>실행 파일 생성이 필요한 라이브러리 설치</p>
-<pre tabindex=0><code>&gt; go get fyne.io/fyne/v2/cmd/fyne
-</code></pre><p>임의의 아이콘 파일 <code>icon.png</code>을 프로젝트 루트 경로에 생성한다.</p>
-<p>실행 파일 생성 명령어</p>
-<pre tabindex=0><code>&gt; fyne install
-</code></pre><hr>
-<h2 id=3-레이아웃-예시>3. 레이아웃 예시</h2>
-<h3 id=31-dialog>3.1. dialog</h3>
-<p>다이얼로그는 팝업 형태의 창으로 정보를 보여주는 기능이다.</p>
-<h4 id=311-information>3.1.1. Information</h4>
-<p>정보확인용 다이얼로그</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>dialog</span>.<span style=color:#a6e22e>ShowInformation</span>(<span style=color:#e6db74>&#34;title&#34;</span>, <span style=color:#e6db74>&#34;information message&#34;</span>, <span style=color:#a6e22e>window</span>)
-</code></pre></div><p>기본 설정은 영어 버튼이 표시되므로 수정하려면 아래와 같은 방식을 사용한다.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>informationDialog</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>dialog</span>.<span style=color:#a6e22e>NewInformation</span>(<span style=color:#e6db74>&#34;title&#34;</span>, <span style=color:#e6db74>&#34;information message&#34;</span>, <span style=color:#a6e22e>window</span>)
-<span style=color:#a6e22e>informationDialog</span>.<span style=color:#a6e22e>SetDismissText</span>(<span style=color:#e6db74>&#34;확인&#34;</span>)
-<span style=color:#a6e22e>informationDialog</span>.<span style=color:#a6e22e>Show</span>()
-</code></pre></div><p></p>
-<p><img src="../images/golang-fyne/golang-fyne-3.png?raw=true" alt></p>
-<h4 id=312-confirm>3.1.2. Confirm</h4>
-<p>확인/취소 버튼있는 다이얼로그</p>
-<ul>
-<li>확인/취소에 따른 콜백 구현이 필요하다.</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>confirmDialog</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>dialog</span>.<span style=color:#a6e22e>NewConfirm</span>(<span style=color:#e6db74>&#34;title&#34;</span>, <span style=color:#e6db74>&#34;프로그램을 종료하시겠습니까?&#34;</span>, (<span style=color:#66d9ef>func</span>(<span style=color:#a6e22e>res</span> <span style=color:#66d9ef>bool</span>) { <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>res</span>) }), <span style=color:#a6e22e>w</span>)
-<span style=color:#a6e22e>confirmDialog</span>.<span style=color:#a6e22e>SetDismissText</span>(<span style=color:#e6db74>&#34;취소&#34;</span>)
-<span style=color:#a6e22e>confirmDialog</span>.<span style=color:#a6e22e>SetConfirmText</span>(<span style=color:#e6db74>&#34;확인&#34;</span>)
-<span style=color:#a6e22e>confirmDialog</span>.<span style=color:#a6e22e>Show</span>()
-</code></pre></div><p></p>
-<p><img src="../images/golang-fyne/golang-fyne-4.png?raw=true" alt></p>
-<h4 id=313-error>3.1.3. Error</h4>
-<p>에러 출력용 다이얼로그</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>errors</span>.<span style=color:#a6e22e>New</span>(<span style=color:#e6db74>&#34;error message&#34;</span>)
-<span style=color:#a6e22e>dialog</span>.<span style=color:#a6e22e>ShowError</span>(<span style=color:#a6e22e>err</span>, <span style=color:#a6e22e>w</span>)
-</code></pre></div><p></p>
-<p><img src="../images/golang-fyne/golang-fyne-5.png?raw=true" alt></p>
-<p>이외에도 다양한 다이얼로그 기능이 있다.</p>
-<h3 id=32-entryinput--button>3.2. Entry(input) / Button</h3>
-<p><code>input</code> : 문자열을 입력하는 박스<br>
-<code>button</code> : 특정 기능을 동작 시키는 버튼</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>entry</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>widget</span>.<span style=color:#a6e22e>NewEntry</span>()
-<span style=color:#a6e22e>entry</span>.<span style=color:#a6e22e>SetPlaceHolder</span>(<span style=color:#e6db74>&#34;Entry&#34;</span>)
-</code></pre></div><p>입력한 문자열은 <code>entry.Text</code> 로 사용가능 하다.</p>
-<p>button은 아이콘이 없거나 있는 버튼이 있다.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// input에 입력한 값을 label에 표시하는 버튼
-</span><span style=color:#75715e></span><span style=color:#a6e22e>button</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>widget</span>.<span style=color:#a6e22e>NewButton</span>(<span style=color:#e6db74>&#34;Submit Text Button&#34;</span>,
-	<span style=color:#66d9ef>func</span>() {
-		<span style=color:#a6e22e>label</span>.<span style=color:#a6e22e>SetText</span>(<span style=color:#a6e22e>entry</span>.<span style=color:#a6e22e>Text</span>)
-	})
-
-<span style=color:#75715e>// input에 입력한 값을 label에 표시하는 아이콘 버튼
-</span><span style=color:#75715e></span><span style=color:#a6e22e>iconButton</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>widget</span>.<span style=color:#a6e22e>NewButtonWithIcon</span>(<span style=color:#e6db74>&#34;Submit Icon Button&#34;</span>, <span style=color:#a6e22e>theme</span>.<span style=color:#a6e22e>ConfirmIcon</span>(),
-	<span style=color:#66d9ef>func</span>() {
-		<span style=color:#a6e22e>label</span>.<span style=color:#a6e22e>SetText</span>(<span style=color:#a6e22e>entry</span>.<span style=color:#a6e22e>Text</span>)
-	})
-</code></pre></div><p></p>
-<table>
-<thead>
-<tr>
-<th style=text-align:center>버튼 클릭 전</th>
-<th style=text-align:center>임의의 값 입력 후 버튼 클릭</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style=text-align:center><img src="../images/golang-fyne/golang-fyne-6.png?raw=true" alt></td>
-<td style=text-align:center><img src="../images/golang-fyne/golang-fyne-7.png?raw=true" alt></td>
-</tr>
-</tbody>
-</table>
-<h3 id=33-check--radio>3.3. Check / Radio</h3>
-<p><code>check</code> : 여러 항목 중 복수개를 선택할 수 있는 체크 버튼</p>
-<ul>
-<li>체크 박스 선택에 따른 핸들러 설정이 필요하다.</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>checkButton</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>widget</span>.<span style=color:#a6e22e>NewCheck</span>(<span style=color:#e6db74>&#34;Check Button&#34;</span>,
-	<span style=color:#66d9ef>func</span>(<span style=color:#a6e22e>b</span> <span style=color:#66d9ef>bool</span>) {
-		<span style=color:#a6e22e>msg</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprintf</span>(<span style=color:#e6db74>&#34;check = %v&#34;</span>, <span style=color:#a6e22e>b</span>)
-		<span style=color:#a6e22e>label</span>.<span style=color:#a6e22e>SetText</span>(<span style=color:#a6e22e>msg</span>)
-	})
-</code></pre></div><p><code>radio</code> : 여러 항목 중 1개만 선택할 수 있는 라디오 버튼</p>
-<ul>
-<li>라디오 버튼 선택에 따른 핸들러 설정이 필요하다.</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>options</span> <span style=color:#f92672>:=</span> []<span style=color:#66d9ef>string</span>{<span style=color:#e6db74>&#34;1&#34;</span>, <span style=color:#e6db74>&#34;2&#34;</span>, <span style=color:#e6db74>&#34;3&#34;</span>}
-<span style=color:#a6e22e>radioButton</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>widget</span>.<span style=color:#a6e22e>NewRadioGroup</span>(<span style=color:#a6e22e>options</span>,
-	<span style=color:#66d9ef>func</span>(<span style=color:#a6e22e>s</span> <span style=color:#66d9ef>string</span>) {
-		<span style=color:#a6e22e>msg</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprintf</span>(<span style=color:#e6db74>&#34;radio = %s&#34;</span>, <span style=color:#a6e22e>s</span>)
-		<span style=color:#a6e22e>label</span>.<span style=color:#a6e22e>SetText</span>(<span style=color:#a6e22e>msg</span>)
-	})
-</code></pre></div><p></p>
-<p><img src="../images/golang-fyne/golang-fyne-8.png?raw=true" alt></p>
-<h3 id=34-progressbar>3.4. ProgressBar</h3>
-<p><code>progressbar</code> : 진행률, 진행상황, 진행여부 등 표시하는 기능
-- SetValue(0) ~ SetValue(1) 범위로 동작</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>progress</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>widget</span>.<span style=color:#a6e22e>NewProgressBar</span>()
-<span style=color:#a6e22e>infProgress</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>widget</span>.<span style=color:#a6e22e>NewProgressBarInfinite</span>()
-
-<span style=color:#66d9ef>go</span> <span style=color:#66d9ef>func</span>() {
-	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0.0</span>; <span style=color:#a6e22e>i</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>100</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span> {
-		<span style=color:#a6e22e>progress</span>.<span style=color:#a6e22e>SetValue</span>(<span style=color:#a6e22e>i</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>100</span>)
-		<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Sleep</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Millisecond</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>100</span>)
-	}
-}()
-</code></pre></div><p></p>
-<p><img src="../images/golang-fyne/golang-fyne-9.png?raw=true" alt></p>
-<hr>
-<h2 id=4-한글-폰트-설정>4. 한글 폰트 설정</h2>
-<p>fyne 라이브러리 사용시 한글을 사용하면 글자가 깨져서 UI로 표시된다.</p>
-<p></p>
-<table>
-<thead>
-<tr>
-<th style=text-align:center>폰트 설정 전</th>
-<th style=text-align:center>폰트 설정 후</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style=text-align:center><img src="../images/golang-fyne/golang-fyne-10.png?raw=true" alt></td>
-<td style=text-align:center><img src="../images/golang-fyne/golang-fyne-11.png?raw=true" alt></td>
-</tr>
-</tbody>
-</table>
-<p>한글폰트를 지정하지 않아 생긴 문제로 <code>한글 폰트를 별도로 지정</code>하면 문제가 해결된다.</p>
-<ul>
-<li>key : <code>FYNE_FONT</code></li>
-<li>value : <code>(폰트파일 이름).ttf</code></li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-	<span style=color:#75715e>// 한글 폰트 지정(실행 파일과 동일경로에 폰트파일 위치)
-</span><span style=color:#75715e></span>	<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Setenv</span>(<span style=color:#e6db74>&#34;FYNE_FONT&#34;</span>, <span style=color:#e6db74>&#34;NanumGothic.ttf&#34;</span>)
-	<span style=color:#f92672>...</span>
-</code></pre></div><p>위와 같이 golang에서 환경 변수를 지정한다.</p>
-<hr>
-<h2 id=5-예시코드-git>5. 예시코드 Git</h2>
-<p><a href=https://github.com/SangjunCha-dev/>golang-fyne</a></p>
-<hr>
-<h2 id=참고reference>참고(Reference)</h2>
-<ul>
-<li><a href=https://github.com/fyne-io/fyne>fyne git</a></li>
-<li><a href=https://github.com/fyne-io/examples/>fyne examples</a></li>
-<li><a href=https://github.com/fyne-io/fyne/issues/400>Can i change font?</a></li>
-</ul>
-</div>
-<div class="row pl-3 pr-3">
-<div class="col-md-6 share-buttons">
-</div>
-<div class="col-md-6 btn-improve-page">
-<a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/programming/golang/2022-02-21-golang-fyne.md title="이 페이지를 개선" target=_blank rel=noopener>
-<i class="fas fa-code-branch"></i>
-이 페이지를 개선
-</a>
-</div>
-</div>
-<hr>
-<div class="row next-prev-navigator">
-</div>
-<hr>
-</div>
-</div>
-</div>
-<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
-</section>
-<section class=toc-section id=toc-section>
-<div class=toc-holder>
-<h5 class="text-center pl-3">목차</h5>
-<hr>
-<div class=toc>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#1-개요>1. 개요</a>
-<ul>
-<li><a href=#11-사전-설정>1.1. 사전 설정</a></li>
-<li><a href=#12-라이브러리-설치>1.2. 라이브러리 설치</a></li>
-</ul>
-</li>
-<li><a href=#2-간단한-사용법>2. 간단한 사용법</a>
-<ul>
-<li><a href=#21-예제-코드>2.1. 예제 코드</a></li>
-<li><a href=#22-실행-파일-생성>2.2. 실행 파일 생성</a></li>
-</ul>
-</li>
-<li><a href=#3-레이아웃-예시>3. 레이아웃 예시</a>
-<ul>
-<li><a href=#31-dialog>3.1. dialog</a>
-<ul>
-<li><a href=#311-information>3.1.1. Information</a></li>
-<li><a href=#312-confirm>3.1.2. Confirm</a></li>
-<li><a href=#313-error>3.1.3. Error</a></li>
-</ul>
-</li>
-<li><a href=#32-entryinput--button>3.2. Entry(input) / Button</a></li>
-<li><a href=#33-check--radio>3.3. Check / Radio</a></li>
-<li><a href=#34-progressbar>3.4. ProgressBar</a></li>
-</ul>
-</li>
-<li><a href=#4-한글-폰트-설정>4. 한글 폰트 설정</a></li>
-<li><a href=#5-예시코드-git>5. 예시코드 Git</a></li>
-<li><a href=#참고reference>참고(Reference)</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</section>
-</div>
-<footer class="container-fluid text-center align-content-center footer pb-2">
-<div class="container pt-5">
-<div class="row text-left">
-<div class="col-md-4 col-sm-12">
-<h5>바로가기</h5>
-<ul>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a>
-</li>
-</ul>
-</div>
-<div class="col-md-4 col-sm-12">
-<h5>Contact me:</h5>
-<ul>
-<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
-<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
-</a></li>
-</ul>
-</div>
-</div>
-</div>
-<hr>
-<div class=container>
-<div class="row text-left">
-<div class=col-md-4>
-<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
-<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
-Toha
-</a>
-</div>
-<div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div>
-<div class="col-md-4 text-right">
-<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
-<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
-</a>
-</div>
-</div>
-</div>
-</footer>
-<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse lang-selector" id=top-nav-items><ul class="navbar-nav ml-auto"></ul></div></div></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=Search data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/posts data-filter=all>게시글</a></li><div class=subtree><li><i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a><ul><li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li><li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li></ul></li><li><a href=/posts/db/ title=db>db</a></li><li><a href=/posts/docker/ title=docker>docker</a></li><li><i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a><ul><li><a href=/posts/framework/django/ title=django>django</a></li></ul></li><li><i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a><ul><li><a href=/posts/os/linux/ title=linux>linux</a></li><li><a href=/posts/os/windows/ title=windows>windows</a></li></ul></li><li><i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a><ul class=active><li><a class=active href=/posts/programming/golang/ title=golang>golang</a></li><li><a href=/posts/programming/python/ title=python>python</a></li></ul></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class=content><div class="container p-0 read-area"><div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)></div><div class=page-content><div class="author-profile ml-auto align-self-lg-center"><img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image"><h5 class=author-name>Sangjun</h5><p>February 21, 2022</p></div><div class=title><h1>[golang] gui 라이브러리 fyne</h1></div><div class=post-content id=post-content><hr><h2 id=1-개요>1. 개요</h2><p><code>Fyne</code>는 사용하기 쉬운 UI 툴킷과 Go로 작성된 앱 API로 데스크탑 및 모바일 환경을 지원합니다.</p><ul><li><a href=https://github.com/fyne-io/fyne>fyne git</a></li></ul><h3 id=11-사전-설정>1.1. 사전 설정</h3><p>Fyne 사용시 필요한 개발환경</p><ul><li>Go 버전 1.14 이상</li><li>C 컴파일러 및 시스템 개발 도구<ul><li><a href=https://jmeubank.github.io/tdm-gcc/download/>tdm-gcc download</a></li></ul></li></ul><p>테스트 시스템 환경</p><table><thead><tr><th>분류</th><th>버전</th></tr></thead><tbody><tr><td>OS</td><td>Windows 10</td></tr><tr><td>go</td><td>1.17</td></tr><tr><td>fyne</td><td>2.1.2</td></tr></tbody></table><h3 id=12-라이브러리-설치>1.2. 라이브러리 설치</h3><pre tabindex=0><code>&gt; go get fyne.io/fyne/v2
+</code></pre><hr><h2 id=2-간단한-사용법>2. 간단한 사용법</h2><h3 id=21-예제-코드>2.1. 예제 코드</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;fyne.io/fyne/v2/app&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;fyne.io/fyne/v2/container&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;fyne.io/fyne/v2/widget&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>a</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>app</span>.<span style=color:#a6e22e>New</span>()
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>w</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>NewWindow</span>(<span style=color:#e6db74>&#34;Hello&#34;</span>) <span style=color:#75715e>// 윈도우 명칭 지정
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>hello</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>widget</span>.<span style=color:#a6e22e>NewLabel</span>(<span style=color:#e6db74>&#34;Hello World!&#34;</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>w</span>.<span style=color:#a6e22e>SetContent</span>(
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>container</span>.<span style=color:#a6e22e>NewVBox</span>( <span style=color:#75715e>// 컨텐츠 수직 정렬
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>			<span style=color:#a6e22e>hello</span>,
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>widget</span>.<span style=color:#a6e22e>NewButton</span>(
+</span></span><span style=display:flex><span>				<span style=color:#e6db74>&#34;Hi!&#34;</span>,                                  <span style=color:#75715e>// 버튼 명칭
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>				<span style=color:#66d9ef>func</span>() { <span style=color:#a6e22e>hello</span>.<span style=color:#a6e22e>SetText</span>(<span style=color:#e6db74>&#34;Welcome :)&#34;</span>) }, <span style=color:#75715e>// 버튼 이벤트
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>			),
+</span></span><span style=display:flex><span>		),
+</span></span><span style=display:flex><span>	)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>w</span>.<span style=color:#a6e22e>ShowAndRun</span>() <span style=color:#75715e>// 윈도우 출력
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span></code></pre></div><p>실행</p><pre tabindex=0><code>&gt; go run main.go
+</code></pre><p></p><table><thead><tr><th style=text-align:center>버튼 클릭 전</th><th style=text-align:center>버튼 클릭 후</th></tr></thead><tbody><tr><td style=text-align:center><img src="../images/golang-fyne/golang-fyne-1.png?raw=true" alt></td><td style=text-align:center><img src="../images/golang-fyne/golang-fyne-2.png?raw=true" alt></td></tr></tbody></table><h3 id=22-실행-파일-생성>2.2. 실행 파일 생성</h3><p>윈도우에서 실행할 수 있는 <code>.exe</code> 파일을 생성한다.</p><p>실행 파일 생성이 필요한 라이브러리 설치</p><pre tabindex=0><code>&gt; go get fyne.io/fyne/v2/cmd/fyne
+</code></pre><p>임의의 아이콘 파일 <code>icon.png</code>을 프로젝트 루트 경로에 생성한다.</p><p>실행 파일 생성 명령어</p><pre tabindex=0><code>&gt; fyne install
+</code></pre><hr><h2 id=3-레이아웃-예시>3. 레이아웃 예시</h2><h3 id=31-dialog>3.1. dialog</h3><p>다이얼로그는 팝업 형태의 창으로 정보를 보여주는 기능이다.</p><h4 id=311-information>3.1.1. Information</h4><p>정보확인용 다이얼로그</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#a6e22e>dialog</span>.<span style=color:#a6e22e>ShowInformation</span>(<span style=color:#e6db74>&#34;title&#34;</span>, <span style=color:#e6db74>&#34;information message&#34;</span>, <span style=color:#a6e22e>window</span>)
+</span></span></code></pre></div><p>기본 설정은 영어 버튼이 표시되므로 수정하려면 아래와 같은 방식을 사용한다.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#a6e22e>informationDialog</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>dialog</span>.<span style=color:#a6e22e>NewInformation</span>(<span style=color:#e6db74>&#34;title&#34;</span>, <span style=color:#e6db74>&#34;information message&#34;</span>, <span style=color:#a6e22e>window</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>informationDialog</span>.<span style=color:#a6e22e>SetDismissText</span>(<span style=color:#e6db74>&#34;확인&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>informationDialog</span>.<span style=color:#a6e22e>Show</span>()
+</span></span></code></pre></div><p></p><p><img src="../images/golang-fyne/golang-fyne-3.png?raw=true" alt></p><h4 id=312-confirm>3.1.2. Confirm</h4><p>확인/취소 버튼있는 다이얼로그</p><ul><li>확인/취소에 따른 콜백 구현이 필요하다.</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#a6e22e>confirmDialog</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>dialog</span>.<span style=color:#a6e22e>NewConfirm</span>(<span style=color:#e6db74>&#34;title&#34;</span>, <span style=color:#e6db74>&#34;프로그램을 종료하시겠습니까?&#34;</span>, (<span style=color:#66d9ef>func</span>(<span style=color:#a6e22e>res</span> <span style=color:#66d9ef>bool</span>) { <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>res</span>) }), <span style=color:#a6e22e>w</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>confirmDialog</span>.<span style=color:#a6e22e>SetDismissText</span>(<span style=color:#e6db74>&#34;취소&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>confirmDialog</span>.<span style=color:#a6e22e>SetConfirmText</span>(<span style=color:#e6db74>&#34;확인&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>confirmDialog</span>.<span style=color:#a6e22e>Show</span>()
+</span></span></code></pre></div><p></p><p><img src="../images/golang-fyne/golang-fyne-4.png?raw=true" alt></p><h4 id=313-error>3.1.3. Error</h4><p>에러 출력용 다이얼로그</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>errors</span>.<span style=color:#a6e22e>New</span>(<span style=color:#e6db74>&#34;error message&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#a6e22e>dialog</span>.<span style=color:#a6e22e>ShowError</span>(<span style=color:#a6e22e>err</span>, <span style=color:#a6e22e>w</span>)
+</span></span></code></pre></div><p></p><p><img src="../images/golang-fyne/golang-fyne-5.png?raw=true" alt></p><p>이외에도 다양한 다이얼로그 기능이 있다.</p><h3 id=32-entryinput--button>3.2. Entry(input) / Button</h3><p><code>input</code> : 문자열을 입력하는 박스<br><code>button</code> : 특정 기능을 동작 시키는 버튼</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#a6e22e>entry</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>widget</span>.<span style=color:#a6e22e>NewEntry</span>()
+</span></span><span style=display:flex><span><span style=color:#a6e22e>entry</span>.<span style=color:#a6e22e>SetPlaceHolder</span>(<span style=color:#e6db74>&#34;Entry&#34;</span>)
+</span></span></code></pre></div><p>입력한 문자열은 <code>entry.Text</code> 로 사용가능 하다.</p><p>button은 아이콘이 없거나 있는 버튼이 있다.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// input에 입력한 값을 label에 표시하는 버튼
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>button</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>widget</span>.<span style=color:#a6e22e>NewButton</span>(<span style=color:#e6db74>&#34;Submit Text Button&#34;</span>,
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>func</span>() {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>label</span>.<span style=color:#a6e22e>SetText</span>(<span style=color:#a6e22e>entry</span>.<span style=color:#a6e22e>Text</span>)
+</span></span><span style=display:flex><span>	})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// input에 입력한 값을 label에 표시하는 아이콘 버튼
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>iconButton</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>widget</span>.<span style=color:#a6e22e>NewButtonWithIcon</span>(<span style=color:#e6db74>&#34;Submit Icon Button&#34;</span>, <span style=color:#a6e22e>theme</span>.<span style=color:#a6e22e>ConfirmIcon</span>(),
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>func</span>() {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>label</span>.<span style=color:#a6e22e>SetText</span>(<span style=color:#a6e22e>entry</span>.<span style=color:#a6e22e>Text</span>)
+</span></span><span style=display:flex><span>	})
+</span></span></code></pre></div><p></p><table><thead><tr><th style=text-align:center>버튼 클릭 전</th><th style=text-align:center>임의의 값 입력 후 버튼 클릭</th></tr></thead><tbody><tr><td style=text-align:center><img src="../images/golang-fyne/golang-fyne-6.png?raw=true" alt></td><td style=text-align:center><img src="../images/golang-fyne/golang-fyne-7.png?raw=true" alt></td></tr></tbody></table><h3 id=33-check--radio>3.3. Check / Radio</h3><p><code>check</code> : 여러 항목 중 복수개를 선택할 수 있는 체크 버튼</p><ul><li>체크 박스 선택에 따른 핸들러 설정이 필요하다.</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#a6e22e>checkButton</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>widget</span>.<span style=color:#a6e22e>NewCheck</span>(<span style=color:#e6db74>&#34;Check Button&#34;</span>,
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>func</span>(<span style=color:#a6e22e>b</span> <span style=color:#66d9ef>bool</span>) {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>msg</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprintf</span>(<span style=color:#e6db74>&#34;check = %v&#34;</span>, <span style=color:#a6e22e>b</span>)
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>label</span>.<span style=color:#a6e22e>SetText</span>(<span style=color:#a6e22e>msg</span>)
+</span></span><span style=display:flex><span>	})
+</span></span></code></pre></div><p><code>radio</code> : 여러 항목 중 1개만 선택할 수 있는 라디오 버튼</p><ul><li>라디오 버튼 선택에 따른 핸들러 설정이 필요하다.</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#a6e22e>options</span> <span style=color:#f92672>:=</span> []<span style=color:#66d9ef>string</span>{<span style=color:#e6db74>&#34;1&#34;</span>, <span style=color:#e6db74>&#34;2&#34;</span>, <span style=color:#e6db74>&#34;3&#34;</span>}
+</span></span><span style=display:flex><span><span style=color:#a6e22e>radioButton</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>widget</span>.<span style=color:#a6e22e>NewRadioGroup</span>(<span style=color:#a6e22e>options</span>,
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>func</span>(<span style=color:#a6e22e>s</span> <span style=color:#66d9ef>string</span>) {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>msg</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprintf</span>(<span style=color:#e6db74>&#34;radio = %s&#34;</span>, <span style=color:#a6e22e>s</span>)
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>label</span>.<span style=color:#a6e22e>SetText</span>(<span style=color:#a6e22e>msg</span>)
+</span></span><span style=display:flex><span>	})
+</span></span></code></pre></div><p></p><p><img src="../images/golang-fyne/golang-fyne-8.png?raw=true" alt></p><h3 id=34-progressbar>3.4. ProgressBar</h3><p><code>progressbar</code> : 진행률, 진행상황, 진행여부 등 표시하는 기능
+- SetValue(0) ~ SetValue(1) 범위로 동작</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#a6e22e>progress</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>widget</span>.<span style=color:#a6e22e>NewProgressBar</span>()
+</span></span><span style=display:flex><span><span style=color:#a6e22e>infProgress</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>widget</span>.<span style=color:#a6e22e>NewProgressBarInfinite</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>go</span> <span style=color:#66d9ef>func</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0.0</span>; <span style=color:#a6e22e>i</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>100</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>progress</span>.<span style=color:#a6e22e>SetValue</span>(<span style=color:#a6e22e>i</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>100</span>)
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Sleep</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Millisecond</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>100</span>)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}()
+</span></span></code></pre></div><p></p><p><img src="../images/golang-fyne/golang-fyne-9.png?raw=true" alt></p><hr><h2 id=4-한글-폰트-설정>4. 한글 폰트 설정</h2><p>fyne 라이브러리 사용시 한글을 사용하면 글자가 깨져서 UI로 표시된다.</p><p></p><table><thead><tr><th style=text-align:center>폰트 설정 전</th><th style=text-align:center>폰트 설정 후</th></tr></thead><tbody><tr><td style=text-align:center><img src="../images/golang-fyne/golang-fyne-10.png?raw=true" alt></td><td style=text-align:center><img src="../images/golang-fyne/golang-fyne-11.png?raw=true" alt></td></tr></tbody></table><p>한글폰트를 지정하지 않아 생긴 문제로 <code>한글 폰트를 별도로 지정</code>하면 문제가 해결된다.</p><ul><li>key : <code>FYNE_FONT</code></li><li>value : <code>(폰트파일 이름).ttf</code></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#75715e>// 한글 폰트 지정(실행 파일과 동일경로에 폰트파일 위치)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Setenv</span>(<span style=color:#e6db74>&#34;FYNE_FONT&#34;</span>, <span style=color:#e6db74>&#34;NanumGothic.ttf&#34;</span>)
+</span></span><span style=display:flex><span>	<span style=color:#f92672>...</span>
+</span></span></code></pre></div><p>위와 같이 golang에서 환경 변수를 지정한다.</p><hr><h2 id=5-예시코드-git>5. 예시코드 Git</h2><p><a href=https://github.com/SangjunCha-dev/>golang-fyne</a></p><hr><h2 id=참고reference>참고(Reference)</h2><ul><li><a href=https://github.com/fyne-io/fyne>fyne git</a></li><li><a href=https://github.com/fyne-io/examples/>fyne examples</a></li><li><a href=https://github.com/fyne-io/fyne/issues/400>Can i change font?</a></li></ul></div><div class="row pl-3 pr-3"><div class="col-md-6 share-buttons"></div><div class="col-md-6 btn-improve-page"><a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/programming/golang/2022-02-21-golang-fyne.md title="이 페이지를 개선" target=_blank rel=noopener><i class="fas fa-code-branch"></i>
+이 페이지를 개선</a></div></div><hr><div class="row next-prev-navigator"></div><hr></div></div></div><a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a></section><section class=toc-section id=toc-section><div class=toc-holder><h5 class="text-center pl-3">목차</h5><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#1-개요>1. 개요</a><ul><li><a href=#11-사전-설정>1.1. 사전 설정</a></li><li><a href=#12-라이브러리-설치>1.2. 라이브러리 설치</a></li></ul></li><li><a href=#2-간단한-사용법>2. 간단한 사용법</a><ul><li><a href=#21-예제-코드>2.1. 예제 코드</a></li><li><a href=#22-실행-파일-생성>2.2. 실행 파일 생성</a></li></ul></li><li><a href=#3-레이아웃-예시>3. 레이아웃 예시</a><ul><li><a href=#31-dialog>3.1. dialog</a><ul><li><a href=#311-information>3.1.1. Information</a></li><li><a href=#312-confirm>3.1.2. Confirm</a></li><li><a href=#313-error>3.1.3. Error</a></li></ul></li><li><a href=#32-entryinput--button>3.2. Entry(input) / Button</a></li><li><a href=#33-check--radio>3.3. Check / Radio</a></li><li><a href=#34-progressbar>3.4. ProgressBar</a></li></ul></li><li><a href=#4-한글-폰트-설정>4. 한글 폰트 설정</a></li><li><a href=#5-예시코드-git>5. 예시코드 Git</a></li><li><a href=#참고reference>참고(Reference)</a></li></ul></nav></div></div></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>바로가기</h5><ul><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>Contact me:</h5><ul><li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-left"><div class=col-md-4><a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener><img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha</a></div><div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div><div class="col-md-4 text-right"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
 <script type=text/javascript src=/js/popper.min.js></script>
 <script type=text/javascript src=/js/bootstrap.min.js></script>
 <script type=text/javascript src=/js/navbar.js></script>
@@ -447,6 +90,4 @@ Toha
 <script type=text/javascript src=/js/main.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
 <script src=/js/single.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script></body></html>

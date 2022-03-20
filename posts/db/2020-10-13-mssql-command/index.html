@@ -1,298 +1,68 @@
-<!doctype html><html>
-<head>
-<title>MSSQL SQL 명령어 (MSSQL SQL Command)</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="ie=edge">
-<link rel=stylesheet href=/css/bootstrap.min.css>
-<link rel=stylesheet href=/css/layouts/main.css>
-<link rel=stylesheet href=/css/navigators/navbar.css>
-<link rel=stylesheet href=/css/plyr.css>
-<link rel=stylesheet href=/css/flag-icon.min.css>
-<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
-<meta property="og:title" content="MSSQL SQL 명령어 (MSSQL SQL Command)">
-<meta property="og:description" content="MariaDB SQL 명령어 예시">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://sangjuncha-dev.github.io/posts/db/2020-10-13-mssql-command/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2020-10-13T14:52:25+09:00">
-<meta property="article:modified_time" content="2020-10-13T14:52:25+09:00">
-<meta name=description content="MariaDB SQL 명령어 예시">
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
-<link rel=stylesheet href=/css/layouts/single.css>
-<link rel=stylesheet href=/css/navigators/sidebar.css>
-<link rel=stylesheet href=/css/style.css>
-</head>
-<body data-spy=scroll data-target=#TableOfContents data-offset=80>
-<div class="container-fluid bg-dimmed wrapper">
-<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
-<div class=container>
-<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
-<span class=navbar-toggler-icon></span>
-</button>
-<a class=navbar-brand href=/>
-Sangjun 개발 블로그</a>
+<!doctype html><html><head><title>MSSQL SQL 명령어 (MSSQL SQL Command)</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/layouts/main.css><link rel=stylesheet href=/css/navigators/navbar.css><link rel=stylesheet href=/css/plyr.css><link rel=stylesheet href=/css/flag-icon.min.css><link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css><meta property="og:title" content="MSSQL SQL 명령어 (MSSQL SQL Command)"><meta property="og:description" content="MariaDB SQL 명령어 예시"><meta property="og:type" content="article"><meta property="og:url" content="https://sangjuncha-dev.github.io/posts/db/2020-10-13-mssql-command/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-10-13T14:52:25+09:00"><meta property="article:modified_time" content="2020-10-13T14:52:25+09:00"><meta name=description content="MariaDB SQL 명령어 예시"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css><link rel=stylesheet href=/css/layouts/single.css><link rel=stylesheet href=/css/navigators/sidebar.css><link rel=stylesheet href=/css/style.css></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span></button>
+<a class=navbar-brand href=/>Sangjun 개발 블로그</a>
 <button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
-<ul class="navbar-nav ml-auto">
-</ul>
-</div>
-</div>
-</nav>
-<section class=sidebar-section id=sidebar-section>
-<div class=sidebar-holder>
-<div class=sidebar id=sidebar>
-<form class=mx-auto method=get action=/search>
-<input type=text name=keyword placeholder=Search data-search id=search-box>
-</form>
-<div class=sidebar-tree>
-<ul class=tree id=tree>
-<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
-<div class=subtree>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
-<ul>
-<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
-<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
-</ul>
-</li>
-<li><a class=active href=/posts/db/ title=db>db</a></li>
-<li><a href=/posts/docker/ title=docker>docker</a></li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
-<ul>
-<li><a href=/posts/framework/django/ title=django>django</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
-<ul>
-<li><a href=/posts/os/linux/ title=linux>linux</a></li>
-<li><a href=/posts/os/windows/ title=windows>windows</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/programming/>programming</a>
-<ul>
-<li><a href=/posts/programming/golang/ title=golang>golang</a></li>
-<li><a href=/posts/programming/python/ title=python>python</a></li>
-</ul>
-</li>
-</div>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class=content-section id=content-section>
-<div class=content>
-<div class="container p-0 read-area">
-<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)>
-</div>
-<div class=page-content>
-<div class="author-profile ml-auto align-self-lg-center">
-<img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image">
-<h5 class=author-name>Sangjun</h5>
-<p>October 13, 2020</p>
-</div>
-<div class=title>
-<h1>MSSQL SQL 명령어 (MSSQL SQL Command)</h1>
-</div>
-<div class=post-content id=post-content>
-<hr>
-<h2 id=1-테이블-생성-create-table>1. 테이블 생성 (Create Table)</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#960050;background-color:#1e0010>테이블명</span>(
-        <span style=color:#960050;background-color:#1e0010>컬럼명</span> <span style=color:#960050;background-color:#1e0010>타입</span>(<span style=color:#960050;background-color:#1e0010>크기</span>) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>, <span style=color:#75715e>--NULL 값이 들어갈 수 없음
-</span><span style=color:#75715e></span>        <span style=color:#960050;background-color:#1e0010>컬럼명</span> <span style=color:#960050;background-color:#1e0010>타입</span> <span style=color:#66d9ef>NULL</span> <span style=color:#66d9ef>DEFAULT</span>(<span style=color:#960050;background-color:#1e0010>값</span>), <span style=color:#75715e>--초기값 지정
-</span><span style=color:#75715e></span>        CONSTRAIN PK이름 <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>(<span style=color:#960050;background-color:#1e0010>컬럼명</span>) <span style=color:#75715e>--PK설정
-</span><span style=color:#75715e></span>)
-</code></pre></div><p>컬럼 타입 : INT / NVARCHAR / VARCHAR / DATETIME</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> MY_TABLE(
-        NO_EMP NVARCHAR(<span style=color:#ae81ff>10</span>)<span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>, <span style=color:#75715e>-- NULL 값이 들어갈 수 없음
-</span><span style=color:#75715e></span>        NM_KOR NVARCHAR(<span style=color:#ae81ff>40</span>)<span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>, <span style=color:#75715e>-- NULL 값이 들어갈 수 없음
-</span><span style=color:#75715e></span>        AGE INT <span style=color:#66d9ef>NULL</span> <span style=color:#66d9ef>DEFAULT</span> (<span style=color:#ae81ff>0</span>), <span style=color:#75715e>--초기값 = 0
-</span><span style=color:#75715e></span>        TODAY DATETIME <span style=color:#66d9ef>DEFAULT</span>(GETDATE()), <span style=color:#75715e>--초기값 현재날짜
-</span><span style=color:#75715e></span>)
-<span style=color:#75715e>--CONSTRAINT PK_MY_TABLE PRIMARY KEY(NO_EMP)--PK : NO_EMP )
-</span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> MY_TABLE2(
-        ID int <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,
-        DATA_JSON nvarchar <span style=color:#66d9ef>NULL</span>,
-        CODE nvarchar(<span style=color:#ae81ff>20</span>) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>,
-        IMAGE_PATH nvarchar(<span style=color:#ae81ff>300</span>) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>, 
-        IMAGE_NAME nvarchar(<span style=color:#ae81ff>100</span>) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>, 
-        IMAGE_TYPE nvarchar(<span style=color:#ae81ff>5</span>) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>, 
-        IN_DATE datetime <span style=color:#66d9ef>default</span>(GETDATE()) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>
-)
-</code></pre></div><hr>
-<h2 id=2-테이블-수정-alter-table>2. 테이블 수정 (Alter Table)</h2>
-<h3 id=21-테이블-컬럼-확인>2.1. 테이블 컬럼 확인</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql>SP_COLUMNS <span style=color:#960050;background-color:#1e0010>{테이블명}</span>
-
-SP_HELP <span style=color:#960050;background-color:#1e0010>{테이블명}</span>
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql>SP_COLUMNS MY_TABLE
-
-SP_HELP MY_TABLE
-</code></pre></div><h3 id=22-테이블-변경-컬럼-추가>2.2. 테이블 변경 (컬럼 추가)</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#960050;background-color:#1e0010>테이블명</span> <span style=color:#66d9ef>ADD</span> <span style=color:#960050;background-color:#1e0010>컬럼명</span> <span style=color:#960050;background-color:#1e0010>컬럼</span> <span style=color:#960050;background-color:#1e0010>속성</span>
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> MY_TABLE <span style=color:#66d9ef>ADD</span> NM_ENG NVARCHAR <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>
-</code></pre></div><h3 id=23-테이블-변경-컬럼-수정>2.3. 테이블 변경 (컬럼 수정)</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#960050;background-color:#1e0010>테이블명</span> <span style=color:#66d9ef>ALTER</span> <span style=color:#960050;background-color:#1e0010>컬럼명</span> <span style=color:#960050;background-color:#1e0010>컬럼</span> <span style=color:#960050;background-color:#1e0010>속성</span>
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> MY_TABLE <span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>COLUMN</span> NM_ENG INT
-</code></pre></div><h3 id=24-테이블-변경-컬럼-삭제>2.4. 테이블 변경 (컬럼 삭제)</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#960050;background-color:#1e0010>테이블명</span> <span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>COLUMN</span> <span style=color:#960050;background-color:#1e0010>컬럼명</span>
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> MY_TABLE <span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>COLUMN</span> NM_ENG
-</code></pre></div><hr>
-<h2 id=3-테이블-삭제-drop-table>3. 테이블 삭제 (Drop Table)</h2>
-<h3 id=31-테이블-삭제>3.1. 테이블 삭제</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#960050;background-color:#1e0010>테이블명</span>
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>TABLE</span> MY_TABLE
-</code></pre></div><hr>
-<h2 id=4-json-데이터>4. json 데이터</h2>
-<h3 id=41-json-데이터-삽입-insert>4.1. json 데이터 삽입 (insert)</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> <span style=color:#960050;background-color:#1e0010>{</span><span style=color:#66d9ef>table_name</span><span style=color:#960050;background-color:#1e0010>}</span> <span style=color:#66d9ef>VALUES</span> (ID, N<span style=color:#e6db74>&#39;{}&#39;</span>)
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> MY_TABLE <span style=color:#66d9ef>VALUES</span> (<span style=color:#ae81ff>1</span>, N<span style=color:#e6db74>&#39;{&#34;EmployeeInfo&#34;: {
-</span><span style=color:#e6db74>            &#34;FirstName&#34;: &#34;John&#34;,
-</span><span style=color:#e6db74>            &#34;LastName&#34;: &#34;Doe&#34;,
-</span><span style=color:#e6db74>            &#34;Dob&#34;: &#34;12-Jan-1970&#34;,
-</span><span style=color:#e6db74>            &#34;AnnualSalary&#34;: 85000
-</span><span style=color:#e6db74>        }}&#39;</span>)
-</code></pre></div><h3 id=42-json-특정-데이터-호출-json_value>4.2. json 특정 데이터 호출 (JSON_VALUE)</h3>
-<p>같은 속성이 여러개 있다면 인덱스로 접근 가능. 인덱스는 0부터 시작</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> JSON_VALUE(json_data, <span style=color:#e6db74>&#39;$.EmployeeInfo.FirstName&#39;</span>) <span style=color:#66d9ef>FROM</span> jsontest
-</code></pre></div><h3 id=43-json-형식으로-내보내기-for-json>4.3. JSON 형식으로 내보내기 (FOR JSON)</h3>
-<p>for json은 테이블에 있는 데이터들을 JSON 형식으로 내보내기 위한 함수</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> jsontest <span style=color:#66d9ef>FOR</span> JSON AUTO
-</code></pre></div><h3 id=44-json-필드-생성-예제>4.4. json 필드 생성 예제</h3>
-<ul>
-<li>
-<p>테이블 생성</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> TB_JSONTEST(
-        ID int <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,
-        DATA_JSON nvarchar(<span style=color:#66d9ef>max</span>) <span style=color:#66d9ef>NULL</span>,
-        SEQ nvarchar(<span style=color:#ae81ff>11</span>) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>,
-        IMAGE_PATH nvarchar(<span style=color:#ae81ff>300</span>) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>, 
-        IMAGE_NAME nvarchar(<span style=color:#ae81ff>100</span>) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>, 
-        DIRECT_CODE nvarchar(<span style=color:#ae81ff>2</span>) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>, 
-        IN_DATE datetime <span style=color:#66d9ef>default</span>(GETDATE()) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>
-)
-</code></pre></div></li>
-<li>
-<p>테이블내 데이터 추가</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> dbo.TB_JSONTEST (ID, DATA_JSON, SEQ, IMAGE_PATH, IMAGE_NAME, DIRECT_CODE)
-<span style=color:#66d9ef>VALUES</span> (<span style=color:#ae81ff>2</span>, N<span style=color:#e6db74>&#39;{&#34;EmployeeInfo&#34;: {&#34;FirstName&#34;: &#34;John&#34;, &#34;LastName&#34;: &#34;Doe&#34;, &#34;Dob&#34;: &#34;12-Jan-1970&#34;, &#34;AnnualSalary&#34;: 85000}}&#39;</span>, <span style=color:#e6db74>&#39;A12345&#39;</span>, <span style=color:#e6db74>&#39;D:\image\&#39;</span>, <span style=color:#e6db74>&#39;D:\image\image001.jpg&#39;</span>, <span style=color:#e6db74>&#39;V&#39;</span>)
-</code></pre></div></li>
-<li>
-<p>테이블 데이터 조회</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>select</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>from</span> TB_JSONTEST
-</code></pre></div></li>
-<li>
-<p>테이블 삭제</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>TABLE</span> TB_JSONTEST
-</code></pre></div></li>
-</ul>
-</div>
-<div class="row pl-3 pr-3">
-<div class="col-md-6 share-buttons">
-</div>
-<div class="col-md-6 btn-improve-page">
-<a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/db/2020-10-13-MSSQL-Command.md title="이 페이지를 개선" target=_blank rel=noopener>
-<i class="fas fa-code-branch"></i>
-이 페이지를 개선
-</a>
-</div>
-</div>
-<hr>
-<div class="row next-prev-navigator">
-</div>
-<hr>
-</div>
-</div>
-</div>
-<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
-</section>
-<section class=toc-section id=toc-section>
-<div class=toc-holder>
-<h5 class="text-center pl-3">목차</h5>
-<hr>
-<div class=toc>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#1-테이블-생성-create-table>1. 테이블 생성 (Create Table)</a></li>
-<li><a href=#2-테이블-수정-alter-table>2. 테이블 수정 (Alter Table)</a>
-<ul>
-<li><a href=#21-테이블-컬럼-확인>2.1. 테이블 컬럼 확인</a></li>
-<li><a href=#22-테이블-변경-컬럼-추가>2.2. 테이블 변경 (컬럼 추가)</a></li>
-<li><a href=#23-테이블-변경-컬럼-수정>2.3. 테이블 변경 (컬럼 수정)</a></li>
-<li><a href=#24-테이블-변경-컬럼-삭제>2.4. 테이블 변경 (컬럼 삭제)</a></li>
-</ul>
-</li>
-<li><a href=#3-테이블-삭제-drop-table>3. 테이블 삭제 (Drop Table)</a>
-<ul>
-<li><a href=#31-테이블-삭제>3.1. 테이블 삭제</a></li>
-</ul>
-</li>
-<li><a href=#4-json-데이터>4. json 데이터</a>
-<ul>
-<li><a href=#41-json-데이터-삽입-insert>4.1. json 데이터 삽입 (insert)</a></li>
-<li><a href=#42-json-특정-데이터-호출-json_value>4.2. json 특정 데이터 호출 (JSON_VALUE)</a></li>
-<li><a href=#43-json-형식으로-내보내기-for-json>4.3. JSON 형식으로 내보내기 (FOR JSON)</a></li>
-<li><a href=#44-json-필드-생성-예제>4.4. json 필드 생성 예제</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-</section>
-</div>
-<footer class="container-fluid text-center align-content-center footer pb-2">
-<div class="container pt-5">
-<div class="row text-left">
-<div class="col-md-4 col-sm-12">
-<h5>바로가기</h5>
-<ul>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a>
-</li>
-</ul>
-</div>
-<div class="col-md-4 col-sm-12">
-<h5>Contact me:</h5>
-<ul>
-<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
-<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
-</a></li>
-</ul>
-</div>
-</div>
-</div>
-<hr>
-<div class=container>
-<div class="row text-left">
-<div class=col-md-4>
-<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
-<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
-Toha
-</a>
-</div>
-<div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div>
-<div class="col-md-4 text-right">
-<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
-<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
-</a>
-</div>
-</div>
-</div>
-</footer>
-<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse lang-selector" id=top-nav-items><ul class="navbar-nav ml-auto"></ul></div></div></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=Search data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/posts data-filter=all>게시글</a></li><div class=subtree><li><i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a><ul><li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li><li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li></ul></li><li><a class=active href=/posts/db/ title=db>db</a></li><li><a href=/posts/docker/ title=docker>docker</a></li><li><i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a><ul><li><a href=/posts/framework/django/ title=django>django</a></li></ul></li><li><i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a><ul><li><a href=/posts/os/linux/ title=linux>linux</a></li><li><a href=/posts/os/windows/ title=windows>windows</a></li></ul></li><li><i class="fas fa-plus-circle"></i><a href=/posts/programming/>programming</a><ul><li><a href=/posts/programming/golang/ title=golang>golang</a></li><li><a href=/posts/programming/python/ title=python>python</a></li></ul></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class=content><div class="container p-0 read-area"><div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)></div><div class=page-content><div class="author-profile ml-auto align-self-lg-center"><img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image"><h5 class=author-name>Sangjun</h5><p>October 13, 2020</p></div><div class=title><h1>MSSQL SQL 명령어 (MSSQL SQL Command)</h1></div><div class=post-content id=post-content><hr><h2 id=1-테이블-생성-create-table>1. 테이블 생성 (Create Table)</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#960050;background-color:#1e0010>테이블명</span>(
+</span></span><span style=display:flex><span>        <span style=color:#960050;background-color:#1e0010>컬럼명</span> <span style=color:#960050;background-color:#1e0010>타입</span>(<span style=color:#960050;background-color:#1e0010>크기</span>) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>, <span style=color:#75715e>--NULL 값이 들어갈 수 없음
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#960050;background-color:#1e0010>컬럼명</span> <span style=color:#960050;background-color:#1e0010>타입</span> <span style=color:#66d9ef>NULL</span> <span style=color:#66d9ef>DEFAULT</span>(<span style=color:#960050;background-color:#1e0010>값</span>), <span style=color:#75715e>--초기값 지정
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        CONSTRAIN PK이름 <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>(<span style=color:#960050;background-color:#1e0010>컬럼명</span>) <span style=color:#75715e>--PK설정
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>)
+</span></span></code></pre></div><p>컬럼 타입 : INT / NVARCHAR / VARCHAR / DATETIME</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> MY_TABLE(
+</span></span><span style=display:flex><span>        NO_EMP NVARCHAR(<span style=color:#ae81ff>10</span>)<span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>, <span style=color:#75715e>-- NULL 값이 들어갈 수 없음
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        NM_KOR NVARCHAR(<span style=color:#ae81ff>40</span>)<span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>, <span style=color:#75715e>-- NULL 값이 들어갈 수 없음
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        AGE INT <span style=color:#66d9ef>NULL</span> <span style=color:#66d9ef>DEFAULT</span> (<span style=color:#ae81ff>0</span>), <span style=color:#75715e>--초기값 = 0
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        TODAY DATETIME <span style=color:#66d9ef>DEFAULT</span>(GETDATE()), <span style=color:#75715e>--초기값 현재날짜
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>--CONSTRAINT PK_MY_TABLE PRIMARY KEY(NO_EMP)--PK : NO_EMP )
+</span></span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> MY_TABLE2(
+</span></span><span style=display:flex><span>        ID int <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,
+</span></span><span style=display:flex><span>        DATA_JSON nvarchar <span style=color:#66d9ef>NULL</span>,
+</span></span><span style=display:flex><span>        CODE nvarchar(<span style=color:#ae81ff>20</span>) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>,
+</span></span><span style=display:flex><span>        IMAGE_PATH nvarchar(<span style=color:#ae81ff>300</span>) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>, 
+</span></span><span style=display:flex><span>        IMAGE_NAME nvarchar(<span style=color:#ae81ff>100</span>) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>, 
+</span></span><span style=display:flex><span>        IMAGE_TYPE nvarchar(<span style=color:#ae81ff>5</span>) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>, 
+</span></span><span style=display:flex><span>        IN_DATE datetime <span style=color:#66d9ef>default</span>(GETDATE()) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>
+</span></span><span style=display:flex><span>)
+</span></span></code></pre></div><hr><h2 id=2-테이블-수정-alter-table>2. 테이블 수정 (Alter Table)</h2><h3 id=21-테이블-컬럼-확인>2.1. 테이블 컬럼 확인</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span>SP_COLUMNS <span style=color:#960050;background-color:#1e0010>{테이블명}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>SP_HELP <span style=color:#960050;background-color:#1e0010>{테이블명}</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span>SP_COLUMNS MY_TABLE
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>SP_HELP MY_TABLE
+</span></span></code></pre></div><h3 id=22-테이블-변경-컬럼-추가>2.2. 테이블 변경 (컬럼 추가)</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#960050;background-color:#1e0010>테이블명</span> <span style=color:#66d9ef>ADD</span> <span style=color:#960050;background-color:#1e0010>컬럼명</span> <span style=color:#960050;background-color:#1e0010>컬럼</span> <span style=color:#960050;background-color:#1e0010>속성</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> MY_TABLE <span style=color:#66d9ef>ADD</span> NM_ENG NVARCHAR <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>
+</span></span></code></pre></div><h3 id=23-테이블-변경-컬럼-수정>2.3. 테이블 변경 (컬럼 수정)</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#960050;background-color:#1e0010>테이블명</span> <span style=color:#66d9ef>ALTER</span> <span style=color:#960050;background-color:#1e0010>컬럼명</span> <span style=color:#960050;background-color:#1e0010>컬럼</span> <span style=color:#960050;background-color:#1e0010>속성</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> MY_TABLE <span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>COLUMN</span> NM_ENG INT
+</span></span></code></pre></div><h3 id=24-테이블-변경-컬럼-삭제>2.4. 테이블 변경 (컬럼 삭제)</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#960050;background-color:#1e0010>테이블명</span> <span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>COLUMN</span> <span style=color:#960050;background-color:#1e0010>컬럼명</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>ALTER</span> <span style=color:#66d9ef>TABLE</span> MY_TABLE <span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>COLUMN</span> NM_ENG
+</span></span></code></pre></div><hr><h2 id=3-테이블-삭제-drop-table>3. 테이블 삭제 (Drop Table)</h2><h3 id=31-테이블-삭제>3.1. 테이블 삭제</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>TABLE</span> <span style=color:#960050;background-color:#1e0010>테이블명</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>TABLE</span> MY_TABLE
+</span></span></code></pre></div><hr><h2 id=4-json-데이터>4. json 데이터</h2><h3 id=41-json-데이터-삽입-insert>4.1. json 데이터 삽입 (insert)</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> <span style=color:#960050;background-color:#1e0010>{</span><span style=color:#66d9ef>table_name</span><span style=color:#960050;background-color:#1e0010>}</span> <span style=color:#66d9ef>VALUES</span> (ID, N<span style=color:#e6db74>&#39;{}&#39;</span>)
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> MY_TABLE <span style=color:#66d9ef>VALUES</span> (<span style=color:#ae81ff>1</span>, N<span style=color:#e6db74>&#39;{&#34;EmployeeInfo&#34;: {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;FirstName&#34;: &#34;John&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;LastName&#34;: &#34;Doe&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;Dob&#34;: &#34;12-Jan-1970&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;AnnualSalary&#34;: 85000
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        }}&#39;</span>)
+</span></span></code></pre></div><h3 id=42-json-특정-데이터-호출-json_value>4.2. json 특정 데이터 호출 (JSON_VALUE)</h3><p>같은 속성이 여러개 있다면 인덱스로 접근 가능. 인덱스는 0부터 시작</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> JSON_VALUE(json_data, <span style=color:#e6db74>&#39;$.EmployeeInfo.FirstName&#39;</span>) <span style=color:#66d9ef>FROM</span> jsontest
+</span></span></code></pre></div><h3 id=43-json-형식으로-내보내기-for-json>4.3. JSON 형식으로 내보내기 (FOR JSON)</h3><p>for json은 테이블에 있는 데이터들을 JSON 형식으로 내보내기 위한 함수</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>FROM</span> jsontest <span style=color:#66d9ef>FOR</span> JSON AUTO
+</span></span></code></pre></div><h3 id=44-json-필드-생성-예제>4.4. json 필드 생성 예제</h3><ul><li><p>테이블 생성</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>CREATE</span> <span style=color:#66d9ef>TABLE</span> TB_JSONTEST(
+</span></span><span style=display:flex><span>        ID int <span style=color:#66d9ef>PRIMARY</span> <span style=color:#66d9ef>KEY</span>,
+</span></span><span style=display:flex><span>        DATA_JSON nvarchar(<span style=color:#66d9ef>max</span>) <span style=color:#66d9ef>NULL</span>,
+</span></span><span style=display:flex><span>        SEQ nvarchar(<span style=color:#ae81ff>11</span>) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>,
+</span></span><span style=display:flex><span>        IMAGE_PATH nvarchar(<span style=color:#ae81ff>300</span>) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>, 
+</span></span><span style=display:flex><span>        IMAGE_NAME nvarchar(<span style=color:#ae81ff>100</span>) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>, 
+</span></span><span style=display:flex><span>        DIRECT_CODE nvarchar(<span style=color:#ae81ff>2</span>) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>, 
+</span></span><span style=display:flex><span>        IN_DATE datetime <span style=color:#66d9ef>default</span>(GETDATE()) <span style=color:#66d9ef>NOT</span> <span style=color:#66d9ef>NULL</span>
+</span></span><span style=display:flex><span>)
+</span></span></code></pre></div></li><li><p>테이블내 데이터 추가</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>INSERT</span> <span style=color:#66d9ef>INTO</span> dbo.TB_JSONTEST (ID, DATA_JSON, SEQ, IMAGE_PATH, IMAGE_NAME, DIRECT_CODE)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>VALUES</span> (<span style=color:#ae81ff>2</span>, N<span style=color:#e6db74>&#39;{&#34;EmployeeInfo&#34;: {&#34;FirstName&#34;: &#34;John&#34;, &#34;LastName&#34;: &#34;Doe&#34;, &#34;Dob&#34;: &#34;12-Jan-1970&#34;, &#34;AnnualSalary&#34;: 85000}}&#39;</span>, <span style=color:#e6db74>&#39;A12345&#39;</span>, <span style=color:#e6db74>&#39;D:\image\&#39;</span>, <span style=color:#e6db74>&#39;D:\image\image001.jpg&#39;</span>, <span style=color:#e6db74>&#39;V&#39;</span>)
+</span></span></code></pre></div></li><li><p>테이블 데이터 조회</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>select</span> <span style=color:#f92672>*</span> <span style=color:#66d9ef>from</span> TB_JSONTEST
+</span></span></code></pre></div></li><li><p>테이블 삭제</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:#66d9ef>DROP</span> <span style=color:#66d9ef>TABLE</span> TB_JSONTEST
+</span></span></code></pre></div></li></ul></div><div class="row pl-3 pr-3"><div class="col-md-6 share-buttons"></div><div class="col-md-6 btn-improve-page"><a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/db/2020-10-13-MSSQL-Command.md title="이 페이지를 개선" target=_blank rel=noopener><i class="fas fa-code-branch"></i>
+이 페이지를 개선</a></div></div><hr><div class="row next-prev-navigator"></div><hr></div></div></div><a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a></section><section class=toc-section id=toc-section><div class=toc-holder><h5 class="text-center pl-3">목차</h5><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#1-테이블-생성-create-table>1. 테이블 생성 (Create Table)</a></li><li><a href=#2-테이블-수정-alter-table>2. 테이블 수정 (Alter Table)</a><ul><li><a href=#21-테이블-컬럼-확인>2.1. 테이블 컬럼 확인</a></li><li><a href=#22-테이블-변경-컬럼-추가>2.2. 테이블 변경 (컬럼 추가)</a></li><li><a href=#23-테이블-변경-컬럼-수정>2.3. 테이블 변경 (컬럼 수정)</a></li><li><a href=#24-테이블-변경-컬럼-삭제>2.4. 테이블 변경 (컬럼 삭제)</a></li></ul></li><li><a href=#3-테이블-삭제-drop-table>3. 테이블 삭제 (Drop Table)</a><ul><li><a href=#31-테이블-삭제>3.1. 테이블 삭제</a></li></ul></li><li><a href=#4-json-데이터>4. json 데이터</a><ul><li><a href=#41-json-데이터-삽입-insert>4.1. json 데이터 삽입 (insert)</a></li><li><a href=#42-json-특정-데이터-호출-json_value>4.2. json 특정 데이터 호출 (JSON_VALUE)</a></li><li><a href=#43-json-형식으로-내보내기-for-json>4.3. JSON 형식으로 내보내기 (FOR JSON)</a></li><li><a href=#44-json-필드-생성-예제>4.4. json 필드 생성 예제</a></li></ul></li></ul></nav></div></div></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>바로가기</h5><ul><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>Contact me:</h5><ul><li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-left"><div class=col-md-4><a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener><img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha</a></div><div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div><div class="col-md-4 text-right"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
 <script type=text/javascript src=/js/popper.min.js></script>
 <script type=text/javascript src=/js/bootstrap.min.js></script>
 <script type=text/javascript src=/js/navbar.js></script>
@@ -300,6 +70,4 @@ Toha
 <script type=text/javascript src=/js/main.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
 <script src=/js/single.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script></body></html>

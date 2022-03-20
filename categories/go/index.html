@@ -1,379 +1,61 @@
-<!doctype html><html>
-<head>
-<title>Go</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="ie=edge">
-<link rel=stylesheet href=/css/bootstrap.min.css>
-<link rel=stylesheet href=/css/layouts/main.css>
-<link rel=stylesheet href=/css/navigators/navbar.css>
-<link rel=stylesheet href=/css/plyr.css>
-<link rel=stylesheet href=/css/flag-icon.min.css>
-<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
-<meta property="og:title" content="Go">
-<meta property="og:description" content>
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sangjuncha-dev.github.io/categories/go/">
-<link rel=stylesheet href=/css/layouts/list.css>
-<link rel=stylesheet href=/css/navigators/sidebar.css>
-<link rel=stylesheet href=/css/style.css>
-</head>
-<body data-spy=scroll data-target=#TableOfContents data-offset=80>
-<div class="container-fluid bg-dimmed wrapper">
-<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
-<div class=container>
-<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
-<span class=navbar-toggler-icon></span>
-</button>
-<a class=navbar-brand href=/>
-Sangjun 개발 블로그</a>
+<!doctype html><html><head><title>Go</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/layouts/main.css><link rel=stylesheet href=/css/navigators/navbar.css><link rel=stylesheet href=/css/plyr.css><link rel=stylesheet href=/css/flag-icon.min.css><link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css><meta property="og:title" content="Go"><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://sangjuncha-dev.github.io/categories/go/"><link rel=stylesheet href=/css/layouts/list.css><link rel=stylesheet href=/css/navigators/sidebar.css><link rel=stylesheet href=/css/style.css></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span></button>
+<a class=navbar-brand href=/>Sangjun 개발 블로그</a>
 <button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
-<ul class="navbar-nav ml-auto">
-</ul>
-</div>
-</div>
-</nav>
-<section class=sidebar-section id=sidebar-section>
-<div class=sidebar-holder>
-<div class=sidebar id=sidebar>
-<form class=mx-auto method=get action=/search>
-<input type=text name=keyword placeholder=Search data-search id=search-box>
-</form>
-<div class=sidebar-tree>
-<ul class=tree id=tree>
-<li id=list-heading><a href=/categories data-filter=all>카테고리</a></li>
-<div class="subtree taxonomy-terms">
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/algorithm/ data-taxonomy-term=algorithm><span class=taxonomy-label>Algorithm</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/apple/ data-taxonomy-term=apple><span class=taxonomy-label>apple</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/aws/ data-taxonomy-term=aws><span class=taxonomy-label>AWS</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/boto3/ data-taxonomy-term=boto3><span class=taxonomy-label>boto3</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/cron/ data-taxonomy-term=cron><span class=taxonomy-label>cron</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/crontab/ data-taxonomy-term=crontab><span class=taxonomy-label>crontab</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/db/ data-taxonomy-term=db><span class=taxonomy-label>DB</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/django/ data-taxonomy-term=django><span class=taxonomy-label>Django</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/docker/ data-taxonomy-term=docker><span class=taxonomy-label>Docker</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/fcm/ data-taxonomy-term=fcm><span class=taxonomy-label>fcm</span></a></li>
-<li><a class="taxonomy-term active" href=https://sangjuncha-dev.github.io/categories/go/ data-taxonomy-term=go><span class=taxonomy-label>Go</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/gopacket/ data-taxonomy-term=gopacket><span class=taxonomy-label>Gopacket</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/gui/ data-taxonomy-term=gui><span class=taxonomy-label>Gui</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/guide/ data-taxonomy-term=guide><span class=taxonomy-label>Guide</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/learning/ data-taxonomy-term=learning><span class=taxonomy-label>Learning</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/leetcode/ data-taxonomy-term=leetcode><span class=taxonomy-label>LeetCode</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/linux/ data-taxonomy-term=linux><span class=taxonomy-label>Linux</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/logging/ data-taxonomy-term=logging><span class=taxonomy-label>logging</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/mariadb/ data-taxonomy-term=mariadb><span class=taxonomy-label>mariaDB</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/models/ data-taxonomy-term=models><span class=taxonomy-label>Models</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/mssql/ data-taxonomy-term=mssql><span class=taxonomy-label>MSSQL</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/nfs/ data-taxonomy-term=nfs><span class=taxonomy-label>NFS</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/numpy/ data-taxonomy-term=numpy><span class=taxonomy-label>Numpy</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/oauth/ data-taxonomy-term=oauth><span class=taxonomy-label>oauth</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/opencv/ data-taxonomy-term=opencv><span class=taxonomy-label>Opencv</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/postgredb/ data-taxonomy-term=postgredb><span class=taxonomy-label>PostgreDB</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/programmers/ data-taxonomy-term=programmers><span class=taxonomy-label>Programmers</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/pytest/ data-taxonomy-term=pytest><span class=taxonomy-label>pytest</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/python/ data-taxonomy-term=python><span class=taxonomy-label>Python</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/scraper/ data-taxonomy-term=scraper><span class=taxonomy-label>Scraper</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/sniff/ data-taxonomy-term=sniff><span class=taxonomy-label>Sniff</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/sqlcmd/ data-taxonomy-term=sqlcmd><span class=taxonomy-label>sqlcmd</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/swagger/ data-taxonomy-term=swagger><span class=taxonomy-label>Swagger</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/windows/ data-taxonomy-term=windows><span class=taxonomy-label>Windows</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/windows10/ data-taxonomy-term=windows10><span class=taxonomy-label>Windows10</span></a></li>
-<li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/wsl/ data-taxonomy-term=wsl><span class=taxonomy-label>WSL</span></a></li>
-</div>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class=content-section id=content-section>
-<div class="content container-fluid" id=content>
-<div class="container-fluid post-card-holder" id=post-card-holder>
-<div class=post-card>
-<a href=/posts/programming/golang/2022-02-21-golang-fyne/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>[golang] gui 라이브러리 fyne</h5>
-<p class="card-text post-summary">1. 개요 Fyne는 사용하기 쉬운 UI 툴킷과 Go로 작성된 앱 API로 데스크탑 및 모바일 환경을 지원합니다.
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse lang-selector" id=top-nav-items><ul class="navbar-nav ml-auto"></ul></div></div></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=Search data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/categories data-filter=all>카테고리</a></li><div class="subtree taxonomy-terms"><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/algorithm/ data-taxonomy-term=algorithm><span class=taxonomy-label>Algorithm</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/apple/ data-taxonomy-term=apple><span class=taxonomy-label>apple</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/aws/ data-taxonomy-term=aws><span class=taxonomy-label>AWS</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/boto3/ data-taxonomy-term=boto3><span class=taxonomy-label>boto3</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/cron/ data-taxonomy-term=cron><span class=taxonomy-label>cron</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/crontab/ data-taxonomy-term=crontab><span class=taxonomy-label>crontab</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/db/ data-taxonomy-term=db><span class=taxonomy-label>DB</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/django/ data-taxonomy-term=django><span class=taxonomy-label>Django</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/docker/ data-taxonomy-term=docker><span class=taxonomy-label>Docker</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/fcm/ data-taxonomy-term=fcm><span class=taxonomy-label>fcm</span></a></li><li><a class="taxonomy-term active" href=https://sangjuncha-dev.github.io/categories/go/ data-taxonomy-term=go><span class=taxonomy-label>Go</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/gopacket/ data-taxonomy-term=gopacket><span class=taxonomy-label>Gopacket</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/gui/ data-taxonomy-term=gui><span class=taxonomy-label>Gui</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/guide/ data-taxonomy-term=guide><span class=taxonomy-label>Guide</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/learning/ data-taxonomy-term=learning><span class=taxonomy-label>Learning</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/leetcode/ data-taxonomy-term=leetcode><span class=taxonomy-label>LeetCode</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/linux/ data-taxonomy-term=linux><span class=taxonomy-label>Linux</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/logging/ data-taxonomy-term=logging><span class=taxonomy-label>logging</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/mariadb/ data-taxonomy-term=mariadb><span class=taxonomy-label>mariaDB</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/models/ data-taxonomy-term=models><span class=taxonomy-label>Models</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/mssql/ data-taxonomy-term=mssql><span class=taxonomy-label>MSSQL</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/nfs/ data-taxonomy-term=nfs><span class=taxonomy-label>NFS</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/numpy/ data-taxonomy-term=numpy><span class=taxonomy-label>Numpy</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/oauth/ data-taxonomy-term=oauth><span class=taxonomy-label>oauth</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/opencv/ data-taxonomy-term=opencv><span class=taxonomy-label>Opencv</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/postgredb/ data-taxonomy-term=postgredb><span class=taxonomy-label>PostgreDB</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/programmers/ data-taxonomy-term=programmers><span class=taxonomy-label>Programmers</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/pytest/ data-taxonomy-term=pytest><span class=taxonomy-label>pytest</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/python/ data-taxonomy-term=python><span class=taxonomy-label>Python</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/scraper/ data-taxonomy-term=scraper><span class=taxonomy-label>Scraper</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/sniff/ data-taxonomy-term=sniff><span class=taxonomy-label>Sniff</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/sqlcmd/ data-taxonomy-term=sqlcmd><span class=taxonomy-label>sqlcmd</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/swagger/ data-taxonomy-term=swagger><span class=taxonomy-label>Swagger</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/windows/ data-taxonomy-term=windows><span class=taxonomy-label>Windows</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/windows10/ data-taxonomy-term=windows10><span class=taxonomy-label>Windows10</span></a></li><li><a class=taxonomy-term href=https://sangjuncha-dev.github.io/categories/wsl/ data-taxonomy-term=wsl><span class=taxonomy-label>WSL</span></a></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class="content container-fluid" id=content><div class="container-fluid post-card-holder" id=post-card-holder><div class=post-card><a href=/posts/programming/golang/2022-02-21-golang-fyne/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>[golang] gui 라이브러리 fyne</h5><p class="card-text post-summary">1. 개요 Fyne는 사용하기 쉬운 UI 툴킷과 Go로 작성된 앱 API로 데스크탑 및 모바일 환경을 지원합니다.
 fyne git 1.1. 사전 설정 Fyne 사용시 필요한 개발환경
 Go 버전 1.14 이상 C 컴파일러 및 시스템 개발 도구 tdm-gcc download 테스트 시스템 환경
-분류 버전 OS Windows 10 go 1.17 fyne 2.1.2 1.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>February 21, 2022</span>
-<a href=/posts/programming/golang/2022-02-21-golang-fyne/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/golang/2022-01-07-golang-socket-logging/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>golang Socket, TimeRotateFile logging</h5>
-<p class="card-text post-summary">1. 개요 golang 기본 로깅에서는 지원하지 않는 TimeRotate 로깅은 별도의 외부 라이브러리를 사용한다.
+분류 버전 OS Windows 10 go 1.17 fyne 2.1.2 1.</p></div><div class=card-footer><span class=float-left>February 21, 2022</span>
+<a href=/posts/programming/golang/2022-02-21-golang-fyne/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/golang/2022-01-07-golang-socket-logging/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>golang Socket, TimeRotateFile logging</h5><p class="card-text post-summary">1. 개요 golang 기본 로깅에서는 지원하지 않는 TimeRotate 로깅은 별도의 외부 라이브러리를 사용한다.
 go get github.com/lestrrat-go/file-rotatelogs 이후에 소켓 통신을 같이 사용한 logging 프로그램까지 구현한다.
 2. TimeRotateFile logging 해당 file-rotatelogs 라이브러리는 단일 파일 작성만 지원한다. 멀티 파일 작성은 다른 라이브러리를 사용해야 한다.
-2.1. OPTIONS Patterm 로그저장 경로 및 파일이름 패턴지정(required) 예시: rotatelogs.New("log/%Y-%m-%d.log") Clock (default: rotatelogs.Local) 시간대 시스템 로컬 시간으로 설정 예시: rotatelogs.WithClock(rotatelogs.Local) RotationTime (default: 86400 sec) 로테이션 반복 주기 지정한 시간간격으로 파일 로테이션 동일파일 존재시 로그 추가작성으로 동작 time.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>January 7, 2022</span>
-<a href=/posts/programming/golang/2022-01-07-golang-socket-logging/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/golang/2021-12-23-golang-db-nullable-value/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>golang db nullable 데이터 처리</h5>
-<p class="card-text post-summary">golang에서는 타입별로 정해진 zero value가 있는데, DB colume 타입의 zero value와 맞지 않을 때 다음과 에러가 발생한다.
+2.1. OPTIONS Patterm 로그저장 경로 및 파일이름 패턴지정(required) 예시: rotatelogs.New("log/%Y-%m-%d.log") Clock (default: rotatelogs.Local) 시간대 시스템 로컬 시간으로 설정 예시: rotatelogs.WithClock(rotatelogs.Local) RotationTime (default: 86400 sec) 로테이션 반복 주기 지정한 시간간격으로 파일 로테이션 동일파일 존재시 로그 추가작성으로 동작 time.</p></div><div class=card-footer><span class=float-left>January 7, 2022</span>
+<a href=/posts/programming/golang/2022-01-07-golang-socket-logging/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/golang/2021-12-23-golang-db-nullable-value/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>golang db nullable 데이터 처리</h5><p class="card-text post-summary">golang에서는 타입별로 정해진 zero value가 있는데, DB colume 타입의 zero value와 맞지 않을 때 다음과 에러가 발생한다.
 panic: sql: Scan error on column index : converting NULL to string is unsupported 각 타입별 zero value
 문자열 타입 string : "" 부울린 타입 boolean : false 정수형, Float등 숫자형 타입 : 0 기타 타입 : nil 1. 사전환경 아래의 글을 진행했다는 가정에서 설명한다.
 golang postgreDB CURD
-2.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 23, 2021</span>
-<a href=/posts/programming/golang/2021-12-23-golang-db-nullable-value/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/docker/2021-12-22-docker-golang-image-build/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>golang 도커 이미지 만들기</h5>
-<p class="card-text post-summary">간단한 golang 웹 프로그램을 Docker 이미지로 실행방법으로
+2.</p></div><div class=card-footer><span class=float-left>December 23, 2021</span>
+<a href=/posts/programming/golang/2021-12-23-golang-db-nullable-value/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/docker/2021-12-22-docker-golang-image-build/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>golang 도커 이미지 만들기</h5><p class="card-text post-summary">간단한 golang 웹 프로그램을 Docker 이미지로 실행방법으로
 golang 코드보다는 docker 설정 위주로 설명한다.
 1. 예제 코드 사용예시는 아래의 주소를 git clone 받는다.
 > git clone https://github.com/olliefr/docker-gs-ping docker-gs-ping 2. 예제 프로그램 실행 git clone 받은 프로젝트 경로에서 터미널을 실행하고 진행한다.
 > go run main.go 설정한 웹주소로 접속 요청시 간단한 response 메세지를 응답한다.
-> curl localhost:8080 Hello, Docker! &lt;3 3. Dockerfile dockerfile 명칭은 Dockerfile.&lt;something> 또는 &lt;something>.Dockerfile 형식으로 생성한다.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 22, 2021</span>
-<a href=/posts/docker/2021-12-22-docker-golang-image-build/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/golang/2021-12-21-golang-cron/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>golang cron 스케줄링 라이브러리 사용법</h5>
-<p class="card-text post-summary">go언어에서 cron 처럼 동작하는 스케줄링 외부 라이브러리 사용법
+> curl localhost:8080 Hello, Docker! &lt;3 3. Dockerfile dockerfile 명칭은 Dockerfile.&lt;something> 또는 &lt;something>.Dockerfile 형식으로 생성한다.</p></div><div class=card-footer><span class=float-left>December 22, 2021</span>
+<a href=/posts/docker/2021-12-22-docker-golang-image-build/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/golang/2021-12-21-golang-cron/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>golang cron 스케줄링 라이브러리 사용법</h5><p class="card-text post-summary">go언어에서 cron 처럼 동작하는 스케줄링 외부 라이브러리 사용법
 cron 함수는 지정한 주기마다 동작시키는 기능으로 별도의 비동기함수로 실행된다. main 함수가 종료되면 go 프로세스가 종료되어 비동기 함수도 종료된다. cron 기능을 사용할려면 main 함수가 종료되지 않도록 적절한 조치를 해야한다. 1. 라이브러리 설치 go version : 1.17
-> go get github.com/robfig/cron/v3@v3.0.0 2. 예제코드 select : 복수 채널이 대기하면서 준비된 (데이터를 전송받은) 채널을 실행하는 기능이다. case 채널들이 준비되지 않으면 계속 대기하게 되고, 가장 먼저 도착한 채널의 case를 실행한다.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 21, 2021</span>
-<a href=/posts/programming/golang/2021-12-21-golang-cron/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/golang/2021-12-18-golang-fcm-backend/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>golang fcm(firebase cloud messaging) push 메세지 사용법</h5>
-<p class="card-text post-summary">Firebase Cloud Messaging(FCM)은 firebase에서 무료로 메시지 전송할 수 있는 교차 플랫폼 메시징 솔루션이다.
+> go get github.com/robfig/cron/v3@v3.0.0 2. 예제코드 select : 복수 채널이 대기하면서 준비된 (데이터를 전송받은) 채널을 실행하는 기능이다. case 채널들이 준비되지 않으면 계속 대기하게 되고, 가장 먼저 도착한 채널의 case를 실행한다.</p></div><div class=card-footer><span class=float-left>December 21, 2021</span>
+<a href=/posts/programming/golang/2021-12-21-golang-cron/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/golang/2021-12-18-golang-fcm-backend/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>golang fcm(firebase cloud messaging) push 메세지 사용법</h5><p class="card-text post-summary">Firebase Cloud Messaging(FCM)은 firebase에서 무료로 메시지 전송할 수 있는 교차 플랫폼 메시징 솔루션이다.
 최대 4,000바이트의 페이로드를 클라이언트 앱에 전송할 수 있다.
 아래의 예제는 Go언어 기반의 백엔드 서버 예시이며 fcm token이 이미 발급받았다는 가정하에 진행된다.
 1. 라이브러리 설치 > go get firebase.google.com/go/v4 > go get google.golang.org/api 2. Firebase APP 초기화 사용자 인증 정보 제공의 안내에 따라 서비스 계정의 비공개 키 파일을 다운받는다.
-해당 파일에는 다음과 같은 정보가 있다.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 18, 2021</span>
-<a href=/posts/programming/golang/2021-12-18-golang-fcm-backend/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>golang postgreDB CURD</h5>
-<p class="card-text post-summary">golang에서 postgre데이터 베이스의 SQL 생성, 수정, 읽기, 삭제 기능의 간단한 사용법이다.
+해당 파일에는 다음과 같은 정보가 있다.</p></div><div class=card-footer><span class=float-left>December 18, 2021</span>
+<a href=/posts/programming/golang/2021-12-18-golang-fcm-backend/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>golang postgreDB CURD</h5><p class="card-text post-summary">golang에서 postgre데이터 베이스의 SQL 생성, 수정, 읽기, 삭제 기능의 간단한 사용법이다.
 postgreDB가 이미 설치되어 있다는 전제하에 진행한다.
 로컬 설정 : PostgreDB 설치 도커 이미지 : PostgreDB, pgadmin4 도커 설치 방법 1. 라이브러리 설치 go version : 1.17
 > go get github.com/lib/pq 2. 테이블 구조 postgreDB에 아래와 같은 구조의 User 테이블이 선언된 상태로 진행한다.
-CREATE TABLE user ( id SERIAL PRIMARY KEY, name VARCHAR(20), age INT ); 3.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>December 16, 2021</span>
-<a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>golang learn-go-with-tests GitBook 정리</h5>
-<p class="card-text post-summary">사이트 주소 원본 링크
+CREATE TABLE user ( id SERIAL PRIMARY KEY, name VARCHAR(20), age INT ); 3.</p></div><div class=card-footer><span class=float-left>December 16, 2021</span>
+<a href=/posts/programming/golang/2021-12-16-golang-postgredb-crud/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>golang learn-go-with-tests GitBook 정리</h5><p class="card-text post-summary">사이트 주소 원본 링크
 한글 번역 링크
 5. struct, method & interface struct 구조체의 변수 첫글자는 대문자여야한다. (외부에서 사용 가능하도록)
 type Rectangle struct { Width float64 Height float64 } 구조체 필드이름을 선택적으로 지정할 수 있다.
 {shape: Rectangle{Width: 12, Height: 6}, want: 72.0}, {shape: Circle{Radius: 10}, want: 314.1592653589793}, methods func (receiverName ReceiverType) MethodName(args) r Rectangle 수신자 변수를 유형의 첫 번째 문자로 지정하는 것이 Go의 관례이다.
-func (r Rectangle) Area() float64 { return 0 } interface Go에서 인터페이스 자료형은 암시적 이다.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>August 2, 2021</span>
-<a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/golang/2021-07-29-golang-gopacket/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>golang gopacket 라이브러리를 이용한 통신</h5>
-<p class="card-text post-summary">gopacket : 이더넷 어댑터 설명(dev.Description)명칭으로 ethernet 통신하는 라이브러리이다.
-예제 코드 package main import ( "fmt" "log" "net" "strings" "time" "github.com/google/gopacket" "github.com/google/gopacket/layers" "github.com/google/gopacket/pcap" ) var ( device string = "Realtek PCIe GbE Family Controller" eth_name string currentIP string snapshot_len int32 = 1522 promiscuous bool = false err error timeout time.Duration = 30 * time.Second handle *pcap.Handle buffer gopacket.SerializeBuffer options gopacket.SerializeOptions ) func main() { devices, err := pcap.FindAllDevs() if err !</p>
-</div>
-<div class=card-footer>
-<span class=float-left>July 29, 2021</span>
-<a href=/posts/programming/golang/2021-07-29-golang-gopacket/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/golang/2021-03-02-golang-grammar/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>Go 언어 문법 (Golang grammar)</h5>
-<p class="card-text post-summary">1. 디렉토리 관련 함수 2021년 3월 3일 수요일 오전 8:55:31
+func (r Rectangle) Area() float64 { return 0 } interface Go에서 인터페이스 자료형은 암시적 이다.</p></div><div class=card-footer><span class=float-left>August 2, 2021</span>
+<a href=/posts/programming/golang/2021-08-02-golang-learn-go-with-tests/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/golang/2021-07-29-golang-gopacket/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>golang gopacket 라이브러리를 이용한 통신</h5><p class="card-text post-summary">gopacket : 이더넷 어댑터 설명(dev.Description)명칭으로 ethernet 통신하는 라이브러리이다.
+예제 코드 package main import ( "fmt" "log" "net" "strings" "time" "github.com/google/gopacket" "github.com/google/gopacket/layers" "github.com/google/gopacket/pcap" ) var ( device string = "Realtek PCIe GbE Family Controller" eth_name string currentIP string snapshot_len int32 = 1522 promiscuous bool = false err error timeout time.Duration = 30 * time.</p></div><div class=card-footer><span class=float-left>July 29, 2021</span>
+<a href=/posts/programming/golang/2021-07-29-golang-gopacket/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/golang/2021-03-02-golang-grammar/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>Go 언어 문법 (Golang grammar)</h5><p class="card-text post-summary">1. 디렉토리 관련 함수 2021년 3월 3일 수요일 오전 8:55:31
 1.1. 단일 디렉토리 생성 os.Mkdir(path, permission)
 err := os.Mkdir("tmp", 0755) if err != nil { log.Fatal(err) } 1.2. 다중 디렉토리 생성 os.MkdirAll(path, permission) :
 err := os.MkdirAll("tmp/new", 0755) if err != nil { log.Fatal(err) } 1.3. 현재 작업 디렉토리 얻기 os.Getwd()
-path, err := os.Getwd() if err != nil { log.Println(err) } fmt.Println(path) 1.4. 디렉토리 존재유무 확인 os.Stat(paht)
-if _, err := os.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>March 2, 2021</span>
-<a href=/posts/programming/golang/2021-03-02-golang-grammar/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-<div class=post-card>
-<a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ class=post-card-link>
-<div class=card>
-<div class=card-head>
-<img class=card-img-top src=/images/default-hero.jpg alt="Hero Image">
-</div>
-<div class=card-body>
-<h5 class=card-title>노마드코더 쉽고 빠른 Go 시작하기(nomadcoders Go-for-beginners lectures)</h5>
-<p class="card-text post-summary">0. 소개 설치 환경 : Windows 10 IDE : vscode
+path, err := os.Getwd() if err != nil { log.Println(err) } fmt.Println(path) 1.4. 디렉토리 존재유무 확인 os.</p></div><div class=card-footer><span class=float-left>March 2, 2021</span>
+<a href=/posts/programming/golang/2021-03-02-golang-grammar/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div><div class=post-card><a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ class=post-card-link><div class=card><div class=card-head><img class=card-img-top src=/images/default-hero.jpg alt="Hero Image"></div><div class=card-body><h5 class=card-title>노마드코더 쉽고 빠른 Go 시작하기(nomadcoders Go-for-beginners lectures)</h5><p class="card-text post-summary">0. 소개 설치 환경 : Windows 10 IDE : vscode
 0.1. 설치 해당 URL에서 golang 설치파일을 다운받아 실행
-https://golang.org/dl/ 설치파일에서 안내한 경로인 C:\Program Files\Go 폴더에 Go 설치 되었는지 확인 0.2. 설정 Go Path 환경변수 확인 Go는 지정된 Go Path 디렉토리에만 저장되어야함 시스템 환경변수에 등록된 GOPATH 값 확인 %USERPROFILE%\go -> C:\Users\[Profle_Name]\go 해당 경로가 Go Path 환경변수로 사용되는 경로 기본 설정 go 디렉토리로 이동하여 bin, pkg, src 디렉토리 생성 src 디렉토리안에 지정된 도메인 디렉토리 추가 go에서 다운받은 코드를 지정된 도메인 별로 분류하여 저장 src 디렉토리안에 github.</p>
-</div>
-<div class=card-footer>
-<span class=float-left>February 22, 2021</span>
-<a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ class="float-right btn btn-outline-info btn-sm">Read</a>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class=paginator>
-</div>
-</div>
-</section>
-</div>
-<footer class="container-fluid text-center align-content-center footer pb-2">
-<div class="container pt-5">
-<div class="row text-left">
-<div class="col-md-4 col-sm-12">
-<h5>바로가기</h5>
-<ul>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a>
-</li>
-</ul>
-</div>
-<div class="col-md-4 col-sm-12">
-<h5>Contact me:</h5>
-<ul>
-<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
-<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
-</a></li>
-</ul>
-</div>
-</div>
-</div>
-<hr>
-<div class=container>
-<div class="row text-left">
-<div class=col-md-4>
-<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
-<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
-Toha
-</a>
-</div>
-<div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div>
-<div class="col-md-4 text-right">
-<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
-<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
-</a>
-</div>
-</div>
-</div>
-</footer>
-<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+https://golang.org/dl/ 설치파일에서 안내한 경로인 C:\Program Files\Go 폴더에 Go 설치 되었는지 확인 0.2. 설정 Go Path 환경변수 확인 Go는 지정된 Go Path 디렉토리에만 저장되어야함 시스템 환경변수에 등록된 GOPATH 값 확인 %USERPROFILE%\go -> C:\Users\[Profle_Name]\go 해당 경로가 Go Path 환경변수로 사용되는 경로 기본 설정 go 디렉토리로 이동하여 bin, pkg, src 디렉토리 생성 src 디렉토리안에 지정된 도메인 디렉토리 추가 go에서 다운받은 코드를 지정된 도메인 별로 분류하여 저장 src 디렉토리안에 github.</p></div><div class=card-footer><span class=float-left>February 22, 2021</span>
+<a href=/posts/programming/golang/2021-02-22-go-for-beginners-lectures/ class="float-right btn btn-outline-info btn-sm">Read</a></div></div></a></div></div><div class=paginator></div></div></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>바로가기</h5><ul><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>Contact me:</h5><ul><li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-left"><div class=col-md-4><a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener><img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha</a></div><div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div><div class="col-md-4 text-right"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
 <script type=text/javascript src=/js/popper.min.js></script>
 <script type=text/javascript src=/js/bootstrap.min.js></script>
 <script type=text/javascript src=/js/navbar.js></script>
 <script type=text/javascript src=/js/plyr.js></script>
 <script type=text/javascript src=/js/main.js></script>
-<script src=/js/list.js></script>
-</body>
-</html>
+<script src=/js/list.js></script></body></html>

@@ -1,473 +1,279 @@
-<!doctype html><html>
-<head>
-<title>Django drf_yasg Swagger 기본 사용법</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="ie=edge">
-<link rel=stylesheet href=/css/bootstrap.min.css>
-<link rel=stylesheet href=/css/layouts/main.css>
-<link rel=stylesheet href=/css/navigators/navbar.css>
-<link rel=stylesheet href=/css/plyr.css>
-<link rel=stylesheet href=/css/flag-icon.min.css>
-<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
-<meta property="og:title" content="Django drf_yasg Swagger 기본 사용법">
-<meta property="og:description" content="Django drf_yasg Swagger 기본 사용법">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://sangjuncha-dev.github.io/posts/framework/django/2021-09-24-django-swagger/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-09-24T09:23:07+09:00">
-<meta property="article:modified_time" content="2021-09-24T09:23:07+09:00">
-<meta name=description content="Django drf_yasg Swagger 기본 사용법">
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
-<link rel=stylesheet href=/css/layouts/single.css>
-<link rel=stylesheet href=/css/navigators/sidebar.css>
-<link rel=stylesheet href=/css/style.css>
-</head>
-<body data-spy=scroll data-target=#TableOfContents data-offset=80>
-<div class="container-fluid bg-dimmed wrapper">
-<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
-<div class=container>
-<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
-<span class=navbar-toggler-icon></span>
-</button>
-<a class=navbar-brand href=/>
-Sangjun 개발 블로그</a>
+<!doctype html><html><head><title>Django drf_yasg Swagger 기본 사용법</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/layouts/main.css><link rel=stylesheet href=/css/navigators/navbar.css><link rel=stylesheet href=/css/plyr.css><link rel=stylesheet href=/css/flag-icon.min.css><link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css><meta property="og:title" content="Django drf_yasg Swagger 기본 사용법"><meta property="og:description" content="Django drf_yasg Swagger 기본 사용법"><meta property="og:type" content="article"><meta property="og:url" content="https://sangjuncha-dev.github.io/posts/framework/django/2021-09-24-django-swagger/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-09-24T09:23:07+09:00"><meta property="article:modified_time" content="2021-09-24T09:23:07+09:00"><meta name=description content="Django drf_yasg Swagger 기본 사용법"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css><link rel=stylesheet href=/css/layouts/single.css><link rel=stylesheet href=/css/navigators/sidebar.css><link rel=stylesheet href=/css/style.css></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span></button>
+<a class=navbar-brand href=/>Sangjun 개발 블로그</a>
 <button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
-<ul class="navbar-nav ml-auto">
-</ul>
-</div>
-</div>
-</nav>
-<section class=sidebar-section id=sidebar-section>
-<div class=sidebar-holder>
-<div class=sidebar id=sidebar>
-<form class=mx-auto method=get action=/search>
-<input type=text name=keyword placeholder=Search data-search id=search-box>
-</form>
-<div class=sidebar-tree>
-<ul class=tree id=tree>
-<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
-<div class=subtree>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
-<ul>
-<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
-<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
-</ul>
-</li>
-<li><a href=/posts/db/ title=db>db</a></li>
-<li><a href=/posts/docker/ title=docker>docker</a></li>
-<li>
-<i class="fas fa-minus-circle"></i><a class=active href=/posts/framework/>framework</a>
-<ul class=active>
-<li><a class=active href=/posts/framework/django/ title=django>django</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
-<ul>
-<li><a href=/posts/os/linux/ title=linux>linux</a></li>
-<li><a href=/posts/os/windows/ title=windows>windows</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/programming/>programming</a>
-<ul>
-<li><a href=/posts/programming/golang/ title=golang>golang</a></li>
-<li><a href=/posts/programming/python/ title=python>python</a></li>
-</ul>
-</li>
-</div>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class=content-section id=content-section>
-<div class=content>
-<div class="container p-0 read-area">
-<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)>
-</div>
-<div class=page-content>
-<div class="author-profile ml-auto align-self-lg-center">
-<img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image">
-<h5 class=author-name>Sangjun</h5>
-<p>September 24, 2021</p>
-</div>
-<div class=title>
-<h1>Django drf_yasg Swagger 기본 사용법</h1>
-</div>
-<div class=post-content id=post-content>
-<hr>
-<p><code>drf_yasg</code> : REST 프레임워크용 swagger/openAPI 문서 자동화 라이브러리
-<code>swagger</code> : 개발자가 REST 웹 서비스를 설계, 빌드, 문서화, 테스트를 도와주는 오픈소스 소프트웨어 프레임워크</p>
-<p>drf_yasg : 1.20.0 호환버전</p>
-<ul>
-<li>Django Rest Framework : 3.10, 3.11, 3.12</li>
-<li>Django : 2.2, 3.0, 3.1</li>
-<li>Python : 3.6, 3.7, 3.8, 3.9</li>
-</ul>
-<p>라이브러리 설치</p>
-<pre tabindex=0><code>pip install -U drf-yasg
-</code></pre><hr>
-<h2 id=1-프로젝트-생성>1. 프로젝트 생성</h2>
-<p>환경 : windwos 10</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 가상환경 생성 및 접속</span>
-&gt; python -m venv venv
-&gt; venv<span style=color:#ae81ff>\S</span>cripts<span style=color:#ae81ff>\a</span>ctivate
-
-<span style=color:#75715e># 라이브러리 설치</span>
-<span style=color:#f92672>(</span>venv<span style=color:#f92672>)</span>&gt; pip install django
-<span style=color:#f92672>(</span>venv<span style=color:#f92672>)</span>&gt; pip install djangorestframework
-<span style=color:#f92672>(</span>venv<span style=color:#f92672>)</span>&gt; pip install drf-yasg
-
-<span style=color:#75715e># 프로젝트 및 앱 생성</span>
-<span style=color:#f92672>(</span>venv<span style=color:#f92672>)</span>&gt; django-admin startproject config .
-<span style=color:#f92672>(</span>venv<span style=color:#f92672>)</span>&gt; django-admin startapp api
-</code></pre></div><hr>
-<h2 id=2-django-설정>2. django 설정</h2>
-<p><code>config/settings.py</code></p>
-<p><code>staticfiles</code>앱은 swagger UI css/js 파일 배포용</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>INSTALLED_APPS <span style=color:#f92672>=</span> [
-    <span style=color:#f92672>...</span>
-    <span style=color:#e6db74>&#39;django.contrib.staticfiles&#39;</span>,
-    <span style=color:#e6db74>&#39;drf_yasg&#39;</span>,
-    <span style=color:#f92672>...</span>
-]
-</code></pre></div><p><code>config/urls.py</code></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>...</span>
-<span style=color:#f92672>from</span> rest_framework.permissions <span style=color:#f92672>import</span> AllowAny 
-<span style=color:#f92672>from</span> drf_yasg.views <span style=color:#f92672>import</span> get_schema_view
-<span style=color:#f92672>from</span> drf_yasg <span style=color:#f92672>import</span> openapi
-<span style=color:#f92672>from</span> config <span style=color:#f92672>import</span> settings
-<span style=color:#f92672>...</span>
-
-schema_view <span style=color:#f92672>=</span> get_schema_view(
-   openapi<span style=color:#f92672>.</span>Info(
-      title<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Snippets API&#34;</span>,
-      default_version<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;v1&#39;</span>,
-      description<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Test description&#34;</span>,
-      terms_of_service<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://www.google.com/policies/terms/&#34;</span>,
-      contact<span style=color:#f92672>=</span>openapi<span style=color:#f92672>.</span>Contact(name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;tester&#34;</span>, email<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;test@test.com&#34;</span>),
-      license<span style=color:#f92672>=</span>openapi<span style=color:#f92672>.</span>License(name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;BSD License&#34;</span>),
-   ),
-   public<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>,
-   permission_classes<span style=color:#f92672>=</span>(AllowAny,),
-)
-<span style=color:#f92672>...</span>
-
-<span style=color:#75715e># debug 모드일때 swagger api 실행</span>
-<span style=color:#66d9ef>if</span> settings<span style=color:#f92672>.</span>DEBUG:
-    urlpatterns <span style=color:#f92672>+=</span> [
-        re_path(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;^swagger(?P&lt;format&gt;\.json|\.yaml)$&#39;</span>, schema_view<span style=color:#f92672>.</span>without_ui(cache_timeout<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>), name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;schema-json&#34;</span>),
-        re_path(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;^swagger/$&#39;</span>, schema_view<span style=color:#f92672>.</span>with_ui(<span style=color:#e6db74>&#39;swagger&#39;</span>, cache_timeout<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>), name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;schema-swagger-ui&#39;</span>),
-        re_path(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;^redoc/$&#39;</span>, schema_view<span style=color:#f92672>.</span>with_ui(<span style=color:#e6db74>&#39;redoc&#39;</span>, cache_timeout<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>), name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;schema-redoc&#39;</span>),
-        <span style=color:#f92672>...</span>
-    ]
-
-</code></pre></div><hr>
-<h2 id=3-예시코드>3. 예시코드</h2>
-<h3 id=31-models>3.1. models</h3>
-<p><code>api/models.py</code></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> django.db <span style=color:#f92672>import</span> models
-
-<span style=color:#75715e># Create your models here.</span>
-
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Musics</span>(models<span style=color:#f92672>.</span>Model):
-    ONE_STAR <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
-    TWO_STAR <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>
-    THREE_STAR <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>
-    STARS <span style=color:#f92672>=</span> (
-        (ONE_STAR, <span style=color:#e6db74>&#39;보통&#39;</span>),
-        (TWO_STAR, <span style=color:#e6db74>&#39;좋음&#39;</span>),
-        (THREE_STAR, <span style=color:#e6db74>&#39;매우 좋음&#39;</span>),
-    )
-
-    CATEGORY <span style=color:#f92672>=</span> (
-        (<span style=color:#e6db74>&#39;KPOP&#39;</span>, <span style=color:#e6db74>&#39;케이팝&#39;</span>),
-        (<span style=color:#e6db74>&#39;POP&#39;</span>, <span style=color:#e6db74>&#39;팝송&#39;</span>),
-        (<span style=color:#e6db74>&#39;CLASSIC&#39;</span>, <span style=color:#e6db74>&#39;클래식&#39;</span>),
-        (<span style=color:#e6db74>&#39;ETC&#39;</span>, <span style=color:#e6db74>&#39;기타 등등&#39;</span>),
-    )
-
-    id <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>BigAutoField(primary_key<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, verbose_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;music_id&#39;</span>)
-    created_at <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>DateTimeField(auto_now_add<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, verbose_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;생성 날짜&#39;</span>)
-    updated_at <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>DateTimeField(auto_now<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, verbose_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;수정 날짜&#39;</span>)
-    deleted_at <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>DateTimeField(blank<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, null<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, verbose_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;삭제 날짜&#39;</span>)
-    singer <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>CharField(null<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>, max_length<span style=color:#f92672>=</span><span style=color:#ae81ff>128</span>, verbose_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;가수명&#39;</span>)
-    title <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>CharField(null<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>, max_length<span style=color:#f92672>=</span><span style=color:#ae81ff>128</span>, verbose_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;곡명&#39;</span>)
-    category <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>CharField(blank<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, null<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, max_length<span style=color:#f92672>=</span><span style=color:#ae81ff>32</span>, choices<span style=color:#f92672>=</span>CATEGORY, verbose_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;범주&#39;</span>)
-    star_rating <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>PositiveSmallIntegerField(blank<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, null<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, choices<span style=color:#f92672>=</span>STARS, default<span style=color:#f92672>=</span>ONE_STAR, verbose_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;곡 선호도&#39;</span>)
-
-    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Meta</span>:
-        <span style=color:#75715e># abstract = True  # sqlite3 사용 시 주석</span>
-        managed <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
-        db_table <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;musics&#39;</span>
-        app_label <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;api&#39;</span>
-        ordering <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#39;star_rating&#39;</span>, ]
-        verbose_name_plural <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;음악&#39;</span>
-</code></pre></div><p>DB 마이그레이션</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#f92672>(</span>venv<span style=color:#f92672>)</span>&gt; py manage.py makemigrations
-<span style=color:#f92672>(</span>venv<span style=color:#f92672>)</span>&gt; py manage.py migrate
-</code></pre></div><p>생성된 <code>sqlite3</code> 파일을 확인할려면 아래 링크에서 프로그램을 다운받아 설치한다. 개인적으로 no installer(portable) 버전을 추천한다.</p>
-<ul>
-<li><a href=https://sqlitebrowser.org/dl/>DB Browser for SQLite</a></li>
-</ul>
-<p><code>db.sqlite3</code></p>
-<p><img src="../images/django-swagger/django-swagger-1.png?raw=true" alt></p>
-<p>musics 테이블 생성된 것을 확인할 수 있다.</p>
-<h3 id=32-seializers>3.2. seializers</h3>
-<p><code>api/serializers.py</code></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> rest_framework <span style=color:#f92672>import</span> serializers
-
-<span style=color:#f92672>from</span> .models <span style=color:#f92672>import</span> Musics
-
-
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicSerializer</span>(serializers<span style=color:#f92672>.</span>ModelSerializer):
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>validate</span>(self, data: dict):
-        <span style=color:#66d9ef>return</span> data
-
-    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Meta</span>:
-        model <span style=color:#f92672>=</span> Musics
-        fields <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;__all__&#39;</span>  <span style=color:#75715e># 모든 필드 사용</span>
-        <span style=color:#75715e># fields = (&#39;id&#39;, &#39;created_at&#39;, &#39;title&#39;, &#39;category&#39;, &#39;star_rating&#39;,)  # 특정 필드 지정</span>
-
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicBodySerializer</span>(serializers<span style=color:#f92672>.</span>Serializer):
-    singer <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>CharField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;가수명&#34;</span>)
-    title <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>CharField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;곡 제목&#34;</span>)
-    category <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>ChoiceField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;곡 범주&#34;</span>, choices<span style=color:#f92672>=</span>(<span style=color:#e6db74>&#39;KPOP&#39;</span>, <span style=color:#e6db74>&#39;POP&#39;</span>, <span style=color:#e6db74>&#39;CLASSIC&#39;</span>, <span style=color:#e6db74>&#39;ETC&#39;</span>))
-    star_rating <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>ChoiceField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;1~3 이내 지정 가능. 숫자가 클수록 좋아하는 곡&#34;</span>, choices<span style=color:#f92672>=</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>), required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
-
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicQuerySerializer</span>(serializers<span style=color:#f92672>.</span>Serializer):
-    title <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>CharField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;곡 제목으로 검색&#34;</span>, required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
-    star_rating <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>ChoiceField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;곡 선호도로 검색&#34;</span>, choices<span style=color:#f92672>=</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>), required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
-    singer <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>CharField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;가수명으로 검색&#34;</span>, required<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
-    category <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>ChoiceField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;카테고리로 검색&#34;</span>, choices<span style=color:#f92672>=</span>(<span style=color:#e6db74>&#39;KPOP&#39;</span>, <span style=color:#e6db74>&#39;POP&#39;</span>, <span style=color:#e6db74>&#39;CLASSIC&#39;</span>, <span style=color:#e6db74>&#39;ETC&#39;</span>), required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
-    created_at <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>DateTimeField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;입력한 날짜를 기준으로 그 이전에 추가된 곡들을 검색&#34;</span>, required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
-</code></pre></div><h3 id=33-class-views>3.3. class views</h3>
-<p><code>api/views.py</code></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> django.shortcuts <span style=color:#f92672>import</span> get_object_or_404
-
-<span style=color:#f92672>from</span> rest_framework <span style=color:#f92672>import</span> status
-<span style=color:#f92672>from</span> rest_framework.views <span style=color:#f92672>import</span> APIView
-<span style=color:#f92672>from</span> rest_framework.response <span style=color:#f92672>import</span> Response 
-<span style=color:#f92672>from</span> drf_yasg <span style=color:#f92672>import</span> openapi
-<span style=color:#f92672>from</span> drf_yasg.utils <span style=color:#f92672>import</span> swagger_auto_schema
-
-<span style=color:#f92672>from</span> .serializers <span style=color:#f92672>import</span> <span style=color:#f92672>*</span>
-
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicListView</span>(APIView):
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get</span>(self, request):
-        serializer <span style=color:#f92672>=</span> MusicSerializer(Musics<span style=color:#f92672>.</span>objects<span style=color:#f92672>.</span>all(), many<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
-
-        response <span style=color:#f92672>=</span> Response(data<span style=color:#f92672>=</span>serializer<span style=color:#f92672>.</span>data)
-        <span style=color:#66d9ef>return</span> response
-
-    <span style=color:#a6e22e>@swagger_auto_schema</span>(request_body<span style=color:#f92672>=</span>MusicBodySerializer)  <span style=color:#75715e># Request Serializer 지정</span>
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>post</span>(self, request):
-        <span style=color:#75715e># 중복 검사 없이 추가</span>
-        <span style=color:#75715e># serializer = MusicSerializer(data=request.data)</span>
-        
-        <span style=color:#75715e># if not serializer.is_valid(raise_exception=False):</span>
-        <span style=color:#75715e>#     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  </span>
-
-        <span style=color:#75715e># serializer.save()</span>
-        <span style=color:#75715e># response = Response(data=serializer.validated_data, status=status.HTTP_201_CREATED)</span>
-        <span style=color:#75715e># return response</span>
-        
-        <span style=color:#75715e># 중복 검사 후 추가</span>
-        musics <span style=color:#f92672>=</span> Musics<span style=color:#f92672>.</span>objects<span style=color:#f92672>.</span>filter(<span style=color:#f92672>**</span>request<span style=color:#f92672>.</span>data)
-        <span style=color:#66d9ef>if</span> musics<span style=color:#f92672>.</span>exists():
-            <span style=color:#66d9ef>return</span> Response(status<span style=color:#f92672>=</span>status<span style=color:#f92672>.</span>HTTP_406_NOT_ACCEPTABLE)
-
-        serializer <span style=color:#f92672>=</span> MusicSerializer(data<span style=color:#f92672>=</span>request<span style=color:#f92672>.</span>data, partial<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
-        <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> serializer<span style=color:#f92672>.</span>is_valid():
-            <span style=color:#66d9ef>return</span> Response(status<span style=color:#f92672>=</span>status<span style=color:#f92672>.</span>HTTP_406_NOT_ACCEPTABLE)
-
-        music <span style=color:#f92672>=</span> serializer<span style=color:#f92672>.</span>save()
-
-        response <span style=color:#f92672>=</span> Response(data<span style=color:#f92672>=</span>MusicSerializer(music)<span style=color:#f92672>.</span>data, status<span style=color:#f92672>=</span>status<span style=color:#f92672>.</span>HTTP_201_CREATED)
-        <span style=color:#66d9ef>return</span> response
-
-
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>SearchMusicListView</span>(APIView):
-    <span style=color:#a6e22e>@swagger_auto_schema</span>(query_serializer<span style=color:#f92672>=</span>MusicQuerySerializer)
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get</span>(self, request):
-        <span style=color:#75715e># filter 조건문 생성</span>
-        conditions <span style=color:#f92672>=</span> {
-            <span style=color:#e6db74>&#39;title__contains&#39;</span>: request<span style=color:#f92672>.</span>GET<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;title&#39;</span>, <span style=color:#66d9ef>None</span>),
-            <span style=color:#e6db74>&#39;star_rating&#39;</span>: request<span style=color:#f92672>.</span>GET<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;star_rating&#39;</span>, <span style=color:#66d9ef>None</span>),
-            <span style=color:#e6db74>&#39;singer__contains&#39;</span>: request<span style=color:#f92672>.</span>GET<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;singer&#39;</span>, <span style=color:#66d9ef>None</span>),
-            <span style=color:#e6db74>&#39;category&#39;</span>: request<span style=color:#f92672>.</span>GET<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;category&#39;</span>, <span style=color:#66d9ef>None</span>),
-            <span style=color:#e6db74>&#39;created_at__lte&#39;</span>: request<span style=color:#f92672>.</span>GET<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;created_at&#39;</span>, <span style=color:#66d9ef>None</span>),
-        }
-        conditions <span style=color:#f92672>=</span> {
-            key: val <span style=color:#66d9ef>for</span> key, val <span style=color:#f92672>in</span> conditions<span style=color:#f92672>.</span>items() <span style=color:#66d9ef>if</span> val <span style=color:#f92672>is</span> <span style=color:#f92672>not</span> <span style=color:#66d9ef>None</span>
-        }
-
-        musics <span style=color:#f92672>=</span> Musics<span style=color:#f92672>.</span>objects<span style=color:#f92672>.</span>filter(<span style=color:#f92672>**</span>conditions)
-        serializer <span style=color:#f92672>=</span> MusicSerializer(musics, many<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
-        response <span style=color:#f92672>=</span> Response(data<span style=color:#f92672>=</span>serializer<span style=color:#f92672>.</span>data, status<span style=color:#f92672>=</span>status<span style=color:#f92672>.</span>HTTP_200_OK)
-        <span style=color:#66d9ef>return</span> response
-
-
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicView</span>(APIView): 
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_object</span>(self, pk):
-        <span style=color:#66d9ef>return</span> get_object_or_404(Musics, pk<span style=color:#f92672>=</span>pk)
-
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get</span>(self, request, pk):
-        serializer <span style=color:#f92672>=</span> MusicSerializer(Musics<span style=color:#f92672>.</span>objects<span style=color:#f92672>.</span>filter(id<span style=color:#f92672>=</span>pk), many<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
-
-        response <span style=color:#f92672>=</span> Response(data<span style=color:#f92672>=</span>serializer<span style=color:#f92672>.</span>data, status<span style=color:#f92672>=</span>status<span style=color:#f92672>.</span>HTTP_200_OK)
-        <span style=color:#66d9ef>return</span> response
-
-    <span style=color:#a6e22e>@swagger_auto_schema</span>(
-        request_body<span style=color:#f92672>=</span>MusicBodySerializer,  <span style=color:#75715e># Request Serializer 지정</span>
-        manual_parameters<span style=color:#f92672>=</span>[openapi<span style=color:#f92672>.</span>Parameter(
-            name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;header_test&#39;</span>,  <span style=color:#75715e># api 파라미터 이름</span>
-            in_<span style=color:#f92672>=</span>openapi<span style=color:#f92672>.</span>IN_HEADER,  <span style=color:#75715e># 파라미터 종류 (header = openapi.IN_HEADER)</span>
-            description<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;a header for test&#34;</span>,  <span style=color:#75715e># 파라미터 설명</span>
-            type<span style=color:#f92672>=</span>openapi<span style=color:#f92672>.</span>TYPE_STRING  <span style=color:#75715e># header 지정시 필수 선언</span>
-        )],
-    )
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>put</span>(self, request, pk):
-        object <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>get_object(pk<span style=color:#f92672>=</span>pk)
-        serializer <span style=color:#f92672>=</span> MusicSerializer(object, data<span style=color:#f92672>=</span>request<span style=color:#f92672>.</span>data)
-
-        <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> serializer<span style=color:#f92672>.</span>is_valid(raise_exception<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>):
-            <span style=color:#66d9ef>return</span> Response(serializer<span style=color:#f92672>.</span>errors, status<span style=color:#f92672>=</span>status<span style=color:#f92672>.</span>HTTP_400_BAD_REQUEST) 
-
-        serializer<span style=color:#f92672>.</span>save()
-        response <span style=color:#f92672>=</span> Response(data<span style=color:#f92672>=</span>serializer<span style=color:#f92672>.</span>validated_data, status<span style=color:#f92672>=</span>status<span style=color:#f92672>.</span>HTTP_200_OK)
-        <span style=color:#66d9ef>return</span> response
-
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>delete</span>(self, request, pk):
-        object <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>get_object(pk<span style=color:#f92672>=</span>pk)
-        object<span style=color:#f92672>.</span>delete()
-
-        response <span style=color:#f92672>=</span> Response(status<span style=color:#f92672>=</span>status<span style=color:#f92672>.</span>HTTP_204_NO_CONTENT)
-        <span style=color:#66d9ef>return</span> response
-</code></pre></div><h3 id=34-urls>3.4. urls</h3>
-<p>관리의 편의성을 위해 각 앱별로 urls.py 설정한다.
-앱 내부에서 urls 설정한 경우 프로젝트 urls 설정도 같이 해줘야 한다.</p>
-<p><code>api/urls.py</code></p>
-<pre tabindex=0><code>from django.urls import path 
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse lang-selector" id=top-nav-items><ul class="navbar-nav ml-auto"></ul></div></div></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=Search data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/posts data-filter=all>게시글</a></li><div class=subtree><li><i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a><ul><li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li><li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li></ul></li><li><a href=/posts/db/ title=db>db</a></li><li><a href=/posts/docker/ title=docker>docker</a></li><li><i class="fas fa-minus-circle"></i><a class=active href=/posts/framework/>framework</a><ul class=active><li><a class=active href=/posts/framework/django/ title=django>django</a></li></ul></li><li><i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a><ul><li><a href=/posts/os/linux/ title=linux>linux</a></li><li><a href=/posts/os/windows/ title=windows>windows</a></li></ul></li><li><i class="fas fa-plus-circle"></i><a href=/posts/programming/>programming</a><ul><li><a href=/posts/programming/golang/ title=golang>golang</a></li><li><a href=/posts/programming/python/ title=python>python</a></li></ul></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class=content><div class="container p-0 read-area"><div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)></div><div class=page-content><div class="author-profile ml-auto align-self-lg-center"><img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image"><h5 class=author-name>Sangjun</h5><p>September 24, 2021</p></div><div class=title><h1>Django drf_yasg Swagger 기본 사용법</h1></div><div class=post-content id=post-content><hr><p><code>drf_yasg</code> : REST 프레임워크용 swagger/openAPI 문서 자동화 라이브러리
+<code>swagger</code> : 개발자가 REST 웹 서비스를 설계, 빌드, 문서화, 테스트를 도와주는 오픈소스 소프트웨어 프레임워크</p><p>drf_yasg : 1.20.0 호환버전</p><ul><li>Django Rest Framework : 3.10, 3.11, 3.12</li><li>Django : 2.2, 3.0, 3.1</li><li>Python : 3.6, 3.7, 3.8, 3.9</li></ul><p>라이브러리 설치</p><pre tabindex=0><code>pip install -U drf-yasg
+</code></pre><hr><h2 id=1-프로젝트-생성>1. 프로젝트 생성</h2><p>환경 : windwos 10</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 가상환경 생성 및 접속</span>
+</span></span><span style=display:flex><span>&gt; python -m venv venv
+</span></span><span style=display:flex><span>&gt; venv<span style=color:#ae81ff>\S</span>cripts<span style=color:#ae81ff>\a</span>ctivate
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 라이브러리 설치</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>(</span>venv<span style=color:#f92672>)</span>&gt; pip install django
+</span></span><span style=display:flex><span><span style=color:#f92672>(</span>venv<span style=color:#f92672>)</span>&gt; pip install djangorestframework
+</span></span><span style=display:flex><span><span style=color:#f92672>(</span>venv<span style=color:#f92672>)</span>&gt; pip install drf-yasg
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 프로젝트 및 앱 생성</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>(</span>venv<span style=color:#f92672>)</span>&gt; django-admin startproject config .
+</span></span><span style=display:flex><span><span style=color:#f92672>(</span>venv<span style=color:#f92672>)</span>&gt; django-admin startapp api
+</span></span></code></pre></div><hr><h2 id=2-django-설정>2. django 설정</h2><p><code>config/settings.py</code></p><p><code>staticfiles</code>앱은 swagger UI css/js 파일 배포용</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>INSTALLED_APPS <span style=color:#f92672>=</span> [
+</span></span><span style=display:flex><span>    <span style=color:#f92672>...</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;django.contrib.staticfiles&#39;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;drf_yasg&#39;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>...</span>
+</span></span><span style=display:flex><span>]
+</span></span></code></pre></div><p><code>config/urls.py</code></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>...</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> rest_framework.permissions <span style=color:#f92672>import</span> AllowAny 
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> drf_yasg.views <span style=color:#f92672>import</span> get_schema_view
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> drf_yasg <span style=color:#f92672>import</span> openapi
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> config <span style=color:#f92672>import</span> settings
+</span></span><span style=display:flex><span><span style=color:#f92672>...</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>schema_view <span style=color:#f92672>=</span> get_schema_view(
+</span></span><span style=display:flex><span>   openapi<span style=color:#f92672>.</span>Info(
+</span></span><span style=display:flex><span>      title<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Snippets API&#34;</span>,
+</span></span><span style=display:flex><span>      default_version<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;v1&#39;</span>,
+</span></span><span style=display:flex><span>      description<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Test description&#34;</span>,
+</span></span><span style=display:flex><span>      terms_of_service<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://www.google.com/policies/terms/&#34;</span>,
+</span></span><span style=display:flex><span>      contact<span style=color:#f92672>=</span>openapi<span style=color:#f92672>.</span>Contact(name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;tester&#34;</span>, email<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;test@test.com&#34;</span>),
+</span></span><span style=display:flex><span>      license<span style=color:#f92672>=</span>openapi<span style=color:#f92672>.</span>License(name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;BSD License&#34;</span>),
+</span></span><span style=display:flex><span>   ),
+</span></span><span style=display:flex><span>   public<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>,
+</span></span><span style=display:flex><span>   permission_classes<span style=color:#f92672>=</span>(AllowAny,),
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span><span style=color:#f92672>...</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># debug 모드일때 swagger api 실행</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> settings<span style=color:#f92672>.</span>DEBUG:
+</span></span><span style=display:flex><span>    urlpatterns <span style=color:#f92672>+=</span> [
+</span></span><span style=display:flex><span>        re_path(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;^swagger(?P&lt;format&gt;\.json|\.yaml)$&#39;</span>, schema_view<span style=color:#f92672>.</span>without_ui(cache_timeout<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>), name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;schema-json&#34;</span>),
+</span></span><span style=display:flex><span>        re_path(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;^swagger/$&#39;</span>, schema_view<span style=color:#f92672>.</span>with_ui(<span style=color:#e6db74>&#39;swagger&#39;</span>, cache_timeout<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>), name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;schema-swagger-ui&#39;</span>),
+</span></span><span style=display:flex><span>        re_path(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;^redoc/$&#39;</span>, schema_view<span style=color:#f92672>.</span>with_ui(<span style=color:#e6db74>&#39;redoc&#39;</span>, cache_timeout<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>), name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;schema-redoc&#39;</span>),
+</span></span><span style=display:flex><span>        <span style=color:#f92672>...</span>
+</span></span><span style=display:flex><span>    ]
+</span></span></code></pre></div><hr><h2 id=3-예시코드>3. 예시코드</h2><h3 id=31-models>3.1. models</h3><p><code>api/models.py</code></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>from</span> django.db <span style=color:#f92672>import</span> models
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Create your models here.</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Musics</span>(models<span style=color:#f92672>.</span>Model):
+</span></span><span style=display:flex><span>    ONE_STAR <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    TWO_STAR <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>    THREE_STAR <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span>    STARS <span style=color:#f92672>=</span> (
+</span></span><span style=display:flex><span>        (ONE_STAR, <span style=color:#e6db74>&#39;보통&#39;</span>),
+</span></span><span style=display:flex><span>        (TWO_STAR, <span style=color:#e6db74>&#39;좋음&#39;</span>),
+</span></span><span style=display:flex><span>        (THREE_STAR, <span style=color:#e6db74>&#39;매우 좋음&#39;</span>),
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    CATEGORY <span style=color:#f92672>=</span> (
+</span></span><span style=display:flex><span>        (<span style=color:#e6db74>&#39;KPOP&#39;</span>, <span style=color:#e6db74>&#39;케이팝&#39;</span>),
+</span></span><span style=display:flex><span>        (<span style=color:#e6db74>&#39;POP&#39;</span>, <span style=color:#e6db74>&#39;팝송&#39;</span>),
+</span></span><span style=display:flex><span>        (<span style=color:#e6db74>&#39;CLASSIC&#39;</span>, <span style=color:#e6db74>&#39;클래식&#39;</span>),
+</span></span><span style=display:flex><span>        (<span style=color:#e6db74>&#39;ETC&#39;</span>, <span style=color:#e6db74>&#39;기타 등등&#39;</span>),
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    id <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>BigAutoField(primary_key<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, verbose_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;music_id&#39;</span>)
+</span></span><span style=display:flex><span>    created_at <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>DateTimeField(auto_now_add<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, verbose_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;생성 날짜&#39;</span>)
+</span></span><span style=display:flex><span>    updated_at <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>DateTimeField(auto_now<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, verbose_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;수정 날짜&#39;</span>)
+</span></span><span style=display:flex><span>    deleted_at <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>DateTimeField(blank<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, null<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, verbose_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;삭제 날짜&#39;</span>)
+</span></span><span style=display:flex><span>    singer <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>CharField(null<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>, max_length<span style=color:#f92672>=</span><span style=color:#ae81ff>128</span>, verbose_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;가수명&#39;</span>)
+</span></span><span style=display:flex><span>    title <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>CharField(null<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>, max_length<span style=color:#f92672>=</span><span style=color:#ae81ff>128</span>, verbose_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;곡명&#39;</span>)
+</span></span><span style=display:flex><span>    category <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>CharField(blank<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, null<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, max_length<span style=color:#f92672>=</span><span style=color:#ae81ff>32</span>, choices<span style=color:#f92672>=</span>CATEGORY, verbose_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;범주&#39;</span>)
+</span></span><span style=display:flex><span>    star_rating <span style=color:#f92672>=</span> models<span style=color:#f92672>.</span>PositiveSmallIntegerField(blank<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, null<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>, choices<span style=color:#f92672>=</span>STARS, default<span style=color:#f92672>=</span>ONE_STAR, verbose_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;곡 선호도&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Meta</span>:
+</span></span><span style=display:flex><span>        <span style=color:#75715e># abstract = True  # sqlite3 사용 시 주석</span>
+</span></span><span style=display:flex><span>        managed <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
+</span></span><span style=display:flex><span>        db_table <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;musics&#39;</span>
+</span></span><span style=display:flex><span>        app_label <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;api&#39;</span>
+</span></span><span style=display:flex><span>        ordering <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#39;star_rating&#39;</span>, ]
+</span></span><span style=display:flex><span>        verbose_name_plural <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;음악&#39;</span>
+</span></span></code></pre></div><p>DB 마이그레이션</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>(</span>venv<span style=color:#f92672>)</span>&gt; py manage.py makemigrations
+</span></span><span style=display:flex><span><span style=color:#f92672>(</span>venv<span style=color:#f92672>)</span>&gt; py manage.py migrate
+</span></span></code></pre></div><p>생성된 <code>sqlite3</code> 파일을 확인할려면 아래 링크에서 프로그램을 다운받아 설치한다. 개인적으로 no installer(portable) 버전을 추천한다.</p><ul><li><a href=https://sqlitebrowser.org/dl/>DB Browser for SQLite</a></li></ul><p><code>db.sqlite3</code></p><p><img src="../images/django-swagger/django-swagger-1.png?raw=true" alt></p><p>musics 테이블 생성된 것을 확인할 수 있다.</p><h3 id=32-seializers>3.2. seializers</h3><p><code>api/serializers.py</code></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>from</span> rest_framework <span style=color:#f92672>import</span> serializers
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> .models <span style=color:#f92672>import</span> Musics
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicSerializer</span>(serializers<span style=color:#f92672>.</span>ModelSerializer):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>validate</span>(self, data: dict):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> data
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Meta</span>:
+</span></span><span style=display:flex><span>        model <span style=color:#f92672>=</span> Musics
+</span></span><span style=display:flex><span>        fields <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;__all__&#39;</span>  <span style=color:#75715e># 모든 필드 사용</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># fields = (&#39;id&#39;, &#39;created_at&#39;, &#39;title&#39;, &#39;category&#39;, &#39;star_rating&#39;,)  # 특정 필드 지정</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicBodySerializer</span>(serializers<span style=color:#f92672>.</span>Serializer):
+</span></span><span style=display:flex><span>    singer <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>CharField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;가수명&#34;</span>)
+</span></span><span style=display:flex><span>    title <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>CharField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;곡 제목&#34;</span>)
+</span></span><span style=display:flex><span>    category <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>ChoiceField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;곡 범주&#34;</span>, choices<span style=color:#f92672>=</span>(<span style=color:#e6db74>&#39;KPOP&#39;</span>, <span style=color:#e6db74>&#39;POP&#39;</span>, <span style=color:#e6db74>&#39;CLASSIC&#39;</span>, <span style=color:#e6db74>&#39;ETC&#39;</span>))
+</span></span><span style=display:flex><span>    star_rating <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>ChoiceField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;1~3 이내 지정 가능. 숫자가 클수록 좋아하는 곡&#34;</span>, choices<span style=color:#f92672>=</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>), required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicQuerySerializer</span>(serializers<span style=color:#f92672>.</span>Serializer):
+</span></span><span style=display:flex><span>    title <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>CharField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;곡 제목으로 검색&#34;</span>, required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
+</span></span><span style=display:flex><span>    star_rating <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>ChoiceField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;곡 선호도로 검색&#34;</span>, choices<span style=color:#f92672>=</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>), required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
+</span></span><span style=display:flex><span>    singer <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>CharField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;가수명으로 검색&#34;</span>, required<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+</span></span><span style=display:flex><span>    category <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>ChoiceField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;카테고리로 검색&#34;</span>, choices<span style=color:#f92672>=</span>(<span style=color:#e6db74>&#39;KPOP&#39;</span>, <span style=color:#e6db74>&#39;POP&#39;</span>, <span style=color:#e6db74>&#39;CLASSIC&#39;</span>, <span style=color:#e6db74>&#39;ETC&#39;</span>), required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
+</span></span><span style=display:flex><span>    created_at <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>DateTimeField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;입력한 날짜를 기준으로 그 이전에 추가된 곡들을 검색&#34;</span>, required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
+</span></span></code></pre></div><h3 id=33-class-views>3.3. class views</h3><p><code>api/views.py</code></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>from</span> django.shortcuts <span style=color:#f92672>import</span> get_object_or_404
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> rest_framework <span style=color:#f92672>import</span> status
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> rest_framework.views <span style=color:#f92672>import</span> APIView
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> rest_framework.response <span style=color:#f92672>import</span> Response 
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> drf_yasg <span style=color:#f92672>import</span> openapi
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> drf_yasg.utils <span style=color:#f92672>import</span> swagger_auto_schema
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> .serializers <span style=color:#f92672>import</span> <span style=color:#f92672>*</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicListView</span>(APIView):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get</span>(self, request):
+</span></span><span style=display:flex><span>        serializer <span style=color:#f92672>=</span> MusicSerializer(Musics<span style=color:#f92672>.</span>objects<span style=color:#f92672>.</span>all(), many<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        response <span style=color:#f92672>=</span> Response(data<span style=color:#f92672>=</span>serializer<span style=color:#f92672>.</span>data)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> response
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@swagger_auto_schema</span>(request_body<span style=color:#f92672>=</span>MusicBodySerializer)  <span style=color:#75715e># Request Serializer 지정</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>post</span>(self, request):
+</span></span><span style=display:flex><span>        <span style=color:#75715e># 중복 검사 없이 추가</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># serializer = MusicSerializer(data=request.data)</span>
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#75715e># if not serializer.is_valid(raise_exception=False):</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>#     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  </span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># serializer.save()</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># response = Response(data=serializer.validated_data, status=status.HTTP_201_CREATED)</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># return response</span>
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#75715e># 중복 검사 후 추가</span>
+</span></span><span style=display:flex><span>        musics <span style=color:#f92672>=</span> Musics<span style=color:#f92672>.</span>objects<span style=color:#f92672>.</span>filter(<span style=color:#f92672>**</span>request<span style=color:#f92672>.</span>data)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> musics<span style=color:#f92672>.</span>exists():
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> Response(status<span style=color:#f92672>=</span>status<span style=color:#f92672>.</span>HTTP_406_NOT_ACCEPTABLE)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        serializer <span style=color:#f92672>=</span> MusicSerializer(data<span style=color:#f92672>=</span>request<span style=color:#f92672>.</span>data, partial<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> serializer<span style=color:#f92672>.</span>is_valid():
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> Response(status<span style=color:#f92672>=</span>status<span style=color:#f92672>.</span>HTTP_406_NOT_ACCEPTABLE)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        music <span style=color:#f92672>=</span> serializer<span style=color:#f92672>.</span>save()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        response <span style=color:#f92672>=</span> Response(data<span style=color:#f92672>=</span>MusicSerializer(music)<span style=color:#f92672>.</span>data, status<span style=color:#f92672>=</span>status<span style=color:#f92672>.</span>HTTP_201_CREATED)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> response
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>SearchMusicListView</span>(APIView):
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@swagger_auto_schema</span>(query_serializer<span style=color:#f92672>=</span>MusicQuerySerializer)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get</span>(self, request):
+</span></span><span style=display:flex><span>        <span style=color:#75715e># filter 조건문 생성</span>
+</span></span><span style=display:flex><span>        conditions <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#39;title__contains&#39;</span>: request<span style=color:#f92672>.</span>GET<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;title&#39;</span>, <span style=color:#66d9ef>None</span>),
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#39;star_rating&#39;</span>: request<span style=color:#f92672>.</span>GET<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;star_rating&#39;</span>, <span style=color:#66d9ef>None</span>),
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#39;singer__contains&#39;</span>: request<span style=color:#f92672>.</span>GET<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;singer&#39;</span>, <span style=color:#66d9ef>None</span>),
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#39;category&#39;</span>: request<span style=color:#f92672>.</span>GET<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;category&#39;</span>, <span style=color:#66d9ef>None</span>),
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#39;created_at__lte&#39;</span>: request<span style=color:#f92672>.</span>GET<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;created_at&#39;</span>, <span style=color:#66d9ef>None</span>),
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        conditions <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>            key: val <span style=color:#66d9ef>for</span> key, val <span style=color:#f92672>in</span> conditions<span style=color:#f92672>.</span>items() <span style=color:#66d9ef>if</span> val <span style=color:#f92672>is</span> <span style=color:#f92672>not</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        musics <span style=color:#f92672>=</span> Musics<span style=color:#f92672>.</span>objects<span style=color:#f92672>.</span>filter(<span style=color:#f92672>**</span>conditions)
+</span></span><span style=display:flex><span>        serializer <span style=color:#f92672>=</span> MusicSerializer(musics, many<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+</span></span><span style=display:flex><span>        response <span style=color:#f92672>=</span> Response(data<span style=color:#f92672>=</span>serializer<span style=color:#f92672>.</span>data, status<span style=color:#f92672>=</span>status<span style=color:#f92672>.</span>HTTP_200_OK)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> response
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicView</span>(APIView): 
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_object</span>(self, pk):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> get_object_or_404(Musics, pk<span style=color:#f92672>=</span>pk)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get</span>(self, request, pk):
+</span></span><span style=display:flex><span>        serializer <span style=color:#f92672>=</span> MusicSerializer(Musics<span style=color:#f92672>.</span>objects<span style=color:#f92672>.</span>filter(id<span style=color:#f92672>=</span>pk), many<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        response <span style=color:#f92672>=</span> Response(data<span style=color:#f92672>=</span>serializer<span style=color:#f92672>.</span>data, status<span style=color:#f92672>=</span>status<span style=color:#f92672>.</span>HTTP_200_OK)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> response
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@swagger_auto_schema</span>(
+</span></span><span style=display:flex><span>        request_body<span style=color:#f92672>=</span>MusicBodySerializer,  <span style=color:#75715e># Request Serializer 지정</span>
+</span></span><span style=display:flex><span>        manual_parameters<span style=color:#f92672>=</span>[openapi<span style=color:#f92672>.</span>Parameter(
+</span></span><span style=display:flex><span>            name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;header_test&#39;</span>,  <span style=color:#75715e># api 파라미터 이름</span>
+</span></span><span style=display:flex><span>            in_<span style=color:#f92672>=</span>openapi<span style=color:#f92672>.</span>IN_HEADER,  <span style=color:#75715e># 파라미터 종류 (header = openapi.IN_HEADER)</span>
+</span></span><span style=display:flex><span>            description<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;a header for test&#34;</span>,  <span style=color:#75715e># 파라미터 설명</span>
+</span></span><span style=display:flex><span>            type<span style=color:#f92672>=</span>openapi<span style=color:#f92672>.</span>TYPE_STRING  <span style=color:#75715e># header 지정시 필수 선언</span>
+</span></span><span style=display:flex><span>        )],
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>put</span>(self, request, pk):
+</span></span><span style=display:flex><span>        object <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>get_object(pk<span style=color:#f92672>=</span>pk)
+</span></span><span style=display:flex><span>        serializer <span style=color:#f92672>=</span> MusicSerializer(object, data<span style=color:#f92672>=</span>request<span style=color:#f92672>.</span>data)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> serializer<span style=color:#f92672>.</span>is_valid(raise_exception<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>):
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> Response(serializer<span style=color:#f92672>.</span>errors, status<span style=color:#f92672>=</span>status<span style=color:#f92672>.</span>HTTP_400_BAD_REQUEST) 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        serializer<span style=color:#f92672>.</span>save()
+</span></span><span style=display:flex><span>        response <span style=color:#f92672>=</span> Response(data<span style=color:#f92672>=</span>serializer<span style=color:#f92672>.</span>validated_data, status<span style=color:#f92672>=</span>status<span style=color:#f92672>.</span>HTTP_200_OK)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> response
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>delete</span>(self, request, pk):
+</span></span><span style=display:flex><span>        object <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>get_object(pk<span style=color:#f92672>=</span>pk)
+</span></span><span style=display:flex><span>        object<span style=color:#f92672>.</span>delete()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        response <span style=color:#f92672>=</span> Response(status<span style=color:#f92672>=</span>status<span style=color:#f92672>.</span>HTTP_204_NO_CONTENT)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> response
+</span></span></code></pre></div><h3 id=34-urls>3.4. urls</h3><p>관리의 편의성을 위해 각 앱별로 urls.py 설정한다.
+앱 내부에서 urls 설정한 경우 프로젝트 urls 설정도 같이 해줘야 한다.</p><p><code>api/urls.py</code></p><pre tabindex=0><code>from django.urls import path 
 from .views import MusicListView, SearchMusicListView, MusicView, PlayListView, SearchPlayListView
 
 urlpatterns = [ 
-    path(&quot;music/&quot;, MusicListView.as_view(), name=&quot;musics&quot;),
-    path(&quot;music/search/&quot;, SearchMusicListView.as_view(), name=&quot;music_search&quot;),
-    path(&quot;music/&lt;int:pk&gt;/&quot;, MusicView.as_view(), name=&quot;music&quot;),
+    path(&#34;music/&#34;, MusicListView.as_view(), name=&#34;musics&#34;),
+    path(&#34;music/search/&#34;, SearchMusicListView.as_view(), name=&#34;music_search&#34;),
+    path(&#34;music/&lt;int:pk&gt;/&#34;, MusicView.as_view(), name=&#34;music&#34;),
 ]
-</code></pre><p><code>config/urls.py</code></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>...</span>
-urlpatterns <span style=color:#f92672>=</span> [
-    <span style=color:#f92672>...</span>
-    path(<span style=color:#e6db74>&#34;api/&#34;</span>, include(<span style=color:#e6db74>&#34;api.urls&#34;</span>)),
-]
-<span style=color:#f92672>...</span>
-</code></pre></div><p>swagger 실행후 웹브라우저에서 <code>localhost:8000/swagger/</code> 주소로 접속한다.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#f92672>(</span>venv<span style=color:#f92672>)</span>&gt; py manage.py runserver
-</code></pre></div><p><img src="../images/django-swagger/django-swagger-2.png?raw=true" alt></p>
-<p>각 url class view에서 지정한 메서드들이 표시된다.</p>
-<hr>
-<h2 id=4-swagger-api-request-지정>4. Swagger API request 지정</h2>
-<p>swagger api 메소드에서 특정 입력값을 받기 위해서는 <code>@swagger_auto_schema</code> 데코레이터를 지정해야한다.</p>
-<h3 id=41-query_serializer>4.1. query_serializer</h3>
-<ul>
-<li>query string 지정</li>
-<li>GET, DELETE Method 용도</li>
-<li>메소드 입력값을 <code>request.query_params</code>, <code>request.GET</code>로 받는다.</li>
-<li>request 데이터를 변경하거나 추가할 경우 <code>copy()</code> 함수로 복사해서 사용해야 한다.</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># api/views.py 코드</span>
-<span style=color:#a6e22e>@swagger_auto_schema</span>(query_serializer<span style=color:#f92672>=</span>MusicQuerySerializer)
-<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get</span>(self, request):
-    data <span style=color:#f92672>=</span> request<span style=color:#f92672>.</span>query_params<span style=color:#f92672>.</span>copy()
-    <span style=color:#f92672>...</span>
-</code></pre></div><ul>
-<li><code>Serializer</code>는 변수 선언을 통해서 다양한 타입의 변수를 선언할 수 있다.</li>
-<li>required 설정을 통해 필수입력, 선택입력을 지정한다.(기본값 True)</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># api/serializers.py 코드</span>
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicQuerySerializer</span>(serializers<span style=color:#f92672>.</span>Serializer):
-    title <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>CharField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;곡 제목으로 검색&#34;</span>, required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
-    star_rating <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>ChoiceField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;곡 선호도로 검색&#34;</span>, choices<span style=color:#f92672>=</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>), required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
-    singer <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>CharField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;가수명으로 검색&#34;</span>, required<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
-    category <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>ChoiceField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;카테고리로 검색&#34;</span>, choices<span style=color:#f92672>=</span>(<span style=color:#e6db74>&#39;KPOP&#39;</span>, <span style=color:#e6db74>&#39;POP&#39;</span>, <span style=color:#e6db74>&#39;CLASSIC&#39;</span>, <span style=color:#e6db74>&#39;ETC&#39;</span>), required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
-    created_at <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>DateTimeField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;입력한 날짜를 기준으로 그 이전에 추가된 곡들을 검색&#34;</span>, required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
-</code></pre></div><ul>
-<li>swagger GET 메소드 예시</li>
-</ul>
-<p><img src="../images/django-swagger/django-swagger-3.png?raw=true" alt></p>
-<h3 id=42-request_body>4.2. request_body</h3>
-<ul>
-<li>body 지정</li>
-<li>POST, PUT Method 용도</li>
-<li>메소드 입력값을 <code>request.data</code>, <code>request.POST</code>로 받는다.</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># api/views.py 코드</span>
-<span style=color:#a6e22e>@swagger_auto_schema</span>(request_body<span style=color:#f92672>=</span>MusicBodySerializer)
-<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>post</span>(self, request):
-    data <span style=color:#f92672>=</span> request<span style=color:#f92672>.</span>data<span style=color:#f92672>.</span>copy()
-    <span style=color:#f92672>...</span>
-</code></pre></div><ul>
-<li><code>ModelSerializer</code>는 models.py 에서 지정한 모델의 column을 그대로 사용할 수 있다.</li>
-<li>Meta 클래스의 <code>fields</code> 설정에 따라 모든 column을 사용하거나 특정 column만 사용할 수 있다.</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># api/serializers.py 코드</span>
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicSerializer</span>(serializers<span style=color:#f92672>.</span>ModelSerializer):
-    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Meta</span>:
-        model <span style=color:#f92672>=</span> Musics
-        fields <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;__all__&#39;</span>  <span style=color:#75715e># 모든 필드 사용</span>
-</code></pre></div><ul>
-<li>Model 기본키인 id는 id serializer 변수를 직접 지정해야만 사용 가능하다.</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># api/serializers.py 코드</span>
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicSerializer</span>(serializers<span style=color:#f92672>.</span>ModelSerializer):
-    id <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>IntegerField(min_value<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>, help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;ID&#34;</span>)
-
-    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Meta</span>:
-        model <span style=color:#f92672>=</span> Musics
-        fields <span style=color:#f92672>=</span> (<span style=color:#e6db74>&#39;id&#39;</span>, <span style=color:#e6db74>&#39;created_at&#39;</span>, <span style=color:#e6db74>&#39;title&#39;</span>, <span style=color:#e6db74>&#39;category&#39;</span>, <span style=color:#e6db74>&#39;star_rating&#39;</span>,)  <span style=color:#75715e># 응답 필드 지정</span>
-</code></pre></div><ul>
-<li>swagger POST 메소드 예시</li>
-</ul>
-<p><img src="../images/django-swagger/django-swagger-4.png?raw=true" alt></p>
-<h3 id=43-path-value>4.3. path value</h3>
-<ul>
-<li>path value 지정</li>
-<li>모든 메소드에서 사용가능하다.</li>
-<li>urls에서 지정한 변수명으로 입력값을 받는다.</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># api/urls.py</span>
-urlpatterns <span style=color:#f92672>=</span> [ 
-    <span style=color:#f92672>...</span>
-    path(<span style=color:#e6db74>&#34;music/&lt;int:pk&gt;/&#34;</span>, MusicView<span style=color:#f92672>.</span>as_view(), name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;music&#34;</span>),
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicView</span>(APIView): 
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>delete</span>(self, request, pk):
-        <span style=color:#f92672>...</span>
-</code></pre></div><ul>
-<li>swagger DELETE 메소드 예시</li>
-</ul>
-<p><img src="../images/django-swagger/django-swagger-5.png?raw=true" alt></p>
-<hr>
-<h2 id=5-swagger-api-response-지정>5. Swagger API response 지정</h2>
-<p>swagger api 메소드에서 특정 입력값 및 반환형식 지정은 <code>@swagger_auto_schema</code> 데코레이터를 사용한다.</p>
-<h3 id=51-responses>5.1. responses</h3>
-<ul>
-<li><code>swagger</code> 에서 자동으로 HTTP 응답코드에 따른 response 형식을 생성한다.</li>
-<li>하지만 상황에 따라 데이터 처리에 사용한 시리얼라이저와 반환값의 형식이 맞지 않는 경우가 생긴다.</li>
-<li>이럴때 해당 클래스 메서드에 <code>responses</code> 를 지정하여 HTTP 응답코드에 따른 response 형식을 직접 지정 할 수 있다.</li>
-</ul>
-<pre tabindex=0><code>from drf_yasg import openapi
+</code></pre><p><code>config/urls.py</code></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>...</span>
+</span></span><span style=display:flex><span>urlpatterns <span style=color:#f92672>=</span> [
+</span></span><span style=display:flex><span>    <span style=color:#f92672>...</span>
+</span></span><span style=display:flex><span>    path(<span style=color:#e6db74>&#34;api/&#34;</span>, include(<span style=color:#e6db74>&#34;api.urls&#34;</span>)),
+</span></span><span style=display:flex><span>]
+</span></span><span style=display:flex><span><span style=color:#f92672>...</span>
+</span></span></code></pre></div><p>swagger 실행후 웹브라우저에서 <code>localhost:8000/swagger/</code> 주소로 접속한다.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>(</span>venv<span style=color:#f92672>)</span>&gt; py manage.py runserver
+</span></span></code></pre></div><p><img src="../images/django-swagger/django-swagger-2.png?raw=true" alt></p><p>각 url class view에서 지정한 메서드들이 표시된다.</p><hr><h2 id=4-swagger-api-request-지정>4. Swagger API request 지정</h2><p>swagger api 메소드에서 특정 입력값을 받기 위해서는 <code>@swagger_auto_schema</code> 데코레이터를 지정해야한다.</p><h3 id=41-query_serializer>4.1. query_serializer</h3><ul><li>query string 지정</li><li>GET, DELETE Method 용도</li><li>메소드 입력값을 <code>request.query_params</code>, <code>request.GET</code>로 받는다.</li><li>request 데이터를 변경하거나 추가할 경우 <code>copy()</code> 함수로 복사해서 사용해야 한다.</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># api/views.py 코드</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@swagger_auto_schema</span>(query_serializer<span style=color:#f92672>=</span>MusicQuerySerializer)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get</span>(self, request):
+</span></span><span style=display:flex><span>    data <span style=color:#f92672>=</span> request<span style=color:#f92672>.</span>query_params<span style=color:#f92672>.</span>copy()
+</span></span><span style=display:flex><span>    <span style=color:#f92672>...</span>
+</span></span></code></pre></div><ul><li><code>Serializer</code>는 변수 선언을 통해서 다양한 타입의 변수를 선언할 수 있다.</li><li>required 설정을 통해 필수입력, 선택입력을 지정한다.(기본값 True)</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># api/serializers.py 코드</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicQuerySerializer</span>(serializers<span style=color:#f92672>.</span>Serializer):
+</span></span><span style=display:flex><span>    title <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>CharField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;곡 제목으로 검색&#34;</span>, required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
+</span></span><span style=display:flex><span>    star_rating <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>ChoiceField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;곡 선호도로 검색&#34;</span>, choices<span style=color:#f92672>=</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>), required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
+</span></span><span style=display:flex><span>    singer <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>CharField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;가수명으로 검색&#34;</span>, required<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+</span></span><span style=display:flex><span>    category <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>ChoiceField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;카테고리로 검색&#34;</span>, choices<span style=color:#f92672>=</span>(<span style=color:#e6db74>&#39;KPOP&#39;</span>, <span style=color:#e6db74>&#39;POP&#39;</span>, <span style=color:#e6db74>&#39;CLASSIC&#39;</span>, <span style=color:#e6db74>&#39;ETC&#39;</span>), required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
+</span></span><span style=display:flex><span>    created_at <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>DateTimeField(help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;입력한 날짜를 기준으로 그 이전에 추가된 곡들을 검색&#34;</span>, required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
+</span></span></code></pre></div><ul><li>swagger GET 메소드 예시</li></ul><p><img src="../images/django-swagger/django-swagger-3.png?raw=true" alt></p><h3 id=42-request_body>4.2. request_body</h3><ul><li>body 지정</li><li>POST, PUT Method 용도</li><li>메소드 입력값을 <code>request.data</code>, <code>request.POST</code>로 받는다.</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># api/views.py 코드</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@swagger_auto_schema</span>(request_body<span style=color:#f92672>=</span>MusicBodySerializer)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>post</span>(self, request):
+</span></span><span style=display:flex><span>    data <span style=color:#f92672>=</span> request<span style=color:#f92672>.</span>data<span style=color:#f92672>.</span>copy()
+</span></span><span style=display:flex><span>    <span style=color:#f92672>...</span>
+</span></span></code></pre></div><ul><li><code>ModelSerializer</code>는 models.py 에서 지정한 모델의 column을 그대로 사용할 수 있다.</li><li>Meta 클래스의 <code>fields</code> 설정에 따라 모든 column을 사용하거나 특정 column만 사용할 수 있다.</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># api/serializers.py 코드</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicSerializer</span>(serializers<span style=color:#f92672>.</span>ModelSerializer):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Meta</span>:
+</span></span><span style=display:flex><span>        model <span style=color:#f92672>=</span> Musics
+</span></span><span style=display:flex><span>        fields <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;__all__&#39;</span>  <span style=color:#75715e># 모든 필드 사용</span>
+</span></span></code></pre></div><ul><li>Model 기본키인 id는 id serializer 변수를 직접 지정해야만 사용 가능하다.</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># api/serializers.py 코드</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicSerializer</span>(serializers<span style=color:#f92672>.</span>ModelSerializer):
+</span></span><span style=display:flex><span>    id <span style=color:#f92672>=</span> serializers<span style=color:#f92672>.</span>IntegerField(min_value<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>, help_text<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;ID&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Meta</span>:
+</span></span><span style=display:flex><span>        model <span style=color:#f92672>=</span> Musics
+</span></span><span style=display:flex><span>        fields <span style=color:#f92672>=</span> (<span style=color:#e6db74>&#39;id&#39;</span>, <span style=color:#e6db74>&#39;created_at&#39;</span>, <span style=color:#e6db74>&#39;title&#39;</span>, <span style=color:#e6db74>&#39;category&#39;</span>, <span style=color:#e6db74>&#39;star_rating&#39;</span>,)  <span style=color:#75715e># 응답 필드 지정</span>
+</span></span></code></pre></div><ul><li>swagger POST 메소드 예시</li></ul><p><img src="../images/django-swagger/django-swagger-4.png?raw=true" alt></p><h3 id=43-path-value>4.3. path value</h3><ul><li>path value 지정</li><li>모든 메소드에서 사용가능하다.</li><li>urls에서 지정한 변수명으로 입력값을 받는다.</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># api/urls.py</span>
+</span></span><span style=display:flex><span>urlpatterns <span style=color:#f92672>=</span> [ 
+</span></span><span style=display:flex><span>    <span style=color:#f92672>...</span>
+</span></span><span style=display:flex><span>    path(<span style=color:#e6db74>&#34;music/&lt;int:pk&gt;/&#34;</span>, MusicView<span style=color:#f92672>.</span>as_view(), name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;music&#34;</span>),
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MusicView</span>(APIView): 
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>delete</span>(self, request, pk):
+</span></span><span style=display:flex><span>        <span style=color:#f92672>...</span>
+</span></span></code></pre></div><ul><li>swagger DELETE 메소드 예시</li></ul><p><img src="../images/django-swagger/django-swagger-5.png?raw=true" alt></p><hr><h2 id=5-swagger-api-response-지정>5. Swagger API response 지정</h2><p>swagger api 메소드에서 특정 입력값 및 반환형식 지정은 <code>@swagger_auto_schema</code> 데코레이터를 사용한다.</p><h3 id=51-responses>5.1. responses</h3><ul><li><code>swagger</code> 에서 자동으로 HTTP 응답코드에 따른 response 형식을 생성한다.</li><li>하지만 상황에 따라 데이터 처리에 사용한 시리얼라이저와 반환값의 형식이 맞지 않는 경우가 생긴다.</li><li>이럴때 해당 클래스 메서드에 <code>responses</code> 를 지정하여 HTTP 응답코드에 따른 response 형식을 직접 지정 할 수 있다.</li></ul><pre tabindex=0><code>from drf_yasg import openapi
 ...
 
-music_list_response = openapi.Response('', MusicSerializer(many=True))
+music_list_response = openapi.Response(&#39;&#39;, MusicSerializer(many=True))
 
 class MusicListView(APIView):
     @swagger_auto_schema(responses={200: music_list_response})
@@ -477,129 +283,10 @@ class MusicListView(APIView):
         response = Response(data=serializer.data)
         return response
     ...
-</code></pre><p>responses 적용 전</p>
-<p><img src="../images/django-swagger/django-swagger-6.png?raw=true" alt></p>
-<p>responses 적용 후</p>
-<p><img src="../images/django-swagger/django-swagger-7.png?raw=true" alt></p>
-<p>지정한 MusicSerializer 형식의 list 형태로 <code>Swagger Response</code> 형식이 지정된다.</p>
-<p>TIP</p>
-<blockquote>
-<p><code>Swagger Serializer</code>와 <code>데이터 처리 Serializer</code>를 구분하여 작성하는것이 나중에 유지관리를 위해서 편리하다.</p>
-</blockquote>
-<h2 id=6-예시-코드-git>6. 예시 코드 Git</h2>
-<ul>
-<li><a href=https://github.com/SangjunCha-dev/django_swagger>django-swagger</a></li>
-</ul>
-<hr>
-<h2 id=참고reference>참고(Reference)</h2>
-<ul>
-<li><a href=https://drf-yasg.readthedocs.io/en/stable/readme.html>drf-yasg - Yet another Swagger generator</a></li>
-<li><a href=https://drf-yasg-demo.herokuapp.com/cached/swagger/>drf-yasg-demo</a></li>
-<li><a href=https://velog.io/@lu_at_log/drf-yasg-and-swagger>drf-yasg를 이용한 Swagger 문서 자동화</a></li>
-</ul>
-</div>
-<div class="row pl-3 pr-3">
-<div class="col-md-6 share-buttons">
-</div>
-<div class="col-md-6 btn-improve-page">
-<a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/framework/django/2021-09-24-Django-swagger.md title="이 페이지를 개선" target=_blank rel=noopener>
-<i class="fas fa-code-branch"></i>
-이 페이지를 개선
-</a>
-</div>
-</div>
-<hr>
-<div class="row next-prev-navigator">
-</div>
-<hr>
-</div>
-</div>
-</div>
-<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
-</section>
-<section class=toc-section id=toc-section>
-<div class=toc-holder>
-<h5 class="text-center pl-3">목차</h5>
-<hr>
-<div class=toc>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#1-프로젝트-생성>1. 프로젝트 생성</a></li>
-<li><a href=#2-django-설정>2. django 설정</a></li>
-<li><a href=#3-예시코드>3. 예시코드</a>
-<ul>
-<li><a href=#31-models>3.1. models</a></li>
-<li><a href=#32-seializers>3.2. seializers</a></li>
-<li><a href=#33-class-views>3.3. class views</a></li>
-<li><a href=#34-urls>3.4. urls</a></li>
-</ul>
-</li>
-<li><a href=#4-swagger-api-request-지정>4. Swagger API request 지정</a>
-<ul>
-<li><a href=#41-query_serializer>4.1. query_serializer</a></li>
-<li><a href=#42-request_body>4.2. request_body</a></li>
-<li><a href=#43-path-value>4.3. path value</a></li>
-</ul>
-</li>
-<li><a href=#5-swagger-api-response-지정>5. Swagger API response 지정</a>
-<ul>
-<li><a href=#51-responses>5.1. responses</a></li>
-</ul>
-</li>
-<li><a href=#6-예시-코드-git>6. 예시 코드 Git</a></li>
-<li><a href=#참고reference>참고(Reference)</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</section>
-</div>
-<footer class="container-fluid text-center align-content-center footer pb-2">
-<div class="container pt-5">
-<div class="row text-left">
-<div class="col-md-4 col-sm-12">
-<h5>바로가기</h5>
-<ul>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a>
-</li>
-</ul>
-</div>
-<div class="col-md-4 col-sm-12">
-<h5>Contact me:</h5>
-<ul>
-<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
-<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
-</a></li>
-</ul>
-</div>
-</div>
-</div>
-<hr>
-<div class=container>
-<div class="row text-left">
-<div class=col-md-4>
-<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
-<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
-Toha
-</a>
-</div>
-<div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div>
-<div class="col-md-4 text-right">
-<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
-<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
-</a>
-</div>
-</div>
-</div>
-</footer>
-<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+</code></pre><p>responses 적용 전</p><p><img src="../images/django-swagger/django-swagger-6.png?raw=true" alt></p><p>responses 적용 후</p><p><img src="../images/django-swagger/django-swagger-7.png?raw=true" alt></p><p>지정한 MusicSerializer 형식의 list 형태로 <code>Swagger Response</code> 형식이 지정된다.</p><p>TIP</p><blockquote><p><code>Swagger Serializer</code>와 <code>데이터 처리 Serializer</code>를 구분하여 작성하는것이 나중에 유지관리를 위해서 편리하다.</p></blockquote><h2 id=6-예시-코드-git>6. 예시 코드 Git</h2><ul><li><a href=https://github.com/SangjunCha-dev/django_swagger>django-swagger</a></li></ul><hr><h2 id=참고reference>참고(Reference)</h2><ul><li><a href=https://drf-yasg.readthedocs.io/en/stable/readme.html>drf-yasg - Yet another Swagger generator</a></li><li><a href=https://drf-yasg-demo.herokuapp.com/cached/swagger/>drf-yasg-demo</a></li><li><a href=https://velog.io/@lu_at_log/drf-yasg-and-swagger>drf-yasg를 이용한 Swagger 문서 자동화</a></li></ul></div><div class="row pl-3 pr-3"><div class="col-md-6 share-buttons"></div><div class="col-md-6 btn-improve-page"><a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/framework/django/2021-09-24-Django-swagger.md title="이 페이지를 개선" target=_blank rel=noopener><i class="fas fa-code-branch"></i>
+이 페이지를 개선</a></div></div><hr><div class="row next-prev-navigator"></div><hr></div></div></div><a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a></section><section class=toc-section id=toc-section><div class=toc-holder><h5 class="text-center pl-3">목차</h5><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#1-프로젝트-생성>1. 프로젝트 생성</a></li><li><a href=#2-django-설정>2. django 설정</a></li><li><a href=#3-예시코드>3. 예시코드</a><ul><li><a href=#31-models>3.1. models</a></li><li><a href=#32-seializers>3.2. seializers</a></li><li><a href=#33-class-views>3.3. class views</a></li><li><a href=#34-urls>3.4. urls</a></li></ul></li><li><a href=#4-swagger-api-request-지정>4. Swagger API request 지정</a><ul><li><a href=#41-query_serializer>4.1. query_serializer</a></li><li><a href=#42-request_body>4.2. request_body</a></li><li><a href=#43-path-value>4.3. path value</a></li></ul></li><li><a href=#5-swagger-api-response-지정>5. Swagger API response 지정</a><ul><li><a href=#51-responses>5.1. responses</a></li></ul></li><li><a href=#6-예시-코드-git>6. 예시 코드 Git</a></li><li><a href=#참고reference>참고(Reference)</a></li></ul></nav></div></div></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>바로가기</h5><ul><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>Contact me:</h5><ul><li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-left"><div class=col-md-4><a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener><img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha</a></div><div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div><div class="col-md-4 text-right"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
 <script type=text/javascript src=/js/popper.min.js></script>
 <script type=text/javascript src=/js/bootstrap.min.js></script>
 <script type=text/javascript src=/js/navbar.js></script>
@@ -607,6 +294,4 @@ Toha
 <script type=text/javascript src=/js/main.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
 <script src=/js/single.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script></body></html>

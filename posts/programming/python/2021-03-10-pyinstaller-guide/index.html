@@ -1,337 +1,42 @@
-<!doctype html><html>
-<head>
-<title>pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="ie=edge">
-<link rel=stylesheet href=/css/bootstrap.min.css>
-<link rel=stylesheet href=/css/layouts/main.css>
-<link rel=stylesheet href=/css/navigators/navbar.css>
-<link rel=stylesheet href=/css/plyr.css>
-<link rel=stylesheet href=/css/flag-icon.min.css>
-<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
-<meta property="og:title" content="pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)">
-<meta property="og:description" content="pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://sangjuncha-dev.github.io/posts/programming/python/2021-03-10-pyinstaller-guide/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-03-10T14:46:19+09:00">
-<meta property="article:modified_time" content="2021-03-10T14:46:19+09:00">
-<meta name=description content="pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)">
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
-<link rel=stylesheet href=/css/layouts/single.css>
-<link rel=stylesheet href=/css/navigators/sidebar.css>
-<link rel=stylesheet href=/css/style.css>
-</head>
-<body data-spy=scroll data-target=#TableOfContents data-offset=80>
-<div class="container-fluid bg-dimmed wrapper">
-<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
-<div class=container>
-<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
-<span class=navbar-toggler-icon></span>
-</button>
-<a class=navbar-brand href=/>
-Sangjun 개발 블로그</a>
+<!doctype html><html><head><title>pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/layouts/main.css><link rel=stylesheet href=/css/navigators/navbar.css><link rel=stylesheet href=/css/plyr.css><link rel=stylesheet href=/css/flag-icon.min.css><link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css><meta property="og:title" content="pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)"><meta property="og:description" content="pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)"><meta property="og:type" content="article"><meta property="og:url" content="https://sangjuncha-dev.github.io/posts/programming/python/2021-03-10-pyinstaller-guide/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-03-10T14:46:19+09:00"><meta property="article:modified_time" content="2021-03-10T14:46:19+09:00"><meta name=description content="pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css><link rel=stylesheet href=/css/layouts/single.css><link rel=stylesheet href=/css/navigators/sidebar.css><link rel=stylesheet href=/css/style.css></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span></button>
+<a class=navbar-brand href=/>Sangjun 개발 블로그</a>
 <button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
-<ul class="navbar-nav ml-auto">
-</ul>
-</div>
-</div>
-</nav>
-<section class=sidebar-section id=sidebar-section>
-<div class=sidebar-holder>
-<div class=sidebar id=sidebar>
-<form class=mx-auto method=get action=/search>
-<input type=text name=keyword placeholder=Search data-search id=search-box>
-</form>
-<div class=sidebar-tree>
-<ul class=tree id=tree>
-<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
-<div class=subtree>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
-<ul>
-<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
-<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
-</ul>
-</li>
-<li><a href=/posts/db/ title=db>db</a></li>
-<li><a href=/posts/docker/ title=docker>docker</a></li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
-<ul>
-<li><a href=/posts/framework/django/ title=django>django</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
-<ul>
-<li><a href=/posts/os/linux/ title=linux>linux</a></li>
-<li><a href=/posts/os/windows/ title=windows>windows</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a>
-<ul class=active>
-<li><a href=/posts/programming/golang/ title=golang>golang</a></li>
-<li><a class=active href=/posts/programming/python/ title=python>python</a></li>
-</ul>
-</li>
-</div>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class=content-section id=content-section>
-<div class=content>
-<div class="container p-0 read-area">
-<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)>
-</div>
-<div class=page-content>
-<div class="author-profile ml-auto align-self-lg-center">
-<img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image">
-<h5 class=author-name>Sangjun</h5>
-<p>March 10, 2021</p>
-</div>
-<div class=title>
-<h1>pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)</h1>
-</div>
-<div class=post-content id=post-content>
-<hr>
-<p>python 파일을 윈도우에서 python 이나 가상환경 설정없이 실행이 가능한 <code>.exe</code> 으로 변환해주는 라이브러리</p>
-<hr>
-<h2 id=1-설치>1. 설치</h2>
-<p>설치환경 : Windows 10</p>
-<p>python 실행이 가능한 가상환경 터미널에서 아래의 명령어 실행</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pip install pyinstaller
-</code></pre></div><hr>
-<h2 id=2-간단한-사용예제>2. 간단한 사용예제</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pyinstaller --clean --distpath . -F -n <span style=color:#f92672>[</span>프로그램이름<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>변환시킬 파일<span style=color:#f92672>]</span>.py
-</code></pre></div><hr>
-<h2 id=3-옵션>3. 옵션</h2>
-<table>
-<thead>
-<tr>
-<th>옵션</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><em>&ndash;clean</em></td>
-<td>빌드하기 전에 PyInstaller 캐시를 정리하고 임시파일 제거</td>
-</tr>
-<tr>
-<td><em>-F, &ndash;onefile</em></td>
-<td>단일 실행파일로 생성(실행시 사용한 라이브러리 임시파일 생성됨)</td>
-</tr>
-<tr>
-<td><em>-D, &ndash;onedir</em></td>
-<td>실행 파일을 포함하는 단일 폴더로 생성</td>
-</tr>
-<tr>
-<td><em>&ndash;distpath DIR</em></td>
-<td>실행파일 생성 경로(default: ./dist)</td>
-</tr>
-<tr>
-<td><em>-n</em></td>
-<td>실행파일 이름 지정</td>
-</tr>
-<tr>
-<td><em>-c, &ndash;console, &ndash;nowindowed</em></td>
-<td>console 모드</td>
-</tr>
-<tr>
-<td><em>-w, &ndash;windowed, &ndash;noconsole</em></td>
-<td>Not console 모드</td>
-</tr>
-<tr>
-<td><em>&ndash;hidden-import</em></td>
-<td>import 에러 발생한 라이브러리 명시적 포함옵션 이 옵션은 여러 번 사용가능</td>
-</tr>
-<tr>
-<td><em>-win-private-assemblies</em></td>
-<td>응용프로그램에 번들로 제공된 모든 공유 어셈블리가 개인 어셈블리로 변경 즉, 변환한 환경의 어셈블리 버전으로 항상 사용되며 사용자 시스템에 설치된 모든 최신 버전은 시스템 수준에서 무시됨</td>
-</tr>
-<tr>
-<td><em>-runtime-tmpdir PATH</em></td>
-<td>onefile 모드 에서 라이브러리 및 지원 파일이 압축 해제될 위치 .exe 실행시 생성되는 임시디렉토리 경로지정 (default : C:\Users{username}\AppData\Local\Temp)</td>
-</tr>
-<tr>
-<td><em>&ndash;icon=icon.ico</em></td>
-<td>실행파일에 포함될 아이콘 지정</td>
-</tr>
-<tr>
-<td><em>-p DIR, &ndash;paths DIR</em></td>
-<td>가져오기를 검색하는 경로 (예: PYTON PATH 사용) 경로가 여러 개 허용되거나 &lsquo;:&lsquo;로 구분되거나 이 옵션을 여러 번 사용할 수 있습니다. &ndash;paths .\venv\Lib\site-packages</td>
-</tr>
-<tr>
-<td>-workpath WORKPATH</td>
-<td>모든 임시 작업 파일, .log, .pyz 등을 저장할 위치 (기본값 : ./build)</td>
-</tr>
-</tbody>
-</table>
-<h3 id=31--줄넘김-옵션>3.1 ^ 줄넘김 옵션</h3>
-<p>옵션줄이 길어질경우 가독성을 위해 ^ 문자로 구분하여 명령 실행</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pyinstaller --clean ^
-	--distpath . ^
-	--onedir ^
-	-n <span style=color:#f92672>[</span>프로그램이름<span style=color:#f92672>]</span> ^
-	--win-private-assemblies ^
-	--runtime-tmpdir ./temp ^
-	--console ^
-	--icon<span style=color:#f92672>=</span>logo.ico ^
-	--key <span style=color:#f92672>[</span>바이트 AES블록암호화 키 16자리 문자열<span style=color:#f92672>]</span> ^
-	run.py
-</code></pre></div><h3 id=32-실행파일-바이트코드-블록-암호화>3.2 실행파일 바이트코드 블록 암호화</h3>
-<p>필요한 라이브러리 설치</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pip install tinyaes
-</code></pre></div><p>key : AES 블록암호화 키 문자열 16자리</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pyinstaller --clean ^
-	--onedir ^
-	-n <span style=color:#f92672>[</span>프로그램이름<span style=color:#f92672>]</span> ^
-	--win-private-assemblies ^
-	--key <span style=color:#f92672>[</span>암호화키 문자열 16자리<span style=color:#f92672>]</span> ^
-	run.py
-</code></pre></div><hr>
-<h2 id=4-참고사항>4. 참고사항</h2>
-<h3 id=41-python-코드가-아닌-외부-참조-파일사용시-별도로-추가필요>4.1 python 코드가 아닌 외부 참조 파일사용시 별도로 추가필요</h3>
-<p>예를 들어 ./config/config.json 파일이 있으면<br>
-.exe 생성후 같은 상대경로에 config.json 파일이 있어야 실행파일이 해당 외부참조 파일사용 가능함</p>
-<p>생성된 실행파일이 있는 디렉토리안에 config 디렉토리에서 사용하는 .json 파일 복사</p>
-<h3 id=42-별도의-외장-라이브러리-사용시-주의사항>4.2 별도의 외장 라이브러리 사용시 주의사항</h3>
-<p>문제점 : python 라이브러리에서 조건문을 통한 import 사용시 pyinstaller 에서 인식하지 못함
-해결방안 : 조건문 없이도 import 할 수 있도록 라이브러리 코드 수정해야함</p>
-<p>해결예시 : tensorpack 라이브러리 디렉토리안에 모든 <code>__init__.py</code> 파일에서 if STATICA_HACK 조건문을 통한 import 코드를 조건문 없이 import 하도록 코드 수정</p>
-<h3 id=43-tensorflow-사용시>4.3 tensorflow 사용시</h3>
-<p>문제점 : numpy import error 발생</p>
-<p>해결방안 : 별도로 numpy import 필요함</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>--hidden-import numpy.random.common ^
---hidden-import numpy.random.bounded_integers ^
---hidden-import numpy.random.entropy ^
-</code></pre></div><p>문제점 : tensorflow 1.15버전 이후부터 라이브러리 폴더명이 tensorflow-core 로 수정되어 인식하지 못함</p>
-<p>해결방안 : tensorflow 폴더를 인식할 수 있도록 수정한 hooks-contrib 버전 업데이트</p>
-<p><code>pip install "pyinstaller-hooks-contrib==2020.9"</code></p>
-<h3 id=44-아이콘-파일-옵션-적용시-참고사항>4.4 아이콘 파일 옵션 적용시 참고사항</h3>
-<p>문제점 : 아이콘 옵션 적용 후 아이콘이 변경되지 않을경우 windows 시스템 버퍼에 저장된 이미지가 적용되어 안바뀐것 처럼 보임</p>
-<p>해결방안 : 정상적으로 적용이 되었으나 버퍼상에 전 이미지가 남아있는것으로 다른 경로로 복사하여 아이콘 이미지 적용이 되었는지 확인</p>
-<h3 id=45-멀티프로세싱-사용시-주의사항>4.5 멀티프로세싱 사용시 주의사항</h3>
-<p>문제점 : windows10 환경에서 멀티프로세싱 기능을 사용할때 exe 프로세스마다 main함수가 실행이 됩니다.</p>
-<p>해결방안 : <code>freeze_support()</code> 함수 호출 후 main 함수를 호출하면 관련된 exe 프로세스에서 main함수는 1번만 실행됩니다.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> sys <span style=color:#f92672>import</span> platform
-<span style=color:#f92672>from</span> multiprocessing <span style=color:#f92672>import</span> freeze_support
-
-<span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
-    <span style=color:#66d9ef>if</span> platform<span style=color:#f92672>.</span>startswith(<span style=color:#e6db74>&#39;win&#39;</span>):
-        <span style=color:#75715e># 윈도우에서만 해당 코드 실행</span>
-        freeze_support()
-	main()
-</code></pre></div><hr>
-<h2 id=참고reference>참고(Reference)</h2>
-<ul>
-<li><a href=https://pyinstaller.readthedocs.io/en/stable/usage.html>Using PyInstaller Docs</a></li>
-</ul>
-</div>
-<div class="row pl-3 pr-3">
-<div class="col-md-6 share-buttons">
-</div>
-<div class="col-md-6 btn-improve-page">
-<a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/programming/python/2021-03-10-Pyinstaller-Guide.md title="이 페이지를 개선" target=_blank rel=noopener>
-<i class="fas fa-code-branch"></i>
-이 페이지를 개선
-</a>
-</div>
-</div>
-<hr>
-<div class="row next-prev-navigator">
-</div>
-<hr>
-</div>
-</div>
-</div>
-<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
-</section>
-<section class=toc-section id=toc-section>
-<div class=toc-holder>
-<h5 class="text-center pl-3">목차</h5>
-<hr>
-<div class=toc>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#1-설치>1. 설치</a></li>
-<li><a href=#2-간단한-사용예제>2. 간단한 사용예제</a></li>
-<li><a href=#3-옵션>3. 옵션</a>
-<ul>
-<li><a href=#31--줄넘김-옵션>3.1 ^ 줄넘김 옵션</a></li>
-<li><a href=#32-실행파일-바이트코드-블록-암호화>3.2 실행파일 바이트코드 블록 암호화</a></li>
-</ul>
-</li>
-<li><a href=#4-참고사항>4. 참고사항</a>
-<ul>
-<li><a href=#41-python-코드가-아닌-외부-참조-파일사용시-별도로-추가필요>4.1 python 코드가 아닌 외부 참조 파일사용시 별도로 추가필요</a></li>
-<li><a href=#42-별도의-외장-라이브러리-사용시-주의사항>4.2 별도의 외장 라이브러리 사용시 주의사항</a></li>
-<li><a href=#43-tensorflow-사용시>4.3 tensorflow 사용시</a></li>
-<li><a href=#44-아이콘-파일-옵션-적용시-참고사항>4.4 아이콘 파일 옵션 적용시 참고사항</a></li>
-<li><a href=#45-멀티프로세싱-사용시-주의사항>4.5 멀티프로세싱 사용시 주의사항</a></li>
-</ul>
-</li>
-<li><a href=#참고reference>참고(Reference)</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</section>
-</div>
-<footer class="container-fluid text-center align-content-center footer pb-2">
-<div class="container pt-5">
-<div class="row text-left">
-<div class="col-md-4 col-sm-12">
-<h5>바로가기</h5>
-<ul>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a>
-</li>
-</ul>
-</div>
-<div class="col-md-4 col-sm-12">
-<h5>Contact me:</h5>
-<ul>
-<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
-<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
-</a></li>
-</ul>
-</div>
-</div>
-</div>
-<hr>
-<div class=container>
-<div class="row text-left">
-<div class=col-md-4>
-<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
-<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
-Toha
-</a>
-</div>
-<div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div>
-<div class="col-md-4 text-right">
-<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
-<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
-</a>
-</div>
-</div>
-</div>
-</footer>
-<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse lang-selector" id=top-nav-items><ul class="navbar-nav ml-auto"></ul></div></div></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=Search data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/posts data-filter=all>게시글</a></li><div class=subtree><li><i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a><ul><li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li><li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li></ul></li><li><a href=/posts/db/ title=db>db</a></li><li><a href=/posts/docker/ title=docker>docker</a></li><li><i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a><ul><li><a href=/posts/framework/django/ title=django>django</a></li></ul></li><li><i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a><ul><li><a href=/posts/os/linux/ title=linux>linux</a></li><li><a href=/posts/os/windows/ title=windows>windows</a></li></ul></li><li><i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a><ul class=active><li><a href=/posts/programming/golang/ title=golang>golang</a></li><li><a class=active href=/posts/programming/python/ title=python>python</a></li></ul></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class=content><div class="container p-0 read-area"><div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)></div><div class=page-content><div class="author-profile ml-auto align-self-lg-center"><img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image"><h5 class=author-name>Sangjun</h5><p>March 10, 2021</p></div><div class=title><h1>pyinstaller 라이브러리 사용법 (Pyinstaller Library Guide)</h1></div><div class=post-content id=post-content><hr><p>python 파일을 윈도우에서 python 이나 가상환경 설정없이 실행이 가능한 <code>.exe</code> 으로 변환해주는 라이브러리</p><hr><h2 id=1-설치>1. 설치</h2><p>설치환경 : Windows 10</p><p>python 실행이 가능한 가상환경 터미널에서 아래의 명령어 실행</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>pip install pyinstaller
+</span></span></code></pre></div><hr><h2 id=2-간단한-사용예제>2. 간단한 사용예제</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>pyinstaller --clean --distpath . -F -n <span style=color:#f92672>[</span>프로그램이름<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>변환시킬 파일<span style=color:#f92672>]</span>.py
+</span></span></code></pre></div><hr><h2 id=3-옵션>3. 옵션</h2><table><thead><tr><th>옵션</th><th>설명</th></tr></thead><tbody><tr><td><em>&ndash;clean</em></td><td>빌드하기 전에 PyInstaller 캐시를 정리하고 임시파일 제거</td></tr><tr><td><em>-F, &ndash;onefile</em></td><td>단일 실행파일로 생성(실행시 사용한 라이브러리 임시파일 생성됨)</td></tr><tr><td><em>-D, &ndash;onedir</em></td><td>실행 파일을 포함하는 단일 폴더로 생성</td></tr><tr><td><em>&ndash;distpath DIR</em></td><td>실행파일 생성 경로(default: ./dist)</td></tr><tr><td><em>-n</em></td><td>실행파일 이름 지정</td></tr><tr><td><em>-c, &ndash;console, &ndash;nowindowed</em></td><td>console 모드</td></tr><tr><td><em>-w, &ndash;windowed, &ndash;noconsole</em></td><td>Not console 모드</td></tr><tr><td><em>&ndash;hidden-import</em></td><td>import 에러 발생한 라이브러리 명시적 포함옵션 이 옵션은 여러 번 사용가능</td></tr><tr><td><em>-win-private-assemblies</em></td><td>응용프로그램에 번들로 제공된 모든 공유 어셈블리가 개인 어셈블리로 변경 즉, 변환한 환경의 어셈블리 버전으로 항상 사용되며 사용자 시스템에 설치된 모든 최신 버전은 시스템 수준에서 무시됨</td></tr><tr><td><em>-runtime-tmpdir PATH</em></td><td>onefile 모드 에서 라이브러리 및 지원 파일이 압축 해제될 위치 .exe 실행시 생성되는 임시디렉토리 경로지정 (default : C:\Users{username}\AppData\Local\Temp)</td></tr><tr><td><em>&ndash;icon=icon.ico</em></td><td>실행파일에 포함될 아이콘 지정</td></tr><tr><td><em>-p DIR, &ndash;paths DIR</em></td><td>가져오기를 검색하는 경로 (예: PYTON PATH 사용) 경로가 여러 개 허용되거나 &lsquo;:&lsquo;로 구분되거나 이 옵션을 여러 번 사용할 수 있습니다. &ndash;paths .\venv\Lib\site-packages</td></tr><tr><td>-workpath WORKPATH</td><td>모든 임시 작업 파일, .log, .pyz 등을 저장할 위치 (기본값 : ./build)</td></tr></tbody></table><h3 id=31--줄넘김-옵션>3.1 ^ 줄넘김 옵션</h3><p>옵션줄이 길어질경우 가독성을 위해 ^ 문자로 구분하여 명령 실행</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>pyinstaller --clean ^
+</span></span><span style=display:flex><span>	--distpath . ^
+</span></span><span style=display:flex><span>	--onedir ^
+</span></span><span style=display:flex><span>	-n <span style=color:#f92672>[</span>프로그램이름<span style=color:#f92672>]</span> ^
+</span></span><span style=display:flex><span>	--win-private-assemblies ^
+</span></span><span style=display:flex><span>	--runtime-tmpdir ./temp ^
+</span></span><span style=display:flex><span>	--console ^
+</span></span><span style=display:flex><span>	--icon<span style=color:#f92672>=</span>logo.ico ^
+</span></span><span style=display:flex><span>	--key <span style=color:#f92672>[</span>바이트 AES블록암호화 키 16자리 문자열<span style=color:#f92672>]</span> ^
+</span></span><span style=display:flex><span>	run.py
+</span></span></code></pre></div><h3 id=32-실행파일-바이트코드-블록-암호화>3.2 실행파일 바이트코드 블록 암호화</h3><p>필요한 라이브러리 설치</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>pip install tinyaes
+</span></span></code></pre></div><p>key : AES 블록암호화 키 문자열 16자리</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>pyinstaller --clean ^
+</span></span><span style=display:flex><span>	--onedir ^
+</span></span><span style=display:flex><span>	-n <span style=color:#f92672>[</span>프로그램이름<span style=color:#f92672>]</span> ^
+</span></span><span style=display:flex><span>	--win-private-assemblies ^
+</span></span><span style=display:flex><span>	--key <span style=color:#f92672>[</span>암호화키 문자열 16자리<span style=color:#f92672>]</span> ^
+</span></span><span style=display:flex><span>	run.py
+</span></span></code></pre></div><hr><h2 id=4-참고사항>4. 참고사항</h2><h3 id=41-python-코드가-아닌-외부-참조-파일사용시-별도로-추가필요>4.1 python 코드가 아닌 외부 참조 파일사용시 별도로 추가필요</h3><p>예를 들어 ./config/config.json 파일이 있으면<br>.exe 생성후 같은 상대경로에 config.json 파일이 있어야 실행파일이 해당 외부참조 파일사용 가능함</p><p>생성된 실행파일이 있는 디렉토리안에 config 디렉토리에서 사용하는 .json 파일 복사</p><h3 id=42-별도의-외장-라이브러리-사용시-주의사항>4.2 별도의 외장 라이브러리 사용시 주의사항</h3><p>문제점 : python 라이브러리에서 조건문을 통한 import 사용시 pyinstaller 에서 인식하지 못함
+해결방안 : 조건문 없이도 import 할 수 있도록 라이브러리 코드 수정해야함</p><p>해결예시 : tensorpack 라이브러리 디렉토리안에 모든 <code>__init__.py</code> 파일에서 if STATICA_HACK 조건문을 통한 import 코드를 조건문 없이 import 하도록 코드 수정</p><h3 id=43-tensorflow-사용시>4.3 tensorflow 사용시</h3><p>문제점 : numpy import error 발생</p><p>해결방안 : 별도로 numpy import 필요함</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>--hidden-import numpy.random.common ^
+</span></span><span style=display:flex><span>--hidden-import numpy.random.bounded_integers ^
+</span></span><span style=display:flex><span>--hidden-import numpy.random.entropy ^
+</span></span></code></pre></div><p>문제점 : tensorflow 1.15버전 이후부터 라이브러리 폴더명이 tensorflow-core 로 수정되어 인식하지 못함</p><p>해결방안 : tensorflow 폴더를 인식할 수 있도록 수정한 hooks-contrib 버전 업데이트</p><p><code>pip install "pyinstaller-hooks-contrib==2020.9"</code></p><h3 id=44-아이콘-파일-옵션-적용시-참고사항>4.4 아이콘 파일 옵션 적용시 참고사항</h3><p>문제점 : 아이콘 옵션 적용 후 아이콘이 변경되지 않을경우 windows 시스템 버퍼에 저장된 이미지가 적용되어 안바뀐것 처럼 보임</p><p>해결방안 : 정상적으로 적용이 되었으나 버퍼상에 전 이미지가 남아있는것으로 다른 경로로 복사하여 아이콘 이미지 적용이 되었는지 확인</p><h3 id=45-멀티프로세싱-사용시-주의사항>4.5 멀티프로세싱 사용시 주의사항</h3><p>문제점 : windows10 환경에서 멀티프로세싱 기능을 사용할때 exe 프로세스마다 main함수가 실행이 됩니다.</p><p>해결방안 : <code>freeze_support()</code> 함수 호출 후 main 함수를 호출하면 관련된 exe 프로세스에서 main함수는 1번만 실행됩니다.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>from</span> sys <span style=color:#f92672>import</span> platform
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> multiprocessing <span style=color:#f92672>import</span> freeze_support
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> platform<span style=color:#f92672>.</span>startswith(<span style=color:#e6db74>&#39;win&#39;</span>):
+</span></span><span style=display:flex><span>        <span style=color:#75715e># 윈도우에서만 해당 코드 실행</span>
+</span></span><span style=display:flex><span>        freeze_support()
+</span></span><span style=display:flex><span>	main()
+</span></span></code></pre></div><hr><h2 id=참고reference>참고(Reference)</h2><ul><li><a href=https://pyinstaller.readthedocs.io/en/stable/usage.html>Using PyInstaller Docs</a></li></ul></div><div class="row pl-3 pr-3"><div class="col-md-6 share-buttons"></div><div class="col-md-6 btn-improve-page"><a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/programming/python/2021-03-10-Pyinstaller-Guide.md title="이 페이지를 개선" target=_blank rel=noopener><i class="fas fa-code-branch"></i>
+이 페이지를 개선</a></div></div><hr><div class="row next-prev-navigator"></div><hr></div></div></div><a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a></section><section class=toc-section id=toc-section><div class=toc-holder><h5 class="text-center pl-3">목차</h5><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#1-설치>1. 설치</a></li><li><a href=#2-간단한-사용예제>2. 간단한 사용예제</a></li><li><a href=#3-옵션>3. 옵션</a><ul><li><a href=#31--줄넘김-옵션>3.1 ^ 줄넘김 옵션</a></li><li><a href=#32-실행파일-바이트코드-블록-암호화>3.2 실행파일 바이트코드 블록 암호화</a></li></ul></li><li><a href=#4-참고사항>4. 참고사항</a><ul><li><a href=#41-python-코드가-아닌-외부-참조-파일사용시-별도로-추가필요>4.1 python 코드가 아닌 외부 참조 파일사용시 별도로 추가필요</a></li><li><a href=#42-별도의-외장-라이브러리-사용시-주의사항>4.2 별도의 외장 라이브러리 사용시 주의사항</a></li><li><a href=#43-tensorflow-사용시>4.3 tensorflow 사용시</a></li><li><a href=#44-아이콘-파일-옵션-적용시-참고사항>4.4 아이콘 파일 옵션 적용시 참고사항</a></li><li><a href=#45-멀티프로세싱-사용시-주의사항>4.5 멀티프로세싱 사용시 주의사항</a></li></ul></li><li><a href=#참고reference>참고(Reference)</a></li></ul></nav></div></div></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>바로가기</h5><ul><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>Contact me:</h5><ul><li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-left"><div class=col-md-4><a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener><img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha</a></div><div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div><div class="col-md-4 text-right"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
 <script type=text/javascript src=/js/popper.min.js></script>
 <script type=text/javascript src=/js/bootstrap.min.js></script>
 <script type=text/javascript src=/js/navbar.js></script>
@@ -339,6 +44,4 @@ Toha
 <script type=text/javascript src=/js/main.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
 <script src=/js/single.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script></body></html>

@@ -1,434 +1,234 @@
-<!doctype html><html>
-<head>
-<title>pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="ie=edge">
-<link rel=stylesheet href=/css/bootstrap.min.css>
-<link rel=stylesheet href=/css/layouts/main.css>
-<link rel=stylesheet href=/css/navigators/navbar.css>
-<link rel=stylesheet href=/css/plyr.css>
-<link rel=stylesheet href=/css/flag-icon.min.css>
-<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet>
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css>
-<meta property="og:title" content="pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)">
-<meta property="og:description" content="pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://sangjuncha-dev.github.io/posts/programming/python/2020-11-16-pyftpdlib-guide/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2020-11-16T13:30:41+09:00">
-<meta property="article:modified_time" content="2020-11-16T13:30:41+09:00">
-<meta name=description content="pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)">
-<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css>
-<link rel=stylesheet href=/css/layouts/single.css>
-<link rel=stylesheet href=/css/navigators/sidebar.css>
-<link rel=stylesheet href=/css/style.css>
-</head>
-<body data-spy=scroll data-target=#TableOfContents data-offset=80>
-<div class="container-fluid bg-dimmed wrapper">
-<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
-<div class=container>
-<button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
-<span class=navbar-toggler-icon></span>
-</button>
-<a class=navbar-brand href=/>
-Sangjun 개발 블로그</a>
+<!doctype html><html><head><title>pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/layouts/main.css><link rel=stylesheet href=/css/navigators/navbar.css><link rel=stylesheet href=/css/plyr.css><link rel=stylesheet href=/css/flag-icon.min.css><link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel=stylesheet><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css><meta property="og:title" content="pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)"><meta property="og:description" content="pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)"><meta property="og:type" content="article"><meta property="og:url" content="https://sangjuncha-dev.github.io/posts/programming/python/2020-11-16-pyftpdlib-guide/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-11-16T13:30:41+09:00"><meta property="article:modified_time" content="2020-11-16T13:30:41+09:00"><meta name=description content="pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css><link rel=stylesheet href=/css/layouts/single.css><link rel=stylesheet href=/css/navigators/sidebar.css><link rel=stylesheet href=/css/style.css></head><body data-spy=scroll data-target=#TableOfContents data-offset=80><div class="container-fluid bg-dimmed wrapper"><nav class="navbar navbar-expand-xl top-navbar final-navbar shadow"><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button onclick=toggleSidebar()>
+<span class=navbar-toggler-icon></span></button>
+<a class=navbar-brand href=/>Sangjun 개발 블로그</a>
 <button class="navbar-toggler navbar-light" id=toc-toggler type=button onclick=toggleTOC()>
-<span class=navbar-toggler-icon></span>
-</button>
-<div class="collapse navbar-collapse lang-selector" id=top-nav-items>
-<ul class="navbar-nav ml-auto">
-</ul>
-</div>
-</div>
-</nav>
-<section class=sidebar-section id=sidebar-section>
-<div class=sidebar-holder>
-<div class=sidebar id=sidebar>
-<form class=mx-auto method=get action=/search>
-<input type=text name=keyword placeholder=Search data-search id=search-box>
-</form>
-<div class=sidebar-tree>
-<ul class=tree id=tree>
-<li id=list-heading><a href=/posts data-filter=all>게시글</a></li>
-<div class=subtree>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a>
-<ul>
-<li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li>
-<li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li>
-</ul>
-</li>
-<li><a href=/posts/db/ title=db>db</a></li>
-<li><a href=/posts/docker/ title=docker>docker</a></li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a>
-<ul>
-<li><a href=/posts/framework/django/ title=django>django</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a>
-<ul>
-<li><a href=/posts/os/linux/ title=linux>linux</a></li>
-<li><a href=/posts/os/windows/ title=windows>windows</a></li>
-</ul>
-</li>
-<li>
-<i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a>
-<ul class=active>
-<li><a href=/posts/programming/golang/ title=golang>golang</a></li>
-<li><a class=active href=/posts/programming/python/ title=python>python</a></li>
-</ul>
-</li>
-</div>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class=content-section id=content-section>
-<div class=content>
-<div class="container p-0 read-area">
-<div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)>
-</div>
-<div class=page-content>
-<div class="author-profile ml-auto align-self-lg-center">
-<img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image">
-<h5 class=author-name>Sangjun</h5>
-<p>November 16, 2020</p>
-</div>
-<div class=title>
-<h1>pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)</h1>
-</div>
-<div class=post-content id=post-content>
-<hr>
-<h2 id=1-라이브러리-설치>1. 라이브러리 설치</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pip install pyftpdlib
-</code></pre></div><p>실습 버전 : pyftpdlib 1.5.6</p>
-<h2 id=2-server>2. Server</h2>
-<p>ftp server 실행 후 client 테스트 가능</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> pyftpdlib.authorizers <span style=color:#f92672>import</span> DummyAuthorizer  <span style=color:#75715e># 사용자 인증을 생성하는 모듈</span>
-<span style=color:#f92672>from</span> pyftpdlib.handlers <span style=color:#f92672>import</span> FTPHandler  <span style=color:#75715e># 사용자 인증, 파일 전송, 로깅 등 FTP서버를 조작하는 모듈</span>
-<span style=color:#75715e># from pyftpdlib.handlers import TLS_FTPHandler</span>
-<span style=color:#f92672>from</span> pyftpdlib.servers <span style=color:#f92672>import</span> FTPServer  <span style=color:#75715e># FTP서버를 실행하는 모듈</span>
-<span style=color:#75715e># from pyftpdlib.servers import ThreadedFTPServer</span>
-
-<span style=color:#f92672>import</span> os
-
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FileServer</span>:
-    <span style=color:#66d9ef>def</span> __init__(self):
-        self<span style=color:#f92672>.</span>ftpServerIP <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;127.0.0.1&#34;</span>
-        self<span style=color:#f92672>.</span>ftpServerPort <span style=color:#f92672>=</span> <span style=color:#ae81ff>21</span>
-
-        self<span style=color:#f92672>.</span>userId <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;ftpuser&#34;</span>
-        self<span style=color:#f92672>.</span>userPassword <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;password&#34;</span>
-        self<span style=color:#f92672>.</span>userDir <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;D:/ftp_share/&#34;</span>
-
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>start</span>(self):
-        <span style=color:#75715e># 계정별 디렉토리 생성</span>
-        <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> (os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>exists(self<span style=color:#f92672>.</span>userDir)):
-            os<span style=color:#f92672>.</span>makedirs(self<span style=color:#f92672>.</span>userDir, exist_ok<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
-        <span style=color:#75715e># FTP Server 계정 추가</span>
-        authorizer <span style=color:#f92672>=</span> DummyAuthorizer()
-        authorizer<span style=color:#f92672>.</span>add_user(self<span style=color:#f92672>.</span>userId, self<span style=color:#f92672>.</span>userPassword, self<span style=color:#f92672>.</span>userDir, perm<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;elradfmwMT&#34;</span>)  <span style=color:#75715e># 모든 권한(elradfmw)을 부여</span>
-        <span style=color:#75715e># authorizer.add_anonymous(self.userDir, perm=&#39;elr&#39;)  # 탐색(읽기) 권한만 부여</span>
-
-        handler <span style=color:#f92672>=</span> FTPHandler
-        handler<span style=color:#f92672>.</span>banner <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;pyftpdlib based ftpd ready.&#34;</span>  <span style=color:#75715e># 배너 설정</span>
-
-        handler<span style=color:#f92672>.</span>authorizer <span style=color:#f92672>=</span> authorizer
-        handler<span style=color:#f92672>.</span>passive_ports <span style=color:#f92672>=</span> range(<span style=color:#ae81ff>60000</span>, <span style=color:#ae81ff>65535</span>)  <span style=color:#75715e># 패시브통신 포트지정</span>
-
-        address <span style=color:#f92672>=</span> (self<span style=color:#f92672>.</span>ftpServerIP, self<span style=color:#f92672>.</span>ftpServerPort)  <span style=color:#75715e># FTP 서버주소 및 포트설정</span>
-        server <span style=color:#f92672>=</span> FTPServer(address, handler)
-        <span style=color:#75715e># server = ThreadedFTPServer(address, handler)</span>
-
-        server<span style=color:#f92672>.</span>max_cons <span style=color:#f92672>=</span> <span style=color:#ae81ff>50</span>  <span style=color:#75715e># 최대 연결 개수</span>
-        server<span style=color:#f92672>.</span>max_cons_per_ip <span style=color:#f92672>=</span> <span style=color:#ae81ff>5</span>  <span style=color:#75715e># IP당 최대 연결 개수</span>
-        print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;[FileServer] Share Dir = </span><span style=color:#e6db74>{</span>self<span style=color:#f92672>.</span>userDir<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39;</span>)
-        server<span style=color:#f92672>.</span>serve_forever()
-
-file_server <span style=color:#f92672>=</span> FileServer()
-file_server<span style=color:#f92672>.</span>start()
-</code></pre></div><h2 id=3-client>3. Client</h2>
-<h3 id=31-ftpclient>3.1. FTPClient</h3>
-<p>FTPClient.py</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> ftplib
-<span style=color:#f92672>import</span> os
-
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FTPClient</span>:
-    <span style=color:#66d9ef>def</span> __init__(self):
-        self<span style=color:#f92672>.</span>ftp <span style=color:#f92672>=</span> ftplib<span style=color:#f92672>.</span>FTP()
-        self<span style=color:#f92672>.</span>ftp_server_ip <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;127.0.0.1&#34;</span>
-        self<span style=color:#f92672>.</span>ftp_server_port <span style=color:#f92672>=</span> <span style=color:#ae81ff>21</span>
-
-        self<span style=color:#f92672>.</span>user_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;ftpuser&#34;</span>
-        self<span style=color:#f92672>.</span>user_password <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;password&#34;</span>
-
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>connect_setting</span>(self):
-        <span style=color:#66d9ef>try</span>:
-            ftp <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>ftp
-            ftp<span style=color:#f92672>.</span>connect(host<span style=color:#f92672>=</span>self<span style=color:#f92672>.</span>ftp_server_ip, port<span style=color:#f92672>=</span>self<span style=color:#f92672>.</span>ftp_server_port, timeout<span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>)
-            ftp<span style=color:#f92672>.</span>login(user<span style=color:#f92672>=</span>self<span style=color:#f92672>.</span>user_id, passwd<span style=color:#f92672>=</span>self<span style=color:#f92672>.</span>user_password)
-            ftp<span style=color:#f92672>.</span>encoding <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;utf-8&#39;</span>
-
-            <span style=color:#75715e># 디버그 모드 설정 (설정하면 FTP 서버와 통신하는 내용이 콘솔에 표시됨)</span>
-            <span style=color:#75715e># ftp.set_debuglevel(1)</span>
-
-            <span style=color:#66d9ef>return</span> ftp
-
-        <span style=color:#66d9ef>except</span> ftplib<span style=color:#f92672>.</span>all_errors <span style=color:#66d9ef>as</span> ex:
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[connect_setting] FTP Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-        <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> ex:
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[connect_setting] Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-
-    <span style=color:#75715e># Welcome Test message</span>
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_msg</span>(self):
-        <span style=color:#66d9ef>try</span>:
-            ftp <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>connect_setting()
-            print(ftp<span style=color:#f92672>.</span>getwelcome())
-            ftp<span style=color:#f92672>.</span>close()
-
-        <span style=color:#66d9ef>except</span> ftplib<span style=color:#f92672>.</span>all_errors <span style=color:#66d9ef>as</span> ex:
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[get_msg] FTP Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-        <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> ex:
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[get_msg] Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-
-    <span style=color:#75715e># 파일 다운로드</span>
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>download</span>(self, server_dir_path: str, client_dir_path: str, filename: str):
-        <span style=color:#66d9ef>try</span>:
-            <span style=color:#75715e># 다운받을 디렉토리 없으면 디렉토리 생성</span>
-            os<span style=color:#f92672>.</span>makedirs(client_dir_path, exist_ok<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
-
-            ftp <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>connect_setting()
-            ftp<span style=color:#f92672>.</span>cwd(dirname<span style=color:#f92672>=</span>server_dir_path)
-            filePath <span style=color:#f92672>=</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{</span>client_dir_path<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>{</span>filename<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
-            <span style=color:#66d9ef>with</span> open(filePath, <span style=color:#e6db74>&#39;wb&#39;</span>) <span style=color:#66d9ef>as</span> fd:
-                res <span style=color:#f92672>=</span> ftp<span style=color:#f92672>.</span>retrbinary(<span style=color:#e6db74>&#34;RETR &#34;</span> <span style=color:#f92672>+</span> filename, fd<span style=color:#f92672>.</span>write)
-
-                <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> res<span style=color:#f92672>.</span>startswith(<span style=color:#e6db74>&#39;226 Transfer complete&#39;</span>):  <span style=color:#75715e># 다운로드 실패시 다운받은 파일 삭제</span>
-                    print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[download] FTP Failed FileName = </span><span style=color:#e6db74>{</span>fd<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-                    <span style=color:#66d9ef>if</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>isfile(filename):
-                        os<span style=color:#f92672>.</span>remove(filename)
-
-        <span style=color:#66d9ef>except</span> ftplib<span style=color:#f92672>.</span>all_errors <span style=color:#66d9ef>as</span> ex:
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[download] FTP Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-        <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> ex:
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[download] Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-
-    <span style=color:#75715e># 파일 업로드</span>
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>upload</span>(self, server_dir_path: str, client_dir_path: str, filename: str):
-        <span style=color:#66d9ef>try</span>:
-            ftp <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>connect_setting()
-            ftp<span style=color:#f92672>.</span>cwd(dirname<span style=color:#f92672>=</span>server_dir_path)
-
-            <span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{</span>client_dir_path<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>{</span>filename<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>, <span style=color:#e6db74>&#39;rb&#39;</span>) <span style=color:#66d9ef>as</span> fd:
-                res <span style=color:#f92672>=</span> ftp<span style=color:#f92672>.</span>storbinary(<span style=color:#e6db74>&#39;STOR &#39;</span> <span style=color:#f92672>+</span> filename, fd)
-                <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> res<span style=color:#f92672>.</span>startswith(<span style=color:#e6db74>&#39;226 Transfer complete&#39;</span>):
-                    print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[upload] FTP Failed FileName = </span><span style=color:#e6db74>{</span>fd<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\x1b</span><span style=color:#e6db74>[1;36m [upload] FTP Success FileName = </span><span style=color:#e6db74>{</span>filename<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-
-        <span style=color:#66d9ef>except</span> ftplib<span style=color:#f92672>.</span>error_perm <span style=color:#66d9ef>as</span> ex:
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[upload] FTP Error_perm = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-            <span style=color:#75715e># FTP Server 해당 디렉토리가 없을시 디렉토리 생성후 다시 업로드</span>
-            <span style=color:#66d9ef>if</span> str(ex) <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;550 No such file or directory.&#39;</span>:
-                self<span style=color:#f92672>.</span>create_dir(server_dir_path)
-                self<span style=color:#f92672>.</span>upload(server_dir_path, client_dir_path, filename)
-        <span style=color:#66d9ef>except</span> ftplib<span style=color:#f92672>.</span>all_errors <span style=color:#66d9ef>as</span> ex:
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[upload] FTP Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-        <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> ex:
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[upload] Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-
-    <span style=color:#75715e># 파일 삭제</span>
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>delete_file</span>(self, server_dir_path: str, filename: str):
-        <span style=color:#66d9ef>try</span>:
-            ftp <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>connect_setting()
-            ftp<span style=color:#f92672>.</span>cwd(dirname<span style=color:#f92672>=</span>server_dir_path)
-            ftp<span style=color:#f92672>.</span>delete(filename)
-            ftp<span style=color:#f92672>.</span>close()
-
-        <span style=color:#66d9ef>except</span> ftplib<span style=color:#f92672>.</span>all_errors <span style=color:#66d9ef>as</span> ex:
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[delete_file] FTP Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-        <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> ex:
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[delete_file] Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-
-     <span style=color:#75715e># 디렉터리 삭제</span>
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>delete_dir</span>(self, server_dir_path: str, dir_name: str):
-        <span style=color:#66d9ef>try</span>:
-            ftp <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>connect_setting()
-            ftp<span style=color:#f92672>.</span>cwd(dirname<span style=color:#f92672>=</span>server_dir_path)
-            ftp<span style=color:#f92672>.</span>rmd(dir_name)
-            ftp<span style=color:#f92672>.</span>close()
-
-        <span style=color:#66d9ef>except</span> ftplib<span style=color:#f92672>.</span>all_errors <span style=color:#66d9ef>as</span> ex:
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[delete_dir] FTP Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)   
-        <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> ex:
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[delete_dir] Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-
-    <span style=color:#75715e># 디렉토리 목록</span>
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>dir_list</span>(self, dir_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;/&#39;</span>):
-        <span style=color:#66d9ef>try</span>:
-            ftp <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>connect_setting()
-            ftp<span style=color:#f92672>.</span>cwd(dir_name)
-            files <span style=color:#f92672>=</span> []
-            ftp<span style=color:#f92672>.</span>dir(files<span style=color:#f92672>.</span>append)  <span style=color:#75715e># LIST 명령으로 반환되는 디렉토리 목록 생성</span>
-            ftp<span style=color:#f92672>.</span>close()
-            <span style=color:#66d9ef>return</span> files
-
-        <span style=color:#66d9ef>except</span> ftplib<span style=color:#f92672>.</span>all_errors <span style=color:#66d9ef>as</span> ex:
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[dir_list] FTP Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-        <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> ex:
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[dir_list] Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-
-    <span style=color:#75715e># 디렉토리 생성</span>
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>create_dir</span>(self, dir_name: str):
-        <span style=color:#66d9ef>try</span>:
-            <span style=color:#75715e># FTP 서버 디렉토리 목록 얻어오기</span>
-            files_list <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>dir_list(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{</span>dir_name<span style=color:#e6db74>}</span><span style=color:#e6db74>/../&#34;</span>)
-            d_list <span style=color:#f92672>=</span> []
-            <span style=color:#66d9ef>for</span> file <span style=color:#f92672>in</span> files_list:
-                <span style=color:#66d9ef>if</span> file[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;d&#39;</span>:
-                    d_list<span style=color:#f92672>.</span>append(file<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#39; &#39;</span>)[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>])
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\x1b</span><span style=color:#e6db74>[1;36m [create_dir] d_list = </span><span style=color:#e6db74>{</span>d_list<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-
-            <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> (dir_name <span style=color:#f92672>in</span> d_list):
-                <span style=color:#75715e># 디렉토리 생성</span>
-                ftp <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>connect_setting()
-                ftp<span style=color:#f92672>.</span>mkd(dir_name)  <span style=color:#75715e># 새 디렉토리 생성</span>
-                ftp<span style=color:#f92672>.</span>close()
-                print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\x1b</span><span style=color:#e6db74>[1;36m [create_dir] Dir Name = </span><span style=color:#e6db74>{</span>dir_name<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-
-        <span style=color:#66d9ef>except</span> ftplib<span style=color:#f92672>.</span>all_errors <span style=color:#66d9ef>as</span> ex:
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[create_dir] FTP Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-        <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> ex:
-            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[create_dir] Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-
-    <span style=color:#75715e># # FTP 명령어 전송</span>
-    <span style=color:#75715e># def send_cmd(self, cmd: str):</span>
-    <span style=color:#75715e>#     try:</span>
-    <span style=color:#75715e>#         ftp = self.connect_setting()</span>
-    <span style=color:#75715e>#         work_dir = ftp.sendcmd(&#39;PWD&#39;)  # PWD 명령을 직접 전송 하고 pwd()메소드를 사용하여 현재 작업 디렉토리를 검색</span>
-    <span style=color:#75715e>#         print(ftplib.parse257(work_dir))  # 상태 코드가 들어있는 반환 된 문자열에서 디렉토리를 검색</span>
-    <span style=color:#75715e>#</span>
-    <span style=color:#75715e>#         work_dir2 = ftp.pwd()  # 현재 작업 디렉토리를 검색</span>
-    <span style=color:#75715e>#         print(work_dir2)</span>
-    <span style=color:#75715e>#     except ftplib.all_errors as ex:</span>
-    <span style=color:#75715e>#         print(f&#34;[send_cmd] FTP Error = {ex}&#34;)</span>
-
-
-</code></pre></div><h3 id=32-client>3.2. client</h3>
-<p>client.py</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> FTPClient <span style=color:#f92672>import</span> FTPClient 
-
-ftp_client <span style=color:#f92672>=</span> FTPClient()
-client_path <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;D:/ftp_share/ftpclient&#34;</span>
-
-<span style=color:#75715e># FTP 다운로드 </span>
-<span style=color:#75715e># server_dir_path 경로 : D:/ftp_share/ftpserver/temp/</span>
-<span style=color:#75715e># client_dir_path 경로 : D:/ftp_share/ftpclient/temp/</span>
-ftp_client<span style=color:#f92672>.</span>download(server_dir_path<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;/ftpserver/temp/&#39;</span>, client_dir_path<span style=color:#f92672>=</span><span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{</span>client_path<span style=color:#e6db74>}</span><span style=color:#e6db74>/temp/&#39;</span>, filename<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;test.txt&#39;</span>)
-
-<span style=color:#75715e># FTP Server 테스트 파일 삭제</span>
-ftp_client<span style=color:#f92672>.</span>deleteFile(server_dir_path<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;/ftpserver/temp/&#39;</span>, filename<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;test.txt&#39;</span>)
-
-<span style=color:#75715e># FTP Server temp 디렉토리 삭제</span>
-ftp_client<span style=color:#f92672>.</span>deleteDir(server_dir_path<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;/ftpserver/&#39;</span>, dir_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;temp&#39;</span>)
-
-<span style=color:#75715e># FTP 업로드</span>
-self<span style=color:#f92672>.</span>ftpClient<span style=color:#f92672>.</span>upload(server_dir_path<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/ftpserver/temp2/&#34;</span>, client_dir_path<span style=color:#f92672>=</span><span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{</span>client_path<span style=color:#e6db74>}</span><span style=color:#e6db74>/temp/&#39;</span>, filename<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;test.txt&#39;</span>)
-</code></pre></div><hr>
-<h2 id=참고reference>참고(Reference)</h2>
-<ul>
-<li><a href=https://pyftpdlib.readthedocs.io/en/latest/>pyftpdlib Docs</a></li>
-</ul>
-</div>
-<div class="row pl-3 pr-3">
-<div class="col-md-6 share-buttons">
-</div>
-<div class="col-md-6 btn-improve-page">
-<a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/programming/python/2020-11-16-pyftpdlib-guide.md title="이 페이지를 개선" target=_blank rel=noopener>
-<i class="fas fa-code-branch"></i>
-이 페이지를 개선
-</a>
-</div>
-</div>
-<hr>
-<div class="row next-prev-navigator">
-</div>
-<hr>
-</div>
-</div>
-</div>
-<a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a>
-</section>
-<section class=toc-section id=toc-section>
-<div class=toc-holder>
-<h5 class="text-center pl-3">목차</h5>
-<hr>
-<div class=toc>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#1-라이브러리-설치>1. 라이브러리 설치</a></li>
-<li><a href=#2-server>2. Server</a></li>
-<li><a href=#3-client>3. Client</a>
-<ul>
-<li><a href=#31-ftpclient>3.1. FTPClient</a></li>
-<li><a href=#32-client>3.2. client</a></li>
-</ul>
-</li>
-<li><a href=#참고reference>참고(Reference)</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</section>
-</div>
-<footer class="container-fluid text-center align-content-center footer pb-2">
-<div class="container pt-5">
-<div class="row text-left">
-<div class="col-md-4 col-sm-12">
-<h5>바로가기</h5>
-<ul>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a>
-</li>
-<li class=nav-item>
-<a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a>
-</li>
-</ul>
-</div>
-<div class="col-md-4 col-sm-12">
-<h5>Contact me:</h5>
-<ul>
-<li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener>
-<span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span>
-</a></li>
-</ul>
-</div>
-</div>
-</div>
-<hr>
-<div class=container>
-<div class="row text-left">
-<div class=col-md-4>
-<a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener>
-<img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
-Toha
-</a>
-</div>
-<div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div>
-<div class="col-md-4 text-right">
-<a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
-<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18>
-</a>
-</div>
-</div>
-</div>
-</footer>
-<script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse lang-selector" id=top-nav-items><ul class="navbar-nav ml-auto"></ul></div></div></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=Search data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/posts data-filter=all>게시글</a></li><div class=subtree><li><i class="fas fa-plus-circle"></i><a href=/posts/algorithm/>algorithm</a><ul><li><a href=/posts/algorithm/leetcode/ title=leetcode>leetcode</a></li><li><a href=/posts/algorithm/programmers/ title=programmers>programmers</a></li></ul></li><li><a href=/posts/db/ title=db>db</a></li><li><a href=/posts/docker/ title=docker>docker</a></li><li><i class="fas fa-plus-circle"></i><a href=/posts/framework/>framework</a><ul><li><a href=/posts/framework/django/ title=django>django</a></li></ul></li><li><i class="fas fa-plus-circle"></i><a href=/posts/os/>os</a><ul><li><a href=/posts/os/linux/ title=linux>linux</a></li><li><a href=/posts/os/windows/ title=windows>windows</a></li></ul></li><li><i class="fas fa-minus-circle"></i><a class=active href=/posts/programming/>programming</a><ul class=active><li><a href=/posts/programming/golang/ title=golang>golang</a></li><li><a class=active href=/posts/programming/python/ title=python>python</a></li></ul></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class=content><div class="container p-0 read-area"><div class="hero-area col-sm-12" id=hero-area style=background-image:url(https://sangjuncha-dev.github.io/images/default-hero.jpg)></div><div class=page-content><div class="author-profile ml-auto align-self-lg-center"><img class=rounded-circle src=/images/author/author_hubdaa05e9d050aba742615dd0c3c3a3a1_51368_120x120_fit_box_3.png alt="Author Image"><h5 class=author-name>Sangjun</h5><p>November 16, 2020</p></div><div class=title><h1>pyftpdlib 라이브러리 사용법 (pyftpdlib Library Guide)</h1></div><div class=post-content id=post-content><hr><h2 id=1-라이브러리-설치>1. 라이브러리 설치</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>pip install pyftpdlib
+</span></span></code></pre></div><p>실습 버전 : pyftpdlib 1.5.6</p><h2 id=2-server>2. Server</h2><p>ftp server 실행 후 client 테스트 가능</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>from</span> pyftpdlib.authorizers <span style=color:#f92672>import</span> DummyAuthorizer  <span style=color:#75715e># 사용자 인증을 생성하는 모듈</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> pyftpdlib.handlers <span style=color:#f92672>import</span> FTPHandler  <span style=color:#75715e># 사용자 인증, 파일 전송, 로깅 등 FTP서버를 조작하는 모듈</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># from pyftpdlib.handlers import TLS_FTPHandler</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> pyftpdlib.servers <span style=color:#f92672>import</span> FTPServer  <span style=color:#75715e># FTP서버를 실행하는 모듈</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># from pyftpdlib.servers import ThreadedFTPServer</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> os
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FileServer</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> __init__(self):
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>ftpServerIP <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;127.0.0.1&#34;</span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>ftpServerPort <span style=color:#f92672>=</span> <span style=color:#ae81ff>21</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>userId <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;ftpuser&#34;</span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>userPassword <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;password&#34;</span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>userDir <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;D:/ftp_share/&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>start</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#75715e># 계정별 디렉토리 생성</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> (os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>exists(self<span style=color:#f92672>.</span>userDir)):
+</span></span><span style=display:flex><span>            os<span style=color:#f92672>.</span>makedirs(self<span style=color:#f92672>.</span>userDir, exist_ok<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+</span></span><span style=display:flex><span>        <span style=color:#75715e># FTP Server 계정 추가</span>
+</span></span><span style=display:flex><span>        authorizer <span style=color:#f92672>=</span> DummyAuthorizer()
+</span></span><span style=display:flex><span>        authorizer<span style=color:#f92672>.</span>add_user(self<span style=color:#f92672>.</span>userId, self<span style=color:#f92672>.</span>userPassword, self<span style=color:#f92672>.</span>userDir, perm<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;elradfmwMT&#34;</span>)  <span style=color:#75715e># 모든 권한(elradfmw)을 부여</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># authorizer.add_anonymous(self.userDir, perm=&#39;elr&#39;)  # 탐색(읽기) 권한만 부여</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        handler <span style=color:#f92672>=</span> FTPHandler
+</span></span><span style=display:flex><span>        handler<span style=color:#f92672>.</span>banner <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;pyftpdlib based ftpd ready.&#34;</span>  <span style=color:#75715e># 배너 설정</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        handler<span style=color:#f92672>.</span>authorizer <span style=color:#f92672>=</span> authorizer
+</span></span><span style=display:flex><span>        handler<span style=color:#f92672>.</span>passive_ports <span style=color:#f92672>=</span> range(<span style=color:#ae81ff>60000</span>, <span style=color:#ae81ff>65535</span>)  <span style=color:#75715e># 패시브통신 포트지정</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        address <span style=color:#f92672>=</span> (self<span style=color:#f92672>.</span>ftpServerIP, self<span style=color:#f92672>.</span>ftpServerPort)  <span style=color:#75715e># FTP 서버주소 및 포트설정</span>
+</span></span><span style=display:flex><span>        server <span style=color:#f92672>=</span> FTPServer(address, handler)
+</span></span><span style=display:flex><span>        <span style=color:#75715e># server = ThreadedFTPServer(address, handler)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        server<span style=color:#f92672>.</span>max_cons <span style=color:#f92672>=</span> <span style=color:#ae81ff>50</span>  <span style=color:#75715e># 최대 연결 개수</span>
+</span></span><span style=display:flex><span>        server<span style=color:#f92672>.</span>max_cons_per_ip <span style=color:#f92672>=</span> <span style=color:#ae81ff>5</span>  <span style=color:#75715e># IP당 최대 연결 개수</span>
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;[FileServer] Share Dir = </span><span style=color:#e6db74>{</span>self<span style=color:#f92672>.</span>userDir<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39;</span>)
+</span></span><span style=display:flex><span>        server<span style=color:#f92672>.</span>serve_forever()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>file_server <span style=color:#f92672>=</span> FileServer()
+</span></span><span style=display:flex><span>file_server<span style=color:#f92672>.</span>start()
+</span></span></code></pre></div><h2 id=3-client>3. Client</h2><h3 id=31-ftpclient>3.1. FTPClient</h3><p>FTPClient.py</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> ftplib
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> os
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>FTPClient</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> __init__(self):
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>ftp <span style=color:#f92672>=</span> ftplib<span style=color:#f92672>.</span>FTP()
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>ftp_server_ip <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;127.0.0.1&#34;</span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>ftp_server_port <span style=color:#f92672>=</span> <span style=color:#ae81ff>21</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>user_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;ftpuser&#34;</span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>user_password <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;password&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>connect_setting</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>            ftp <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>ftp
+</span></span><span style=display:flex><span>            ftp<span style=color:#f92672>.</span>connect(host<span style=color:#f92672>=</span>self<span style=color:#f92672>.</span>ftp_server_ip, port<span style=color:#f92672>=</span>self<span style=color:#f92672>.</span>ftp_server_port, timeout<span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>)
+</span></span><span style=display:flex><span>            ftp<span style=color:#f92672>.</span>login(user<span style=color:#f92672>=</span>self<span style=color:#f92672>.</span>user_id, passwd<span style=color:#f92672>=</span>self<span style=color:#f92672>.</span>user_password)
+</span></span><span style=display:flex><span>            ftp<span style=color:#f92672>.</span>encoding <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;utf-8&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e># 디버그 모드 설정 (설정하면 FTP 서버와 통신하는 내용이 콘솔에 표시됨)</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e># ftp.set_debuglevel(1)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> ftp
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> ftplib<span style=color:#f92672>.</span>all_errors <span style=color:#66d9ef>as</span> ex:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[connect_setting] FTP Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> ex:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[connect_setting] Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Welcome Test message</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_msg</span>(self):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>            ftp <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>connect_setting()
+</span></span><span style=display:flex><span>            print(ftp<span style=color:#f92672>.</span>getwelcome())
+</span></span><span style=display:flex><span>            ftp<span style=color:#f92672>.</span>close()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> ftplib<span style=color:#f92672>.</span>all_errors <span style=color:#66d9ef>as</span> ex:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[get_msg] FTP Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> ex:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[get_msg] Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 파일 다운로드</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>download</span>(self, server_dir_path: str, client_dir_path: str, filename: str):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>            <span style=color:#75715e># 다운받을 디렉토리 없으면 디렉토리 생성</span>
+</span></span><span style=display:flex><span>            os<span style=color:#f92672>.</span>makedirs(client_dir_path, exist_ok<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            ftp <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>connect_setting()
+</span></span><span style=display:flex><span>            ftp<span style=color:#f92672>.</span>cwd(dirname<span style=color:#f92672>=</span>server_dir_path)
+</span></span><span style=display:flex><span>            filePath <span style=color:#f92672>=</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{</span>client_dir_path<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>{</span>filename<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>with</span> open(filePath, <span style=color:#e6db74>&#39;wb&#39;</span>) <span style=color:#66d9ef>as</span> fd:
+</span></span><span style=display:flex><span>                res <span style=color:#f92672>=</span> ftp<span style=color:#f92672>.</span>retrbinary(<span style=color:#e6db74>&#34;RETR &#34;</span> <span style=color:#f92672>+</span> filename, fd<span style=color:#f92672>.</span>write)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> res<span style=color:#f92672>.</span>startswith(<span style=color:#e6db74>&#39;226 Transfer complete&#39;</span>):  <span style=color:#75715e># 다운로드 실패시 다운받은 파일 삭제</span>
+</span></span><span style=display:flex><span>                    print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[download] FTP Failed FileName = </span><span style=color:#e6db74>{</span>fd<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>if</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>isfile(filename):
+</span></span><span style=display:flex><span>                        os<span style=color:#f92672>.</span>remove(filename)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> ftplib<span style=color:#f92672>.</span>all_errors <span style=color:#66d9ef>as</span> ex:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[download] FTP Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> ex:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[download] Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 파일 업로드</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>upload</span>(self, server_dir_path: str, client_dir_path: str, filename: str):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>            ftp <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>connect_setting()
+</span></span><span style=display:flex><span>            ftp<span style=color:#f92672>.</span>cwd(dirname<span style=color:#f92672>=</span>server_dir_path)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{</span>client_dir_path<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>{</span>filename<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>, <span style=color:#e6db74>&#39;rb&#39;</span>) <span style=color:#66d9ef>as</span> fd:
+</span></span><span style=display:flex><span>                res <span style=color:#f92672>=</span> ftp<span style=color:#f92672>.</span>storbinary(<span style=color:#e6db74>&#39;STOR &#39;</span> <span style=color:#f92672>+</span> filename, fd)
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> res<span style=color:#f92672>.</span>startswith(<span style=color:#e6db74>&#39;226 Transfer complete&#39;</span>):
+</span></span><span style=display:flex><span>                    print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[upload] FTP Failed FileName = </span><span style=color:#e6db74>{</span>fd<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\x1b</span><span style=color:#e6db74>[1;36m [upload] FTP Success FileName = </span><span style=color:#e6db74>{</span>filename<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> ftplib<span style=color:#f92672>.</span>error_perm <span style=color:#66d9ef>as</span> ex:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[upload] FTP Error_perm = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>            <span style=color:#75715e># FTP Server 해당 디렉토리가 없을시 디렉토리 생성후 다시 업로드</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> str(ex) <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;550 No such file or directory.&#39;</span>:
+</span></span><span style=display:flex><span>                self<span style=color:#f92672>.</span>create_dir(server_dir_path)
+</span></span><span style=display:flex><span>                self<span style=color:#f92672>.</span>upload(server_dir_path, client_dir_path, filename)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> ftplib<span style=color:#f92672>.</span>all_errors <span style=color:#66d9ef>as</span> ex:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[upload] FTP Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> ex:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[upload] Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 파일 삭제</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>delete_file</span>(self, server_dir_path: str, filename: str):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>            ftp <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>connect_setting()
+</span></span><span style=display:flex><span>            ftp<span style=color:#f92672>.</span>cwd(dirname<span style=color:#f92672>=</span>server_dir_path)
+</span></span><span style=display:flex><span>            ftp<span style=color:#f92672>.</span>delete(filename)
+</span></span><span style=display:flex><span>            ftp<span style=color:#f92672>.</span>close()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> ftplib<span style=color:#f92672>.</span>all_errors <span style=color:#66d9ef>as</span> ex:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[delete_file] FTP Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> ex:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[delete_file] Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>     <span style=color:#75715e># 디렉터리 삭제</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>delete_dir</span>(self, server_dir_path: str, dir_name: str):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>            ftp <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>connect_setting()
+</span></span><span style=display:flex><span>            ftp<span style=color:#f92672>.</span>cwd(dirname<span style=color:#f92672>=</span>server_dir_path)
+</span></span><span style=display:flex><span>            ftp<span style=color:#f92672>.</span>rmd(dir_name)
+</span></span><span style=display:flex><span>            ftp<span style=color:#f92672>.</span>close()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> ftplib<span style=color:#f92672>.</span>all_errors <span style=color:#66d9ef>as</span> ex:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[delete_dir] FTP Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)   
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> ex:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[delete_dir] Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 디렉토리 목록</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>dir_list</span>(self, dir_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;/&#39;</span>):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>            ftp <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>connect_setting()
+</span></span><span style=display:flex><span>            ftp<span style=color:#f92672>.</span>cwd(dir_name)
+</span></span><span style=display:flex><span>            files <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>            ftp<span style=color:#f92672>.</span>dir(files<span style=color:#f92672>.</span>append)  <span style=color:#75715e># LIST 명령으로 반환되는 디렉토리 목록 생성</span>
+</span></span><span style=display:flex><span>            ftp<span style=color:#f92672>.</span>close()
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> files
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> ftplib<span style=color:#f92672>.</span>all_errors <span style=color:#66d9ef>as</span> ex:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[dir_list] FTP Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> ex:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[dir_list] Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 디렉토리 생성</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>create_dir</span>(self, dir_name: str):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>            <span style=color:#75715e># FTP 서버 디렉토리 목록 얻어오기</span>
+</span></span><span style=display:flex><span>            files_list <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>dir_list(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{</span>dir_name<span style=color:#e6db74>}</span><span style=color:#e6db74>/../&#34;</span>)
+</span></span><span style=display:flex><span>            d_list <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> file <span style=color:#f92672>in</span> files_list:
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> file[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;d&#39;</span>:
+</span></span><span style=display:flex><span>                    d_list<span style=color:#f92672>.</span>append(file<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#39; &#39;</span>)[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>])
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\x1b</span><span style=color:#e6db74>[1;36m [create_dir] d_list = </span><span style=color:#e6db74>{</span>d_list<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> (dir_name <span style=color:#f92672>in</span> d_list):
+</span></span><span style=display:flex><span>                <span style=color:#75715e># 디렉토리 생성</span>
+</span></span><span style=display:flex><span>                ftp <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>connect_setting()
+</span></span><span style=display:flex><span>                ftp<span style=color:#f92672>.</span>mkd(dir_name)  <span style=color:#75715e># 새 디렉토리 생성</span>
+</span></span><span style=display:flex><span>                ftp<span style=color:#f92672>.</span>close()
+</span></span><span style=display:flex><span>                print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\x1b</span><span style=color:#e6db74>[1;36m [create_dir] Dir Name = </span><span style=color:#e6db74>{</span>dir_name<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> ftplib<span style=color:#f92672>.</span>all_errors <span style=color:#66d9ef>as</span> ex:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[create_dir] FTP Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> ex:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;[create_dir] Error = </span><span style=color:#e6db74>{</span>ex<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># # FTP 명령어 전송</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># def send_cmd(self, cmd: str):</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#     try:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#         ftp = self.connect_setting()</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#         work_dir = ftp.sendcmd(&#39;PWD&#39;)  # PWD 명령을 직접 전송 하고 pwd()메소드를 사용하여 현재 작업 디렉토리를 검색</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#         print(ftplib.parse257(work_dir))  # 상태 코드가 들어있는 반환 된 문자열에서 디렉토리를 검색</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#         work_dir2 = ftp.pwd()  # 현재 작업 디렉토리를 검색</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#         print(work_dir2)</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#     except ftplib.all_errors as ex:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#         print(f&#34;[send_cmd] FTP Error = {ex}&#34;)</span>
+</span></span></code></pre></div><h3 id=32-client>3.2. client</h3><p>client.py</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>from</span> FTPClient <span style=color:#f92672>import</span> FTPClient 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ftp_client <span style=color:#f92672>=</span> FTPClient()
+</span></span><span style=display:flex><span>client_path <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;D:/ftp_share/ftpclient&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># FTP 다운로드 </span>
+</span></span><span style=display:flex><span><span style=color:#75715e># server_dir_path 경로 : D:/ftp_share/ftpserver/temp/</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># client_dir_path 경로 : D:/ftp_share/ftpclient/temp/</span>
+</span></span><span style=display:flex><span>ftp_client<span style=color:#f92672>.</span>download(server_dir_path<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;/ftpserver/temp/&#39;</span>, client_dir_path<span style=color:#f92672>=</span><span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{</span>client_path<span style=color:#e6db74>}</span><span style=color:#e6db74>/temp/&#39;</span>, filename<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;test.txt&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># FTP Server 테스트 파일 삭제</span>
+</span></span><span style=display:flex><span>ftp_client<span style=color:#f92672>.</span>deleteFile(server_dir_path<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;/ftpserver/temp/&#39;</span>, filename<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;test.txt&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># FTP Server temp 디렉토리 삭제</span>
+</span></span><span style=display:flex><span>ftp_client<span style=color:#f92672>.</span>deleteDir(server_dir_path<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;/ftpserver/&#39;</span>, dir_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;temp&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># FTP 업로드</span>
+</span></span><span style=display:flex><span>self<span style=color:#f92672>.</span>ftpClient<span style=color:#f92672>.</span>upload(server_dir_path<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/ftpserver/temp2/&#34;</span>, client_dir_path<span style=color:#f92672>=</span><span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{</span>client_path<span style=color:#e6db74>}</span><span style=color:#e6db74>/temp/&#39;</span>, filename<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;test.txt&#39;</span>)
+</span></span></code></pre></div><hr><h2 id=참고reference>참고(Reference)</h2><ul><li><a href=https://pyftpdlib.readthedocs.io/en/latest/>pyftpdlib Docs</a></li></ul></div><div class="row pl-3 pr-3"><div class="col-md-6 share-buttons"></div><div class="col-md-6 btn-improve-page"><a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/programming/python/2020-11-16-pyftpdlib-guide.md title="이 페이지를 개선" target=_blank rel=noopener><i class="fas fa-code-branch"></i>
+이 페이지를 개선</a></div></div><hr><div class="row next-prev-navigator"></div><hr></div></div></div><a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a></section><section class=toc-section id=toc-section><div class=toc-holder><h5 class="text-center pl-3">목차</h5><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#1-라이브러리-설치>1. 라이브러리 설치</a></li><li><a href=#2-server>2. Server</a></li><li><a href=#3-client>3. Client</a><ul><li><a href=#31-ftpclient>3.1. FTPClient</a></li><li><a href=#32-client>3.2. client</a></li></ul></li><li><a href=#참고reference>참고(Reference)</a></li></ul></nav></div></div></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>바로가기</h5><ul><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>Contact me:</h5><ul><li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-left"><div class=col-md-4><a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener><img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+Toha</a></div><div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div><div class="col-md-4 text-right"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
 <script type=text/javascript src=/js/popper.min.js></script>
 <script type=text/javascript src=/js/bootstrap.min.js></script>
 <script type=text/javascript src=/js/navbar.js></script>
@@ -436,6 +236,4 @@ Toha
 <script type=text/javascript src=/js/main.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js></script>
 <script src=/js/single.js></script>
-<script>hljs.initHighlightingOnLoad()</script>
-</body>
-</html>
+<script>hljs.initHighlightingOnLoad()</script></body></html>
