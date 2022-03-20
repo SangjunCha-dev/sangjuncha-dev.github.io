@@ -1,5 +1,5 @@
 ---
-title: "Django oauth apple login"
+title: "Django 소셜로그인(oauth) apple 연동"
 date: 2021-12-28T19:37:11+09:00
 description: Django oauth apple login
 tags: ["django", "oauth", "apple"]
@@ -7,9 +7,10 @@ categories: ["Django", "oauth", "apple"]
 ---
 
 
----
 
-django restframework 기반의 애플 인증 로그인 백엔드서버 구현 설명이다.  
+django restframework 기반의 애플(apple) 인증 로그인 백엔드서버로 별도의 `auth`관련 라이브러리는 설치하지 않고 구현한다.
+
+[애플 개발자 사이트](https://developer.apple.com/)에서 사용하는 환경변수들이 등록되어있다는 가정하에 진행한다.
 
 ## 1. 라이브러리 설치
 
@@ -24,8 +25,6 @@ $ pip install djangorestframework-simplejwt
 $ pip install pyjwt[crypto]
 ```
 
-
----
 
 ## 2. Apple 로그인 변수 설정
 
@@ -50,10 +49,42 @@ apple_auth_url = f"{apple_base_url}/auth/authorize"
 apple_token_url = f"{apple_base_url}/auth/token"
 ```
 
-APPLE_CLIENT_ID는 모바일 로그인시 Bundle ID, 웹 로그인시 Service ID를 사용한다.
+APPLE_REDIRECT_URI: https 프로토콜을 사용하는 도메인 주소만 사용가능하다.(localhost 또는 IP주소는 사용할 수 없다.)
 
 
----
+### 2.1. APP ID구성 및 편집
+
+[APP ID구성 및 편집](https://help.apple.com/developer-account/?lang=ko#/devde676e696)
+
+#### 2.1.1. Certificates, Identifiers & Profiles
+
+![](../images/django-oauth-apple/oauth_apple-1.png?raw=true)
+
+- Description: 사용자가 로그인시 보여줄 사이트 이름등을 작성한다.
+- App Id Prefix: 애플 로그인시 필요한 Team ID
+- Bundle ID: 모바일 애플 로그인시 필요한 값이다.
+
+#### 2.1.2. Server To Server Notification Endpoint
+
+![](../images/django-oauth-apple/oauth_apple-2.png?raw=true)
+
+- Notification Endpoint: 사용자가 애플의 정보를 업데이트 할때 서버에서 수신받을 path 설정이다.
+
+#### 2.1.3. Edit your Services ID Configuration
+
+![](../images/django-oauth-apple/oauth_apple-3.png?raw=true)
+
+- Description: 사용자가 로그인시 보여줄 사이트 이름등을 작성한다.
+- Identifier: 웹 로그인 애플 로그인시 필요한 값이다.
+
+#### 2.1.4. View Key Details
+
+![](../images/django-oauth-apple/oauth_apple-5.png?raw=true)
+
+- Key ID: 애플로그인시 사용할 개인키 값이다. 
+    - 우측 상단에서 `AuthKey_개인키.p8` key 파일을 다운받을 수 있으며 해당 키값을 별도의 설정파일에 넣거나 혹은 불러오는 식으로 사용하면 된다.
+    - 현재 위의 예시 코드는 개인키 파일을 불러오는 방법을 사용하였다. 
+
 
 ## 3. Apple 로그인 페이지
 
@@ -102,7 +133,6 @@ Content-Type 설명
 - 415 Unsupported Media Type 에러가 발생한 경우 위와 같이 Content-type이 일치하지 않을때 발생한다.
 
 
----
 
 ## 4. Apple Callback 함수
 
@@ -225,6 +255,19 @@ class AppleEndpoint(APIView):
 ```
 -->
 
+
+## 5. 로그인
+
+웹서버에서 설정한 apple oauth 로그인 페이지로 접근하면 사전에 설정한 애플 리다이렉트 URI로 접근하는데 설정에 문제가 없다면 아래와 같은 로그인 페이지로 접속된다.
+
+로그인 페이지에서는 어떤 사이트로 로그인할지 같이 안내한다.
+- 애플 개발자 사이트에서 설정한 `Description`값이 노출된다.
+
+![](../images/django-oauth-apple/login-1.png?raw=true)
+
+최초 로그인시 아래와 같이 안내된다.
+
+![](../images/django-oauth-apple/login-2.png?raw=true)
 
 
 ## 참고(Reference)
