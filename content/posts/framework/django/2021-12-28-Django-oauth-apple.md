@@ -12,6 +12,9 @@ django restframework 기반의 애플(apple) 인증 로그인 백엔드서버로
 
 [애플 개발자 사이트](https://developer.apple.com/)에서 사용하는 환경변수들이 등록되어있다는 가정하에 진행한다.
 
+
+---
+
 ## 1. 라이브러리 설치
 
 ```bash
@@ -25,6 +28,8 @@ $ pip install djangorestframework-simplejwt
 $ pip install pyjwt[crypto]
 ```
 
+
+---
 
 ## 2. Apple 로그인 변수 설정
 
@@ -86,6 +91,8 @@ APPLE_REDIRECT_URI: https 프로토콜을 사용하는 도메인 주소만 사�
     - 현재 위의 예시 코드는 개인키 파일을 불러오는 방법을 사용하였다. 
 
 
+---
+
 ## 3. Apple 로그인 페이지
 
 ```python
@@ -133,6 +140,7 @@ Content-Type 설명
 - 415 Unsupported Media Type 에러가 발생한 경우 위와 같이 Content-type이 일치하지 않을때 발생한다.
 
 
+---
 
 ## 4. Apple Callback 함수
 
@@ -256,6 +264,8 @@ class AppleEndpoint(APIView):
 -->
 
 
+---
+
 ## 5. 로그인
 
 웹서버에서 설정한 apple oauth 로그인 페이지로 접근하면 사전에 설정한 애플 리다이렉트 URI로 접근하는데 설정에 문제가 없다면 아래와 같은 로그인 페이지로 접속된다.
@@ -271,6 +281,8 @@ class AppleEndpoint(APIView):
 
 이후는 Apple Callback 함수 처리로 넘어가며 알고리즘에 문제가 없다면 json 타입의 `social_type`, `social_id`, `user_email` 값이 반환된다.
 
+
+---
 
 ## 참고(Reference)
 
