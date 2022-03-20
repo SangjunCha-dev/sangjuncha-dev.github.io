@@ -97,8 +97,8 @@ class AppleLoginView(APIView):
         '''
         apple code 요청
         '''
-        client_id = APPLE_CONFIG['APPLE_CLIENT_ID
-        redirect_uri = APPLE_CONFIG['APPLE_REDIRECT_URI
+        client_id = APPLE_CONFIG['APPLE_CLIENT_ID']
+        redirect_uri = APPLE_CONFIG['APPLE_REDIRECT_URI']
 
         uri = f"{apple_auth_url}?client_id={client_id}&&redirect_uri={redirect_uri}&response_type=code"
 
@@ -268,6 +268,8 @@ class AppleEndpoint(APIView):
 최초 로그인시 아래와 같이 안내된다.
 
 ![](../images/django-oauth-apple/login-2.png?raw=true)
+
+이후는 Apple Callback 함수 처리로 넘어가며 알고리즘에 문제가 없다면 json 타입의 `social_type`, `social_id`, `user_email` 값이 반환된다.
 
 
 ## 참고(Reference)
