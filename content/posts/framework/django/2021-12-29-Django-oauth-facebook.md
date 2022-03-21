@@ -332,6 +332,8 @@ Facebook 로그인 → 설정 → 유효한 OAuth `리디렉션 URI`를 입력�
 
 ## 3. Facebook 로그인 페이지
 
+사용자가 로그인 테스트 서버로 접속시 redirect URI를 반환한다.
+
 ```python
 class FacebookLoginView(APIView):
     permission_classes = (AllowAny,)
@@ -366,6 +368,8 @@ uri 파라미터 설명
 ---
 
 ## 4. Facebook Callback 함수
+
+사용자가 oauth 로그인시 code 검증 및 로그인 처리한다.
 
 ```python
 class FacebookCallbackView(APIView):

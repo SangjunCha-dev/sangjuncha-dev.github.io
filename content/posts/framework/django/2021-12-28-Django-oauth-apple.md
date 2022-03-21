@@ -95,6 +95,8 @@ APPLE_REDIRECT_URI: https 프로토콜을 사용하는 도메인 주소만 사�
 
 ## 3. Apple 로그인 페이지
 
+사용자가 로그인 테스트 서버로 접속시 redirect URI를 반환한다.
+
 ```python
 class AppleLoginView(APIView):
     permission_classes = (AllowAny,)
@@ -143,6 +145,8 @@ Content-Type 설명
 ---
 
 ## 4. Apple Callback 함수
+
+사용자가 oauth 로그인시 code 검증 및 로그인 처리한다.
 
 ```python
 class AppleCallbackView(APIView):
