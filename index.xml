@@ -153,7 +153,10 @@ django_crontab 앱 추가 INSTALLED_APPS = [ &amp;#39;django_crontab&amp;#39;, .
 테스트 기준은 동일한 json 파일을 100번씩 반복 실행하였다.
 json 라이브러리의 파일 읽기/쓰기 모두 byte 모드가 상대적으로 빠르다.
 라이브러리 버전
-python : 3.8.10 ujson : 5.1.0 orjson : 3.6.5 1. json ========================= json_r = 0.045 sec json_w_dump = 0.186 sec json_w_dumps = 0.065 sec ========================= json_rb = 0.034 sec json_wb_dumps = 0.055 sec 1.1. read with open(&amp;#39;github.</description></item><item><title>Django 소셜로그인(oauth) naver 연동</title><link>https://sangjuncha-dev.github.io/posts/framework/django/2021-11-12-django-oauth-naver/</link><pubDate>Fri, 12 Nov 2021 11:49:25 +0900</pubDate><guid>https://sangjuncha-dev.github.io/posts/framework/django/2021-11-12-django-oauth-naver/</guid><description>django restframework 기반의 네이버(naver) 인증 로그인 백엔드서버로 별도의 auth관련 라이브러리는 설치하지 않고 구현한다.
+python : 3.8.10 ujson : 5.1.0 orjson : 3.6.5 1. json ========================= json_r = 0.045 sec json_w_dump = 0.186 sec json_w_dumps = 0.065 sec ========================= json_rb = 0.034 sec json_wb_dumps = 0.055 sec 1.1. read with open(&amp;#39;github.</description></item><item><title>Django 소셜로그인(oauth) google 연동</title><link>https://sangjuncha-dev.github.io/posts/framework/django/2021-11-22-django-oauth-google/</link><pubDate>Mon, 22 Nov 2021 23:59:02 +0900</pubDate><guid>https://sangjuncha-dev.github.io/posts/framework/django/2021-11-22-django-oauth-google/</guid><description>django restframework 기반의 구글(google) 인증 로그인 백엔드서버로 별도의 auth관련 라이브러리는 설치하지 않고 구현한다.
+구글 개발자 사이트에서 로그인에 사용하는 환경변수를 설정하고 진행한다.
+1. 로그인 환경변수 설정 1.1. 애플리케이션 생성 및 웹 로그인 설정 사용 설정된 API 및 서비스
+참고(Reference) OAuth 2.0을 사용하여 Google API에 액세스</description></item><item><title>Django 소셜로그인(oauth) naver 연동</title><link>https://sangjuncha-dev.github.io/posts/framework/django/2021-11-12-django-oauth-naver/</link><pubDate>Fri, 12 Nov 2021 11:49:25 +0900</pubDate><guid>https://sangjuncha-dev.github.io/posts/framework/django/2021-11-12-django-oauth-naver/</guid><description>django restframework 기반의 네이버(naver) 인증 로그인 백엔드서버로 별도의 auth관련 라이브러리는 설치하지 않고 구현한다.
 네이버 개발자 사이트에서 로그인에 사용하는 환경변수를 설정하고 진행한다.
 1. 로그인 환경변수 설정 1.1. 애플리케이션 생성 및 웹 로그인 설정 네이버 개발자 사이트 가입하고 아래의 과정을 진행한다.
 [Application] → [애플리케이션 등록] → 애플리케이션 이름 지정 → [사용 API] 네이버 로그인 선택한다.
@@ -162,9 +165,8 @@ python : 3.8.10 ujson : 5.1.0 orjson : 3.6.5 1. json ========================= j
 카카오 개발자 사이트에서 로그인에 사용하는 환경변수를 설정하고 진행한다.
 1. 로그인 환경변수 설정 1.1. 애플리케이션 생성 카카오 개발자 사이트에 가입후 [내 애플리케이션] → [애플리케이션 추가하기] 클릭한다.
 앱 아이콘(선택), 앱 이름, 사업자명을 등록한다.
-정상적으로 등록되어 애플리케이션 목록에 노출된다.
-1.2. 웹 로그인 설정 생성한 앱을 클릭하면 키 정보를 확인할 수 있다.
-예시코드 kakao login 기능에서는 REST API 키, Admin 키를 사용한다.</description></item><item><title>Django drf_yasg Swagger 기본 사용법</title><link>https://sangjuncha-dev.github.io/posts/framework/django/2021-09-24-django-swagger/</link><pubDate>Fri, 24 Sep 2021 09:23:07 +0900</pubDate><guid>https://sangjuncha-dev.github.io/posts/framework/django/2021-09-24-django-swagger/</guid><description>drf_yasg : REST 프레임워크용 swagger/openAPI 문서 자동화 라이브러리 swagger : 개발자가 REST 웹 서비스를 설계, 빌드, 문서화, 테스트를 도와주는 오픈소스 소프트웨어 프레임워크
+정상적으로 등록되어 애플리케이션 목록에서 확인할 수 있다.
+1.2. 웹 로그인 설정 생성한 앱을 클릭하면 키 정보를 확인하고 [플랫폼 설정하기] 클릭한다.</description></item><item><title>Django drf_yasg Swagger 기본 사용법</title><link>https://sangjuncha-dev.github.io/posts/framework/django/2021-09-24-django-swagger/</link><pubDate>Fri, 24 Sep 2021 09:23:07 +0900</pubDate><guid>https://sangjuncha-dev.github.io/posts/framework/django/2021-09-24-django-swagger/</guid><description>drf_yasg : REST 프레임워크용 swagger/openAPI 문서 자동화 라이브러리 swagger : 개발자가 REST 웹 서비스를 설계, 빌드, 문서화, 테스트를 도와주는 오픈소스 소프트웨어 프레임워크
 drf_yasg : 1.20.0 호환버전
 Django Rest Framework : 3.10, 3.11, 3.12 Django : 2.2, 3.0, 3.1 Python : 3.6, 3.7, 3.8, 3.9 라이브러리 설치
 pip install -U drf-yasg 1. 프로젝트 생성 환경 : windwos 10
