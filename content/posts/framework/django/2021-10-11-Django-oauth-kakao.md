@@ -19,61 +19,55 @@ django restframework 기반의 카카오(kakao) 인증 로그인 백엔드서버
 
 ### 1.1. 애플리케이션 생성
 
-![](../images/django-oauth-kakao/oauth_kakao-1.png?raw=true)
+1. 카카오 개발자 사이트에 가입후 [내 애플리케이션] → `[애플리케이션 추가하기]` 클릭한다.
 
-카카오 개발자 사이트에 가입후 [내 애플리케이션] → `[애플리케이션 추가하기]` 클릭한다.
+    ![](../images/django-oauth-kakao/oauth_kakao-1.png?raw=true)
 
-![](../images/django-oauth-kakao/oauth_kakao-2.png?raw=true)
+2. 앱 아이콘(선택), 앱 이름, 사업자명을 등록한다.
 
-앱 아이콘(선택), 앱 이름, 사업자명을 등록한다.
+    ![](../images/django-oauth-kakao/oauth_kakao-2.png?raw=true)
 
-![](../images/django-oauth-kakao/oauth_kakao-3.png?raw=true)
+3. 정상적으로 등록되어 애플리케이션 목록에서 확인할 수 있다.
 
-정상적으로 등록되어 애플리케이션 목록에 노출된다.
+    ![](../images/django-oauth-kakao/oauth_kakao-3.png?raw=true)
 
 
 ### 1.2. 웹 로그인 설정
 
-![](../images/django-oauth-kakao/oauth_kakao-4.png?raw=true)
+1. 생성한 앱을 클릭하면 키 정보를 확인하고 `[플랫폼 설정하기]` 클릭한다.
 
-생성한 앱을 클릭하면 키 정보를 확인할 수 있다.
+    ![](../images/django-oauth-kakao/oauth_kakao-4.png?raw=true)
 
-예시코드 kakao login 기능에서는 `REST API 키`, `Admin 키`를 사용한다.
-- 네이티브 앱 키: Android, iOS SDK에서 API를 호출할 때 사용한다.
-- JavaScript 키: JavaScript SDK에서 API를 호출할 때 사용한다.
-- REST API 키: REST API를 호출할 때 사용한다.
-- Admin 키: 모든 권한을 갖고 있는 키다. 노출이 되지 않도록 주의가 필요하다.
+- 예시코드 kakao login 기능에서는 `REST API 키`, `Admin 키`를 사용한다.
+    - 네이티브 앱 키: Android, iOS SDK에서 API를 호출할 때 사용한다.
+    - JavaScript 키: JavaScript SDK에서 API를 호출할 때 사용한다.
+    - REST API 키: REST API를 호출할 때 사용한다.
+    - Admin 키: 모든 권한을 갖고 있는 키다. 노출이 되지 않도록 주의가 필요하다.
 
-`[플랫폼 설정하기]` 클릭한다.
+2. 웹 로그인기능을 테스트하기 때문에 `[Web 플랫폼 등록]` 메뉴로 간다.
 
-![](../images/django-oauth-kakao/oauth_kakao-5.png?raw=true)
+    ![](../images/django-oauth-kakao/oauth_kakao-5.png?raw=true)
 
-웹 로그인기능을 테스트하기 때문에 `[Web 플랫폼 등록]` 메뉴로 간다.
+3. 로그인 테스트에 사용할 사이트 도메인 주소를 등록한다.
+    - http://localhost 주소 사용이 가능하다.
 
-![](../images/django-oauth-kakao/oauth_kakao-6.png?raw=true)
+    ![](../images/django-oauth-kakao/oauth_kakao-6.png?raw=true)
 
-로그인 테스트에 사용할 사이트 도메인 주소를 등록한다.
-- http://localhost 주소 사용이 가능하다.
+4. 저장하면 위와 같이 사이트 도메인 주소가 등록된다. `[등록하러 가기]` 메뉴로 간다.
 
-![](../images/django-oauth-kakao/oauth_kakao-7.png?raw=true)
+    ![](../images/django-oauth-kakao/oauth_kakao-7.png?raw=true)
 
-저장하면 위와 같이 사이트 도메인 주소가 등록된다.
+5. 카카오 로그인 API를 사용하기 위해서는 `활성화 설정 ON `상태로 수정한다. 그 다음 로그인 `[Redirect URI 등록]` 메뉴로 이동한다.
 
-`[등록하러 가기]` 메뉴로 간다.
+    ![](../images/django-oauth-kakao/oauth_kakao-8.png?raw=true)
 
-![](../images/django-oauth-kakao/oauth_kakao-8.png?raw=true)
+6. 로그인 테스트 서버에서 받을 Redirect URI를 등록한다.
 
-카카오 로그인 API를 사용하기 위해서는 `활성화 설정 ON `상태로 수정한다.
+    ![](../images/django-oauth-kakao/oauth_kakao-9.png?raw=true)
 
-그 다음 로그인 `[Redirect URI 등록]` 메뉴로 이동한다.
+7. 위의 그림처럼 Redirect URI가 등록되면 kakao 개발자 사이트에서 로그인하기 위한 모든 준비가 끝났다.
 
-![](../images/django-oauth-kakao/oauth_kakao-9.png?raw=true)
-
-로그인 테스트 서버에서 받을 Redirect URI를 등록한다.
-
-![](../images/django-oauth-kakao/oauth_kakao-10.png?raw=true)
-
-위의 그림처럼 Redirect URI가 등록되면 kakao 개발자 사이트에서 로그인하기 위한 모든 준비가 끝났다.
+    ![](../images/django-oauth-kakao/oauth_kakao-10.png?raw=true)
 
 
 ---
@@ -96,7 +90,9 @@ kakao_profile_uri = "https://kapi.kakao.com/v2/user/me"
 
 - REST API 키: REST API를 호출할 때 사용한다.
 - Admin 키: 모든 권한을 갖고 있는 키다. 노출이 되지 않도록 주의가 필요하다.
-
+- `kakao_login_uri`: 로그인 페이지 주소
+- `kakao_token_uri`: 엑세스 토큰 발급받기 위한 주소
+- `kakao_profile_uri`: 프로필 정보 조회를 위한 주소
 
 ---
 
@@ -203,9 +199,9 @@ class KakaoCallbackView(APIView):
 
 ## 5. 로그인
 
-웹서버에서 설정한 kakao oauth 로그인 페이지로 접근하면 사전에 설정한 리다이렉트 URI로 접근하는데 설정에 문제가 없다면 kakao 로그인 페이지로 접속된다.
+1. 웹서버에서 설정한 kakao oauth 로그인 페이지로 접근하면 사전에 설정한 리다이렉트 URI로 접근하는데 설정에 문제가 없다면 kakao 로그인 페이지로 접속된다.
 
-![](../images/django-oauth-kakao/oauth_kakao-11.png?raw=true)
+    ![](../images/django-oauth-kakao/oauth_kakao-11.png?raw=true)
 
 
 ---

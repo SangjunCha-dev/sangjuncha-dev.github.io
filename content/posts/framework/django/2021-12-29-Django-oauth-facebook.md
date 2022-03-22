@@ -260,72 +260,58 @@ facebook_debug_token_url = "https://graph.facebook.com/debug_token"
 facebook_profile_url = f"{facebook_graph_url}/me"  # 사용자 정보 요청
 ```
 
-FACEBOOK_REDIRECT_URI: https://localhost 리디렉션은 개발 모드에 있는 동안만 기본으로 허용된다.
+- FACEBOOK_REDIRECT_URI: https://localhost 리디렉션은 개발 모드에 있는 동안만 기본으로 허용된다.
 
-## 2.1. Facebook Developers 계정 등록 및 APP ID 구성 및 편집
+### 2.1. Facebook Developers 계정 등록
 
-### 2.1.1. Facebook Developers 계정 등록
+1. [페이스북 개발자 사이트](https://developers.facebook.com/)에서 페이스북 로그인후 개발자 계정에 가입한다.
+  ![](../images/django-oauth-facebook/oauth_facebook-1.png?raw=true)
 
-![](../images/django-oauth-facebook/oauth_facebook-1.png?raw=true)
+2. 이메일 인증받을 주소를 입력한다. (기본값 페이스북에 등록된 이메일)
+  ![](../images/django-oauth-facebook/oauth_facebook-2.png?raw=true)
 
-[페이스북 개발자 사이트](https://developers.facebook.com/)에서 페이스북 로그인후 개발자 계정에 가입한다.
-
-![](../images/django-oauth-facebook/oauth_facebook-2.png?raw=true)
-
-이메일 인증받을 주소를 입력한다. (기본값 페이스북에 등록된 이메일)
-
-![](../images/django-oauth-facebook/oauth_facebook-3.png?raw=true)
-
-관심사를 선택한다.
+3. 관심사를 선택한다.
+  ![](../images/django-oauth-facebook/oauth_facebook-3.png?raw=true)
 
 
-### 2.1.2. APP 생성
+### 2.2. APP 생성
 
-![](../images/django-oauth-facebook/oauth_facebook-4.png?raw=true)
+1. 앱을 생성한다.
+  ![](../images/django-oauth-facebook/oauth_facebook-4.png?raw=true)
 
-앱을 생성한다.
+2. 페이스북 소셜 로그인 연동을 위해 생성할 앱으로 `소비자` 유형을 선택한다.
+  ![](../images/django-oauth-facebook/oauth_facebook-5.png?raw=true)
 
-![](../images/django-oauth-facebook/oauth_facebook-5.png?raw=true)
+3. 표시이름: 사용자가 앱에 로그인할 표시될 앱이름을 설정한다.
+  ![](../images/django-oauth-facebook/oauth_facebook-6.png?raw=true)
 
-페이스북 소셜 로그인 연동을 위해 생성할 앱으로 `소비자` 유형을 선택한다.
 
-![](../images/django-oauth-facebook/oauth_facebook-6.png?raw=true)
+### 2.3. 앱 로그인 설정
 
-표시이름: 사용자가 앱에 로그인할 표시될 앱이름을 설정한다.
+1. 앱 대시보드에서 APP ID를 확인할 수 있다.
 
-### 2.1.2. 앱 로그인 설정
+2. 앱에 `Facebook 로그인` 설정한다.
+  ![](../images/django-oauth-facebook/oauth_facebook-8.png?raw=true)
 
-앱 대시보드에서 APP ID를 확인할 수 있다.
+3. 로그인할 플랫폼 유형 `웹`을 선택한다.
+  ![](../images/django-oauth-facebook/oauth_facebook-9.png?raw=true)
 
-![](../images/django-oauth-facebook/oauth_facebook-8.png?raw=true)
+4. 리다이렉트 URI를 사용하는 `사이트 주소`를 입력한다.
+  ![](../images/django-oauth-facebook/oauth_facebook-10.png?raw=true)
 
-앱에 `Facebook 로그인` 설정한다.
+5. Facebook 로그인 → 설정 → 유효한 OAuth `리디렉션 URI`를 입력한다.
+  - 리디렉션 URI: 페이스북 로그인 정보를 전송받을 URI
+  - URI 리디렉션 유효성 검사기: 실제 웹서버와 통신이 되는지 검증한다.
+  ![](../images/django-oauth-facebook/oauth_facebook-11.png?raw=true)
 
-![](../images/django-oauth-facebook/oauth_facebook-9.png?raw=true)
+6. `public_profile` 권한 설정에관한 경고문이 나올경우 `Get Advanced Access` 메뉴로 간다.
+  ![](../images/django-oauth-facebook/oauth_facebook-12.png?raw=true)
 
-로그인할 플랫폼 유형 `웹`을 선택한다.
+7. `public_profile` 권한에서 `고급 엑세스 이용하기`로 이동한다.
+  ![](../images/django-oauth-facebook/oauth_facebook-13.png?raw=true)
 
-![](../images/django-oauth-facebook/oauth_facebook-10.png?raw=true)
-
-리다이렉트 URI를 사용하는 `사이트 주소`를 입력한다.
-
-![](../images/django-oauth-facebook/oauth_facebook-11.png?raw=true)
-
-Facebook 로그인 → 설정 → 유효한 OAuth `리디렉션 URI`를 입력한다.
-- 리디렉션 URI: 페이스북 로그인 정보를 전송받을 URI
-- URI 리디렉션 유효성 검사기: 실제 웹서버와 통신이 되는지 검증한다.
-
-![](../images/django-oauth-facebook/oauth_facebook-12.png?raw=true)
-
-`public_profile` 권한 설정에관한 경고문이 나올경우 `Get Advanced Access` 메뉴로 간다.
-
-![](../images/django-oauth-facebook/oauth_facebook-13.png?raw=true)
-
-`public_profile` 권한에서 `고급 엑세스 이용하기`로 이동한다.
-
-![](../images/django-oauth-facebook/oauth_facebook-14.png?raw=true)
-
-고급 엑세스에 대한 개인정보 이용에 `동의`를 한다.
+8. 고급 엑세스에 대한 개인정보 이용에 `동의`를 한다.
+  ![](../images/django-oauth-facebook/oauth_facebook-14.png?raw=true)
 
 
 ---
@@ -515,7 +501,7 @@ URL이 포함된 JSON 응답이 반환되며, 이 URL을 통해 사용자가 삭
 
 ## 6. 로그인
 
-웹서버에서 설정한 apple oauth 로그인 페이지로 접근하면 사전에 설정한 애플 리다이렉트 URI로 접근하는데 설정에 문제가 없다면 아래와 같은 로그인 페이지로 접속된다.
+웹서버에서 설정한 apple oauth 로그인 페이지로 접근하면 사전에 설정한 애플 리다이렉트 URI로 접근하는데 설정에 문제가 없다면 로그인 페이지로 접속된다.
 
 
 ---

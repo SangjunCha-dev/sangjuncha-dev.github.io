@@ -54,8 +54,9 @@ apple_auth_url = f"{apple_base_url}/auth/authorize"
 apple_token_url = f"{apple_base_url}/auth/token"
 ```
 
-APPLE_REDIRECT_URI: https 프로토콜을 사용하는 도메인 주소만 사용가능하다.(localhost 또는 IP주소는 사용할 수 없다.)
-
+- APPLE_REDIRECT_URI: https 프로토콜을 사용하는 도메인 주소만 사용가능하다.(localhost 또는 IP주소는 사용할 수 없다.)
+- `apple_auth_url`: 로그인 페이지 주소
+- `apple_token_url`: ID 토큰 발급받기 위한 주소
 
 ### 2.1. APP ID구성 및 편집
 
@@ -272,18 +273,15 @@ class AppleEndpoint(APIView):
 
 ## 5. 로그인
 
-웹서버에서 설정한 apple oauth 로그인 페이지로 접근하면 사전에 설정한 애플 리다이렉트 URI로 접근하는데 설정에 문제가 없다면 아래와 같은 로그인 페이지로 접속된다.
+1. 웹서버에서 설정한 apple oauth 로그인 페이지로 접근하면 사전에 설정한 애플 리다이렉트 URI로 접근하는데 설정에 문제가 없다면 아래와 같은 로그인 페이지로 접속된다.
+    - 로그인 페이지에서는 어떤 사이트로 로그인할지 같이 안내한다.
+    - 애플 개발자 사이트에서 설정한 `Description`값이 노출된다.
 
-로그인 페이지에서는 어떤 사이트로 로그인할지 같이 안내한다.
-- 애플 개발자 사이트에서 설정한 `Description`값이 노출된다.
+    ![](../images/django-oauth-apple/login-1.png?raw=true)
 
-![](../images/django-oauth-apple/login-1.png?raw=true)
+2. 최초 로그인시 아래와 같이 안내되고 이후는 Apple Callback 함수 처리로 넘어간다.
 
-최초 로그인시 아래와 같이 안내된다.
-
-![](../images/django-oauth-apple/login-2.png?raw=true)
-
-이후는 Apple Callback 함수 처리로 넘어가며 알고리즘에 문제가 없다면 json 타입의 `social_type`, `social_id`, `user_email` 값이 반환된다.
+    ![](../images/django-oauth-apple/login-2.png?raw=true)
 
 
 ---
