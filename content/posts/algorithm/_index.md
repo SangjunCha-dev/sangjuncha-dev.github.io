@@ -4,5 +4,5 @@ menu:
   sidebar:
     name: algorithm
     identifier: algorithm
-    weight: 10
+    weight: 100
 ---
