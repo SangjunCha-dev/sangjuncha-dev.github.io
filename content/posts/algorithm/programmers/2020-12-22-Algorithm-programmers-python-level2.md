@@ -1849,7 +1849,112 @@ def solution(rows, columns, queries):
 > min TaseCase : 0.03ms, 10.3MB  
 > max TaseCase : 134.78ms, 12MB  
 
+
 ---
+
+## 거리두기 확인하기
+
+분류 : 2021 카카오 채용연계형 인턴십
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/81302)
+
+- 맨해튼 거리: 두 테이블 T1, T2가 행렬 (r1, c1), (r2, c2)에 각각 위치하고 있다면, 맨해튼 거리는 |r1 - r2| + |c1 - c2| 이다.
+
+**추가 테스트 케이스**
+
+```python
+places = [
+    [
+        "OOOXP",
+        "OOOPO",
+        "OOOOO",
+        "OOOOO",
+        "OOOOO",
+    ],
+    [
+        "OOOOP",
+        "OOOPX",
+        "OOOOO",
+        "OOOOO",
+        "OOOOO",
+    ]
+]
+
+result = [0, 0]
+```
+
+풀이방법 : 맨해튼 거리를 활용하여 대각선위치를 검증한다.
+
+```python
+def find_point(place):
+    for h1 in range(5):
+        for w1 in range(5):
+            point = place[h1][w1]
+            if point != 'P':
+                continue
+
+            min_w = w1-2 if 0 < w1-2 else 0
+            max_w = w1+2 if w1+2 < 5 else 4
+            max_h = h1+2 if h1+2 < 5 else 4
+
+            for w2 in range(w1+1,max_w+1):
+                point2 = place[h1][w2]
+                if point2 == 'X':
+                    break
+                elif point2 == 'P':
+                    return 0
+                elif point2 == 'O':
+                    h2 = h1+1 if h1+1 < max_h else max_h
+                    distance = abs(h1-h2)+abs(w1-w2)
+                    if (place[h2][w2] == 'P') and (distance <=2):
+                        return 0
+
+            for w2 in range(w1-1,min_w-1,-1):
+                point2 = place[h1][w2]
+                if point2 == 'X':
+                    break
+                elif point2 == 'P':
+                    return 0
+                elif point2 == 'O':
+                    h2 = h1+1 if h1+1 < max_h else max_h
+                    distance = abs(h1-(h2))+abs(w1-w2)
+                    if (place[h2][w2] == 'P') and (distance <=2):
+                        return 0
+
+            for h2 in range(h1+1,max_h+1):
+                point2 = place[h2][w1]
+                if point2 == 'X':
+                    break
+                elif point2 == 'P':
+                    return 0
+                elif point2 == 'O':
+                    w2 = w1-1 if 0 < w1-1 else min_w
+                    distance = abs(h1-h2)+abs(w1-w2)
+                    if (place[h2][w2] == 'P') and (distance <=2):
+                        return 0
+                    w2 = w1+1 if w1+1 < max_w else max_w
+                    distance = abs(h1-h2)+abs(w1-w2)
+                    if (place[h2][w2] == 'P') and (distance <=2):
+                        return 0
+    return 1
+
+def solution(places):
+    answer = []
+
+    for place in places:
+        answer.append(find_point(place))
+
+    return answer
+```
+
+**2022-03-27**
+
+> min TaseCase : 0.01ms, 10.2MB  
+> max TaseCase : 0.05ms, 10.3MB  
+
+
+---
+
 
 
 <!-- 
@@ -1865,7 +1970,7 @@ def solution(rows, columns, queries):
 
 ```
 
-**2021**
+**2022**
 
 > min TaseCase :   
 > max TaseCase :   
@@ -1885,7 +1990,7 @@ def solution(rows, columns, queries):
 
 ```
 
-**2021**
+**2022**
 
 > min TaseCase :   
 > max TaseCase :    
@@ -1905,7 +2010,7 @@ def solution(rows, columns, queries):
 
 ```
 
-**2021**
+**2022**
 
 > min TaseCase :   
 > max TaseCase :   
