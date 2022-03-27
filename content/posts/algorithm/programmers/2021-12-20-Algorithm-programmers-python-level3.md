@@ -168,10 +168,59 @@ def solution(n, k, cmd):
 > min TaseCase : 235.29ms, 77.6MB  
 > max TaseCase : 906.85ms, 232MB  
 
+
 ---
 
+## 네트워크
+
+분류 : 깊이/너비 우선 탐색(DFS/BFS)
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/43162)
+
+### 방법
+
+1. 너비우선탐색(BFS)구조의 재귀함수로 풀이
+
+**추가한 테스트**
+
+|n|computers|return|
+|---|---|---|
+|8|[[1, 0, 0, 1, 0, 0, 0, 0], [0, 1, 0, 0, 1, 0, 0, 0], [0, 0, 1, 0, 0, 1, 0, 0], [1, 0, 0, 1, 0, 0, 1, 0], [0, 1, 0, 0, 1, 0, 0, 1], [0, 0, 1, 0, 0, 1, 0, 0], [0, 0, 0, 1, 0, 0, 1, 0], [0, 0, 0, 0, 1, 0, 0, 1]]|3|
+|4|[[1, 1, 0, 1], [1, 1, 0, 0], [0, 0, 1, 1], [1, 0, 1, 1]]|1|
 
 
+```python
+def solution(n, computers):
+    return find_node(computers)
+
+def find_node(computers):
+    for i, computer1 in enumerate(computers):
+        for j in range(i+1, len(computers)):
+            for k, l in zip(computer1, computers[j]):
+
+                # and 연산으로 같은 네트워크 인지 검증
+                if k and l:
+                    temp_node = []
+                    for val1, val2 in zip(computers[j], computer1):
+                        # 같은 네트워크 이면 or 연산으로 네트워크 확장
+                        temp_node.append(val1 or val2)
+                    computers[i] = temp_node
+
+                    # 병합된 연결정보 삭제
+                    del computers[j]
+
+                    # 연결정보가 갱신되었으므로 처음부터 다시 연결정보 탐색
+                    return find_node(computers)
+    return len(computers)
+```
+
+**2022-03-27**
+
+> min TaseCase : 0.00ms, 10.1MB  
+> max TaseCase : 1.04ms, 10.4MB  
+
+
+---
 
 
 <!--
