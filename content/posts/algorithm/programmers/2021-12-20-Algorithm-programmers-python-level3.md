@@ -222,6 +222,70 @@ def find_node(computers):
 
 ---
 
+## 가장 먼 노드
+
+분류 : 그래프
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/49189)
+
+1. 우선순위 큐를 적용한 다익스트라 최단 거리 알고리즘을 사용한다.
+2. 다익스트라 알고리즘은 간선의 방향성을 체크하므로 무방향성을 위해 입력받은 vertex 연결 정보를 양방향으로 만들고 진행한다.
+
+```python
+import heapq
+
+def dijkstra(start, distance, graph):
+    q = []
+
+    heapq.heappush(q, (0, start))
+    distance[start] = 0
+
+    while q:
+        dist, now = heapq.heappop(q)
+
+        if distance[now] < dist:
+            continue
+
+        for i in graph[now]:
+            cost = dist + i[1]
+
+            if cost < distance[i[0]]:
+                distance[i[0]] = cost
+                heapq.heappush(q, (cost, i[0]))
+
+def solution(n, edge):
+    answer = 0
+    start = 1
+    INF = int(1e9)
+
+    graph = [[] for _ in range(n+1)]
+    distance = [INF for _ in range(n+1)]
+    
+    for i, j in edge:
+        graph[i].append((j, 1))
+        graph[j].append((i, 1))
+
+    dijkstra(start, distance, graph)
+
+    distance_list = []
+    for i in range(1, n+1):
+        if distance[i] == INF: continue
+        distance_list.append(distance[i])
+
+    answer = distance_list.count(max(distance_list))
+
+    return answer
+```
+
+**2022-03-29**
+
+> min TaseCase : 0.03ms, 10.2MB  
+> max TaseCase : 120.05ms, 27.2MB  
+
+
+---
+
+
 
 <!--
 ## 
