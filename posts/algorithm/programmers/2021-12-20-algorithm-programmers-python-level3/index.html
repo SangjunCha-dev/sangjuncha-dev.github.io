@@ -187,8 +187,163 @@
 </span></span><span style=display:flex><span>            dp[j] <span style=color:#f92672>=</span> max(array[j], array[j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]) <span style=color:#f92672>+</span> k
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> max(dp)
-</span></span></code></pre></div><p><strong>2022-03-29</strong></p><blockquote><p><strong>정확성</strong><br>min TaseCase : 0.07ms, 10.2MB<br>max TaseCase : 6.33ms, 10.5MB</p><p><strong>효율성</strong><br>min TaseCase : 76.97ms, 13.3MB<br>max TaseCase : 112.80ms, 14.9MB</p></blockquote><hr></div><div class="row pl-3 pr-3"><div class="col-md-6 share-buttons"></div><div class="col-md-6 btn-improve-page"><a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/algorithm/programmers/2021-12-20-Algorithm-programmers-python-level3.md title="이 페이지를 개선" target=_blank rel=noopener><i class="fas fa-code-branch"></i>
-이 페이지를 개선</a></div></div><hr><div class="row next-prev-navigator"></div><hr></div></div></div><a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a></section><section class=toc-section id=toc-section><div class=toc-holder><h5 class="text-center pl-3">목차</h5><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#다단계-칫솔-판매>다단계 칫솔 판매</a><ul><li><a href=#방법1>방법1</a></li><li><a href=#방법2>방법2</a></li></ul></li><li><a href=#표-편집>표 편집</a></li><li><a href=#네트워크>네트워크</a><ul><li><a href=#방법>방법</a></li></ul></li><li><a href=#가장-먼-노드>가장 먼 노드</a></li><li><a href=#정수-삼각형>정수 삼각형</a></li></ul></nav></div></div></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>바로가기</h5><ul><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>Contact me:</h5><ul><li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-left"><div class=col-md-4><a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener><img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
+</span></span></code></pre></div><p><strong>2022-03-29</strong></p><blockquote><p><strong>정확성</strong><br>min TaseCase : 0.07ms, 10.2MB<br>max TaseCase : 6.33ms, 10.5MB</p><p><strong>효율성</strong><br>min TaseCase : 76.97ms, 13.3MB<br>max TaseCase : 112.80ms, 14.9MB</p></blockquote><hr><h2 id=등굣길>등굣길</h2><p>분류 : 동적계획법(Dynamic Programming)</p><p><a href=https://programmers.co.kr/learn/courses/30/lessons/42898>문제 링크</a></p><h3 id=방법1-1>방법1</h3><ol><li>동적계획법 방식으로 문제풀이</li><li>아래 풀이는 문제에서 요구한 최단경로의 갯수만 연산하는 최적화가 필요함</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>solution</span>(m, n, puddles):
+</span></span><span style=display:flex><span>    INF <span style=color:#f92672>=</span> int(<span style=color:#ae81ff>1e9</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    dp <span style=color:#f92672>=</span> [[[INF,<span style=color:#ae81ff>0</span>] <span style=color:#66d9ef>for</span> _ <span style=color:#f92672>in</span> range(m)] <span style=color:#66d9ef>for</span> _ <span style=color:#f92672>in</span> range(n)]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># puddles 위치 indexr에 맞도록 수정 (입력값 위치(x, y) 주의!)</span>
+</span></span><span style=display:flex><span>    puddles <span style=color:#f92672>=</span> [[puddle[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, puddle[<span style=color:#ae81ff>1</span>]<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] <span style=color:#66d9ef>for</span> puddle <span style=color:#f92672>in</span> puddles]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> h <span style=color:#f92672>in</span> range(n):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> w <span style=color:#f92672>in</span> range(m):           
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e># 침수 지역일 경우 다음 단계로</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> [h,w] <span style=color:#f92672>in</span> puddles:
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>continue</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>&lt;=</span> h<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span> <span style=color:#f92672>&lt;</span> n:
+</span></span><span style=display:flex><span>                value_y <span style=color:#f92672>=</span> dp[h<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][w][<span style=color:#ae81ff>0</span>]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>                value_y <span style=color:#f92672>=</span> INF
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>&lt;=</span> w<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span> <span style=color:#f92672>&lt;</span> m:
+</span></span><span style=display:flex><span>                value_x <span style=color:#f92672>=</span> dp[h][w<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][<span style=color:#ae81ff>0</span>]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>                value_x <span style=color:#f92672>=</span> INF
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>            <span style=color:#75715e># 최단 경로의 개수</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> value_y <span style=color:#f92672>&lt;</span> value_x:
+</span></span><span style=display:flex><span>                value <span style=color:#f92672>=</span> value_y
+</span></span><span style=display:flex><span>                count <span style=color:#f92672>=</span> dp[h<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][w][<span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>elif</span> value_x <span style=color:#f92672>&lt;</span> value_y:
+</span></span><span style=display:flex><span>                value <span style=color:#f92672>=</span> value_x
+</span></span><span style=display:flex><span>                count <span style=color:#f92672>=</span> dp[h][w<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][<span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>                value <span style=color:#f92672>=</span> value_y
+</span></span><span style=display:flex><span>                count <span style=color:#f92672>=</span> dp[h<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][w][<span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> dp[h][w<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][<span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e># 처음위치일 경우</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (value_x <span style=color:#f92672>is</span> INF) <span style=color:#f92672>and</span> (value_y <span style=color:#f92672>is</span> INF):
+</span></span><span style=display:flex><span>                value <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>                count <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            dp[h][w] <span style=color:#f92672>=</span> [value, count]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> dp[n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][m<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][<span style=color:#ae81ff>1</span>] <span style=color:#f92672>%</span> <span style=color:#ae81ff>1000000007</span>
+</span></span></code></pre></div><p><strong>2022-03-30</strong></p><blockquote><p><strong>정확성</strong><br>min TaseCase : 0.01ms, 10.3MB<br>max TaseCase : 0.21ms, 10.2MB</p><p><strong>효율성</strong><br>min TaseCase : 2.56ms, 10.3MB<br>max TaseCase : 7.37ms, 10.9MB</p></blockquote><h3 id=방법2-1>방법2</h3><ol><li>오른쪽, 아래로만 이동가능하므로 무조건 최단경로를 만족하게됨</li><li>최단경로 계산이 아닌 갈수 있는 경우의 수 연산으로 수정하면 최적화 가능</li></ol><hr><h2 id=이중우선순위큐>이중우선순위큐</h2><p>분류 : 힙(Heap)</p><p><a href=https://programmers.co.kr/learn/courses/30/lessons/42628>문제 링크</a></p><ol><li><code>이중</code> 우선순위 큐를 사용해야 하므로 heap 자료구조를 2개 선언하여 풀이한다.<ul><li>python은 heap 라이브러리가 최소힙으로 동작한다.</li></ul></li></ol><p><strong>추가 테스트 케이스</strong></p><table><thead><tr><th>operations</th><th>result</th></tr></thead><tbody><tr><td>[&ldquo;I 4&rdquo;, &ldquo;I 3&rdquo;, &ldquo;I 2&rdquo;, &ldquo;I 1&rdquo;, &ldquo;D 1&rdquo;, &ldquo;D 1&rdquo;, &ldquo;D -1&rdquo;, &ldquo;D -1&rdquo;, &ldquo;I 5&rdquo;, &ldquo;I 6&rdquo;]</td><td>[6,5]</td></tr></tbody></table><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> heapq
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>solution</span>(operations):
+</span></span><span style=display:flex><span>    answer <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>    count <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    values_min, values_max <span style=color:#f92672>=</span> [], []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> operation <span style=color:#f92672>in</span> operations:
+</span></span><span style=display:flex><span>        op, value <span style=color:#f92672>=</span> operation<span style=color:#f92672>.</span>split()
+</span></span><span style=display:flex><span>        value <span style=color:#f92672>=</span> int(value)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> op <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;I&#39;</span>:
+</span></span><span style=display:flex><span>            <span style=color:#75715e># pyhton은 최소힙으로 기본 동작</span>
+</span></span><span style=display:flex><span>            heapq<span style=color:#f92672>.</span>heappush(values_min, value)
+</span></span><span style=display:flex><span>            heapq<span style=color:#f92672>.</span>heappush(values_max, <span style=color:#f92672>-</span>value)
+</span></span><span style=display:flex><span>            count <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>elif</span> op <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;D&#39;</span> <span style=color:#f92672>and</span> (<span style=color:#ae81ff>0</span> <span style=color:#f92672>&lt;</span> count):
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> value <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>                heapq<span style=color:#f92672>.</span>heappop(values_min)
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>                heapq<span style=color:#f92672>.</span>heappop(values_max)
+</span></span><span style=display:flex><span>            count <span style=color:#f92672>-=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e># 모두 삭제된 경우로 초기화</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> count <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>                values_min, values_max <span style=color:#f92672>=</span> [], []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>&lt;</span> count:
+</span></span><span style=display:flex><span>        answer <span style=color:#f92672>=</span> [<span style=color:#f92672>-</span>heapq<span style=color:#f92672>.</span>heappop(values_max), heapq<span style=color:#f92672>.</span>heappop(values_min)]
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>        answer <span style=color:#f92672>=</span> [<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> answer
+</span></span></code></pre></div><p><strong>2022-03-30</strong></p><blockquote><p>min TaseCase : 0.02ms, 10.4MB<br>max TaseCase : 0.03ms, 10.4MB</p></blockquote><hr><h2 id=디스크-컨트롤러>디스크 컨트롤러</h2><p>분류 : 힙(Heap)</p><p><a href=https://programmers.co.kr/learn/courses/30/lessons/42627>문제 링크</a></p><ol><li>힙구조를 이용한 풀이</li><li>디스크요청의 정렬이 필요하고 요청사이의 idle 시간도 주의한다.</li></ol><p><strong>추가 테스트 케이스</strong></p><table><thead><tr><th>jobs</th><th>result</th></tr></thead><tbody><tr><td>[[0, 1], [1, 1], [5, 7]]</td><td>3</td></tr></tbody></table><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> heapq
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>solution</span>(jobs):
+</span></span><span style=display:flex><span>    answer <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    sequences <span style=color:#f92672>=</span> {}
+</span></span><span style=display:flex><span>    heap <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> job <span style=color:#f92672>in</span> jobs:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> job[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>in</span> sequences:
+</span></span><span style=display:flex><span>            sequences[job[<span style=color:#ae81ff>0</span>]]<span style=color:#f92672>.</span>append(job[<span style=color:#ae81ff>1</span>])
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>            sequences[job[<span style=color:#ae81ff>0</span>]] <span style=color:#f92672>=</span> [job[<span style=color:#ae81ff>1</span>]]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    now_time, process_time <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> sequences <span style=color:#f92672>or</span> heap:
+</span></span><span style=display:flex><span>        <span style=color:#75715e># 디스크 작업 요청</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> now_time <span style=color:#f92672>in</span> sequences:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> sequence <span style=color:#f92672>in</span> sequences[now_time]:
+</span></span><span style=display:flex><span>                heapq<span style=color:#f92672>.</span>heappush(heap, (sequence, now_time))
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>del</span> sequences[now_time]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># 처리중인 작업이 없을 경우</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (<span style=color:#f92672>not</span> process_time) <span style=color:#f92672>and</span> heap:
+</span></span><span style=display:flex><span>            process_time, request_time <span style=color:#f92672>=</span> heapq<span style=color:#f92672>.</span>heappop(heap)
+</span></span><span style=display:flex><span>            <span style=color:#75715e># 처리된 시간 = 현재시간 - 요청시간 + 소요시간</span>
+</span></span><span style=display:flex><span>            answer <span style=color:#f92672>+=</span> now_time <span style=color:#f92672>-</span> request_time <span style=color:#f92672>+</span> process_time
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>&lt;</span> process_time:
+</span></span><span style=display:flex><span>            process_time <span style=color:#f92672>-=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        now_time <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    answer <span style=color:#f92672>=</span> answer <span style=color:#f92672>//</span> len(jobs)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> answer
+</span></span></code></pre></div><p><strong>2022-03-30</strong></p><blockquote><p>min TaseCase : 0.01ms, 10.1MB<br>max TaseCase : 24.18ms, 10.3MB</p></blockquote><hr><h2 id=단어-변환>단어 변환</h2><p>분류 : 깊이/너비 우선 탐색(DFS/BFS)</p><p><a href=https://programmers.co.kr/learn/courses/30/lessons/43163>문제 링크</a></p><ol><li>DFS 문제로 재귀함수를 사용하여 풀이한다.</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>word_conversion</span>(begin, target, nodes, stack):
+</span></span><span style=display:flex><span>    count <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    stack<span style=color:#f92672>.</span>append(begin)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># target과 동일한 경우</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> target <span style=color:#f92672>==</span> begin:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> len(stack)<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    path_count <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(target)):
+</span></span><span style=display:flex><span>        w <span style=color:#f92672>=</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{</span>begin[:i]<span style=color:#e6db74>}{</span>begin[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>:]<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> w <span style=color:#f92672>in</span> nodes[i]:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> word <span style=color:#f92672>in</span> nodes[i][w]:
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> word <span style=color:#f92672>not</span> <span style=color:#f92672>in</span> stack:
+</span></span><span style=display:flex><span>                    conversion_result <span style=color:#f92672>=</span> word_conversion(word, target, nodes, stack)
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>if</span> conversion_result <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>                        path_count<span style=color:#f92672>.</span>append(conversion_result)
+</span></span><span style=display:flex><span>                    stack<span style=color:#f92672>.</span>pop()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> path_count:
+</span></span><span style=display:flex><span>        count <span style=color:#f92672>=</span> min(path_count)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> count
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>solution</span>(begin, target, words):
+</span></span><span style=display:flex><span>    answer <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    length <span style=color:#f92672>=</span> len(target)
+</span></span><span style=display:flex><span>    nodes <span style=color:#f92672>=</span> {i: {} <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(length)}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 연결관계 정립</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> word <span style=color:#f92672>in</span> words:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(length):
+</span></span><span style=display:flex><span>            w <span style=color:#f92672>=</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{</span>word[:i]<span style=color:#e6db74>}{</span>word[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>:]<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> w <span style=color:#f92672>in</span> nodes[i]:
+</span></span><span style=display:flex><span>                nodes[i][w]<span style=color:#f92672>.</span>append(word)
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>                nodes[i][w] <span style=color:#f92672>=</span> [word]
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e># DFS -&gt; 재귀</span>
+</span></span><span style=display:flex><span>    stack <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>    answer <span style=color:#f92672>=</span> word_conversion(begin, target, nodes, stack)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> answer
+</span></span></code></pre></div><p><strong>2022-03-30</strong></p><blockquote><p>min TaseCase : 0.02ms, 10.2MB<br>max TaseCase : 0.23ms, 10.3MB</p></blockquote><hr></div><div class="row pl-3 pr-3"><div class="col-md-6 share-buttons"></div><div class="col-md-6 btn-improve-page"><a href=https://github.com/SangjunCha-dev/sangjuncha-dev.github.io/edit/main/content/posts/algorithm/programmers/2021-12-20-Algorithm-programmers-python-level3.md title="이 페이지를 개선" target=_blank rel=noopener><i class="fas fa-code-branch"></i>
+이 페이지를 개선</a></div></div><hr><div class="row next-prev-navigator"></div><hr></div></div></div><a id=scroll-to-top class=btn><i class="fas fa-chevron-circle-up"></i></a></section><section class=toc-section id=toc-section><div class=toc-holder><h5 class="text-center pl-3">목차</h5><hr><div class=toc><nav id=TableOfContents><ul><li><a href=#다단계-칫솔-판매>다단계 칫솔 판매</a><ul><li><a href=#방법1>방법1</a></li><li><a href=#방법2>방법2</a></li></ul></li><li><a href=#표-편집>표 편집</a></li><li><a href=#네트워크>네트워크</a><ul><li><a href=#방법>방법</a></li></ul></li><li><a href=#가장-먼-노드>가장 먼 노드</a></li><li><a href=#정수-삼각형>정수 삼각형</a></li><li><a href=#등굣길>등굣길</a><ul><li><a href=#방법1-1>방법1</a></li><li><a href=#방법2-1>방법2</a></li></ul></li><li><a href=#이중우선순위큐>이중우선순위큐</a></li><li><a href=#디스크-컨트롤러>디스크 컨트롤러</a></li><li><a href=#단어-변환>단어 변환</a></li></ul></nav></div></div></section></div><footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-left"><div class="col-md-4 col-sm-12"><h5>바로가기</h5><ul><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#about>About</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#skills>Skills</a></li><li class=nav-item><a class=smooth-scroll href=https://sangjuncha-dev.github.io#recent-posts>Recent Posts</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>Contact me:</h5><ul><li><a href=mailto:sangjuncha.dev@gmail.com target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>sangjuncha.dev@gmail.com</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-left"><div class=col-md-4><a id=theme href=https://github.com/hossainemruz/toha target=_blank rel=noopener><img src=/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png alt="Toha Theme Logo">
 Toha</a></div><div class="col-md-4 text-center">Copyright 2020. SangjunCha all rights reserved.</div><div class="col-md-4 text-right"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
 <img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script type=text/javascript src=/js/jquery-3.4.1.min.js></script>
 <script type=text/javascript src=/js/popper.min.js></script>
