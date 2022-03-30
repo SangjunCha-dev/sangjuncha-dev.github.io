@@ -399,6 +399,67 @@ def solution(m, n, puddles):
 1. 오른쪽, 아래로만 이동가능하므로 무조건 최단경로를 만족하게됨
 2. 최단경로 계산이 아닌 갈수 있는 경우의 수 연산으로 수정하면 최적화 가능
 
+
+---
+
+## 이중우선순위큐
+
+분류 : 힙(Heap)
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42628)
+
+1. `이중` 우선순위 큐를 사용해야 하므로 heap 자료구조를 2개 선언하여 풀이한다.
+    - python은 heap 라이브러리가 최소힙으로 동작한다.
+
+**추가 테스트 케이스**
+
+|operations|result|
+|---|---|
+|["I 4", "I 3", "I 2", "I 1", "D 1", "D 1", "D -1", "D -1", "I 5", "I 6"]|[6,5]|
+
+```python
+import heapq
+
+def solution(operations):
+    answer = []
+    count = 0
+    values_min, values_max = [], []
+
+    for operation in operations:
+        op, value = operation.split()
+        value = int(value)
+
+        if op == 'I':
+            # pyhton은 최소힙으로 기본 동작
+            heapq.heappush(values_min, value)
+            heapq.heappush(values_max, -value)
+            count += 1
+
+        elif op == 'D' and (0 < count):
+            if value < 0:
+                heapq.heappop(values_min)
+            else:
+                heapq.heappop(values_max)
+            count -= 1
+
+            # 모두 삭제된 경우로 초기화
+            if count == 0:
+                values_min, values_max = [], []
+
+    if 0 < count:
+        answer = [-heapq.heappop(values_max), heapq.heappop(values_min)]
+    else:
+        answer = [0, 0]
+
+    return answer
+```
+
+**2022-03-30**
+
+> min TaseCase : 0.02ms, 10.4MB  
+> max TaseCase : 0.03ms, 10.4MB  
+
+
 ---
 
 <!--
