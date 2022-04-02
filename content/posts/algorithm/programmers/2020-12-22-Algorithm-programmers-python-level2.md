@@ -1955,6 +1955,54 @@ def solution(places):
 
 ---
 
+## 구명보트
+
+분류 : 탐욕법(Greedy)
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42885)
+
+1. people list를 `작은 몸무게 순으로 정렬`한다.
+2. 가장 작은 몸무게와 가장 큰 몸무게만 사용하므로 `deque 자료형`을 사용한다.
+3. 가장 작은 값과 큰 값을 합쳤을때 limit 이내이면 같이 탈출 아니면 가장 큰값만 탈출시킨다. 
+
+```python
+from collections import deque
+
+def solution(people, limit):
+    answer = 0
+
+    # 몸무게 순으로 정렬
+    people.sort()
+    # 데크 자료형으로 변환
+    deq = deque(people)
+
+    light_weight, heavy_weight = 0, 0
+    while deq or light_weight or heavy_weight:
+        # 가장 작은 몸무게와 가장 큰 몸무게 선별
+        if deq and (not light_weight):
+            light_weight = deq.popleft()
+        if deq and (not heavy_weight):
+            heavy_weight = deq.pop()
+
+        if (light_weight + heavy_weight) <= limit:
+            light_weight = 0
+        heavy_weight = 0
+        answer += 1
+
+    return answer
+```
+
+**2022-04-02**
+
+> 정확성  
+> min TaseCase : 0.03ms, 10.4MB  
+> max TaseCase : 1.24ms, 10.2MB  
+> 효율성  
+> min TaseCase : 9.15ms, 10.7MB  
+> max TaseCase : 9.82ms, 10.7MB  
+
+---
+
 
 
 <!-- 
