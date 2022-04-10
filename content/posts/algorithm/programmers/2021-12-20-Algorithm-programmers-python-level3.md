@@ -634,6 +634,76 @@ def solution(routes):
 
 ---
 
+## 베스트앨범
+
+분류 : 해시
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42579)
+
+1. 해시테이블 구조인 dict형 변수에 `key: 장르, value: [장르내 모든 재생횟수, [곡 재생횟수, 곡 고유번호]...]` 형태로 변환한다.
+2. 각 장르별 앨범에서 2곡을 `최대힙`에서 얻는다.
+    - 장르에 곡이 1개인 경우도 고려한다.
+3. 장르별 총 재생횟수와 장르내에서 많이 재생된 순, 재생횟수 동일한 경우 고유번호가 낮은 순으로 `sort_album`에 저장한다.
+4. 장르별 가장 많이 재생된 횟수 내림차순 정렬한 뒤 문제에서 요구한 형식으로 반환한다.
+
+**추가한 테스트**
+
+|genres|plays|return|
+|---|---|---|
+|["a", "b", "c", "d"]|[1, 2, 3, 4]|[3, 2, 1, 0]|
+|["classic", "pop", "classic", "classic", "pop"]|[500, 600, 501, 800, 900]|[3, 2, 4, 1]|
+
+```python
+import heapq
+
+def solution(genres, plays):
+    answer = []
+
+    album = {}
+    for i, genre, play in zip(range(len(genres)), genres, plays):
+        if genre not in album:
+            album[genre] = [-play, []]
+        else:
+            # 장르별 재생횟수 합산
+            album[genre][0] -= play
+        # 곡 고유번호 최대힙에 저장
+        heapq.heappush(album[genre][1], [-play, i])
+
+    sort_album = []
+    for genre in album:
+        # 가장 많이 재생된 첫번째 곡 선별
+        play1 = heapq.heappop(album[genre][1])
+
+        # 1곡만 수록된 경우
+        if not album[genre][1]:
+            sort_album.append(play1)
+            continue    
+
+        # 가장 많이 재생된 두번째 곡 선별
+        play2 = heapq.heappop(album[genre][1])
+
+        # 장르별 재생횟수 및 곡 고유번호 합산
+        sort_album.append([album[genre][0], play1[1], play2[1]])
+
+    # 장르별 가장 많이 재생된 횟수 내림차순 정렬
+    sort_album.sort(key=lambda x: x[0])
+
+    for genre_album in sort_album:
+        answer.extend(genre_album[1:])
+
+    return answer
+```
+
+문제풀이: 62분
+
+**2022-04-10**
+
+> min TaseCase : 0.01ms, 10.1MB  
+> max TaseCase : 0.08ms, 10.3MB  
+
+
+---
+
 <!--
 ## 
 
