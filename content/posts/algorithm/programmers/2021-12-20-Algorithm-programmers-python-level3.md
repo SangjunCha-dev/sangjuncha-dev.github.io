@@ -704,6 +704,59 @@ def solution(genres, plays):
 
 ---
 
+## [1차] 추석 트래픽
+
+분류 : 2018 KAKAO BLIND RECRUITMENT
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/17676)
+
+1. 비교할 수 있도록 기준시간과 요청 시작시간을 전처리한다.
+    - 기준시간: 응답 완료시간 + 1초
+    - 요청 시작시간: 응답 완료시간 - 처리시간
+2. 기준시간보다 요청 시작시간이 빠를경우 개수를 체크한다.
+3. 기준시간보다 요청 시작시간이 3초를 초과할 경우 비교 반복문을 종료한다.
+    - 그 이상은 동일한 요청시간대에 있을수 없는 로그이기 때문이다.
+4. 체크한 개수중 가장 큰 개수를 반환한다.
+
+datetime 모듈 대신 직접 초계산할 경우 훨씬 효율적으로 동작한다.
+
+```python
+import datetime as dt
+
+def solution(lines):
+    answer = 0
+
+    # 기준시간 선별
+    base_list = [dt.datetime.strptime(line.split()[1], '%H:%M:%S.%f') + dt.timedelta(seconds=1) for line in lines]
+    # 요청 시작시간 선별
+    start_list = [dt.datetime.strptime(line.split()[1], '%H:%M:%S.%f') - dt.timedelta(seconds=float(line.split()[2][:-1]) - 0.001) for line in lines]
+
+    for i in range(len(lines)):
+        cnt = 1
+        base_time = base_list[i]
+        for start_time in start_list[i+1:]:
+            # 기준시간보다 요청 시작시간이 빠를경우 개수체크
+            if start_time < base_time:
+                cnt += 1
+            # 기준시간보다 요청 시작시간이 오래되었으면 반복문 종료
+            elif (base_time + dt.timedelta(seconds=3)) < start_time:
+                break
+        # 구간내 최대 요청수 비교
+        answer = answer if cnt < answer else cnt
+
+    return answer
+```
+
+문제풀이: 107분
+
+**2022-04-17**
+
+> min TaseCase : 2.03ms, 10.9MB  
+> max TaseCase : 134.82ms, 11.3MB  
+
+
+---
+
 <!--
 ## 
 
