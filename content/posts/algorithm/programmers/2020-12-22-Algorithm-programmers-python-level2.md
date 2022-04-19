@@ -2102,8 +2102,104 @@ def solution(str1, str2):
 
 **2022-04-18**
 
+풀이시간 : 45분
+
 > min TaseCase : 0.01ms, 10MB  
 > max TaseCase : 0.29ms, 10.3MB  
+
+
+---
+
+## [1차] 프렌즈4블록
+
+분류 : 2018 KAKAO BLIND RECRUITMENT
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/17679)
+
+1. 2x2크기의 블럭이 동일한 문자로 구성되어있다면 해당 위치들을 `is_equal_list`에 저장한다.
+2. `is_equal_list`에서 True 값을 찾아 board에서 동일한 위치 값을 공백값으로 덮어쓴다.
+    - 공백값으로 바꾼 횟수의 합을 마지막에 반환한다.
+3. 해당 블럭의 아래 블럭이 공백이면 값이 나오기 전까지 아래쪽으로 블럭값을 이동시킨다.
+4. 1~3과정에서 제거된 블럭이 있으면 while문을 반복하고 없다면 종료한다.
+
+```python
+def find_block(m, n, board, is_equal_list):
+    '''
+    같은 블럭 여부 확인
+    '''
+    for h in range(m-1):
+        for w in range(n-1):
+            if (board[h][w] != " ") and (board[h][w] == board[h+1][w] == board[h][w+1] == board[h+1][w+1]):
+                for i in range(2):
+                    for j in range(2):
+                        is_equal_list[h+i][w+j] = True
+
+def remove_block_and_counting(m, n, board, is_equal_list):
+    '''
+    같은 블럭 제거 및 개수세기
+    '''
+    remove_block_count = 0
+
+    for h in range(m):
+        temp_str = ""
+        for w in range(n):
+            if is_equal_list[h][w]:
+                temp_str += " "
+                remove_block_count += 1
+            else:
+                temp_str += board[h][w]
+        board[h] = temp_str
+
+    return remove_block_count
+
+def move_bottom_block(m, n, board):
+    '''
+    블럭 위치 하단으로 이동
+    '''
+    for w in range(n):
+        exist_layer = m-1
+        temp_str = ""
+
+        for h in range(m-1, -1, -1):
+            compare_value = board[h][w]
+            
+            if compare_value == " ":
+                continue
+
+            temp_str = board[exist_layer][w]
+            board[exist_layer] = board[exist_layer][:w] + compare_value + board[exist_layer][w+1:]
+            board[h] = board[h][:w] + temp_str + board[h][w+1:]
+            exist_layer -= 1
+
+def solution(m, n, board):
+    answer = 0
+
+    while True:
+        remove_block_count = 0
+        is_equal_list = [[False for _ in range(n)] for _ in range(m)]
+
+        # 같은 블럭 여부 확인
+        find_block(m, n, board, is_equal_list)
+
+        # 같은 블럭 제거 및 개수세기
+        remove_block_count = remove_block_and_counting(m, n, board, is_equal_list)
+
+        # 블럭 위치 하단으로 이동
+        move_bottom_block(m, n, board)
+
+        answer += remove_block_count
+        if remove_block_count == 0:
+            break
+
+    return answer
+```
+
+**2022-04-19**
+
+풀이시간 : 96분
+
+> min TaseCase : 0.03ms, 10.5MB  
+> max TaseCase : 113.78ms, 10.3MB  
 
 
 ---
