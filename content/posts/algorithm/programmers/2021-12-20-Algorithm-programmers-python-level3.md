@@ -757,6 +757,88 @@ def solution(lines):
 
 ---
 
+
+## [1차] 셔틀버스
+
+분류 : 2018 KAKAO BLIND RECRUITMENT
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/17678)
+
+1. 시간계산이 가능하도록 `timedelta` 타입으로 `timetable` 변환하고 오름차순으로 정렬한다.
+2. 09:00 부터 출발하는 셔틀에 크루들이 차례대로 탑승한다.
+3. 마지막 셔틀에 탑승이 끝나고 남은좌석이 있는지 확인한다.
+    - 좌석이 남는경우 해당 셔틀 출발시간을 반환한다.
+    - 좌석이 없는경우 마지막 탑승자의 도착시간보다 1분 빠른시간을 반환한다.
+
+```python
+from datetime import timedelta
+from collections import deque
+
+def solution(n, t, m, timetable):
+    t = timedelta(minutes=t)
+    shuttle = timedelta(hours=9)
+
+    # 크루 도착시간 타입 변환 및 정렬
+    timetable = [timedelta(hours=int(crew[:2]), minutes=int(crew[3:])) for crew in timetable]
+    timetable.sort()
+    queue = deque(timetable)
+
+    arrival_time = board_shuttle(n, t, m, shuttle, queue)
+    answer = time_to_string(arrival_time)
+    return answer
+
+def board_shuttle(n, t, m, shuttle, queue: deque):
+    '''
+    셔틀에 크루 탑승
+    '''
+    arrival_time = timedelta(minutes=0)
+
+    for _ in range(n):
+        remain_seat = m
+        for _ in range(m):
+            crew = queue.popleft()
+
+            if crew <= shuttle:
+                arrival_time = crew
+                remain_seat -= 1
+            else:
+                queue.appendleft(crew)
+
+            if not queue:
+                break
+
+        shuttle += t
+
+    if remain_seat:
+        # 좌석이 남은 경우
+        arrival_time = shuttle - t
+    else:
+        # 좌석이 없는 경우
+        arrival_time -= timedelta(minutes=1)
+
+    return arrival_time
+
+def time_to_string(t: timedelta):
+    '''
+    time 포맷을 문자열로 변환
+    '''
+    total_seconds = int(t.total_seconds())
+    hours, remainder = total_seconds//3600, total_seconds%3600
+    minutes = remainder//60
+
+    return str(hours).zfill(2) + ':' + str(minutes).zfill(2)
+```
+
+풀이시간 : 70분
+
+**2022-04-23**
+
+> min TaseCase : 0.04ms, 10.4MB  
+> max TaseCase : 3.59ms, 10.3MB  
+
+---
+
+
 <!--
 ## 
 
