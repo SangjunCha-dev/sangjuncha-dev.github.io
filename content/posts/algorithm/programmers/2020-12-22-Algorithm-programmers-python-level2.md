@@ -2204,6 +2204,67 @@ def solution(m, n, board):
 
 ---
 
+## [1차] 캐시
+
+분류 : 2018 KAKAO BLIND RECRUITMENT
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/17680)
+
+1. 캐시크기가 0일 경우를 고려하여 풀이한다.
+
+추가 Test Case
+
+|cacheSize|cities|answer|
+|---|---|---|
+|0|["1","1"]|10|
+
+```python
+from collections import deque
+
+def index_cache(cacheSize, cities):
+    total_time = 0
+
+    city_cache = []
+
+    for _ in range(len(cities)):
+        city = cities.popleft().lower()
+        
+        # 캐시목록에 해당 정보가 있을 경우
+        if city in city_cache:
+            # 해당 정보를 가장 최근에 호출된 위치로 이동
+            city_cache.remove(city)
+            city_cache.append(city)
+            total_time += 1
+        else:
+            # 캐시가 가득찬 경우 오래된 정보 삭제
+            if city_cache and (cacheSize <= len(city_cache)):
+                city_cache.pop(0)
+            city_cache.append(city)
+            total_time += 5
+
+    return total_time
+
+def solution(cacheSize, cities):
+    answer = 0
+    cities = deque(cities)
+
+    # 캐시가 설정된 경우
+    if cacheSize:
+        answer = index_cache(cacheSize, cities)
+    else:
+        answer = len(cities) * 5
+
+    return answer
+```
+
+**2022-04-24**
+
+> min TaseCase : 0.01ms, 10.1MB  
+> max TaseCase : 70.54ms, 17.7MB  
+
+
+---
+
 <!-- 
 ## 괄호 변환
 
