@@ -2393,6 +2393,53 @@ def solution(msg):
 
 ---
 
+## [3차] 파일명 정렬
+
+분류 : 2018 KAKAO BLIND RECRUITMENT
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/17686)
+
+1. 
+
+```python
+def solution(files):
+    file_list = []
+    for filename in files:
+        head, number = '', ''
+        is_digit = False
+        # head, number, tail 추출
+        for s in filename:
+            if s.isdigit():  # number
+                number += s
+                is_digit = True
+            elif is_digit:  # tail
+                break
+            else:  # head
+                head += s
+
+        head = head.lower()
+        number = int(number)
+
+        # head, number, originname 저장
+        file_list.append([head, number, filename])
+
+    # head, number 순으로 정렬
+    file_list.sort(key=lambda x: (x[0], x[1]))
+    answer = [x[2] for x in file_list]
+
+    return answer
+```
+
+풀이시간 31분
+
+**2022-05-05**
+
+> min TaseCase : 0.03ms, 10.4MB  
+> max TaseCase : 2.02ms, 10.6MB  
+
+
+---
+
 <!-- 
 ## 괄호 변환
 
