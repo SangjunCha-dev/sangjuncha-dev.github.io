@@ -2399,7 +2399,8 @@ def solution(msg):
 
 [문제 링크](https://programmers.co.kr/learn/courses/30/lessons/17686)
 
-1. 
+1. 파일명에서 head, number를 문제 조건에 따라 추출한다.
+2. 1순위 head, 2순위 number 순으로 filename을 정렬하여 반환한다.
 
 ```python
 def solution(files):
@@ -2440,6 +2441,51 @@ def solution(files):
 
 ---
 
+## [3차] n진수 게임
+
+분류 : 2018 KAKAO BLIND RECRUITMENT
+
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/17687)
+
+1. n진수에 해당되는 숫자형태의 문자열를 구한다.
+    - 이때 문자열은 `t*m` 길이까지만 구한다.
+2. 구한 문자열에서 `p-1`번째부터 `t*m`까지의 문자중 `m`번째에 해당되는 문자열을 반환한다.
+
+```python
+data = '0123456789ABCDEF'
+
+def find_digit(n, t, m):
+    digit_list = ''
+    total_len = t*m
+    
+    for i in range(total_len):
+        digit_list += convert_digit(i, n)
+
+        if total_len < len(digit_list):
+            break
+
+    return digit_list
+
+def convert_digit(number, n):
+    q, r = divmod(number, n)
+    return convert_digit(q, n) + data[r] if q else data[r]
+
+def solution(n, t, m, p):
+    digit_list = find_digit(n, t, m)
+    answer = digit_list[p-1:t*m:m]
+
+    return answer
+```
+
+풀이시간 32분
+
+**2022-05-06**
+
+> min TaseCase : 0.01ms, 10.2MB  
+> max TaseCase : 27.44ms, 10.2MB  
+
+
+---
 <!-- 
 ## 괄호 변환
 
