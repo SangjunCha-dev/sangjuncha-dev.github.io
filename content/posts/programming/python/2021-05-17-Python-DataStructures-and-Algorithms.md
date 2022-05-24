@@ -1,15 +1,9 @@
 ---
-title: "python 자료구조와 알고리즘(by 미아 스타인) 책 정리"
-date: 2021-05-17T16:29:43+09:00
-description: python 자료구조와 알고리즘(by 미아 스타인) 책 정리
-# menu:
-#   sidebar:
-#     name: python structures and algorithms books
-#     identifier: python-structures-and-algorithms-books
-#     parent: python
-#     weight: 30
-tags: ["python", "learning"]
-categories: ["Python", "Learning"]
+# title: "python 자료구조와 알고리즘(by 미아 스타인) 책 정리"
+# date: 2021-05-17T16:29:43+09:00
+# description: python 자료구조와 알고리즘(by 미아 스타인) 책 정리
+# tags: ["python", "learning"]
+# categories: ["Python", "Learning"]
 ---
 
 
