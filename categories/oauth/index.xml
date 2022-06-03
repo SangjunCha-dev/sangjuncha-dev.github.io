@@ -20,4 +20,4 @@ Google Cloud Platform에서 로그인에 사용하는 환경변수를 설정하�
 앱 아이콘(선택), 앱 이름, 사업자명을 등록한다.
 정상적으로 등록되어 애플리케이션 목록에서 확인할 수 있다.
 1.2. 웹 로그인 설정 생성한 앱을 클릭하면 키 정보를 확인하고 [플랫폼 설정하기] 클릭한다.
-예시코드 kakao login 기능에서는 REST API 키, Admin 키를 사용한다.</description></item></channel></rss>
+예시코드 kakao login 기능에서는 REST API 키를 사용한다.</description></item></channel></rss>
