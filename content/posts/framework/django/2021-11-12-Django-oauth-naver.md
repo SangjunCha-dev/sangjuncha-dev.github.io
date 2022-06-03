@@ -193,6 +193,13 @@ class NaverCallbackView(APIView):
 
 ---
 
+## 6. 예시 코드 Git 
+
+- [django_oauth](https://github.com/SangjunCha-dev/django_oauth)
+
+
+---
+
 ## 참고(Reference)
 
 - [네이버 로그인 API 명세](https://developers.naver.com/docs/login/api/api.md)

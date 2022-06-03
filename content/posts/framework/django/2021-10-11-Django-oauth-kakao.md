@@ -216,6 +216,13 @@ class KakaoCallbackView(APIView):
 
 ---
 
+## 6. 예시 코드 Git 
+
+- [django_oauth](https://github.com/SangjunCha-dev/django_oauth)
+
+
+---
+
 ## 참고(Reference)
 
 [카카오 로그인 REST API](https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api)

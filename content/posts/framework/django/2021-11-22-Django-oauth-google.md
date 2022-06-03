@@ -192,6 +192,13 @@ class GoogleCallbackView(APIView):
 
 ---
 
+## 6. 예시 코드 Git 
+
+- [django_oauth](https://github.com/SangjunCha-dev/django_oauth)
+
+
+---
+
 ## 참고(Reference)
 
 - [OAuth 2.0을 사용하여 Google API에 액세스](https://developers.google.com/identity/protocols/oauth2)

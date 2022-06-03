@@ -506,6 +506,13 @@ URL이 포함된 JSON 응답이 반환되며, 이 URL을 통해 사용자가 삭
 
 ---
 
+## 7. 예시 코드 Git 
+
+- [django_oauth](https://github.com/SangjunCha-dev/django_oauth)
+
+
+---
+
 ## 참고(Reference)
 
 - [로그인 플로 직접 빌드](https://developers.facebook.com/docs/facebook-login/manually-build-a-login-flow/#login)
