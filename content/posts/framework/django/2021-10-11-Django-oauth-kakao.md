@@ -38,7 +38,7 @@ django restframework 기반의 카카오(kakao) 인증 로그인 백엔드서버
 
     ![](../images/django-oauth-kakao/oauth_kakao-4.png?raw=true)
 
-- 예시코드 kakao login 기능에서는 `REST API 키`, `Admin 키`를 사용한다.
+- 예시코드 kakao login 기능에서는 `REST API 키`를 사용한다.
     - 네이티브 앱 키: Android, iOS SDK에서 API를 호출할 때 사용한다.
     - JavaScript 키: JavaScript SDK에서 API를 호출할 때 사용한다.
     - REST API 키: REST API를 호출할 때 사용한다.
@@ -57,15 +57,25 @@ django restframework 기반의 카카오(kakao) 인증 로그인 백엔드서버
 
     ![](../images/django-oauth-kakao/oauth_kakao-7.png?raw=true)
 
-5. 카카오 로그인 API를 사용하기 위해서는 `활성화 설정 ON `상태로 수정한다. 그 다음 로그인 `[Redirect URI 등록]` 메뉴로 이동한다.
+5. 내 애플리케이션 > 제품 설정 > 카카오 로그인 > 동의항목 에서 카카오 계정(이메일)를 `선택 동의 [수집]` 설정한다.
+
+    ![](../images/django-oauth-kakao/oauth_kakao-12.png?raw=true)
+
+6. 내 애플리케이션 > 제품 설정 > 카카오 로그인 > 보안 에서 `Client Secret` 코드를 생성한다
+
+    ![](../images/django-oauth-kakao/oauth_kakao-13.png?raw=true)
+
+    ![](../images/django-oauth-kakao/oauth_kakao-14.png?raw=true)
+
+7. 카카오 로그인 API를 사용하기 위해서는 `활성화 설정 ON `상태로 수정한다. 그 다음 로그인 `[Redirect URI 등록]` 메뉴로 이동한다.
 
     ![](../images/django-oauth-kakao/oauth_kakao-8.png?raw=true)
 
-6. 로그인 테스트 서버에서 받을 Redirect URI를 등록한다.
+8. 로그인 테스트 서버에서 받을 Redirect URI를 등록한다.
 
     ![](../images/django-oauth-kakao/oauth_kakao-9.png?raw=true)
 
-7. 위의 그림처럼 Redirect URI가 등록되면 kakao 개발자 사이트에서 로그인하기 위한 모든 준비가 끝났다.
+9. 위의 그림처럼 Redirect URI가 등록되면 kakao 개발자 사이트에서 로그인하기 위한 모든 준비가 끝났다.
 
     ![](../images/django-oauth-kakao/oauth_kakao-10.png?raw=true)
 
@@ -80,7 +90,7 @@ import os
 KAKAO_CONFIG = {
     "KAKAO_REST_API_KEY": REST API 키,
     "KAKAO_REDIRECT_URI": "http://localhost:8000/oauth/kakao/login/callback/",
-    "KAKAO_CLIENT_SECRET_KEY": Admin 키, 
+    "KAKAO_CLIENT_SECRET_KEY": Client Secret 키, 
 }
 
 kakao_login_uri = "https://kauth.kakao.com/oauth/authorize"
