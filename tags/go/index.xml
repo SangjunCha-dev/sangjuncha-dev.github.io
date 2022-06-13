@@ -8,7 +8,7 @@ go get github.com/lestrrat-go/file-rotatelogs 이후에 소켓 통신을 같이 
 panic: sql: Scan error on column index : converting NULL to string is unsupported 각 타입별 zero value
 문자열 타입 string : &amp;quot;&amp;quot; 부울린 타입 boolean : false 정수형, Float등 숫자형 타입 : 0 기타 타입 : nil 1. 사전환경 아래의 글을 진행했다는 가정에서 설명한다.
 golang postgreDB CURD
-2. 에러가 발생한 코드 기존에 작성한 코드에서 Update 함수의 name 부분을 nil 값으로 수정하여 실행한다.</description></item><item><title>golang 도커 이미지 만들기</title><link>https://sangjuncha-dev.github.io/posts/docker/2021-12-22-docker-golang-image-build/</link><pubDate>Wed, 22 Dec 2021 15:22:06 +0900</pubDate><guid>https://sangjuncha-dev.github.io/posts/docker/2021-12-22-docker-golang-image-build/</guid><description>간단한 golang 웹 프로그램을 Docker 이미지로 실행방법으로
+2. 에러가 발생한 코드 기존에 작성한 코드에서 Update 함수의 name 부분을 nil 값으로 수정하여 실행한다.</description></item><item><title>golang 도커 이미지 만들기</title><link>https://sangjuncha-dev.github.io/posts/devops/docker/2021-12-22-docker-golang-image-build/</link><pubDate>Wed, 22 Dec 2021 15:22:06 +0900</pubDate><guid>https://sangjuncha-dev.github.io/posts/devops/docker/2021-12-22-docker-golang-image-build/</guid><description>간단한 golang 웹 프로그램을 Docker 이미지로 실행방법으로
 golang 코드보다는 docker 설정 위주로 설명한다.
 1. 예제 코드 사용예시는 아래의 주소를 git clone 받는다.
 &amp;gt; git clone https://github.com/olliefr/docker-gs-ping docker-gs-ping 2. 예제 프로그램 실행 git clone 받은 프로젝트 경로에서 터미널을 실행하고 진행한다.
